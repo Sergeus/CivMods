@@ -1,0 +1,8 @@
+BuildTemp/*
+Build/*
+BuildOutput/*
+*.opensdf
+*.sdf
+*.suo
+*.aps
+ipch/*
