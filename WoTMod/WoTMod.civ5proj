@@ -6,7 +6,7 @@
     <Name>WoTMod - Civ5</Name>
     <Guid>74e1734a-3023-4139-aad3-2cb7ae53510f</Guid>
     <ModVersion>1</ModVersion>
-    <Stability>Alpha</Stability>
+    <Stability>Experimental</Stability>
     <Teaser>Robert Jordan's Wheel of Time brought to Civilization 5.</Teaser>
     <Description>Robert Jordan's Wheel of Time brought to Civilization 5.</Description>
     <Authors>S3rgeus</Authors>
@@ -21,6 +21,21 @@
     <AssemblyName>WoTMod</AssemblyName>
     <RootNamespace>WoTMod</RootNamespace>
     <ModReferences />
+    <ModContent>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Horn Test</Name>
+        <Description>Test</Description>
+        <FileName>Lua/HornOfValereTest.lua</FileName>
+      </Content>
+    </ModContent>
+    <ModActions>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Promotions.xml</FileName>
+      </Action>
+    </ModActions>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
@@ -34,6 +49,26 @@
     <DeployMod>true</DeployMod>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Lua" />
+    <Folder Include="XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CvGameCore_Expansion1.dll">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\HornOfValereTest.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Promotions.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Promotions.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Firaxis\ModBuddy\Civ5Mod.targets" />
 </Project>
