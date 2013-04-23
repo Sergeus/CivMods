@@ -255,6 +255,12 @@ void CvLuaPlot::PushMethods(lua_State* L, int t)
 	Method(IsResourceConnectedByImprovement);
 
 	Method(IsBuildRemovesFeature);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Methods
+	// ----------------------------------------------------------------
+	Method(IsHornOfValere);
+	Method(SetHornOfValere);
 }
 //------------------------------------------------------------------------------
 void CvLuaPlot::HandleMissingInstance(lua_State* L)
@@ -1721,4 +1727,14 @@ int CvLuaPlot::lIsBuildRemovesFeature(lua_State* L)
 
 	lua_pushboolean(L, bFeatureRemoved);
 	return 1;
+}
+
+int CvLuaPlot::lIsHornOfValere(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlot::IsHornOfValere);
+}
+
+int CvLuaPlot::lSetHornOfValere(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlot::SetHornOfValere);
 }

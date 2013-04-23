@@ -89,6 +89,7 @@
     <ClCompile Include="CvGoodyHuts.cpp" />
     <ClCompile Include="CvProcessProductionAI.cpp" />
     <ClCompile Include="CvUnitCycler.cpp" />
+    <ClCompile Include="WoTHornOfValere.cpp" />
     <ClCompile Include="_precompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mod|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -365,6 +366,7 @@
     <ClInclude Include="CvUnitProductionAI.h" />
     <ClInclude Include="CvWonderProductionAI.h" />
     <ClInclude Include="CvWorldBuilderMapLoader.h" />
+    <ClInclude Include="WoTHornOfValere.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Lua\CvLuaArea.h" />
     <ClInclude Include="Lua\CvLuaArgsHandle.h" />

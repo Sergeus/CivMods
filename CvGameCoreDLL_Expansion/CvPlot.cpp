@@ -10419,3 +10419,11 @@ bool CvPlot::MustPayMaintenanceHere(PlayerTypes ePlayer) const
 
 	return true;
 }
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+void CvPlot::SetHornOfValere(bool bNewValue)
+{
+	m_bHornOfValere = bNewValue;
+}

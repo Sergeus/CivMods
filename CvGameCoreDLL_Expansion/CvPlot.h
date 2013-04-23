@@ -349,6 +349,15 @@ public:
 
 	bool IsHomeFrontForPlayer(PlayerTypes ePlayer) const;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsHornOfValere() const
+	{
+		return m_bHornOfValere;
+	}
+	void SetHornOfValere(bool bNewValue);
+
 	PlotTypes getPlotType() const
 	{
 		return (PlotTypes)m_ePlotType;
@@ -817,6 +826,10 @@ protected:
 	void processArea(CvArea* pArea, int iChange);
 	void doImprovementUpgrade();
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool m_bHornOfValere:1;
 
 	// added so under cheat mode we can access protected stuff
 	friend class CvGameTextMgr;

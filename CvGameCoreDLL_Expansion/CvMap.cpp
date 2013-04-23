@@ -558,6 +558,14 @@ void CvMap::doTurn()
 	{
 		plotByIndexUnchecked(iI)->doTurn();
 	}
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (m_bHasHornOfValere)
+	{
+		m_pHornOfValere->DoTurn();
+	}
 }
 
 
@@ -682,6 +690,32 @@ void CvMap::verifyUnitValidPlot()
 	{
 		plotByIndexUnchecked(iI)->verifyUnitValidPlot();
 	}
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+bool CvMap::IsHasHornOfValere() const
+{
+	return m_bHasHornOfValere;
+}
+
+void CvMap::SetHasHornOfValere(bool bNewValue)
+{
+	m_bHasHornOfValere = bNewValue;
+}
+
+void CvMap::PlaceHornOfValere(int iX, int iY)
+{
+	if (IsHasHornOfValere())
+	{
+		delete m_pHornOfValere;
+	}
+
+	CvPlot* pkPlot = plot(iX, iY);
+	m_pHornOfValere = new HornOfValere(pkPlot);
+
+	SetHasHornOfValere(true);
 }
 
 

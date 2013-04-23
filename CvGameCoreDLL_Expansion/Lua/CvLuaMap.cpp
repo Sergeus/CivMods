@@ -73,6 +73,13 @@ void CvLuaMap::RegisterMembers(lua_State* L)
 	Method(UpdateDeferredFog);
 	Method(ChangeAIMapHint);
 	Method(GetAIMapHint);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	Method(IsHasHornOfValere);
+	Method(SetHasHornOfValere);
+	Method(PlaceHornOfValere);
 }
 //------------------------------------------------------------------------------
 int CvLuaMap::lAreas(lua_State* L)
@@ -439,4 +446,33 @@ int CvLuaMap::lGetAIMapHint(lua_State* L)
 {
 	lua_pushinteger(L, GC.getMap().GetAIMapHint());
 	return 1;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvLuaMap::lIsHasHornOfValere(lua_State* L)
+{
+	lua_pushboolean(L, GC.getMap().IsHasHornOfValere());
+
+	return 1;
+}
+
+int CvLuaMap::lSetHasHornOfValere(lua_State* L)
+{
+	const bool bNewValue = lua_toboolean(L, 1);
+
+	GC.getMap().SetHasHornOfValere(bNewValue);
+
+	return 0;
+}
+
+int CvLuaMap::lPlaceHornOfValere(lua_State* L)
+{
+	const int iX = lua_tointeger(L, 1);
+	const int iY = lua_tointeger(L, 2);
+
+	GC.getMap().PlaceHornOfValere(iX, iY);
+
+	return 0;
 }

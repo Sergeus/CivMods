@@ -15,6 +15,15 @@
     <Filter Include="Dll Interface">
       <UniqueIdentifier>{26b20d90-21df-4aa5-9ee3-cd8be9ab4f85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WoTHeaders">
+      <UniqueIdentifier>{31b199ef-7192-4de6-b05c-da9d0c4554eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WoTSources">
+      <UniqueIdentifier>{91cbb5be-44e9-4aa6-bf2f-698787f07572}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WoTLua">
+      <UniqueIdentifier>{45891977-8d09-4596-a342-f44f3343bc84}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_precompile.cpp">
@@ -475,6 +484,9 @@
     </ClCompile>
     <ClCompile Include="CvGameQueries.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WoTHornOfValere.cpp">
+      <Filter>WoTSources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -957,6 +969,9 @@
     </ClInclude>
     <ClInclude Include="CvGameQueries.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WoTHornOfValere.h">
+      <Filter>WoTHeaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

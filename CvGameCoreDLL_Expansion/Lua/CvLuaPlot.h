@@ -275,6 +275,12 @@ protected:
 	static int lIsResourceConnectedByImprovement(lua_State* L);
 
 	static int lIsBuildRemovesFeature(lua_State* L);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Methods
+	// ----------------------------------------------------------------
+	static int lIsHornOfValere(lua_State* L);
+	static int lSetHornOfValere(lua_State* L);
 };
 
 #endif

@@ -25,6 +25,12 @@
 #include "CvPlot.h"
 #include "CvInfos.h"
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+#include "WoTHornOfValere.h"
+
+
 // a simplified version of CvArea for use primarily with the continent generation system
 // one huge difference is that impassible terrain doesn't split a landmass like it would a CvArea
 class CvLandmass
@@ -63,7 +69,6 @@ protected:
 	bool m_bWater;
 	int m_iCentroidX;
 	int m_iCentroidY;
-
 };
 
 FDataStream& operator<<(FDataStream&, const CvLandmass&);
@@ -127,6 +132,13 @@ public:
 	void updateYield();
 
 	void verifyUnitValidPlot();
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsHasHornOfValere() const;
+	void SetHasHornOfValere(bool bNewValue);
+	void PlaceHornOfValere(int iX, int iY);
 
 	CvPlot* syncRandPlot(int iFlags = 0, int iArea = -1, int iMinUnitDistance = -1, int iTimeout = 100);
 
@@ -331,6 +343,12 @@ protected:
 	FFreeListTrashArray<CvLandmass> m_landmasses;
 
 	GUID m_guid;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool m_bHasHornOfValere;
+	HornOfValere* m_pHornOfValere;
 };
 
 #endif
