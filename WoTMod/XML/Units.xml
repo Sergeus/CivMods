@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 4/24/2013 3:10:43 AM -->
+<GameData>
+  <!-- TODO: Insert table creation example here. -->
+ 
+  <!-- TODO: Insert table data example here.-->
+  
+  <!-- Enter your Game Data here. -->
+	<Units>
+		<Row>
+			<Class>UNITCLASS_HORN_HUNTER</Class>
+			<Type>UNIT_HORN_HUNTER</Type>
+			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
+			<Combat>21</Combat>
+			<Cost>25</Cost>
+			<Moves>2</Moves>
+			<CombatClass>UNITCOMBAT_SCOUT</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_HORN_HUNTER</Description>
+			<Civilopedia>TXT_KEY_UNIT_HORN_HUNTER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_HORN_HUNTER_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_HORN_HUNTER_HELP</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<XPValueAttack>3</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<AdvancedStartCost>20</AdvancedStartCost>
+			<UnitArtInfo>ART_DEF_UNIT_BARBARIAN_EURO</UnitArtInfo>
+			<UnitFlagIconOffset>1</UnitFlagIconOffset>
+			<PortraitIndex>1</PortraitIndex>
+			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
+		</Row>
+	</Units>
+
+	<Unit_FreePromotions>
+		<Row>
+			<UnitType>UNIT_HORN_HUNTER</UnitType>
+			<PromotionType>PROMOTION_HORN_HUNTER</PromotionType>
+		</Row>
+	</Unit_FreePromotions>
+
+	<Language_en_US>
+		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER">
+			<Text>Hunter of the Horn</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER_PEDIA">
+			<Text>Horn hunter pedia entry</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER_STRATEGY">
+			<Text>Horn hunter strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER_HELP">
+			<Text>Horn hunter help</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

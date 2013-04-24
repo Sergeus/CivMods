@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 4/24/2013 3:11:22 AM -->
+<GameData>
+  <!-- TODO: Insert table creation example here. -->
+ 
+  <!-- TODO: Insert table data example here.-->
+  
+  <!-- Enter your Game Data here. -->
+	<UnitClasses>
+		<Row>
+			<Type>UNITCLASS_HORN_HUNTER</Type>
+			<Description>TXT_KEY_UNIT_HORN_HUNTER</Description>
+			<DefaultUnit>UNIT_HORN_HUNTER</DefaultUnit>
+		</Row>
+	</UnitClasses>
+	
+</GameData>
