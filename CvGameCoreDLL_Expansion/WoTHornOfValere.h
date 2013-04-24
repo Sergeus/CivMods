@@ -28,6 +28,8 @@ public:
 	void DoTurn();
 
 	void FindHorn(CvUnit* pUnit);
+	void MoveHorn(int iNewXPos, int iNewYPos);
+	void MoveHorn(CvPlot* pkNewPlot);
 
 protected:
 	CvPlot* m_pkPlot;

@@ -709,13 +709,15 @@ void CvMap::PlaceHornOfValere(int iX, int iY)
 {
 	if (IsHasHornOfValere())
 	{
-		delete m_pHornOfValere;
+		m_pHornOfValere->MoveHorn(iX, iY);
 	}
+	else
+	{
+		CvPlot* pkPlot = plot(iX, iY);
+		m_pHornOfValere = new HornOfValere(pkPlot);
 
-	CvPlot* pkPlot = plot(iX, iY);
-	m_pHornOfValere = new HornOfValere(pkPlot);
-
-	SetHasHornOfValere(true);
+		SetHasHornOfValere(true);
+	}
 }
 
 

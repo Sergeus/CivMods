@@ -18966,8 +18966,23 @@ std::string CvUnit::stackTraceRemark(const FAutoVariableBase& var) const
 // ----------------------------------------------------------------
 bool CvUnit::CanDiscoverHornOfValere() const
 {
-	// TODO actual testing
-	return true;
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+	if (pkScriptSystem)
+	{
+		CvLuaArgsHandle args;
+		args->Push(getOwner());
+		args->Push(GetID());
+
+		// Will return false if there are no registered listeners.
+		bool bResult = false;
+		if (LuaSupport::CallTestAll(pkScriptSystem, "UnitCanDiscoverHornOfValere", args.get(), bResult))
+		{
+			return bResult;
+		}
+	}
+
+	return false;
 }
 
 

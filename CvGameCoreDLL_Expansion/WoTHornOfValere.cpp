@@ -80,3 +80,22 @@ void HornOfValere::FindHorn(CvUnit* pUnit)
 	m_bFound = true;
 	pUnit->kill(false);
 }
+
+void HornOfValere::MoveHorn(int iNewXPos, int iNewYPos)
+{
+	CvPlot* pkNewPlot = GC.getMap().plot(iNewXPos, iNewYPos);
+
+	MoveHorn(pkNewPlot);
+}
+
+void HornOfValere::MoveHorn(CvPlot* pkNewPlot)
+{
+	m_pkPlot->SetHornOfValere(false);
+	
+	m_iXPosition = pkNewPlot->getX();
+	m_iYPosition = pkNewPlot->getY();
+
+	pkNewPlot->SetHornOfValere(true);
+
+	m_pkPlot = pkNewPlot;
+}
