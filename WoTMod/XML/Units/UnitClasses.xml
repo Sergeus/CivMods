@@ -12,6 +12,11 @@
 			<Description>TXT_KEY_UNIT_HORN_HUNTER</Description>
 			<DefaultUnit>UNIT_HORN_HUNTER</DefaultUnit>
 		</Row>
+		<Row>
+			<Type>UNITCLASS_HORN_HERO</Type>
+			<Description>TXT_KEY_UNITCLASS_HORN_HERO</Description>
+			<DefaultUnit>UNIT_HERO_HORN_HAWKWING</DefaultUnit>
+		</Row>
 	</UnitClasses>
 	
 </GameData>

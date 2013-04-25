@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 4/24/2013 9:56:35 PM -->
+<GameData>
+  <!-- TODO: Insert table creation example here. -->
+	<Table name="HornHeroes">
+		<Column name="HeroType" type="text" reference="Units(Type)"/>
+		<!--Chance is % chance that hero will show up.-->
+		<Column name="HeroChance" type="integer"/>
+	</Table>
+ 
+  <!-- TODO: Insert table data example here.-->
+  
+  <!-- Enter your Game Data here. -->
+
+	<HornHeroes>
+		<Row>
+			<HeroType>UNIT_HORN_HERO_HAWKWING</HeroType>
+			<HeroChance>100</HeroChance>
+		</Row>
+	</HornHeroes>
+  
+</GameData>

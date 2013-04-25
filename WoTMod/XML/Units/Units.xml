@@ -32,6 +32,32 @@
 			<PortraitIndex>1</PortraitIndex>
 			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
 		</Row>
+
+		<Row>
+			<Class>UNITCLASS_HORN_HERO</Class>
+			<Type>UNIT_HORN_HERO_HAWKWING</Type>
+			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
+			<Combat>100</Combat>
+			<Cost>-1</Cost>
+			<Moves>3</Moves>
+			<CombatClass>UNITCOMBAT_horn_hero</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_HORN_HERO_HAWKWING</Description>
+			<Civilopedia>TXT_KEY_UNIT_HORN_HERO_HAWKWING_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_HORN_HERO_HAWKWING_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_HORN_HERO_HAWKWING_HELP</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<XPValueAttack>3</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<AdvancedStartCost>20</AdvancedStartCost>
+			<UnitArtInfo>ART_DEF_UNIT_BARBARIAN_EURO</UnitArtInfo>
+			<UnitFlagIconOffset>1</UnitFlagIconOffset>
+			<PortraitIndex>1</PortraitIndex>
+			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
+		</Row>
 	</Units>
 
 	<Unit_FreePromotions>

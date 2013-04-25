@@ -34,6 +34,12 @@
         <Description>Creates the test conditions for units trying to find the Horn of Valere</Description>
         <FileName>Lua/HornOfValereFindingConditions.lua</FileName>
       </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Horn Of Valere Effects Implementation</Name>
+        <Description>Causes the actual effects of blowing the Horn of Valere</Description>
+        <FileName>Lua/HornOfValereBlowingResults.lua</FileName>
+      </Content>
     </ModContent>
     <ModActions>
       <Action>
@@ -44,12 +50,27 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>XML/Units.xml</FileName>
+        <FileName>XML/WoTModConstants.xml</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>XML/UnitClasses.xml</FileName>
+        <FileName>XML/Units/UnitClasses.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Units/Units.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Units/UnitCombats.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/HornOfValere/HornHeroes.xml</FileName>
       </Action>
     </ModActions>
   </PropertyGroup>
@@ -67,17 +88,31 @@
   <ItemGroup>
     <Folder Include="Lua" />
     <Folder Include="XML" />
+    <Folder Include="XML\HornOfValere" />
+    <Folder Include="XML\Units" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CvGameCore_Expansion1.dll">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="Lua\HornOfValereBlowingResults.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Lua\HornOfValereFindingConditions.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Lua\HornOfValereTest.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\PlotIterators.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\HornOfValere\HornHeroes.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -89,11 +124,19 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="XML\UnitClasses.xml">
+    <Content Include="XML\Units\UnitClasses.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="XML\Units.xml">
+    <Content Include="XML\Units\UnitCombats.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Units\Units.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\WoTModConstants.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
