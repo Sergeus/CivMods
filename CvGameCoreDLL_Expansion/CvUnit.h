@@ -1158,6 +1158,7 @@ public:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	bool CanDiscoverHornOfValere() const;
+	void BlowHornOfValere();
 
 protected:
 	const MissionQueueNode* HeadMissionQueueNode() const;

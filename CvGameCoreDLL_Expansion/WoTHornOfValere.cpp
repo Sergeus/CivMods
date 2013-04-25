@@ -78,7 +78,7 @@ void HornOfValere::FindHorn(CvUnit* pUnit)
 {
 	// TODO UI popup, actual stuff that's useful
 	m_bFound = true;
-	pUnit->kill(false);
+	pUnit->BlowHornOfValere();
 }
 
 void HornOfValere::MoveHorn(int iNewXPos, int iNewYPos)

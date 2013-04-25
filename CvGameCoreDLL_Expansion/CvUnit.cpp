@@ -18985,6 +18985,23 @@ bool CvUnit::CanDiscoverHornOfValere() const
 	return false;
 }
 
+void CvUnit::BlowHornOfValere()
+{
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+	if (pkScriptSystem)
+	{
+		CvLuaArgsHandle args;
+		args->Push(getOwner());
+		args->Push(GetID());
+		args->Push(getX());
+		args->Push(getY());
+
+		bool bResult;
+		LuaSupport::CallHook(pkScriptSystem, "HornOfValereBlown", args.get(), bResult);
+	}
+}
+
 
 //	--------------------------------------------------------------------------------
 DestructionNotification<UnitHandle>& CvUnit::getDestructionNotification()
