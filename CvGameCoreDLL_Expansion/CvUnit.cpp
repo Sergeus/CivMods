@@ -1569,6 +1569,15 @@ void CvUnit::doTurn()
 		}
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// If this unit has the Horn of Valere, we need to increment the time since it last blew the Horn
+	if (IsHornBlower())
+	{
+		IncrementTurnsSinceHornBlown();
+	}
+
 	doDelayedDeath();
 }
 
@@ -18985,8 +18994,62 @@ bool CvUnit::CanDiscoverHornOfValere() const
 	return false;
 }
 
-void CvUnit::BlowHornOfValere()
+bool CvUnit::CanBlowHornOfValere(bool bTestVisible) const
 {
+	if (IsHornBlower() && !isAttacking() && !IsBusy() && !isDelayedDeath()
+		&& !isFighting() && !isOutOfAttacks())
+	{
+		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+		if (pkScriptSystem)
+		{
+			CvLuaArgsHandle args;
+			args->Push(getOwner());
+			args->Push(GetID());
+			args->Push(GetTurnsSinceHornBlown());
+			args->Push(bTestVisible);
+
+			// Will return false if there are no registered listeners.
+			bool bResult = false;
+			if (LuaSupport::CallTestAll(pkScriptSystem, "UnitCanBlowHornOfValere", args.get(), bResult))
+			{
+				return bResult;
+			}
+		}
+	}
+
+	return false;
+}
+
+bool CvUnit::IsHornBlower() const
+{
+	return m_bHornBlower;
+}
+
+void CvUnit::SetHornBlower(bool bNewValue)
+{
+	m_bHornBlower = bNewValue;
+}
+
+int CvUnit::GetTurnsSinceHornBlown() const
+{
+	return m_iTurnsSinceHornBlown;
+}
+
+void CvUnit::SetTurnsSinceHornBlown(int iNewValue)
+{
+	m_iTurnsSinceHornBlown = iNewValue;
+}
+
+void CvUnit::IncrementTurnsSinceHornBlown()
+{
+	m_iTurnsSinceHornBlown++;
+}
+
+bool CvUnit::BlowHornOfValere()
+{
+	SetTurnsSinceHornBlown(0);
+
 	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 
 	if (pkScriptSystem)
@@ -18999,7 +19062,11 @@ void CvUnit::BlowHornOfValere()
 
 		bool bResult;
 		LuaSupport::CallHook(pkScriptSystem, "HornOfValereBlown", args.get(), bResult);
+
+		return true;
 	}
+
+	return false;
 }
 
 

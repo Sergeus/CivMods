@@ -59,6 +59,10 @@ MissionTypes s_eMISSION_WAIT_FOR = NO_MISSION;
 MissionTypes s_eMISSION_SPREAD_RELIGION = NO_MISSION;
 MissionTypes s_eMISSION_ENHANCE_RELIGION = NO_MISSION;
 MissionTypes s_eMISSION_REMOVE_HERESY = NO_MISSION;
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+MissionTypes s_eMISSION_BLOW_HORN_OF_VALERE = NO_MISSION;
 unsigned int s_uiNUM_MISSION_TYPES = 0;
 
 void CvTypes::AcquireTypes(Database::Connection& db)
@@ -116,6 +120,10 @@ void CvTypes::AcquireTypes(Database::Connection& db)
 		kMissionTypesLookupTable.insert(make_pair(std::string("MISSION_SPREAD_RELIGION"), &s_eMISSION_SPREAD_RELIGION));
 		kMissionTypesLookupTable.insert(make_pair(std::string("MISSION_ENHANCE_RELIGION"), &s_eMISSION_ENHANCE_RELIGION));
 		kMissionTypesLookupTable.insert(make_pair(std::string("MISSION_REMOVE_HERESY"), &s_eMISSION_REMOVE_HERESY));
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		kMissionTypesLookupTable.insert(make_pair(std::string("MISSION_BLOW_HORN_OF_VALERE"), &s_eMISSION_BLOW_HORN_OF_VALERE));
 
 		Database::Results kResults;
 		if(db.Execute(kResults, "SELECT Type, ID from Missions"))
@@ -347,6 +355,13 @@ const MissionTypes CvTypes::getMISSION_ENHANCE_RELIGION()
 const MissionTypes CvTypes::getMISSION_REMOVE_HERESY()
 {
 	return s_eMISSION_REMOVE_HERESY;
+}
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+const MissionTypes CvTypes::getMISSION_BLOW_HORN_OF_VALERE()
+{
+	return s_eMISSION_BLOW_HORN_OF_VALERE;
 }
 
 const unsigned int CvTypes::getNUM_MISSION_TYPES()

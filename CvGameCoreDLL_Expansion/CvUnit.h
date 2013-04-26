@@ -1158,9 +1158,21 @@ public:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	bool CanDiscoverHornOfValere() const;
-	void BlowHornOfValere();
+	bool CanBlowHornOfValere(bool bTestVisible) const;
+	bool IsHornBlower() const;
+	void SetHornBlower(bool bNewValue);
+	int GetTurnsSinceHornBlown() const;
+	void SetTurnsSinceHornBlown(int iNewValue);
+	void IncrementTurnsSinceHornBlown();
+	bool BlowHornOfValere();
 
 protected:
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool m_bHornBlower;
+	int m_iTurnsSinceHornBlown;
+
 	const MissionQueueNode* HeadMissionQueueNode() const;
 	MissionQueueNode* HeadMissionQueueNode();
 

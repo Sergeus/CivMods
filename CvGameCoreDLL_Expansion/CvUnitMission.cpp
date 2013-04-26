@@ -1102,6 +1102,16 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 			return true;
 		}
 	}
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	else if (iMission == CvTypes::getMISSION_BLOW_HORN_OF_VALERE())
+	{
+		if (hUnit->CanBlowHornOfValere(bTestVisible))
+		{
+			return true;
+		}
+	}
 
 	return false;
 }
@@ -1453,6 +1463,16 @@ void CvUnitMission::StartMission(UnitHandle hUnit)
 				bAction = true;
 			}
 
+			// ----------------------------------------------------------------
+			// WoTMod Addition
+			// ----------------------------------------------------------------
+			else if (pkQueueData->eMissionType == CvTypes::getMISSION_BLOW_HORN_OF_VALERE())
+			{
+				if (hUnit->BlowHornOfValere())
+				{
+					bDelete = true;
+				}
+			}
 		}
 	}
 

@@ -562,7 +562,7 @@ void CvMap::doTurn()
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
-	if (m_bHasHornOfValere)
+	if (m_bHasHornOfValere && m_pHornOfValere)
 	{
 		m_pHornOfValere->DoTurn();
 	}
@@ -714,7 +714,7 @@ void CvMap::PlaceHornOfValere(int iX, int iY)
 	else
 	{
 		CvPlot* pkPlot = plot(iX, iY);
-		m_pHornOfValere = new HornOfValere(pkPlot);
+		m_pHornOfValere = FNEW(HornOfValere(pkPlot), c_eCiv5GameplayDLL, 0);
 
 		SetHasHornOfValere(true);
 	}

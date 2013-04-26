@@ -60,7 +60,7 @@ void HornOfValere::SetPosition(int iNewXPos, int iNewYPos)
 void HornOfValere::DoTurn() 
 {
 	IDInfoVector currentUnits; 
-	if (m_pkPlot->getUnits(&currentUnits) > 0)
+	if (!m_bFound && m_pkPlot->getUnits(&currentUnits) > 0)
 	{
 		for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr != currentUnits.end(); ++itr)
 		{
@@ -76,9 +76,26 @@ void HornOfValere::DoTurn()
 
 void HornOfValere::FindHorn(CvUnit* pUnit)
 {
-	// TODO UI popup, actual stuff that's useful
-	m_bFound = true;
-	pUnit->BlowHornOfValere();
+	// TODO UI popup
+	if (pUnit)
+	{
+		m_bFound = true;
+		m_pkPlot->SetHornOfValere(false);
+		pUnit->SetHornBlower(true);
+		pUnit->SetTurnsSinceHornBlown(50000); // arbitrarily large, but not large enough for overflow
+
+		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+		if (pkScriptSystem)
+		{
+			CvLuaArgsHandle args;
+			args->Push(pUnit->getOwner());
+			args->Push(pUnit->GetID());
+
+			bool bResult;
+			LuaSupport::CallHook(pkScriptSystem, "UnitDiscoveredHornOfValere", args.get(), bResult);
+		}
+	}
 }
 
 void HornOfValere::MoveHorn(int iNewXPos, int iNewYPos)

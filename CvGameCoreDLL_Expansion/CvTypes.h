@@ -62,5 +62,6 @@ const MissionTypes getMISSION_WAIT_FOR();
 const MissionTypes getMISSION_SPREAD_RELIGION();
 const MissionTypes getMISSION_ENHANCE_RELIGION();
 const MissionTypes getMISSION_REMOVE_HERESY();
+const MissionTypes getMISSION_BLOW_HORN_OF_VALERE();
 const unsigned int getNUM_MISSION_TYPES();
 }
