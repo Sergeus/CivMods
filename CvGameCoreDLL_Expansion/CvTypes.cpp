@@ -123,6 +123,16 @@ void CvTypes::AcquireTypes(Database::Connection& db)
 			while(kResults.Step())
 			{
 				std::string strMissionType = kResults.GetText(0);
+				// ----------------------------------------------------------------
+				// WoTMod Addition - Custom Generic Mission Handling
+				// ----------------------------------------------------------------
+				// We need to add new entries to the table of available missions if we find
+				// one that isn't already there.
+				//if (kMissionTypesLookupTable.count(strMissionType) == 0)
+				//{
+
+				//}
+				
 				LookupTable::iterator it = kMissionTypesLookupTable.find(strMissionType);
 				if(it != kMissionTypesLookupTable.end())
 				{
