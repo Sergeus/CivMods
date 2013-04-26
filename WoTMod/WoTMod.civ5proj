@@ -40,6 +40,18 @@
         <Description>Causes the actual effects of blowing the Horn of Valere</Description>
         <FileName>Lua/HornOfValereBlowingResults.lua</FileName>
       </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Horn of Valere Blow Conditions</Name>
+        <Description>Creates the test conditions for units being able to blow the Horn after they've found it</Description>
+        <FileName>Lua/HornOfValereBlowingConditions.lua</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Horn of Valere discovery effects</Name>
+        <Description>Causes the Horn of Valere to properly update the unit that discovers it</Description>
+        <FileName>Lua/HornOfValereDiscoverResults.lua</FileName>
+      </Content>
     </ModContent>
     <ModActions>
       <Action>
@@ -72,6 +84,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/HornOfValere/HornHeroes.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Units/Missions.xml</FileName>
+      </Action>
     </ModActions>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
@@ -96,7 +113,15 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="Lua\HornOfValereBlowingConditions.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Lua\HornOfValereBlowingResults.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\HornOfValereDiscoverResults.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -116,11 +141,15 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="XML\Promotions.sql">
+    <Content Include="XML\Promotions.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="XML\Promotions.xml">
+    <Content Include="XML\Units\Builds.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Units\Missions.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 4/25/2013 4:13:50 AM -->
+<GameData>
+  <!-- TODO: Insert table creation example here. -->
+ 
+  <!-- TODO: Insert table data example here.-->
+
+	<Missions>
+		<Row>
+			<Type>MISSION_BLOW_HORN_OF_VALERE</Type>
+			<Description>TXT_KEY_MISSION_BLOW_HORN_OF_VALERE</Description>
+			<Help>TXT_KEY_MISSION_BLOW_HORN_OF_VALERE_HELP</Help>
+			<DisabledHelp>TXT_KEY_MISSION_BLOW_HORN_OF_VALERE_DISABLED_HELP</DisabledHelp>
+			<EntityEventType>ENTITY_EVENT_GREAT_EVENT</EntityEventType>
+			<Time>20</Time>
+			<Target>0</Target>
+			<Build>0</Build>
+			<Sound>0</Sound>
+			<HotKey/>
+			<AltDown>0</AltDown>
+			<ShiftDown>0</ShiftDown>
+			<CtrlDown>0</CtrlDown>
+			<HotKeyPriority>0</HotKeyPriority>
+			<HotKeyAlt/>
+			<AltDownAlt>0</AltDownAlt>
+			<ShiftDownAlt>0</ShiftDownAlt>
+			<CtrlDownAlt>0</CtrlDownAlt>
+			<HotKeyPriorityAlt>0</HotKeyPriorityAlt>
+			<OrderPriority>199</OrderPriority>
+			<Visible>1</Visible>
+			<IconIndex>1</IconIndex>
+			<IconAtlas>UNIT_ACTION_ATLAS_RELIGION</IconAtlas>
+		</Row>
+	</Missions>
+  
+  <!-- Enter your Game Data here. -->
+
+	<Language_en_US>
+		<Row Tag="TXT_KEY_MISSION_BLOW_HORN_OF_VALERE">
+			<Text>Blow the Horn of Valere</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISSION_BLOW_HORN_OF_VALERE_HELP">
+			<Text>Summons the Heroes of the Horn to fight at your side for a limited time.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISSION_BLOW_HORN_OF_VALERE_DISABLED_HELP">
+			<Text>The Heroes can only be brought into the Pattern so frequently. You must wait before blowing the Horn again.</Text>
+		</Row>
+	</Language_en_US>
+	
+</GameData>

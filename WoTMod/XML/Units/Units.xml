@@ -72,13 +72,26 @@
 			<Text>Hunter of the Horn</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER_PEDIA">
-			<Text>Horn hunter pedia entry</Text>
+			<Text>[TOWRITE]Horn hunter pedia entry</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER_STRATEGY">
-			<Text>Horn hunter strategy</Text>
+			<Text>[TOWRITE]Horn hunter strategy</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER_HELP">
-			<Text>Horn hunter help</Text>
+			<Text>[TOWRITE]Horn hunter help</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_UNIT_HORN_HERO_HAWKWING">
+			<Text>Artur Hawkwing</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HORN_HERO_HAWKWING_PEDIA">
+			<Text>[TOWRITE]Hawkwing pedia entry</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HORN_HERO_HAWKWING_STRATEGY">
+			<Text>[TOWRITE]Hawkwing strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HORN_HERO_HAWKWING_HELP">
+			<Text>[TOWRITE]Hawkwing help</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

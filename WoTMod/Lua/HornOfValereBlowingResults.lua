@@ -7,6 +7,7 @@ include("PlotIterators")
 
 -- Returns true if the parameter player can spawn a hero on the parameter plot
 function CanSpawnHero(pPlayer, pPlot)
+	-- Heroes can spawn on non-hostile hexes that don't already have a unit on them.
 	if ((not pPlot:IsOwned() or pPlot:GetOwner() == pPlayer:GetID()) and not pPlot:IsUnit()) then
 		return true
 	end
