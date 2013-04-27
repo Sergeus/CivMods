@@ -47,8 +47,11 @@ function SpawnHero(pPlayer, pPlot)
 	pPlayer:InitUnit(GameInfoTypes.UNIT_HORN_HERO_HAWKWING, pPlot:GetX(), pPlot:GetY())
 end
 
-function ApplyHornOfValereEffects(playerID, unitID, iXPos, iYPos)
-	print("Horn of Valere has been blown at " .. iXPos .. ", " .. iYPos .. ".")
+function ApplyHornOfValereEffects(iMission, playerID, unitID)
+	
+	if (iMission ~= GameInfoTypes.MISSION_BLOW_HORN_OF_VALERE) then
+		return false
+	end
 
 	local pPlayer = Players[playerID]
 	local pUnit = pPlayer:GetUnitByID(unitID)
@@ -59,9 +62,10 @@ function ApplyHornOfValereEffects(playerID, unitID, iXPos, iYPos)
 		print("Iterating over plots, on index " .. i .. ".")
 		SpawnHero(pPlayer, tPlots[i])
 	end
-end
 
-function EffectsCaller(playerID, unitID, iXPos, iYPos)
-	print(pcall(ApplyHornOfValereEffects, playerID, unitID, iXPos, iYPos))
+	Map.SetTurnsSinceHornBlown(0)
+	pUnit:SetMoves(0)
+
+	return true
 end
-GameEvents.HornOfValereBlown.Add(EffectsCaller)
+GameEvents.UnitHandlingMission.Add(ApplyHornOfValereEffects)

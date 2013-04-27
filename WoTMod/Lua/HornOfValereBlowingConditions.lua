@@ -3,7 +3,12 @@
 -- DateCreated: 4/25/2013 5:08:21 AM
 --------------------------------------------------------------
 
-function CanBlowHornOfValere(playerID, unitID, turnsSinceLastBlown, bTestVisible)
+function CanBlowHornOfValere(iMission, playerID, unitID, bTestVisible)
+
+	if (iMission ~= GameInfoTypes.MISSION_BLOW_HORN_OF_VALERE) then
+		return false
+	end
+
 	pPlayer = Players[playerID]
 	pUnit = pPlayer:GetUnitByID(unitID)
 
@@ -12,13 +17,15 @@ function CanBlowHornOfValere(playerID, unitID, turnsSinceLastBlown, bTestVisible
 	end
 
 	local iCooldown = GameInfo.WoTModConstants["HORN_OF_VALERE_COOLDOWN"].Value
-	if (not bTestVisible and turnsSinceLastBlown < iCooldown) then
+	local iTurnsSince = Map.GetTurnsSinceHornBlown();
+
+	if (not bTestVisible and iTurnsSince < iCooldown) then
 		print("The Horn of Valere has been used too recently.")
-		print("We're supposed to wait " .. iCooldown .. " turns, but it's only been " .. turnsSinceLastBlown .. ".")
+		print("We're supposed to wait " .. iCooldown .. " turns, but it's only been " .. iTurnsSince .. ".")
 		return false
 	end
 
 	print("This guy can blow the Horn, no problem.")
 	return true
 end
-GameEvents.UnitCanBlowHornOfValere.Add(CanBlowHornOfValere)
+GameEvents.UnitCanHandleMission.Add(CanBlowHornOfValere)
