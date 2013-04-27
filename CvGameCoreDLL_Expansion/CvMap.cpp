@@ -382,6 +382,11 @@ void CvMap::uninit()
 	SAFE_DELETE_ARRAY(m_pNoSettling);
 	SAFE_DELETE_ARRAY(m_pResourceForceReveal);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Generic Mission Handling
+	// ----------------------------------------------------------------
+	SAFE_DELETE(m_pHornOfValere);
+
 	m_iGridWidth = 0;
 	m_iGridHeight = 0;
 	m_iGridSize = 0;
