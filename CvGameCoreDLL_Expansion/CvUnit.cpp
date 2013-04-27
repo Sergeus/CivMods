@@ -3722,9 +3722,9 @@ bool CvUnit::CanHandleMission(int iMission, bool bTestVisible) const
 	{
 		CvLuaArgsHandle args;
 
-		args->Push(iMission);
 		args->Push(getOwner());
 		args->Push(GetID());
+		args->Push(iMission);
 		args->Push(bTestVisible);
 
 		bool bResult;
@@ -3745,9 +3745,9 @@ bool CvUnit::HandleMission(int iMission)
 	{
 		CvLuaArgsHandle args;
 
-		args->Push(iMission);
 		args->Push(getOwner());
 		args->Push(GetID());
+		args->Push(iMission);
 
 		bool bResult;
 		if (LuaSupport::CallTestAny(pkScriptSystem, "UnitHandlingMission", args.get(), bResult))
