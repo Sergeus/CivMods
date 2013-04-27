@@ -131,6 +131,7 @@ void CvTypes::AcquireTypes(Database::Connection& db)
 			while(kResults.Step())
 			{
 				std::string strMissionType = kResults.GetText(0);
+				
 				LookupTable::iterator it = kMissionTypesLookupTable.find(strMissionType);
 				if(it != kMissionTypesLookupTable.end())
 				{

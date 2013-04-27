@@ -134,6 +134,8 @@ protected:
 	static int lIsHasHornOfValere(lua_State* L);
 	static int lSetHasHornOfValere(lua_State* L);
 	static int lPlaceHornOfValere(lua_State* L);
+	static int lGetTurnsSinceHornBlown(lua_State* L);
+	static int lSetTurnsSinceHornBlown(lua_State* L);
 };
 
 #endif //CVLUAMAP_H

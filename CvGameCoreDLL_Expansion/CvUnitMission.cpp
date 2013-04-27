@@ -1103,11 +1103,11 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 		}
 	}
 	// ----------------------------------------------------------------
-	// WoTMod Addition
+	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------
-	else if (iMission == CvTypes::getMISSION_BLOW_HORN_OF_VALERE())
+	else
 	{
-		if (hUnit->CanBlowHornOfValere(bTestVisible))
+		if (hUnit->CanHandleMission(iMission, bTestVisible))
 		{
 			return true;
 		}
@@ -1462,13 +1462,12 @@ void CvUnitMission::StartMission(UnitHandle hUnit)
 			{
 				bAction = true;
 			}
-
 			// ----------------------------------------------------------------
-			// WoTMod Addition
+			// WoTMod Addition - Custom Generic Mission Handling
 			// ----------------------------------------------------------------
-			else if (pkQueueData->eMissionType == CvTypes::getMISSION_BLOW_HORN_OF_VALERE())
+			else if(pkQueueData->eMissionType <= CvTypes::getNUM_MISSION_TYPES())
 			{
-				if (hUnit->BlowHornOfValere())
+				if (hUnit->HandleMission(pkQueueData->eMissionType))
 				{
 					bDelete = true;
 				}

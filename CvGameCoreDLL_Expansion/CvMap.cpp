@@ -720,6 +720,23 @@ void CvMap::PlaceHornOfValere(int iX, int iY)
 	}
 }
 
+int CvMap::GetTurnsSinceHornBlown() const
+{
+	if (IsHasHornOfValere())
+	{
+		return m_pHornOfValere->GetTurnsSinceHornBlown();
+	}
+	return 50000;
+}
+
+void CvMap::SetTurnsSincehornBlown(int iNewValue)
+{
+	if (IsHasHornOfValere())
+	{
+		m_pHornOfValere->SetTurnsSinceHornBlown(iNewValue);
+	}
+}
+
 
 //	--------------------------------------------------------------------------------
 CvPlot* CvMap::syncRandPlot(int iFlags, int iArea, int iMinUnitDistance, int iTimeout)

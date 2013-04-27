@@ -80,6 +80,8 @@ void CvLuaMap::RegisterMembers(lua_State* L)
 	Method(IsHasHornOfValere);
 	Method(SetHasHornOfValere);
 	Method(PlaceHornOfValere);
+	Method(GetTurnsSinceHornBlown);
+	Method(SetTurnsSinceHornBlown);
 }
 //------------------------------------------------------------------------------
 int CvLuaMap::lAreas(lua_State* L)
@@ -473,6 +475,22 @@ int CvLuaMap::lPlaceHornOfValere(lua_State* L)
 	const int iY = lua_tointeger(L, 2);
 
 	GC.getMap().PlaceHornOfValere(iX, iY);
+
+	return 0;
+}
+
+int CvLuaMap::lGetTurnsSinceHornBlown(lua_State* L)
+{
+	lua_pushinteger(L, GC.getMap().GetTurnsSinceHornBlown());
+
+	return 1;
+}
+
+int CvLuaMap::lSetTurnsSinceHornBlown(lua_State* L)
+{
+	const int iNewValue = lua_tointeger(L, 1);
+
+	GC.getMap().SetTurnsSincehornBlown(iNewValue);
 
 	return 0;
 }

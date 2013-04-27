@@ -15,15 +15,20 @@ public:
 	HornOfValere();
 	HornOfValere(int iXPos, int iYPos);
 	HornOfValere(CvPlot* pkPlot);
+	~HornOfValere();
 
 	CvPlot* GetPlot() const;
 	int GetX() const;
 	int GetY() const;
+	int GetTurnsSinceHornBlown() const;
 
 	void SetPlot(CvPlot* pkPlot);
 	void SetX(int iNewXPos);
 	void SetY(int iNewYPos);
 	void SetPosition(int iNewXPos, int iNewYPos);
+	void SetTurnsSinceHornBlown(int iNewValue);
+
+	void IncrementTurnsSinceHornBlown();
 
 	void DoTurn();
 
@@ -31,9 +36,12 @@ public:
 	void MoveHorn(int iNewXPos, int iNewYPos);
 	void MoveHorn(CvPlot* pkNewPlot);
 
+	bool CanFindHornOfValere(CvUnit* pUnit);
+
 protected:
 	CvPlot* m_pkPlot;
 	int m_iXPosition;
 	int m_iYPosition;
 	bool m_bFound;
+	int m_iTurnsSinceHornBlown;
 };

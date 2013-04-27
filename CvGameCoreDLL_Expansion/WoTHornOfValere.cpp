@@ -9,16 +9,25 @@ HornOfValere::HornOfValere(): m_bFound(false)
 }
 
 HornOfValere::HornOfValere(int iXPos, int iYPos)
-	: m_iXPosition(iXPos), m_iYPosition(iYPos), m_bFound(false)
 {
-	m_pkPlot = GC.getMap().plot(iXPos, iYPos);
+	HornOfValere(GC.getMap().plot(iXPos, iYPos));
 }
 
 HornOfValere::HornOfValere(CvPlot* pkPlot)
 	: m_pkPlot(pkPlot), m_iXPosition(pkPlot->getX()), 
-		m_iYPosition(pkPlot->getY()), m_bFound(false)
+		m_iYPosition(pkPlot->getY()), m_bFound(false),
+		m_iTurnsSinceHornBlown(50000) // arbitrarily large but not enough to overflow
 {
 
+}
+
+HornOfValere::~HornOfValere()
+{
+	m_pkPlot = NULL;
+
+	m_iYPosition = 0;
+	m_iXPosition = 0;
+	m_iTurnsSinceHornBlown = 0;
 }
 
 CvPlot* HornOfValere::GetPlot() const
@@ -34,6 +43,11 @@ int HornOfValere::GetX() const
 int HornOfValere::GetY() const
 {
 	return m_iYPosition;
+}
+
+int HornOfValere::GetTurnsSinceHornBlown() const
+{
+	return m_iTurnsSinceHornBlown;
 }
 
 void HornOfValere::SetPlot(CvPlot* pkPlot)
@@ -57,6 +71,16 @@ void HornOfValere::SetPosition(int iNewXPos, int iNewYPos)
 	SetY(iNewYPos);
 }
 
+void HornOfValere::SetTurnsSinceHornBlown(int iNewValue)
+{
+	m_iTurnsSinceHornBlown = iNewValue;
+}
+
+void HornOfValere::IncrementTurnsSinceHornBlown() 
+{
+	m_iTurnsSinceHornBlown++;
+}
+
 void HornOfValere::DoTurn() 
 {
 	IDInfoVector currentUnits; 
@@ -72,6 +96,8 @@ void HornOfValere::DoTurn()
 			}
 		}
 	}
+
+	IncrementTurnsSinceHornBlown();
 }
 
 void HornOfValere::FindHorn(CvUnit* pUnit)
@@ -81,8 +107,6 @@ void HornOfValere::FindHorn(CvUnit* pUnit)
 	{
 		m_bFound = true;
 		m_pkPlot->SetHornOfValere(false);
-		pUnit->SetHornBlower(true);
-		pUnit->SetTurnsSinceHornBlown(50000); // arbitrarily large, but not large enough for overflow
 
 		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 

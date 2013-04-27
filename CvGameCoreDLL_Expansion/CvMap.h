@@ -139,6 +139,8 @@ public:
 	bool IsHasHornOfValere() const;
 	void SetHasHornOfValere(bool bNewValue);
 	void PlaceHornOfValere(int iX, int iY);
+	int GetTurnsSinceHornBlown() const;
+	void SetTurnsSincehornBlown(int iNewValue);
 
 	CvPlot* syncRandPlot(int iFlags = 0, int iArea = -1, int iMinUnitDistance = -1, int iTimeout = 100);
 
