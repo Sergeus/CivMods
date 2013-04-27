@@ -3728,9 +3728,10 @@ bool CvUnit::CanHandleMission(int iMission, bool bTestVisible) const
 		args->Push(bTestVisible);
 
 		bool bResult;
-		LuaSupport::CallTestAny(pkScriptSystem, "UnitCanHandleMission", args.get(), bResult);
-
-		return bResult;
+		if (LuaSupport::CallTestAny(pkScriptSystem, "UnitCanHandleMission", args.get(), bResult))
+		{
+			return bResult;
+		}
 	}
 
 	return false;
@@ -3749,9 +3750,10 @@ bool CvUnit::HandleMission(int iMission)
 		args->Push(GetID());
 
 		bool bResult;
-		LuaSupport::CallTestAny(pkScriptSystem, "UnitHandlingMission", args.get(), bResult);
-
-		return bResult;
+		if (LuaSupport::CallTestAny(pkScriptSystem, "UnitHandlingMission", args.get(), bResult))
+		{
+			return bResult;
+		}
 	}
 
 	return false;
