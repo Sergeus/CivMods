@@ -84,7 +84,7 @@ void HornOfValere::IncrementTurnsSinceHornBlown()
 void HornOfValere::DoTurn() 
 {
 	IDInfoVector currentUnits; 
-	if (!m_bFound && m_pkPlot->getUnits(&currentUnits) > 0)
+	if (!m_bFound && m_pkPlot && m_pkPlot->getUnits(&currentUnits) > 0)
 	{
 		for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr != currentUnits.end(); ++itr)
 		{
@@ -103,7 +103,7 @@ void HornOfValere::DoTurn()
 void HornOfValere::FindHorn(CvUnit* pUnit)
 {
 	// TODO UI popup
-	if (pUnit)
+	if (pUnit && m_pkPlot)
 	{
 		m_bFound = true;
 		m_pkPlot->SetHornOfValere(false);
@@ -131,8 +131,11 @@ void HornOfValere::MoveHorn(int iNewXPos, int iNewYPos)
 
 void HornOfValere::MoveHorn(CvPlot* pkNewPlot)
 {
-	m_pkPlot->SetHornOfValere(false);
-	
+	if (m_pkPlot)
+	{
+		m_pkPlot->SetHornOfValere(false);
+	}
+
 	m_iXPosition = pkNewPlot->getX();
 	m_iYPosition = pkNewPlot->getY();
 

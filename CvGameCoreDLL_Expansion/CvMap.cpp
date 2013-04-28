@@ -719,9 +719,12 @@ void CvMap::PlaceHornOfValere(int iX, int iY)
 	else
 	{
 		CvPlot* pkPlot = plot(iX, iY);
-		m_pHornOfValere = FNEW(HornOfValere(pkPlot), c_eCiv5GameplayDLL, 0);
+		if (pkPlot)
+		{
+			m_pHornOfValere = FNEW(HornOfValere(pkPlot), c_eCiv5GameplayDLL, 0);
 
-		SetHasHornOfValere(true);
+			SetHasHornOfValere(true);
+		}
 	}
 }
 
