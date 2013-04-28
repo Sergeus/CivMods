@@ -279,8 +279,8 @@ protected:
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Methods
 	// ----------------------------------------------------------------
-	static int lIsHornOfValere(lua_State* L);
-	static int lSetHornOfValere(lua_State* L);
+	static int lIsHasHornOfValere(lua_State* L);
+	static int lSetHasHornOfValere(lua_State* L);
 };
 
 #endif

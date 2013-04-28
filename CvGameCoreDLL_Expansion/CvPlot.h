@@ -352,11 +352,8 @@ public:
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
-	bool IsHornOfValere() const
-	{
-		return m_bHornOfValere;
-	}
-	void SetHornOfValere(bool bNewValue);
+	bool IsHasHornOfValere() const;
+	void SetHasHornOfValere(bool bNewValue);
 
 	PlotTypes getPlotType() const
 	{

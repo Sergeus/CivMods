@@ -259,8 +259,8 @@ void CvLuaPlot::PushMethods(lua_State* L, int t)
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Methods
 	// ----------------------------------------------------------------
-	Method(IsHornOfValere);
-	Method(SetHornOfValere);
+	Method(IsHasHornOfValere);
+	Method(SetHasHornOfValere);
 }
 //------------------------------------------------------------------------------
 void CvLuaPlot::HandleMissingInstance(lua_State* L)
@@ -1729,12 +1729,12 @@ int CvLuaPlot::lIsBuildRemovesFeature(lua_State* L)
 	return 1;
 }
 
-int CvLuaPlot::lIsHornOfValere(lua_State* L)
+int CvLuaPlot::lIsHasHornOfValere(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlot::IsHornOfValere);
 }
 
-int CvLuaPlot::lSetHornOfValere(lua_State* L)
+int CvLuaPlot::lHasSetHornOfValere(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlot::SetHornOfValere);
 }

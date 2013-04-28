@@ -10434,7 +10434,12 @@ bool CvPlot::MustPayMaintenanceHere(PlayerTypes ePlayer) const
 // ----------------------------------------------------------------
 // WoTMod Addition
 // ----------------------------------------------------------------
-void CvPlot::SetHornOfValere(bool bNewValue)
+void CvPlot::SetHasHornOfValere(bool bNewValue)
 {
 	m_bHornOfValere = bNewValue;
+}
+
+bool CvPlot::IsHasHornOfValere() const
+{
+	return m_bHornOfValere;
 }
