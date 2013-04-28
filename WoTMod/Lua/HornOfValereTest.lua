@@ -8,7 +8,7 @@ print("This should not be active in deployed builds.")
 
 function testHornPlacement(playerID)
 	print("Mod starting...")
-	if (playerID == 0) then
+	if (playerID == 0 and Game.GetGameTurn() == Game.GetStartTurn() + 1) then
 		print("Found player 1...")
 		local pPlayer = Players[playerID]
 		local pCity = pPlayer:GetCapitalCity()

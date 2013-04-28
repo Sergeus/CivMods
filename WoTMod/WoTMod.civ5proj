@@ -90,6 +90,8 @@
         <FileName>XML/Units/Missions.xml</FileName>
       </Action>
     </ModActions>
+    <ReloadUnitSystem>false</ReloadUnitSystem>
+    <ReloadStrategicViewSystem>false</ReloadStrategicViewSystem>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
