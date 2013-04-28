@@ -17,8 +17,6 @@ public:
 	HornOfValere(CvPlot* pkPlot);
 	~HornOfValere();
 
-	void Init();
-
 	CvPlot* GetPlot() const;
 	int GetX() const;
 	int GetY() const;

@@ -212,15 +212,15 @@ FDataStream& operator>>(FDataStream& loadFrom, CvLandmass& writeTo)
 // ----------------------------------------------------------------
 // WoTMod Addition
 // ----------------------------------------------------------------
-FDataStream& operator<<(FDataStream& saveTo, const HornOfValere* readFrom)
+FDataStream& operator<<(FDataStream& saveTo, const HornOfValere& readFrom)
 {
-	readFrom->Write(saveTo);
+	readFrom.Write(saveTo);
 	return saveTo;
 }
 
-FDataStream& operator>>(FDataStream& loadFrom, HornOfValere* writeTo) 
+FDataStream& operator>>(FDataStream& loadFrom, HornOfValere& writeTo) 
 {
-	writeTo->Read(loadFrom);
+	writeTo.Read(loadFrom);
 	return loadFrom;
 }
 
@@ -1456,7 +1456,7 @@ void CvMap::Read(FDataStream& kStream)
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	kStream >> m_bHasHornOfValere;
-	kStream >> m_pHornOfValere;
+	kStream >> *m_pHornOfValere;
 
 	setup();
 
@@ -1509,7 +1509,7 @@ void CvMap::Write(FDataStream& kStream) const
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	kStream << m_bHasHornOfValere;
-	kStream << m_pHornOfValere;
+	kStream << *m_pHornOfValere;
 }
 
 

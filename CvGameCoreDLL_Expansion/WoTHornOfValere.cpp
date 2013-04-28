@@ -28,22 +28,6 @@ HornOfValere::~HornOfValere()
 	m_iTurnsSinceHornBlown = 0;
 }
 
-void HornOfValere::Init()
-{
-	if (IsActive())
-	{
-		if (!m_bFound)
-		{
-			CvPlot* pkPlot = GetPlot();
-			if (pkPlot)
-			{
-				pkPlot->SetHornOfValere(true);
-			}
-		}
-		GC.getMap().SetHasHornOfValere(true);
-	}
-}
-
 CvPlot* HornOfValere::GetPlot() const
 {
 	return GC.getMap().plot(m_iXPosition, m_iYPosition);
@@ -176,8 +160,6 @@ void HornOfValere::Read(FDataStream& kStream)
 	kStream >> m_bFound;
 	kStream >> m_bActive;
 	kStream >> m_iTurnsSinceHornBlown;
-
-	Init();
 }
 
 void HornOfValere::Write(FDataStream& kStream) const
