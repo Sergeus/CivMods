@@ -40,7 +40,7 @@
 			<Combat>100</Combat>
 			<Cost>-1</Cost>
 			<Moves>3</Moves>
-			<CombatClass>UNITCOMBAT_horn_hero</CombatClass>
+			<CombatClass>UNITCOMBAT_HORN_HERO</CombatClass>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_HORN_HERO_HAWKWING</Description>
@@ -58,6 +58,33 @@
 			<PortraitIndex>1</PortraitIndex>
 			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
 		</Row>
+		<Row>
+			<Class>UNITCLASS_HORN_HERO</Class>
+			<Type>UNIT_HORN_HERO_BIRGITTE</Type>
+			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
+			<Combat>70</Combat>
+			<RangedCombat>130</RangedCombat>
+			<Cost>-1</Cost>
+			<Range>2</Range>
+			<Moves>3</Moves>
+			<CombatClass>UNITCOMBAT_HORN_HERO</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_HORN_HERO_BIRGITTE</Description>
+			<Civilopedia>TXT_KEY_UNIT_HORN_HERO_BIRGITTE_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_HORN_HERO_BIRGITTE_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_HORN_HERO_BIRGITTE_HELP</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<XPValueAttack>3</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<AdvancedStartCost>20</AdvancedStartCost>
+			<UnitArtInfo>ART_DEF_UNIT_ARCHER</UnitArtInfo>
+			<UnitFlagIconOffset>1</UnitFlagIconOffset>
+			<PortraitIndex>1</PortraitIndex>
+			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
+		</Row>
 	</Units>
 
 	<Unit_FreePromotions>
@@ -65,9 +92,30 @@
 			<UnitType>UNIT_HORN_HUNTER</UnitType>
 			<PromotionType>PROMOTION_HORN_HUNTER</PromotionType>
 		</Row>
+		<Row>
+			<UnitType>UNIT_HORN_HERO_HAWKWING</UnitType>
+			<PromotionType>PROMOTION_HORN_HERO_DECAY</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_HORN_HERO_BIRGITTE</UnitType>
+			<PromotionType>PROMOTION_HORN_HERO_DECAY</PromotionType>
+		</Row>
 	</Unit_FreePromotions>
 
 	<Language_en_US>
+		<Row Tag="TXT_KEY_UNIT_HORN_HERO_BIRGITTE">
+			<Text>Birgitte Silverbow</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HORN_HERO_BIRGITTE_PEDIA">
+			<Text>[TOWRITE]Birgitte Silverbow pedia entry</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HORN_HERO_BIRGITTE_STRATEGY">
+			<Text>[TOWRITE]Birgitte Silverbow Strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HORN_HERO_BIRGITTE_HELP">
+			<Text>[TOWRITE]Birgitte Silverboe help</Text>
+		</Row>
+		
 		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER">
 			<Text>Hunter of the Horn</Text>
 		</Row>

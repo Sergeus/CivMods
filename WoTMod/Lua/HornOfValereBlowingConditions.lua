@@ -3,7 +3,7 @@
 -- DateCreated: 4/25/2013 5:08:21 AM
 --------------------------------------------------------------
 
-function CanBlowHornOfValere(iMission, playerID, unitID, bTestVisible)
+function CanBlowHornOfValere(playerID, unitID, iMission, bTestVisible)
 
 	if (iMission ~= GameInfoTypes.MISSION_BLOW_HORN_OF_VALERE) then
 		return false

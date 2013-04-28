@@ -8,7 +8,7 @@ include("PlotIterators")
 -- Returns true if the parameter player can spawn a hero on the parameter plot
 function CanSpawnHero(pPlayer, pPlot)
 	-- Heroes can spawn on non-hostile hexes that don't already have a unit on them.
-	if ((not pPlot:IsOwned() or pPlot:GetOwner() == pPlayer:GetID()) and not pPlot:IsUnit()) then
+	if ((not pPlot:IsOwned() or pPlot:GetOwner() == pPlayer:GetID()) and not pPlot:IsUnit() and not pPlot:IsWater()) then
 		return true
 	end
 
@@ -42,12 +42,42 @@ function FindHornHeroSpawns(pUnit)
 	return tPlots
 end
 
--- Spawns a hero owned by the parameter player on the parameter plot
-function SpawnHero(pPlayer, pPlot)
-	pPlayer:InitUnit(GameInfoTypes.UNIT_HORN_HERO_HAWKWING, pPlot:GetX(), pPlot:GetY())
+-- Returns a table of heroes based on the XML defined probabilities and the parameter telling it how many are needed
+function FindHeroes(iNumToSpawn)
+	local tHeroes = {}
+	local iSpawned = 0
+
+	print("Finding heroes...")
+
+	while iSpawned < iNumToSpawn do
+		print("Current iSpawned " .. iSpawned)
+		for pHero in GameInfo.HornHeroes() do
+			local chance = pHero.HeroChance
+			print("Chance of " .. chance .. " to spawn " .. pHero.HeroType)
+			if iSpawned < iNumToSpawn then
+				tHeroes[iSpawned] = GameInfo.Units[pHero.HeroType].ID
+				iSpawned = iSpawned + 1
+				print("Adding " .. pHero.HeroType .. " to the table.")
+			end
+		end
+	end
+
+	print("Returning heroes table.")
+
+	return tHeroes
 end
 
-function ApplyHornOfValereEffects(iMission, playerID, unitID)
+-- Spawns the heroes in the tHeroes table onto the plots in the tPlots table
+function SpawnHeroes(pPlayer, tPlots, tHeroes)
+	for i = 0, #tPlots do
+		local pPlot = tPlots[i]
+		local iHero = tHeroes[i]
+		print("Spawning hero!")
+		pPlayer:InitUnit(iHero, pPlot:GetX(), pPlot:GetY())
+	end
+end
+
+function ApplyHornOfValereEffects(playerID, unitID, iMission)
 	
 	if (iMission ~= GameInfoTypes.MISSION_BLOW_HORN_OF_VALERE) then
 		return false
@@ -57,11 +87,10 @@ function ApplyHornOfValereEffects(iMission, playerID, unitID)
 	local pUnit = pPlayer:GetUnitByID(unitID)
 
 	local tPlots = FindHornHeroSpawns(pUnit)
+	print("Found spawns")
+	local tHeroes = FindHeroes(#tPlots)
 
-	for i = 0, #tPlots do
-		print("Iterating over plots, on index " .. i .. ".")
-		SpawnHero(pPlayer, tPlots[i])
-	end
+	SpawnHeroes(pPlayer, tPlots, tHeroes)
 
 	Map.SetTurnsSinceHornBlown(0)
 	pUnit:SetMoves(0)
