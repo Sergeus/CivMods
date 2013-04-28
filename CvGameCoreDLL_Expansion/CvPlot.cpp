@@ -9321,6 +9321,12 @@ void CvPlot::read(FDataStream& kStream)
 		m_bImprovedByGiftFromMajor = false;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream >> bitPackWorkaround;
+	m_bHornOfValere = bitPackWorkaround;
+
 	// m_bPlotLayoutDirty not saved
 	// m_bLayoutStateWorked not saved
 
@@ -9551,6 +9557,11 @@ void CvPlot::write(FDataStream& kStream) const
 	kStream << m_bRoughFeature;
 	kStream << m_bResourceLinkedCityActive;
 	kStream << m_bImprovedByGiftFromMajor;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_bHornOfValere;
 	// m_bPlotLayoutDirty not saved
 	// m_bLayoutStateWorked not saved
 

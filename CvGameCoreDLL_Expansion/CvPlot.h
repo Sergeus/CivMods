@@ -823,13 +823,13 @@ protected:
 	bool m_bResourceLinkedCityActive:1;
 	bool m_bImprovedByGiftFromMajor:1;
 
-	void processArea(CvArea* pArea, int iChange);
-	void doImprovementUpgrade();
-
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	bool m_bHornOfValere:1;
+
+	void processArea(CvArea* pArea, int iChange);
+	void doImprovementUpgrade();
 
 	// added so under cheat mode we can access protected stuff
 	friend class CvGameTextMgr;

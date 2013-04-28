@@ -15,7 +15,7 @@ HornOfValere::HornOfValere(int iXPos, int iYPos)
 }
 
 HornOfValere::HornOfValere(CvPlot* pkPlot)
-	: m_pkPlot(pkPlot), m_iXPosition(pkPlot->getX()), 
+	: m_iXPosition(pkPlot->getX()), 
 		m_iYPosition(pkPlot->getY())
 {
 	HornOfValere();
@@ -23,10 +23,8 @@ HornOfValere::HornOfValere(CvPlot* pkPlot)
 
 HornOfValere::~HornOfValere()
 {
-	m_pkPlot = NULL;
-
-	m_iYPosition = 0;
-	m_iXPosition = 0;
+	m_iYPosition = -1;
+	m_iXPosition = -1;
 	m_iTurnsSinceHornBlown = 0;
 }
 
@@ -34,12 +32,12 @@ void HornOfValere::Init()
 {
 	if (IsActive())
 	{
-		if (!m_bFound && !m_pkPlot)
+		if (!m_bFound)
 		{
-			m_pkPlot = GC.getMap().plot(m_iXPosition, m_iYPosition);
-			if (m_pkPlot)
+			CvPlot* pkPlot = GetPlot();
+			if (pkPlot)
 			{
-				m_pkPlot->SetHornOfValere(true);
+				pkPlot->SetHornOfValere(true);
 			}
 		}
 		GC.getMap().SetHasHornOfValere(true);
@@ -48,7 +46,7 @@ void HornOfValere::Init()
 
 CvPlot* HornOfValere::GetPlot() const
 {
-	return m_pkPlot;
+	return GC.getMap().plot(m_iXPosition, m_iYPosition);
 }
 
 int HornOfValere::GetX() const
@@ -78,7 +76,7 @@ void HornOfValere::SetActive(bool bNewValue)
 
 void HornOfValere::SetPlot(CvPlot* pkPlot)
 {
-	m_pkPlot = pkPlot;
+	MoveHorn(pkPlot);
 }
 
 void HornOfValere::SetX(int iNewXPos)
@@ -109,8 +107,9 @@ void HornOfValere::IncrementTurnsSinceHornBlown()
 
 void HornOfValere::DoTurn() 
 {
-	IDInfoVector currentUnits; 
-	if (!m_bFound && m_pkPlot && m_pkPlot->getUnits(&currentUnits) > 0)
+	IDInfoVector currentUnits;
+	CvPlot* pkPlot = GetPlot();
+	if (!m_bFound && pkPlot && pkPlot->getUnits(&currentUnits) > 0)
 	{
 		for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr != currentUnits.end(); ++itr)
 		{
@@ -129,10 +128,10 @@ void HornOfValere::DoTurn()
 void HornOfValere::FindHorn(CvUnit* pUnit)
 {
 	// TODO UI popup
-	if (pUnit && m_pkPlot)
+	if (pUnit)
 	{
 		m_bFound = true;
-		m_pkPlot->SetHornOfValere(false);
+		GetPlot()->SetHornOfValere(false);
 
 		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 
@@ -157,17 +156,16 @@ void HornOfValere::MoveHorn(int iNewXPos, int iNewYPos)
 
 void HornOfValere::MoveHorn(CvPlot* pkNewPlot)
 {
-	if (m_pkPlot)
+	CvPlot* pkPlot = GetPlot();
+	if (pkPlot)
 	{
-		m_pkPlot->SetHornOfValere(false);
+		pkPlot->SetHornOfValere(false);
 	}
 
 	m_iXPosition = pkNewPlot->getX();
 	m_iYPosition = pkNewPlot->getY();
 
 	pkNewPlot->SetHornOfValere(true);
-
-	m_pkPlot = pkNewPlot;
 }
 
 void HornOfValere::Read(FDataStream& kStream)

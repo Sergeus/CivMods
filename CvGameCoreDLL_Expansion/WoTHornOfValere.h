@@ -46,7 +46,6 @@ public:
 	void Write(FDataStream& kStream) const;
 
 protected:
-	CvPlot* m_pkPlot;
 	int m_iXPosition;
 	int m_iYPosition;
 	bool m_bFound;
