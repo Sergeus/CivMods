@@ -209,6 +209,21 @@ FDataStream& operator>>(FDataStream& loadFrom, CvLandmass& writeTo)
 	return loadFrom;
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+FDataStream& operator<<(FDataStream& saveTo, const HornOfValere* readFrom)
+{
+	readFrom->Write(saveTo);
+	return saveTo;
+}
+
+FDataStream& operator>>(FDataStream& loadFrom, HornOfValere* writeTo) 
+{
+	writeTo->Read(loadFrom);
+	return loadFrom;
+}
+
 static uint sgCvMapInstanceCount = 0;
 //////////////////////////////////////////////////////////////////////////////
 
@@ -240,6 +255,11 @@ CvMap::CvMap()
 	m_pResourceForceReveal = NULL;
 
 	m_iAIMapHints = 0;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pHornOfValere = NULL;
 
 	reset(&defaultMapData);
 }
@@ -368,8 +388,15 @@ void CvMap::uninit()
 	SAFE_DELETE_ARRAY(m_paiNumResource);
 	SAFE_DELETE_ARRAY(m_paiNumResourceOnLand);
 
-	SAFE_DELETE_ARRAY(m_pMapPlots);
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (m_pHornOfValere) 
+	{
+		SAFE_DELETE(m_pHornOfValere);
+	}
 
+	SAFE_DELETE_ARRAY(m_pMapPlots);
 
 	SAFE_DELETE_ARRAY(m_pYields);
 	SAFE_DELETE_ARRAY(m_pFoundValue);
@@ -381,11 +408,6 @@ void CvMap::uninit()
 	SAFE_DELETE_ARRAY(m_pRevealedRouteType);
 	SAFE_DELETE_ARRAY(m_pNoSettling);
 	SAFE_DELETE_ARRAY(m_pResourceForceReveal);
-
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Generic Mission Handling
-	// ----------------------------------------------------------------
-	SAFE_DELETE(m_pHornOfValere);
 
 	m_iGridWidth = 0;
 	m_iGridHeight = 0;
@@ -471,6 +493,11 @@ void CvMap::reset(CvMapInitData* pInitInfo)
 	m_landmasses.RemoveAll();
 
 	m_vDeferredFogPlots.clear();
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pHornOfValere = FNEW(HornOfValere(), c_eCiv5GameplayDLL, 0);
 
 	gDLL->DoMapSetup(numPlots());
 }
@@ -722,6 +749,8 @@ void CvMap::PlaceHornOfValere(int iX, int iY)
 		if (pkPlot)
 		{
 			m_pHornOfValere = FNEW(HornOfValere(pkPlot), c_eCiv5GameplayDLL, 0);
+
+			m_pHornOfValere->SetActive(true);
 
 			SetHasHornOfValere(true);
 		}
@@ -1423,6 +1452,12 @@ void CvMap::Read(FDataStream& kStream)
 		kStream >> m_iAIMapHints;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream >> m_bHasHornOfValere;
+	kStream >> m_pHornOfValere;
+
 	setup();
 
 	gDLL->DoMapSetup(numPlots());
@@ -1470,6 +1505,11 @@ void CvMap::Write(FDataStream& kStream) const
 
 	kStream << m_iAIMapHints;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_bHasHornOfValere;
+	kStream << m_pHornOfValere;
 }
 
 

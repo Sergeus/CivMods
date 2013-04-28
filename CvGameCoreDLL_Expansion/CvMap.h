@@ -73,6 +73,11 @@ protected:
 
 FDataStream& operator<<(FDataStream&, const CvLandmass&);
 FDataStream& operator>>(FDataStream&, CvLandmass&);
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+FDataStream& operator<<(FDataStream&, const HornOfValere&);
+FDataStream& operator>>(FDataStream&, HornOfValere&);
 
 
 

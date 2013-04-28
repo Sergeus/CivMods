@@ -3,7 +3,8 @@
 #include "CvGameCoreDLLPCH.h"
 #include "CvGameCoreUtils.h"
 
-HornOfValere::HornOfValere(): m_bFound(false)
+HornOfValere::HornOfValere(): m_bFound(false), m_bActive(false),
+	m_iTurnsSinceHornBlown(50000) // arbitrarily large but not enough to overflow
 {
 
 }
@@ -15,10 +16,9 @@ HornOfValere::HornOfValere(int iXPos, int iYPos)
 
 HornOfValere::HornOfValere(CvPlot* pkPlot)
 	: m_pkPlot(pkPlot), m_iXPosition(pkPlot->getX()), 
-		m_iYPosition(pkPlot->getY()), m_bFound(false),
-		m_iTurnsSinceHornBlown(50000) // arbitrarily large but not enough to overflow
+		m_iYPosition(pkPlot->getY())
 {
-
+	HornOfValere();
 }
 
 HornOfValere::~HornOfValere()
@@ -28,6 +28,22 @@ HornOfValere::~HornOfValere()
 	m_iYPosition = 0;
 	m_iXPosition = 0;
 	m_iTurnsSinceHornBlown = 0;
+}
+
+void HornOfValere::Init()
+{
+	if (IsActive())
+	{
+		if (!m_bFound && !m_pkPlot)
+		{
+			m_pkPlot = GC.getMap().plot(m_iXPosition, m_iYPosition);
+			if (m_pkPlot)
+			{
+				m_pkPlot->SetHornOfValere(true);
+			}
+		}
+		GC.getMap().SetHasHornOfValere(true);
+	}
 }
 
 CvPlot* HornOfValere::GetPlot() const
@@ -48,6 +64,16 @@ int HornOfValere::GetY() const
 int HornOfValere::GetTurnsSinceHornBlown() const
 {
 	return m_iTurnsSinceHornBlown;
+}
+
+bool HornOfValere::IsActive() const
+{
+	return m_bActive;
+}
+
+void HornOfValere::SetActive(bool bNewValue)
+{
+	m_bActive = bNewValue;
 }
 
 void HornOfValere::SetPlot(CvPlot* pkPlot)
@@ -142,4 +168,26 @@ void HornOfValere::MoveHorn(CvPlot* pkNewPlot)
 	pkNewPlot->SetHornOfValere(true);
 
 	m_pkPlot = pkNewPlot;
+}
+
+void HornOfValere::Read(FDataStream& kStream)
+{
+	kStream >> m_iXPosition;
+	kStream >> m_iYPosition;
+
+	kStream >> m_bFound;
+	kStream >> m_bActive;
+	kStream >> m_iTurnsSinceHornBlown;
+
+	Init();
+}
+
+void HornOfValere::Write(FDataStream& kStream) const
+{
+	kStream << m_iXPosition;
+	kStream << m_iYPosition;
+
+	kStream << m_bFound;
+	kStream << m_bActive;
+	kStream << m_iTurnsSinceHornBlown;
 }
