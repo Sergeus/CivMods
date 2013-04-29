@@ -1731,10 +1731,10 @@ int CvLuaPlot::lIsBuildRemovesFeature(lua_State* L)
 
 int CvLuaPlot::lIsHasHornOfValere(lua_State* L)
 {
-	return BasicLuaMethod(L, &CvPlot::IsHornOfValere);
+	return BasicLuaMethod(L, &CvPlot::IsHasHornOfValere);
 }
 
-int CvLuaPlot::lHasSetHornOfValere(lua_State* L)
+int CvLuaPlot::lSetHasHornOfValere(lua_State* L)
 {
-	return BasicLuaMethod(L, &CvPlot::SetHornOfValere);
+	return BasicLuaMethod(L, &CvPlot::SetHasHornOfValere);
 }

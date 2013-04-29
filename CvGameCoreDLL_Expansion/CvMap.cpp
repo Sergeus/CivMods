@@ -774,6 +774,18 @@ void CvMap::SetTurnsSincehornBlown(int iNewValue)
 	}
 }
 
+bool CvMap::IsHornBlower(CvUnit* pUnit)
+{
+	if (IsHasHornOfValere() && m_pHornOfValere)
+	{
+		return m_pHornOfValere->IsHornBlower(pUnit);
+	}
+	else
+	{
+		return false;
+	}
+}
+
 
 //	--------------------------------------------------------------------------------
 CvPlot* CvMap::syncRandPlot(int iFlags, int iArea, int iMinUnitDistance, int iTimeout)

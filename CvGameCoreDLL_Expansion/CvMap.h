@@ -146,6 +146,7 @@ public:
 	void PlaceHornOfValere(int iX, int iY);
 	int GetTurnsSinceHornBlown() const;
 	void SetTurnsSincehornBlown(int iNewValue);
+	bool IsHornBlower(CvUnit* pUnit);
 
 	CvPlot* syncRandPlot(int iFlags = 0, int iArea = -1, int iMinUnitDistance = -1, int iTimeout = 100);
 

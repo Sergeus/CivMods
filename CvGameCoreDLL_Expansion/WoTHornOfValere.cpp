@@ -4,7 +4,8 @@
 #include "CvGameCoreUtils.h"
 
 HornOfValere::HornOfValere(): m_bFound(false), m_bActive(false),
-	m_iTurnsSinceHornBlown(50000) // arbitrarily large but not enough to overflow
+	m_iTurnsSinceHornBlown(50000), // arbitrarily large but not enough to overflow
+	m_iOwnerPlayerID(-1), m_iOwnerUnitID(-1)
 {
 
 }
@@ -48,9 +49,24 @@ int HornOfValere::GetTurnsSinceHornBlown() const
 	return m_iTurnsSinceHornBlown;
 }
 
+int HornOfValere::GetOwnerPlayerID() const
+{
+	return m_iOwnerPlayerID;
+}
+
+int HornOfValere::GetOwnerUnitID() const
+{
+	return m_iOwnerUnitID;
+}
+
 bool HornOfValere::IsActive() const
 {
 	return m_bActive;
+}
+
+bool HornOfValere::IsFound() const
+{
+	return m_bFound;
 }
 
 void HornOfValere::SetActive(bool bNewValue)
@@ -84,9 +100,24 @@ void HornOfValere::SetTurnsSinceHornBlown(int iNewValue)
 	m_iTurnsSinceHornBlown = iNewValue;
 }
 
+void HornOfValere::SetOwnerPlayerID(int iNewValue)
+{
+	m_iOwnerPlayerID = iNewValue;
+}
+
+void HornOfValere::SetOwnerUnitID(int iNewValue)
+{
+	m_iOwnerUnitID = iNewValue;
+}
+
 void HornOfValere::IncrementTurnsSinceHornBlown() 
 {
 	m_iTurnsSinceHornBlown++;
+}
+
+void HornOfValere::SetFound(bool bNewValue)
+{
+	m_bFound = bNewValue;
 }
 
 void HornOfValere::DoTurn() 
@@ -115,7 +146,9 @@ void HornOfValere::FindHorn(CvUnit* pUnit)
 	if (pUnit)
 	{
 		m_bFound = true;
-		GetPlot()->SetHornOfValere(false);
+		GetPlot()->SetHasHornOfValere(false);
+		m_iOwnerPlayerID = pUnit->getOwner();
+		m_iOwnerUnitID = pUnit->GetID();
 
 		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 
@@ -131,6 +164,18 @@ void HornOfValere::FindHorn(CvUnit* pUnit)
 	}
 }
 
+void HornOfValere::DropHorn(CvUnit* pUnit)
+{
+	if (pUnit && pUnit->GetID() == GetOwnerUnitID() && pUnit->getOwner() == GetOwnerPlayerID())
+	{
+		SetFound(false);
+		SetOwnerPlayerID(-1);
+		SetOwnerUnitID(-1);
+
+		MoveHorn(pUnit->plot());
+	}
+}
+
 void HornOfValere::MoveHorn(int iNewXPos, int iNewYPos)
 {
 	CvPlot* pkNewPlot = GC.getMap().plot(iNewXPos, iNewYPos);
@@ -143,31 +188,40 @@ void HornOfValere::MoveHorn(CvPlot* pkNewPlot)
 	CvPlot* pkPlot = GetPlot();
 	if (pkPlot)
 	{
-		pkPlot->SetHornOfValere(false);
+		pkPlot->SetHasHornOfValere(false);
 	}
 
 	m_iXPosition = pkNewPlot->getX();
 	m_iYPosition = pkNewPlot->getY();
 
-	pkNewPlot->SetHornOfValere(true);
+	pkNewPlot->SetHasHornOfValere(true);
+}
+
+bool HornOfValere::IsHornBlower(CvUnit* pUnit) const
+{
+	return pUnit && pUnit->GetID() == GetOwnerUnitID() && pUnit->getOwner() == GetOwnerPlayerID();
 }
 
 void HornOfValere::Read(FDataStream& kStream)
 {
 	kStream >> m_iXPosition;
 	kStream >> m_iYPosition;
+	kStream >> m_iTurnsSinceHornBlown;
+	kStream >> m_iOwnerPlayerID;
+	kStream >> m_iOwnerUnitID;
 
 	kStream >> m_bFound;
 	kStream >> m_bActive;
-	kStream >> m_iTurnsSinceHornBlown;
 }
 
 void HornOfValere::Write(FDataStream& kStream) const
 {
 	kStream << m_iXPosition;
 	kStream << m_iYPosition;
+	kStream << m_iTurnsSinceHornBlown;
+	kStream << m_iOwnerPlayerID;
+	kStream << m_iOwnerUnitID;
 
 	kStream << m_bFound;
 	kStream << m_bActive;
-	kStream << m_iTurnsSinceHornBlown;
 }
