@@ -197,6 +197,18 @@ void HornOfValere::MoveHorn(CvPlot* pkNewPlot)
 	pkNewPlot->SetHasHornOfValere(true);
 }
 
+void HornOfValere::TransferHorn(CvUnit* pUnit)
+{
+	// TODO UI popup and notification
+	if (m_bFound && pUnit)
+	{
+		m_iOwnerPlayerID = pUnit->getOwner();
+		m_iOwnerUnitID = pUnit->GetID();
+
+		FindHorn(pUnit);
+	}
+}
+
 bool HornOfValere::IsHornBlower(CvUnit* pUnit) const
 {
 	return pUnit && pUnit->GetID() == GetOwnerUnitID() && pUnit->getOwner() == GetOwnerPlayerID();

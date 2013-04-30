@@ -490,7 +490,7 @@ int CvLuaMap::lSetTurnsSinceHornBlown(lua_State* L)
 {
 	const int iNewValue = lua_tointeger(L, 1);
 
-	GC.getMap().SetTurnsSincehornBlown(iNewValue);
+	GC.getMap().SetTurnsSinceHornBlown(iNewValue);
 
 	return 0;
 }

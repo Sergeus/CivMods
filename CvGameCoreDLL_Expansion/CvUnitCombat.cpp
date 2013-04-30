@@ -331,6 +331,15 @@ void CvUnitCombat::ResolveMeleeCombat(const CvCombatInfo& kCombatInfo, uint uiPa
 		// Defender died
 		else if(bDefenderDead)
 		{
+			// ----------------------------------------------------------------
+			// WoTMod Addition
+			// ----------------------------------------------------------------
+			// If the defender had the Horn of Valere, the attacker claims it for themselves.
+			if (GC.getMap().IsHornBlower(pkDefender))
+			{
+				GC.getMap().DoTransferHornOfValere(pkAttacker);
+			}
+
 			kAttackerOwner.GetPlayerAchievements().KilledUnitWithUnit(pkAttacker, pkDefender);
 
 			auto_ptr<ICvUnit1> pDefender = GC.WrapUnitPointer(pkDefender);

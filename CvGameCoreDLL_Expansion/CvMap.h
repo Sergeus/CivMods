@@ -145,8 +145,10 @@ public:
 	void SetHasHornOfValere(bool bNewValue);
 	void PlaceHornOfValere(int iX, int iY);
 	int GetTurnsSinceHornBlown() const;
-	void SetTurnsSincehornBlown(int iNewValue);
+	void SetTurnsSinceHornBlown(int iNewValue);
 	bool IsHornBlower(CvUnit* pUnit);
+	void DoTransferHornOfValere(CvUnit* pNewOwner);
+	void DoDropHornOfValere(CvUnit* pUnit);
 
 	CvPlot* syncRandPlot(int iFlags = 0, int iArea = -1, int iMinUnitDistance = -1, int iTimeout = 100);
 

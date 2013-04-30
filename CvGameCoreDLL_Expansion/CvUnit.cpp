@@ -1187,6 +1187,16 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer /*= NO_PLAYER*/)
 		}
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// If we've gotten this far and this unit is still a Hornblower, we should 
+	// drop the Horn of Valere
+	if (GC.getMap().IsHornBlower(this))
+	{
+		GC.getMap().DoDropHornOfValere(this);
+	}
+
 	if(bDelay)
 	{
 		startDelayedDeath();

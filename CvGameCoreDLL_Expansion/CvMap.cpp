@@ -766,7 +766,7 @@ int CvMap::GetTurnsSinceHornBlown() const
 	return 50000;
 }
 
-void CvMap::SetTurnsSincehornBlown(int iNewValue)
+void CvMap::SetTurnsSinceHornBlown(int iNewValue)
 {
 	if (IsHasHornOfValere())
 	{
@@ -783,6 +783,22 @@ bool CvMap::IsHornBlower(CvUnit* pUnit)
 	else
 	{
 		return false;
+	}
+}
+
+void CvMap::DoTransferHornOfValere(CvUnit* pNewOwner)
+{
+	if (IsHasHornOfValere() && m_pHornOfValere)
+	{
+		m_pHornOfValere->TransferHorn(pNewOwner);
+	}
+}
+
+void CvMap::DoDropHornOfValere(CvUnit* pUnit)
+{
+	if (IsHasHornOfValere() && m_pHornOfValere)
+	{
+		m_pHornOfValere->DropHorn(pUnit);
 	}
 }
 

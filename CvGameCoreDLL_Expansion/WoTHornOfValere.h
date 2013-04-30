@@ -44,6 +44,7 @@ public:
 	void DropHorn(CvUnit* pUnit);
 	void MoveHorn(int iNewXPos, int iNewYPos);
 	void MoveHorn(CvPlot* pkNewPlot);
+	void TransferHorn(CvUnit* pUnit);
 
 	bool IsHornBlower(CvUnit* pUnit) const;
 
