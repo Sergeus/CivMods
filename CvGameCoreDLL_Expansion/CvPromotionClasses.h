@@ -114,6 +114,11 @@ public:
 	int GetCityAttackPlunderModifier() const;
 	int GetReligiousStrengthLossRivalTerritory() const;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int GetTurnDamage() const;
+
 	bool IsCannotBeChosen() const;
 	bool IsLostWithUpgrade() const;
 	bool IsInstaHeal() const;
@@ -254,6 +259,11 @@ protected:
 	int m_iCapitalDefenseFalloff;
 	int m_iCityAttackPlunderModifier;
 	int m_iReligiousStrengthLossRivalTerritory;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int m_iTurnDamage;
 
 	bool m_bCannotBeChosen;
 	bool m_bLostWithUpgrade;

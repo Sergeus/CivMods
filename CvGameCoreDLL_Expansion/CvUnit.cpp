@@ -1579,6 +1579,11 @@ void CvUnit::doTurn()
 		}
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	DoTurnDamage();
+
 	doDelayedDeath();
 }
 
@@ -19042,6 +19047,43 @@ bool CvUnit::CanDiscoverHornOfValere() const
 	}
 
 	return false;
+}
+
+void CvUnit::DoTurnDamage()
+{
+	changeDamage(GetTurnDamage());
+
+	if(getDamage() >= GC.getMAX_HIT_POINTS())
+	{
+		CvString strBuffer;
+		CvNotifications* pNotification = GET_PLAYER(getOwner()).GetNotifications();
+		if(pNotification)
+		{
+			strBuffer = GetLocalizedText("TXT_KEY_MISC_YOU_UNIT_WAS_DESTROYED_ATTRITION", getNameKey());
+			Localization::String strSummary = Localization::Lookup("TXT_KEY_UNIT_LOST");
+			pNotification->Add(NOTIFICATION_UNIT_DIED, strBuffer, strSummary.toUTF8(), getX(), getY(), (int)getUnitType(), getOwner());
+		}
+	}
+}
+
+int CvUnit::GetTurnDamage() const
+{
+	int iSum = 0;
+	// I can sort of see why they did promotions this was, but this is still terrifying
+	for (int i = 0; i < GC.getNumPromotionInfos(); i++)
+	{
+		PromotionTypes ePromotion = (PromotionTypes)i;
+		if (isHasPromotion(ePromotion))
+		{
+			CvPromotionEntry* entry = GC.getPromotionInfo(ePromotion);
+			if (entry)
+			{
+				iSum += entry->GetTurnDamage();
+			}
+		}
+	}
+
+	return iSum;
 }
 
 //	--------------------------------------------------------------------------------

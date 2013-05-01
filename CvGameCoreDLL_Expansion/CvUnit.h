@@ -1158,6 +1158,8 @@ public:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	bool CanDiscoverHornOfValere() const;
+	int GetTurnDamage() const;
+	void DoTurnDamage();
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------

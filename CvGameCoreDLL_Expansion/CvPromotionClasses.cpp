@@ -89,6 +89,10 @@ CvPromotionEntry::CvPromotionEntry():
 	m_iCapitalDefenseFalloff(0),
 	m_iCityAttackPlunderModifier(0),
 	m_iReligiousStrengthLossRivalTerritory(0),
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_iTurnDamage(0),
 	m_bCannotBeChosen(false),
 	m_bLostWithUpgrade(false),
 	m_bInstaHeal(false),
@@ -280,6 +284,11 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	m_iCapitalDefenseFalloff = kResults.GetInt("CapitalDefenseFalloff");
 	m_iCityAttackPlunderModifier = kResults.GetInt("CityAttackPlunderModifier");
 	m_iReligiousStrengthLossRivalTerritory = kResults.GetInt("ReligiousStrengthLossRivalTerritory");
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_iTurnDamage = kResults.GetInt("TurnDamage");
 
 	//References
 	const char* szLayerAnimationPath = kResults.GetText("LayerAnimationPath");
@@ -1057,6 +1066,14 @@ int CvPromotionEntry::GetCityAttackPlunderModifier() const
 int CvPromotionEntry::GetReligiousStrengthLossRivalTerritory() const
 {
 	return m_iReligiousStrengthLossRivalTerritory;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvPromotionEntry::GetTurnDamage() const
+{
+	return m_iTurnDamage;
 }
 
 /// Accessor: Can this Promotion be earned through normal leveling?
