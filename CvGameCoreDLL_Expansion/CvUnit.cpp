@@ -15801,6 +15801,11 @@ void CvUnit::read(FDataStream& kStream)
 		m_iGreatAdmiralCount = 0;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream >> m_iTurnDamage;
+
 	m_strName = "";
 	if(uiVersion >= 3)
 	{
@@ -15892,6 +15897,11 @@ void CvUnit::write(FDataStream& kStream) const
 	kStream << m_iIgnoreGreatGeneralBenefit;
 	kStream << m_iCaptureDefeatedEnemyCount;
 	kStream << m_iGreatAdmiralCount;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_iTurnDamage;
 
 	kStream << m_strName;
 
