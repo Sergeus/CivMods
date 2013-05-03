@@ -55,7 +55,7 @@ function FindHeroes(iNumToSpawn)
 			local chance = pHero.HeroChance
 			print("Chance of " .. chance .. " to spawn " .. pHero.HeroType)
 			if iSpawned < iNumToSpawn then
-				tHeroes[iSpawned] = GameInfo.Units[pHero.HeroType].ID
+				tHeroes[iSpawned] = GameInfoTypes[pHero.HeroType]
 				iSpawned = iSpawned + 1
 				print("Adding " .. pHero.HeroType .. " to the table.")
 			end

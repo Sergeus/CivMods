@@ -39,6 +39,7 @@
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_HORN_HERO_DECAY_PEDIA_ENTRY</PediaEntry>
+			<TurnDamage>20</TurnDamage>
 		</Row>
 	</UnitPromotions>
 
