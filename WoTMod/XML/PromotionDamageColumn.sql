@@ -1,1 +1,0 @@
-ALTER TABLE UnitPromotions ADD TurnDamage integer DEFAULT 0;

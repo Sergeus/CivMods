@@ -10,11 +10,11 @@
 		<Row>
 			<Class>UNITCLASS_HORN_HUNTER</Class>
 			<Type>UNIT_HORN_HUNTER</Type>
-			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
-			<Combat>21</Combat>
+			<PrereqTech>TECH_ARCHERY</PrereqTech>
+			<Combat>1</Combat>
 			<Cost>25</Cost>
 			<Moves>2</Moves>
-			<CombatClass>UNITCOMBAT_SCOUT</CombatClass>
+			<CombatClass>UNITCOMBAT_RECON</CombatClass>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_HORN_HUNTER</Description>
@@ -27,7 +27,7 @@
 			<XPValueAttack>3</XPValueAttack>
 			<XPValueDefense>3</XPValueDefense>
 			<AdvancedStartCost>20</AdvancedStartCost>
-			<UnitArtInfo>ART_DEF_UNIT_BARBARIAN_EURO</UnitArtInfo>
+			<UnitArtInfo>ART_DEF_UNIT_SCOUT</UnitArtInfo>
 			<UnitFlagIconOffset>1</UnitFlagIconOffset>
 			<PortraitIndex>1</PortraitIndex>
 			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
@@ -40,7 +40,7 @@
 			<Combat>100</Combat>
 			<Cost>-1</Cost>
 			<Moves>3</Moves>
-			<CombatClass>UNITCOMBAT_HORN_HERO</CombatClass>
+			<CombatClass>UNITCOMBAT_MELEE</CombatClass>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_HORN_HERO_HAWKWING</Description>
@@ -113,7 +113,7 @@
 			<Text>[TOWRITE]Birgitte Silverbow Strategy</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_HORN_HERO_BIRGITTE_HELP">
-			<Text>[TOWRITE]Birgitte Silverboe help</Text>
+			<Text>[TOWRITE]Birgitte Silverbow help</Text>
 		</Row>
 		
 		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER">

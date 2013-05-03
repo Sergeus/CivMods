@@ -47,14 +47,14 @@ function FindHeroes(iNumToSpawn)
 	local tHeroes = {}
 	local iSpawned = 0
 
-	print("Finding heroes...")
+	print("Finding " .. iNumToSpawn .. " heroes...")
 
 	while iSpawned < iNumToSpawn do
 		print("Current iSpawned " .. iSpawned)
 		for pHero in GameInfo.HornHeroes() do
 			local chance = pHero.HeroChance
 			print("Chance of " .. chance .. " to spawn " .. pHero.HeroType)
-			if iSpawned < iNumToSpawn then
+			if iSpawned <= iNumToSpawn then
 				tHeroes[iSpawned] = GameInfoTypes[pHero.HeroType]
 				iSpawned = iSpawned + 1
 				print("Adding " .. pHero.HeroType .. " to the table.")
@@ -72,7 +72,7 @@ function SpawnHeroes(pPlayer, tPlots, tHeroes)
 	for i = 0, #tPlots do
 		local pPlot = tPlots[i]
 		local iHero = tHeroes[i]
-		print("Spawning hero!")
+		print("Spawning hero with ID " .. iHero .. "!")
 		pPlayer:InitUnit(iHero, pPlot:GetX(), pPlot:GetY())
 	end
 end
@@ -92,6 +92,7 @@ function ApplyHornOfValereEffects(playerID, unitID, iMission)
 
 	SpawnHeroes(pPlayer, tPlots, tHeroes)
 
+	print("Resetting turns since Horn blown.")
 	Map.SetTurnsSinceHornBlown(0)
 	pUnit:SetMoves(0)
 

@@ -57,7 +57,7 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>XML/PromotionDamageColumn.sql</FileName>
+        <FileName>XML/PromotionAlterations.sql</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
@@ -148,7 +148,7 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="XML\PromotionDamageColumn.sql">
+    <Content Include="XML\PromotionAlterations.sql">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

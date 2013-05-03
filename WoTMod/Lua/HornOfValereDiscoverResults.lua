@@ -4,6 +4,7 @@
 --------------------------------------------------------------
 
 function GiveHornPromotion(playerID, unitID)
+	print("Giving Horn promotion to player " .. playerID .. " unit ID " .. unitID .. ".")
 	pPlayer = Players[playerID]
 	pUnit = pPlayer:GetUnitByID(unitID)
 
