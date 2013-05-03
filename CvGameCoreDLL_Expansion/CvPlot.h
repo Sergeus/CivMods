@@ -57,8 +57,6 @@ public:
 
 	void setupGraphical();
 
-	void refreshPlotGraphics();
-
 	void erase();
 
 	void doTurn();

@@ -528,30 +528,6 @@ void CvPlot::updateVisibility()
 }
 
 //	--------------------------------------------------------------------------------
-void CvPlot::refreshPlotGraphics()
-{
-	if(!GC.IsGraphicsInitialized())
-	{
-		return;
-	}
-
-	setLayoutDirty(true);
-	
-	DLLUI->setDirty(PlotData_DIRTY_BIT,true);
-
-	//gDLL->DoMapSetup(GC.getMap().numPlots());
-	auto_ptr<ICvPlot1> pDllPlot(new CvDllPlot(this));
-
-	gDLL->GameplayPlotStateChange(pDllPlot.get(), ResourceTypes::NO_RESOURCE, ImprovementTypes::NO_IMPROVEMENT, 0, RouteTypes::NO_ROUTE, 0);
-
-	GC.getMap().updateLayout(false);
-
-	GC.getMap().setupGraphical();
-
-	//updateLayout(false);
-}
-
-//	--------------------------------------------------------------------------------
 void CvPlot::updateSymbols()
 {
 	auto_ptr<ICvPlot1> pDllPlot(new CvDllPlot(this));

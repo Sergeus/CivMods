@@ -29,7 +29,6 @@
 void CvLuaPlot::PushMethods(lua_State* L, int t)
 {
 	Method(CanHaveFeature);
-	Method(RefreshGraphics);
 	Method(GetFeatureType);
 	Method(GetTerrainType);
 	Method(IsRiver);
@@ -281,15 +280,6 @@ int CvLuaPlot::lCanHaveFeature(lua_State* L)
 	lua_pushboolean(L, canHasFeature);
 
 	return 1;
-}
-//------------------------------------------------------------------------------
-int CvLuaPlot::lRefreshGraphics(lua_State* L)
-{
-	CvPlot* pkPlot = GetInstance(L);
-
-	pkPlot->refreshPlotGraphics();
-
-	return 0;
 }
 //------------------------------------------------------------------------------
 int CvLuaPlot::lGetFeatureType(lua_State* L)
