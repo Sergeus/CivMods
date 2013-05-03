@@ -11,15 +11,14 @@ HornOfValere::HornOfValere(): m_bFound(false), m_bActive(false),
 }
 
 HornOfValere::HornOfValere(int iXPos, int iYPos)
+	: m_iXPosition(iXPos), m_iYPosition(iYPos)
 {
-	HornOfValere(GC.getMap().plot(iXPos, iYPos));
+	HornOfValere();
 }
 
 HornOfValere::HornOfValere(CvPlot* pkPlot)
-	: m_iXPosition(pkPlot->getX()), 
-		m_iYPosition(pkPlot->getY())
 {
-	HornOfValere();
+	HornOfValere(pkPlot->getX(), pkPlot->getY());
 }
 
 HornOfValere::~HornOfValere()
@@ -57,6 +56,11 @@ int HornOfValere::GetOwnerPlayerID() const
 int HornOfValere::GetOwnerUnitID() const
 {
 	return m_iOwnerUnitID;
+}
+
+int HornOfValere::GetDiscoveryRange() const
+{
+	return m_iDiscoveryRange;
 }
 
 bool HornOfValere::IsActive() const
@@ -110,6 +114,11 @@ void HornOfValere::SetOwnerUnitID(int iNewValue)
 	m_iOwnerUnitID = iNewValue;
 }
 
+void HornOfValere::SetDiscoveryRange(int iNewValue)
+{
+	m_iDiscoveryRange = iNewValue;
+}
+
 void HornOfValere::IncrementTurnsSinceHornBlown() 
 {
 	m_iTurnsSinceHornBlown++;
@@ -122,17 +131,31 @@ void HornOfValere::SetFound(bool bNewValue)
 
 void HornOfValere::DoTurn() 
 {
-	IDInfoVector currentUnits;
-	CvPlot* pkPlot = GetPlot();
-	if (!m_bFound && pkPlot && pkPlot->getUnits(&currentUnits) > 0)
+	if (!m_bFound)
 	{
-		for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr != currentUnits.end(); ++itr)
+		for(int iX = -m_iDiscoveryRange; iX <= m_iDiscoveryRange; iX++)
 		{
-			CvUnit* pUnit = ::getUnit(*itr);
-
-			if(pUnit && pUnit->CanDiscoverHornOfValere())
+			for(int iY = -m_iDiscoveryRange; iY <= m_iDiscoveryRange; iY++)
 			{
-				FindHorn(pUnit);
+				CvPlot* pkPlot = plotXYWithRangeCheck(GetX(), GetY(), iX, iY, m_iDiscoveryRange);
+
+				if(pkPlot != NULL)
+				{
+					IDInfoVector currentUnits;
+					if (pkPlot && pkPlot->getUnits(&currentUnits) > 0)
+					{
+						for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr != currentUnits.end(); ++itr)
+						{
+							CvUnit* pUnit = ::getUnit(*itr);
+
+							if(pUnit && pUnit->CanDiscoverHornOfValere())
+							{
+								FindHorn(pUnit);
+								return;
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -222,6 +245,8 @@ void HornOfValere::Read(FDataStream& kStream)
 	kStream >> m_iOwnerPlayerID;
 	kStream >> m_iOwnerUnitID;
 
+	kStream >> m_iDiscoveryRange;
+
 	kStream >> m_bFound;
 	kStream >> m_bActive;
 }
@@ -233,6 +258,8 @@ void HornOfValere::Write(FDataStream& kStream) const
 	kStream << m_iTurnsSinceHornBlown;
 	kStream << m_iOwnerPlayerID;
 	kStream << m_iOwnerUnitID;
+
+	kStream << m_iDiscoveryRange;
 
 	kStream << m_bFound;
 	kStream << m_bActive;

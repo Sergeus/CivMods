@@ -93,6 +93,7 @@ CvPromotionEntry::CvPromotionEntry():
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_iTurnDamage(0),
+	m_bBlocksHealing(false),
 	m_bCannotBeChosen(false),
 	m_bLostWithUpgrade(false),
 	m_bInstaHeal(false),
@@ -289,6 +290,8 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_iTurnDamage = kResults.GetInt("TurnDamage");
+
+	m_bBlocksHealing = kResults.GetBool("BlocksHealing");
 
 	//References
 	const char* szLayerAnimationPath = kResults.GetText("LayerAnimationPath");
@@ -1074,6 +1077,11 @@ int CvPromotionEntry::GetReligiousStrengthLossRivalTerritory() const
 int CvPromotionEntry::GetTurnDamage() const
 {
 	return m_iTurnDamage;
+}
+
+bool CvPromotionEntry::IsBlocksHealing() const
+{
+	return m_bBlocksHealing;
 }
 
 /// Accessor: Can this Promotion be earned through normal leveling?

@@ -119,6 +119,8 @@ public:
 	// ----------------------------------------------------------------
 	int GetTurnDamage() const;
 
+	bool IsBlocksHealing() const;
+
 	bool IsCannotBeChosen() const;
 	bool IsLostWithUpgrade() const;
 	bool IsInstaHeal() const;
@@ -264,6 +266,8 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	int m_iTurnDamage;
+
+	bool m_bBlocksHealing;
 
 	bool m_bCannotBeChosen;
 	bool m_bLostWithUpgrade;

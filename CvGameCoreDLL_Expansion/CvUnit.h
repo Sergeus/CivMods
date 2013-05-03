@@ -1161,6 +1161,9 @@ public:
 	int GetTurnDamage() const;
 	void ChangeTurnDamage(int iValue);
 	void DoTurnDamage();
+	void ChangeHealBlocked(int iNewValue);
+	int GetHealBlockedCount() const;
+	bool IsHealBlocked() const;
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------
@@ -1172,6 +1175,7 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	int m_iTurnDamage;
+	bool m_iHealBlockedCount;
 
 	const MissionQueueNode* HeadMissionQueueNode() const;
 	MissionQueueNode* HeadMissionQueueNode();

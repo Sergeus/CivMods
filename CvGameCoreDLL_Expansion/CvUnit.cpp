@@ -296,6 +296,7 @@ CvUnit::CvUnit() :
 	// ----------------------------------------------------------------
 	//, m_iTurnDamage("CvUnit::m_iTurnDamage", m_syncArchive, 0)
 	, m_iTurnDamage(0)
+	, m_iHealBlockedCount(0)
 	, m_iMissionTimer(0)
 	, m_iMissionAIX("CvUnit::m_iMissionAIX", m_syncArchive)
 	, m_iMissionAIY("CvUnit::m_iMissionAIY", m_syncArchive)
@@ -4800,7 +4801,7 @@ int CvUnit::healTurns(const CvPlot* pPlot) const
 void CvUnit::doHeal()
 {
 	VALIDATE_OBJECT
-	if(!isBarbarian())
+	if(!isBarbarian() && !IsHealBlocked())
 	{
 		changeDamage(-(healRate(plot())));
 	}
@@ -15426,6 +15427,7 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		// WoTMod Addition
 		// ----------------------------------------------------------------
 		ChangeTurnDamage(thisPromotion.GetTurnDamage() * iChange);
+		ChangeHealBlocked(thisPromotion.IsBlocksHealing() ? iChange : 0);
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
 		{
@@ -15805,6 +15807,7 @@ void CvUnit::read(FDataStream& kStream)
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	kStream >> m_iTurnDamage;
+	kStream >> m_iHealBlockedCount;
 
 	m_strName = "";
 	if(uiVersion >= 3)
@@ -15902,6 +15905,7 @@ void CvUnit::write(FDataStream& kStream) const
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	kStream << m_iTurnDamage;
+	kStream << m_iHealBlockedCount;
 
 	kStream << m_strName;
 
@@ -19101,6 +19105,26 @@ void CvUnit::ChangeTurnDamage(int iValue)
 	if (iValue != 0)
 	{
 		m_iTurnDamage += iValue;
+	}
+}
+
+int CvUnit::GetHealBlockedCount() const
+{
+	return m_iHealBlockedCount;
+}
+
+bool CvUnit::IsHealBlocked() const
+{
+	return GetHealBlockedCount() > 0;
+}
+
+void CvUnit::ChangeHealBlocked(int iValue)
+{
+	VALIDATE_OBJECT	
+
+	if (iValue != 0)
+	{
+		m_iHealBlockedCount += iValue;
 	}
 }
 

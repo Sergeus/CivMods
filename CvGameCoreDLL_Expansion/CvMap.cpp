@@ -745,15 +745,21 @@ void CvMap::PlaceHornOfValere(int iX, int iY)
 	}
 	else
 	{
-		CvPlot* pkPlot = plot(iX, iY);
-		if (pkPlot)
-		{
-			m_pHornOfValere = FNEW(HornOfValere(pkPlot), c_eCiv5GameplayDLL, 0);
+		m_pHornOfValere->SetPosition(iX, iY);
 
-			m_pHornOfValere->SetActive(true);
+		m_pHornOfValere->SetActive(true);
 
-			SetHasHornOfValere(true);
-		}
+		SetHasHornOfValere(true);
+
+		//Database::Results kResults;
+		//if (GC.GetGameDatabase()->Execute(kResults, "SELECT Value FROM WoTModConstants WHERE Type='HORN_OF_VALERE_DISCOVERY_RANGE'"))
+		//{
+		//	m_pHornOfValere->SetDiscoveryRange(kResults.GetInt(0));
+		//}
+		//else
+		//{
+			m_pHornOfValere->SetDiscoveryRange(1);
+		//}
 	}
 }
 

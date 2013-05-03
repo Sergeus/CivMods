@@ -23,6 +23,7 @@ public:
 	int GetTurnsSinceHornBlown() const;
 	int GetOwnerPlayerID() const;
 	int GetOwnerUnitID() const;
+	int GetDiscoveryRange() const;
 	bool IsActive() const;
 	bool IsFound() const;
 
@@ -33,6 +34,7 @@ public:
 	void SetTurnsSinceHornBlown(int iNewValue);
 	void SetOwnerPlayerID(int iNewValue);
 	void SetOwnerUnitID(int iNewValue);
+	void SetDiscoveryRange(int iNewValue);
 	void SetActive(bool bNewValue);
 	void SetFound(bool bNewValue);
 
@@ -58,6 +60,10 @@ protected:
 	int m_iOwnerPlayerID;
 	int m_iOwnerUnitID;
 
+	int m_iDiscoveryRange;
+
 	bool m_bFound;
 	bool m_bActive;
+
+	std::vector<CvPlot*> GetNeighboringPlots() const;
 };
