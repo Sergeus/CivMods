@@ -170,7 +170,11 @@ void HornOfValere::FindHorn(CvUnit* pUnit)
 	if (pUnit)
 	{
 		m_bFound = true;
-		GetPlot()->SetHasHornOfValere(false);
+		CvPlot* pkPlot = GetPlot();
+		if (pkPlot)
+		{
+			pkPlot->SetHasHornOfValere(false);
+		}
 		m_iOwnerPlayerID = pUnit->getOwner();
 		m_iOwnerUnitID = pUnit->GetID();
 

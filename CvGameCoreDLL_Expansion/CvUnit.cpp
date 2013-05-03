@@ -1193,6 +1193,12 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer /*= NO_PLAYER*/)
 		}
 	}
 
+	if(bDelay)
+	{
+		startDelayedDeath();
+		return;
+	}
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
@@ -1202,13 +1208,6 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer /*= NO_PLAYER*/)
 	{
 		GC.getMap().DoDropHornOfValere(this);
 	}
-
-	if(bDelay)
-	{
-		startDelayedDeath();
-		return;
-	}
-
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	// EVERYTHING AFTER THIS LINE OCCURS UPON THE ACTUAL DELETION OF THE UNIT AND NOT WITH A DELAYED DEATH
