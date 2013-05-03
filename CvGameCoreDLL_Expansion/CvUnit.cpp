@@ -4524,6 +4524,14 @@ bool CvUnit::canHeal(const CvPlot* pPlot, bool bTestVisible) const
 		return false;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (IsHealBlocked())
+	{
+		return false;
+	}
+
 	if(!IsHurt())
 	{
 		return false;

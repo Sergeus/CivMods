@@ -64,6 +64,4 @@ protected:
 
 	bool m_bFound;
 	bool m_bActive;
-
-	std::vector<CvPlot*> GetNeighboringPlots() const;
 };
