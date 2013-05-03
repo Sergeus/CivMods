@@ -151,6 +151,7 @@ public:
 	bool IsHornBlower(CvUnit* pUnit);
 	void DoTransferHornOfValere(CvUnit* pNewOwner);
 	void DoDropHornOfValere(CvUnit* pUnit);
+	int GetHornOfValereDiscoveryDistance() const;
 
 	CvPlot* syncRandPlot(int iFlags = 0, int iArea = -1, int iMinUnitDistance = -1, int iTimeout = 100);
 

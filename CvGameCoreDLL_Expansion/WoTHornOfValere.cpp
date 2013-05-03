@@ -5,7 +5,8 @@
 
 HornOfValere::HornOfValere(): m_bFound(false), m_bActive(false),
 	m_iTurnsSinceHornBlown(50000), // arbitrarily large but not enough to overflow
-	m_iOwnerPlayerID(-1), m_iOwnerUnitID(-1)
+	m_iOwnerPlayerID(-1), m_iOwnerUnitID(-1),
+	m_iDiscoveryRange(1)
 {
 
 }
@@ -142,7 +143,7 @@ void HornOfValere::DoTurn()
 				if(pkPlot != NULL)
 				{
 					IDInfoVector currentUnits;
-					if (pkPlot && pkPlot->getUnits(&currentUnits) > 0)
+					if (pkPlot->getUnits(&currentUnits) > 0)
 					{
 						for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr != currentUnits.end(); ++itr)
 						{

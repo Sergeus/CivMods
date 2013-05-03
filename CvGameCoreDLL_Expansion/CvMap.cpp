@@ -745,21 +745,24 @@ void CvMap::PlaceHornOfValere(int iX, int iY)
 	}
 	else
 	{
-		m_pHornOfValere->SetPosition(iX, iY);
+		m_pHornOfValere->MoveHorn(iX, iY);
 
 		m_pHornOfValere->SetActive(true);
 
 		SetHasHornOfValere(true);
 
-		//Database::Results kResults;
-		//if (GC.GetGameDatabase()->Execute(kResults, "SELECT Value FROM WoTModConstants WHERE Type='HORN_OF_VALERE_DISCOVERY_RANGE'"))
-		//{
-		//	m_pHornOfValere->SetDiscoveryRange(kResults.GetInt(0));
-		//}
-		//else
-		//{
+		Database::Results kResults;
+		if (GC.GetGameDatabase()->Execute(kResults, "SELECT Value from WoTModConstants WHERE Type ='HORN_OF_VALERE_DISCOVERY_RANGE'"))
+		{
+			if (kResults.Step())
+			{
+				m_pHornOfValere->SetDiscoveryRange(kResults.GetInt(0));
+			}
+		}
+		else
+		{
 			m_pHornOfValere->SetDiscoveryRange(1);
-		//}
+		}
 	}
 }
 
@@ -778,6 +781,15 @@ void CvMap::SetTurnsSinceHornBlown(int iNewValue)
 	{
 		m_pHornOfValere->SetTurnsSinceHornBlown(iNewValue);
 	}
+}
+
+int CvMap::GetHornOfValereDiscoveryDistance() const
+{
+	if (IsHasHornOfValere())
+	{
+		return m_pHornOfValere->GetDiscoveryRange();
+	}
+	return -1;
 }
 
 bool CvMap::IsHornBlower(CvUnit* pUnit)
