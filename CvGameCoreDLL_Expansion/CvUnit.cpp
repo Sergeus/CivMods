@@ -291,6 +291,11 @@ CvUnit::CvUnit() :
 	, m_extraFeatureDefensePercent("CvUnit::m_extraFeatureDefensePercent", m_syncArchive/*, true*/)
 	, m_extraUnitCombatModifier("CvUnit::m_extraUnitCombatModifier", m_syncArchive/*, true*/)
 	, m_unitClassModifier("CvUnit::m_unitClassModifier", m_syncArchive/*, true*/)
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	//, m_iTurnDamage("CvUnit::m_iTurnDamage", m_syncArchive, 0)
+	, m_iTurnDamage(0)
 	, m_iMissionTimer(0)
 	, m_iMissionAIX("CvUnit::m_iMissionAIX", m_syncArchive)
 	, m_iMissionAIY("CvUnit::m_iMissionAIY", m_syncArchive)
@@ -15417,6 +15422,11 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		changeExperiencePercent(thisPromotion.GetExperiencePercent() * iChange);
 		changeCargoSpace(thisPromotion.GetCargoChange() * iChange);
 
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		ChangeTurnDamage(thisPromotion.GetTurnDamage() * iChange);
+
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
 		{
 			changeExtraTerrainAttackPercent(((TerrainTypes)iI), (thisPromotion.GetTerrainAttackPercent(iI) * iChange));
@@ -19051,39 +19061,37 @@ bool CvUnit::CanDiscoverHornOfValere() const
 
 void CvUnit::DoTurnDamage()
 {
-	changeDamage(GetTurnDamage());
-
-	if(getDamage() >= GC.getMAX_HIT_POINTS())
+	if (GetTurnDamage() > 0)
 	{
-		CvString strBuffer;
-		CvNotifications* pNotification = GET_PLAYER(getOwner()).GetNotifications();
-		if(pNotification)
+		changeDamage(GetTurnDamage());
+
+		if(getDamage() >= GC.getMAX_HIT_POINTS())
 		{
-			strBuffer = GetLocalizedText("TXT_KEY_MISC_YOU_UNIT_WAS_DESTROYED_ATTRITION", getNameKey());
-			Localization::String strSummary = Localization::Lookup("TXT_KEY_UNIT_LOST");
-			pNotification->Add(NOTIFICATION_UNIT_DIED, strBuffer, strSummary.toUTF8(), getX(), getY(), (int)getUnitType(), getOwner());
+			CvString strBuffer;
+			CvNotifications* pNotification = GET_PLAYER(getOwner()).GetNotifications();
+			if(pNotification)
+			{
+				strBuffer = GetLocalizedText("TXT_KEY_MISC_YOU_UNIT_WAS_DESTROYED_ATTRITION", getNameKey());
+				Localization::String strSummary = Localization::Lookup("TXT_KEY_UNIT_LOST");
+				pNotification->Add(NOTIFICATION_UNIT_DIED, strBuffer, strSummary.toUTF8(), getX(), getY(), (int)getUnitType(), getOwner());
+			}
 		}
 	}
 }
 
 int CvUnit::GetTurnDamage() const
 {
-	int iSum = 0;
-	// I can sort of see why they did promotions this was, but this is still terrifying
-	for (int i = 0; i < GC.getNumPromotionInfos(); i++)
-	{
-		PromotionTypes ePromotion = (PromotionTypes)i;
-		if (isHasPromotion(ePromotion))
-		{
-			CvPromotionEntry* entry = GC.getPromotionInfo(ePromotion);
-			if (entry)
-			{
-				iSum += entry->GetTurnDamage();
-			}
-		}
-	}
+	return m_iTurnDamage;
+}
 
-	return iSum;
+void CvUnit::ChangeTurnDamage(int iValue)
+{
+	VALIDATE_OBJECT
+
+	if (iValue != 0)
+	{
+		m_iTurnDamage += iValue;
+	}
 }
 
 //	--------------------------------------------------------------------------------

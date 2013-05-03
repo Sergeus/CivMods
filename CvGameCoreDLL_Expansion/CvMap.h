@@ -29,6 +29,7 @@
 // WoTMod Addition
 // ----------------------------------------------------------------
 #include "WoTHornOfValere.h"
+#include "FAutoVariable.h"
 
 
 // a simplified version of CvArea for use primarily with the continent generation system
@@ -69,6 +70,7 @@ protected:
 	bool m_bWater;
 	int m_iCentroidX;
 	int m_iCentroidY;
+
 };
 
 FDataStream& operator<<(FDataStream&, const CvLandmass&);

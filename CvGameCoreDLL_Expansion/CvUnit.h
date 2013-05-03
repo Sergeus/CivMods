@@ -1159,6 +1159,7 @@ public:
 	// ----------------------------------------------------------------
 	bool CanDiscoverHornOfValere() const;
 	int GetTurnDamage() const;
+	void ChangeTurnDamage(int iValue);
 	void DoTurnDamage();
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
@@ -1167,6 +1168,11 @@ public:
 	bool HandleMission(int iMission);
 
 protected:
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int m_iTurnDamage;
+
 	const MissionQueueNode* HeadMissionQueueNode() const;
 	MissionQueueNode* HeadMissionQueueNode();
 
