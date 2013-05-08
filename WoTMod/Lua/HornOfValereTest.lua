@@ -24,6 +24,16 @@ function testHornPlacement(playerID)
 
 		Map.PlaceHornOfValere(X, Y);
 
+		print("Placing Blight.")
+
+		local pPlot = Map.GetPlot(X, Y)
+
+		pPlot:SetFeatureType(GameInfoTypes.FEATURE_BLIGHT)
+
+		print("Refreshing graphics.")
+
+		pPlot:RefreshGraphics()
+
 		print("done!")
 	end
 end

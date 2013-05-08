@@ -53,7 +53,7 @@
 			<XPValueAttack>3</XPValueAttack>
 			<XPValueDefense>3</XPValueDefense>
 			<AdvancedStartCost>20</AdvancedStartCost>
-			<UnitArtInfo>ART_DEF_UNIT_BARBARIAN_EURO</UnitArtInfo>
+			<UnitArtInfo>ART_DEF_UNIT_HERO_HAWKWING</UnitArtInfo>
 			<UnitFlagIconOffset>1</UnitFlagIconOffset>
 			<PortraitIndex>1</PortraitIndex>
 			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
@@ -67,7 +67,7 @@
 			<Cost>-1</Cost>
 			<Range>2</Range>
 			<Moves>3</Moves>
-			<CombatClass>UNITCOMBAT_HORN_HERO</CombatClass>
+			<CombatClass>UNITCOMBAT_ARCHER</CombatClass>
 			<Domain>DOMAIN_LAND</Domain>
 			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
 			<Description>TXT_KEY_UNIT_HORN_HERO_BIRGITTE</Description>
@@ -80,7 +80,7 @@
 			<XPValueAttack>3</XPValueAttack>
 			<XPValueDefense>3</XPValueDefense>
 			<AdvancedStartCost>20</AdvancedStartCost>
-			<UnitArtInfo>ART_DEF_UNIT_ARCHER</UnitArtInfo>
+			<UnitArtInfo>ART_DEF_UNIT_HERO_BIRGITTE</UnitArtInfo>
 			<UnitFlagIconOffset>1</UnitFlagIconOffset>
 			<PortraitIndex>1</PortraitIndex>
 			<IconAtlas>UNIT_ATLAS_1</IconAtlas>

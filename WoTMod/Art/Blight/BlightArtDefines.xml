@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/5/2013 10:26:22 PM -->
+<GameData>
+	<ArtDefine_Landmarks>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>0.39</Scale>
+			<ImprovementType>ART_DEF_FEATURE_BLIGHT</ImprovementType>
+			<LayoutHandler>RANDOM</LayoutHandler>
+			<ResourceType>ART_DEF_RESOURCE_ALL</ResourceType>
+			<Model>feature_blight.fxsxml</Model>
+			<TerrainContour>1</TerrainContour>
+			<Tech/>
+		</Row>
+	</ArtDefine_Landmarks>
+	<ArtDefine_LandmarkTypes>
+		<Row>
+			<Type>ART_DEF_FEATURE_BLIGHT</Type>
+			<LandmarkType>Improvement</LandmarkType>
+			<FriendlyName>Blight</FriendlyName>
+		</Row>
+	</ArtDefine_LandmarkTypes>
+</GameData>
