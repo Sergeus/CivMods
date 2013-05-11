@@ -750,6 +750,11 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(GetNotificationDismissed);
 	Method(AddNotification);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	Method(AddNotificationCustom);
+
 	Method(GetRecommendedWorkerPlots);
 	Method(GetRecommendedFoundCityPlots);
 	Method(GetUnimprovedAvailableLuxuryResource);
