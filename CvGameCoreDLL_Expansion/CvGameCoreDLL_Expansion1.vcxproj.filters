@@ -15,6 +15,12 @@
     <Filter Include="Dll Interface">
       <UniqueIdentifier>{26b20d90-21df-4aa5-9ee3-cd8be9ab4f85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WoTHeaders">
+      <UniqueIdentifier>{6c1c2ef0-5577-413b-a11d-665663d66039}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WoTSources">
+      <UniqueIdentifier>{4b5826cf-3583-421c-bbf4-ad9059548b67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_precompile.cpp">
@@ -475,6 +481,9 @@
     </ClCompile>
     <ClCompile Include="CvGameQueries.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WoTCustomNotifications.cpp">
+      <Filter>WoTSources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -957,6 +966,9 @@
     </ClInclude>
     <ClInclude Include="CvGameQueries.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WoTCustomNotifications.h">
+      <Filter>WoTHeaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

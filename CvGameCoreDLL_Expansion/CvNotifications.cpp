@@ -212,6 +212,110 @@ void CvNotifications::EndOfTurnCleanup(void)
 	}
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Notifications
+// ----------------------------------------------------------------
+int CvNotifications::AddCustom(int iNotificationID,
+	int iX, int iY, int iGameDataIndex, int iExtraGameData)
+{
+	// if the player is not human, do not record
+	if(!GET_PLAYER(m_ePlayer).isHuman())
+	{
+		return -1;
+	}
+
+	// If we're in debug mode, don't do anything
+	if(GC.getGame().isDebugMode())
+		return -1;
+
+	Notification newNotification;
+	newNotification.Clear();
+	newNotification.m_ePlayerID = m_ePlayer;
+	newNotification.m_eNotificationType = NOTIFICATION_WOT_CUSTOM;
+	newNotification.m_strMessage = "";
+	newNotification.m_strSummary = "";
+	newNotification.m_iX = iX;
+	newNotification.m_iY = iY;
+	newNotification.m_iGameDataIndex = iGameDataIndex;
+	newNotification.m_iExtraGameData = iExtraGameData;
+	newNotification.m_iTurn = GC.getGame().getGameTurn();
+	newNotification.m_iLookupIndex = m_iCurrentLookupIndex;
+	newNotification.m_bNeedsBroadcast = true;
+	newNotification.m_bDismissed = false;
+
+	if(IsNotificationRedundant(newNotification))
+	{
+		// redundant notification
+		return -1;
+	}
+
+	if(IsArrayFull())
+	{
+		RemoveOldestNotification();
+	}
+
+	m_aNotifications[m_iNotificationsEndIndex] = newNotification;
+
+	if (GC.getGame().isFinalInitialized())
+	{
+		// If the notification is for the 'active' player and that active player actually has his turn active or its not hotseat, then show the notification, else wait
+		// The 'active' player is only set to a human and during the AI turn, the 'active' player is the last human to do their turn.
+		if(newNotification.m_ePlayerID == GC.getGame().getActivePlayer() && (!CvPreGame::isHotSeatGame() || GET_PLAYER(GC.getGame().getActivePlayer()).isTurnActive()))
+		{
+			//gDLL->getInterfaceIFace()->AddNotification(newNotification.m_iLookupIndex, newNotification.m_eNotificationType, newNotification.m_strMessage.c_str(), newNotification.m_strSummary.c_str(), newNotification.m_iGameDataIndex, newNotification.m_iExtraGameData, m_ePlayer, iX, iY);
+
+			ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+			if (pkScriptSystem)
+			{
+				CvLuaArgsHandle args;
+				args->Push(newNotification.m_iLookupIndex);
+				args->Push(iNotificationID);
+				args->Push(iX);
+				args->Push(iY);
+				args->Push(iGameDataIndex);
+				args->Push(iExtraGameData);
+
+				bool bResult;
+				LuaSupport::CallHook(pkScriptSystem, "CustomNotificationAdded", args.get(), bResult);
+			}
+
+			CvPlot* pPlot = GC.getMap().plot(iX, iY);
+			if(pPlot != NULL)
+			{
+				auto_ptr<ICvPlot1> pDllPlot(new CvDllPlot(pPlot));
+				gDLL->GameplayDoFX(pDllPlot.get());
+			}
+			else
+			{
+				gDLL->GameplayDoFX(NULL);
+			}
+			m_aNotifications[m_iNotificationsEndIndex].m_bNeedsBroadcast = false;
+		}
+
+		gDLL->GameplayMinimapNotification(iX, iY, m_iCurrentLookupIndex+1);	// The index is used to uniquely identify each flashing dot on the minimap. We're adding 1 since the selected unit is always 0. It ain't pretty, but it'll work
+	}
+
+	IncrementEndIndex();
+
+	m_iCurrentLookupIndex++;
+
+	// TODO if it blocks ending your turn, handle that here
+
+	switch(newNotification.m_eNotificationType)
+	{
+	case NOTIFICATION_POLICY:
+	case NOTIFICATION_UNIT_PROMOTION:
+	{
+		GC.getGame().endTurnTimerSemaphoreIncrement();
+		break;
+	}
+	default:
+		break;
+	}
+	return newNotification.m_iLookupIndex;
+}
+
 /// Adds a new notification to the list
 int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMessage, const char* strSummary, int iX, int iY, int iGameDataIndex, int iExtraGameData)
 {

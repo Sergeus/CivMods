@@ -320,6 +320,11 @@ bool CvDllDatabaseUtility::PrefetchGameData()
 	PrefetchCollection(GC.getVoteSourceInfo(), "VoteSources");
 	PrefetchCollection(GC.getUnitDomainInfo(), "Domains");
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	PrefetchCollection(GC.GetNotificationCustomInfo(), "NotificationsCustom");
+
 	//Leaders
 	PrefetchCollection(GC.getLeaderHeadInfo(), "Leaders");
 

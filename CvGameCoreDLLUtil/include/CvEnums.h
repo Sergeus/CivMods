@@ -682,6 +682,11 @@ enum NotificationTypes
 	NOTIFICATION_LIBERATED_MAJOR_CITY,
 	NOTIFICATION_RESURRECTED_MAJOR_CIV,
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	NOTIFICATION_WOT_CUSTOM,
+
 	NUM_NOTIFICATION_TYPES
 };
 //  !!!!!!!!!!!!!!!!!!!!!!! 

@@ -5860,6 +5860,31 @@ int CvLuaPlayer::lAddNotification(lua_State* L)
 	return 1;
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Notifications
+// ----------------------------------------------------------------
+int CvLuaPlayer::lAddNotificationCustom(lua_State* L)
+{
+	CvPlayerAI* pkPlayer = GetInstance(L);
+	CvNotifications* pNotifications = pkPlayer->GetNotifications();
+	int notificationID = -1;
+	if (pNotifications)
+	{
+		int iExtraData = -1;
+		if (lua_gettop(L) >= 6)
+			iExtraData = lua_tointeger(L, 6);
+
+		notificationID = pNotifications->AddCustom(lua_tointeger(L, 2),
+													lua_tointeger(L, 3),
+													lua_tointeger(L, 4),
+													lua_tointeger(L, 5),
+													iExtraData);
+	}
+	lua_pushinteger(L, notificationID);
+
+	return 1;
+}
+
 //------------------------------------------------------------------------------
 //int GetNumNotifications();
 int CvLuaPlayer::lGetNumNotifications(lua_State* L)

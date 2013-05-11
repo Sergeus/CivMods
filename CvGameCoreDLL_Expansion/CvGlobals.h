@@ -114,6 +114,11 @@ class CvBeliefXMLEntries;
 class CvDeal;
 class CvNetMessageHandler;
 
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Notifications
+// ----------------------------------------------------------------
+class WoTCustomNotificationInfo;
+
 class CvDLLInterfaceIFaceBase;
 class ICvDLLDatabaseUtility1;
 class ICvEngineUtility1;
@@ -301,6 +306,13 @@ public:
 	int getNumFeatureInfos();
 	std::vector<CvFeatureInfo*>& getFeatureInfo();
 	CvFeatureInfo* getFeatureInfo(FeatureTypes eFeatureNum);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	int GetNumNotificationCustomInfos();
+	std::vector<WoTCustomNotificationInfo*>& GetNotificationCustomInfo();
+	WoTCustomNotificationInfo* GetNotificationCustomInfo(int iNotificationCustomID);
 
 	int& getNumPlayableCivilizationInfos();
 	int& getNumAIPlayableCivilizationInfos();
@@ -7066,6 +7078,11 @@ protected:
 	std::vector<CvDomainInfo*> m_paUnitDomainInfo;
 
 	std::vector<CvMultiUnitFormationInfo*> m_paMultiUnitFormationInfo;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	std::vector<WoTCustomNotificationInfo*> m_pNotificationsCustom;
 
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;
 	CvCitySpecializationXMLEntries* m_pCitySpecializations;

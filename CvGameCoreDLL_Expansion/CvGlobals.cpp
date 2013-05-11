@@ -32,6 +32,11 @@
 #include "CvReplayInfo.h"
 #include "CvTypes.h"
 
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Notifications
+// ----------------------------------------------------------------
+#include "WoTCustomNotifications.h"
+
 #include "CvDllDatabaseUtility.h"
 #include "CvDllScriptSystemUtility.h"
 
@@ -2402,6 +2407,29 @@ CvFeatureInfo* CvGlobals::getFeatureInfo(FeatureTypes eFeatureNum)
 	CvAssert(eFeatureNum < GC.getNumFeatureInfos());
 	if(eFeatureNum > -1 && eFeatureNum < (int)m_paFeatureInfo.size())
 		return m_paFeatureInfo[eFeatureNum];
+	else
+		return NULL;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Notifications
+// ----------------------------------------------------------------
+int CvGlobals::GetNumNotificationCustomInfos()
+{
+	return m_pNotificationsCustom.size();
+}
+
+std::vector<WoTCustomNotificationInfo*>& CvGlobals::GetNotificationCustomInfo()
+{
+	return m_pNotificationsCustom;
+}
+
+WoTCustomNotificationInfo* CvGlobals::GetNotificationCustomInfo(int iNotificationID)
+{
+	CvAssert(iNotificationID > -1);
+	CvAssert(iNotificationID < GC.getNumNotificationsCustomInfos());
+	if (iNotificationID > -1 && iNotificationID < GetNumNotificationCustomInfos())
+		return m_pNotificationsCustom[iNotificationID];
 	else
 		return NULL;
 }
