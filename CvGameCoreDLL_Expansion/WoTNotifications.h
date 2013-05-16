@@ -32,6 +32,7 @@ public:
 	bool IsDisplaysUnitIcon() const;
 	bool IsDoubleCivNotification() const;
 	bool IsExpiresAtTurnEnd() const;
+	bool IsPlaysFXOnPlot() const;
 
 	virtual bool CacheResults(Database::Results &kResults, CvDatabaseUtility& kUtility);
 
@@ -54,4 +55,5 @@ private:
 	bool m_bDoubleCivNotification;
 	bool m_bUrgent;
 	bool m_bExpiresAtTurnEnd;
+	bool m_bPlaysFXOnPlot;
 };

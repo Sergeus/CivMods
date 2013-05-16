@@ -19,6 +19,7 @@ WoTNotificationInfo::WoTNotificationInfo()
 	m_bDoubleCivNotification(false),
 	m_bUrgent(false),
 	m_bExpiresAtTurnEnd(true),
+	m_bPlaysFXOnPlot(true),
 	m_strType(),
 	m_strMessage(),
 	m_strSummary(),
@@ -46,8 +47,9 @@ bool WoTNotificationInfo::CacheResults(Database::Results &kResults, CvDatabaseUt
 	m_bDoubleCivNotification = kResults.GetBool("DoubleCivNotification");
 	m_bUrgent = kResults.GetBool("Urgent");
 	m_bExpiresAtTurnEnd = kResults.GetBool("ExpiresAtTurnEnd");
+	m_bPlaysFXOnPlot = kResults.GetBool("PlaysFXOnPlot");
 
-	m_strType = kResults.GetText("NotificationType");
+	m_strType = kResults.GetText("Type");
 	m_strMessage = kResults.GetText("Message");
 	m_strSummary = kResults.GetText("Summary");
 	m_strBlockMessage = kResults.GetText("BlockMessage");
@@ -129,4 +131,9 @@ bool WoTNotificationInfo::IsDoubleCivNotification() const
 bool WoTNotificationInfo::IsExpiresAtTurnEnd() const
 {
 	return m_bExpiresAtTurnEnd;
+}
+
+bool WoTNotificationInfo::IsPlaysFXOnPlot() const
+{
+	return m_bPlaysFXOnPlot;
 }
