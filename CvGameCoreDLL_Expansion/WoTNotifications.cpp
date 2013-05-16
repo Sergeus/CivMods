@@ -6,9 +6,9 @@
 #include "CvGameCoreDLLPCH.h"
 #include "CvGameCoreUtils.h"
 #include "CvGlobals.h"
-#include "WoTCustomNotifications.h"
+#include "WoTNotifications.h"
 
-WoTCustomNotificationInfo::WoTCustomNotificationInfo()
+WoTNotificationInfo::WoTNotificationInfo()
 	: m_iID(-1),
 	m_iWelcomeness(0),
 	m_iIconIndex(-1),
@@ -17,6 +17,8 @@ WoTCustomNotificationInfo::WoTCustomNotificationInfo()
 	m_bChecksKnown(false),
 	m_bDisplaysUnitIcon(false),
 	m_bDoubleCivNotification(false),
+	m_bUrgent(false),
+	m_bExpiresAtTurnEnd(true),
 	m_strType(),
 	m_strMessage(),
 	m_strSummary(),
@@ -26,12 +28,12 @@ WoTCustomNotificationInfo::WoTCustomNotificationInfo()
 
 }
 
-WoTCustomNotificationInfo::~WoTCustomNotificationInfo()
+WoTNotificationInfo::~WoTNotificationInfo()
 {
 	
 }
 
-bool WoTCustomNotificationInfo::CacheResults(Database::Results &kResults, CvDatabaseUtility& kUtility)
+bool WoTNotificationInfo::CacheResults(Database::Results &kResults, CvDatabaseUtility& kUtility)
 {
 	m_iID = kResults.GetInt("ID");
 	m_iWelcomeness = kResults.GetInt("Welcomeness");
@@ -42,8 +44,10 @@ bool WoTCustomNotificationInfo::CacheResults(Database::Results &kResults, CvData
 	m_bChecksKnown = kResults.GetBool("ChecksKnown");
 	m_bDisplaysUnitIcon = kResults.GetBool("DisplaysUnitIcon");
 	m_bDoubleCivNotification = kResults.GetBool("DoubleCivNotification");
+	m_bUrgent = kResults.GetBool("Urgent");
+	m_bExpiresAtTurnEnd = kResults.GetBool("ExpiresAtTurnEnd");
 
-	m_strType = kResults.GetText("Type");
+	m_strType = kResults.GetText("NotificationType");
 	m_strMessage = kResults.GetText("Message");
 	m_strSummary = kResults.GetText("Summary");
 	m_strBlockMessage = kResults.GetText("BlockMessage");
@@ -52,72 +56,77 @@ bool WoTCustomNotificationInfo::CacheResults(Database::Results &kResults, CvData
 	return true;
 }
 
-int WoTCustomNotificationInfo::GetID() const
+int WoTNotificationInfo::GetID() const
 {
 	return m_iID;
 }
 
-int WoTCustomNotificationInfo::GetWelcomeness() const
+int WoTNotificationInfo::GetWelcomeness() const
 {
 	return m_iWelcomeness;
 }
 
-int WoTCustomNotificationInfo::GetIconIndex() const
+int WoTNotificationInfo::GetIconIndex() const
 {
 	return m_iIconIndex;
 }
 
-const char* WoTCustomNotificationInfo::GetType() const
+const char* WoTNotificationInfo::GetType() const
 {
 	return m_strType;
 }
 
-const char* WoTCustomNotificationInfo::GetMessage() const
+const char* WoTNotificationInfo::GetMessage() const
 {
 	return m_strMessage;
 }
 
-const char* WoTCustomNotificationInfo::GetSummary() const
+const char* WoTNotificationInfo::GetSummary() const
 {
 	return m_strSummary;
 }
 
-const char* WoTCustomNotificationInfo::GetIconAtlas() const
+const char* WoTNotificationInfo::GetIconAtlas() const
 {
 	return m_strIconAtlas;
 }
 
-const char* WoTCustomNotificationInfo::GetBlockMessage() const
+const char* WoTNotificationInfo::GetBlockMessage() const
 {
 	return m_strBlockMessage;
 }
 
-const char* WoTCustomNotificationInfo::GetUIContext() const
+const char* WoTNotificationInfo::GetUIContext() const
 {
 	return m_strUIContext;
 }
 
-bool WoTCustomNotificationInfo::IsBlocksEndTurn() const
+bool WoTNotificationInfo::IsBlocksEndTurn() const
 {
 	return m_bBlocksEndTurn;
 }
 
-bool WoTCustomNotificationInfo::IsMiniCivIcon() const
+bool WoTNotificationInfo::IsMiniCivIcon() const
 {
 	return m_bMiniCivIcon;
 }
 
-bool WoTCustomNotificationInfo::IsChecksKnown() const
+bool WoTNotificationInfo::IsChecksKnown() const
 {
 	return m_bChecksKnown;
 }
 
-bool WoTCustomNotificationInfo::IsDisplaysUnitIcon() const
+bool WoTNotificationInfo::IsDisplaysUnitIcon() const
 {
 	return m_bDisplaysUnitIcon;
 }
 
-bool WoTCustomNotificationInfo::IsDoubleCivNotification() const
+bool WoTNotificationInfo::IsDoubleCivNotification() const
 {
 	return m_bDoubleCivNotification;
+}
+
+bool WoTNotificationInfo::IsExpiresAtTurnEnd() const
+{
+	return m_bExpiresAtTurnEnd;
 }

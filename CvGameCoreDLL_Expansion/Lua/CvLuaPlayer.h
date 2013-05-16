@@ -744,11 +744,6 @@ protected:
 	static int lGetNotificationDismissed(lua_State* L);
 	static int lAddNotification(lua_State* L);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	static int lAddNotificationCustom(lua_State* L);
-
 	static int lGetRecommendedWorkerPlots(lua_State* L);
 	static int lGetRecommendedFoundCityPlots(lua_State* L);
 

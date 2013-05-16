@@ -75,11 +75,6 @@ public:
 	bool IsNotificationExpired(int iIndex);
 	bool IsNotificationEndOfTurnExpired(int iIndex);  // remove it from the end of the turn
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	int AddCustom(int iNotificationID, int iX, int iY, int iGameDataIndex, int iExtraGameData=-1);
-
 	static void AddToPlayer(PlayerTypes ePlayer, NotificationTypes eNotificationType, const char* strMessage, const char* strSummary, int iX=-1, int iY=-1, int iGameDataIndex=-1, int iExtraGameData=-1);
 	//---------------------------------------PROTECTED MEMBER VARIABLES---------------------------------
 protected:

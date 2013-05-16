@@ -320,22 +320,21 @@ bool CvDllDatabaseUtility::PrefetchGameData()
 	PrefetchCollection(GC.getVoteSourceInfo(), "VoteSources");
 	PrefetchCollection(GC.getUnitDomainInfo(), "Domains");
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	PrefetchCollection(GC.GetNotificationCustomInfo(), "NotificationsCustom");
-
 	//Leaders
 	PrefetchCollection(GC.getLeaderHeadInfo(), "Leaders");
 
 	//Misc
 	PrefetchCollection(GC.getRouteInfo(), "Routes");
 
-	CvNotificationXMLEntries* pkNotificationEntries =  GC.GetNotificationEntries();
-	if(pkNotificationEntries != NULL)
-	{
-		PrefetchCollection(pkNotificationEntries->GetNotificationEntries(), "Notifications");
-	}
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	//CvNotificationXMLEntries* pkNotificationEntries =  GC.GetNotificationEntries();
+	//if(pkNotificationEntries != NULL)
+	//{
+	//	PrefetchCollection(pkNotificationEntries->GetNotificationEntries(), "Notifications");
+	//}
+	PrefetchCollection(GC.GetNotificationInfo(), "Notifications");
 
 	//Technologies
 	PrefetchCollection(GC.getTechInfo(), "Technologies");

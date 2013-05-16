@@ -9,11 +9,11 @@
 #include "Database.h"
 #include <vector>
 
-class WoTCustomNotificationInfo
+class WoTNotificationInfo
 {
 public:
-	WoTCustomNotificationInfo();
-	~WoTCustomNotificationInfo();
+	WoTNotificationInfo();
+	~WoTNotificationInfo();
 
 	int GetID() const;
 	int GetWelcomeness() const;
@@ -31,6 +31,7 @@ public:
 	bool IsChecksKnown() const;
 	bool IsDisplaysUnitIcon() const;
 	bool IsDoubleCivNotification() const;
+	bool IsExpiresAtTurnEnd() const;
 
 	virtual bool CacheResults(Database::Results &kResults, CvDatabaseUtility& kUtility);
 
@@ -51,4 +52,6 @@ private:
 	bool m_bChecksKnown;
 	bool m_bDisplaysUnitIcon;
 	bool m_bDoubleCivNotification;
+	bool m_bUrgent;
+	bool m_bExpiresAtTurnEnd;
 };

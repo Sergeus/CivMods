@@ -117,7 +117,7 @@ class CvNetMessageHandler;
 // ----------------------------------------------------------------
 // WoTMod Addition - Custom Notifications
 // ----------------------------------------------------------------
-class WoTCustomNotificationInfo;
+class WoTNotificationInfo;
 
 class CvDLLInterfaceIFaceBase;
 class ICvDLLDatabaseUtility1;
@@ -310,9 +310,9 @@ public:
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Notifications
 	// ----------------------------------------------------------------
-	int GetNumNotificationCustomInfos();
-	std::vector<WoTCustomNotificationInfo*>& GetNotificationCustomInfo();
-	WoTCustomNotificationInfo* GetNotificationCustomInfo(int iNotificationCustomID);
+	int GetNumNotificationInfos();
+	std::vector<WoTNotificationInfo*>& GetNotificationInfo();
+	WoTNotificationInfo* GetNotificationInfo(int iNotificationID);
 
 	int& getNumPlayableCivilizationInfos();
 	int& getNumAIPlayableCivilizationInfos();
@@ -517,7 +517,10 @@ public:
 	std::vector<CvSmallAwardInfo*>& getSmallAwardInfo();
 	_Ret_maybenull_ CvSmallAwardInfo* getSmallAwardInfo(SmallAwardTypes eSmallAwardNum);
 
-	CvNotificationXMLEntries* GetNotificationEntries();
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	//CvNotificationXMLEntries* GetNotificationEntries();
 
 	//
 	// Global Types
@@ -7082,7 +7085,7 @@ protected:
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Notifications
 	// ----------------------------------------------------------------
-	std::vector<WoTCustomNotificationInfo*> m_pNotificationsCustom;
+	std::vector<WoTNotificationInfo*> m_pNotifications;
 
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;
 	CvCitySpecializationXMLEntries* m_pCitySpecializations;
@@ -7101,7 +7104,7 @@ protected:
 	CvTraitXMLEntries* m_pTraits;
 	CvReligionXMLEntries* m_pReligions;
 	CvBeliefXMLEntries* m_pBeliefs;
-	CvNotificationXMLEntries* m_pNotifications;
+	//CvNotificationXMLEntries* m_pNotifications;
 
 	//////////////////////////////////////////////////////////////////////////
 	// GLOBAL TYPES

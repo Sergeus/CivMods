@@ -750,11 +750,6 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(GetNotificationDismissed);
 	Method(AddNotification);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	Method(AddNotificationCustom);
-
 	Method(GetRecommendedWorkerPlots);
 	Method(GetRecommendedFoundCityPlots);
 	Method(GetUnimprovedAvailableLuxuryResource);
@@ -5859,31 +5854,6 @@ int CvLuaPlayer::lAddNotification(lua_State* L)
 		                                     lua_tointeger(L, 6),
 		                                     lua_tointeger(L, 7),
 		                                     iExtraData);
-	}
-	lua_pushinteger(L, notificationID);
-
-	return 1;
-}
-
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
-int CvLuaPlayer::lAddNotificationCustom(lua_State* L)
-{
-	CvPlayerAI* pkPlayer = GetInstance(L);
-	CvNotifications* pNotifications = pkPlayer->GetNotifications();
-	int notificationID = -1;
-	if (pNotifications)
-	{
-		int iExtraData = -1;
-		if (lua_gettop(L) >= 6)
-			iExtraData = lua_tointeger(L, 6);
-
-		notificationID = pNotifications->AddCustom(lua_tointeger(L, 2),
-													lua_tointeger(L, 3),
-													lua_tointeger(L, 4),
-													lua_tointeger(L, 5),
-													iExtraData);
 	}
 	lua_pushinteger(L, notificationID);
 
