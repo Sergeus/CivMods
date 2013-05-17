@@ -574,20 +574,20 @@ bool CvNotifications::GetEndTurnBlockedType(EndTurnBlockingTypes& eBlockingType,
 				break;
 
 			default:
+				// ----------------------------------------------------------------
+				// WoTMod Addition - Custom Notifications
+				// ----------------------------------------------------------------
+				WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(m_aNotifications[iIndex].m_eNotificationType);
+				if (pkInfo && pkInfo->IsBlocksEndTurn())
+				{
+					eBlockingType = ENDTURN_BLOCKING_CUSTOM;
+					iNotificationIndex = m_aNotifications[iIndex].m_iLookupIndex;
+					return true;
+				}
+
 				// these notifications don't block, so don't return a blocking type
 				break;
 			}
-		}
-
-		// ----------------------------------------------------------------
-		// WoTMod Addition - Custom Notifications
-		// ----------------------------------------------------------------
-		WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(m_aNotifications[iIndex].m_eNotificationType);
-		if (pkInfo && pkInfo->IsBlocksEndTurn())
-		{
-			eBlockingType = ENDTURN_BLOCKING_CUSTOM;
-			iNotificationIndex = m_aNotifications[iIndex].m_iLookupIndex;
-			return true;
 		}
 
 		iIndex++;
