@@ -876,13 +876,40 @@ void CvNotifications::Activate(Notification& notification)
 
 	default:	// Default behavior is to move the camera to the X,Y passed in
 	{
-		CvPlot* pPlot = GC.getMap().plot(notification.m_iX, notification.m_iY);
-		if(pPlot)
-		{
-			auto_ptr<ICvPlot1> pDllPlot = GC.WrapPlotPointer(pPlot);
+		// ----------------------------------------------------------------
+		// WoTMod Addition - Custom Notifications
+		// ----------------------------------------------------------------
+		WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(notification.m_eNotificationType);
 
-			gDLL->getInterfaceIFace()->lookAt(pDllPlot.get(), CAMERALOOKAT_NORMAL);
-			gDLL->GameplayDoFX(pDllPlot.get());
+		if ((pkInfo && pkInfo->IsPlaysFXOnPlot()) || !pkInfo)
+		{
+			CvPlot* pPlot = GC.getMap().plot(notification.m_iX, notification.m_iY);
+			if(pPlot)
+			{
+				auto_ptr<ICvPlot1> pDllPlot = GC.WrapPlotPointer(pPlot);
+
+				gDLL->getInterfaceIFace()->lookAt(pDllPlot.get(), CAMERALOOKAT_NORMAL);
+				gDLL->GameplayDoFX(pDllPlot.get());
+			}
+		}
+
+		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+		if (pkScriptSystem)
+		{
+			CvLuaArgsHandle args;
+
+			args->Push(notification.m_ePlayerID);
+			args->Push(notification.m_eNotificationType);
+			args->Push(notification.m_strMessage);
+			args->Push(notification.m_strSummary);
+			args->Push(notification.m_iX);
+			args->Push(notification.m_iY);
+			args->Push(notification.m_iGameDataIndex);
+			args->Push(notification.m_iExtraGameData);
+
+			bool bResult;
+			LuaSupport::CallHook(pkScriptSystem, "PlayerNotificationActivated", args.get(), bResult);
 		}
 	}
 	break;

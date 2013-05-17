@@ -438,6 +438,11 @@ int CvLuaEnums::pRegister(lua_State* L)
 	RegisterEnum(NOTIFICATION_LIBERATED_MAJOR_CITY);
 	RegisterEnum(NOTIFICATION_RESURRECTED_MAJOR_CIV);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	RegisterEnum(NOTIFICATION_WOT_CUSTOM);
+
 	RegisterEnum(NUM_NOTIFICATION_TYPES);
 	EnumEnd(L);
 
