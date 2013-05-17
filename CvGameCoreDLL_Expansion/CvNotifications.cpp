@@ -288,7 +288,13 @@ int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMes
 			gDLL->getInterfaceIFace()->AddNotification(newNotification.m_iLookupIndex, newNotification.m_eNotificationType, newNotification.m_strMessage.c_str(), newNotification.m_strSummary.c_str(), newNotification.m_iGameDataIndex, newNotification.m_iExtraGameData, m_ePlayer, iX, iY);
 
 			// Don't show effect with production notification
-			if(eNotificationType != NOTIFICATION_PRODUCTION)
+			// ----------------------------------------------------------------
+			// WoTMod Addition - Custom Notifications
+			// ----------------------------------------------------------------
+			if(eNotificationType != NOTIFICATION_PRODUCTION
+				// Play the animation if we have info and it says we should, or when we
+				// don't have info.
+				&& ((pkInfo && pkInfo->IsPlaysFXOnPlot()) || !pkInfo))
 			{
 				CvPlot* pPlot = GC.getMap().plot(iX, iY);
 				if(pPlot != NULL)
@@ -622,7 +628,10 @@ CvString CvNotifications::GetNotificationSummary(int iZeroBasedIndex)
 int CvNotifications::GetNotificationID(int iZeroBasedIndex)  // ignores begin/end values
 {
 	int iRealIndex = (m_iNotificationsBeginIndex + iZeroBasedIndex) % m_aNotifications.size();
-	return m_aNotifications[iRealIndex].m_iLookupIndex;
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	return m_aNotifications[iRealIndex].m_eNotificationType;
 }
 
 int CvNotifications::GetNotificationTurn(int iZeroBasedIndex)

@@ -529,6 +529,10 @@ protected:
 
 	static int lGetEndTurnBlockingType(lua_State* L);
 	static int lGetEndTurnBlockingNotificationIndex(lua_State* L);
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	static int lGetEndTurnBlockingNotificationID(lua_State* L);
 
 	static int lIsStrike(lua_State* L);
 

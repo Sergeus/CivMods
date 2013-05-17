@@ -859,6 +859,11 @@ int CvLuaEnums::pRegister(lua_State* L)
 	RegisterEnum(ENDTURN_BLOCKING_STEAL_TECH);
 	RegisterEnum(ENDTURN_BLOCKING_MAYA_LONG_COUNT);
 	RegisterEnum(ENDTURN_BLOCKING_FAITH_GREAT_PERSON);
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	RegisterEnum(ENDTURN_BLOCKING_CUSTOM);
+
 	RegisterEnum(NUM_ENDTURN_BLOCKING_TYPES);
 	EnumEnd(L);
 

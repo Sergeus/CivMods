@@ -24,6 +24,7 @@ public:
 	const char* GetSummary() const;
 	const char* GetIconAtlas() const;
 	const char* GetBlockMessage() const;
+	const char* GetBlockToolTip() const;
 	const char* GetUIContext() const;
 
 	bool IsBlocksEndTurn() const;
@@ -46,6 +47,7 @@ private:
 	CvString m_strSummary;
 	CvString m_strIconAtlas;
 	CvString m_strBlockMessage;
+	CvString m_strBlockToolTip;
 	CvString m_strUIContext;
 
 	bool m_bBlocksEndTurn;

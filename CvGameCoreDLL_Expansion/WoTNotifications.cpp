@@ -53,6 +53,7 @@ bool WoTNotificationInfo::CacheResults(Database::Results &kResults, CvDatabaseUt
 	m_strMessage = kResults.GetText("Message");
 	m_strSummary = kResults.GetText("Summary");
 	m_strBlockMessage = kResults.GetText("BlockMessage");
+	m_strBlockToolTip = kResults.GetText("BlockToolTip");
 	m_strUIContext = kResults.GetText("UIContext");
 
 	return true;
@@ -96,6 +97,11 @@ const char* WoTNotificationInfo::GetIconAtlas() const
 const char* WoTNotificationInfo::GetBlockMessage() const
 {
 	return m_strBlockMessage;
+}
+
+const char* WoTNotificationInfo::GetBlockToolTip() const
+{
+	return m_strBlockToolTip;
 }
 
 const char* WoTNotificationInfo::GetUIContext() const
