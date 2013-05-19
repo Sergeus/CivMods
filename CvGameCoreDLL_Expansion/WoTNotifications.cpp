@@ -13,10 +13,11 @@ WoTNotificationInfo::WoTNotificationInfo()
 	m_iWelcomeness(0),
 	m_iIconIndex(-1),
 	m_bBlocksEndTurn(false),
+	m_bLargeButton(false),
 	m_bMiniCivIcon(false),
 	m_bChecksKnown(false),
-	m_bDisplaysUnitIcon(false),
-	m_bDoubleCivNotification(false),
+	m_bUsesRuntimeIndex(false),
+	m_bDoubleCivIcon(false),
 	m_bUrgent(false),
 	m_bExpiresAtTurnEnd(true),
 	m_bPlaysFXOnPlot(true),
@@ -24,7 +25,10 @@ WoTNotificationInfo::WoTNotificationInfo()
 	m_strMessage(),
 	m_strSummary(),
 	m_strBlockMessage(),
-	m_strUIContext()
+	m_strUIContext(),
+	m_strCiv1Anchor(),
+	m_strCiv2Anchor(),
+	m_strExistingIconType()
 {
 
 }
@@ -39,12 +43,14 @@ bool WoTNotificationInfo::CacheResults(Database::Results &kResults, CvDatabaseUt
 	m_iID = kResults.GetInt("ID");
 	m_iWelcomeness = kResults.GetInt("Welcomeness");
 	m_iIconIndex = kResults.GetInt("IconIndex");
+	m_iIconSize = kResults.GetInt("IconSize");
 
 	m_bBlocksEndTurn = kResults.GetBool("BlocksEndTurn");
+	m_bLargeButton - kResults.GetBool("LargeButton");
 	m_bMiniCivIcon = kResults.GetBool("MiniCivIcon");
 	m_bChecksKnown = kResults.GetBool("ChecksKnown");
-	m_bDisplaysUnitIcon = kResults.GetBool("DisplaysUnitIcon");
-	m_bDoubleCivNotification = kResults.GetBool("DoubleCivNotification");
+	m_bUsesRuntimeIndex = kResults.GetBool("UsesRuntimeIndex");
+	m_bDoubleCivIcon = kResults.GetBool("DoubleCivIcon");
 	m_bUrgent = kResults.GetBool("Urgent");
 	m_bExpiresAtTurnEnd = kResults.GetBool("ExpiresAtTurnEnd");
 	m_bPlaysFXOnPlot = kResults.GetBool("PlaysFXOnPlot");
@@ -55,6 +61,9 @@ bool WoTNotificationInfo::CacheResults(Database::Results &kResults, CvDatabaseUt
 	m_strBlockMessage = kResults.GetText("BlockMessage");
 	m_strBlockToolTip = kResults.GetText("BlockToolTip");
 	m_strUIContext = kResults.GetText("UIContext");
+	m_strCiv1Anchor = kResults.GetText("Civ1Anchor");
+	m_strCiv2Anchor = kResults.GetText("Civ2Anchor");
+	m_strExistingIconType = kResults.GetText("ExistingIconType");
 
 	return true;
 }
@@ -72,6 +81,11 @@ int WoTNotificationInfo::GetWelcomeness() const
 int WoTNotificationInfo::GetIconIndex() const
 {
 	return m_iIconIndex;
+}
+
+int WoTNotificationInfo::GetIconSize() const
+{
+	return m_iIconSize;
 }
 
 const char* WoTNotificationInfo::GetType() const
@@ -109,9 +123,29 @@ const char* WoTNotificationInfo::GetUIContext() const
 	return m_strUIContext;
 }
 
+const char* WoTNotificationInfo::GetCiv1Anchor() const
+{
+	return m_strCiv1Anchor;
+}
+
+const char* WoTNotificationInfo::GetCiv2Anchor() const
+{
+	return m_strCiv2Anchor;
+}
+
+const char* WoTNotificationInfo::GetExistingIconType() const
+{
+	return m_strExistingIconType;
+}
+
 bool WoTNotificationInfo::IsBlocksEndTurn() const
 {
 	return m_bBlocksEndTurn;
+}
+
+bool WoTNotificationInfo::IsLargeButton() const
+{
+	return m_bLargeButton;
 }
 
 bool WoTNotificationInfo::IsMiniCivIcon() const
@@ -124,14 +158,14 @@ bool WoTNotificationInfo::IsChecksKnown() const
 	return m_bChecksKnown;
 }
 
-bool WoTNotificationInfo::IsDisplaysUnitIcon() const
+bool WoTNotificationInfo::IsUsesRuntimeIndex() const
 {
-	return m_bDisplaysUnitIcon;
+	return m_bUsesRuntimeIndex;
 }
 
-bool WoTNotificationInfo::IsDoubleCivNotification() const
+bool WoTNotificationInfo::IsDoubleCivIcon() const
 {
-	return m_bDoubleCivNotification;
+	return m_bDoubleCivIcon;
 }
 
 bool WoTNotificationInfo::IsExpiresAtTurnEnd() const
