@@ -90,6 +90,7 @@
     <ClCompile Include="CvProcessProductionAI.cpp" />
     <ClCompile Include="CvUnitCycler.cpp" />
     <ClCompile Include="WoTHornOfValere.cpp" />
+    <ClCompile Include="WoTNotifications.cpp" />
     <ClCompile Include="_precompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mod|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -434,6 +435,7 @@
     <ClInclude Include="CvDllVictoryInfo.h" />
     <ClInclude Include="CvDllWorldBuilderMapLoader.h" />
     <ClInclude Include="CvDllWorldInfo.h" />
+    <ClInclude Include="WoTNotifications.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CvGameCoreDLL.rc" />

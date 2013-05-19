@@ -438,6 +438,11 @@ int CvLuaEnums::pRegister(lua_State* L)
 	RegisterEnum(NOTIFICATION_LIBERATED_MAJOR_CITY);
 	RegisterEnum(NOTIFICATION_RESURRECTED_MAJOR_CIV);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	RegisterEnum(NOTIFICATION_WOT_CUSTOM);
+
 	RegisterEnum(NUM_NOTIFICATION_TYPES);
 	EnumEnd(L);
 
@@ -859,6 +864,11 @@ int CvLuaEnums::pRegister(lua_State* L)
 	RegisterEnum(ENDTURN_BLOCKING_STEAL_TECH);
 	RegisterEnum(ENDTURN_BLOCKING_MAYA_LONG_COUNT);
 	RegisterEnum(ENDTURN_BLOCKING_FAITH_GREAT_PERSON);
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	RegisterEnum(ENDTURN_BLOCKING_CUSTOM);
+
 	RegisterEnum(NUM_ENDTURN_BLOCKING_TYPES);
 	EnumEnd(L);
 

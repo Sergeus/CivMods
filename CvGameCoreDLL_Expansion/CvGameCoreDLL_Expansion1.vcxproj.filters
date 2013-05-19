@@ -488,6 +488,9 @@
     <ClCompile Include="WoTHornOfValere.cpp">
       <Filter>WoTSources</Filter>
     </ClCompile>
+    <ClCompile Include="WoTNotifications.cpp">
+      <Filter>WoTSources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CvAchievementUnlocker.h">
@@ -971,6 +974,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WoTHornOfValere.h">
+      <Filter>WoTHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="WoTNotifications.h">
       <Filter>WoTHeaders</Filter>
     </ClInclude>
   </ItemGroup>

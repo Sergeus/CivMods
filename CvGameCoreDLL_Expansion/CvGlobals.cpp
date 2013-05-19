@@ -32,6 +32,11 @@
 #include "CvReplayInfo.h"
 #include "CvTypes.h"
 
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Notifications
+// ----------------------------------------------------------------
+#include "WoTNotifications.h"
+
 #include "CvDllDatabaseUtility.h"
 #include "CvDllScriptSystemUtility.h"
 
@@ -1848,7 +1853,10 @@ void CvGlobals::init()
 	m_pTraits = FNEW(CvTraitXMLEntries, c_eCiv5GameplayDLL, 0);
 	m_pReligions = FNEW(CvReligionXMLEntries, c_eCiv5GameplayDLL, 0);
 	m_pBeliefs = FNEW(CvBeliefXMLEntries, c_eCiv5GameplayDLL, 0);
-	m_pNotifications = FNEW(CvNotificationXMLEntries, c_eCiv5GameplayDLL, 0);
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	//m_pNotifications = FNEW(CvNotificationXMLEntries, c_eCiv5GameplayDLL, 0);
 
 	auto_ptr<ICvDLLDatabaseUtility1> pkLoader(getDatabaseLoadUtility());
 
@@ -1904,7 +1912,10 @@ void CvGlobals::uninit()
 	SAFE_DELETE(m_pTraits);
 	SAFE_DELETE(m_pReligions);
 	SAFE_DELETE(m_pBeliefs);
-	SAFE_DELETE(m_pNotifications);
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	//SAFE_DELETE(m_pNotifications);
 
 	SAFE_DELETE(m_pImprovements); // player uses the improvement count in deallocating.
 	SAFE_DELETE(m_pTechs);        // improvements uses tech to deallocate. arrghh!
@@ -2402,6 +2413,29 @@ CvFeatureInfo* CvGlobals::getFeatureInfo(FeatureTypes eFeatureNum)
 	CvAssert(eFeatureNum < GC.getNumFeatureInfos());
 	if(eFeatureNum > -1 && eFeatureNum < (int)m_paFeatureInfo.size())
 		return m_paFeatureInfo[eFeatureNum];
+	else
+		return NULL;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Notifications
+// ----------------------------------------------------------------
+int CvGlobals::GetNumNotificationInfos()
+{
+	return m_pNotifications.size();
+}
+
+std::vector<WoTNotificationInfo*>& CvGlobals::GetNotificationInfo()
+{
+	return m_pNotifications;
+}
+
+WoTNotificationInfo* CvGlobals::GetNotificationInfo(int iNotificationID)
+{
+	CvAssert(iNotificationID > -1);
+	CvAssert(iNotificationID < GC.getNumNotificationsCustomInfos());
+	if (iNotificationID > -1 && iNotificationID < GetNumNotificationInfos())
+		return m_pNotifications[iNotificationID];
 	else
 		return NULL;
 }
@@ -3429,10 +3463,13 @@ void CvGlobals::LogMessage(const char* szMessage)
 	}
 }
 
-CvNotificationXMLEntries* CvGlobals::GetNotificationEntries()
-{
-	return m_pNotifications;
-}
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Notifications
+// ----------------------------------------------------------------
+//CvNotificationXMLEntries* CvGlobals::GetNotificationEntries()
+//{
+//	return m_pNotifications;
+//}
 
 CvString*& CvGlobals::getFootstepAudioTags()
 {

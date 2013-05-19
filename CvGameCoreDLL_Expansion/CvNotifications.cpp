@@ -13,6 +13,7 @@
 #include "ICvDLLUserInterface.h"
 #include "CvEnumSerialization.h"
 #include "CvDllPlot.h"
+#include "WoTNotifications.h"
 
 // Include this after all other headers.
 #include "LintFree.h"
@@ -225,12 +226,37 @@ int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMes
 	if(GC.getGame().isDebugMode())
 		return -1;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(eNotificationType);
+
 	Notification newNotification;
 	newNotification.Clear();
 	newNotification.m_ePlayerID = m_ePlayer;
 	newNotification.m_eNotificationType = eNotificationType;
-	newNotification.m_strMessage = strMessage;
-	newNotification.m_strSummary = strSummary;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	if (strMessage != NULL)
+	{
+		newNotification.m_strMessage = strMessage;
+	}
+	else
+	{
+		newNotification.m_strMessage = pkInfo->GetMessage();
+	}
+
+	if (strSummary != NULL)
+	{
+		newNotification.m_strSummary = strSummary;
+	}
+	else
+	{
+		newNotification.m_strSummary = pkInfo->GetSummary();
+	}
+
 	newNotification.m_iX = iX;
 	newNotification.m_iY = iY;
 	newNotification.m_iGameDataIndex = iGameDataIndex;
@@ -262,7 +288,13 @@ int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMes
 			gDLL->getInterfaceIFace()->AddNotification(newNotification.m_iLookupIndex, newNotification.m_eNotificationType, newNotification.m_strMessage.c_str(), newNotification.m_strSummary.c_str(), newNotification.m_iGameDataIndex, newNotification.m_iExtraGameData, m_ePlayer, iX, iY);
 
 			// Don't show effect with production notification
-			if(eNotificationType != NOTIFICATION_PRODUCTION)
+			// ----------------------------------------------------------------
+			// WoTMod Addition - Custom Notifications
+			// ----------------------------------------------------------------
+			if(eNotificationType != NOTIFICATION_PRODUCTION
+				// Play the animation if we have info and it says we should, or when we
+				// don't have info.
+				&& ((pkInfo && pkInfo->IsPlaysFXOnPlot()) || !pkInfo))
 			{
 				CvPlot* pPlot = GC.getMap().plot(iX, iY);
 				if(pPlot != NULL)
@@ -396,6 +428,28 @@ bool CvNotifications::MayUserDismiss(int iLookupIndex)
 				}
 
 			default:
+				// ----------------------------------------------------------------
+				// WoTMod Addition - Custom Notifications
+				// ----------------------------------------------------------------
+				ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+				if (pkScriptSystem)
+				{
+					CvLuaArgsHandle args;
+
+					args->Push(m_aNotifications[iIndex].m_ePlayerID);
+					args->Push(m_aNotifications[iIndex].m_eNotificationType);
+					args->Push(m_aNotifications[iIndex].m_iLookupIndex);
+
+					// default to true if there are no subscribers
+					bool bResult = true;
+					if (LuaSupport::CallTestAny(pkScriptSystem, "PlayerCanDismissNotification",
+						args.get(), bResult))
+					{
+						return bResult;
+					}
+				}
+
+
 				return true;
 				break;
 			}
@@ -520,6 +574,17 @@ bool CvNotifications::GetEndTurnBlockedType(EndTurnBlockingTypes& eBlockingType,
 				break;
 
 			default:
+				// ----------------------------------------------------------------
+				// WoTMod Addition - Custom Notifications
+				// ----------------------------------------------------------------
+				WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(m_aNotifications[iIndex].m_eNotificationType);
+				if (pkInfo && pkInfo->IsBlocksEndTurn())
+				{
+					eBlockingType = ENDTURN_BLOCKING_CUSTOM;
+					iNotificationIndex = m_aNotifications[iIndex].m_iLookupIndex;
+					return true;
+				}
+
 				// these notifications don't block, so don't return a blocking type
 				break;
 			}
@@ -563,7 +628,10 @@ CvString CvNotifications::GetNotificationSummary(int iZeroBasedIndex)
 int CvNotifications::GetNotificationID(int iZeroBasedIndex)  // ignores begin/end values
 {
 	int iRealIndex = (m_iNotificationsBeginIndex + iZeroBasedIndex) % m_aNotifications.size();
-	return m_aNotifications[iRealIndex].m_iLookupIndex;
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	return m_aNotifications[iRealIndex].m_eNotificationType;
 }
 
 int CvNotifications::GetNotificationTurn(int iZeroBasedIndex)
@@ -584,7 +652,7 @@ void CvNotifications::Activate(Notification& notification)
 	gDLL->getInterfaceIFace()->ActivateNotification(notification.m_iLookupIndex, notification.m_eNotificationType, notification.m_strMessage, notification.m_iX, notification.m_iY, notification.m_iGameDataIndex, notification.m_iExtraGameData, m_ePlayer);
 
 	gDLL->GameplayMinimapNotification(notification.m_iX, notification.m_iY, notification.m_iLookupIndex+1);	// The index is used to uniquely identify each flashing dot on the minimap. We're adding 1 since the selected unit is always 0. It ain't pretty, but it'll work
-
+	
 	switch(notification.m_eNotificationType)
 	{
 	case NOTIFICATION_WONDER_COMPLETED_ACTIVE_PLAYER:
@@ -808,13 +876,40 @@ void CvNotifications::Activate(Notification& notification)
 
 	default:	// Default behavior is to move the camera to the X,Y passed in
 	{
-		CvPlot* pPlot = GC.getMap().plot(notification.m_iX, notification.m_iY);
-		if(pPlot)
-		{
-			auto_ptr<ICvPlot1> pDllPlot = GC.WrapPlotPointer(pPlot);
+		// ----------------------------------------------------------------
+		// WoTMod Addition - Custom Notifications
+		// ----------------------------------------------------------------
+		WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(notification.m_eNotificationType);
 
-			gDLL->getInterfaceIFace()->lookAt(pDllPlot.get(), CAMERALOOKAT_NORMAL);
-			gDLL->GameplayDoFX(pDllPlot.get());
+		if ((pkInfo && pkInfo->IsPlaysFXOnPlot()) || !pkInfo)
+		{
+			CvPlot* pPlot = GC.getMap().plot(notification.m_iX, notification.m_iY);
+			if(pPlot)
+			{
+				auto_ptr<ICvPlot1> pDllPlot = GC.WrapPlotPointer(pPlot);
+
+				gDLL->getInterfaceIFace()->lookAt(pDllPlot.get(), CAMERALOOKAT_NORMAL);
+				gDLL->GameplayDoFX(pDllPlot.get());
+			}
+		}
+
+		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+		if (pkScriptSystem)
+		{
+			CvLuaArgsHandle args;
+
+			args->Push(notification.m_ePlayerID);
+			args->Push(notification.m_eNotificationType);
+			args->Push(notification.m_strMessage);
+			args->Push(notification.m_strSummary);
+			args->Push(notification.m_iX);
+			args->Push(notification.m_iY);
+			args->Push(notification.m_iGameDataIndex);
+			args->Push(notification.m_iExtraGameData);
+
+			bool bResult;
+			LuaSupport::CallHook(pkScriptSystem, "PlayerNotificationActivated", args.get(), bResult);
 		}
 	}
 	break;
@@ -1394,6 +1489,14 @@ bool CvNotifications::IsNotificationEndOfTurnExpired(int iIndex)
 		break;
 
 	default:
+		// ----------------------------------------------------------------
+		// WoTMod Addition - Custom Notifications
+		// ----------------------------------------------------------------
+		WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(m_aNotifications[iIndex].m_eNotificationType);
+		if (pkInfo != NULL)
+		{
+			return pkInfo->IsExpiresAtTurnEnd();
+		}
 		return true;
 		break;
 	}

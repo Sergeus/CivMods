@@ -682,6 +682,11 @@ enum NotificationTypes
 	NOTIFICATION_LIBERATED_MAJOR_CITY,
 	NOTIFICATION_RESURRECTED_MAJOR_CIV,
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	NOTIFICATION_WOT_CUSTOM,
+
 	NUM_NOTIFICATION_TYPES
 };
 //  !!!!!!!!!!!!!!!!!!!!!!! 
@@ -2352,6 +2357,10 @@ enum EndTurnBlockingTypes
 	ENDTURN_BLOCKING_STEAL_TECH,
 	ENDTURN_BLOCKING_MAYA_LONG_COUNT,
 	ENDTURN_BLOCKING_FAITH_GREAT_PERSON,
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	ENDTURN_BLOCKING_CUSTOM,
 
 	NUM_ENDTURN_BLOCKING_TYPES
 };

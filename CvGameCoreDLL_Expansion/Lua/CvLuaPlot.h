@@ -35,9 +35,6 @@ protected:
 	//! (LUA) CvPlot::CanHaveFeature.
 	static int lCanHaveFeature(lua_State* L);
 
-	//! (LUA) CvPlot::RefreshGraphics.
-	static int lRefreshGraphics(lua_State* L);
-
 	//! (LUA) CvPlot::GetFeatureType.
 	static int lGetFeatureType(lua_State* L);
 
