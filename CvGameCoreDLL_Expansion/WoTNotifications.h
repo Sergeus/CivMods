@@ -30,6 +30,7 @@ public:
 	const char* GetCiv1Anchor() const;
 	const char* GetCiv2Anchor() const;
 	const char* GetExistingIconType() const;
+	const char* GetUnknownMessage() const;
 
 	bool IsBlocksEndTurn() const;
 	bool IsLargeButton() const;
@@ -58,6 +59,7 @@ private:
 	CvString m_strCiv1Anchor;
 	CvString m_strCiv2Anchor;
 	CvString m_strExistingIconType;
+	CvString m_strUnknownMessage;
 
 	bool m_bBlocksEndTurn;
 	bool m_bLargeButton;

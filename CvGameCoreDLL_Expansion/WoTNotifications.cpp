@@ -28,7 +28,8 @@ WoTNotificationInfo::WoTNotificationInfo()
 	m_strUIContext(),
 	m_strCiv1Anchor(),
 	m_strCiv2Anchor(),
-	m_strExistingIconType()
+	m_strExistingIconType(),
+	m_strUnknownMessage()
 {
 
 }
@@ -64,6 +65,7 @@ bool WoTNotificationInfo::CacheResults(Database::Results &kResults, CvDatabaseUt
 	m_strCiv1Anchor = kResults.GetText("Civ1Anchor");
 	m_strCiv2Anchor = kResults.GetText("Civ2Anchor");
 	m_strExistingIconType = kResults.GetText("ExistingIconType");
+	m_strUnknownMessage = kResults.GetText("UnknownMessage");
 
 	return true;
 }
@@ -136,6 +138,11 @@ const char* WoTNotificationInfo::GetCiv2Anchor() const
 const char* WoTNotificationInfo::GetExistingIconType() const
 {
 	return m_strExistingIconType;
+}
+
+const char* WoTNotificationInfo::GetUnknownMessage() const
+{
+	return m_strUnknownMessage;
 }
 
 bool WoTNotificationInfo::IsBlocksEndTurn() const
