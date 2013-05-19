@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/19/2013 3:20:15 PM -->
+<GameData>
+	<Notifications>
+		<Row>
+			<Type>NOTIFICATION_HORN_OF_VALERE_DISCOVERED</Type>
+			<Message>TXT_KEY_HORN_DISCOVERED</Message>
+			<Summary>TXT_KEY_HORN_DISCOVERED_SUMMARY</Summary>
+			<ExistingIconType>ICON_TYPE_UNIT</ExistingIconType>
+		</Row>
+	</Notifications>
+</GameData>

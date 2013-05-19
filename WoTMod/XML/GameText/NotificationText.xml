@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/10/2013 9:32:46 PM -->
+<GameData>
+  <!-- TODO: Insert table creation example here. -->
+ 
+  <!-- TODO: Insert table data example here.-->
+  
+  <!-- Enter your Game Data here. -->
+	<Language_en_US>
+		<Row Tag="TXT_KEY_HORN_DISCOVERED">
+			<Text>Your {@1_UnitName} has discovered the Horn of Valere!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_HORN_DISCOVERED_SUMMARY">
+			<Text>Horn Of Valere Discovered</Text>
+		</Row>
+	</Language_en_US>
+</GameData>
