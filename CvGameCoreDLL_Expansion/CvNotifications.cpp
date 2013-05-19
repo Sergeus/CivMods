@@ -245,7 +245,7 @@ int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMes
 	}
 	else
 	{
-		newNotification.m_strMessage = pkInfo->GetMessage();
+		newNotification.m_strMessage = Localization::Lookup(pkInfo->GetMessage()).toUTF8();
 	}
 
 	if (strSummary != NULL)
@@ -254,7 +254,7 @@ int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMes
 	}
 	else
 	{
-		newNotification.m_strSummary = pkInfo->GetSummary();
+		newNotification.m_strSummary = Localization::Lookup(pkInfo->GetSummary()).toUTF8();
 	}
 
 	newNotification.m_iX = iX;
