@@ -414,7 +414,7 @@ function OnNotificationAdded( Id, type, toolTip, strSummary, iGameValue, iExtraG
 
 					index = 23
 					atlas = "CIV_COLOR_ATLAS"
-					toolTip = notificationInfo.UnknownMessage
+					toolTip = Locale.ConvertTextKey(notificationInfo.UnknownMessage)
 					instance.SmallCivFrame:SetHide(true)
 
 				-- Otherwise, we've met the Civ and can show their icon

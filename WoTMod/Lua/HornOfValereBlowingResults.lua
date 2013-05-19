@@ -77,6 +77,34 @@ function SpawnHeroes(pPlayer, tPlots, tHeroes)
 	end
 end
 
+-- Sends notifications to all other players that the parameter player/unit combo has blown the Horn of Valere
+function SendNotifications(pPlayer, pUnit)
+	local pTeam = Teams[pPlayer:GetTeam()]
+	local pOtherTeam
+
+	-- loop over all players
+	for id, pOtherPlayer in pairs(Players) do
+		-- don't need to tell the person who actually blew the horn
+		if (id ~= pPlayer:GetID()) then
+			pOtherTeam = Teams[pOtherPlayer:GetTeam()]
+
+			-- If this player can see the plot with the unit, then notify them of the exact unit that blew the Horn
+			if (pUnit:GetPlot():GetVisibilityCount(id) > 0) then
+				local message = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_KNOWN_UNIT", pPlayer:GetNameKey(), pUnit:GetNameKey())
+
+				pOtherPlayer:AddNotification(GameInfoTypes.NOTIFICATION_HORN_OF_VALERE_BLOWN, message, nil, pUnit:GetX(), pUnit:GetY(), 0, pPlayer:GetID())
+			-- Otherwise we just tell them which Civ has blown the horn, and don't move to the plot
+			else
+				local message = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_UNKNOWN_UNIT", pPlayer:GetNameKey())
+
+				pOtherPlayer:AddNotification(GameInfoTypes.NOTIFICATION_HORN_OF_VALERE_BLOWN, message, nil, -1, -1, 0, pPlayer:GetID())
+			end
+
+			-- If the players haven't met, the notification is replaced automatically
+		end
+	end
+end
+
 function ApplyHornOfValereEffects(playerID, unitID, iMission)
 	
 	if (iMission ~= GameInfoTypes.MISSION_BLOW_HORN_OF_VALERE) then
@@ -95,6 +123,8 @@ function ApplyHornOfValereEffects(playerID, unitID, iMission)
 	print("Resetting turns since Horn blown.")
 	Map.SetTurnsSinceHornBlown(0)
 	pUnit:SetMoves(0)
+
+	SendNotifications(pPlayer, pUnit)
 
 	return true
 end

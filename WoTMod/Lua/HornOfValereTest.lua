@@ -30,9 +30,9 @@ function testHornPlacement(playerID)
 
 		pPlot:SetFeatureType(GameInfoTypes.FEATURE_BLIGHT)
 
-		print("Refreshing graphics.")
+		--print("Refreshing graphics.")
 
-		pPlot:RefreshGraphics()
+		--pPlot:RefreshGraphics()
 
 		print("done!")
 	end

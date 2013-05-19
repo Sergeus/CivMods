@@ -9,6 +9,10 @@ function GiveHornPromotion(playerID, unitID)
 	pUnit = pPlayer:GetUnitByID(unitID)
 
 	pUnit:SetHasPromotion(GameInfoTypes.PROMOTION_HORN_BLOWER, true)
+
+	local message = Locale.ConvertTextKey("TXT_KEY_HORN_DISCOVERED", pUnit:GetNameKey())
+
+	pPlayer:AddNotification(GameInfoTypes.NOTIFICATION_HORN_OF_VALERE_DISCOVERED, message, nil, pUnit:GetX(), pUnit:GetY(), pUnit:GetUnitType())
 end
 
 function HornPromotionCaller(playerID, unitID)

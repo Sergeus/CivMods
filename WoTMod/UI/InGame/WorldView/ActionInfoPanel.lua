@@ -332,8 +332,8 @@ function OnEndTurnDirty()
 		--print("Custom blocking message")
 		local iNotifID = player:GetEndTurnBlockingNotificationID()
 		--print("Got ID " .. iNotifID)
-		strEndTurnMessage = GameInfo.Notifications[iNotifID].BlockMessage
-		strButtonToolTip = GameInfo.Notifications[iNotifID].BlockToolTip
+		strEndTurnMessage = Locale.ConvertTextKey(GameInfo.Notifications[iNotifID].BlockMessage)
+		strButtonToolTip = Locale.ConvertTextKey(GameInfo.Notifications[iNotifID].BlockToolTip)
 		buttonDisabled = false;
 
 	elseif (EndTurnBlockingType == EndTurnBlockingTypes.ENDTURN_BLOCKING_UNITS) then

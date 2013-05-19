@@ -13,5 +13,18 @@
 		<Row Tag="TXT_KEY_HORN_DISCOVERED_SUMMARY">
 			<Text>Horn Of Valere Discovered</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_KNOWN_UNIT">
+			<Text>{@1_LeaderName}'s {@2_UnitName} has blown the Horn of Valere!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_UNKNOWN_UNIT">
+			<Text>One of {@1_LeaderName}'s men has blown the Horn of Valere!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_UNKNOWN_OWNER">
+			<Text>The Horn of Valere has been blown in a far away land!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_SUMMARY">
+			<Text>Horn of Valere Blown</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
