@@ -1,0 +1,1 @@
+ALTER TABLE Features ADD ResourceArtTag text DEFAULT null;

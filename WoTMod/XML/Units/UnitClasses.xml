@@ -17,6 +17,11 @@
 			<Description>TXT_KEY_UNITCLASS_HORN_HERO</Description>
 			<DefaultUnit>UNIT_HERO_HORN_HAWKWING</DefaultUnit>
 		</Row>
+		<Row>
+			<Type>UNITCLASS_AES_SEDAI</Type>
+			<Description>TXT_KEY_UNITCLASS_AES_SEDAI</Description>
+			<DefaultUnit>UNIT_AES_SEDAI</DefaultUnit>
+		</Row>
 	</UnitClasses>
 	
 </GameData>

@@ -34,6 +34,34 @@
 		</Row>
 
 		<Row>
+			<Class>UNITCLASS_AES_SEDAI</Class>
+			<Type>UNIT_AES_SEDAI</Type>
+			<PrereqTech>TECH_ARCHERY</PrereqTech>
+			<Combat>15</Combat>
+			<RangedCombat>45</RangedCombat>
+			<Cost>25</Cost>
+			<Moves>2</Moves>
+			<Range>2</Range>
+			<CombatClass>UNITCOMBAT_SIEGE</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_AES_SEDAI</Description>
+			<Civilopedia>TXT_KEY_UNIT_AES_SEDAI_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_AES_SEDAI_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_AES_SEDAI_HELP</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<XPValueAttack>3</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<AdvancedStartCost>20</AdvancedStartCost>
+			<UnitArtInfo>ART_DEF_UNIT_AES_SEDAI</UnitArtInfo>
+			<UnitFlagIconOffset>1</UnitFlagIconOffset>
+			<PortraitIndex>0</PortraitIndex>
+			<IconAtlas>WOT_AES_SEDAI_ATLAS</IconAtlas>
+		</Row>
+
+		<Row>
 			<Class>UNITCLASS_HORN_HERO</Class>
 			<Type>UNIT_HORN_HERO_HAWKWING</Type>
 			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
@@ -114,6 +142,19 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_HORN_HERO_BIRGITTE_HELP">
 			<Text>[TOWRITE]Birgitte Silverbow help</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_UNIT_AES_SEDAI">
+			<Text>Aes Sedai</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_AES_SEDAI_PEDIA">
+			<Text>[TOWRITE] Aes Sedai pedia entry</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_AES_SEDAI_STRATEGY">
+			<Text>[TOWRITE] Aes Sedai strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_AES_SEDAI_HELP">
+			<Text>[TOWRITE] Aes Sedai help</Text>
 		</Row>
 		
 		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER">

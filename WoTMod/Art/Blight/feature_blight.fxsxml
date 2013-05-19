@@ -4,6 +4,4 @@
   <Animation file="Feature_Marsh_Worked.gr2" name="Worked" ec="101" source="Max" />
   <Texture file="Feature_Marsh.dds" source="Max" />
   <Texture file="Sunlight_America.dds" source="Max" />
-	<TimedTrigger file="FX_Triggers_Feature_Fallout.ftsxml" source="Tool" model="Feature_Marsh" state="0,1,2,3" />
-	<DecisionTree file="StaticLandmarkDecisionTree.ddtxml" source="Tool" />
 </Asset>
