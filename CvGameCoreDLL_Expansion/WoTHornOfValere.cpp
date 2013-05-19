@@ -189,11 +189,6 @@ void HornOfValere::FindHorn(CvUnit* pUnit)
 			bool bResult;
 			LuaSupport::CallHook(pkScriptSystem, "UnitDiscoveredHornOfValere", args.get(), bResult);
 		}
-
-		GET_PLAYER((PlayerTypes)pUnit->getOwner()).GetNotifications()->Add(NotificationTypes::NUM_NOTIFICATION_TYPES,
-			GetLocalizedText("TXT_KEY_HORN_DISCOVERED", pUnit->getNameKey()), 
-			GetLocalizedText("TXT_KEY_HORN_DISCOVERED", pUnit->getNameKey()),
-			pUnit->getX(), pUnit->getY(), pUnit->GetID(), pUnit->getOwner());
 	}
 }
 
