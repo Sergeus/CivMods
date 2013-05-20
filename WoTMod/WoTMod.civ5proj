@@ -180,6 +180,7 @@
     <Folder Include="XML" />
     <Folder Include="XML\HornOfValere" />
     <Folder Include="XML\GameText" />
+    <Folder Include="XML\Civilizations" />
     <Folder Include="XML\Notifications" />
     <Folder Include="XML\Terrain" />
     <Folder Include="XML\Units" />

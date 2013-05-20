@@ -23,3 +23,13 @@ function CanHornOfValereBlownBeDismissed(playerID, notificationID, notificationL
 	return false
 end
 GameEvents.PlayerCanDismissNotification.Add(CanHornOfValereBlownBeDismissed)
+
+function CanHornHeroDiedBeDismissed(playerID, notificationID, notificationLookupIndex)
+	-- You can always dismiss a Horn hero death notification
+	if (notificationID == GameInfoTypes.NOTIFICATION_HORN_HERO_DIED) then
+		return true
+	end
+
+	return false
+end
+GameEvents.PlayerCanDismissNotification.Add(CanHornHeroDiedBeDismissed)

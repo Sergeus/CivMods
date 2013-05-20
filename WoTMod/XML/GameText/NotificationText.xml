@@ -26,5 +26,12 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_SUMMARY">
 			<Text>Horn of Valere Blown</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_HORN_HERO_DIED">
+			<Text>{@1_HeroName} has been reclaimed by the Pattern!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_HORN_HERO_DIED_SUMMARY">
+			<Text>Hero pulled from the Pattern</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
