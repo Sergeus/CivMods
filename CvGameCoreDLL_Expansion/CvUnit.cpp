@@ -19089,11 +19089,20 @@ void CvUnit::DoTurnDamage()
 		if(getDamage() >= GC.getMAX_HIT_POINTS())
 		{
 			CvString strBuffer;
+			Localization::String strSummary;
 			CvNotifications* pNotification = GET_PLAYER(getOwner()).GetNotifications();
 			if(pNotification)
 			{
-				strBuffer = GetLocalizedText("TXT_KEY_MISC_YOU_UNIT_WAS_DESTROYED_ATTRITION", getNameKey());
-				Localization::String strSummary = Localization::Lookup("TXT_KEY_UNIT_LOST");
+				if (isHasPromotion((PromotionTypes)GC.getPROMOTION_HORN_HERO_DECAY()))
+				{
+					strBuffer = GetLocalizedText("TXT_KEY_NOTIFICATION_HORN_HERO_DIED", getNameKey());
+					strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_HORN_HERO_DIED_SUMMARY");
+				}
+				else
+				{
+					strBuffer = GetLocalizedText("TXT_KEY_MISC_YOU_UNIT_WAS_DESTROYED_ATTRITION", getNameKey());
+					strSummary = Localization::Lookup("TXT_KEY_UNIT_LOST");
+				}
 				pNotification->Add(NOTIFICATION_UNIT_DIED, strBuffer, strSummary.toUTF8(), getX(), getY(), (int)getUnitType(), getOwner());
 			}
 		}

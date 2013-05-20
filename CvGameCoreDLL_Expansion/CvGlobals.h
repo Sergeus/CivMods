@@ -6773,6 +6773,14 @@ public:
 	{
 		return m_iPROMOTION_UNWELCOME_EVANGELIST;
 	}
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	inline int getPROMOTION_HORN_HERO_DECAY()
+	{
+		return m_iPROMOTION_HORN_HERO_DECAY;
+	}
+
 	inline int getCOMBAT_CAPTURE_HEALTH()
 	{
 		return m_iCOMBAT_CAPTURE_HEALTH;
@@ -8723,6 +8731,11 @@ protected:
 	int m_iWALLS_BUILDINGCLASS;
 	int m_iPROMOTION_ONLY_DEFENSIVE;
 	int m_iPROMOTION_UNWELCOME_EVANGELIST;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int m_iPROMOTION_HORN_HERO_DECAY;
 
 	// DLL interface
 	ICvEngineUtility2* m_pDLL;

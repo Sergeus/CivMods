@@ -1662,6 +1662,11 @@ CvGlobals::CvGlobals() :
 	m_iWALLS_BUILDINGCLASS(-1),
 	m_iPROMOTION_ONLY_DEFENSIVE(-1),
 	m_iPROMOTION_UNWELCOME_EVANGELIST(-1),
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_iPROMOTION_HORN_HERO_DECAY(-1),
+
 	m_iRELIGION_MIN_FAITH_FIRST_PANTHEON(0),
 	m_iRELIGION_MIN_FAITH_FIRST_PROPHET(0),
 	m_iRELIGION_MIN_FAITH_FIRST_GREAT_PERSON(0),
@@ -5217,6 +5222,11 @@ void CvGlobals::cacheGlobals()
 	m_iPROMOTION_ALLWATER_EMBARKATION = getDefineINT("PROMOTION_ALLWATER_EMBARKATION");
 	m_iPROMOTION_OCEAN_IMPASSABLE_UNTIL_ASTRONOMY = getDefineINT("PROMOTION_OCEAN_IMPASSABLE_UNTIL_ASTRONOMY");
 	m_iPROMOTION_OCEAN_IMPASSABLE = getDefineINT("PROMOTION_OCEAN_IMPASSABLE");
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_iPROMOTION_HORN_HERO_DECAY = getDefineINT("PROMOTION_HORN_HERO_DECAY");
+
 	m_iAI_HANDICAP = getDefineINT("AI_HANDICAP");
 	m_iBARBARIAN_CAMP_IMPROVEMENT = getDefineINT("BARBARIAN_CAMP_IMPROVEMENT");
 	m_iWALLS_BUILDINGCLASS = getDefineINT("WALLS_BUILDINGCLASS");
