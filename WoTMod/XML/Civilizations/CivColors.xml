@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/22/2013 11:25:49 PM -->
+<GameData>
+	<Colors>
+		<Row>
+			<Type>COLOR_ILLIAN_GREEN</Type>
+			<Red>0.224</Red>
+			<Green>0.608</Green>
+			<Blue>0.149</Blue>
+			<Alpha>1</Alpha>
+		</Row>
+		<Row>
+			<Type>COLOR_ILLIAN_YELLOW</Type>
+			<Red>1</Red>
+			<Green>1</Green>
+			<Blue>0</Blue>
+			<Alpha>1</Alpha>
+		</Row>
+	</Colors>
+	<PlayerColors>
+		<Row>
+			<Type>PLAYERCOLOR_ILLIAN</Type>
+			<PrimaryColor>COLOR_ILLIAN_YELLOW</PrimaryColor>
+			<SecondaryColor>COLOR_ILLIAN_GREEN</SecondaryColor>
+			<TextColor>COLOR_PLAYER_GREEN_TEXT</TextColor>
+		</Row>
+	</PlayerColors>
+</GameData>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/22/2013 11:24:04 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Leader: Mattin Stepaneos, of Illian-->
+		<Row Tag="TXT_KEY_LEADER_STEPANEOS">
+			<Text>Mattin Stepaneos</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_STEPANEOS_PEDIA">
+			<Text>[TOWRITE] Stepaneos pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_STEPANEOS">
+			<Text>[TOWRITE] Stepaneos pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_STEPANEOS_LIVED">
+			<Text>[TOWRITE] dates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_STEPANEOS_NAME">
+			<Text>Mattin Stepaneos den Balgar</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_STEPANEOS_SUBTITLE">
+			<Text>King of Illian</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

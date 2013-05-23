@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/22/2013 11:19:18 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Civilization: Illian -->
+		<Row Tag="TXT_KEY_CIV_ILLIAN_ADJECTIVE">
+			<Text>Illianer</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_ILLIAN_DESC">
+			<Text>Illian Empire</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_ILLIAN_SHORT_DESC">
+			<Text>Illian</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ILLIAN_PEDIA_TAG">
+			<Text>[TOWRITE] Illian pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_ILLIAN_TEXT">
+			<Text>[TOWRITE] Illian DoM</Text>
+		</Row>
+		
+		<!-- Illian City Names-->
+		<Row Tag="TXT_KEY_CITY_NAME_ILLIAN">
+			<Text>Illian</Text>
+		</Row>
+	</Language_en_US>
+</GameData>
