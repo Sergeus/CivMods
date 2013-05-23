@@ -6780,6 +6780,18 @@ public:
 	{
 		return m_iPROMOTION_HORN_HERO_DECAY;
 	}
+	inline int getSHADOW_CIVILIZATION()
+	{
+		return m_iSHADOW_CIVILIZATION;
+	}
+	inline int getSHADOW_HANDICAP()
+	{
+		return m_iSHADOW_HANDICAP;
+	}
+	inline int getSHADOW_LEADER()
+	{
+		return m_iSHADOW_LEADER;
+	}
 
 	inline int getCOMBAT_CAPTURE_HEALTH()
 	{
@@ -8736,6 +8748,9 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	int m_iPROMOTION_HORN_HERO_DECAY;
+	int m_iSHADOW_CIVILIZATION;
+	int m_iSHADOW_HANDICAP;
+	int m_iSHADOW_LEADER;
 
 	// DLL interface
 	ICvEngineUtility2* m_pDLL;

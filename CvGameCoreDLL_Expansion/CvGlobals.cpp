@@ -1666,6 +1666,9 @@ CvGlobals::CvGlobals() :
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_iPROMOTION_HORN_HERO_DECAY(-1),
+	m_iSHADOW_CIVILIZATION(37),
+	m_iSHADOW_HANDICAP(1),
+	m_iSHADOW_LEADER(-1),
 
 	m_iRELIGION_MIN_FAITH_FIRST_PANTHEON(0),
 	m_iRELIGION_MIN_FAITH_FIRST_PROPHET(0),
@@ -5226,6 +5229,9 @@ void CvGlobals::cacheGlobals()
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_iPROMOTION_HORN_HERO_DECAY = getDefineINT("PROMOTION_HORN_HERO_DECAY");
+	m_iSHADOW_CIVILIZATION = getDefineINT("SHADOW_CIVILIZATION");
+	m_iSHADOW_HANDICAP = getDefineINT("SHADOW_HANDICAP");
+	m_iSHADOW_LEADER = getDefineINT("SHADOW_LEADER");
 
 	m_iAI_HANDICAP = getDefineINT("AI_HANDICAP");
 	m_iBARBARIAN_CAMP_IMPROVEMENT = getDefineINT("BARBARIAN_CAMP_IMPROVEMENT");

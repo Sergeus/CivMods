@@ -91,6 +91,7 @@
     <ClCompile Include="CvUnitCycler.cpp" />
     <ClCompile Include="WoTHornOfValere.cpp" />
     <ClCompile Include="WoTNotifications.cpp" />
+    <ClCompile Include="WoTShadowspawn.cpp" />
     <ClCompile Include="_precompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mod|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -436,6 +437,7 @@
     <ClInclude Include="CvDllWorldBuilderMapLoader.h" />
     <ClInclude Include="CvDllWorldInfo.h" />
     <ClInclude Include="WoTNotifications.h" />
+    <ClInclude Include="WoTShadowspawn.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CvGameCoreDLL.rc" />

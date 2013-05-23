@@ -22581,3 +22581,11 @@ void CvPlayer::GatherPerTurnReplayStats(int iGameTurn)
 		setReplayDataValue(getReplayDataSetIndex("REPLAYDATASET_MILITARYMIGHT"), iGameTurn, GetMilitaryMight());
 	}
 }
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+bool CvPlayer::IsShadowspawn() const
+{
+	return (GetID() == SHADOW_PLAYER);
+}

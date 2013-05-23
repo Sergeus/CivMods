@@ -19144,6 +19144,13 @@ void CvUnit::ChangeHealBlocked(int iValue)
 	}
 }
 
+bool CvUnit::IsShadowspawn() const
+{
+	VALIDATE_OBJECT
+
+	return GET_PLAYER(getOwner()).IsShadowspawn();
+}
+
 //	--------------------------------------------------------------------------------
 DestructionNotification<UnitHandle>& CvUnit::getDestructionNotification()
 {

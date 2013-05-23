@@ -1164,6 +1164,7 @@ public:
 	void ChangeHealBlocked(int iNewValue);
 	int GetHealBlockedCount() const;
 	bool IsHealBlocked() const;
+	bool IsShadowspawn() const;
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------

@@ -1387,6 +1387,11 @@ public:
 
 	CvPlayerAchievements& GetPlayerAchievements(){return m_kPlayerAchievements;}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsShadowspawn() const;
+
 protected:
 	class ConqueredByBoolField
 	{

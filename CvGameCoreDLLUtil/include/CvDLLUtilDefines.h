@@ -29,6 +29,11 @@
 #define MAX_TEAMS											(MAX_PLAYERS)
 #define BARBARIAN_PLAYER									((PlayerTypes)MAX_CIV_PLAYERS)
 #define BARBARIAN_TEAM										((TeamTypes)MAX_CIV_TEAMS)
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+#define SHADOW_PLAYER										((PlayerTypes)(MAX_CIV_PLAYERS - 1))
+#define SHADOW_TEAM											((TeamTypes)(MAX_CIV_TEAMS - 1))
 
 #define MAX_DAMAGE_MEMBER_COUNT								32
 #define CVHEADER_VERSIONING_STARTED							7		/// The version of CvSavedGameHeader where we added versions to CvPreGame data.

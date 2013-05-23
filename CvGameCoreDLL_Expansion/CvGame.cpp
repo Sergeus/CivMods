@@ -509,6 +509,11 @@ void CvGame::InitPlayers()
 	CivilizationTypes eBarbCiv = (CivilizationTypes)GC.getBARBARIAN_CIVILIZATION();
 	CivilizationTypes eMinorCiv = (CivilizationTypes)GC.getMINOR_CIVILIZATION();
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	CivilizationTypes eShadowCiv = (CivilizationTypes)GC.getSHADOW_CIVILIZATION();
+
 	CvCivilizationInfo* pBarbarianCivilizationInfo = GC.getCivilizationInfo(eBarbCiv);
 	int barbarianPlayerColor = pBarbarianCivilizationInfo->getDefaultPlayerColor();
 
@@ -574,6 +579,23 @@ void CvGame::InitPlayers()
 			CvPreGame::setLeaderHead(BARBARIAN_PLAYER, (LeaderHeadTypes)GC.getBARBARIAN_LEADER());
 			CvPreGame::setPlayerColor(BARBARIAN_PLAYER, ((PlayerColorTypes)barbarianPlayerColor));
 			CvPreGame::setMinorCiv(BARBARIAN_PLAYER, false);
+		}
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		// init shadowspawn slot
+		else if (iI == SHADOW_PLAYER)
+		{
+			CvCivilizationInfo* pShadowInfo = GC.getCivilizationInfo(eShadowCiv);
+
+			CvPreGame::setTeamType(SHADOW_PLAYER, SHADOW_TEAM);
+			CvPreGame::setSlotStatus(SHADOW_PLAYER, SS_COMPUTER);
+			CvPreGame::setNetID(SHADOW_PLAYER, -1);
+			CvPreGame::setHandicap(SHADOW_PLAYER, (HandicapTypes)GC.getSHADOW_HANDICAP());
+			CvPreGame::setCivilization(SHADOW_PLAYER, eShadowCiv);
+			CvPreGame::setLeaderHead(SHADOW_PLAYER, (LeaderHeadTypes)GC.getSHADOW_LEADER());
+			CvPreGame::setPlayerColor(SHADOW_PLAYER, (PlayerColorTypes)pShadowInfo->getDefaultPlayerColor());
+			CvPreGame::setMinorCiv(SHADOW_PLAYER, false);
 		}
 		// Major Civs
 		else if(iI < MAX_MAJOR_CIVS)

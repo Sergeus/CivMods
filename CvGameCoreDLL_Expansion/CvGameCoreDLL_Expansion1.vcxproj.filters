@@ -491,6 +491,9 @@
     <ClCompile Include="WoTNotifications.cpp">
       <Filter>WoTSources</Filter>
     </ClCompile>
+    <ClCompile Include="WoTShadowspawn.cpp">
+      <Filter>WoTSources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CvAchievementUnlocker.h">
@@ -977,6 +980,9 @@
       <Filter>WoTHeaders</Filter>
     </ClInclude>
     <ClInclude Include="WoTNotifications.h">
+      <Filter>WoTHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="WoTShadowspawn.h">
       <Filter>WoTHeaders</Filter>
     </ClInclude>
   </ItemGroup>
