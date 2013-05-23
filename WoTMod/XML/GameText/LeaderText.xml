@@ -21,5 +21,13 @@
 		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_STEPANEOS_SUBTITLE">
 			<Text>King of Illian</Text>
 		</Row>
+		
+		<!-- Leader: Dark One, of the Shadowspawn -->
+		<Row Tag="TXT_KEY_LEADER_DARK_ONE">
+			<Text>The Dark One</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_DARK_ONE_PEDIA">
+			<Text>[TOWRITE] Dark One pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

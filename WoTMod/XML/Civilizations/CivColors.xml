@@ -24,5 +24,11 @@
 			<SecondaryColor>COLOR_ILLIAN_GREEN</SecondaryColor>
 			<TextColor>COLOR_PLAYER_GREEN_TEXT</TextColor>
 		</Row>
+		<Row>
+			<Type>PLAYERCOLOR_SHADOWSPAWN</Type>
+			<PrimaryColor>COLOR_RED</PrimaryColor>
+			<SecondaryColor>COLOR_BLACK</SecondaryColor>
+			<TextColor>COLOR_PLAYER_BLACK_TEXT</TextColor>
+		</Row>
 	</PlayerColors>
 </GameData>

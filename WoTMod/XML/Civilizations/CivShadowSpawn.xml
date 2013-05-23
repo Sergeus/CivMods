@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/23/2013 9:57:12 PM -->
+<GameData>
+	<Civilizations>
+		<Row>
+			<Type>CIVILIZATION_SHADOWSPAWN</Type>
+			<Description>TXT_KEY_CIV_SHADOWSPAWN_DESC</Description>
+			<ShortDescription>TXT_KEY_CIV_SHADOWSPAWN_SHORT_DESC</ShortDescription>
+			<Adjective>TXT_KEY_CIV_SHADOWSPAWN_ADJECTIVE</Adjective>
+			<DefaultPlayerColor>PLAYERCOLOR_SHADOWSPAWN</DefaultPlayerColor>
+			<ArtDefineTag>ART_DEF_CIVILIZATION_BARBARIAN</ArtDefineTag>
+			<ArtStyleType>ARTSTYLE_BARBARIAN</ArtStyleType>
+			<Playable>false</Playable>
+			<AIPlayable>false</AIPlayable>
+		</Row>
+	</Civilizations>
+	<Civilization_Leaders>
+		<Row>
+			<CivilizationType>CIVILIZATION_SHADOWSPAWN</CivilizationType>
+			<LeaderheadType>LEADER_DARK_ONE</LeaderheadType>
+		</Row>
+	</Civilization_Leaders>
+</GameData>

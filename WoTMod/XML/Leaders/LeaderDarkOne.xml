@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/23/2013 10:11:23 PM -->
+<GameData>
+	<Leaders>
+		<Row>
+			<Type>LEADER_DARK_ONE</Type>
+			<Description>TXT_KEY_LEADER_DARK_ONE</Description>
+			<Civilopedia>TXT_KEY_LEADER_DARK_ONE_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_LEADER_BARBARIAN</ArtDefineTag>
+			<VictoryCompetitiveness>0</VictoryCompetitiveness>
+			<WonderCompetitiveness>0</WonderCompetitiveness>
+			<MinorCivCompetitiveness>0</MinorCivCompetitiveness>
+			<Boldness>0</Boldness>
+			<DiploBalance>0</DiploBalance>
+			<WarmongerHate>0</WarmongerHate>
+			<DenounceWillingness>0</DenounceWillingness>
+			<DoFWillingness>0</DoFWillingness>
+			<Loyalty>0</Loyalty>
+			<Neediness>0</Neediness>
+			<Forgiveness>0</Forgiveness>
+			<Chattiness>0</Chattiness>
+			<Meanness>0</Meanness>
+		</Row>
+	</Leaders>
+</GameData>

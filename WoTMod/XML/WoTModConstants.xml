@@ -23,6 +23,14 @@
 			<Type>HORN_OF_VALERE_NUMBER_HEROES</Type>
 			<Value>4</Value>
 		</Row>
+		<Row>
+			<Type>SHADOWSPAWN_MINIMUM_SPAWN_DELAY</Type>
+			<Value>0</Value>
+		</Row>
+		<Row>
+			<Type>SHADOWSPAWN_SPAWN_RATE</Type>
+			<Value>5</Value>
+		</Row>
 	</WoTModConstants>
   
   <!-- Enter your Game Data here. -->

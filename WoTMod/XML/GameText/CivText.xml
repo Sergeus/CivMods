@@ -26,5 +26,16 @@
 		<Row Tag="TXT_KEY_CITY_NAME_ILLIAN">
 			<Text>Illian</Text>
 		</Row>
+		
+		<!-- Civilization: Shadowspawn -->
+		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_DESC">
+			<Text>Shadowspawn Legions</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_SHORT_DESC">
+			<Text>Shadowspawn</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_ADJECTIVE">
+			<Text>ShadowSpawn</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
