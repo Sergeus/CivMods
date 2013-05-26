@@ -169,6 +169,8 @@ void WoTShadowspawn::DoUnits()
 		if (m_aiPlotShadowspawnSpawnCounter[i] == 0)
 		{
 			SpawnShadowspawnUnit(GC.getMap().plotByIndex(i));
+
+			m_aiPlotShadowspawnSpawnCounter[i] = GetSpawnCounter(GC.getMap().plotByIndex(i));
 		}
 	}
 }
@@ -204,7 +206,7 @@ UnitTypes WoTShadowspawn::GetRandomShadowSpawnUnitType()
 		if (eUnit != NO_UNIT)
 		{
 			// TODO actual choosing
-			CUSTOMLOG("Shadowspawn random unit selection has picked: %i", eUnit);
+			CUSTOMLOG("Shadowspawn random unit selection has picked unit with ID %i", eUnit);
 			return eUnit;
 		}
 	}
