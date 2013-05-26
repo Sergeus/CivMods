@@ -9,6 +9,7 @@
 #include "WoTShadowspawn.h"
 #include "CvPlot.h"
 #include "Database.h"
+#include "CustomLog.h"
 
 int WoTShadowspawn::m_iSpawnDelay = -1;
 int WoTShadowspawn::m_iSpawnRate = -1;
@@ -30,7 +31,7 @@ void WoTShadowspawn::Init()
 	for (int i = 0; i < GC.getNumFeatureInfos(); i++)
 	{
 		CvFeatureInfo* loopFeature = GC.getFeatureInfo((FeatureTypes)i);
-		if (strcmp(loopFeature->GetType(), "FEATURE_BLIGHT"))
+		if (strcmp(loopFeature->GetType(), "FEATURE_BLIGHT") == 0)
 		{
 			blightFeature = loopFeature;
 			m_eBlightFeatureType = (FeatureTypes)i;
@@ -178,12 +179,16 @@ void WoTShadowspawn::SpawnShadowspawnUnit(CvPlot* pPlot)
 
 	UnitTypes eUnit = GetRandomShadowSpawnUnitType();
 
+	CUSTOMLOG("Placing unit %i at %i, %i.", eUnit, pPlot->getX(), pPlot->getY());
+
 	kShadowPlayer.initUnit(eUnit, pPlot->getX(), pPlot->getY(), UNITAI_FAST_ATTACK);
 }
 
 UnitTypes WoTShadowspawn::GetRandomShadowSpawnUnitType()
 {
 	CvPlayerAI& kShadowPlayer = GET_PLAYER(SHADOW_PLAYER);
+
+	CUSTOMLOG("Choosing random shadowspawn unit.");
 
 	int iNumShadowUnitClasses = m_aeShadowspawnUnitClasses.size();
 	for (int i = 0; i < iNumShadowUnitClasses; i++)
@@ -199,6 +204,7 @@ UnitTypes WoTShadowspawn::GetRandomShadowSpawnUnitType()
 		if (eUnit != NO_UNIT)
 		{
 			// TODO actual choosing
+			CUSTOMLOG("Shadowspawn random unit selection has picked: %i", eUnit);
 			return eUnit;
 		}
 	}
@@ -276,14 +282,18 @@ void WoTShadowspawn::CacheShadowspawnUnitClasses()
 		{
 			const char* szUnitClass = kResults.GetText(0);
 
+			CUSTOMLOG("Discovered shadowspawn unit class: %s", szUnitClass);
+
 			for (int iUnitClassLoop = 0; iUnitClassLoop < GC.getNumUnitClassInfos(); iUnitClassLoop++)
 			{
 				UnitClassTypes eUnitClass = (UnitClassTypes)iUnitClassLoop;
 
 				CvUnitClassInfo* pClassInfo = GC.getUnitClassInfo(eUnitClass);
 
-				if (strcmp(pClassInfo->GetType(), szUnitClass))
+				if (strcmp(pClassInfo->GetType(), szUnitClass) == 0)
 				{
+					CUSTOMLOG("Shadowspawn cache now contains class %s with unit ID %i.", pClassInfo->GetType(), eUnitClass);
+
 					m_aeShadowspawnUnitClasses.push_back(eUnitClass);
 				}
 			}

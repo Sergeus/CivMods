@@ -985,6 +985,9 @@
     <ClInclude Include="WoTShadowspawn.h">
       <Filter>WoTHeaders</Filter>
     </ClInclude>
+    <ClInclude Include="CustomLog.h">
+      <Filter>WoTHeaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CvGameCoreDLL.rc" />

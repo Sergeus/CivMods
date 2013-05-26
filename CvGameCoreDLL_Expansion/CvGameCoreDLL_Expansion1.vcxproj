@@ -275,6 +275,7 @@
     <ClCompile Include="CvDllWorldInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CustomLog.h" />
     <ClInclude Include="CvAchievementUnlocker.h" />
     <ClInclude Include="CvAdvisorCounsel.h" />
     <ClInclude Include="CvAdvisorRecommender.h" />
