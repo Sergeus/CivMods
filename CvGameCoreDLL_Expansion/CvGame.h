@@ -560,6 +560,11 @@ public:
 
 	CombatPredictionTypes GetCombatPrediction(const CvUnit* pAttackingUnit, const CvUnit* pDefendingUnit);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	void DoShadowSpawnUnit(int iX, int iY);
+
 public:
 
 	//Function to determine city size from city population

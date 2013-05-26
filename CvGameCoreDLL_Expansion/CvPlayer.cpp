@@ -491,7 +491,10 @@ void CvPlayer::init(PlayerTypes eID)
 
 		if(GC.getGame().isOption(GAMEOPTION_RANDOM_PERSONALITIES))
 		{
-			if(!isBarbarian() && !isMinorCiv())
+			// ----------------------------------------------------------------
+			// WoTMod Addition
+			// ----------------------------------------------------------------
+			if(!isBarbarian() && !isMinorCiv() && !IsShadowspawn())
 			{
 				iBestValue = 0;
 				eBestPersonality = NO_LEADER;
@@ -1079,7 +1082,11 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall)
 		if(p != NO_PLAYER)
 		{
 			SlotStatus s = CvPreGame::slotStatus(p);
-			if((s == SS_TAKEN || s == SS_COMPUTER) && !isBarbarian())
+			// ----------------------------------------------------------------
+			// WoTMod Addition
+			// ----------------------------------------------------------------
+			if((s == SS_TAKEN || s == SS_COMPUTER) && !isBarbarian()
+				&& !IsShadowspawn())
 			{
 				m_pFlavorManager->AddFlavorRecipient(m_pPlayerTechs);
 				m_pFlavorManager->AddFlavorRecipient(m_pPlayerPolicies);
@@ -3684,7 +3691,10 @@ void CvPlayer::doTurn()
 	bool bHasActiveDiploRequest = false;
 	if(isAlive())
 	{
-		if(!isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(!isBarbarian() && !IsShadowspawn())
 		{
 			if(!isMinorCiv())
 			{
@@ -3746,7 +3756,10 @@ void CvPlayer::doTurnPostDiplomacy()
 			m_pDangerPlots->UpdateDanger();
 		}
 
-		if(!isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(!isBarbarian() && !IsShadowspawn())
 		{
 			GetEconomicAI()->DoTurn();
 			GetMilitaryAI()->DoTurn();
@@ -5787,7 +5800,10 @@ void CvPlayer::doGoody(CvPlot* pPlot, CvUnit* pUnit)
 
 	CvAssertMsg(pPlot->isGoody(), "pPlot->isGoody is expected to be true");
 
-	if(!isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!isBarbarian() && !IsShadowspawn())
 	{
 		m_bEverPoppedGoody = true;
 		pPlot->removeGoody();
@@ -5852,7 +5868,11 @@ bool CvPlayer::canFound(int iX, int iY, bool bTestVisible) const
 	pPlot = GC.getMap().plot(iX, iY);
 
 	// Has the AI agreed to not settle here?
-	if(!isMinorCiv() && !isBarbarian())
+	if(!isMinorCiv() && !isBarbarian()
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+		&& !IsShadowspawn())
 	{
 		if(pPlot->IsNoSettling(GetID()))
 			return false;
@@ -6545,6 +6565,14 @@ bool CvPlayer::canCreate(ProjectTypes eProject, bool bContinue, bool bTestVisibl
 		return false;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (IsShadowspawn())
+	{
+		return false;
+	}
+
 	// If cost is -1 then that means it can't be built
 	if(pProjectInfo.GetProductionCost() == -1)
 	{
@@ -6879,7 +6907,10 @@ int CvPlayer::getProductionNeeded(UnitTypes eUnit) const
 	iProductionNeeded *= GC.getGame().getStartEraInfo().getTrainPercent();
 	iProductionNeeded /= 100;
 
-	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() && !IsShadowspawn())
 	{
 		if(isWorldUnitClass(eUnitClass))
 		{
@@ -6972,7 +7003,10 @@ int CvPlayer::getProductionNeeded(BuildingTypes eBuilding) const
 		}
 	}
 
-	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() && !IsShadowspawn())
 	{
 		if(isWorldWonderClass(pkBuildingInfo->GetBuildingClassInfo()))
 		{
@@ -7015,7 +7049,10 @@ int CvPlayer::getProductionNeeded(ProjectTypes eProject) const
 	iProductionNeeded *= GC.getGame().getStartEraInfo().getCreatePercent();
 	iProductionNeeded /= 100;
 
-	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() && !IsShadowspawn())
 	{
 		if(isWorldProject(eProject))
 		{
@@ -10831,7 +10868,10 @@ void CvPlayer::DoProcessGoldenAge()
 	}
 
 	// Minors and Barbs can't get GAs
-	if(!isMinorCiv() && !isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!isMinorCiv() && !isBarbarian() && !IsShadowspawn())
 	{
 		// Already in a GA - don't decrement counter while in Anarchy
 		if(getGoldenAgeTurns() > 0)
@@ -13179,7 +13219,10 @@ void CvPlayer::setCombatExperience(int iExperience)
 		m_iCombatExperience = iExperience;
 
 		// Enough XP for a Great General to appear?
-		if(!isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(!isBarbarian() && !IsShadowspawn())
 		{
 			int iExperienceThreshold = greatGeneralThreshold();
 			if(m_iCombatExperience >= iExperienceThreshold && iExperienceThreshold > 0)
@@ -13555,7 +13598,10 @@ void CvPlayer::setAlive(bool bNewValue, bool bNotify)
 
 			gDLL->closeSlot(GetID());
 
-			if(bNotify && !isBarbarian())
+			// ----------------------------------------------------------------
+			// WoTMod Addition
+			// ----------------------------------------------------------------
+			if(bNotify && !isBarbarian() && !IsShadowspawn())
 			{
 				Localization::String strMessage = Localization::Lookup("TXT_KEY_MISC_CIV_DESTROYED");
 				strMessage << getCivilizationAdjectiveKey();
@@ -13603,7 +13649,10 @@ void CvPlayer::verifyAlive()
 
 		if(!bKill)
 		{
-			if(!isBarbarian())
+			// ----------------------------------------------------------------
+			// WoTMod Addition
+			// ----------------------------------------------------------------
+			if(!isBarbarian() && !IsShadowspawn())
 			{
 				if(getNumCities() == 0 && getAdvancedStartPoints() < 0)
 				{
@@ -13620,7 +13669,10 @@ void CvPlayer::verifyAlive()
 
 		if(!bKill)
 		{
-			if(!isBarbarian())
+			// ----------------------------------------------------------------
+			// WoTMod Addition
+			// ----------------------------------------------------------------
+			if(!isBarbarian() && !IsShadowspawn())
 			{
 				if(GC.getGame().getMaxCityElimination() > 0)
 				{
@@ -19977,7 +20029,11 @@ void CvPlayer::Read(FDataStream& kStream)
 	if(GetID() != NO_PLAYER)
 	{
 		SlotStatus s = CvPreGame::slotStatus(GetID());
-		if((s == SS_TAKEN || s == SS_COMPUTER) && !isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if((s == SS_TAKEN || s == SS_COMPUTER) && !isBarbarian()
+			&& !IsShadowspawn())
 		{
 			m_pFlavorManager->AddFlavorRecipient(m_pPlayerTechs,        false /*bPropogateFlavors*/);
 			m_pFlavorManager->AddFlavorRecipient(m_pPlayerPolicies,     false /*bPropogateFlavors*/);
@@ -21052,7 +21108,10 @@ int CvPlayer::getGrowthThreshold(int iPopulation) const
 	iThreshold *= GC.getGame().getStartEraInfo().getGrowthPercent();
 	iThreshold /= 100;
 
-	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() && !IsShadowspawn())
 	{
 		iThreshold *= GC.getGame().getHandicapInfo().getAIGrowthPercent();
 		iThreshold /= 100;

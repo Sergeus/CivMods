@@ -3654,6 +3654,14 @@ bool CvPlot::IsFriendlyTerritory(PlayerTypes ePlayer) const
 		return false;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (GET_PLAYER(ePlayer).IsShadowspawn())
+	{
+		return false;
+	}
+
 	TeamTypes eTeam = GET_PLAYER(ePlayer).getTeam();
 	TeamTypes ePlotOwner = getTeam();
 

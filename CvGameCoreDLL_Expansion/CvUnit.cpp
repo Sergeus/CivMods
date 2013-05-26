@@ -1136,7 +1136,10 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer /*= NO_PLAYER*/)
 	// If a player killed this Unit...
 	if(ePlayer != NO_PLAYER)
 	{
-		if(!isBarbarian() && !GET_PLAYER(ePlayer).isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(!isBarbarian() && !GET_PLAYER(ePlayer).isBarbarian() && !IsShadowspawn())
 		{
 			// Notify Diplo AI that damage has been done
 			// Best unit that can be built now is given value of 100
@@ -2666,6 +2669,12 @@ bool CvUnit::IsAngerFreeUnit() const
 
 	// We don't care about other Minors or the Barbs
 	if(GET_PLAYER(getOwner()).isBarbarian())
+		return true;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (GET_PLAYER(getOwner()).IsShadowspawn())
 		return true;
 
 	return false;
@@ -8309,7 +8318,10 @@ int CvUnit::workRate(bool bMax, BuildTypes /*eBuild*/) const
 	iRate *= std::max(0, (kPlayer.getWorkerSpeedModifier() + 100));
 	iRate /= 100;
 
-	if(!kPlayer.isHuman() && !kPlayer.IsAITeammateOfHuman() && !kPlayer.isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!kPlayer.isHuman() && !kPlayer.IsAITeammateOfHuman() && !kPlayer.isBarbarian() && !kPlayer.IsShadowspawn())
 	{
 		iRate *= std::max(0, (GC.getGame().getHandicapInfo().getAIWorkRateModifier() + 100));
 		iRate /= 100;

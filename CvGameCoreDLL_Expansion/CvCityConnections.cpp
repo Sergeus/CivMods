@@ -163,6 +163,14 @@ void CvCityConnections::Update(void)
 		return;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (m_pPlayer->IsShadowspawn())
+	{
+		return;
+	}
+
 	UpdatePlotRouteStates();
 	UpdateCityPlotIDs();
 	UpdateRouteInfo();
@@ -180,7 +188,10 @@ void CvCityConnections::UpdateCityPlotIDs(void)
 	for(uint ui = 0; ui < MAX_CIV_PLAYERS; ui++)
 	{
 		PlayerTypes ePlayer = (PlayerTypes)ui;
-		if(GET_PLAYER(ePlayer).isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(GET_PLAYER(ePlayer).isBarbarian() || GET_PLAYER(ePlayer).IsShadowspawn())
 		{
 			continue;
 		}
@@ -257,7 +268,10 @@ void CvCityConnections::UpdateRouteInfo(void)
 	for(uint ui = 0; ui < MAX_CIV_PLAYERS; ui++)
 	{
 		PlayerTypes ePlayer = (PlayerTypes)ui;
-		if(GET_PLAYER(ePlayer).isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(GET_PLAYER(ePlayer).isBarbarian() || GET_PLAYER(ePlayer).IsShadowspawn())
 		{
 			continue;
 		}
@@ -532,6 +546,14 @@ bool CvCityConnections::ShouldConnectToOtherPlayer(PlayerTypes eOtherPlayer)
 	}
 
 	if(GET_PLAYER(eOtherPlayer).isBarbarian())
+	{
+		return false;
+	}
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (GET_PLAYER(eOtherPlayer).IsShadowspawn())
 	{
 		return false;
 	}

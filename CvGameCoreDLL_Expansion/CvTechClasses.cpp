@@ -621,7 +621,10 @@ void CvPlayerTechs::Reset()
 	}
 
 	// Tweak tech priorities to recognize unique properties of this civ
-	if(!m_pPlayer->isMinorCiv() && !m_pPlayer->isBarbarian() && m_pPlayer->getCivilizationType() != NO_CIVILIZATION)
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!m_pPlayer->isMinorCiv() && !m_pPlayer->isBarbarian() && !m_pPlayer->IsShadowspawn() && m_pPlayer->getCivilizationType() != NO_CIVILIZATION)
 	{
 		CvCivilizationInfo* pkInfo = GC.getCivilizationInfo(m_pPlayer->getCivilizationType());
 		if(pkInfo)

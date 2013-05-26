@@ -10057,7 +10057,11 @@ bool CvTacticalAI::IsHighPriorityCivilianTarget(CvTacticalTarget* pTarget)
 					bRtnValue = true;
 				}
 			}
-			if(!bRtnValue && m_pPlayer->isBarbarian())
+			// ----------------------------------------------------------------
+			// WoTMod Addition
+			// ----------------------------------------------------------------
+			if(!bRtnValue && m_pPlayer->isBarbarian()
+				|| m_pPlayer->IsShadowspawn())
 			{
 				bRtnValue = true; //always high priority for barbs
 			}

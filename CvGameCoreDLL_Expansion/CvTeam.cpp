@@ -2279,6 +2279,14 @@ bool CvTeam::isMinorCiv() const
 	return bValid;
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+bool CvTeam::IsShadowSpawn() const
+{
+	return (m_eID == SHADOW_TEAM);
+}
+
 //	--------------------------------------------------------------------------------
 /// The number of Minor Civs this player has declared war on
 int CvTeam::GetNumMinorCivsAttacked() const
@@ -5395,7 +5403,11 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 			}
 
 			// espionage logic. Whenever someone gains a tech, reset the stealable techs for all other leaders
-			if(!GET_PLAYER(ePlayer).isMinorCiv() && !GET_PLAYER(ePlayer).isBarbarian())
+			if(!GET_PLAYER(ePlayer).isMinorCiv() && !GET_PLAYER(ePlayer).isBarbarian()
+					// ----------------------------------------------------------------
+					// WoTMod Addition
+					// ----------------------------------------------------------------
+					&& !GET_PLAYER(ePlayer).IsShadowspawn())
 			{
 				CvPlayerEspionage* pEspionage = GET_PLAYER(ePlayer).GetEspionage();
 				if(pEspionage)
@@ -6230,7 +6242,11 @@ void CvTeam::SetCurrentEra(EraTypes eNewValue)
 				{
 					ePlayer = (PlayerTypes) iPlayerLoop;
 					CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
-					if(kPlayer.isAlive() && kPlayer.getTeam() == GetID() && !kPlayer.isMinorCiv() && !kPlayer.isBarbarian())
+					// ----------------------------------------------------------------
+					// WoTMod Addition
+					// ----------------------------------------------------------------
+					if(kPlayer.isAlive() && kPlayer.getTeam() == GetID() && !kPlayer.isMinorCiv() && !kPlayer.isBarbarian()
+						&& !kPlayer.IsShadowspawn())
 					{
 						// provide the player with the extra spies according to their trait when they get their first spy
 						if (kPlayer.GetEspionage()->GetNumSpies() == 0)
@@ -6260,7 +6276,11 @@ void CvTeam::SetCurrentEra(EraTypes eNewValue)
 				{
 					ePlayer = (PlayerTypes) iPlayerLoop;
 					CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
-					if (kPlayer.isEverAlive() && !kPlayer.isBarbarian() && !kPlayer.isMinorCiv())
+					// ----------------------------------------------------------------
+					// WoTMod Addition
+					// ----------------------------------------------------------------
+					if (kPlayer.isEverAlive() && !kPlayer.isBarbarian() && !kPlayer.isMinorCiv()
+						&& !kPlayer.IsShadowspawn())
 					{
 						eTeam = kPlayer.getTeam();
 
@@ -6278,7 +6298,11 @@ void CvTeam::SetCurrentEra(EraTypes eNewValue)
 					{
 						ePlayer = (PlayerTypes) iPlayerLoop;
 						CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
-						if(!kPlayer.isAlive() || kPlayer.isBarbarian() || kPlayer.isMinorCiv())
+						// ----------------------------------------------------------------
+						// WoTMod Addition
+						// ----------------------------------------------------------------
+						if(!kPlayer.isAlive() || kPlayer.isBarbarian() || kPlayer.isMinorCiv()
+							|| kPlayer.IsShadowspawn())
 						{
 							continue;
 						}

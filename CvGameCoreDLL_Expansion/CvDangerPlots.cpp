@@ -461,7 +461,11 @@ bool CvDangerPlots::IsDangerByRelationshipZero(PlayerTypes ePlayer, CvPlot* pPlo
 bool CvDangerPlots::ShouldIgnorePlayer(PlayerTypes ePlayer)
 {
 	// if the player is a minor and they're dealing with a major
-	if(GET_PLAYER(m_ePlayer).isMinorCiv() != GET_PLAYER(ePlayer).isMinorCiv() && !GET_PLAYER(ePlayer).isBarbarian() && !GET_PLAYER(m_ePlayer).isBarbarian())
+	if(GET_PLAYER(m_ePlayer).isMinorCiv() != GET_PLAYER(ePlayer).isMinorCiv() && !GET_PLAYER(ePlayer).isBarbarian() && !GET_PLAYER(m_ePlayer).isBarbarian()
+					// ----------------------------------------------------------------
+					// WoTMod Addition
+					// ----------------------------------------------------------------
+					&& !GET_PLAYER(m_ePlayer).IsShadowspawn() && !GET_PLAYER(ePlayer).IsShadowspawn())
 	{
 		CvPlayer* pMinor = NULL;
 		CvPlayer* pMajor;

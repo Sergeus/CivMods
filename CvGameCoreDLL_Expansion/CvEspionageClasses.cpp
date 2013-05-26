@@ -4179,7 +4179,11 @@ struct PlayerAndTechTurnEval
 void CvEspionageAI::DoTurn()
 {
 	// no humans, minor civs, or barbarians allowed!
-	if(m_pPlayer->isHuman() || m_pPlayer->isMinorCiv() || m_pPlayer->isBarbarian())
+	if(m_pPlayer->isHuman() || m_pPlayer->isMinorCiv() || m_pPlayer->isBarbarian()
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+		|| m_pPlayer->IsShadowspawn())
 	{
 		return;
 	}

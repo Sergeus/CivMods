@@ -130,6 +130,14 @@ void CvPlayerAI::AI_doTurnPost()
 		return;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (IsShadowspawn())
+	{
+		return;
+	}
+
 	for(int i = 0; i < GC.getNumVictoryInfos(); ++i)
 	{
 		AI_launch((VictoryTypes)i);

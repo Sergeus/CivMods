@@ -94,6 +94,11 @@ public:
 	bool isBarbarian() const;
 	bool isMinorCiv() const;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsShadowSpawn() const;
+
 	int GetNumMinorCivsAttacked() const;
 	void SetNumMinorCivsAttacked(int iValue);
 	void ChangeNumMinorCivsAttacked(int iChange);

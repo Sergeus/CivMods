@@ -155,7 +155,10 @@ void CvFlavorManager::Init(CvPlayer* pPlayer)
 	if(p != NO_PLAYER)
 	{
 		SlotStatus s = CvPreGame::slotStatus(p);
-		if((s == SS_TAKEN || s == SS_COMPUTER) && !pPlayer->isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if((s == SS_TAKEN || s == SS_COMPUTER) && !pPlayer->isBarbarian() && !pPlayer->IsShadowspawn())
 		{
 			// Copy over leaderhead defaults unless human
 			if(!pPlayer->isHuman())

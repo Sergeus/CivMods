@@ -562,7 +562,11 @@ int CvTreasury::CalculateUnitSupply(int& iPaidUnits, int& iBaseSupplyCost)
 	iSupply *= playerHandicap.getUnitCostPercent();
 	iSupply /= 100;
 
-	if(!m_pPlayer->isHuman() && !m_pPlayer->IsAITeammateOfHuman() && !m_pPlayer->isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!m_pPlayer->isHuman() && !m_pPlayer->IsAITeammateOfHuman() && !m_pPlayer->isBarbarian()
+		&& !m_pPlayer->IsShadowspawn())
 	{
 		//iSupply *= gameHandicap->getAIUnitSupplyPercent();	// This is no longer valid
 		//iSupply /= 100;
@@ -639,7 +643,11 @@ int CvTreasury::CalculateInflationRate()
 
 	int iModifier = 0;
 
-	if(!m_pPlayer->isHuman() && !m_pPlayer->isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!m_pPlayer->isHuman() && !m_pPlayer->isBarbarian()
+		&& !m_pPlayer->IsShadowspawn())
 	{
 		int iAIModifier = gameHandicap.getAIInflationPercent();
 		iAIModifier *= std::max(0, ((gameHandicap.getAIPerEraModifier() * m_pPlayer->GetCurrentEra()) + 100));

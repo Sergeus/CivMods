@@ -341,6 +341,11 @@ protected:
 	static int lGetTurnsUntilMinorCivElection(lua_State* L);
 
 	static int lIsProcessingMessages(lua_State* L);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	static int lDoShadowspawnSpawnUnit(lua_State* L);
 };
 
 #endif //CVLUAGAME_H
