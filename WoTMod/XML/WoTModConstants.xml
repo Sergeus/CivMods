@@ -31,6 +31,10 @@
 			<Type>SHADOWSPAWN_SPAWN_RATE</Type>
 			<Value>5</Value>
 		</Row>
+		<Row>
+			<Type>SHADOWSPAWN_SPAWN_VARIANCE</Type>
+			<Value>30</Value>
+		</Row>
 	</WoTModConstants>
   
   <!-- Enter your Game Data here. -->

@@ -210,6 +210,21 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Defines.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Shadowspawn/ShadowSpawnUnitClasses.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Shadowspawn/ShadowspawnUnits.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Shadowspawn/ShadowspawnText.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -244,6 +259,7 @@
     <Folder Include="XML\GameText" />
     <Folder Include="XML\Civilizations" />
     <Folder Include="XML\Leaders" />
+    <Folder Include="XML\Shadowspawn" />
     <Folder Include="XML\Traits" />
     <Folder Include="XML\Notifications" />
     <Folder Include="XML\Terrain" />
@@ -475,6 +491,22 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Promotions.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Shadowspawn\ShadowspawnText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Shadowspawn\ShadowSpawnUnitClasses.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Shadowspawn\ShadowspawnUnits.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Shadowspawn\ShadowSpawnUsableUnitClasses.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

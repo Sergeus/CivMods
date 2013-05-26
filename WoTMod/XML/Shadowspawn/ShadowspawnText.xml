@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/26/2013 4:57:53 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Unit: Darkhound -->
+		<Row Tag="TXT_KEY_UNIT_DARKHOUND">
+			<Text>Darkhound</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DARKHOUND_PEDIA">
+			<Text>[TOWRITE] Darkhound pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DARKHOUND_STRATEGY">
+			<Text>[TOWRITE] Darkhound strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DARKHOUND_HELP">
+			<Text>[TOWRITE] Darkhound help</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

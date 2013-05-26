@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/26/2013 4:55:36 PM -->
+<GameData>
+	<Units>
+		<Row>
+			<Class>UNITCLASS_DARKHOUND</Class>
+			<Type>UNIT_DARKHOUND</Type>
+			<PrereqTech>TECH_ARCHERY</PrereqTech>
+			<Combat>1</Combat>
+			<Cost>-1</Cost>
+			<Moves>2</Moves>
+			<CombatClass>UNITCOMBAT_RECON</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_DARKHOUND</Description>
+			<Civilopedia>TXT_KEY_UNIT_DARKHOUND_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_DARKHOUND_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_DARKHOUND_HELP</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<XPValueAttack>3</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<AdvancedStartCost>20</AdvancedStartCost>
+			<UnitArtInfo>ART_DEF_UNIT_SCOUT</UnitArtInfo>
+			<UnitFlagIconOffset>1</UnitFlagIconOffset>
+			<PortraitIndex>1</PortraitIndex>
+			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
+		</Row>
+	</Units>
+</GameData>

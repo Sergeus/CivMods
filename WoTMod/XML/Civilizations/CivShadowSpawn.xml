@@ -20,4 +20,11 @@
 			<LeaderheadType>LEADER_DARK_ONE</LeaderheadType>
 		</Row>
 	</Civilization_Leaders>
+	<Civilization_UnitClassOverrides>
+		<Row>
+			<CivilizationType>CIVILIZATION_SHADOWSPAWN</CivilizationType>
+			<UnitClassType>UNITCLASS_DARKHOUND</UnitClassType>
+			<UnitType>UNIT_DARKHOUND</UnitType>
+		</Row>
+	</Civilization_UnitClassOverrides>
 </GameData>
