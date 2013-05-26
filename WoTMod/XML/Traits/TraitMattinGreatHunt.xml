@@ -17,11 +17,6 @@
 	<Trait_FreePromotionUnitCombats>
 		<Row>
 			<TraitType>TRAIT_GREAT_HUNT</TraitType>
-			<UnitCombatType>UNITCOMBAT_NAVAL</UnitCombatType>
-			<PromotionType>PROMOTION_HORN_HUNTER</PromotionType>
-		</Row>
-		<Row>
-			<TraitType>TRAIT_GREAT_HUNT</TraitType>
 			<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
 			<PromotionType>PROMOTION_HORN_HUNTER</PromotionType>
 		</Row>
