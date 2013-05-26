@@ -225,6 +225,16 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Shadowspawn/ShadowspawnText.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Shadowspawn/ShadowSpawnUsableUnitClasses.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Icons/Darkhound/DarkhoundIconAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -248,7 +258,10 @@
     <Folder Include="Art\Aes Sedai" />
     <Folder Include="Art\Civilizations" />
     <Folder Include="Art\Leaders" />
+    <Folder Include="Art\Units" />
     <Folder Include="Art\Notifications" />
+    <Folder Include="Art\Units\Icons" />
+    <Folder Include="Art\Units\Icons\Darkhound" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
     <Folder Include="UI" />
@@ -385,6 +398,26 @@
     <Content Include="Art\Notifications\CustomLargeNotificationGlow.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Darkhound\Darkhound128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Darkhound\Darkhound256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Darkhound\Darkhound45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Darkhound\Darkhound64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Darkhound\DarkhoundIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="CvGameCore_Expansion1.dll">
       <SubType>Lua</SubType>

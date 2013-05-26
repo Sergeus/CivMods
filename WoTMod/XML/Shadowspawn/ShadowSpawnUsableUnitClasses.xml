@@ -9,5 +9,26 @@
 		<Row>
 			<UnitClassType>UNITCLASS_DARKHOUND</UnitClassType>
 		</Row>
+		<Row>
+			<UnitClassType>UNITCLASS_TROLLOC</UnitClassType>
+		</Row>
+		<Row>
+			<UnitClassType>UNITCLASS_DRAGHKAR</UnitClassType>
+		</Row>
+		<Row>
+			<UnitClassType>UNITCLASS_MYRDDRAAL</UnitClassType>
+		</Row>
+		<Row>
+			<UnitClassType>UNITCLASS_GREY_MAN</UnitClassType>
+		</Row>
+		<Row>
+			<UnitClassType>UNITCLASS_DREADLORD</UnitClassType>
+		</Row>
+		<Row>
+			<UnitClassType>UNITCLASS_GHOLAM</UnitClassType>
+		</Row>
+		<Row>
+			<UnitClassType>UNITCLASS_FORSAKEN</UnitClassType>
+		</Row>
 	</ShadowspawnUnitClasses>
 </GameData>
