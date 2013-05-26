@@ -12,15 +12,16 @@
 
 int WoTShadowspawn::m_iSpawnDelay = -1;
 int WoTShadowspawn::m_iSpawnRate = -1;
+int WoTShadowspawn::m_iSpawnVariance = -1;
 int WoTShadowspawn::m_iNumBlightPlots = -1;
-int* WoTShadowspawn::m_aiBlightPlots = NULL;
+FeatureTypes WoTShadowspawn::m_eBlightFeatureType = FeatureTypes::NO_FEATURE;
+short* WoTShadowspawn::m_aiPlotShadowspawnSpawnCounter = NULL;
+short* WoTShadowspawn::m_aiPlotShadowspawnNumUnitsSpawned = NULL;
+std::vector<UnitClassTypes> WoTShadowspawn::m_aeShadowspawnUnitClasses = std::vector<UnitClassTypes>();
 
 void WoTShadowspawn::Init()
 {
-	if (m_aiBlightPlots != NULL)
-	{
-		SAFE_DELETE_ARRAY(m_aiBlightPlots);
-	}
+	Uninit();
 
 	int numPlots = GC.getMap().numPlots();
 
@@ -42,29 +43,15 @@ void WoTShadowspawn::Init()
 		return;
 	}
 
-	// Count all plots with Blight on them
-	CvPlot* pkLoopPlot;
-	for (int i = 0; i < numPlots; i++)
-	{
-		pkLoopPlot = GC.getMap().plotByIndexUnchecked(i);
-		if (pkLoopPlot->getFeatureType() == blightFeature->GetID())
-		{
-			m_iNumBlightPlots++;
-		}
-	}
+	int iNumWorldPlots = GC.getMap().numPlots();
 
-	// Create an array to deal with all current blight plots
-	m_aiBlightPlots = FNEW(int[m_iNumBlightPlots], c_eCiv5GameplayDLL, 0);
+	m_aiPlotShadowspawnSpawnCounter = FNEW(short[iNumWorldPlots], c_eCiv5GameplayDLL, 0);
+	m_aiPlotShadowspawnNumUnitsSpawned = FNEW(short[iNumWorldPlots], c_eCiv5GameplayDLL, 0);
 
-	int plotsAdded = 0;
-	for (int i = 0; i < numPlots; i++)
+	for (int i = 0; i < iNumWorldPlots; i++)
 	{
-		pkLoopPlot = GC.getMap().plotByIndexUnchecked(i);
-		if (pkLoopPlot->getFeatureType() == blightFeature->GetID())
-		{
-			m_aiBlightPlots[plotsAdded] = i;
-			plotsAdded++;
-		}
+		m_aiPlotShadowspawnSpawnCounter[i] = GetSpawnCounter(GC.getMap().plotByIndexUnchecked(i));
+		m_aiPlotShadowspawnNumUnitsSpawned[i] = 0;
 	}
 
 	Database::Results kResults;
@@ -83,11 +70,22 @@ void WoTShadowspawn::Init()
 			m_iSpawnRate = kResults.GetInt(0);
 		}
 	}
+
+	if (GC.GetGameDatabase()->Execute(kResults, "SELECT Value FROM WoTModConstants WHERE Type='SHADOWSPAWN_SPAWN_VARIANCE'"))
+	{
+		if (kResults.Step())
+		{
+			m_iSpawnVariance = kResults.GetInt(0);
+		}
+	}
+
+	CacheShadowspawnUnitClasses();
 }
 
 void WoTShadowspawn::Uninit()
 {
-	SAFE_DELETE_ARRAY(m_aiBlightPlots);
+	SAFE_DELETE_ARRAY(m_aiPlotShadowspawnSpawnCounter);
+	SAFE_DELETE_ARRAY(m_aiPlotShadowspawnNumUnitsSpawned);
 }
 
 void WoTShadowspawn::Read(FDataStream& kStream)
@@ -97,6 +95,7 @@ void WoTShadowspawn::Read(FDataStream& kStream)
 
 	kStream >> m_iSpawnDelay;
 	kStream >> m_iSpawnRate;
+	kStream >> m_iSpawnVariance;
 
 	int iNumWorldPlots = GC.getMap().numPlots();
 
@@ -108,6 +107,7 @@ void WoTShadowspawn::Write(FDataStream& kStream)
 {
 	kStream << m_iSpawnDelay;
 	kStream << m_iSpawnRate;
+	kStream << m_iSpawnVariance;
 
 	int iNumWorldPlots = GC.getMap().numPlots();
 
@@ -129,12 +129,79 @@ bool WoTShadowspawn::CanShadowspawnSpawn()
 
 void WoTShadowspawn::BeginTurn()
 {
+	if (!CanShadowspawnSpawn())
+	{
+		return;
+	}
 
+	int iNumWorldPlots = GC.getMap().numPlots();
+
+	for (int i = 0; i < iNumWorldPlots; i++)
+	{
+		if (m_aiPlotShadowspawnSpawnCounter[i] > 0)
+		{
+			CvPlot* pkLoopPlot = GC.getMap().plotByIndex(i);
+
+			if (IsValidShadowspawnSpawn(pkLoopPlot))
+			{
+				m_aiPlotShadowspawnSpawnCounter[i]--;
+			}
+			else
+			{
+				m_aiPlotShadowspawnSpawnCounter[i] = -1;
+			}
+		}
+	}
 }
 
 void WoTShadowspawn::DoUnits()
 {
+	if (!CanShadowspawnSpawn())
+	{
+		return;
+	}
 
+	int iNumWorldPlots = GC.getMap().numPlots();
+
+	for (int i = 0; i < iNumWorldPlots; i++)
+	{
+		if (m_aiPlotShadowspawnSpawnCounter[i] == 0)
+		{
+			SpawnShadowspawnUnit(GC.getMap().plotByIndex(i));
+		}
+	}
+}
+
+void WoTShadowspawn::SpawnShadowspawnUnit(CvPlot* pPlot)
+{
+	CvPlayerAI& kShadowPlayer = GET_PLAYER(SHADOW_PLAYER);
+
+	UnitTypes eUnit = GetRandomShadowSpawnUnitType();
+
+	kShadowPlayer.initUnit(eUnit, pPlot->getX(), pPlot->getY(), UNITAI_FAST_ATTACK);
+}
+
+UnitTypes WoTShadowspawn::GetRandomShadowSpawnUnitType()
+{
+	CvPlayerAI& kShadowPlayer = GET_PLAYER(SHADOW_PLAYER);
+
+	int iNumShadowUnitClasses = m_aeShadowspawnUnitClasses.size();
+	for (int i = 0; i < iNumShadowUnitClasses; i++)
+	{
+		UnitClassTypes eUnitClass = m_aeShadowspawnUnitClasses[i];
+
+		CvUnitClassInfo* pClassInfo = GC.getUnitClassInfo(eUnitClass);
+
+		if (pClassInfo == NULL)
+			continue;
+
+		const UnitTypes eUnit = ((UnitTypes)(kShadowPlayer.getCivilizationInfo().getCivilizationUnits(eUnitClass)));
+		if (eUnit != NO_UNIT)
+		{
+			// TODO actual choosing
+			return eUnit;
+		}
+	}
 }
 
 bool WoTShadowspawn::IsValidShadowspawnSpawn(CvPlot* pPlot)
@@ -176,4 +243,50 @@ int WoTShadowspawn::GetShadowspawnArmyWidth()
 FeatureTypes WoTShadowspawn::GetBlightFeatureType()
 {
 	return m_eBlightFeatureType;
+}
+
+short WoTShadowspawn::GetSpawnCounter(CvPlot* pPlot)
+{
+	if (IsValidShadowspawnSpawn(pPlot))
+	{
+		return GetBaseSpawnRate() + GC.getGame().getJonRandNum(GetBaseSpawnVariance(), "Shadowspawn spawn counter rand");
+	}
+	else
+	{
+		return -1;
+	}
+}
+
+int WoTShadowspawn::GetBaseSpawnRate()
+{
+	return m_iSpawnRate;
+}
+
+int WoTShadowspawn::GetBaseSpawnVariance()
+{
+	return m_iSpawnVariance;
+}
+
+void WoTShadowspawn::CacheShadowspawnUnitClasses()
+{
+	Database::Results kResults;
+	if (GC.GetGameDatabase()->Execute(kResults, "SELECT UnitClassType FROM ShadowspawnUnitClasses;"))
+	{
+		while(kResults.Step())
+		{
+			const char* szUnitClass = kResults.GetText(0);
+
+			for (int iUnitClassLoop = 0; iUnitClassLoop < GC.getNumUnitClassInfos(); iUnitClassLoop++)
+			{
+				UnitClassTypes eUnitClass = (UnitClassTypes)iUnitClassLoop;
+
+				CvUnitClassInfo* pClassInfo = GC.getUnitClassInfo(eUnitClass);
+
+				if (strcmp(pClassInfo->GetType(), szUnitClass))
+				{
+					m_aeShadowspawnUnitClasses.push_back(eUnitClass);
+				}
+			}
+		}
+	}
 }
