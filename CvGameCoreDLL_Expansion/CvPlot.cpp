@@ -3576,6 +3576,14 @@ bool CvPlot::isGoody(TeamTypes eTeam) const
 		return false;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (GET_TEAM(eTeam).IsShadowSpawn())
+	{
+		return false;
+	}
+
 	return ((getImprovementType() == NO_IMPROVEMENT) ? false : GC.getImprovementInfo(getImprovementType())->IsGoody());
 }
 
@@ -3589,6 +3597,14 @@ bool CvPlot::isRevealedGoody(TeamTypes eTeam) const
 	}
 
 	if(GET_TEAM(eTeam).isBarbarian() || GET_TEAM(eTeam).isMinorCiv())
+	{
+		return false;
+	}
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (GET_TEAM(eTeam).IsShadowSpawn())
 	{
 		return false;
 	}
@@ -8126,7 +8142,10 @@ bool CvPlot::setRevealed(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly, Tea
 		}
 
 		// Natural Wonder
-		if(eTeam != BARBARIAN_TEAM)
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(eTeam != BARBARIAN_TEAM && eTeam != SHADOW_TEAM)
 		{
 			if(getFeatureType() != NO_FEATURE)
 			{
@@ -8178,7 +8197,10 @@ bool CvPlot::setRevealed(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly, Tea
 					int iFinderGold = 0;
 					bool bFirstFinder = false;
 					CvTeam& kTeam = GET_TEAM(eTeam);
-					if(!kTeam.isMinorCiv() && !kTeam.isBarbarian())
+					// ----------------------------------------------------------------
+					// WoTMod Addition
+					// ----------------------------------------------------------------
+					if(!kTeam.isMinorCiv() && !kTeam.isBarbarian() && !kTeam.IsShadowSpawn())
 					{
 						if(getNumMajorCivsRevealed() == 0)
 						{

@@ -4854,7 +4854,11 @@ void CvGame::DoDiplomacyVictoryVote(bool bPreliminaryVote)
 		eLoopTeam = (TeamTypes) iTeamLoop;
 		pTeam = &GET_TEAM(eLoopTeam);
 
-		if (pTeam->isAlive() && !pTeam->isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if (pTeam->isAlive() && !pTeam->isBarbarian()
+			&& !pTeam->IsShadowSpawn())
 		{
 			iNumVotesExpected++;
 
@@ -4875,7 +4879,11 @@ void CvGame::DoDiplomacyVictoryVote(bool bPreliminaryVote)
 		eLoopTeam = (TeamTypes) iTeamLoop;
 		pTeam = &GET_TEAM(eLoopTeam);
 
-		if(pTeam->isAlive() && !pTeam->isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(pTeam->isAlive() && !pTeam->isBarbarian()
+			&& !pTeam->IsShadowSpawn())
 		{
 			pLeader = &GET_PLAYER(pTeam->getLeaderID());
 
@@ -4893,7 +4901,11 @@ void CvGame::DoDiplomacyVictoryVote(bool bPreliminaryVote)
 							
 						TeamTypes eInnerLoop = (TeamTypes) iInnerLoop;
 						
-						if (GET_TEAM(eInnerLoop).isAlive() && !GET_TEAM(eInnerLoop).isMinorCiv() && !GET_TEAM(eInnerLoop).isBarbarian() && pTeam->isHasMet(eInnerLoop))
+						// ----------------------------------------------------------------
+						// WoTMod Addition
+						// ----------------------------------------------------------------
+						if (GET_TEAM(eInnerLoop).isAlive() && !GET_TEAM(eInnerLoop).isMinorCiv() && !GET_TEAM(eInnerLoop).isBarbarian() && pTeam->isHasMet(eInnerLoop)
+							&& !GET_TEAM(eInnerLoop).IsShadowSpawn())
 						{
 							bForceVote = false;
 							break;
