@@ -24,39 +24,39 @@
     <ModContent>
       <Content>
         <Type>InGameUIAddin</Type>
-        <Name>Horn Test</Name>
-        <Description>Test</Description>
-        <FileName>Lua/HornOfValereTest.lua</FileName>
-      </Content>
-      <Content>
-        <Type>InGameUIAddin</Type>
-        <Name>Horn Of Valere Conditions</Name>
-        <Description>Creates the test conditions for units trying to find the Horn of Valere</Description>
-        <FileName>Lua/HornOfValereFindingConditions.lua</FileName>
-      </Content>
-      <Content>
-        <Type>InGameUIAddin</Type>
-        <Name>Horn Of Valere Effects Implementation</Name>
-        <Description>Causes the actual effects of blowing the Horn of Valere</Description>
-        <FileName>Lua/HornOfValereBlowingResults.lua</FileName>
+        <Name>Horn of Valere Test</Name>
+        <Description>Plants Horn of Valere at end of turn 1 next to player capital</Description>
+        <FileName>Lua/HornOfValere/HornOfValereTest.lua</FileName>
       </Content>
       <Content>
         <Type>InGameUIAddin</Type>
         <Name>Horn of Valere Blow Conditions</Name>
-        <Description>Creates the test conditions for units being able to blow the Horn after they've found it</Description>
-        <FileName>Lua/HornOfValereBlowingConditions.lua</FileName>
+        <Description>Tells the game which units can blow the Horn of Valere</Description>
+        <FileName>Lua/HornOfValere/HornOfValereBlowingConditions.lua</FileName>
       </Content>
       <Content>
         <Type>InGameUIAddin</Type>
-        <Name>Horn of Valere discovery effects</Name>
-        <Description>Causes the Horn of Valere to properly update the unit that discovers it</Description>
-        <FileName>Lua/HornOfValereDiscoverResults.lua</FileName>
+        <Name>Horn of Valere blow results</Name>
+        <Description>Tells the game what to do when the Horn of Valere is blown</Description>
+        <FileName>Lua/HornOfValere/HornOfValereBlowingResults.lua</FileName>
       </Content>
       <Content>
         <Type>InGameUIAddin</Type>
-        <Name>Horn Of Valere Notifications</Name>
-        <Description>Event listeners</Description>
-        <FileName>Lua/HornOfValereNotificationSubscribers.lua</FileName>
+        <Name>Horn of Valere discover results</Name>
+        <Description>Tells the game what to do when a unit discovers the Horn of Valere</Description>
+        <FileName>Lua/HornOfValere/HornOfValereDiscoverResults.lua</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Horn of Valere find conditions</Name>
+        <Description>Tells the game when a unit can find the Horn of Valere</Description>
+        <FileName>Lua/HornOfValere/HornOfValereFindingConditions.lua</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Horn of Valere notification subs</Name>
+        <Description>Tells the game what to do with the Horn of Valere notifications</Description>
+        <FileName>Lua/HornOfValere/HornOfValereNotificationSubscribers.lua</FileName>
       </Content>
     </ModContent>
     <ModActions>
@@ -264,6 +264,8 @@
     <Folder Include="Art\Units\Icons\Darkhound" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
+    <Folder Include="Lua\HornOfValere" />
+    <Folder Include="Lua\Blight" />
     <Folder Include="UI" />
     <Folder Include="UI\InGame" />
     <Folder Include="UI\InGame\WorldView" />
@@ -423,33 +425,37 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="Lua\Blight\BlightUtils.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Lua\CustomNotifUtil.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Lua\HornOfValereBlowingConditions.lua">
+    <Content Include="Lua\HornOfValere\HornOfValereBlowingConditions.lua">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Lua\HornOfValereBlowingResults.lua">
+    <Content Include="Lua\HornOfValere\HornOfValereBlowingResults.lua">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Lua\HornOfValereDiscoverResults.lua">
+    <Content Include="Lua\HornOfValere\HornOfValereDiscoverResults.lua">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Lua\HornOfValereFindingConditions.lua">
+    <Content Include="Lua\HornOfValere\HornOfValereFindingConditions.lua">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Lua\HornOfValereNotificationSubscribers.lua">
+    <Content Include="Lua\HornOfValere\HornOfValereNotificationSubscribers.lua">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Lua\HornOfValereTest.lua">
+    <Content Include="Lua\HornOfValere\HornOfValereTest.lua">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Lua\PlotIterators.lua">
       <SubType>Lua</SubType>
