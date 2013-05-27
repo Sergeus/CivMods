@@ -23,7 +23,8 @@
 			<XPValueDefense>3</XPValueDefense>
 			<AdvancedStartCost>20</AdvancedStartCost>
 			<UnitArtInfo>ART_DEF_UNIT_SCOUT</UnitArtInfo>
-			<UnitFlagIconOffset>1</UnitFlagIconOffset>
+			<UnitFlagAtlas>DARKHOUND_FLAG_ATLAS</UnitFlagAtlas>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
 			<PortraitIndex>0</PortraitIndex>
 			<IconAtlas>WOT_DARKHOUND_ATLAS</IconAtlas>
 		</Row>

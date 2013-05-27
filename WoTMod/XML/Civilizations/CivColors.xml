@@ -16,6 +16,13 @@
 			<Blue>0</Blue>
 			<Alpha>1</Alpha>
 		</Row>
+		<Row>
+			<Type>COLOR_SHADOWSPAWN_GOLD</Type>
+			<Red>1</Red>
+			<Green>0.843</Green>
+			<Blue>0</Blue>
+			<Alpha>1</Alpha>
+		</Row>
 	</Colors>
 	<PlayerColors>
 		<Row>
@@ -26,7 +33,7 @@
 		</Row>
 		<Row>
 			<Type>PLAYERCOLOR_SHADOWSPAWN</Type>
-			<PrimaryColor>COLOR_RED</PrimaryColor>
+			<PrimaryColor>COLOR_SHADOWSPAWN_GOLD</PrimaryColor>
 			<SecondaryColor>COLOR_BLACK</SecondaryColor>
 			<TextColor>COLOR_PLAYER_BLACK_TEXT</TextColor>
 		</Row>

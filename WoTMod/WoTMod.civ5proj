@@ -58,6 +58,12 @@
         <Description>Tells the game what to do with the Horn of Valere notifications</Description>
         <FileName>Lua/HornOfValere/HornOfValereNotificationSubscribers.lua</FileName>
       </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>blight test</Name>
+        <Description>test</Description>
+        <FileName>Lua/Blight/BlightUtils.lua</FileName>
+      </Content>
     </ModContent>
     <ModActions>
       <Action>
@@ -235,6 +241,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>Art/Units/Icons/Darkhound/DarkhoundIconAtlas.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Flags/Darkhound/DarkhoundFlagIconAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -260,8 +271,10 @@
     <Folder Include="Art\Leaders" />
     <Folder Include="Art\Units" />
     <Folder Include="Art\Notifications" />
+    <Folder Include="Art\Units\Flags\Darkhound" />
     <Folder Include="Art\Units\Icons" />
     <Folder Include="Art\Units\Icons\Darkhound" />
+    <Folder Include="Art\Units\Flags" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
     <Folder Include="Lua\HornOfValere" />
@@ -400,6 +413,14 @@
     <Content Include="Art\Notifications\CustomLargeNotificationGlow.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Flags\Darkhound\DarkhoundFlag32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Flags\Darkhound\DarkhoundFlagIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Art\Units\Icons\Darkhound\Darkhound128.dds">
       <SubType>Lua</SubType>
