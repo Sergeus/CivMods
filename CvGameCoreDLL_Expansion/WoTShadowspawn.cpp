@@ -34,7 +34,8 @@ void WoTShadowspawn::Init()
 		if (strcmp(loopFeature->GetType(), "FEATURE_BLIGHT") == 0)
 		{
 			blightFeature = loopFeature;
-			m_eBlightFeatureType = (FeatureTypes)i;
+			m_eBlightFeatureType = (FeatureTypes)loopFeature->GetID();
+			CUSTOMLOG("Blight feature found to have id %i.", m_eBlightFeatureType);
 		}
 	}
 
@@ -42,17 +43,6 @@ void WoTShadowspawn::Init()
 	{
 		// All is lost
 		return;
-	}
-
-	int iNumWorldPlots = GC.getMap().numPlots();
-
-	m_aiPlotShadowspawnSpawnCounter = FNEW(short[iNumWorldPlots], c_eCiv5GameplayDLL, 0);
-	m_aiPlotShadowspawnNumUnitsSpawned = FNEW(short[iNumWorldPlots], c_eCiv5GameplayDLL, 0);
-
-	for (int i = 0; i < iNumWorldPlots; i++)
-	{
-		m_aiPlotShadowspawnSpawnCounter[i] = GetSpawnCounter(GC.getMap().plotByIndexUnchecked(i));
-		m_aiPlotShadowspawnNumUnitsSpawned[i] = 0;
 	}
 
 	Database::Results kResults;
@@ -78,6 +68,17 @@ void WoTShadowspawn::Init()
 		{
 			m_iSpawnVariance = kResults.GetInt(0);
 		}
+	}
+
+	int iNumWorldPlots = GC.getMap().numPlots();
+
+	m_aiPlotShadowspawnSpawnCounter = FNEW(short[iNumWorldPlots], c_eCiv5GameplayDLL, 0);
+	m_aiPlotShadowspawnNumUnitsSpawned = FNEW(short[iNumWorldPlots], c_eCiv5GameplayDLL, 0);
+
+	for (int i = 0; i < iNumWorldPlots; i++)
+	{
+		m_aiPlotShadowspawnSpawnCounter[i] = GetSpawnCounter(GC.getMap().plotByIndex(i));
+		m_aiPlotShadowspawnNumUnitsSpawned[i] = 0;
 	}
 
 	CacheShadowspawnUnitClasses();
@@ -120,6 +121,7 @@ bool WoTShadowspawn::CanShadowspawnSpawn()
 {
 	if (GC.getGame().getGameTurn() < m_iSpawnDelay)
 	{
+		CUSTOMLOG("Shadowspawn cannot yet spawn because of the %i spawn delay.", m_iSpawnDelay);
 		return false;
 	}
 
@@ -130,6 +132,7 @@ bool WoTShadowspawn::CanShadowspawnSpawn()
 
 void WoTShadowspawn::BeginTurn()
 {
+	CUSTOMLOG("Shadowspawn beginning its turn.");
 	if (!CanShadowspawnSpawn())
 	{
 		return;
@@ -146,6 +149,7 @@ void WoTShadowspawn::BeginTurn()
 			if (IsValidShadowspawnSpawn(pkLoopPlot))
 			{
 				m_aiPlotShadowspawnSpawnCounter[i]--;
+				CUSTOMLOG("Shadowspawn counter decreased to %i at plot index %i.", m_aiPlotShadowspawnSpawnCounter[i], i);
 			}
 			else
 			{
@@ -157,6 +161,7 @@ void WoTShadowspawn::BeginTurn()
 
 void WoTShadowspawn::DoUnits()
 {
+	CUSTOMLOG("Shadowspawn spawning time.");
 	if (!CanShadowspawnSpawn())
 	{
 		return;
@@ -168,6 +173,8 @@ void WoTShadowspawn::DoUnits()
 	{
 		if (m_aiPlotShadowspawnSpawnCounter[i] == 0)
 		{
+			CUSTOMLOG("Spawning shadowspawn at plot index %i.", i);
+
 			SpawnShadowspawnUnit(GC.getMap().plotByIndex(i));
 
 			m_aiPlotShadowspawnSpawnCounter[i] = GetSpawnCounter(GC.getMap().plotByIndex(i));
@@ -216,9 +223,12 @@ bool WoTShadowspawn::IsValidShadowspawnSpawn(CvPlot* pPlot)
 {
 	if (pPlot->getFeatureType() != GetBlightFeatureType())
 	{
+		//CUSTOMLOG("Plot at %i, %i is not valid for shadowspawn because %i != %i.",
+		//	pPlot->getX(), pPlot->getY(), pPlot->getFeatureType(), GetBlightFeatureType());
 		return false;
 	}
 
+	//CUSTOMLOG("Plot at %i, %i is valid for shadowspawn.", pPlot->getX(), pPlot->getY());
 	return true;
 }
 
@@ -255,14 +265,11 @@ FeatureTypes WoTShadowspawn::GetBlightFeatureType()
 
 short WoTShadowspawn::GetSpawnCounter(CvPlot* pPlot)
 {
-	if (IsValidShadowspawnSpawn(pPlot))
-	{
-		return GetBaseSpawnRate() + GC.getGame().getJonRandNum(GetBaseSpawnVariance(), "Shadowspawn spawn counter rand");
-	}
-	else
-	{
-		return -1;
-	}
+	int counter = GetBaseSpawnRate() + GC.getGame().getJonRandNum(GetBaseSpawnVariance(), "Shadowspawn spawn counter rand");
+
+	CUSTOMLOG("Setting shadowspawn counter to %i for plot %i, %i.", counter, pPlot->getX(), pPlot->getY());
+
+	return counter;
 }
 
 int WoTShadowspawn::GetBaseSpawnRate()
