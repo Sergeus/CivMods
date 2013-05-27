@@ -4,7 +4,7 @@
 --------------------------------------------------------------
 
 function IsValidForBlight(pPlot)
-	if (pPlot:IsMountain() or pPlot:IsWater() or pPlit:IsStartingPlot()) then
+	if (pPlot:IsMountain() or pPlot:IsWater() or pPlot:IsStartingPlot()) then
 		return false
 	end
 
