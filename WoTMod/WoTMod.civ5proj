@@ -246,6 +246,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/ShadowspawnText.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Icons/Trolloc/TrollocIconAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -275,6 +280,7 @@
     <Folder Include="Art\Units\Icons" />
     <Folder Include="Art\Units\Icons\Darkhound" />
     <Folder Include="Art\Units\Flags" />
+    <Folder Include="Art\Units\Icons\Trolloc" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
     <Folder Include="Lua\HornOfValere" />
@@ -439,6 +445,26 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Units\Icons\Darkhound\DarkhoundIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Trolloc\Trolloc128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Trolloc\Trolloc256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Trolloc\Trolloc45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Trolloc\Trolloc64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Trolloc\TrollocIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

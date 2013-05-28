@@ -50,8 +50,8 @@
 			<AdvancedStartCost>20</AdvancedStartCost>
 			<UnitArtInfo>ART_DEF_UNIT_SCOUT</UnitArtInfo>
 			<UnitFlagIconOffset>1</UnitFlagIconOffset>
-			<PortraitIndex>1</PortraitIndex>
-			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+			<IconAtlas>WOT_TROLLOC_ATLAS</IconAtlas>
 		</Row>
 		<Row>
 			<Class>UNITCLASS_DRAGHKAR</Class>
