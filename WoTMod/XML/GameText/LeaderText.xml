@@ -42,6 +42,26 @@
 			<Text>King of Cairhien</Text>
 		</Row>
 		
+		<!-- Leader: Elayne Trakand, of Andor -->
+		<Row Tag="TXT_KEY_LEADER_ELAYNE">
+			<Text>Elayne Trakand</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_ELAYNE_PEDIA">
+			<Text>[TOWRITE] Elayne pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ELAYNE">
+			<Text>[TOWRITE] Elayne pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ELAYNE_LIVED">
+			<Text>[TOWRITE] dates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ELAYNE_NAME">
+			<Text>Elayne Trakand</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ELAYNE_SUBTITLE">
+			<Text>Queen of Andor</Text>
+		</Row>
+		
 		<!-- Leader: Dark One, of the Shadowspawn -->
 		<Row Tag="TXT_KEY_LEADER_DARK_ONE">
 			<Text>The Dark One</Text>

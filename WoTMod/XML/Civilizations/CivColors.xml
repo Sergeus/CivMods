@@ -37,6 +37,13 @@
 			<Blue>0.285</Blue>
 			<Alpha>1</Alpha>
 		</Row>
+		<Row>
+			<Type>COLOR_ANDOR_RED</Type>
+			<Red>0.762</Red>
+			<Green>0.141</Green>
+			<Blue>0.141</Blue>
+			<Alpha>1</Alpha>
+		</Row>
 	</Colors>
 	<PlayerColors>
 		<Row>
@@ -56,6 +63,12 @@
 			<PrimaryColor>COLOR_CAIRHIEN_GOLD</PrimaryColor>
 			<SecondaryColor>COLOR_CAIRHIEN_BLUE</SecondaryColor>
 			<TextColor>COLOR_PLAYER_BLUE_TEXT</TextColor>
+		</Row>
+		<Row>
+			<Type>PLAYERCOLOR_CAIRHIEN</Type>
+			<PrimaryColor>COLOR_PLAYER_WHITE</PrimaryColor>
+			<SecondaryColor>COLOR_ANDOR_RED</SecondaryColor>
+			<TextColor>COLOR_PLAYER_WHITE_TEXT</TextColor>
 		</Row>
 	</PlayerColors>
 </GameData>

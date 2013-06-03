@@ -281,6 +281,26 @@
         <Type>UpdateDatabase</Type>
         <FileName>Art/Leaders/LamanDamodred/LamanAtlas.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Civilizations/Andor/AndorTextureAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Civilizations/CivAndor.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Leaders/ElayneTrakand/ElayneAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Leaders/LeaderElayneTrakand.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -300,6 +320,7 @@
   <ItemGroup>
     <Folder Include="Art\Civilizations\Illian" />
     <Folder Include="Art\Civilizations\Cairhien" />
+    <Folder Include="Art\Civilizations\Andor" />
     <Folder Include="Art\Hawkwing Unit" />
     <Folder Include="Art\Birgitte Unit" />
     <Folder Include="Art\Blight" />
@@ -308,6 +329,7 @@
     <Folder Include="Art\Leaders" />
     <Folder Include="Art\Leaders\MattinStepaneos" />
     <Folder Include="Art\Leaders\LamanDamodred" />
+    <Folder Include="Art\Leaders\ElayneTrakand" />
     <Folder Include="Art\Units" />
     <Folder Include="Art\Notifications" />
     <Folder Include="Art\Units\Flags\Darkhound" />
@@ -383,6 +405,34 @@
     <Content Include="Art\Blight\Feature_Blight.gr2">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Andor\AndorIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Andor\AndorIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Andor\AndorIcon32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Andor\AndorIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Andor\AndorIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Andor\AndorIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Andor\AndorTextureAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Art\Civilizations\Cairhien\CairhienAtlas.xml">
       <SubType>Lua</SubType>
@@ -463,6 +513,10 @@
     <Content Include="Art\Hawkwing Unit\hawkwing_sref.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\ElayneTrakand\ElayneAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Art\Leaders\LamanDamodred\LamanAtlas.xml">
       <SubType>Lua</SubType>
@@ -640,6 +694,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="XML\Civilizations\CivAndor.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\Civilizations\CivCairhien.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -685,6 +743,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Leaders\LeaderDarkOne.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Leaders\LeaderElayneTrakand.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Created by ModBuddy on 5/20/2013 11:58:19 PM -->
+<!-- Created by ModBuddy on 6/3/2013 11:48:51 PM -->
 <GameData>
 	<IconTextureAtlases>
-		<!-- Civilization: Illian -->
+		<!-- Civilization: Andor -->
 		<Row>
-			<Atlas>ILLIAN_ATLAS</Atlas>
+			<Atlas>ANDOR_ATLAS</Atlas>
 			<IconSize>256</IconSize>
-			<Filename>IllianIcon256.dds</Filename>
+			<Filename>AndorIcon256.dds</Filename>
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
-			<Atlas>ILLIAN_ATLAS</Atlas>
+			<Atlas>ANDOR_ATLAS</Atlas>
 			<IconSize>128</IconSize>
-			<Filename>IllianIcon128.dds</Filename>
+			<Filename>AndorIcon128.dds</Filename>
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
-			<Atlas>ILLIAN_ATLAS</Atlas>
+			<Atlas>ANDOR_ATLAS</Atlas>
 			<IconSize>80</IconSize>
-			<Filename>IllianIcon80.dds</Filename>
+			<Filename>AndorIcon80.dds</Filename>
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
-			<Atlas>ILLIAN_ATLAS</Atlas>
+			<Atlas>ANDOR_ATLAS</Atlas>
 			<IconSize>64</IconSize>
-			<Filename>IllianIcon64.dds</Filename>
+			<Filename>AndorIcon64.dds</Filename>
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
-			<Atlas>ILLIAN_ATLAS</Atlas>
+			<Atlas>ANDOR_ATLAS</Atlas>
 			<IconSize>45</IconSize>
-			<Filename>IllianIcon45.dds</Filename>
+			<Filename>AndorIcon45.dds</Filename>
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
-			<Atlas>ILLIAN_ATLAS</Atlas>
+			<Atlas>ANDOR_ATLAS</Atlas>
 			<IconSize>32</IconSize>
-			<Filename>IllianIcon32.dds</Filename>
+			<Filename>AndorIcon32.dds</Filename>
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>

@@ -29,17 +29,47 @@
 		</Row>
 		<Row Tag="TXT_KEY_CIV_CAIRHIEN_SHORT_DESC">
 			<Text>Cairhien</Text>
-			<Gender>neuter:an</Gender>
+			<Gender>neuter:a</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV_CAIRHIEN_ADJECTIVE">
 			<Text>Cairhienin</Text>
-			<Gender>neuter:an</Gender>
+			<Gender>neuter:a</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_CAIRHIEN_PEDIA_TAG">
 			<Text>[TOWRITE] Cairhien pedia tag</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_DAWN_CAIRHIEN_TEXT">
 			<Text>[TOWRITE] Cairhien DoM</Text>
+		</Row>
+		
+		<!-- Civilization: Andor -->
+		<Row Tag="TXT_KEY_CIV_ANDOR_DESC">
+			<Text>Kingdom of Andor</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_ANDOR_SHORT_DESC">
+			<Text>Andor</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_ANDOR_ADJECTIVE">
+			<Text>Andoran</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ANDOR_PEDIA_TAG">
+			<Text>[TOWRITE] Andor pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_ANDOR_TEXT">
+			<Text>[TOWRITE] Andor DoM</Text>
+		</Row>
+
+		<!-- Civilization: Shadowspawn -->
+		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_DESC">
+			<Text>Shadowspawn Legions</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_SHORT_DESC">
+			<Text>Shadowspawn</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_ADJECTIVE">
+			<Text>ShadowSpawn</Text>
 		</Row>
 		
 		<!-- Illian City Names-->
@@ -73,15 +103,36 @@
 			<Text>Tremonsien</Text>
 		</Row>
 		
-		<!-- Civilization: Shadowspawn -->
-		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_DESC">
-			<Text>Shadowspawn Legions</Text>
+		<!-- Andor City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_CAEMLYN">
+			<Text>Caemlyn</Text>
 		</Row>
-		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_SHORT_DESC">
-			<Text>Shadowspawn</Text>
+		<Row Tag="TXT_KEY_CITY_NAME_ARINGILL">
+			<Text>Aringill</Text>
 		</Row>
-		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_ADJECTIVE">
-			<Text>ShadowSpawn</Text>
+		<Row Tag="TXT_KEY_CITY_NAME_WHITEBRIDGE">
+			<Text>Whitebridge</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_BAERLON">
+			<Text>Baerlon</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_FOUR_KINGS">
+			<Text>Four Kings</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_NEW_BRAEM">
+			<Text>New Braem</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_WATCH_HILL">
+			<Text>Watch Hill</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_DEVEN_RIDE">
+			<Text>Deven Ride</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_CARYSFORD">
+			<Text>Carysford</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_EMONDS_FIELD">
+			<Text>Emond's Field</Text>
 		</Row>
 	</Language_en_US>
 </GameData>
