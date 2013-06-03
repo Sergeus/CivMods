@@ -164,16 +164,6 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>Art/Civilizations/CivTextureAtlases.xml</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
-        <FileName>Art/Leaders/LeaderTextureAtlases.xml</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
         <FileName>XML/Leaders/LeaderMattinStepaneos.xml</FileName>
       </Action>
       <Action>
@@ -251,6 +241,46 @@
         <Type>UpdateDatabase</Type>
         <FileName>Art/Units/Icons/Trolloc/TrollocIconAtlas.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Icons/Draghkar/DraghkarIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Icons/Myrddraal/MyrddraalIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Civilizations/Illian/IllianTextureAtlases.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Civilizations/Cairhien/CairhienAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Civilizations/CivCairhien.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Leaders/LeaderLaman.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Leaders/MattinStepaneos/StepaneosAtlases.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Leaders/LamanDamodred/LamanAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -268,18 +298,24 @@
     <DeployMod>true</DeployMod>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Art\Civilizations\Illian" />
+    <Folder Include="Art\Civilizations\Cairhien" />
     <Folder Include="Art\Hawkwing Unit" />
     <Folder Include="Art\Birgitte Unit" />
     <Folder Include="Art\Blight" />
     <Folder Include="Art\Aes Sedai" />
     <Folder Include="Art\Civilizations" />
     <Folder Include="Art\Leaders" />
+    <Folder Include="Art\Leaders\MattinStepaneos" />
+    <Folder Include="Art\Leaders\LamanDamodred" />
     <Folder Include="Art\Units" />
     <Folder Include="Art\Notifications" />
     <Folder Include="Art\Units\Flags\Darkhound" />
     <Folder Include="Art\Units\Icons" />
     <Folder Include="Art\Units\Icons\Darkhound" />
     <Folder Include="Art\Units\Flags" />
+    <Folder Include="Art\Units\Icons\Draghkar" />
+    <Folder Include="Art\Units\Icons\Myrddraal" />
     <Folder Include="Art\Units\Icons\Trolloc" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
@@ -348,35 +384,63 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\CivTextureAtlases.xml">
+    <Content Include="Art\Civilizations\Cairhien\CairhienAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\IllianIcon128.dds">
+    <Content Include="Art\Civilizations\Cairhien\CairhienIcon128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\IllianIcon256.dds">
+    <Content Include="Art\Civilizations\Cairhien\CairhienIcon256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\IllianIcon32.dds">
+    <Content Include="Art\Civilizations\Cairhien\CairhienIcon32.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\IllianIcon45.dds">
+    <Content Include="Art\Civilizations\Cairhien\CairhienIcon45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\IllianIcon64.dds">
+    <Content Include="Art\Civilizations\Cairhien\CairhienIcon64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\IllianIcon80.dds">
+    <Content Include="Art\Civilizations\Cairhien\CairhienIcon80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\MapIllian512.dds">
+    <Content Include="Art\Civilizations\Illian\IllianTextureAtlases.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Illian\IllianIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Illian\IllianIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Illian\IllianIcon32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Illian\IllianIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Illian\IllianIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Illian\IllianIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Illian\MapIllian512.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -400,19 +464,35 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Leaders\LeaderTextureAtlases.xml">
+    <Content Include="Art\Leaders\LamanDamodred\LamanAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Leaders\MattinStepaneos128.dds">
+    <Content Include="Art\Leaders\LamanDamodred\LamanIcon128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Leaders\MattinStepaneos256.dds">
+    <Content Include="Art\Leaders\LamanDamodred\LamanIcon256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Leaders\MattinStepaneos64.dds">
+    <Content Include="Art\Leaders\LamanDamodred\LamanIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\MattinStepaneos\StepaneosAtlases.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\MattinStepaneos\MattinStepaneos128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\MattinStepaneos\MattinStepaneos256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\MattinStepaneos\MattinStepaneos64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -445,6 +525,46 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Units\Icons\Darkhound\DarkhoundIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Draghkar\DraghkarIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Draghkar\DraghkarIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Draghkar\DraghkarIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Draghkar\DraghkarIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Draghkar\DraghkarIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Myrddraal\MyrddraalIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Myrddraal\MyrddraalIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Myrddraal\MyrddraalIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Myrddraal\MyrddraalIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\Myrddraal\MyrddraalIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -520,6 +640,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="XML\Civilizations\CivCairhien.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\Civilizations\CivColors.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -561,6 +685,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Leaders\LeaderDarkOne.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Leaders\LeaderLaman.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

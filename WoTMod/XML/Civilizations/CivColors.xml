@@ -23,6 +23,20 @@
 			<Blue>0</Blue>
 			<Alpha>1</Alpha>
 		</Row>
+		<Row>
+			<Type>COLOR_CAIRHIEN_BLUE</Type>
+			<Red>0.516</Red>
+			<Green>0.824</Green>
+			<Blue>0.836</Blue>
+			<Alpha>1</Alpha>
+		</Row>
+		<Row>
+			<Type>COLOR_CAIRHIEN_GOLD</Type>
+			<Red>0.922</Red>
+			<Green>0.867</Green>
+			<Blue>0.285</Blue>
+			<Alpha>1</Alpha>
+		</Row>
 	</Colors>
 	<PlayerColors>
 		<Row>
@@ -36,6 +50,12 @@
 			<PrimaryColor>COLOR_SHADOWSPAWN_GOLD</PrimaryColor>
 			<SecondaryColor>COLOR_BLACK</SecondaryColor>
 			<TextColor>COLOR_PLAYER_BLACK_TEXT</TextColor>
+		</Row>
+		<Row>
+			<Type>PLAYERCOLOR_CAIRHIEN</Type>
+			<PrimaryColor>COLOR_CAIRHIEN_GOLD</PrimaryColor>
+			<SecondaryColor>COLOR_CAIRHIEN_BLUE</SecondaryColor>
+			<TextColor>COLOR_PLAYER_BLUE_TEXT</TextColor>
 		</Row>
 	</PlayerColors>
 </GameData>

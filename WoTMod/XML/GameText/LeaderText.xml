@@ -22,6 +22,26 @@
 			<Text>King of Illian</Text>
 		</Row>
 		
+		<!-- Leader: Laman Damodred, of Cairhien -->
+		<Row Tag="TXT_KEY_LEADER_LAMAN">
+			<Text>Laman Damodred</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_LAMAN_PEDIA">
+			<Text>[TOWRITE] Laman Damodred pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_LAMAN">
+			<Text>[TOWRITE] Laman Damodred pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_LAMAN_LIVED">
+			<Text>[TOWRITE] - 978 NE</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_LAMAN_NAME">
+			<Text>Laman Damodred</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_LAMAN_SUBTITLE">
+			<Text>King of Cairhien</Text>
+		</Row>
+		
 		<!-- Leader: Dark One, of the Shadowspawn -->
 		<Row Tag="TXT_KEY_LEADER_DARK_ONE">
 			<Text>The Dark One</Text>

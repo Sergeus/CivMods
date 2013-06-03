@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 6/3/2013 11:03:04 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<!-- Leader: Laman Damodred, of Cairhien -->
+		<Row>
+			<Atlas>LEADER_LAMAN_DAMODRED_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>LamanIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>LEADER_LAMAN_DAMODRED_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>LamanIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>LEADER_LAMAN_DAMODRED_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>LamanIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

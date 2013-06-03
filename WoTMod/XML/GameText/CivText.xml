@@ -22,9 +22,55 @@
 			<Text>[TOWRITE] Illian DoM</Text>
 		</Row>
 		
+		<!-- Civilization: Cairhien -->
+		<Row Tag="TXT_KEY_CIV_CAIRHIEN_DESC">
+			<Text>Cairhienin Empire</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_CAIRHIEN_SHORT_DESC">
+			<Text>Cairhien</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_CAIRHIEN_ADJECTIVE">
+			<Text>Cairhienin</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_CAIRHIEN_PEDIA_TAG">
+			<Text>[TOWRITE] Cairhien pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_CAIRHIEN_TEXT">
+			<Text>[TOWRITE] Cairhien DoM</Text>
+		</Row>
+		
 		<!-- Illian City Names-->
 		<Row Tag="TXT_KEY_CITY_NAME_ILLIAN">
 			<Text>Illian</Text>
+		</Row>
+		
+		<!-- Cairhien City Names-->
+		<Row Tag="TXT_KEY_CITY_NAME_CAIRHIEN">
+			<Text>Cairhien</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_EIANROD">
+			<Text>Eianrod</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_JURENE">
+			<Text>Jurene</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_MAERONE">
+			<Text>Maerone</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_MORELLE">
+			<Text>Morelle</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SELEAN">
+			<Text>Selean</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TAIEN">
+			<Text>Taien</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TREMONSIEN">
+			<Text>Tremonsien</Text>
 		</Row>
 		
 		<!-- Civilization: Shadowspawn -->
