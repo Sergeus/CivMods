@@ -161,11 +161,11 @@ void WoTShadowspawn::BeginTurn()
 
 void WoTShadowspawn::DoUnits()
 {
-	CUSTOMLOG("Shadowspawn spawning time.");
 	if (!CanShadowspawnSpawn())
 	{
 		return;
 	}
+	CUSTOMLOG("Shadowspawn spawning time.");
 
 	int iNumWorldPlots = GC.getMap().numPlots();
 
@@ -191,6 +191,8 @@ void WoTShadowspawn::SpawnShadowspawnUnit(CvPlot* pPlot)
 	CUSTOMLOG("Placing unit %i at %i, %i.", eUnit, pPlot->getX(), pPlot->getY());
 
 	kShadowPlayer.initUnit(eUnit, pPlot->getX(), pPlot->getY(), UNITAI_FAST_ATTACK);
+
+	m_aiPlotShadowspawnNumUnitsSpawned[pPlot->GetPlotIndex()];
 }
 
 UnitTypes WoTShadowspawn::GetRandomShadowSpawnUnitType()
