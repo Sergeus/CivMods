@@ -61,6 +61,25 @@
 			<Text>[TOWRITE] Andor DoM</Text>
 		</Row>
 
+		<!-- Civilization: Seanchan-->
+		<Row Tag="TXT_KEY_CIV_SEANCHAN_DESC">
+			<Text>Seanchan Empire</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_SEANCHAN_SHORT_DESC">
+			<Text>Seanchan</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_SEANCHAN_ADJECTIVE">
+			<Text>Seanchan</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_SEANCHAN_PEDIA_TAG">
+			<Text>[TOWRITE] Seanchan pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_SEANCHAN_TEXT">
+			<Text>[TOWRITE] Seanchan DoM</Text>
+		</Row>
+
 		<!-- Civilization: Shadowspawn -->
 		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_DESC">
 			<Text>Shadowspawn Legions</Text>
@@ -133,6 +152,38 @@
 		</Row>
 		<Row Tag="TXT_KEY_CITY_NAME_EMONDS_FIELD">
 			<Text>Emond's Field</Text>
+		</Row>
+		
+		<!-- Seanchan City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_SEANDAR">
+			<Text>Seandar</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_KIRENDAD">
+			<Text>Kirendad</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_NOREN_MSHAR">
+			<Text>Noren M'Shar</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ASINBAYAR">
+			<Text>Asinbayar</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_QIRAT">
+			<Text>Qirat</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_IMFARAL">
+			<Text>Imfaral</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SOHIMA">
+			<Text>Sohima</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TZURA">
+			<Text>T'Zura</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ANANGORE">
+			<Text>Anangore</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SHON_KIFAR">
+			<Text>Shon Kifar</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

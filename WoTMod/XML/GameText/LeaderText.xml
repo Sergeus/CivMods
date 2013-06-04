@@ -62,6 +62,26 @@
 			<Text>Queen of Andor</Text>
 		</Row>
 		
+		<!-- Leader: Fortuona Paendrag, of Seanchan -->
+		<Row Tag="TXT_KEY_LEADER_FORTUONA">
+			<Text>Fortuona Paendrag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_FORTUONA_PEDIA">
+			<Text>[TOWRITE] Fortuona pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_FORTUONA">
+			<Text>[TOWRITE] Fortuona pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_FORTUONA_LIVED">
+			<Text>[TOWRITE] dates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_FORTUONA_NAME">
+			<Text>Fortuona Athaem Devi Paendrag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_FORTUONA_SUBTITLE">
+			<Text>Empress of Seanchan</Text>
+		</Row>
+		
 		<!-- Leader: Dark One, of the Shadowspawn -->
 		<Row Tag="TXT_KEY_LEADER_DARK_ONE">
 			<Text>The Dark One</Text>
