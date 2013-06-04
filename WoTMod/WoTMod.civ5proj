@@ -301,6 +301,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Leaders/LeaderElayneTrakand.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Leaders/FortuonaPaendrag/FortuonaAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -330,6 +335,7 @@
     <Folder Include="Art\Leaders\MattinStepaneos" />
     <Folder Include="Art\Leaders\LamanDamodred" />
     <Folder Include="Art\Leaders\ElayneTrakand" />
+    <Folder Include="Art\Leaders\FortuonaPaendrag" />
     <Folder Include="Art\Units" />
     <Folder Include="Art\Notifications" />
     <Folder Include="Art\Units\Flags\Darkhound" />
@@ -515,6 +521,22 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Leaders\ElayneTrakand\ElayneAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\ElayneTrakand\ElayneIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\ElayneTrakand\ElayneIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\ElayneTrakand\ElayneIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\FortuonaPaendrag\FortuonaAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
