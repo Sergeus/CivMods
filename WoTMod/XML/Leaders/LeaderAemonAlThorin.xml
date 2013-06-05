@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 6/5/2013 10:00:51 PM -->
+<GameData>
+	<Leaders>
+		<Row>
+			<Type>LEADER_AEMON</Type>
+			<Description>TXT_KEY_LEADER_AEMON</Description>
+			<Civilopedia>TXT_KEY_LEADER_AEMON_PEDIA</Civilopedia>
+			<CivilopediaTag>TXT_KEY_CIVILOPEDIA_LEADERS_AEMON</CivilopediaTag>
+			<ArtDefineTag>Alexander_Scene.xml</ArtDefineTag>
+			<VictoryCompetitiveness>8</VictoryCompetitiveness>
+			<WonderCompetitiveness>7</WonderCompetitiveness>
+			<MinorCivCompetitiveness>3</MinorCivCompetitiveness>
+			<Boldness>8</Boldness>
+			<DiploBalance>3</DiploBalance>
+			<WarmongerHate>2</WarmongerHate>
+			<DenounceWillingness>7</DenounceWillingness>
+			<DoFWillingness>4</DoFWillingness>
+			<Loyalty>4</Loyalty>
+			<Neediness>4</Neediness>
+			<Forgiveness>5</Forgiveness>
+			<Chattiness>7</Chattiness>
+			<Meanness>7</Meanness>
+			<PortraitIndex>0</PortraitIndex>
+			<IconAtlas>LEADER_AEMON_AL_THORIN_ATLAS</IconAtlas>
+		</Row>
+	</Leaders>
+	<Leader_Traits>
+		<Row>
+			<LeaderType>LEADER_AEMON</LeaderType>
+			<TraitType>TRAIT_GREAT_HUNT</TraitType>
+		</Row>
+	</Leader_Traits>
+</GameData>

@@ -58,6 +58,34 @@
 			<Blue>0.652</Blue>
 			<Alpha>1</Alpha>
 		</Row>
+		<Row>
+			<Type>COLOR_AMADICIA_RED</Type>
+			<Red>0.906</Red>
+			<Green>0.118</Green>
+			<Blue>0.118</Blue>
+			<Alpha>1</Alpha>
+		</Row>
+		<Row>
+			<Type>COLOR_AMADICIA_YELLOW</Type>
+			<Red>1</Red>
+			<Green>0.843</Green>
+			<Blue>0</Blue>
+			<Alpha>1</Alpha>
+		</Row>
+		<Row>
+			<Type>COLOR_MANETHEREN_RED</Type>
+			<Red>0.949</Red>
+			<Green>0.173</Green>
+			<Blue>0.067</Blue>
+			<Alpha>1</Alpha>
+		</Row>
+		<Row>
+			<Type>COLOR_MANETHEREN_BLUE</Type>
+			<Red>0.243</Red>
+			<Green>0.384</Green>
+			<Blue>1</Blue>
+			<Alpha>1</Alpha>
+		</Row>
 	</Colors>
 	<PlayerColors>
 		<Row>
@@ -88,6 +116,18 @@
 			<Type>PLAYERCOLOR_SEANCHAN</Type>
 			<PrimaryColor>COLOR_SEANCHAN_GOLD</PrimaryColor>
 			<SecondaryColor>COLOR_SEANCHAN_BLUE</SecondaryColor>
+			<TextColor>COLOR_PLAYER_BLUE_TEXT</TextColor>
+		</Row>
+		<Row>
+			<Type>PLAYERCOLOR_AMADICIA</Type>
+			<PrimaryColor>COLOR_AMADICIA_RED</PrimaryColor>
+			<SecondaryColor>COLOR_AMADICIA_YELLOW</SecondaryColor>
+			<TextColor>COLOR_PLAYER_BLUE_TEXT</TextColor>
+		</Row>
+		<Row>
+			<Type>PLAYERCOLOR_MANETHEREN</Type>
+			<PrimaryColor>COLOR_MANETHEREN_RED</PrimaryColor>
+			<SecondaryColor>COLOR_MANETHEREN_BLUE</SecondaryColor>
 			<TextColor>COLOR_PLAYER_BLUE_TEXT</TextColor>
 		</Row>
 	</PlayerColors>

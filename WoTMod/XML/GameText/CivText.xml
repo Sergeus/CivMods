@@ -79,7 +79,41 @@
 		<Row Tag="TXT_KEY_CIV5_DAWN_SEANCHAN_TEXT">
 			<Text>[TOWRITE] Seanchan DoM</Text>
 		</Row>
-
+		
+		<!-- Civilization: Amadicia -->
+		<Row Tag="TXT_KEY_CIV_AMADICIA_DESC">
+			<Text>Kingdom of Amadicia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_AMADICIA_SHORT_DESC">
+			<Text>Amadicia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_AMADICIA_ADJECTIVE">
+			<Text>Amadician</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_AMADICIA_PEDIA_TAG">
+			<Text>[TOWRITE] Amadicia pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_AMADICIA_TEXT">
+			<Text>[TOWRITE] Amadicia DoM</Text>
+		</Row>
+		
+		<!-- Civilization: Manetheren -->
+		<Row Tag="TXT_KEY_CIV_MANETHEREN_DESC">
+			<Text>Kingdom of Manetheren</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_MANETHEREN_SHORT_DESC">
+			<Text>Manetheren</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_MANETHEREN_ADJECTIVE">
+			<Text>Manetheren</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_MANETHEREN_PEDIA_TAG">
+			<Text>[TOWRITE] Manetheren pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_MANETHEREN_TEXT">
+			<Text>[TOWRITE] Manetheren DoM</Text>
+		</Row>
+		
 		<!-- Civilization: Shadowspawn -->
 		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_DESC">
 			<Text>Shadowspawn Legions</Text>
@@ -184,6 +218,46 @@
 		</Row>
 		<Row Tag="TXT_KEY_CITY_NAME_SHON_KIFAR">
 			<Text>Shon Kifar</Text>
+		</Row>
+		
+		<!-- Amadicia City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_AMADOR">
+			<Text>Amador</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ABILA">
+			<Text>Abila</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_BELLON">
+			<Text>Bellon</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_JERAMEL">
+			<Text>Jeramel</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_MARDECIN">
+			<Text>Mardecin</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SIENDA">
+			<Text>Sienda</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_BOANNDA">
+			<Text>Boannda</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ALMIZAR">
+			<Text>Almizar</Text>
+		</Row>
+		
+		<!-- Manetheren City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_MANETHEREN">
+			<Text>Manetheren</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_CORARTHEREN">
+			<Text>Corartheren</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_JARACOPAN">
+			<Text>Jara'Copan</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SHANAINE">
+			<Text>Shanaine</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

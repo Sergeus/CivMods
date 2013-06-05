@@ -82,6 +82,46 @@
 			<Text>Empress of Seanchan</Text>
 		</Row>
 		
+		<!-- Leader: Pedron Niall, of Amadicia -->
+		<Row Tag="TXT_KEY_LEADER_NIALL">
+			<Text>Pedron Niall</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_NIALL_PEDIA">
+			<Text>[TOWRITE] Pedron Niall pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_NIALL">
+			<Text>[TOWRITE] Pedron Niall pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_NIALL_LIVED">
+			<Text>[TOWRITE] - 1000 NE</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_NIALL_NAME">
+			<Text>Pedron Niall</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_NIALL_SUBTITLE">
+			<Text>Lord Captain Commander of the Children of the Light</Text>
+		</Row>
+		
+		<!-- Leader: Aemon al Thorin, of Manetheren -->
+		<Row Tag="TXT_KEY_LEADER_AEMON">
+			<Text>Aemon al Thorin</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_AEMON_PEDIA">
+			<Text>[TOWRITE] Aemon al Thorin pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_AEMON">
+			<Text>[TOWRITE] Aemon al Thorin pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_AEMON_LIVED">
+			<Text>[TOWRITE] dates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_AEMON_NAME">
+			<Text>Aemon al Caar al Thorin</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_AEMON_SUBTITLE">
+			<Text>King of Manetheren</Text>
+		</Row>
+		
 		<!-- Leader: Dark One, of the Shadowspawn -->
 		<Row Tag="TXT_KEY_LEADER_DARK_ONE">
 			<Text>The Dark One</Text>
