@@ -22,6 +22,11 @@
 			<Description>TXT_KEY_UNITCLASS_AES_SEDAI</Description>
 			<DefaultUnit>UNIT_AES_SEDAI</DefaultUnit>
 		</Row>
+		<Row>
+			<Type>UNITCLASS_CAPTAIN</Type>
+			<Description>TXT_KEY_UNITCLASS_CAPTAIN</Description>
+			<DefaultUnit>UNIT_CAPTAIN</DefaultUnit>
+		</Row>
 	</UnitClasses>
 	
 </GameData>
