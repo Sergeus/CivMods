@@ -600,7 +600,10 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 	kPlayer.UpdateUnitProductionMaintenanceMod();
 
 	// Minor Civ quest
-	if(!kPlayer.isMinorCiv() && !isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!kPlayer.isMinorCiv() && !isBarbarian() && !kPlayer.IsShadowspawn())
 	{
 		PlayerTypes eMinor;
 		for(int iMinorCivLoop = MAX_MAJOR_CIVS; iMinorCivLoop < MAX_CIV_PLAYERS; iMinorCivLoop++)
@@ -7848,7 +7851,10 @@ int CvUnit::upgradePrice(UnitTypes eUnit) const
 		iPrice = int(iPrice * fMultiplier);
 	}
 
-	if(!isHuman() && !kPlayer.IsAITeammateOfHuman() && !isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!isHuman() && !kPlayer.IsAITeammateOfHuman() && !isBarbarian() && !IsShadowspawn())
 	{
 		iPrice *= GC.getGame().getHandicapInfo().getAIUnitUpgradePercent();
 		iPrice /= 100;
@@ -8525,6 +8531,12 @@ int CvUnit::GetStrategicResourceCombatPenalty() const
 {
 	// barbs don't have resources
 	if(isBarbarian())
+		return 0;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (IsShadowspawn())
 		return 0;
 
 	CvPlayerAI& kPlayer = GET_PLAYER(getOwner());

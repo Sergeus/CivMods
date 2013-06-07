@@ -1271,7 +1271,11 @@ void CvPlayerTechs::CheckForTechAchievement() const
 							int iNumPlayersWith = 0;
 							for(iJ = 0; iJ < MAX_MAJOR_CIVS; iJ++)
 							{
-								if(!GET_PLAYER((PlayerTypes)iJ).isBarbarian() && !GET_PLAYER((PlayerTypes)iJ).isMinorCiv())
+								if(!GET_PLAYER((PlayerTypes)iJ).isBarbarian() && !GET_PLAYER((PlayerTypes)iJ).isMinorCiv()
+									// ----------------------------------------------------------------
+									// WoTMod Addition
+									// ----------------------------------------------------------------
+									&& !GET_PLAYER((PlayerTypes)iJ).IsShadowspawn())
 								{
 									if(GET_TEAM(GET_PLAYER((PlayerTypes)iJ).getTeam()).GetTeamTechs()->HasTech(eTech))
 									{
