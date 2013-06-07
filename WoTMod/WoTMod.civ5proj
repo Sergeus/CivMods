@@ -376,6 +376,16 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/UnitText.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/TerrainText.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Icons/BirgitteSilverbow/BirgitteIconAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -419,6 +429,7 @@
     <Folder Include="Art\Units\Flags" />
     <Folder Include="Art\Units\Icons\Draghkar" />
     <Folder Include="Art\Units\Icons\Myrddraal" />
+    <Folder Include="Art\Units\Icons\BirgitteSilverbow" />
     <Folder Include="Art\Units\Icons\Trolloc" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
@@ -787,6 +798,26 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Units\Icons\BirgitteSilverbow\BirgitteIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\BirgitteSilverbow\BirgitteIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\BirgitteSilverbow\BirgitteIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\BirgitteSilverbow\BirgitteIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Icons\BirgitteSilverbow\BirgitteIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Units\Icons\Darkhound\Darkhound128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -968,6 +999,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\GameText\ShadowspawnText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\GameText\TerrainText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

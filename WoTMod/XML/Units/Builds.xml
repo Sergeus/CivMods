@@ -9,10 +9,8 @@
 			<Help>TXT_KEY_BUILD_MILITARY_CAMP_HELP</Help>
 			<Recommendation>TXT_KEY_BUILD_MILITARY_CAMP_REC</Recommendation>
 			<Kill>1</Kill>
-			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
-			<HotKey>KB_C</HotKey>
+			<EntityEvent>ENTITY_EVENT_MINE</EntityEvent>
 			<OrderPriority>96</OrderPriority>
-			<CtrlDown>1</CtrlDown>
 			<IconIndex>51</IconIndex>
 			<IconAtlas>UNIT_ACTION_ATLAS</IconAtlas>
 		</Row>

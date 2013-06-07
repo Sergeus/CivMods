@@ -2,6 +2,8 @@
 <!-- Created by ModBuddy on 6/5/2013 11:59:20 PM -->
 <GameData>
 	<Language_en_US>
+		<!-- Units -->
+		<!-- Unit: Birgitte Silverbow -->
 		<Row Tag="TXT_KEY_UNIT_HORN_HERO_BIRGITTE">
 			<Text>Birgitte Silverbow</Text>
 		</Row>
@@ -15,6 +17,7 @@
 			<Text>[TOWRITE]Birgitte Silverbow help</Text>
 		</Row>
 
+		<!-- Unit: Aes Sedai -->
 		<Row Tag="TXT_KEY_UNIT_AES_SEDAI">
 			<Text>Aes Sedai</Text>
 		</Row>
@@ -28,6 +31,7 @@
 			<Text>[TOWRITE] Aes Sedai help</Text>
 		</Row>
 
+		<!-- Unit: Hunter of the Horn -->
 		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER">
 			<Text>Hunter of the Horn</Text>
 		</Row>
@@ -41,6 +45,7 @@
 			<Text>[TOWRITE]Horn hunter help</Text>
 		</Row>
 
+		<!-- Unit: Artur Hawkwing -->
 		<Row Tag="TXT_KEY_UNIT_HORN_HERO_HAWKWING">
 			<Text>Artur Hawkwing</Text>
 		</Row>
@@ -54,6 +59,7 @@
 			<Text>[TOWRITE]Hawkwing help</Text>
 		</Row>
 
+		<!-- Unit: Captain -->
 		<Row Tag="TXT_KEY_UNIT_CAPTAIN">
 			<Text>Captain</Text>
 		</Row>
@@ -65,6 +71,18 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_CAPTAIN_HELP">
 			<Text>[TOWRITE] Captain help</Text>
+		</Row>
+		
+		<!-- Builds -->
+		<!-- Build: Military Camp -->
+		<Row Tag="TXT_KEY_BUILD_MILITARY_CAMP">
+			<Text>Build Military Camp</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILD_MILITARY_CAMP_HELP">
+			<Text>[TOWRITE] military camp help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILD_MILITARY_CAMP_REC">
+			<Text>[TOWRITE] military camp recommendation</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

@@ -118,7 +118,7 @@
 			<Class>UNITCLASS_CAPTAIN</Class>
 			<Type>UNIT_CAPTAIN</Type>
 			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
-			<Combat>11</Combat>
+			<Combat>15</Combat>
 			<Cost>45</Cost>
 			<Moves>2</Moves>
 			<CombatClass>UNITCOMBAT_MELEE</CombatClass>
@@ -162,4 +162,17 @@
 			<BuildType>BUILD_MILITARY_CAMP</BuildType>
 		</Row>
 	</Unit_Builds>
+
+	<Unit_Flavors>
+		<Row>
+			<UnitType>UNIT_CAPTAIN</UnitType>
+			<FlavorType>FLAVOR_EXPANSION</FlavorType>
+			<Flavor>6</Flavor>
+		</Row>
+		<Row>
+			<UnitType>UNIT_CAPTAIN</UnitType>
+			<FlavorType>FLAVOR_OFFENSE</FlavorType>
+			<Flavor>2</Flavor>
+		</Row>
+	</Unit_Flavors>
 </GameData>

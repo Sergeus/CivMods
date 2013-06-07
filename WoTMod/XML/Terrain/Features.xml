@@ -48,13 +48,4 @@
 			<IconAtlas>RESOURCE_ATLAS</IconAtlas>
 		</Row>
 	</Resources>
-
-	<Language_en_US>
-		<Row Tag="TXT_KEY_FEATURE_BLIGHT">
-			<Text>Blight</Text>
-		</Row>
-		<Row Tag="TXT_KEY_CIV5_FEATURES_BLIGHT_PEDIA">
-			<Text>[TOWRITE] Blight pedia entry</Text>
-		</Row>
-	</Language_en_US>
 </GameData>
