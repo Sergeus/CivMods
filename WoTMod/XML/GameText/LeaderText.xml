@@ -122,6 +122,26 @@
 			<Text>King of Manetheren</Text>
 		</Row>
 		
+		<!-- Leader: Rhuarc, of the Aiel -->
+		<Row Tag="TXT_KEY_LEADER_RHUARC">
+			<Text>Rhuarc</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_RHUARC_PEDIA">
+			<Text>[TOWRITE] Rhuarc pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_RHUARC">
+			<Text>[TOWRITE] Rhuarc pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_RHUARC_LIVED">
+			<Text>[TOWRITE] dates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_RHUARC_NAME">
+			<Text>Rhuarc</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_RHUARC_SUBTITLE">
+			<Text>Clan Chief of the Taardad Aiel</Text>
+		</Row>
+		
 		<!-- Leader: Dark One, of the Shadowspawn -->
 		<Row Tag="TXT_KEY_LEADER_DARK_ONE">
 			<Text>The Dark One</Text>

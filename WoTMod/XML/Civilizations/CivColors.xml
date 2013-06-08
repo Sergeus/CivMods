@@ -86,6 +86,13 @@
 			<Blue>1</Blue>
 			<Alpha>1</Alpha>
 		</Row>
+		<Row>
+			<Type>COLOR_AIEL_BEIGE</Type>
+			<Red>0.965</Red>
+			<Green>0.886</Green>
+			<Blue>0.569</Blue>
+			<Alpha>1</Alpha>
+		</Row>
 	</Colors>
 	<PlayerColors>
 		<Row>
@@ -128,6 +135,12 @@
 			<Type>PLAYERCOLOR_MANETHEREN</Type>
 			<PrimaryColor>COLOR_MANETHEREN_RED</PrimaryColor>
 			<SecondaryColor>COLOR_MANETHEREN_BLUE</SecondaryColor>
+			<TextColor>COLOR_PLAYER_BLUE_TEXT</TextColor>
+		</Row>
+		<Row>
+			<Type>PLAYERCOLOR_AIEL</Type>
+			<PrimaryColor>COLOR_BLACK</PrimaryColor>
+			<SecondaryColor>COLOR_AIEL_BEIGE</SecondaryColor>
 			<TextColor>COLOR_PLAYER_BLUE_TEXT</TextColor>
 		</Row>
 	</PlayerColors>

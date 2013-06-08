@@ -386,6 +386,26 @@
         <Type>UpdateDatabase</Type>
         <FileName>Art/Units/Icons/BirgitteSilverbow/BirgitteIconAtlas.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Civilizations/Aiel/AielAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Civilizations/CivAiel.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Leaders/LeaderRhuarc.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Leaders/Rhuarc/RhuarcAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -408,6 +428,7 @@
     <Folder Include="Art\Civilizations\Andor" />
     <Folder Include="Art\Civilizations\Amadicia" />
     <Folder Include="Art\Civilizations\Manetheren" />
+    <Folder Include="Art\Civilizations\Aiel" />
     <Folder Include="Art\Civilizations\Seanchan" />
     <Folder Include="Art\Hawkwing Unit" />
     <Folder Include="Art\Birgitte Unit" />
@@ -420,6 +441,7 @@
     <Folder Include="Art\Leaders\ElayneTrakand" />
     <Folder Include="Art\Leaders\FortuonaPaendrag" />
     <Folder Include="Art\Leaders\AemonAlThorin" />
+    <Folder Include="Art\Leaders\Rhuarc" />
     <Folder Include="Art\Leaders\PedronNiall" />
     <Folder Include="Art\Units" />
     <Folder Include="Art\Notifications" />
@@ -495,6 +517,34 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Blight\Feature_Blight.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Aiel\AielAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Aiel\AielIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Aiel\AielIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Aiel\AielIcon32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Aiel\AielIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Aiel\AielIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Aiel\AielIcon80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -786,6 +836,22 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Leaders\Rhuarc\RhuarcAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\Rhuarc\RhuarcIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\Rhuarc\RhuarcIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Leaders\Rhuarc\RhuarcIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Notifications\CustomLargeNotificationGlow.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -950,6 +1016,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="XML\Civilizations\CivAiel.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\Civilizations\CivAmadicia.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1043,6 +1113,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Leaders\LeaderPedronNiall.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Leaders\LeaderRhuarc.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

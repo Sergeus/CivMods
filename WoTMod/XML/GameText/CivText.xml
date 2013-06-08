@@ -114,6 +114,23 @@
 			<Text>[TOWRITE] Manetheren DoM</Text>
 		</Row>
 		
+		<!-- Civilization: The Aiel -->
+		<Row Tag="TXT_KEY_CIV_AIEL_DESC">
+			<Text>Clans of the Aiel</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_AIEL_SHORT_DESC">
+			<Text>The Aiel</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_AIEL_ADJECTIVE">
+			<Text>Aiel</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_AIEL_PEDIA_TAG">
+			<Text>[TOWRITE] Aiel pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_AIEL_TEXT">
+			<Text>[TOWRITE] Aiel DoM</Text>
+		</Row>
+		
 		<!-- Civilization: Shadowspawn -->
 		<Row Tag="TXT_KEY_CIV_SHADOWSPAWN_DESC">
 			<Text>Shadowspawn Legions</Text>
@@ -258,6 +275,11 @@
 		</Row>
 		<Row Tag="TXT_KEY_CITY_NAME_SHANAINE">
 			<Text>Shanaine</Text>
+		</Row>
+		
+		<!-- Aiel City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_RHUIDEAN">
+			<Text>Rhuidean</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

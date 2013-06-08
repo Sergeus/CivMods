@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 6/8/2013 11:06:33 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<!-- Leader: Rhuarc, of the Aiel -->
+		<Row>
+			<Atlas>LEADER_RHUARC_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>RhuarcIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>LEADER_RHUARC_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>RhuarcIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>LEADER_RHUARC_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>RhuarcIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>
