@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 6/8/2013 11:41:52 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Technology: Patched Cloak -->
+		<Row Tag="TXT_KEY_TECH_PATCHED_CLOAK_TITLE">
+			<Text>Patched Cloak</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_PATCHED_CLOAK_PEDIA">
+			<Text>[TOWRITE] patched cloak pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_PATCHED_CLOAK_HELP">
+			<Text>[TOWRITE] patched cloak help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_PATCHED_CLOAK_QUOTE">
+			<Text>[TOWRITE] patched cloak quote</Text>
+		</Row>
+		
+		<!-- Technology: One Power -->
+		<Row Tag="TXT_KEY_TECH_ONE_POWER_TITLE">
+			<Text>The One Power</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ONE_POWER_PEDIA">
+			<Text>[TOWRITE] one power pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ONE_POWER_HELP">
+			<Text>[TOWRITE] one power help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ONE_POWER_QUOTE">
+			<Text>[TOWRITE] one power quote</Text>
+		</Row>
+		
+		<!-- Technology: Angreal -->
+		<Row Tag="TXT_KEY_TECH_ANGREAL_TITLE">
+			<Text>Angreal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ANGREAL_PEDIA">
+			<Text>[TOWRITE] angreal pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ANGREAL_HELP">
+			<Text>[TOWRITE] angreal help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ANGREAL_QUOTE">
+			<Text>[TOWRITE] angreal quote</Text>
+		</Row>
+		
+		<!-- Technology: Ter'angreal-->
+		<Row Tag="TXT_KEY_TECH_TERANGREAL_TITLE">
+			<Text>Ter'angreal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TERANGREAL_PEDIA">
+			<Text>[TOWRITE] ter'angreal pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TERANGREAL_HELP">
+			<Text>[TOWRITE] ter'angreal help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TERANGREAL_QUOTE">
+			<Text>[TOWRITE] ter'angreal quote</Text>
+		</Row>
+		
+		<!-- Technology: Sa'angreal -->
+		<Row Tag="TXT_KEY_TECH_SAANGREAL_TITLE">
+			<Text>Sa'angreal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SAANGREAL_PEDIA">
+			<Text>[TOWRITE] sa'angreal pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SAANGREAL_HELP">
+			<Text>[TOWRITE] sa'angreal help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SAANGREAL_QUOTE">
+			<Text>[TOWRITE] sa'angreal quote</Text>
+		</Row>
+		
+		<!-- Technology: Weaving -->
+		<Row Tag="TXT_KEY_TECH_WEAVING_TITLE">
+			<Text>Weaving</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_WEAVING_PEDIA">
+			<Text>[TOWRITE] weaving pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_WEAVING_HELP">
+			<Text>[TOWRITE] weaving help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_WEAVING_QUOTE">
+			<Text>[TOWRITE] weaving quote</Text>
+		</Row>
+		
+		<!-- Technology: A'dam -->
+		<Row Tag="TXT_KEY_TECH_ADAM_TITLE">
+			<Text>A'dam</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ADAM_PEDIA">
+			<Text>[TOWRITE] a'dam pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ADAM_HELP">
+			<Text>[TOWRITE] a'dam help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ADAM_QUOTE">
+			<Text>[TOWRITE] a'dam quote</Text>
+		</Row>
+	</Language_en_US>
+</GameData>
