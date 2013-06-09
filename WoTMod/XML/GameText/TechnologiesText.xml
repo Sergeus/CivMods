@@ -99,5 +99,243 @@
 		<Row Tag="TXT_KEY_TECH_ADAM_QUOTE">
 			<Text>[TOWRITE] a'dam quote</Text>
 		</Row>
+		
+		<!-- Technology: Cuendillar -->
+		<Row Tag="TXT_KEY_TECH_CUENDILLAR_TITLE">
+			<Text>Cuendillar</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CUENDILLAR_PEDIA">
+			<Text>[TOWRITE] cuendillar pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CUENDILLAR_HELP">
+			<Text>[TOWRITE] cuendillar help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CUENDILLAR_QUOTE">
+			<Text>[TOWRITE] cuendillar quote</Text>
+		</Row>
+		
+		<!-- Technology: Traveling -->
+		<Row Tag="TXT_KEY_TECH_TRAVELING_TITLE">
+			<Text>Traveling</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TRAVELING_PEDIA">
+			<Text>[TOWRITE] traveling pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TRAVELING_HELP">
+			<Text>[TOWRITE] traveling help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TRAVELING_QUOTE">
+			<Text>[TOWRITE] traveling quote</Text>
+		</Row>
+		
+		<!-- Technology: Fireworks -->
+		<Row Tag="TXT_KEY_TECH_FIREWORKS_TITLE">
+			<Text>Fireworks</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FIREWORKS_PEDIA">
+			<Text>[TOWRITE] fireworks pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FIREWORKS_HELP">
+			<Text>[TOWRITE] fireworks help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FIREWORKS_QUOTE">
+			<Text>[TOWRITE] fireworks quote</Text>
+		</Row>
+		
+		<!-- Technology: Saidar -->
+		<Row Tag="TXT_KEY_TECH_SAIDAR_TITLE">
+			<Text>Saidar</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SAIDAR_PEDIA">
+			<Text>[TOWRITE] saidar pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SAIDAR_HELP">
+			<Text>[TOWRITE] saidar help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SAIDAR_QUOTE">
+			<Text>[TOWRITE] saidar quote</Text>
+		</Row>
+		
+		<!-- Technology: Saidin -->
+		<Row Tag="TXT_KEY_TECH_SAIDIN_TITLE">
+			<Text>Saidin</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SAIDIN_PEDIA">
+			<Text>[TOWRITE] saidin pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SAIDIN_HELP">
+			<Text>[TOWRITE] saidin help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SAIDIN_QUOTE">
+			<Text>[TOWRITE] saidin quote</Text>
+		</Row>
+		
+		<!-- Technology: Slate Roofs -->
+		<Row Tag="TXT_KEY_TECH_SLATE_ROOFS_TITLE">
+			<Text>Slate Roofs</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SLATE_ROOFS_PEDIA">
+			<Text>[TOWRITE] slate roofs pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SLATE_ROOFS_HELP">
+			<Text>[TOWRITE] slate roofs help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SLATE_ROOFS_QUOTE">
+			<Text>[TOWRITE] slate roofs quote</Text>
+		</Row>
+		
+		<!-- Technology: Streith -->
+		<Row Tag="TXT_KEY_TECH_STREITH_TITLE">
+			<Text>Streith</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_STREITH_PEDIA">
+			<Text>[TOWRITE] streith pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_STREITH_HELP">
+			<Text>[TOWRITE] streith help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_STREITH_QUOTE">
+			<Text>[TOWRITE] streith quote</Text>
+		</Row>
+		
+		<!-- Technology: Fancloth -->
+		<Row Tag="TXT_KEY_TECH_FANCLOTH_TITLE">
+			<Text>Fancloth</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FANCLOTH_PEDIA">
+			<Text>[TOWRITE] fancloth pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FANCLOTH_HELP">
+			<Text>[TOWRITE] fancloth help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FANCLOTH_QUOTE">
+			<Text>[TOWRITE] fancloth quote</Text>
+		</Row>
+		
+		<!-- Technology: Linking -->
+		<Row Tag="TXT_KEY_TECH_LINKING_TITLE">
+			<Text>Linking</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_LINKING_PEDIA">
+			<Text>[TOWRITE] linking pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_LINKING_HELP">
+			<Text>[TOWRITE] linking help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_LINKING_QUOTE">
+			<Text>[TOWRITE] linking quote</Text>
+		</Row>
+		
+		<!-- Technology: Channeling Circles -->
+		<Row Tag="TXT_KEY_TECH_CHANNELING_CIRCLES_TITLE">
+			<Text>Channeling Circles</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CHANNELING_CIRCLES_PEDIA">
+			<Text>[TOWRITE] channeling circles pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CHANNELING_CIRCLES_HELP">
+			<Text>[TOWRITE] channeling circles help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CHANNELING_CIRCLES_QUOTE">
+			<Text>[TOWRITE] channeling circles quote</Text>
+		</Row>
+		
+		<!-- Technology: Stasis Boxes -->
+		<Row Tag="TXT_KEY_TECH_STASIS_BOXES_TITLE">
+			<Text>Stasis Boxes</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_STASIS_BOXES_PEDIA">
+			<Text>[TOWRITE] stasis boxes pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_STASIS_BOXES_HELP">
+			<Text>[TOWRITE] stasis boxes help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_STASIS_BOXES_QUOTE">
+			<Text>[TOWRITE] stasis boxes quote</Text>
+		</Row>
+		
+		<!-- Technology: Glowbulbs -->
+		<Row Tag="TXT_KEY_TECH_GLOWBULBS_TITLE">
+			<Text>Glowbulbs</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_GLOWBULBS_PEDIA">
+			<Text>[TOWRITE] glowbulbs pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_GLOWBULBS_HELP">
+			<Text>[TOWRITE] glowbulbs help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_GLOWBULBS_QUOTE">
+			<Text>[TOWRITE] glowbulbs quote</Text>
+		</Row>
+		
+		<!-- Technology: The Pattern -->
+		<Row Tag="TXT_KEY_TECH_PATTERN_TITLE">
+			<Text>The Pattern</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_PATTERN_PEDIA">
+			<Text>[TOWRITE] the pattern pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_PATTERN_HELP">
+			<Text>[TOWRITE] the pattern help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_PATTERN_QUOTE">
+			<Text>[TOWRITE] the pattern quote</Text>
+		</Row>
+		
+		<!-- Technology: The Prophecy of the Dragon -->
+		<Row Tag="TXT_KEY_TECH_DRAGON_PROPHECY_TITLE">
+			<Text>The Prophecy of the Dragon</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_DRAGON_PROPHECY_PEDIA">
+			<Text>[TOWRITE] dragon prophecy pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_DRAGON_PROPHECY_HELP">
+			<Text>[TOWRITE] dragon prophecy help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_DRAGON_PROPHECY_QUOTE">
+			<Text>[TOWRITE] dragon prophecy quote</Text>
+		</Row>
+		
+		<!-- Technology: The Legend of the Horn -->
+		<Row Tag="TXT_KEY_TECH_HORN_LEGEND_TITLE">
+			<Text>The Legend of the Horn</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_HORN_LEGEND_PEDIA">
+			<Text>[TOWRITE] horn legend pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_HORN_LEGEND_HELP">
+			<Text>[TOWRITE] horn legend help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_HORN_LEGEND_QUOTE">
+			<Text>[TOWRITE] horn legend quote</Text>
+		</Row>
+		
+		<!-- Technology: Wells -->
+		<Row Tag="TXT_KEY_TECH_WELLS_TITLE">
+			<Text>Wells</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_WELLS_PEDIA">
+			<Text>[TOWRITE] wells pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_WELLS_HELP">
+			<Text>[TOWRITE] wells help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_WELLS_QUOTE">
+			<Text>[TOWRITE] wells quote</Text>
+		</Row>
+		
+		<!-- Technology: Dreaming -->
+		<Row Tag="TXT_KEY_TECH_DREAMING_TITLE">
+			<Text>Dreaming</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_DREAMING_PEDIA">
+			<Text>[TOWRITE] dreaming pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_DREAMING_HELP">
+			<Text>[TOWRITE] dreaming help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_DREAMING_QUOTE">
+			<Text>[TOWRITE] dreaming quote</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
