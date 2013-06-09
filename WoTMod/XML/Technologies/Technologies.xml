@@ -28,7 +28,7 @@
 			<Set GridX="-1" Disable="true"/>
 		</Update>
 		<Update>
-			<Where Type="MILITARY_SCIENCE"/>
+			<Where Type="TECH_MILITARY_SCIENCE"/>
 			<Set GridX="-1" Disable="true"/>
 		</Update>
 		<Update>
