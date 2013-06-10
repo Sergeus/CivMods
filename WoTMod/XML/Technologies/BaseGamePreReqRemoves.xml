@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 6/10/2013 9:50:46 PM -->
+<GameData>
+	<Technology_PrereqTechs>
+		<Delete TechType="TECH_ARCHERY" PrereqTech="TECH_AGRICULTURE" />
+		<Delete TechType="TECH_THE_WHEEL" PrereqTech="TECH_ANIMAL_HUSBANDRY" />
+		<Delete TechType="TECH_PHILOSOPHY" PrereqTech="TECH_CALENDAR" />
+		<Delete TechType="TECH_PHILOSOPHY" PrereqTech="TECH_WRITING" />
+		<Delete TechType="TECH_HORSEBACK_RIDING" PrereqTech="TECH_THE_WHEEL" />
+		<Delete TechType="TECH_CONSTRUCTION" PrereqTech="TECH_MASONRY" />
+		<Delete TechType="TECH_CONSTRUCTION" PrereqTech="TECH_THE_WHEEL" />
+		<Delete TechType="TECH_DRAMA" PrereqTech="TECH_WRITING" />
+		<Delete TechType="TECH_CIVIL_SERVICE" PrereqTech="TECH_CURRENCY" />
+		<Delete TechType="TECH_COMPASS" PrereqTech="TECH_THEOLOGY" />
+		<Delete TechType="TECH_EDUCATION" PrereqTech="TECH_THEOLOGY" />
+		<Delete TechType="TECH_EDUCATION" PrereqTech="TECH_CIVIL_SERVICE" />
+		<Delete TechType="TECH_CHIVALRY" PrereqTech="TECH_CIVIL_SERVICE" />
+		<Delete TechType="TECH_MACHINERY" PrereqTech="TECH_ENGINEERING" />
+		<Delete TechType="TECH_MACHINERY" PrereqTech="TECH_GUILDS" />
+		<Delete TechType="TECH_PHYSICS" PrereqTech="TECH_METAL_CASTING" />
+		<Delete TechType="TECH_STEEL" PrereqTech="TECH_METAL_CASTING" />
+		<Delete TechType="TECH_ASTRONOMY" PrereqTech="TECH_EDUCATION" />
+		<Delete TechType="TECH_BANKING" PrereqTech="TECH_EDUCATION" />
+		<Delete TechType="TECH_BANKING" PrereqTech="TECH_CHIVALRY" />
+		<Delete TechType="TECH_PRINTING_PRESS" PrereqTech="TECH_MACHINERY" />
+		<Delete TechType="TECH_PRINTING_PRESS" PrereqTech="TECH_PHYSICS" />
+		<Delete TechType="TECH_PRINTING_PRESS" PrereqTech="TECH_CHIVALRY" />
+		<Delete TechType="TECH_GUNPOWDER" PrereqTech="TECH_PHYSICS" />
+		<Delete TechType="TECH_GUNPOWDER" PrereqTech="TECH_STEEL" />
+		<Delete TechType="TECH_ARCHITECTURE" PrereqTech="TECH_ACOUSTICS" />
+		<Delete TechType="TECH_ARCHITECTURE" PrereqTech="TECH_BANKING" />
+		<Delete TechType="TECH_ECONOMICS" PrereqTech="TECH_PRINTING_PRESS" />
+		<Delete TechType="TECH_CHEMISTRY" PrereqTech="TECH_GUNPOWDER" />
+		<Delete TechType="TECH_METALLURGY" PrereqTech="TECH_GUNPOWDER" />
+		<Delete TechType="TECH_METALLURGY" PrereqTech="TECH_PRINTING_PRESS" />
+		<Delete TechType="TECH_ARCHAEOLOGY" PrereqTech="TECH_ARCHITECTURE" />
+		<Delete TechType="TECH_SCIENTIFIC_THEORY" PrereqTech="TECH_ECONOMICS" />
+		<Delete TechType="TECH_SCIENTIFIC_THEORY" PrereqTech="TECH_ARCHITECTURE" />
+		<Delete TechType="TECH_RIFLING" PrereqTech="TECH_ECONOMICS" />
+		<Delete TechType="TECH_RIFLING" PrereqTech="TECH_METALLURGY" />
+		<Delete TechType="TECH_STEAM_POWER" PrereqTech="TECH_RIFLING" />
+		<Delete TechType="TECH_STEAM_POWER" PrereqTech="TECH_INDUSTRIALIZATION" />
+		<Delete TechType="TECH_STEAM_POWER" PrereqTech="TECH_SCIENTIFIC_THEORY" />
+	</Technology_PrereqTechs>
+</GameData>

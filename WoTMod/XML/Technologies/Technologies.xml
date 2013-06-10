@@ -2,59 +2,322 @@
 <!-- Created by ModBuddy on 6/8/2013 11:41:13 PM -->
 <GameData>
 	<Technologies>
-		<!-- Move old techs to unseen places -->
+		<!-- Move old techs around -->
 		<Update>
-			<Where Era="ERA_FUTURE"/>
-			<Set GridX="-1" Disable="true"/>
+			<Set Description="TXT_KEY_TECH_ARCHERY_DESC" Civilopedia="TXT_KEY_TECH_ARCHERY_CIV" Era="ERA_CLASSICAL" GridX="2" GridY="7" />
+			<Where Type="TECH_ARCHERY" />
 		</Update>
 		<Update>
-			<Where Era="ERA_POSTMODERN"/>
-			<Set GridX="-1" Disable="true"/>
+			<Set GridY="9" />
+			<Where Type="TECH_MINING" />
 		</Update>
 		<Update>
-			<Where Era="ERA_MODERN"/>
-			<Set GridX="-1" Disable="true"/>
+			<Set Era="ERA_CLASSICAL" />
+			<Where Type="TECH_SAILING" />
 		</Update>
 		<Update>
-			<Where Type="TECH_SCIENTIFIC_THEORY"/>
-			<Set GridX="-1" Disable="true"/>
+			<Set Description="TXT_KEY_TECH_CALENDAR_DESC" Civilopedia="TXT_KEY_TECH_CALENDAR_CIV" Era="ERA_CLASSICAL" />
+			<Where Type="TECH_CALENDAR" />
 		</Update>
 		<Update>
-			<Where Type="TECH_INDUSTRIALIZATION"/>
-			<Set GridX="-1" Disable="true"/>
+			<Set Era="ERA_CLASSICAL" />
+			<Where Type="TECH_WRITING" />
 		</Update>
 		<Update>
-			<Where Type="TECH_RIFLING"/>
-			<Set GridX="-1" Disable="true"/>
+			<Set Era="ERA_CLASSICAL" />
+			<Where Type="TECH_TRAPPING" />
 		</Update>
 		<Update>
-			<Where Type="TECH_MILITARY_SCIENCE"/>
-			<Set GridX="-1" Disable="true"/>
+			<Set Era="ERA_CLASSICAL" GridX="3" GridY="7" />
+			<Where Type="TECH_THE_WHEEL" />
 		</Update>
 		<Update>
-			<Where Type="TECH_BIOLOGY"/>
-			<Set GridX="-1" Disable="true"/>
+			<Set Era="ERA_CLASSICAL" GridY="9" />
+			<Where Type="TECH_MASONRY" />
 		</Update>
 		<Update>
-			<Where Type="TECH_ELECTRICITY"/>
-			<Set GridX="-1" Disable="true"/>
+			<Set Era="ERA_CLASSICAL" GridY="10" />
+			<Where Type="TECH_BRONZE_WORKING" />
 		</Update>
 		<Update>
-			<Where Type="TECH_DYNAMITE"/>
-			<Set GridX="-1" Disable="true"/>
+			<Set GridX="4" />
+			<Where Type="TECH_OPTICS" />
 		</Update>
-		
+		<Update>
+			<Set Trade="1" GridX="4" />
+			<Where Type="TECH_HORSEBACK_RIDING" />
+		</Update>
+		<Update>
+			<Set Description="TXT_KEY_TECH_MATHEMATICS_DESC" Civilopedia="TXT_KEY_TECH_MATHEMATICS_CIV" Trade="1" GridX="4" GridY="7" />
+			<Where Type="TECH_MATHEMATICS" />
+		</Update>
+		<Update>
+			<Set GridX="4" GridY="9" />
+			<Where Type="TECH_CONSTRUCTION" />
+		</Update>
+		<Update>
+			<Set Description="TXT_KEY_TECH_PHILOSOPHY_DESC" Civilopedia="TXT_KEY_TECH_PHILOSOPHY_CIV" />
+			<Where Type="TECH_PHILOSOPHY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_MEDIEVAL" GridX="5" />
+			<Where Type="TECH_DRAMA" />
+		</Update>
+		<Update>
+			<Set Era="ERA_MEDIEVAL" GridX="6" />
+			<Where Type="TECH_CURRENCY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_MEDIEVAL" Trade="1" BridgeBuilding="1" GridX="5" GridY="8" />
+			<Where Type="TECH_ENGINEERING" />
+		</Update>
+		<Update>
+			<Set Era="ERA_MEDIEVAL" Trade="1" GridX="5" GridY="10" />
+			<Where Type="TECH_IRON_WORKING" />
+		</Update>
+		<Update>
+			<Set Description="TXT_KEY_TECH_THEOLOGY_DESC" Civilopedia="TXT_KEY_TECH_THEOLOGY_CIV" GridX="6" />
+			<Where Type="TECH_THEOLOGY" />
+		</Update>
+		<Update>
+			<Set GridX="6" GridY="3" />
+			<Where Type="TECH_CIVIL_SERVICE" />
+		</Update>
+		<Update>
+			<Set Era="ERA_RENAISSANCE" GridX="7" />
+			<Where Type="TECH_GUILDS" />
+		</Update>
+		<Update>
+			<Set GridX="6" GridY="9" />
+			<Where Type="TECH_METAL_CASTING" />
+		</Update>
+		<Update>
+			<Set Era="ERA_RENAISSANCE" GridX="8" />
+			<Where Type="TECH_EDUCATION" />
+		</Update>
+		<Update>
+			<Set Era="ERA_RENAISSANCE" GridX="8" GridY="7" />
+			<Where Type="TECH_CHIVALRY" />
+		</Update>
+		<Update>
+			<Set Description="TXT_KEY_TECH_MACHINERY_DESC" Civilopedia="TXT_KEY_TECH_MACHINERY_CIV" Era="ERA_RENAISSANCE" Trade="1" GridX="8" GridY="10" />
+			<Where Type="TECH_MACHINERY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_INDUSTRIAL" GridX="9" GridY="10" />
+			<Where Type="TECH_PHYSICS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_RENAISSANCE" Trade="1" GridX="8" />
+			<Where Type="TECH_STEEL" />
+		</Update>
+		<Update>
+			<Set GridX="8" GridY="0" />
+			<Where Type="TECH_ASTRONOMY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_INDUSTRIAL" Trade="1" GridX="9" GridY="2" />
+			<Where Type="TECH_ACOUSTICS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_INDUSTRIAL" GridX="9" GridY="4" />
+			<Where Type="TECH_BANKING" />
+		</Update>
+		<Update>
+			<Set Era="ERA_MODERN" GridX="12" GridY="6" />
+			<Where Type="TECH_PRINTING_PRESS" />
+		</Update>
+		<Update>
+			<Set Description="TXT_KEY_TECH_NAVIGATION_DESC" Civilopedia="TXT_KEY_TECH_NAVIGATION_CIV" Era="ERA_INDUSTRIAL" Trade="1" GridX="10" GridY="0" />
+			<Where Type="TECH_NAVIGATION" />
+		</Update>
+		<Update>
+			<Set Description="TXT_KEY_TECH_ARCHITECTURE_DESC" Civilopedia="TXT_KEY_TECH_ARCHITECTURE_CIV" Era="ERA_INDUSTRIAL" GridX="10" GridY="10" />
+			<Where Type="TECH_ARCHITECTURE" />
+		</Update>
+		<Update>
+			<Set Era="ERA_INDUSTRIAL" GridX="10" GridY="4" />
+			<Where Type="TECH_ECONOMICS" />
+		</Update>
+		<Update>
+			<Set Description="TXT_KEY_TECH_METALLURGY_DESC" Civilopedia="TXT_KEY_TECH_METALLURGY_CIV" Era="ERA_INDUSTRIAL" GridX="10" GridY="7" />
+			<Where Type="TECH_METALLURGY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_INDUSTRIAL" GridX="9" GridY="6" />
+			<Where Type="TECH_CHEMISTRY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_MODERN" GridX="11" GridY="6" />
+			<Where Type="TECH_STEAM_POWER" />
+		</Update>
+		<Update>
+			<Set GridX="10" GridY="6" />
+			<Where Type="TECH_FERTILIZER" />
+		</Update>
+		<Update>
+			<Set Era="ERA_MODERN" Trade="1" GridX="11" GridY="2" />
+			<Where Type="TECH_ARCHAEOLOGY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_SCIENTIFIC_THEORY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_INDUSTRIALIZATION" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_RIFLING" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_MILITARY_SCIENCE" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_BIOLOGY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_ELECTRICITY" />
+		</Update>
+		<Update>
+			<Set ERa="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_GUNPOWDER" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_DYNAMITE" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_REFRIGERATION" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_RADIO" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_REPLACEABLE_PARTS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_FLIGHT" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_RAILROAD" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_PLASTIC" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_ELECTRONICS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_BALLISTICS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_COMBUSTION" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_PENICILIN" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_ATOMIC_THEORY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_RADAR" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_COMBINED_ARMS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_ECOLOGY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_NUCLEAR_FISSION" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_ROCKETRY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_COMPUTERS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_TELECOM" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_MOBILE_TACTICS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_ADVANCED_BALLISTICS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_SATELLITES" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_ROBOTICS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_LASERS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_GLOBALIZATION" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_PARTICLE_PHYSICS" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_NUCLEAR_FUSION" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_NANOTECHNOLOGY" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_STEALTH" />
+		</Update>
+		<Update>
+			<Set Era="ERA_ANCIENT" Disable="true" GridX="-1" />
+			<Where Type="TECH_FUTURE_TECH" />
+		</Update>
 		<Row>
 			<Type>TECH_PATCHED_CLOAK</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_PATCHED_CLOAK_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_PATCHED_CLOAK_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_PATCHED_CLOAK_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_CLASSICAL</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>3</GridX>
+			<GridY>5</GridY>
 			<Quote>TXT_KEY_TECH_PATCHED_CLOAK_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -63,15 +326,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_ONE_POWER</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_ONE_POWER_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_ONE_POWER_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_ONE_POWER_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_CLASSICAL</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>3</GridX>
+			<GridY>6</GridY>
 			<Quote>TXT_KEY_TECH_ONE_POWER_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -80,15 +343,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_ANGREAL</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_ANGREAL_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_ANGREAL_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_ANGREAL_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_MEDIEVAL</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>6</GridX>
+			<GridY>4</GridY>
 			<Quote>TXT_KEY_TECH_ANGREAL_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -97,15 +360,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_TERANGREAL</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_TERANGREAL_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_TERANGREAL_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_TERANGREAL_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_RENAISSANCE</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>7</GridX>
+			<GridY>2</GridY>
 			<Quote>TXT_KEY_TECH_TERANGREAL_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -114,15 +377,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_SAANGREAL</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_SAANGREAL_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_SAANGREAL_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_SAANGREAL_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_MODERN</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>12</GridX>
+			<GridY>8</GridY>
 			<Quote>TXT_KEY_TECH_SAANGREAL_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -131,15 +394,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_WEAVING</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_WEAVING_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_WEAVING_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_WEAVING_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_CLASSICAL</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>2</GridX>
+			<GridY>6</GridY>
 			<Quote>TXT_KEY_TECH_WEAVING_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -148,15 +411,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_ADAM</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_ADAM_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_ADAM_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_ADAM_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_RENAISSANCE</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>7</GridX>
+			<GridY>10</GridY>
 			<Quote>TXT_KEY_TECH_ADAM_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -165,15 +428,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_CUENDILLAR</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_CUENDILLAR_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_CUENDILLAR_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_CUENDILLAR_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_RENAISSANCE</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>7</GridX>
+			<GridY>4</GridY>
 			<Quote>TXT_KEY_TECH_CUENDILLAR_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -182,15 +445,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_TRAVELING</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_TRAVELING_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_TRAVELING_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_TRAVELING_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_RENAISSANCE</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>8</GridX>
+			<GridY>4</GridY>
 			<Quote>TXT_KEY_TECH_TRAVELING_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -199,15 +462,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_FIREWORKS</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_FIREWORKS_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_FIREWORKS_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_FIREWORKS_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_RENAISSANCE</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>8</GridX>
+			<GridY>6</GridY>
 			<Quote>TXT_KEY_TECH_FIREWORKS_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -216,15 +479,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_SAIDAR</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_SAIDAR_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_SAIDAR_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_SAIDAR_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_MEDIEVAL</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>5</GridX>
+			<GridY>5</GridY>
 			<Quote>TXT_KEY_TECH_SAIDAR_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -233,15 +496,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_SAIDIN</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_SAIDIN_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_SAIDIN_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_SAIDIN_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_RENAISSANCE</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>7</GridX>
+			<GridY>5</GridY>
 			<Quote>TXT_KEY_TECH_SAIDIN_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -250,15 +513,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_SLATE_ROOFS</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_SLATE_ROOFS_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_SLATE_ROOFS_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_SLATE_ROOFS_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_CLASSICAL</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>3</GridX>
+			<GridY>9</GridY>
 			<Quote>TXT_KEY_TECH_SLATE_ROOFS_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -267,15 +530,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_STREITH</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_STREITH_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_STREITH_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_STREITH_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_INDUSTRIAL</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>10</GridX>
+			<GridY>3</GridY>
 			<Quote>TXT_KEY_TECH_STREITH_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -284,15 +547,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_FANCLOTH</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_FANCLOTH_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_FANCLOTH_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_FANCLOTH_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_MODERN</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>11</GridX>
+			<GridY>9</GridY>
 			<Quote>TXT_KEY_TECH_FANCLOTH_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -301,15 +564,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_LINKING</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_LINKING_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_LINKING_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_LINKING_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_RENAISSANCE</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>7</GridX>
+			<GridY>8</GridY>
 			<Quote>TXT_KEY_TECH_LINKING_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -318,15 +581,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_CHANNELING_CIRCLES</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_CHANNELING_CIRCLES_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_CHANNELING_CIRCLES_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_CHANNELING_CIRCLES_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_INDUSTRIAL</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>9</GridX>
+			<GridY>8</GridY>
 			<Quote>TXT_KEY_TECH_CHANNELING_CIRCLES_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -335,15 +598,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_STASIS_BOXES</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_STASIS_BOXES_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_STASIS_BOXES_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_STASIS_BOXES_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_MODERN</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>12</GridX>
+			<GridY>2</GridY>
 			<Quote>TXT_KEY_TECH_STASIS_BOXES_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -352,15 +615,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_GLOWBULBS</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_GLOWBULBS_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_GLOWBULBS_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_GLOWBULBS_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_MODERN</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>11</GridX>
+			<GridY>3</GridY>
 			<Quote>TXT_KEY_TECH_GLOWBULBS_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -369,15 +632,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_PATTERN</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_PATTERN_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_PATTERN_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_PATTERN_HELP</Help>
+			<Cost>35</Cost>
 			<Era>ERA_ANCIENT</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
 			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridY>6</GridY>
 			<Quote>TXT_KEY_TECH_PATTERN_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -386,14 +649,14 @@
 		</Row>
 		<Row>
 			<Type>TECH_DRAGON_PROPHECY</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_DRAGON_PROPHECY_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_DRAGON_PROPHECY_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_DRAGON_PROPHECY_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_CLASSICAL</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
+			<GridX>3</GridX>
 			<GridY>1</GridY>
 			<Quote>TXT_KEY_TECH_DRAGON_PROPHECY_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
@@ -403,15 +666,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_HORN_LEGEND</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_HORN_LEGEND_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_HORN_LEGEND_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_HORN_LEGEND_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_CLASSICAL</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>3</GridX>
+			<GridY>2</GridY>
 			<Quote>TXT_KEY_TECH_HORN_LEGEND_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -420,15 +683,15 @@
 		</Row>
 		<Row>
 			<Type>TECH_WELLS</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_WELLS_TITLE</Description>
-			<Civilopedia>TXT_KEY_TECH_WELLS_PEDIA</Civilopedia>
+			<Civilopedia>TXT_KEY_TECH_WELLS_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_WELLS_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_MODERN</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>11</GridX>
+			<GridY>8</GridY>
 			<Quote>TXT_KEY_TECH_WELLS_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
@@ -437,20 +700,40 @@
 		</Row>
 		<Row>
 			<Type>TECH_DREAMING</Type>
-			<Cost>35</Cost>
 			<Description>TXT_KEY_TECH_DREAMING_TITLE</Description>
 			<Civilopedia>TXT_KEY_TECH_DREAMING_PEDIA</Civilopedia>
 			<Help>TXT_KEY_TECH_DREAMING_HELP</Help>
-			<Era>ERA_ANCIENT</Era>
+			<Cost>35</Cost>
+			<Era>ERA_CLASSICAL</Era>
 			<Trade>true</Trade>
 			<GoodyTech>true</GoodyTech>
-			<GridX>1</GridX>
-			<GridY>1</GridY>
+			<GridX>4</GridX>
+			<GridY>6</GridY>
 			<Quote>TXT_KEY_TECH_DREAMING_QUOTE</Quote>
 			<PortraitIndex>4</PortraitIndex>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
 			<AudioIntro>AS2D_TECH_POTTERY</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_POTTERY</AudioIntroHeader>
+		</Row>
+		<Row>
+			<Type>TECH_TRANSCENDENCE</Type>
+			<Description>TXT_KEY_TECH_TRANSCENDENCE_TITLE</Description>
+			<Civilopedia>TXT_KEY_TECH_TRANSCENDENCE_PEDIA</Civilopedia>
+			<Help>TXT_KEY_TECH_TRANSCENDENCE_HELP</Help>
+			<Cost>20</Cost>
+			<AdvancedStartCost>0</AdvancedStartCost>
+			<Era>ERA_POSTMODERN</Era>
+			<FirstFreeUnitClass>0</FirstFreeUnitClass>
+			<Repeat>1</Repeat>
+			<Trade>1</Trade>
+			<GoodyTech>1</GoodyTech>
+			<GridX>13</GridX>
+			<GridY>5</GridY>
+			<Quote>TXT_KEY_TECH_TRANSCENDENCE_QUOTE</Quote>
+			<PortraitIndex>0</PortraitIndex>
+			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
+			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>
 	</Technologies>
 </GameData>

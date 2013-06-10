@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 4/24/2013 3:10:43 AM -->
 <GameData>
-  <!-- TODO: Insert table creation example here. -->
- 
-  <!-- TODO: Insert table data example here.-->
-  
-  <!-- Enter your Game Data here. -->
 	<Units>
 		<Row>
 			<Class>UNITCLASS_HORN_HUNTER</Class>
 			<Type>UNIT_HORN_HUNTER</Type>
-			<PrereqTech>TECH_ARCHERY</PrereqTech>
+			<PrereqTech>TECH_HORN_LEGEND</PrereqTech>
 			<Combat>1</Combat>
 			<Cost>25</Cost>
 			<Moves>2</Moves>
@@ -36,7 +31,7 @@
 		<Row>
 			<Class>UNITCLASS_AES_SEDAI</Class>
 			<Type>UNIT_AES_SEDAI</Type>
-			<PrereqTech>TECH_ARCHERY</PrereqTech>
+			<PrereqTech>TECH_SAIDAR</PrereqTech>
 			<Combat>15</Combat>
 			<RangedCombat>45</RangedCombat>
 			<Cost>25</Cost>
@@ -64,7 +59,6 @@
 		<Row>
 			<Class>UNITCLASS_HORN_HERO</Class>
 			<Type>UNIT_HORN_HERO_HAWKWING</Type>
-			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
 			<Combat>100</Combat>
 			<Cost>-1</Cost>
 			<Moves>3</Moves>
@@ -89,7 +83,6 @@
 		<Row>
 			<Class>UNITCLASS_HORN_HERO</Class>
 			<Type>UNIT_HORN_HERO_BIRGITTE</Type>
-			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
 			<Combat>70</Combat>
 			<RangedCombat>130</RangedCombat>
 			<Cost>-1</Cost>

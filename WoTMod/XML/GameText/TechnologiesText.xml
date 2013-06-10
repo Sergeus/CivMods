@@ -337,5 +337,23 @@
 		<Row Tag="TXT_KEY_TECH_DREAMING_QUOTE">
 			<Text>[TOWRITE] dreaming quote</Text>
 		</Row>
+		
+		<!-- Tecnology: Transcendence -->
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_TITLE</Tag>
+			<Text>Transcendence</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_PEDIA</Tag>
+			<Text>[TOWRITE] transcendence pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_HELP</Tag>
+			<Text>[TOWRITE] transcendence help</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_QUOTE</Tag>
+			<Text>[TOWRITE] transcedence quote</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
