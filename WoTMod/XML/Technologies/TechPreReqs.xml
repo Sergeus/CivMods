@@ -43,10 +43,6 @@
 			<PrereqTech>TECH_ONE_POWER</PrereqTech>
 		</Row>
 		<Row>
-			<TechType>TECH_DREAMING</TechType>
-			<PrereqTech>TECH_PATCHED_CLOAK</PrereqTech>
-		</Row>
-		<Row>
 			<TechType>TECH_SAIDAR</TechType>
 			<PrereqTech>TECH_DREAMING</PrereqTech>
 		</Row>
@@ -65,10 +61,6 @@
 		<Row>
 			<TechType>TECH_ADAM</TechType>
 			<PrereqTech>TECH_METAL_CASTING</PrereqTech>
-		</Row>
-		<Row>
-			<TechType>TECH_METAL_CASTING</TechType>
-			<PrereqTech>TECH_SAIDAR</PrereqTech>
 		</Row>
 		<Row>
 			<TechType>TECH_LINKING</TechType>
@@ -183,10 +175,6 @@
 			<PrereqTech>TECH_FERTILIZER</PrereqTech>
 		</Row>
 		<Row>
-			<TechType>TECH_STEAM_POWER</TechType>
-			<PrereqTech>TECH_ECONOMICS</PrereqTech>
-		</Row>
-		<Row>
 			<TechType>TECH_PRINTING_PRESS</TechType>
 			<PrereqTech>TECH_STEAM_POWER</PrereqTech>
 		</Row>
@@ -245,6 +233,22 @@
 		<Row>
 			<TechType>TECH_TRANSCENDENCE</TechType>
 			<PrereqTech>TECH_SAANGREAL</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_TERANGREAL</TechType>
+			<PrereqTech>TECH_CIVIL_SERVICE</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_PATCHED_CLOAK</TechType>
+			<PrereqTech>TECH_TRAPPING</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_HORSEBACK_RIDING</TechType>
+			<PrereqTech>TECH_PATCHED_CLOAK</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_ARCHITECTURE</TechType>
+			<PrereqTech>TECH_CHANNELING_CIRCLES</PrereqTech>
 		</Row>
 	</Technology_PrereqTechs>
 </GameData>

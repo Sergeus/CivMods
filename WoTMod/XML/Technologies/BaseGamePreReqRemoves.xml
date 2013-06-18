@@ -7,6 +7,7 @@
 		<Delete TechType="TECH_PHILOSOPHY" PrereqTech="TECH_CALENDAR" />
 		<Delete TechType="TECH_PHILOSOPHY" PrereqTech="TECH_WRITING" />
 		<Delete TechType="TECH_HORSEBACK_RIDING" PrereqTech="TECH_THE_WHEEL" />
+		<Delete TechType="TECH_HORSEBACK_RIDING" PrereqTech="TECH_TRAPPING" />
 		<Delete TechType="TECH_CONSTRUCTION" PrereqTech="TECH_MASONRY" />
 		<Delete TechType="TECH_CONSTRUCTION" PrereqTech="TECH_THE_WHEEL" />
 		<Delete TechType="TECH_DRAMA" PrereqTech="TECH_WRITING" />
