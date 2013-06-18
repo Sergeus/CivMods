@@ -215,7 +215,7 @@
 			<PrereqTech>TECH_STREITH</PrereqTech>
 		</Row>
 		<Row>
-			<TechType>TECH_UNNAMED_TECH_1</TechType>
+			<TechType>TECH_TRANSCENDENCE</TechType>
 			<PrereqTech>TECH_PRINTING_PRESS</PrereqTech>
 		</Row>
 		<Row>

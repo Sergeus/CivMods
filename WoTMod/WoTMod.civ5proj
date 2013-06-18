@@ -414,6 +414,11 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
+        <FileName>XML/GameInfo/Flavors.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/TechnologiesText.xml</FileName>
       </Action>
       <Action>
@@ -424,12 +429,17 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>XML/Technologies/BaseGamePreReqRemoves.xml</FileName>
+        <FileName>XML/Technologies/TechPreReqs.xml</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>XML/Technologies/TechPreReqs.xml</FileName>
+        <FileName>XML/Technologies/TechnologiesFlavors.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Technologies/BaseGamePreReqRemoves.xml</FileName>
       </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
@@ -490,6 +500,7 @@
     <Folder Include="XML\GameText" />
     <Folder Include="XML\Civilizations" />
     <Folder Include="XML\Leaders" />
+    <Folder Include="XML\GameInfo" />
     <Folder Include="XML\Technologies" />
     <Folder Include="XML\Shadowspawn" />
     <Folder Include="XML\Traits" />
@@ -1086,6 +1097,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\GameInfo\Flavors.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\GameText\CivText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1187,6 +1202,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Technologies\Technologies.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Technologies\TechnologiesFlavors.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
