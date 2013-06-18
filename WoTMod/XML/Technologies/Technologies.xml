@@ -4,7 +4,7 @@
 	<Technologies>
 		<!-- Move old techs around -->
 		<Update>
-			<Set Description="TXT_KEY_TECH_ARCHERY_DESC" Civilopedia="TXT_KEY_TECH_ARCHERY_CIV" Era="ERA_CLASSICAL" GridX="2" GridY="7" />
+			<Set Era="ERA_CLASSICAL" GridX="2" GridY="7" />
 			<Where Type="TECH_ARCHERY" />
 		</Update>
 		<Update>
@@ -16,7 +16,7 @@
 			<Where Type="TECH_SAILING" />
 		</Update>
 		<Update>
-			<Set Description="TXT_KEY_TECH_CALENDAR_DESC" Civilopedia="TXT_KEY_TECH_CALENDAR_CIV" Era="ERA_CLASSICAL" />
+			<Set Era="ERA_CLASSICAL" />
 			<Where Type="TECH_CALENDAR" />
 		</Update>
 		<Update>
@@ -48,16 +48,12 @@
 			<Where Type="TECH_HORSEBACK_RIDING" />
 		</Update>
 		<Update>
-			<Set Description="TXT_KEY_TECH_MATHEMATICS_DESC" Civilopedia="TXT_KEY_TECH_MATHEMATICS_CIV" Trade="1" GridX="4" GridY="7" />
+			<Set Trade="1" GridX="4" GridY="7" />
 			<Where Type="TECH_MATHEMATICS" />
 		</Update>
 		<Update>
 			<Set GridX="4" GridY="9" />
 			<Where Type="TECH_CONSTRUCTION" />
-		</Update>
-		<Update>
-			<Set Description="TXT_KEY_TECH_PHILOSOPHY_DESC" Civilopedia="TXT_KEY_TECH_PHILOSOPHY_CIV" />
-			<Where Type="TECH_PHILOSOPHY" />
 		</Update>
 		<Update>
 			<Set Era="ERA_MEDIEVAL" GridX="5" />
@@ -76,7 +72,7 @@
 			<Where Type="TECH_IRON_WORKING" />
 		</Update>
 		<Update>
-			<Set Description="TXT_KEY_TECH_THEOLOGY_DESC" Civilopedia="TXT_KEY_TECH_THEOLOGY_CIV" GridX="6" />
+			<Set GridX="6" />
 			<Where Type="TECH_THEOLOGY" />
 		</Update>
 		<Update>
@@ -100,7 +96,7 @@
 			<Where Type="TECH_CHIVALRY" />
 		</Update>
 		<Update>
-			<Set Description="TXT_KEY_TECH_MACHINERY_DESC" Civilopedia="TXT_KEY_TECH_MACHINERY_CIV" Era="ERA_RENAISSANCE" Trade="1" GridX="8" GridY="10" />
+			<Set Era="ERA_RENAISSANCE" Trade="1" GridX="8" GridY="10" />
 			<Where Type="TECH_MACHINERY" />
 		</Update>
 		<Update>
@@ -128,11 +124,11 @@
 			<Where Type="TECH_PRINTING_PRESS" />
 		</Update>
 		<Update>
-			<Set Description="TXT_KEY_TECH_NAVIGATION_DESC" Civilopedia="TXT_KEY_TECH_NAVIGATION_CIV" Era="ERA_INDUSTRIAL" Trade="1" GridX="10" GridY="0" />
+			<Set Era="ERA_INDUSTRIAL" Trade="1" GridX="10" GridY="0" />
 			<Where Type="TECH_NAVIGATION" />
 		</Update>
 		<Update>
-			<Set Description="TXT_KEY_TECH_ARCHITECTURE_DESC" Civilopedia="TXT_KEY_TECH_ARCHITECTURE_CIV" Era="ERA_INDUSTRIAL" GridX="10" GridY="10" />
+			<Set Era="ERA_INDUSTRIAL" GridX="10" GridY="10" />
 			<Where Type="TECH_ARCHITECTURE" />
 		</Update>
 		<Update>
@@ -140,7 +136,7 @@
 			<Where Type="TECH_ECONOMICS" />
 		</Update>
 		<Update>
-			<Set Description="TXT_KEY_TECH_METALLURGY_DESC" Civilopedia="TXT_KEY_TECH_METALLURGY_CIV" Era="ERA_INDUSTRIAL" GridX="10" GridY="7" />
+			<Set Era="ERA_INDUSTRIAL" GridX="10" GridY="7" />
 			<Where Type="TECH_METALLURGY" />
 		</Update>
 		<Update>
