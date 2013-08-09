@@ -22,7 +22,7 @@
 			IntermediateDirectory="$(SolutionDir)\BuildTemp\VS2008_$(ProjectName)$(ConfigurationName)$(PlatformName)\"
 			ConfigurationType="2"
 			CharacterSet="2"
-			WholeProgramOptimization="1"
+			WholeProgramOptimization="0"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -583,6 +583,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\CvUnitMovement.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\CvUnitProductionAI.cpp"
 				>
 			</File>
@@ -954,6 +958,10 @@
 			</File>
 			<File
 				RelativePath=".\CvUnitMission.h"
+				>
+			</File>
+			<File
+				RelativePath=".\CvUnitMovement.h"
 				>
 			</File>
 			<File
