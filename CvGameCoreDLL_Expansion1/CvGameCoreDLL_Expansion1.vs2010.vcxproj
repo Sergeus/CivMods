@@ -84,6 +84,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CvDllContext.cpp" />
     <ClCompile Include="WoTNotifications.cpp" />
     <ClCompile Include="_precompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mod|Win32'">Create</PrecompiledHeader>
@@ -228,7 +229,6 @@
     <ClCompile Include="CvDllCivilizationInfo.cpp" />
     <ClCompile Include="CvDllColorInfo.cpp" />
     <ClCompile Include="CvDllCombatInfo.cpp" />
-    <ClCompile Include="CvDllContext.cpp" />
     <ClCompile Include="CvDllDatabaseUtility.cpp" />
     <ClCompile Include="CvDllDeal.cpp" />
     <ClCompile Include="CvDllDealAI.cpp" />

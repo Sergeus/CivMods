@@ -15,6 +15,12 @@
     <Filter Include="Lua">
       <UniqueIdentifier>{42994bec-0f25-4200-ae4c-b7c751a5a152}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WoTHeaders">
+      <UniqueIdentifier>{4746a653-82d6-4bac-a04a-ea78c5a2ff84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WoTSources">
+      <UniqueIdentifier>{f31ea53b-1041-45d8-aaca-34bc95676f58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_precompile.cpp">
@@ -493,6 +499,9 @@
     </ClCompile>
     <ClCompile Include="Lua\CvLuaUnit.cpp">
       <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="WoTNotifications.cpp">
+      <Filter>WoTSources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1008,6 +1017,9 @@
     </ClInclude>
     <ClInclude Include="Lua\CvLuaUnit.h">
       <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="WoTNotifications.h">
+      <Filter>WoTHeaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

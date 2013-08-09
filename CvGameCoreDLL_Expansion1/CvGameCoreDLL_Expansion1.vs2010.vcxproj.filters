@@ -350,9 +350,6 @@
     <ClCompile Include="CvDllCombatInfo.cpp">
       <Filter>Dll Interface</Filter>
     </ClCompile>
-    <ClCompile Include="CvDllContext.cpp">
-      <Filter>Dll Interface</Filter>
-    </ClCompile>
     <ClCompile Include="CvDllDatabaseUtility.cpp">
       <Filter>Dll Interface</Filter>
     </ClCompile>
@@ -505,6 +502,9 @@
     </ClCompile>
     <ClCompile Include="WoTNotifications.cpp">
       <Filter>WoTSources</Filter>
+    </ClCompile>
+    <ClCompile Include="CvDllContext.cpp">
+      <Filter>Dll Interface</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

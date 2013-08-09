@@ -47,6 +47,11 @@
 #include "CvDllVictoryInfo.h"
 #include "CvDllWorldBuilderMapLoader.h"
 
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Notifications
+// ----------------------------------------------------------------
+#include "WoTNotifications.h"
+
 CvDllGameContext* CvDllGameContext::s_pSingleton = NULL;
 HANDLE CvDllGameContext::s_hHeap = INVALID_HANDLE_VALUE;
 
@@ -99,7 +104,7 @@ CvDllGameContext::~CvDllGameContext()
 void* CvDllGameContext::QueryInterface(GUID guidInterface)
 {
 	if(	guidInterface == ICvUnknown::GetInterfaceId() ||
-		guidInterface == ICvGameContext1::GetInterfaceId() ||
+        guidInterface == ICvGameContext1::GetInterfaceId() ||
 		guidInterface == ICvGameContext2::GetInterfaceId())
 	{
 		return this;
@@ -691,12 +696,15 @@ ICvScriptSystemUtility1* CvDllGameContext::GetScriptSystemUtility()
 //------------------------------------------------------------------------------
 const char* CvDllGameContext::GetNotificationType(int NotificationID) const
 {
-	CvNotificationXMLEntries* pkEntries = GC.GetNotificationEntries();
-	if(pkEntries != NULL)
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	//CvNotificationXMLEntries* pkEntries = GC.GetNotificationEntries();
+	
+	WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(NotificationID);
+	if(pkInfo != NULL)
 	{
-		CvNotificationEntry* pkEntry = pkEntries->GetEntry(NotificationID);
-		if(pkEntry != NULL)
-			return pkEntry->GetTypeName();
+		return pkInfo->GetType();
 	}
 
 	return NULL;
@@ -842,7 +850,7 @@ bool CvDllGameContext::SetDLLIFace(ICvEngineUtility1* pDll)
 	}
 
 	ICvEngineUtility3* pDllInterface = (pDll != NULL)? pDll->QueryInterface<ICvEngineUtility3>() : NULL;
-	GC.setDLLIFace(pDllInterface);
+	GC.setDLLIFace(pDllInterface);	//GameCore will claim ownership.
 
 	return pDllInterface != NULL;
 }

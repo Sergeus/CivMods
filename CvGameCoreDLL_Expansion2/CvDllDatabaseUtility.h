@@ -16,6 +16,11 @@
 #include "CvGlobals.h"
 #include "ICvDLLDatabaseUtility.h"
 
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Notifications
+// ----------------------------------------------------------------
+#include "WoTNotifications.h"
+
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 //  class : CvDllDatabaseUtility
