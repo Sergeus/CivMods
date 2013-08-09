@@ -613,6 +613,10 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 
 	Method(GetEndTurnBlockingType);
 	Method(GetEndTurnBlockingNotificationIndex);
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	Method(GetEndTurnBlockingNotificationID);
 	Method(HasReceivedNetTurnComplete);
 	Method(IsStrike);
 
@@ -6517,6 +6521,14 @@ int CvLuaPlayer::lGetEndTurnBlockingType(lua_State* L)
 int CvLuaPlayer::lGetEndTurnBlockingNotificationIndex(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlayerAI::GetEndTurnBlockingNotificationIndex);
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Notifications
+// ----------------------------------------------------------------
+int CvLuaPlayer::lGetEndTurnBlockingNotificationID(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlayerAI::GetEndTurnBlockingNotificationID);
 }
 
 //------------------------------------------------------------------------------

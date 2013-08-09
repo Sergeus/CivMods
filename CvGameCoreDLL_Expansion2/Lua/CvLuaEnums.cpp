@@ -332,7 +332,6 @@ int CvLuaEnums::pRegister(lua_State* L)
 	EnumEnd(L);
 
 	EnumStart(L, "NotificationTypes");
-<<<<<<< HEAD:CvGameCoreDLL_Expansion/Lua/CvLuaEnums.cpp
 	RegisterEnum(NOTIFICATION_GENERIC);
 	RegisterEnum(NOTIFICATION_TECH);
 	RegisterEnum(NOTIFICATION_FREE_TECH);
@@ -460,8 +459,6 @@ int CvLuaEnums::pRegister(lua_State* L)
 	RegisterEnum(NOTIFICATION_WOT_CUSTOM);
 
 	RegisterEnum(NUM_NOTIFICATION_TYPES);
-
-	// TODO: deal with this hashing shit
 
 	//CvNotificationXMLEntries* pkNotifications = GC.GetNotificationEntries();
 	//if (pkNotifications)
