@@ -839,17 +839,17 @@ CvString CvNotifications::GetNotificationStr(int iZeroBasedIndex)  // ignores th
 CvString CvNotifications::GetNotificationSummary(int iZeroBasedIndex)
 {
 	int iRealIndex = (m_iNotificationsBeginIndex + iZeroBasedIndex) % m_aNotifications.size();
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	return m_aNotifications[iRealIndex].m_eNotificationType;
+	return m_aNotifications[iRealIndex].m_strSummary;
 }
 
 
 int CvNotifications::GetNotificationID(int iZeroBasedIndex)  // ignores begin/end values
 {
-	int iRealIndex = (m_iNotificationsBeginIndex + iZeroBasedIndex) % m_aNotifications.size();
-	return m_aNotifications[iRealIndex].m_iLookupIndex;
+	int iRealIndex = (m_iNotificationsBeginIndex + iZeroBasedIndex) % m_aNotifications.size();\
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Notifications
+	// ----------------------------------------------------------------
+	return m_aNotifications[iRealIndex].m_eNotificationType;
 }
 
 int CvNotifications::GetNotificationTurn(int iZeroBasedIndex)
