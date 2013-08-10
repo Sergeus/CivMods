@@ -37,7 +37,22 @@ The mod's functionality is discussed in detail on the Civilization Fanatics Foru
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>Art/Civilizations/CyatsIconAtlas.xml</FileName>
+        <FileName>Art/Civilizations/Cyats/CyatsIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Civilizations/Empire/EmpireIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Civilizations/NemydianFederation/NemydIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Civilizations/Svesta/SvestaIconAtlas.xml</FileName>
       </Action>
     </ModActions>
     <ModContent>
@@ -68,6 +83,10 @@ The mod's functionality is discussed in detail on the Civilization Fanatics Foru
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Art\Civilizations" />
+    <Folder Include="Art\Civilizations\Cyats" />
+    <Folder Include="Art\Civilizations\Empire" />
+    <Folder Include="Art\Civilizations\NemydianFederation" />
+    <Folder Include="Art\Civilizations\Svesta" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
     <Folder Include="XML" />
@@ -82,35 +101,103 @@ The mod's functionality is discussed in detail on the Civilization Fanatics Foru
     <Folder Include="XML\Notifications" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Art\Civilizations\CyatsIcon128.dds">
+    <Content Include="Art\Civilizations\Cyats\CyatsIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Cyats\CyatsIcon24.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Cyats\CyatsIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Cyats\CyatsIcon32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Cyats\CyatsIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Cyats\CyatsIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Cyats\CyatsIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Cyats\CyatsIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Empire\EmpireIcon128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\CyatsIcon24.dds">
+    <Content Include="Art\Civilizations\Empire\EmpireIcon24.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\CyatsIcon256.dds">
+    <Content Include="Art\Civilizations\Empire\EmpireIcon256.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\CyatsIcon32.dds">
+    <Content Include="Art\Civilizations\Empire\EmpireIcon32.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\CyatsIcon45.dds">
+    <Content Include="Art\Civilizations\Empire\EmpireIcon45.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\CyatsIcon64.dds">
+    <Content Include="Art\Civilizations\Empire\EmpireIcon64.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\CyatsIcon80.dds">
+    <Content Include="Art\Civilizations\Empire\EmpireIcon80.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
-    <Content Include="Art\Civilizations\CyatsIconAtlas.xml">
+    <Content Include="Art\Civilizations\Empire\EmpireIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\NemydianFederation\NemydIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\NemydianFederation\NemydIcon24.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\NemydianFederation\NemydIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\NemydianFederation\NemydIcon32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\NemydianFederation\NemydIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\NemydianFederation\NemydIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\NemydianFederation\NemydIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\NemydianFederation\NemydIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Civilizations\Svesta\SvestaIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
