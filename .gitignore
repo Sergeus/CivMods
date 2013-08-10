@@ -1,0 +1,4 @@
+*.civ5suo
+[bB]uild/*
+[pP]ackages/*
+*.dll
