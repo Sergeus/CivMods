@@ -118,6 +118,13 @@ public:
 	int GetTradeReligionModifier() const;
 	int GetTradeBuildingModifier() const;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int GetExtraUnitsWhenTrained() const;
+	int GetReqTradeRoutesForPeace() const;
+	int GetReligionTakeoverTurns() const;
+
 	TechTypes GetFreeUnitPrereqTech() const;
 	ImprovementTypes GetCombatBonusImprovement() const;
 	BuildingTypes GetFreeBuilding() const;
@@ -142,6 +149,12 @@ public:
 	bool IsUniqueLuxuryRequiresNewArea() const;
 	bool IsRiverTradeRoad() const;
 	bool IsAngerFreeIntrusionOfCityStates() const;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	bool IsTradeStopsWars() const;
+	bool IsPuppetsReligiousFollowers() const;
 
 	const char* getShortDescription() const;
 	void setShortDescription(const char* szVal);
@@ -241,6 +254,13 @@ protected:
 	int m_iTradeReligionModifier;
 	int m_iTradeBuildingModifier;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int m_iReqTradeRoutesForPeace;
+	int m_iReligionTakeOverTurns;
+	int m_iExtraUnitsWhenTrained;
+
 	TechTypes m_eFreeUnitPrereqTech;
 	ImprovementTypes m_eCombatBonusImprovement;
 	BuildingTypes m_eFreeBuilding;
@@ -265,6 +285,12 @@ protected:
 	bool m_bUniqueLuxuryRequiresNewArea;
 	bool m_bRiverTradeRoad;
 	bool m_bAngerFreeIntrusionOfCityStates;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	bool m_bTradeStopsWars;
+	bool m_bPuppetsReligiousFollowers;
 
 	CvString m_strShortDescription;
 
@@ -750,6 +776,30 @@ public:
 
 	bool NoTrain(UnitClassTypes eUnitClassType);
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int GetExtraUnitsWhenTrained() const
+	{
+		return m_iExtraUnitsWhenTrained;
+	}
+	int GetReqTradeRoutesForPeace() const
+	{
+		return m_iReqTradeRoutesForPeace;
+	}
+	int GetReligionTakeoverTurns() const
+	{
+		return m_iReligionTakeoverTurns;
+	}
+	bool IsTradeStopsWars() const
+	{
+		return m_bTradeStopsWars;
+	}
+	bool IsPuppetsReligiousFollowers() const
+	{
+		return m_bPuppetsReligiousFollowers;
+	}
+
 	// Maya calendar routines
 	bool IsUsingMayaCalendar() const;
 	bool IsEndOfMayaLongCount();
@@ -839,6 +889,13 @@ private:
 	int m_iTradeBuildingModifier;
 	// Saved
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int m_iExtraUnitsWhenTrained;
+	int m_iReqTradeRoutesForPeace;
+	int m_iReligionTakeoverTurns;
+
 	bool m_bFightWellDamaged;
 	bool m_bMoveFriendlyWoodsAsRoad;
 	bool m_bFasterAlongRiver;
@@ -858,6 +915,12 @@ private:
 	bool m_bUniqueLuxuryRequiresNewArea;
 	bool m_bRiverTradeRoad;
 	bool m_bAngerFreeIntrusionOfCityStates;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	bool m_bTradeStopsWars;
+	bool m_bPuppetsReligiousFollowers;
 
 	UnitTypes m_eCampGuardType;
 	unsigned int m_uiFreeUnitIndex;

@@ -82,6 +82,13 @@ CvTraitEntry::CvTraitEntry() :
 	m_iUniqueLuxuryCities(0),
 	m_iUniqueLuxuryQuantity(0),
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_iExtraUnitsWhenTrained(0),
+	m_iReqTradeRoutesForPeace(-1),
+	m_iReligionTakeOverTurns(-1),
+
 	m_eFreeUnitPrereqTech(NO_TECH),
 	m_eFreeBuilding(NO_BUILDING),
 	m_eFreeBuildingOnConquest(NO_BUILDING),
@@ -103,6 +110,12 @@ CvTraitEntry::CvTraitEntry() :
 	m_bNoAnnexing(false),
 	m_bTechFromCityConquer(false),
 	m_bUniqueLuxuryRequiresNewArea(false),
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_bTradeStopsWars(false),
+	m_bPuppetsReligiousFollowers(false),
 
 	m_paiExtraYieldThreshold(NULL),
 	m_paiYieldChange(NULL),
@@ -910,6 +923,13 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 	m_iTradeReligionModifier				= kResults.GetInt("TradeReligionModifier");
 	m_iTradeBuildingModifier				= kResults.GetInt("TradeBuildingModifier");
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_iReqTradeRoutesForPeace				= kResults.GetInt("ReqTradeRoutesForPeace");
+	m_iReligionTakeOverTurns				= kResults.GetInt("ReligionTakeoverTurns");
+	m_iExtraUnitsWhenTrained				= kResults.GetInt("ExtraUnitsWhenTrained");
+
 	const char* szTextVal = NULL;
 	szTextVal = kResults.GetText("FreeUnit");
 	if(szTextVal)
@@ -972,6 +992,12 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 	m_bUniqueLuxuryRequiresNewArea = kResults.GetBool("UniqueLuxuryRequiresNewArea");
 	m_bRiverTradeRoad = kResults.GetBool("RiverTradeRoad");
 	m_bAngerFreeIntrusionOfCityStates = kResults.GetBool("AngerFreeIntrusionOfCityStates");
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_bTradeStopsWars = kResults.GetBool("TradeStopsWars");
+	m_bPuppetsReligiousFollowers = kResults.GetBool("PuppetsReligiousFollowers");
 
 	//Arrays
 	const char* szTraitType = GetType();
@@ -1372,6 +1398,11 @@ void CvPlayerTraits::InitPlayerTraits()
 			m_iTradeReligionModifier += trait->GetTradeReligionModifier();
 			m_iTradeBuildingModifier += trait->GetTradeBuildingModifier();
 
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+			m_iExtraUnitsWhenTrained += trait->GetExtraUnitsWhenTrained();
+
 			if(trait->IsFightWellDamaged())
 			{
 				m_bFightWellDamaged = true;
@@ -1450,6 +1481,20 @@ void CvPlayerTraits::InitPlayerTraits()
 			if (trait->IsAngerFreeIntrusionOfCityStates())
 			{
 				m_bAngerFreeIntrusionOfCityStates = true;
+			}
+
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+			if (trait->IsTradeStopsWars())
+			{
+				m_bTradeStopsWars = true;
+				m_iReqTradeRoutesForPeace = trait->GetReqTradeRoutesForPeace();
+			}
+			if (trait->IsPuppetsReligiousFollowers())
+			{
+				m_bPuppetsReligiousFollowers = true;
+				m_iReligionTakeoverTurns = trait->GetReligionTakeoverTurns();
 			}
 
 			for(int iYield = 0; iYield < NUM_YIELD_TYPES; iYield++)
@@ -1625,6 +1670,13 @@ void CvPlayerTraits::Reset()
 	m_iTradeReligionModifier = 0;
 	m_iTradeBuildingModifier = 0;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_iExtraUnitsWhenTrained = 0;
+	m_iReqTradeRoutesForPeace = -1;
+	m_iReligionTakeoverTurns = -1;
+
 	m_bFightWellDamaged = false;
 	m_bMoveFriendlyWoodsAsRoad = false;
 	m_bFasterAlongRiver = false;
@@ -1644,6 +1696,12 @@ void CvPlayerTraits::Reset()
 	m_bUniqueLuxuryRequiresNewArea = false;
 	m_bRiverTradeRoad = false;
 	m_bAngerFreeIntrusionOfCityStates = false;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_bTradeStopsWars = false;
+	m_bPuppetsReligiousFollowers = false;
 
 	m_eCampGuardType = NO_UNIT;
 	m_eCombatBonusImprovement = NO_IMPROVEMENT;
@@ -2595,6 +2653,13 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 		m_iTradeBuildingModifier = 0;
 	}
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	kStream >> m_iExtraUnitsWhenTrained;
+	kStream >> m_iReqTradeRoutesForPeace;
+	kStream >> m_iReligionTakeoverTurns;
+
 	kStream >> m_bFightWellDamaged;
 	kStream >> m_bMoveFriendlyWoodsAsRoad;
 	kStream >> m_bFasterAlongRiver;
@@ -2619,6 +2684,13 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 	kStream >> m_bCrossesMountainsAfterGreatGeneral;
 
 	kStream >> m_bMayaCalendarBonuses;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	kStream >> m_bTradeStopsWars;
+	kStream >> m_bPuppetsReligiousFollowers;
+
 	kStream >> m_iBaktunPreviousTurn;
 
 	kStream >> iNumEntries;
@@ -2848,6 +2920,13 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	kStream << m_iTradeReligionModifier;
 	kStream << m_iTradeBuildingModifier;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_iExtraUnitsWhenTrained;
+	kStream << m_iReqTradeRoutesForPeace;
+	kStream << m_iReligionTakeoverTurns;
+
 	kStream << m_bFightWellDamaged;
 	kStream << m_bMoveFriendlyWoodsAsRoad;
 	kStream << m_bFasterAlongRiver;
@@ -2862,6 +2941,12 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	kStream << m_bAbleToAnnexCityStates;
 	kStream << m_bCrossesMountainsAfterGreatGeneral;
 	kStream << m_bMayaCalendarBonuses;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_bTradeStopsWars;
+	kStream << m_bPuppetsReligiousFollowers;
 
 	kStream << m_iBaktunPreviousTurn;
 
