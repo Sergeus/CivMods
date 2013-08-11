@@ -13,7 +13,7 @@
 			<PortraitIndex>34</PortraitIndex>
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_RANGED</PediaType>
-			<PediaEntry>TXT_KEY_PROMOTION_RANGE_two</PediaEntry>
+			<PediaEntry>TXT_KEY_PROMOTION_RANGE_TWO</PediaEntry>
 		</Row>
 	</UnitPromotions>
 </GameData>

@@ -60,11 +60,6 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>XML/Civilizations/BaseGameCivDisables.xml</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
         <FileName>XML/Civilizations/CivSvesta.xml</FileName>
       </Action>
       <Action>
@@ -142,6 +137,21 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Leaders/LeaderImsharad.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Interface/Colors.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/PromotionsText.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Civilizations/CivFreeUnits.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -186,6 +196,7 @@
     <Folder Include="XML\GameText" />
     <Folder Include="XML\Civilizations" />
     <Folder Include="XML\Leaders" />
+    <Folder Include="XML\Interface" />
     <Folder Include="XML\Traits" />
     <Folder Include="XML\Units" />
     <Folder Include="XML\Technologies" />
@@ -380,6 +391,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\Civilizations\CivFreeUnits.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\Civilizations\CivNemydianFederation.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -396,7 +411,15 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\GameText\PromotionsText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\GameText\TraitText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Interface\Colors.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

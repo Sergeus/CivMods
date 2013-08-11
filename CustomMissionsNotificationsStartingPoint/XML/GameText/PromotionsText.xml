@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/11/2013 7:22:43 PM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_PROMOTION_RANGE_TWO">
+			<Text>+2 Range</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_RANGE_TWO_HELP">
+			<Text>Boosts range significantly.</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

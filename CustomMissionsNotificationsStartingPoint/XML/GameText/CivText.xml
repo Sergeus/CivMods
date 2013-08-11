@@ -65,12 +65,15 @@
 		<!-- Civilization: The Cyats -->
 		<Row Tag="TXT_KEY_CIV_CYATS_SHORT_DESC">
 			<Text>The Cyats</Text>
+			<Plurality>2</Plurality>
 		</Row>
 		<Row Tag="TXT_KEY_CIV_CYATS_DESC">
 			<Text>The Cyat Theocracy</Text>
+			<Gender>neuter:a</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV_CYATS_ADJECTIVE">
 			<Text>Cyat</Text>
+			<Gender>neuter:a</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_CYATS_PEDIA_TAG">
 			<Text>[TOWRITE] Cyats pedia tag</Text>
@@ -89,6 +92,9 @@
 		<!-- Numydian City Names -->
 		<Row Tag="TXT_KEY_CITY_NAME_NUMYD">
 			<Text>Numyd</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ENASH">
+			<Text>Enash</Text>
 		</Row>
 		
 		<!-- Cyat City Names -->
