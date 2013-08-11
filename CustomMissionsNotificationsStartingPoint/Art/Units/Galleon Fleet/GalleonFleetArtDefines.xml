@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/11/2013 9:36:08 PM -->
+<GameData>
+	<ArtDefine_UnitInfos>
+		<Row>
+			<Type>ART_DEF_UNIT_GALLEON_FLEET</Type>
+			<DamageStates>3</DamageStates>
+			<Formation>ThreeBigGuns</Formation>
+		</Row>
+	</ArtDefine_UnitInfos>
+	<ArtDefine_UnitInfoMemberInfos>
+		<Row>
+			<UnitInfoType>ART_DEF_UNIT_GALLEON_FLEET</UnitInfoType>
+			<UnitMemberInfoType>ART_DEF_UNIT_MEMBER_FRIGATE</UnitMemberInfoType>
+			<NumMembers>3</NumMembers>
+		</Row>
+	</ArtDefine_UnitInfoMemberInfos>
+	<ArtDefine_StrategicView>
+		<Row>
+			<StrategicViewType>ART_DEF_UNIT_GALLEON_FLEET</StrategicViewType>
+			<TileType>Unit</TileType>
+			<Asset>SV_Frigate.dds</Asset>
+		</Row>
+	</ArtDefine_StrategicView>
+</GameData>

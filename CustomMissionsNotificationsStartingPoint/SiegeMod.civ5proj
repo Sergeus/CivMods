@@ -152,6 +152,21 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Civilizations/CivFreeUnits.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Units/UniqueUnits.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Galleon Fleet/GalleonFleetArtDefines.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/UnitText.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -165,6 +180,12 @@
         <Name>Activated Subscribers</Name>
         <Description>Tells what to do when a notification is left clicked</Description>
         <FileName>Lua/ActivatedSubscribers.lua</FileName>
+      </Content>
+      <Content>
+        <Type>Map</Type>
+        <Name>SiegeMod Scenario Test 1</Name>
+        <Description>Testing Map for Scenario Editing</Description>
+        <FileName>Maps/SiegeModTest1.Civ5Map</FileName>
       </Content>
     </ModContent>
     <ReloadUnitSystem>true</ReloadUnitSystem>
@@ -186,9 +207,12 @@
     <Folder Include="Art\Civilizations\Empire" />
     <Folder Include="Art\Civilizations\NemydianFederation" />
     <Folder Include="Art\Civilizations\Svesta" />
+    <Folder Include="Art\Units" />
+    <Folder Include="Art\Units\Galleon Fleet" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
     <Folder Include="Lua\DoubleUnitsTrait" />
+    <Folder Include="Maps" />
     <Folder Include="XML" />
     <Folder Include="UI" />
     <Folder Include="UI\InGame" />
@@ -339,6 +363,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Units\Galleon Fleet\GalleonFleetArtDefines.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="CvGameCore_Expansion2.dll">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -362,6 +390,10 @@
     <Content Include="Lua\DoubleUnitsTrait\ReqTradeRoutesForPeace.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Maps\SiegeModTest1.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="UI\InGame\WorldView\ActionInfoPanel.lua">
       <SubType>Lua</SubType>
@@ -419,6 +451,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\GameText\UnitText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\Interface\Colors.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -460,6 +496,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Traits\TraitRighteousWay.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Units\UniqueUnits.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

@@ -16,7 +16,7 @@
 			<PortraitIndex>0</PortraitIndex>
 			<IconAtlas>NEMYD_ATLAS</IconAtlas>
 			<AlphaIconAtlas>EXPANSION_CIV_ALPHA_ATLAS</AlphaIconAtlas>
-			<MapImage>MapIllian512.dds</MapImage>
+			<MapImage>MapAmerica512.dds</MapImage>
 			<DawnOfManQuote>TXT_KEY_CIV5_DAWN_NEMYDIAN_FEDERATION_TEXT</DawnOfManQuote>
 			<DawnOfManImage>DOM_Maria_Theresa.dds</DawnOfManImage>
 			<DawnOfManAudio>AS2D_DOM_SPEECH_AUSTRIA</DawnOfManAudio>
@@ -29,12 +29,14 @@
 			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType>
 			<BuildingType>BUILDING_CEILIDH_HALL</BuildingType>
 		</Row>
+	</Civilization_BuildingClassOverrides>
+	<Civilization_UnitClassOverrides>
 		<Row>
 			<CivilizationType>CIVILIZATION_NEMYDIAN_FEDERATION</CivilizationType>
-			<BuildingClassType>BUILDINGCLASS_WINDMILL</BuildingClassType>
-			<BuildingType>BUILDING_COFFEE_HOUSE</BuildingType>
+			<UnitClassType>UNITCLASS_GALLEASS</UnitClassType>
+			<UnitType>UNIT_NEMYD_CONSCRIPTED_RAKER</UnitType>
 		</Row>
-	</Civilization_BuildingClassOverrides>
+	</Civilization_UnitClassOverrides>
 	<Civilization_Leaders>
 		<Row>
 			<CivilizationType>CIVILIZATION_NEMYDIAN_FEDERATION</CivilizationType>

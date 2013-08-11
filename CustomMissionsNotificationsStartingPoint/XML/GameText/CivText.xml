@@ -68,7 +68,7 @@
 			<Plurality>2</Plurality>
 		</Row>
 		<Row Tag="TXT_KEY_CIV_CYATS_DESC">
-			<Text>The Cyat Theocracy</Text>
+			<Text>Cyat Theocracy</Text>
 			<Gender>neuter:a</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV_CYATS_ADJECTIVE">
