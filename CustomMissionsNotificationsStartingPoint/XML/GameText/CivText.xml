@@ -95,5 +95,8 @@
 		<Row Tag="TXT_KEY_CITY_NAME_CYRA">
 			<Text>Cyra</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_OSACHE">
+			<Text>Osache</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

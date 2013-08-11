@@ -6,7 +6,7 @@
 			<Type>TRAIT_ALL_ENCOMPASSING</Type>
 			<Description>TXT_KEY_TRAIT_ALL_ENCOMPASSING</Description>
 			<ShortDescription>TXT_KEY_TRAIT_ALL_ENCOMPASSING_SHORT</ShortDescription>
-			<DoubleUnits>true</DoubleUnits>
+			<ExtraUnitsWhenTrained>1</ExtraUnitsWhenTrained>
 		</Row>
 	</Traits>
 	<Trait_FreePromotionUnitCombats>

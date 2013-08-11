@@ -7,10 +7,8 @@
     <Guid>f1a3c52a-a236-4008-8bd3-7d03c95453eb</Guid>
     <ModVersion>1</ModVersion>
     <Stability>Alpha</Stability>
-    <Teaser>This mod provides a starting point for modders who want to use S3rgeus custom missions and notifications mod component, with al</Teaser>
-    <Description>This mod provides a starting point for modders who want to use S3rgeus custom missions and notifications mod component, with all required files set up for immediate use.
-
-The mod's functionality is discussed in detail on the Civilization Fanatics Forum, in the Mod Components subforum of Creation and Customization.</Description>
+    <Teaser>Svesta is cornered and needs your help staying alive.</Teaser>
+    <Description>Svesta is cornered in its peninsula by the Argastinian Empire to the north and embroiled in a protracted naval war with the Numydian Federation to the south.   Meanwhile, the zealous Cyats spread their heathen religion across the land.   A careful balance of trade, religious pressure, and naval combat skill must be struck to save the Svestans from utter annihilation.</Description>
     <Authors>S3rgeus</Authors>
     <SpecialThanks>
     </SpecialThanks>
@@ -57,22 +55,22 @@ The mod's functionality is discussed in detail on the Civilization Fanatics Foru
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>XML/Civilizations/CivSvesta.xml</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
-        <FileName>XML/GameText/CivText.xml</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
         <FileName>XML/Civilizations/CivAlterations.sql</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
         <FileName>XML/Civilizations/BaseGameCivDisables.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Civilizations/CivSvesta.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/CivText.xml</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
@@ -124,6 +122,26 @@ The mod's functionality is discussed in detail on the Civilization Fanatics Foru
         <Type>UpdateDatabase</Type>
         <FileName>XML/Traits/TraitRighteousWay.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Leaders/LeaderTvet.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Traits/TraitMercantilePedagogy.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/TraitText.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Leaders/LeaderImsharad.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -139,6 +157,7 @@ The mod's functionality is discussed in detail on the Civilization Fanatics Foru
         <FileName>Lua/ActivatedSubscribers.lua</FileName>
       </Content>
     </ModContent>
+    <ReloadUnitSystem>true</ReloadUnitSystem>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
@@ -175,31 +194,31 @@ The mod's functionality is discussed in detail on the Civilization Fanatics Foru
   <ItemGroup>
     <Content Include="Art\Civilizations\Cyats\CyatsIcon128.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Civilizations\Cyats\CyatsIcon24.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Civilizations\Cyats\CyatsIcon256.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Civilizations\Cyats\CyatsIcon32.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Civilizations\Cyats\CyatsIcon45.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Civilizations\Cyats\CyatsIcon64.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Civilizations\Cyats\CyatsIcon80.dds">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Civilizations\Cyats\CyatsIconAtlas.xml">
       <SubType>Lua</SubType>
@@ -385,7 +404,15 @@ The mod's functionality is discussed in detail on the Civilization Fanatics Foru
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\Leaders\LeaderImsharad.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\Leaders\LeaderOcirrus.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Leaders\LeaderTvet.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

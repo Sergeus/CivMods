@@ -41,5 +41,45 @@
 		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_OCIRRUS_SUBTITLE">
 			<Text>Prophet of the Cirran Orthodoxy</Text>
 		</Row>
+		
+		<!-- Leader: Tvet Carolinus, of Svesta -->
+		<Row Tag="TXT_KEY_LEADER_TVET">
+			<Text>Tvet Carolinus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_TVET_PEDIA">
+			<Text>[TOWRITE] Tvet pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_TVET">
+			<Text>[TOWRITE] Tvet pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_TVET_LIVED">
+			<Text>Unknown</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_TVET_NAME">
+			<Text>Tvet Carolinus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_TVET_SUBTITLE">
+			<Text>High Consul of Svesta</Text>
+		</Row>
+		
+		<!-- Leader: Imsharad Yugal, of the Numydian Federation -->
+		<Row Tag="TXT_KEY_LEADER_IMSHARAD">
+			<Text>Imsharad Yughal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_IMSHARAD_PEDIA">
+			<Text>[TOWRITE] Imsharad pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_IMSHARAD">
+			<Text>[TOWRITE] Imsharad pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_IMSHARAD_LIVED">
+			<Text>Unknown</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_IMSHARAD_NAME">
+			<Text>Imsharad Yughal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_IMSHARAD_SUBTITLE">
+			<Text>Ambassador of the Numydian Federation</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

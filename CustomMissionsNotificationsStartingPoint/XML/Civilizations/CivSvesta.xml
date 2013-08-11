@@ -38,7 +38,7 @@
 	<Civilization_Leaders>
 		<Row>
 			<CivilizationType>CIVILIZATION_SVESTA</CivilizationType>
-			<LeaderheadType>LEADER_ALEXANDER</LeaderheadType>
+			<LeaderheadType>LEADER_TVET</LeaderheadType>
 		</Row>
 	</Civilization_Leaders>
 	<Civilization_FreeBuildingClasses>
