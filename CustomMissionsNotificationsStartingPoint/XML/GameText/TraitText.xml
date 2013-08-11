@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/11/2013 12:58:40 AM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_TRAIT_MERCANTILE_PEDAGOGY_SHORT">
+			<Text>Mercantile Pedagogy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TRAIT_MERCANTILE_PEDAGOGY">
+			<Text>+10[ICON_GOLD] per trade route. War cannot be declared between this civilization and any other with which this civilization has created four or more trade routes. Can purchase faith units with gold.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_TRAIT_ALL_ENCOMPASSING_SHORT">
+			<Text>All Encompassing</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TRAIT_ALL_ENCOMPASSING">
+			<Text>Training one military unit causes a second of the same unit type to appear adjacent to the city. All siege units have +2 range and have the indirect fire promotion.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_TRAIT_RIGHTEOUS_WAY_SHORT">
+			<Text>Righteous Way</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TRAIT_RIGHTEOUS_WAY">
+			<Text>+2 faith from desert tiles. Any city owned by another civilization not currently at war with the Cyats which converts to the Cyats’ religion will be puppetted by the Cyats 5 turns later.</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

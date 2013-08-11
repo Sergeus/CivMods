@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/11/2013 12:46:34 AM -->
+<GameData>
+	<Traits>
+		<Row>
+			<Type>TRAIT_RIGHTEOUS_WAY</Type>
+			<Description>TXT_KEY_TRAIT_RIGHTEOUS_WAY</Description>
+			<ShortDescription>TXT_KEY_TRAIT_RIGHTEOUS_WAY_SHORT</ShortDescription>
+			<PuppetsReligiousFollowers>true</PuppetsReligiousFollowers>
+			<ReligionTakeoverTurns>5</ReligionTakeoverTurns>
+		</Row>
+	</Traits>
+</GameData>

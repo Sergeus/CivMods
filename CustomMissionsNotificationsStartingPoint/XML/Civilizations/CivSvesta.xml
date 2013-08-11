@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/10/2013 10:57:52 PM -->
+<GameData>
+	<Civilizations>
+		<Row>
+			<Type>CIVILIZATION_SVESTA</Type>
+			<Description>TXT_KEY_CIV_SVESTA_DESC</Description>
+			<ShortDescription>TXT_KEY_CIV_SVESTA_SHORT_DESC</ShortDescription>
+			<Adjective>TXT_KEY_CIV_SVESTA_ADJECTIVE</Adjective>
+			<CivilopediaTag>TXT_KEY_CIV5_SVESTA_PEDIA_TAG</CivilopediaTag>
+			<DefaultPlayerColor>PLAYERCOLOR_SVESTA</DefaultPlayerColor>
+			<ArtDefineTag>ART_DEF_CIVILIZATION_ROME</ArtDefineTag>
+			<ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
+			<ArtStyleSuffix>_EURO</ArtStyleSuffix>
+			<ArtStylePrefix>EUROPEAN </ArtStylePrefix>
+			<PortraitIndex>0</PortraitIndex>
+			<IconAtlas>SVESTA_ATLAS</IconAtlas>
+			<AlphaIconAtlas>EXPANSION_CIV_ALPHA_ATLAS</AlphaIconAtlas>
+			<MapImage>MapIllian512.dds</MapImage>
+			<DawnOfManQuote>TXT_KEY_CIV5_DAWN_SVESTA_TEXT</DawnOfManQuote>
+			<DawnOfManImage>DOM_Maria_Theresa.dds</DawnOfManImage>
+			<DawnOfManAudio>AS2D_DOM_SPEECH_AUSTRIA</DawnOfManAudio>
+			<SiegeMod>true</SiegeMod>
+		</Row>
+	</Civilizations>
+	<Civilization_BuildingClassOverrides>
+		<Row>
+			<CivilizationType>CIVILIZATION_SVESTA</CivilizationType>
+			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType>
+			<BuildingType>BUILDING_CEILIDH_HALL</BuildingType>
+		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_SVESTA</CivilizationType>
+			<BuildingClassType>BUILDINGCLASS_WINDMILL</BuildingClassType>
+			<BuildingType>BUILDING_COFFEE_HOUSE</BuildingType>
+		</Row>
+	</Civilization_BuildingClassOverrides>
+	<Civilization_Leaders>
+		<Row>
+			<CivilizationType>CIVILIZATION_SVESTA</CivilizationType>
+			<LeaderheadType>LEADER_ALEXANDER</LeaderheadType>
+		</Row>
+	</Civilization_Leaders>
+	<Civilization_FreeBuildingClasses>
+		<Row>
+			<CivilizationType>CIVILIZATION_SVESTA</CivilizationType>
+			<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType>
+		</Row>
+	</Civilization_FreeBuildingClasses>
+	<Civilization_FreeTechs>
+		<Row>
+			<CivilizationType>CIVILIZATION_SVESTA</CivilizationType>
+			<TechType>TECH_AGRICULTURE</TechType>
+		</Row>
+	</Civilization_FreeTechs>
+	<Civilization_CityNames>
+		<Row>
+			<CivilizationType>CIVILIZATION_SVESTA</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_SVESTA</CityName>
+		</Row>
+	</Civilization_CityNames>
+</GameData>

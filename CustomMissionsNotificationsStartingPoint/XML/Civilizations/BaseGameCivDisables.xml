@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/10/2013 11:12:04 PM -->
+<GameData>
+	<Civilizations>
+		<Update>
+			<Where SiegeMod="false"/>
+			<Set AIPlayable="false" Playable="false"/>
+		</Update>
+	</Civilizations>
+</GameData>

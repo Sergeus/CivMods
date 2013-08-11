@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/10/2013 10:59:57 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Civilization: Svesta -->
+		<Row Tag="TXT_KEY_CIV_SVESTA_SHORT_DESC">
+			<Text>Svesta</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_SVESTA_DESC">
+			<Text>Svestan Republic</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_SVESTA_ADJECTIVE">
+			<Text>Svestan</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_SVESTA_PEDIA_TAG">
+			<Text>[TOWRITE] Svestan pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_SVESTA_TEXT">
+			<Text>[TOWRITE] Svestan DoM</Text>
+		</Row>
+		
+		<!-- Civilization: Argastinian Empire -->
+		<Row Tag="TXT_KEY_CIV_ARGAST_EMPIRE_SHORT_DESC">
+			<Text>Argastinian Empire</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_ARGAST_EMPIRE_DESC">
+			<Text>Argastinian Empire</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_ARGAST_EMPIRE_ADJECTIVE">
+			<Text>Argastinian</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ARGAST_EMPIRE_PEDIA_TAG">
+			<Text>[TOWRITE] Argast Empire pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_ARGAST_EMPIRE_TEXT">
+			<Text>[TOWRITE] Argast Empire DoM</Text>
+		</Row>
+		
+		<!-- Civilization: Numydian Federation -->
+		<Row Tag="TXT_KEY_CIV_NEMYDIAN_FEDERATION_SHORT_DESC">
+			<Text>Numydian Federation</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_NEMYDIAN_FEDERATION_DESC">
+			<Text>Numydian Federation</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_NEMYDIAN_FEDERATION_ADJECTIVE">
+			<Text>Numydian</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_NEMYDIAN_FEDERATION_PEDIA_TAG">
+			<Text>[TOWRITE] Numydian Federation pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_NEMYDIAN_FEDERATION_TEXT">
+			<Text>[TOWRITE] Numydian Federation DoM</Text>
+		</Row>
+		
+		<!-- Civilization: The Cyats -->
+		<Row Tag="TXT_KEY_CIV_CYATS_SHORT_DESC">
+			<Text>The Cyats</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_CYATS_DESC">
+			<Text>The Cyat Theocracy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_CYATS_ADJECTIVE">
+			<Text>Cyat</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_CYATS_PEDIA_TAG">
+			<Text>[TOWRITE] Cyats pedia tag</Text>
+		</Row>
+		
+		<!-- Svestan City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_SVESTA">
+			<Text>Svesta</Text>
+		</Row>
+		
+		<!-- Argastinian City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_ARGASTIN">
+			<Text>Argastin</Text>
+		</Row>
+		
+		<!-- Numydian City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_NUMYD">
+			<Text>Numyd</Text>
+		</Row>
+		
+		<!-- Cyat City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_CYRA">
+			<Text>Cyra</Text>
+		</Row>
+	</Language_en_US>
+</GameData>
