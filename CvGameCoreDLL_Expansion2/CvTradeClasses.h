@@ -75,6 +75,10 @@ public:
 	bool IsCityConnectedToPlayer (CvCity* pCity, PlayerTypes eOtherPlayer, bool bOnlyOwnedByCityOwner);
 	bool IsPlayerConnectedToPlayer (PlayerTypes eFirstPlayer, PlayerTypes eSecondPlayer);
 	int CountNumPlayerConnectionsToPlayer (PlayerTypes eFirstPlayer, PlayerTypes eSecondPlayer);
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int CountNumPlayerConnectionsFoundedByFirstPlayerToSecondPlayer(PlayerTypes eFirstPlayer, PlayerTypes eSecondPlayer);
 
 	bool IsCityConnectedToCity (CvCity* pFirstCity, CvCity* pSecondCity);
 	bool IsCityConnectedFromCityToCity (CvCity* pOriginCity, CvCity* pDestCity);

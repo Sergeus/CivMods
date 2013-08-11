@@ -1004,6 +1004,55 @@ bool CvTeam::canDeclareWar(TeamTypes eTeam) const
 		return false;
 	}
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	// Check trade route trait peace enforcement
+	for (int iI = 0; iI < MAX_MAJOR_CIVS; iI++)
+	{
+		PlayerTypes ePlayer = (PlayerTypes)iI;
+		CvPlayer& pPlayer = GET_PLAYER(ePlayer);
+
+		CvPlayerTraits* pTraits = pPlayer.GetPlayerTraits();
+
+		// If one of the declaring players has the trade peace trait, we may need to block war
+		if (pPlayer.getTeam() == GetID() && pTraits->IsTradeStopsWars()
+			&& pTraits->GetReqTradeRoutesForPeace() > -1)
+		{
+			for (int iOther = 0; iOther < MAX_MAJOR_CIVS; iOther++)
+			{
+				PlayerTypes eOtherPlayer = (PlayerTypes)iOther;
+				CvPlayer& pOtherPlayer = GET_PLAYER(eOtherPlayer);
+
+				// Then we find a player on the other team and check the number of trade routes
+				// the declaring player has with them.
+				if (pOtherPlayer.getTeam() == eTeam && GC.getGame().GetGameTrade()->CountNumPlayerConnectionsFoundedByFirstPlayerToSecondPlayer(ePlayer, eOtherPlayer)
+					>= pTraits->GetReqTradeRoutesForPeace())
+				{
+					return false;
+				}
+			}
+		}
+		// Otherwise, one of the defending players might have the trait, and we may need to block war
+		else if (pPlayer.getTeam() == eTeam && pTraits->IsTradeStopsWars()
+			&& pTraits->GetReqTradeRoutesForPeace() > -1)
+		{
+			for (int iOther = 0; iOther < MAX_MAJOR_CIVS; iOther++)
+			{
+				PlayerTypes eOtherPlayer = (PlayerTypes)iOther;
+				CvPlayer& pOtherPlayer = GET_PLAYER(eOtherPlayer);
+
+				// Then we find a player on this team and check the number of trade routes
+				// the receiving player has with them.
+				if (pOtherPlayer.getTeam() == GetID() && GC.getGame().GetGameTrade()->CountNumPlayerConnectionsFoundedByFirstPlayerToSecondPlayer(ePlayer, eOtherPlayer)
+					>= pTraits->GetReqTradeRoutesForPeace())
+				{
+					return false;
+				}
+			}
+		}
+	}
+
 	// First, obtain the Lua script system.
 	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 	if(pkScriptSystem)

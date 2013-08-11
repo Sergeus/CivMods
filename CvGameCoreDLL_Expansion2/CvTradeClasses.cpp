@@ -645,6 +645,31 @@ int CvGameTrade::CountNumPlayerConnectionsToPlayer (PlayerTypes eFirstPlayer, Pl
 	return iCount;
 }
 
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+int CvGameTrade::CountNumPlayerConnectionsFoundedByFirstPlayerToSecondPlayer(PlayerTypes eFirstPlayer, PlayerTypes eSecondPlayer)
+{
+	int iCount = 0;
+
+	for (uint ui = 0; ui < m_aTradeConnections.size(); ui++)
+	{
+		TradeConnection* pConnection = &(m_aTradeConnections[ui]);
+
+		if (IsTradeRouteIndexEmpty(ui))
+		{
+			continue;
+		}
+
+		if (pConnection->m_eOriginOwner == eFirstPlayer && pConnection->m_eDestOwner == eSecondPlayer)
+		{
+			iCount++;
+		}
+	}
+
+	return iCount;
+}
+
 //	--------------------------------------------------------------------------------
 bool CvGameTrade::IsCityConnectedToCity (CvCity* pFirstCity, CvCity* pSecondCity)
 {
