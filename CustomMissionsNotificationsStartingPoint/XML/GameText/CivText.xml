@@ -24,7 +24,7 @@
 		
 		<!-- Civilization: Argastinian Empire -->
 		<Row Tag="TXT_KEY_CIV_ARGAST_EMPIRE_SHORT_DESC">
-			<Text>Argastinian Empire</Text>
+			<Text>Argastinium</Text>
 			<Gender>neuter:an</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV_ARGAST_EMPIRE_DESC">
@@ -44,7 +44,7 @@
 		
 		<!-- Civilization: Numydian Federation -->
 		<Row Tag="TXT_KEY_CIV_NEMYDIAN_FEDERATION_SHORT_DESC">
-			<Text>Numydian Federation</Text>
+			<Text>Numydia</Text>
 			<Gender>neuter:a</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV_NEMYDIAN_FEDERATION_DESC">

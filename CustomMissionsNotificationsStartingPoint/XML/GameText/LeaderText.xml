@@ -24,7 +24,7 @@
 		
 		<!-- Leader: Ocirrus, of the Cyats -->
 		<Row Tag="TXT_KEY_LEADER_OCIRRUS">
-			<Text>Ocirrus Allustrous</Text>
+			<Text>Ocirrus</Text>
 		</Row>
 		<Row Tag="TXT_KEY_LEADER_OCIRRUS_PEDIA">
 			<Text>[TOWRITE] Ocirrus pedia</Text>
@@ -44,7 +44,7 @@
 		
 		<!-- Leader: Tvet Carolinus, of Svesta -->
 		<Row Tag="TXT_KEY_LEADER_TVET">
-			<Text>Tvet Carolinus</Text>
+			<Text>Tvet</Text>
 		</Row>
 		<Row Tag="TXT_KEY_LEADER_TVET_PEDIA">
 			<Text>[TOWRITE] Tvet pedia</Text>
@@ -64,7 +64,7 @@
 		
 		<!-- Leader: Imsharad Yugal, of the Numydian Federation -->
 		<Row Tag="TXT_KEY_LEADER_IMSHARAD">
-			<Text>Imsharad Yughal</Text>
+			<Text>Imsharad</Text>
 		</Row>
 		<Row Tag="TXT_KEY_LEADER_IMSHARAD_PEDIA">
 			<Text>[TOWRITE] Imsharad pedia</Text>
