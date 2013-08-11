@@ -652,6 +652,30 @@ bool CvTraitEntry::IsAngerFreeIntrusionOfCityStates() const
 	return m_bAngerFreeIntrusionOfCityStates;
 }
 
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+bool CvTraitEntry::IsPuppetsReligiousFollowers() const
+{
+	return m_bPuppetsReligiousFollowers;
+}
+bool CvTraitEntry::IsTradeStopsWars() const
+{
+	return m_bTradeStopsWars;
+}
+int CvTraitEntry::GetExtraUnitsWhenTrained() const
+{
+	return m_iExtraUnitsWhenTrained;
+}
+int CvTraitEntry::GetReqTradeRoutesForPeace() const
+{
+	return m_iReqTradeRoutesForPeace;
+}
+int CvTraitEntry::GetReligionTakeoverTurns() const
+{
+	return m_iReligionTakeOverTurns;
+}
+
 /// Accessor:: Get brief text description
 const char* CvTraitEntry::getShortDescription() const
 {
