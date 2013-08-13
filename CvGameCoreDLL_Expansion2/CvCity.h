@@ -937,6 +937,12 @@ protected:
 	int m_iBaseHappinessFromBuildings;
 	int m_iUnmoddedHappinessFromBuildings;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int m_iTurnsInfluencedByPuppetingReligion;
+	ReligionTypes m_eReligionPuppeting;
+
 	bool m_bRouteToCapitalConnectedLastTurn;
 	bool m_bRouteToCapitalConnectedThisTurn;
 	CvString m_strName;

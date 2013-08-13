@@ -226,6 +226,13 @@ CvCity::CvCity() :
 	, m_paiFreePromotionCount("CvCity::m_paiFreePromotionCount", m_syncArchive)
 	, m_iBaseHappinessFromBuildings(0)
 	, m_iUnmoddedHappinessFromBuildings(0)
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	, m_iTurnsInfluencedByPuppetingReligion(0)
+	, m_eReligionPuppeting(NO_RELIGION)
+
 	, m_bRouteToCapitalConnectedLastTurn(false)
 	, m_bRouteToCapitalConnectedThisTurn(false)
 	, m_strName("")
@@ -1571,6 +1578,88 @@ void CvCity::doTurn()
 			}
 
 			m_bRouteToCapitalConnectedLastTurn = m_bRouteToCapitalConnectedThisTurn;
+		}
+
+		// ----------------------------------------------------------------
+		// SiegeMod Addition
+		// ----------------------------------------------------------------
+		// Puppeting by religious conversion!
+		ReligionTypes eReligion = GetCityReligions()->GetReligiousMajority();
+		// If we're not following a religion, or the religion we're following
+		if (eReligion != NO_RELIGION)
+		{
+			for (int i= 0; i < MAX_MAJOR_CIVS; i++)
+			{
+				PlayerTypes ePlayer = (PlayerTypes)i;
+				CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+
+				TeamTypes eTeam = kPlayer.getTeam();
+				CvTeam& kTeam = GET_TEAM(eTeam);
+
+				CvPlayer& kOwner = GET_PLAYER(getOwner());
+				CvTeam& kOwnerTeam = GET_TEAM(kOwner.getTeam());
+
+				if (kPlayer.GetID() != kOwner.GetID()
+					&& eTeam != kOwner.getTeam()
+					&& kPlayer.GetReligions()->GetReligionCreatedByPlayer() == eReligion 
+					&& kPlayer.GetPlayerTraits()->IsPuppetsReligiousFollowers()
+					&& !kOwnerTeam.isAtWar(eTeam))
+				{
+					// TODO: notifications, keeping track of how long this has been the state, handing over the city at the end,
+					// dealing with swaps between multiple civs with this same UA
+
+					bool bConverted = false;
+					bool bIncreased = false;
+
+					// First case: this city was not being influenced by the puppeting religion before this turn
+					if (m_eReligionPuppeting != eReligion)
+					{
+						m_iTurnsInfluencedByPuppetingReligion = 0;
+						m_eReligionPuppeting = eReligion;
+
+						// TODO: send notification saying the conversion has begun
+					}
+					// Second case: this city was previously under sway of this religion
+					else
+					{
+						m_iTurnsInfluencedByPuppetingReligion++;
+						bIncreased = true;
+					}
+
+					if (m_iTurnsInfluencedByPuppetingReligion >= kPlayer.GetPlayerTraits()->GetReligionTakeoverTurns())
+					{
+						kPlayer.acquireCity(getCity(GetIDInfo()), true, false);
+						bConverted = true;
+					}
+
+					if (bConverted)
+					{
+						// TODO: notify both players
+					}
+					else if (bIncreased)
+					{
+						// TODO notify defending player of oncoming conversion
+					}
+				}
+				// If we're now following a religion whose owner doesn't have this trait, or we've gone to war with 
+				// the converting player, we reset the timer (if necessary)
+				else if (m_iTurnsInfluencedByPuppetingReligion > 0
+					&& kPlayer.GetReligions()->GetReligionCreatedByPlayer() == eReligion 
+					&& (!kPlayer.GetPlayerTraits()->IsPuppetsReligiousFollowers()
+					|| kTeam.isAtWar(kOwner.getTeam())))
+				{
+					m_iTurnsInfluencedByPuppetingReligion = 0;
+					m_eReligionPuppeting = NO_RELIGION;
+				}
+			}
+		}
+		// If we have no religion we reset the timer (if necessary)
+		else
+		{
+			if (m_iTurnsInfluencedByPuppetingReligion > 0)
+			{
+				m_iTurnsInfluencedByPuppetingReligion = 0;
+			}
 		}
 
 		// XXX
@@ -13441,6 +13530,12 @@ void CvCity::read(FDataStream& kStream)
 	kStream >> m_iBaseHappinessFromBuildings;
 	kStream >> m_iUnmoddedHappinessFromBuildings;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	kStream >> m_iTurnsInfluencedByPuppetingReligion;
+	kStream >> m_eReligionPuppeting;
+
 	kStream >> m_bRouteToCapitalConnectedLastTurn;
 	kStream >> m_bRouteToCapitalConnectedThisTurn;
 	kStream >> m_strName;
@@ -13688,6 +13783,12 @@ void CvCity::write(FDataStream& kStream) const
 
 	kStream << m_iBaseHappinessFromBuildings;
 	kStream << m_iUnmoddedHappinessFromBuildings;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_iTurnsInfluencedByPuppetingReligion;
+	kStream << m_eReligionPuppeting;
 
 	kStream << m_bRouteToCapitalConnectedLastTurn;
 	kStream << m_bRouteToCapitalConnectedThisTurn;
