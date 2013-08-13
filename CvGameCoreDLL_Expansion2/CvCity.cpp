@@ -11430,6 +11430,19 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 		if(bFinish)
 		{
 			int iResult = CreateUnit(eTrainUnit, eTrainAIUnit);
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+			// Bonus units from the extra units trait!
+			int iExtraUnits = kOwner.GetPlayerTraits()->GetExtraUnitsWhenTrained();
+			if (iExtraUnits > 0)
+			{
+				for (short i = 0; i < iExtraUnits; i++)
+				{
+					CreateUnit(eTrainUnit, eTrainAIUnit);
+				}
+			}
+
 			if(iResult != FFreeList::INVALID_INDEX)
 			{
 				iProductionNeeded = getProductionNeeded(eTrainUnit) * 100;
