@@ -1007,7 +1007,7 @@ bool CvTeam::canDeclareWar(TeamTypes eTeam) const
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
-	// Check trade route trait peace enforcement
+	// Check new war conditions
 	for (int iI = 0; iI < MAX_MAJOR_CIVS; iI++)
 	{
 		PlayerTypes ePlayer = (PlayerTypes)iI;
@@ -1050,6 +1050,11 @@ bool CvTeam::canDeclareWar(TeamTypes eTeam) const
 					return false;
 				}
 			}
+		}
+
+		if (pPlayer.getTeam() == eTeam && pTraits->IsCannotBeDeclaredWarOn())
+		{
+			return false;
 		}
 	}
 

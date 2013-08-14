@@ -155,6 +155,8 @@ public:
 	// ----------------------------------------------------------------
 	bool IsTradeStopsWars() const;
 	bool IsPuppetsReligiousFollowers() const;
+	bool IsCannotBeDeclaredWarOn() const;
+	bool IsRefusingTradeCausesWar() const;
 
 	const char* getShortDescription() const;
 	void setShortDescription(const char* szVal);
@@ -291,6 +293,8 @@ protected:
 	// ----------------------------------------------------------------
 	bool m_bTradeStopsWars;
 	bool m_bPuppetsReligiousFollowers;
+	bool m_bCannotBeDeclaredWarOn;
+	bool m_bRefusingTradeCausesWar;
 
 	CvString m_strShortDescription;
 
@@ -799,6 +803,14 @@ public:
 	{
 		return m_bPuppetsReligiousFollowers;
 	}
+	bool IsCannotBeDeclaredWarOn() const
+	{
+		return m_bCannotBeDeclaredWarOn;
+	}
+	bool IsRefusingTradeCausesWar() const
+	{
+		return m_bRefusingTradeCausesWar;
+	}
 
 	// Maya calendar routines
 	bool IsUsingMayaCalendar() const;
@@ -921,6 +933,8 @@ private:
 	// ----------------------------------------------------------------
 	bool m_bTradeStopsWars;
 	bool m_bPuppetsReligiousFollowers;
+	bool m_bCannotBeDeclaredWarOn;
+	bool m_bRefusingTradeCausesWar;
 
 	UnitTypes m_eCampGuardType;
 	unsigned int m_uiFreeUnitIndex;

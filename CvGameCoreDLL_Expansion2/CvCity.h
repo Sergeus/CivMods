@@ -786,6 +786,14 @@ public:
 	int GetExtraHitPoints() const;
 	void ChangeExtraHitPoints(int iValue);
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int GetTurnsInfluencedByPuppetingReligion() const;
+	void ChangeTurnsInfluencedByPuppetingReligion(int iValue);
+	ReligionTypes GetReligionPuppeting() const;
+	void SetReligionPuppeting(ReligionTypes eReligion);
+
 	int GetMaxHitPoints() const;
 	const FAutoArchive& getSyncArchive() const;
 	FAutoArchive& getSyncArchive();
