@@ -47,7 +47,7 @@ bool WoTNotificationInfo::CacheResults(Database::Results &kResults, CvDatabaseUt
 	m_iIconSize = kResults.GetInt("IconSize");
 
 	m_bBlocksEndTurn = kResults.GetBool("BlocksEndTurn");
-	m_bLargeButton - kResults.GetBool("LargeButton");
+	m_bLargeButton = kResults.GetBool("LargeButton");
 	m_bMiniCivIcon = kResults.GetBool("MiniCivIcon");
 	m_bChecksKnown = kResults.GetBool("ChecksKnown");
 	m_bUsesRuntimeIndex = kResults.GetBool("UsesRuntimeIndex");
