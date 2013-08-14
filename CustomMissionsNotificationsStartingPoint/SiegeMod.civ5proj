@@ -167,6 +167,16 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/UnitText.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Traits/TraitHarshNegotiations.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Notifications/PuppetingReligionNotificationIconAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -207,6 +217,7 @@
     <Folder Include="Art\Civilizations\Empire" />
     <Folder Include="Art\Civilizations\NemydianFederation" />
     <Folder Include="Art\Civilizations\Svesta" />
+    <Folder Include="Art\Notifications" />
     <Folder Include="Art\Units" />
     <Folder Include="Art\Units\Galleon Fleet" />
     <Folder Include="Lua" />
@@ -363,6 +374,18 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Notifications\ReceivedPuppetingReligionIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Notifications\PuppetingReligionIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Notifications\PuppetingReligionNotificationIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Units\Galleon Fleet\GalleonFleetArtDefines.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -443,6 +466,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\GameText\NotificationText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\GameText\PromotionsText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -488,6 +515,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Traits\TraitAllEncompassing.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Traits\TraitHarshNegotiations.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/14/2013 5:24:50 PM -->
+<GameData>
+	<Traits>
+		<Row>
+			<Type>TRAIT_HARSH_NEGOTIATIONS</Type>
+			<Description>TXT_KEY_TRAIT_HARSH_NEGOTIATIONS</Description>
+			<ShortDescription>TXT_KEY_TRAIT_HARSH_NEGOTIATIONS_SHORT</ShortDescription>
+			<CannotBeDeclaredWarOn>true</CannotBeDeclaredWarOn>
+			<RefuseTradeCausesWar>true</RefuseTradeCausesWar>
+		</Row>
+	</Traits>
+</GameData>

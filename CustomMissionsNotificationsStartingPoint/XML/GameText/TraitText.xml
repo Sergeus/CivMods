@@ -22,5 +22,12 @@
 		<Row Tag="TXT_KEY_TRAIT_RIGHTEOUS_WAY">
 			<Text>+2 faith from desert tiles. Any city owned by another civilization not currently at war with the Cyats which converts to the Cyats’ religion will be puppetted by the Cyats 5 turns later.</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_TRAIT_HARSH_NEGOTIATIONS_SHORT">
+			<Text>Harsh Negotiator</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TRAIT_HARSH_NEGOTIATIONS">
+			<Text>War cannot be declared on this civilization. Refusing a trade deal proposed by this civilization (without a counter-offer) causes war.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

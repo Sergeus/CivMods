@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/14/2013 6:33:07 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Defending player notifications for religion city capture trait -->
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_FALLEN_UNDER_PUPPETING_RELIGION">
+			<Text>{@1_CityName} has converted to {@2_ReligionName} and will rebel and join {@3_PuppetingCiv} in {@4_NumberOfTurns} turns.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_FALLEN_UNDER_PUPPETING_RELIGION_SUMMARY">
+			<Text>Aggressive Religion Spread</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_FALLEN_UNDER_PUPPETING_RELIGION_UNKNOWN">
+			<Text>{@1_CityName} has converted to {@2_ReligionName} and will rebel and join an unknown civilization in {@3_NumberOfTurns} turns.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_LOST_TO_PUPPETING_RELIGION">
+			<Text>{@1CityName} has rebelled and joined {@2_CivName} due to religious influence!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_LOST_TO_PUPPETING_RELIGION_SUMMARY">
+			<Text>City Captured By Religion</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STILL_UNDER_PUPPETING_RELIGION">
+			<Text>{@1_CityName} is still under sway of {@2_ReligionName} and will rebel and join {@3_CivName} in {@4_NumberOfTurns} turns.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STILL_UNDER_PUPPETING_RELIGION_SUMMARY">
+			<Text>Aggressive Religion Presence</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_STILL_UNDER_PUPPETING_RELIGION_UNKNOWN">
+			<Text>{@1_CityName} is still under sway of {@2_ReligionName} and will rebel and join an unknown civilization in {@3_NumberOfTurns} turns.</Text>
+		</Row>
+
+		<!-- Attacking player notifications for religious city capture trait -->
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_CAPTURED_WITH_PUPPETING_RELIGION">
+			<Text>{@1_CityName} has joined you due to your religious presence!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_CAPTURED_WITH_PUPPETING_RELIGION_SUMMARY">
+			<Text>Religion Captured City</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_GAINED_SWAY_WITH_PUPPETING_RELIGION">
+			<Text>{@1_ReligionName} has spread to {@2_CityName}. If you retain this majority, you will gain control of the city in {@3_NumberOfTurns} turns.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_GAINED_SWAY_WITH_PUPPETING_RELIGION_SUMMARY">
+			<Text>Religion Influences City</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_LOST_SWAY_WITH_PUPPETING_RELIGION">
+			<Text>{@1_ReligionName} is no longer the majority in {@2_CityName}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_LOST_SWAY_WITH_PUPPETING_RELIGION_SUMMARY">
+			<Text>Religion Loses Influence</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_WAR_BLOCKED_PUPPETING_RELIGION">
+			<Text>War between you and {@1_CivName} has prevented your religion taking over {@2_CityName}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CITY_WAR_BLOCKED_PUPPETING_RELIGION_SUMMARY">
+			<Text>War Blocks Takeover</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

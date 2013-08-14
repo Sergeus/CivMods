@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/14/2013 6:30:26 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>PUPPET_RELIGION_NOTIFICATION_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>PuppetingReligionIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>PUPPET_RELIGION_RECEIVED_NOTIFICATION_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>ReceivedPuppetingReligionIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>
