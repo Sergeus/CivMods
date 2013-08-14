@@ -11575,6 +11575,18 @@ void CvCity::pushOrder(OrderTypes eOrder, int iData1, int iData2, bool bSave, bo
 	DLLUI->SetSpecificCityInfoDirty(pCity.get(), CITY_UPDATE_TYPE_PRODUCTION);
 }
 
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+int CvCity::GetTurnsInfluencedByPuppetingReligion() const
+{
+	return m_iTurnsInfluencedByPuppetingReligion;
+}
+ReligionTypes CvCity::GetReligionPuppeting() const
+{
+	return m_eReligionPuppeting;
+}
+
 
 //	--------------------------------------------------------------------------------
 void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
