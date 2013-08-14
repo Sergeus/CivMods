@@ -1585,7 +1585,7 @@ void CvCity::doTurn()
 		// ----------------------------------------------------------------
 		// Puppeting by religious conversion!
 		ReligionTypes eReligion = GetCityReligions()->GetReligiousMajority();
-		// If we're not following a religion, or the religion we're following
+		// If we're following a religion, we need to see if that religion is affected by the trait
 		if (eReligion != NO_RELIGION)
 		{
 			for (int i= 0; i < MAX_MAJOR_CIVS; i++)
@@ -1605,9 +1605,6 @@ void CvCity::doTurn()
 					&& kPlayer.GetPlayerTraits()->IsPuppetsReligiousFollowers()
 					&& !kOwnerTeam.isAtWar(eTeam))
 				{
-					// TODO: notifications, keeping track of how long this has been the state, handing over the city at the end,
-					// dealing with swaps between multiple civs with this same UA
-
 					bool bConverted = false;
 					bool bIncreased = false;
 
@@ -1617,7 +1614,43 @@ void CvCity::doTurn()
 						m_iTurnsInfluencedByPuppetingReligion = 0;
 						m_eReligionPuppeting = eReligion;
 
-						// TODO: send notification saying the conversion has begun
+						Localization::String summary = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_FALLEN_UNDER_PUPPETING_RELIGION_SUMMARY");
+
+						// Notify the owner of this city, which has begun converting, depending on their 'has met' status with the religion controller
+						if (kOwnerTeam.isHasMet(eTeam))
+						{
+							int notificationID = GC.GetInfoTypes().find("NOTIFICATION_CITY_FALLEN_UNDER_PUPPETING_RELIGION")->second;
+
+							Localization::String message = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_FALLEN_UNDER_PUPPETING_RELIGION");
+							message << getNameKey() << GC.getReligionInfo(eReligion)->GetTextKey() << kPlayer.getNameKey()
+								<< kPlayer.GetPlayerTraits()->GetReligionTakeoverTurns();
+
+							kOwner.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), summary.toUTF8(), getX(), getY(), kPlayer.getCivilizationType());
+						}
+						else
+						{
+							int notificationID = GC.GetInfoTypes().find("NOTIFICATION_CITY_FALLEN_UNDER_PUPPETING_RELIGION_UNKNOWN")->second;
+
+							Localization::String message = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_FALLEN_UNDER_PUPPETING_RELIGION_UNKNOWN");
+							message << getNameKey() << GC.getReligionInfo(eReligion)->GetTextKey()
+								<< kPlayer.GetPlayerTraits()->GetReligionTakeoverTurns();
+
+							kOwner.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), summary.toUTF8(), getX(), getY(), -1);
+						}
+
+						Localization::String otherSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_GAINED_SWAY_WITH_PUPPETING_RELIGION_SUMMARY");
+
+						// Notify the owner of the religion that they've gained sway somewhere (and should prepare for an influx of unhappiness)
+						if (kTeam.isHasMet(kOwner.getTeam()))
+						{
+							int notificationID = GC.GetInfoTypes().find("NOTIFICATION_CITY_GAINED_SWAY_WITH_PUPPETING_RELIGION")->second;
+
+							Localization::String message = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_GAINED_SWAY_WITH_PUPPETING_RELIGION");
+							message << GC.getReligionInfo(eReligion)->GetTextKey() << getNameKey() 
+								<< kPlayer.GetPlayerTraits()->GetReligionTakeoverTurns();
+
+							kPlayer.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), summary.toUTF8(), getX(), getY(), kOwner.getCivilizationType());
+						}
 					}
 					// Second case: this city was previously under sway of this religion
 					else
@@ -1634,11 +1667,55 @@ void CvCity::doTurn()
 
 					if (bConverted)
 					{
-						// TODO: notify both players
+						// Notify the player losing this city
+						int notificationID = GC.GetInfoTypes().find("NOTIFICATION_CITY_LOST_TO_PUPPETING_RELIGION")->second;
+
+						Localization::String message = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_LOST_TO_PUPPETING_RELIGION");
+						message << getNameKey() << kPlayer.getNameKey();
+
+						Localization::String summary = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_LOST_TO_PUPPETING_RELIGION_SUMMARY");
+
+						kOwner.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), summary.toUTF8(), getX(), getY(), kPlayer.getCivilizationType());
+
+						// Notify the player gaining control of this city
+						int notID = GC.GetInfoTypes().find("NOTIFICATION_CITY_CAPTURED_WITH_PUPPETING_RELIGION")->second;
+						Localization::String otherMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_CAPTURED_WITH_PUPPETING_RELIGION");
+						otherMessage << getNameKey();
+
+						Localization::String otherSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_CAPTURED_WITH_PUPPETING_RELIGION_SUMMARY");
+
+						kOwner.GetNotifications()->Add((NotificationTypes)notID, otherMessage.toUTF8(), otherSummary.toUTF8(), getX(), getY(), -1);
 					}
 					else if (bIncreased)
 					{
-						// TODO notify defending player of oncoming conversion
+						// Notify defending player that conversion is imminent
+
+						// If we know the other civ
+						if (kTeam.isHasMet(eTeam))
+						{
+							int notificationID = GC.GetInfoTypes().find("NOTIFICATION_CITY_STILL_UNDER_PUPPETING_RELIGION")->second;
+
+							Localization::String message = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_STILL_UNDER_PUPPETING_RELIGION");
+							message << getNameKey() << GC.getReligionInfo(eReligion)->GetTextKey() << kPlayer.getNameKey()
+								<< (kPlayer.GetPlayerTraits()->GetReligionTakeoverTurns() - GetTurnsInfluencedByPuppetingReligion());
+
+							Localization::String summary = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_STILL_UNDER_PUPPETING_RELIGION_SUMMARY");
+
+							kOwner.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), summary.toUTF8(), getX(), getY(), kPlayer.getCivilizationType());
+						}
+						// Or maybe we haven't met them yet
+						else
+						{
+							int notificationID = GC.GetInfoTypes().find("NOTIFICATION_CITY_STILL_UNDER_PUPPETING_RELIGION_UNKNOWN")->second;
+
+							Localization::String message = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_STILL_UNDER_PUPPETING_RELIGION_UNKNOWN");
+							message << getNameKey() << GC.getReligionInfo(eReligion)->GetTextKey() 
+								<< (kPlayer.GetPlayerTraits()->GetReligionTakeoverTurns() - GetTurnsInfluencedByPuppetingReligion());
+
+							Localization::String summary = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_STILL_UNDER_PUPPETING_RELIGION_SUMMARY");
+
+							kOwner.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), summary.toUTF8(), getX(), getY(), -1);
+						}
 					}
 				}
 				// If we're now following a religion whose owner doesn't have this trait, or we've gone to war with 
@@ -1648,6 +1725,40 @@ void CvCity::doTurn()
 					&& (!kPlayer.GetPlayerTraits()->IsPuppetsReligiousFollowers()
 					|| kTeam.isAtWar(kOwner.getTeam())))
 				{
+
+					// If this happens, some other religion has become a majority, so we should notify the puppeting player
+					if (m_eReligionPuppeting != eReligion && m_eReligionPuppeting != NO_RELIGION && !kTeam.isAtWar(kOwner.getTeam()))
+					{
+						for (int iInnerPlayerLoop = 0; iInnerPlayerLoop < MAX_MAJOR_CIVS; iInnerPlayerLoop++)
+						{
+							CvPlayer& innerPlayer = GET_PLAYER((PlayerTypes)iInnerPlayerLoop);
+
+							if (innerPlayer.GetReligions()->GetReligionCreatedByPlayer() == m_eReligionPuppeting)
+							{
+								int notificationID = GC.GetInfoTypes().find("NOTIFICATION_CITY_LOST_SWAY_WITH_PUPPETING_RELIGION")->second;
+
+								Localization::String message = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_LOST_SWAY_WITH_PUPPETING_RELIGION");
+								message << GC.getReligionInfo(m_eReligionPuppeting)->GetTextKey() << getNameKey();
+
+								Localization::String summary = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_LOST_SWAY_WITH_PUPPETING_RELIGION_SUMMARY");
+
+								innerPlayer.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), summary.toUTF8(), getX(), getY(), kOwner.getCivilizationType());
+							}
+						}
+					}
+					// Otherwise we're at war, so the religion influence player should know the effect is stopping
+					else if (kTeam.isAtWar(kOwner.getTeam()))
+					{
+						int notificationID = GC.GetInfoTypes().find("NOTIFICATION_CITY_WAR_BLOCKED_PUPPETING_RELIGION")->second;
+
+						Localization::String message = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_WAR_BLOCKED_PUPPETING_RELIGION");
+						message << kOwner.getNameKey() << getNameKey();
+
+						Localization::String summary = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_WAR_BLOCKED_PUPPETING_RELIGION_SUMMARY");
+
+						kPlayer.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), summary.toUTF8(), getX(), getY(), kOwner.getCivilizationType());
+					}
+
 					m_iTurnsInfluencedByPuppetingReligion = 0;
 					m_eReligionPuppeting = NO_RELIGION;
 				}
@@ -1659,6 +1770,27 @@ void CvCity::doTurn()
 			if (m_iTurnsInfluencedByPuppetingReligion > 0)
 			{
 				m_iTurnsInfluencedByPuppetingReligion = 0;
+
+				if (m_eReligionPuppeting != NO_RELIGION)
+				{
+
+					for (int i = 0; i < MAX_MAJOR_CIVS; i++)
+					{
+						CvPlayer& kPlayer = GET_PLAYER((PlayerTypes)i);
+
+						if (kPlayer.GetReligions()->GetReligionCreatedByPlayer() == m_eReligionPuppeting)
+						{
+							int notificationID = GC.GetInfoTypes().find("NOTIFICATION_CITY_LOST_SWAY_WITH_PUPPETING_RELIGION")->second;
+
+							Localization::String message = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_LOST_SWAY_WITH_PUPPETING_RELIGION");
+							message << GC.getReligionInfo(m_eReligionPuppeting)->GetTextKey() << getNameKey();
+
+							Localization::String summary = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_LOST_SWAY_WITH_PUPPETING_RELIGION_SUMMARY");
+
+							kPlayer.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), summary.toUTF8(), getX(), getY(), GET_PLAYER(getOwner()).getCivilizationType());
+						}
+					}
+				}
 			}
 		}
 

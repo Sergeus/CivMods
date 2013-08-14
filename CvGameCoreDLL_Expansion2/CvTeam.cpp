@@ -1052,6 +1052,7 @@ bool CvTeam::canDeclareWar(TeamTypes eTeam) const
 			}
 		}
 
+		// If the defending player's trait stops people declaring war on them, of course we block war
 		if (pPlayer.getTeam() == eTeam && pTraits->IsCannotBeDeclaredWarOn())
 		{
 			return false;
