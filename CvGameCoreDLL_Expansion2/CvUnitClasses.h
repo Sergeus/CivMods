@@ -153,7 +153,6 @@ public:
 	// ----------------------------------------------------------------
 	int GetFreeUnitAfterSurvivingMeleeCombat(int i) const;
 	int GetFreeUnitWhenTradeRoutePlundered(int i) const;
-	int GetNumFreeUnitWhenTradeRoutePlundered() const;
 
 
 	// Derived fields (not in XML)
