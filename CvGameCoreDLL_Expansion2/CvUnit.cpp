@@ -5684,6 +5684,25 @@ bool CvUnit::plunderTradeRoute()
 		return false;
 	}
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	// If we've got the unit ability which causes plundering trade routes to give us additional units, we should trigger that!
+	for (int i = 0; i < GC.getNumUnitClassInfos(); i++)
+	{
+		int numBonus = GC.getUnitInfo(getUnitType())->GetFreeUnitWhenTradeRoutePlundered(i);
+		if (numBonus > 0)
+		{
+			CvPlayer& kOwner = GET_PLAYER(getOwner());
+			UnitTypes eUnit = (UnitTypes)kOwner.getUnitClassMaking((UnitClassTypes)i);
+
+			for (int j = 0; j < numBonus; j++)
+			{
+				kOwner.initUnit(eUnit, getX(), getY());
+			}
+		}
+	}
+
 	// right now, plunder the first unit
 	pTrade->PlunderTradeRoute(aiTradeUnitsAtPlot[0]);
 	return true;

@@ -327,6 +327,43 @@ void CvUnitCombat::ResolveMeleeCombat(const CvCombatInfo& kCombatInfo, uint uiPa
 		CvPlayerAI& kAttackerOwner = GET_PLAYER(pkAttacker->getOwner());
 		kAttackerOwner.GetPlayerAchievements().AttackedUnitWithUnit(pkAttacker, pkDefender);
 
+
+		// ----------------------------------------------------------------
+		// SiegeMod Addition
+		// ----------------------------------------------------------------
+		// If the attacker died, then the defender might have the ability which causes them to generate a unit after melee combat
+		for (int i = 0; i < GC.getNumUnitClassInfos(); i++)
+		{
+			if (!bDefenderDead)
+			{
+				int numBonus = GC.getUnitInfo(pkDefender->getUnitType())->GetFreeUnitWhenTradeRoutePlundered(i);
+				if (numBonus > 0)
+				{
+					CvPlayer& kOwner = GET_PLAYER(pkDefender->getOwner());
+					UnitTypes eUnit = (UnitTypes)kOwner.getUnitClassMaking((UnitClassTypes)i);
+
+					for (int j = 0; j < numBonus; j++)
+					{
+						kOwner.initUnit(eUnit, pkDefender->getX(), pkDefender->getY());
+					}
+				}
+			}
+			if (!bAttackerDead)
+			{
+				int numBonus = GC.getUnitInfo(pkAttacker->getUnitType())->GetFreeUnitWhenTradeRoutePlundered(i);
+				if (numBonus > 0)
+				{
+					CvPlayer& kOwner = GET_PLAYER(pkAttacker->getOwner());
+					UnitTypes eUnit = (UnitTypes)kOwner.getUnitClassMaking((UnitClassTypes)i);
+
+					for (int j = 0; j < numBonus; j++)
+					{
+						CvUnit* pUnit = kOwner.initUnit(eUnit, pkAttacker->getX(), pkAttacker->getY());
+					}
+				}
+			}
+		}
+
 		// Attacker died
 		if(bAttackerDead)
 		{
