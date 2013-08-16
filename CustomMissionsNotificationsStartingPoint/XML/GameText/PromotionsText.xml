@@ -8,5 +8,12 @@
 		<Row Tag="TXT_KEY_PROMOTION_RANGE_TWO_HELP">
 			<Text>Boosts range significantly.</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_PROMOTION_ADJACENT_ENEMY_DAMAGE_10">
+			<Text>Raiding Parties</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_ADJACENT_ENEMY_DAMAGE_10_HELP">
+			<Text>Enemy units ending their turn on a hex next to this unit take 10 damage.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

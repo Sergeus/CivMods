@@ -15,5 +15,19 @@
 			<PediaType>PEDIA_RANGED</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_RANGE_TWO</PediaEntry>
 		</Row>
+		<Row>
+			<Type>PROMOTION_ADJACENT_ENEMY_DAMAGE_10</Type>
+			<Description>TXT_KEY_PROMOTION_ADJACENT_ENEMY_DAMAGE_10</Description>
+			<Help>TXT_KEY_PROMOTION_ADJACENT_ENEMY_DAMAGE_10_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<OrderPriority>7</OrderPriority>
+			<RangeChange>2</RangeChange>
+			<PortraitIndex>34</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_RANGED</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_ADJACENT_ENEMY_DAMAGE_10</PediaEntry>
+			<AdjacentEnemyDamage>10</AdjacentEnemyDamage>
+		</Row>
 	</UnitPromotions>
 </GameData>

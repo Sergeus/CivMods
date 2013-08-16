@@ -20,7 +20,7 @@
 			<Text>Righteous Way</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TRAIT_RIGHTEOUS_WAY">
-			<Text>+2 faith from desert tiles. Any city owned by another civilization not currently at war with the Cyats which converts to the Cyats’ religion will be puppetted by the Cyats 5 turns later.</Text>
+			<Text>+2 faith from desert tiles. Any city owned by another civilization not currently at war with the Cyats which converts to the Cyats’ religion will be captured by the Cyats 5 turns later.</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_TRAIT_HARSH_NEGOTIATIONS_SHORT">

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 8/11/2013 9:31:31 PM -->
 <GameData>
-	<Table name="Unit_FreeUnitAfterSurvivingCombat">
+	<Table name="Unit_FreeUnitAfterSurvivingMeleeCombat">
 		<Column name="UnitType" type="text" reference="Units(Type)"/>
 		<Column name="UnitClassType" type="text" reference="UnitClasses(Type)"/>
+		<Column name="NumberFree" type="integer" default="0"/>
 	</Table>
 	<Table name="Unit_FreeUnitWhenTradeRoutePlundered">
 		<Column name="UnitType" type="text" reference="Units(Type)"/>
 		<Column name="UnitClassType" type="text" reference="UnitClasses(Type)"/>
+		<Column name="NumberFree" type="integer" default="0"/>
 	</Table>
 	<Units>
 		<Row>
@@ -148,12 +150,14 @@
 		<Row>
 			<UnitType>UNIT_CYAT_DEVOUT</UnitType>
 			<UnitClassType>UNITCLASS_MISSIONARY</UnitClassType>
+			<NumberFree>1</NumberFree>
 		</Row>
 	</Unit_FreeUnitAfterSurvivingCombat>
 	<Unit_FreeUnitWhenTradeRoutePlundered>
 		<Row>
 			<UnitType>UNIT_NEMYD_CONSCRIPTED_RAKER</UnitType>
 			<UnitClassType>UNITCLASS_GALLEASS</UnitClassType>
+			<NumberFree>1</NumberFree>
 		</Row>
 	</Unit_FreeUnitWhenTradeRoutePlundered>
 </GameData>
