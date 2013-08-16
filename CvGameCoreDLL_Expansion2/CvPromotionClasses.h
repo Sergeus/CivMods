@@ -124,6 +124,11 @@ public:
 	int GetTradeMissionInfluenceModifier() const;
 	int GetTradeMissionGoldModifier() const;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int GetAdjacentEnemyDamage() const;
+
 	bool IsCannotBeChosen() const;
 	bool IsLostWithUpgrade() const;
 	bool IsNotWithUpgrade() const;
@@ -277,6 +282,11 @@ protected:
 	int m_iReligiousStrengthLossRivalTerritory;
 	int m_iTradeMissionInfluenceModifier;
 	int m_iTradeMissionGoldModifier;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int m_iAdjacentEnemyDamage;
 
 	bool m_bCannotBeChosen;
 	bool m_bLostWithUpgrade;

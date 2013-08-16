@@ -260,6 +260,12 @@ CvUnit::CvUnit() :
 	, m_iReligiousStrengthLossRivalTerritory(0)
 	, m_iTradeMissionInfluenceModifier(0)
 	, m_iTradeMissionGoldModifier(0)
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	, m_iAdjacentEnemyDamage(0)
+
 	, m_strName("")
 	, m_eGreatWork(NO_GREAT_WORK)
 	, m_iTourismBlastStrength(0)
@@ -1651,6 +1657,14 @@ void CvUnit::doTurn()
 		{
 			changeDamage(GC.getFeatureInfo(eFeature)->getTurnDamage(), NO_PLAYER);
 		}
+	}
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	if (GetAdjacentEnemyDamage() > 0)
+	{
+		DoAdjacentEnemyDamage();
 	}
 
 	// Only increase our Fortification level if we've actually been told to Fortify
@@ -4416,6 +4430,54 @@ int CvUnit::GetTradeMissionGoldModifier() const
 {
 	return m_iTradeMissionGoldModifier;
 }
+
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+int CvUnit::GetAdjacentEnemyDamage() const
+{
+	return m_iAdjacentEnemyDamage;
+}
+void CvUnit::ChangeAdjacentEnemyDamage(int iChange)
+{
+	VALIDATE_OBJECT
+
+	m_iAdjacentEnemyDamage += iChange;
+}
+void CvUnit::DoAdjacentEnemyDamage()
+{
+	if (GetAdjacentEnemyDamage() > 0)
+	{
+		// Damage distance could probably be a promotion field in the DB as well
+		for (int iX = -1; iX <= 1; iX++)
+		{
+			for (int iY = -1; iY <= 1; iY++)
+			{
+				CvPlot* pPlot = plotXYWithRangeCheck(getX(), getY(), iX, iY, 1);
+
+				if (pPlot)
+				{
+					IDInfoVector currentUnits;
+					if (pPlot->getUnits(&currentUnits) > 0)
+					{
+						for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr < currentUnits.end(); ++itr)
+						{
+							CvUnit* pUnit = ::getUnit(*itr);
+
+							if (GET_TEAM(pUnit->getTeam()).isAtWar(getTeam()))
+							{
+								pUnit->changeDamage(GetAdjacentEnemyDamage(), getOwner());
+
+								// possibly send one of those messages to the top of the screen if damaging a human player unit?
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 //	--------------------------------------------------------------------------------
 int CvUnit::GetNumGoodyHutsPopped() const
 {
@@ -17102,6 +17164,11 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		changeExperiencePercent(thisPromotion.GetExperiencePercent() * iChange);
 		changeCargoSpace(thisPromotion.GetCargoChange() * iChange);
 
+		// ----------------------------------------------------------------
+		// SiegeMod Addition
+		// ----------------------------------------------------------------
+		ChangeAdjacentEnemyDamage(thisPromotion.GetAdjacentEnemyDamage() * iChange);
+
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
 		{
 			changeExtraTerrainAttackPercent(((TerrainTypes)iI), (thisPromotion.GetTerrainAttackPercent(iI) * iChange));
@@ -17364,6 +17431,11 @@ void CvUnit::read(FDataStream& kStream)
 	kStream >> m_iTradeMissionInfluenceModifier;
 	kStream >> m_iTradeMissionGoldModifier;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	kStream >> m_iAdjacentEnemyDamage;
+
 	kStream >> m_iEnemyDamageChance;
 	kStream >> m_iNeutralDamageChance;
 
@@ -17525,6 +17597,12 @@ void CvUnit::write(FDataStream& kStream) const
 	kStream << m_iReligiousStrengthLossRivalTerritory;
 	kStream << m_iTradeMissionInfluenceModifier;
 	kStream << m_iTradeMissionGoldModifier;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_iAdjacentEnemyDamage;
+
 	kStream << m_iEnemyDamageChance;
 	kStream << m_iNeutralDamageChance;
 	kStream << m_iEnemyDamage;

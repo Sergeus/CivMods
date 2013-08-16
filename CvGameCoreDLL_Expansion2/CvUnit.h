@@ -1228,6 +1228,13 @@ public:
 	std::string debugDump(const FAutoVariableBase&) const;
 	std::string stackTraceRemark(const FAutoVariableBase&) const;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int GetAdjacentEnemyDamage() const;
+	void ChangeAdjacentEnemyDamage(int iChange);
+	void DoAdjacentEnemyDamage();
+
 protected:
 	const MissionQueueNode* HeadMissionQueueNode() const;
 	MissionQueueNode* HeadMissionQueueNode();
@@ -1240,6 +1247,11 @@ protected:
 
 	void QueueMoveForVisualization(CvPlot* pkPlot);
 	void PublishQueuedVisualizationMoves();
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int m_iAdjacentEnemyDamage;
 
 	typedef enum Flags
 	{
