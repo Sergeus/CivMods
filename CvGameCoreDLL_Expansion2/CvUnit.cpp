@@ -3842,6 +3842,54 @@ bool CvUnit::canAirPatrol(const CvPlot* pPlot) const
 	return true;
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition - Custom Generic Mission Handling
+// ----------------------------------------------------------------
+bool CvUnit::CanHandleMission(int iMission, bool bTestVisible) const
+{
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+	if (pkScriptSystem)
+	{
+		CvLuaArgsHandle args;
+
+		args->Push(getOwner());
+		args->Push(GetID());
+		args->Push(iMission);
+		args->Push(bTestVisible);
+
+		bool bResult;
+		if (LuaSupport::CallTestAny(pkScriptSystem, "UnitCanHandleMission", args.get(), bResult))
+		{
+			return bResult;
+		}
+	}
+
+	return false;
+}
+
+bool CvUnit::HandleMission(int iMission)
+{
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+	if (pkScriptSystem)
+	{
+		CvLuaArgsHandle args;
+
+		args->Push(getOwner());
+		args->Push(GetID());
+		args->Push(iMission);
+
+		bool bResult;
+		if (LuaSupport::CallTestAny(pkScriptSystem, "UnitHandlingMission", args.get(), bResult))
+		{
+			return bResult;
+		}
+	}
+
+	return false;
+}
+
 //	--------------------------------------------------------------------------------
 bool CvUnit::IsRangeAttackIgnoreLOS() const
 {
