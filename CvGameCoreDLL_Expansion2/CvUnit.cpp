@@ -5804,7 +5804,7 @@ bool CvUnit::plunderTradeRoute()
 		if (numBonus > 0)
 		{
 			CvPlayer& kOwner = GET_PLAYER(getOwner());
-			UnitTypes eUnit = (UnitTypes)kOwner.getUnitClassMaking((UnitClassTypes)i);
+			UnitTypes eUnit = (UnitTypes)kOwner.getCivilizationInfo().getCivilizationUnits(i);
 
 			for (int j = 0; j < numBonus; j++)
 			{

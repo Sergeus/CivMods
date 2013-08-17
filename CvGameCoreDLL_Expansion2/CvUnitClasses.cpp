@@ -1052,7 +1052,7 @@ int CvUnitEntry::GetFreeUnitWhenTradeRoutePlundered(int i) const
 {
 	CvAssertMsg(i < GC.getNumUnitClassInfos(), "Index out of bounds");
 	CvAssertMsg(i > -1, "Index out of bounds");
-	return m_piFreeUnitWhenTradeRoutePlundered ? (UnitClassTypes)m_piFreeUnitWhenTradeRoutePlundered[i] : 0;
+	return m_piFreeUnitWhenTradeRoutePlundered ? m_piFreeUnitWhenTradeRoutePlundered[i] : 0;
 }
 
 /// Project required to train this unit?

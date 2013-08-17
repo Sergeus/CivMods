@@ -336,11 +336,11 @@ void CvUnitCombat::ResolveMeleeCombat(const CvCombatInfo& kCombatInfo, uint uiPa
 		{
 			if (!bDefenderDead)
 			{
-				int numBonus = GC.getUnitInfo(pkDefender->getUnitType())->GetFreeUnitWhenTradeRoutePlundered(i);
+				int numBonus = GC.getUnitInfo(pkDefender->getUnitType())->GetFreeUnitAfterSurvivingMeleeCombat(i);
 				if (numBonus > 0)
 				{
 					CvPlayer& kOwner = GET_PLAYER(pkDefender->getOwner());
-					UnitTypes eUnit = (UnitTypes)kOwner.getUnitClassMaking((UnitClassTypes)i);
+					UnitTypes eUnit = (UnitTypes)kOwner.getCivilizationInfo().getCivilizationUnits(i);
 
 					for (int j = 0; j < numBonus; j++)
 					{
@@ -350,15 +350,15 @@ void CvUnitCombat::ResolveMeleeCombat(const CvCombatInfo& kCombatInfo, uint uiPa
 			}
 			if (!bAttackerDead)
 			{
-				int numBonus = GC.getUnitInfo(pkAttacker->getUnitType())->GetFreeUnitWhenTradeRoutePlundered(i);
+				int numBonus = GC.getUnitInfo(pkAttacker->getUnitType())->GetFreeUnitAfterSurvivingMeleeCombat(i);
 				if (numBonus > 0)
 				{
 					CvPlayer& kOwner = GET_PLAYER(pkAttacker->getOwner());
-					UnitTypes eUnit = (UnitTypes)kOwner.getUnitClassMaking((UnitClassTypes)i);
+					UnitTypes eUnit = (UnitTypes)kOwner.getCivilizationInfo().getCivilizationUnits(i);
 
 					for (int j = 0; j < numBonus; j++)
 					{
-						CvUnit* pUnit = kOwner.initUnit(eUnit, pkAttacker->getX(), pkAttacker->getY());
+						kOwner.initUnit(eUnit, pkAttacker->getX(), pkAttacker->getY());
 					}
 				}
 			}
