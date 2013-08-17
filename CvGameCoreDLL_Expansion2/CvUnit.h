@@ -1234,6 +1234,11 @@ public:
 	int GetAdjacentEnemyDamage() const;
 	void ChangeAdjacentEnemyDamage(int iChange);
 	void DoAdjacentEnemyDamage();
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Generic Mission Handling
+	// ----------------------------------------------------------------
+	bool CanHandleMission(int iMission, bool bTestVisible) const;
+	bool HandleMission(int iMission);
 
 protected:
 	const MissionQueueNode* HeadMissionQueueNode() const;
