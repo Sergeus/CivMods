@@ -1847,9 +1847,20 @@ int CvPlayerTrade::GetTradeConnectionBaseValueTimes100(const TradeConnection& kT
 
 			return  iAdjustedTechDifference * 100;
 		}
-		else
+		// ----------------------------------------------------------------
+		// SiegeMod Addition
+		// ----------------------------------------------------------------
+		else if (eYield == YIELD_GOLD)
 		{
 			return 100;
+		}
+		else
+		{
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+			// This used to return 100. For the life of me, I can't work out why that would ever be desired behavior.
+			return 0;
 		}
 	}
 
