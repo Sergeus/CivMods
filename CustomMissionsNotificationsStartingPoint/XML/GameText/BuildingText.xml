@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/17/2013 6:16:23 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Building: Pier -->
+		<Row Tag="TXT_KEY_BUILDING_PIER">
+			<Text>Pier</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PIER_HELP">
+			<Text>[TOWRITE] pier help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PIER_STRATEGY">
+			<Text>[TOWRITE] pier strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PIER_PEDIA">
+			<Text>[TOWRITE] pier pedia</Text>
+		</Row>
+		
+		<!-- Building: Fortified Quay -->
+		<Row Tag="TXT_KEY_BUILDING_FORTIFIED_QUAY">
+			<Text>Fortified Quay</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_FORTIFIED_QUAY_HELP">
+			<Text>+2[ICON_FOOD] per international sea trade route originating at this city.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_FORTIFIED_QUAY_STRATEGY">
+			<Text>Ideal for keeping food supplies for growth in a well connected coastal city under siege by land.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_FORTIFIED_QUAY_PEDIA">
+			<Text>[TOWRITE] fortified quay pedia</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

@@ -6,7 +6,7 @@
 			<Type>TRAIT_MERCANTILE_PEDAGOGY</Type>
 			<Description>TXT_KEY_TRAIT_MERCANTILE_PEDAGOGY</Description>
 			<ShortDescription>TXT_KEY_TRAIT_MERCANTILE_PEDAGOGY_SHORT</ShortDescription>
-			<ReqTradeRoutesForPeace>4</ReqTradeRoutesForPeace>
+			<ReqTradeRoutesForPeace>1</ReqTradeRoutesForPeace>
 		</Row>
 	</Traits>
 	<Trait_YieldChangesPerTradePartner>

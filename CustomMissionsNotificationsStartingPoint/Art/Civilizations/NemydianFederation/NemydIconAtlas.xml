@@ -2,6 +2,7 @@
 <!-- Created by ModBuddy on 6/8/2013 10:42:03 PM -->
 <GameData>
 	<IconTextureAtlases>
+		<!-- Color Civ Icon -->
 		<Row>
 			<Atlas>NEMYD_ATLAS</Atlas>
 			<IconSize>256</IconSize>
@@ -48,6 +49,64 @@
 			<Atlas>NEMYD_ATLAS</Atlas>
 			<IconSize>24</IconSize>
 			<Filename>NemydIcon24.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+
+		<!-- Alpha Civ Icon-->
+		<Row>
+			<Atlas>NEMYD_ALPHA_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>NemydAlpha128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NEMYD_ALPHA_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>NemydAlpha80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NEMYD_ALPHA_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>NemydAlpha64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NEMYD_ALPHA_ATLAS</Atlas>
+			<IconSize>48</IconSize>
+			<Filename>NemydAlpha48.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NEMYD_ALPHA_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>NemydAlpha45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NEMYD_ALPHA_ATLAS</Atlas>
+			<IconSize>32</IconSize>
+			<Filename>NemydAlpha32.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NEMYD_ALPHA_ATLAS</Atlas>
+			<IconSize>24</IconSize>
+			<Filename>NemydAlpha24.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NEMYD_ALPHA_ATLAS</Atlas>
+			<IconSize>16</IconSize>
+			<Filename>NemydAlpha16.dds</Filename>
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>

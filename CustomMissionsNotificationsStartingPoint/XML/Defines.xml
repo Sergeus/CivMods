@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/17/2013 8:34:49 PM -->
+<GameData>
+	<Defines>
+		<Row Name="TRADE_ROUTE_DURATION_TURNS">
+			<Value>5</Value>
+		</Row>
+	</Defines>
+</GameData>

@@ -15,7 +15,7 @@
 			<ArtStylePrefix>EUROPEAN </ArtStylePrefix>
 			<PortraitIndex>0</PortraitIndex>
 			<IconAtlas>SVESTA_ATLAS</IconAtlas>
-			<AlphaIconAtlas>EXPANSION_CIV_ALPHA_ATLAS</AlphaIconAtlas>
+			<AlphaIconAtlas>SVESTA_ALPHA_ATLAS</AlphaIconAtlas>
 			<MapImage>MapAmerica512.dds</MapImage>
 			<DawnOfManQuote>TXT_KEY_CIV5_DAWN_SVESTA_TEXT</DawnOfManQuote>
 			<DawnOfManImage>DOM_Maria_Theresa.dds</DawnOfManImage>
@@ -26,8 +26,8 @@
 	<Civilization_BuildingClassOverrides>
 		<Row>
 			<CivilizationType>CIVILIZATION_SVESTA</CivilizationType>
-			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType>
-			<BuildingType>BUILDING_CEILIDH_HALL</BuildingType>
+			<BuildingClassType>BUILDINGCLASS_HARBOR</BuildingClassType>
+			<BuildingType>BUILDING_FORTIFIED_QUAY</BuildingType>
 		</Row>
 	</Civilization_BuildingClassOverrides>
 	<Civilization_UnitClassOverrides>

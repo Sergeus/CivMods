@@ -131,6 +131,36 @@
 			<PortraitIndex>14</PortraitIndex>
 			<MoveRate>WOODEN_BOAT</MoveRate>
 		</Row>
+		<Row>
+			<Class>UNITCLASS_SPEARMAN</Class>
+			<Type>UNIT_ARGAST_RAIDERS</Type>
+			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+			<Combat>11</Combat>
+			<Cost>56</Cost>
+			<FaithCost>112</FaithCost>
+			<RequiresFaithPurchaseEnabled>true</RequiresFaithPurchaseEnabled>
+			<Moves>2</Moves>
+			<CombatClass>UNITCOMBAT_MELEE</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_COUNTER</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_ARGAST_RAIDERS</Description>
+			<Civilopedia>TXT_KEY_CIV5_ANTIQUITY_ARGAST_RAIDERS_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ARGAST_RAIDERS_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_HELP_ARGAST_RAIDERS</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<ObsoleteTech>TECH_CIVIL_SERVICE</ObsoleteTech>
+			<GoodyHutUpgradeUnitClass>UNITCLASS_PIKEMAN</GoodyHutUpgradeUnitClass>
+			<AdvancedStartCost>15</AdvancedStartCost>
+			<XPValueAttack>3</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<Conscription>2</Conscription>
+			<UnitArtInfo>ART_DEF_UNIT_ARGAST_RAIDERS</UnitArtInfo>
+			<UnitFlagIconOffset>9</UnitFlagIconOffset>
+			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
+			<PortraitIndex>9</PortraitIndex>
+		</Row>
 	</Units>
 	<Unit_FreePromotions>
 		<Row>
@@ -145,14 +175,22 @@
 			<UnitType>UNIT_SVESTA_GALLEON_FLEET</UnitType>
 			<PromotionType>PROMOTION_TARGETING_2</PromotionType>
 		</Row>
+		<Row>
+			<UnitType>UNIT_ARGAST_RAIDERS</UnitType>
+			<PromotionType>PROMOTION_ADJACENT_ENEMY_DAMAGE_10</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_ARGAST_RAIDERS</UnitType>
+			<PromotionType>PROMOTION_MOBILITY</PromotionType>
+		</Row>
 	</Unit_FreePromotions>
-	<Unit_FreeUnitAfterSurvivingCombat>
+	<Unit_FreeUnitAfterSurvivingMeleeCombat>
 		<Row>
 			<UnitType>UNIT_CYAT_DEVOUT</UnitType>
 			<UnitClassType>UNITCLASS_MISSIONARY</UnitClassType>
 			<NumberFree>1</NumberFree>
 		</Row>
-	</Unit_FreeUnitAfterSurvivingCombat>
+	</Unit_FreeUnitAfterSurvivingMeleeCombat>
 	<Unit_FreeUnitWhenTradeRoutePlundered>
 		<Row>
 			<UnitType>UNIT_NEMYD_CONSCRIPTED_RAKER</UnitType>

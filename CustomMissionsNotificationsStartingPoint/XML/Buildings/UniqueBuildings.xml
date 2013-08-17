@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/17/2013 6:01:58 PM -->
+<GameData>
+	<Table name="Building_TradeRouteYieldChanges">
+		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
+		<Column name="DomainType" type="text" reference="Domains(Type)"/>
+		<Column name="YieldType" type="text" reference="Yields(Type)"/>
+		<Column name="Yield" type="integer"/>
+	</Table>
+	<Buildings>
+		<Row>
+			<Type>BUILDING_FORTIFIED_QUAY</Type>
+			<BuildingClass>BUILDINGCLASS_HARBOR</BuildingClass>
+			<Cost>120</Cost>
+			<GoldMaintenance>2</GoldMaintenance>
+			<PrereqTech>TECH_COMPASS</PrereqTech>
+			<Help>TXT_KEY_BUILDING_FORTIFIED_QUAY_HELP</Help>
+			<Description>TXT_KEY_BUILDING_FORTIFIED_QUAY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_FORTIFIED_QUAY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_FORTIFIED_QUAY_STRATEGY</Strategy>
+			<ArtDefineTag>HARBOR</ArtDefineTag>
+			<Water>true</Water>
+			<MinAreaSize>10</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<ArtInfoEraVariation>true</ArtInfoEraVariation>
+			<DisplayPosition>16</DisplayPosition>
+			<AllowsWaterRoutes>true</AllowsWaterRoutes>
+			<TradeRouteSeaDistanceModifier>50</TradeRouteSeaDistanceModifier>
+			<TradeRouteSeaGoldBonus>100</TradeRouteSeaGoldBonus>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>26</PortraitIndex>
+		</Row>
+	</Buildings>
+	<Building_TradeRouteYieldChanges>
+		<Row>
+			<BuildingType>BUILDING_FORTIFIED_QUAY</BuildingType>
+			<DomainType>DOMAIN_SEA</DomainType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>2</Yield>
+		</Row>
+	</Building_TradeRouteYieldChanges>
+</GameData>

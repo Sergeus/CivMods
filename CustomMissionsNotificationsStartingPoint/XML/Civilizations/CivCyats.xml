@@ -15,7 +15,7 @@
 			<ArtStylePrefix>EUROPEAN </ArtStylePrefix>
 			<PortraitIndex>0</PortraitIndex>
 			<IconAtlas>CYATS_ATLAS</IconAtlas>
-			<AlphaIconAtlas>EXPANSION_CIV_ALPHA_ATLAS</AlphaIconAtlas>
+			<AlphaIconAtlas>CYATS_ALPHA_ATLAS</AlphaIconAtlas>
 			<MapImage>MapAmerica512.dds</MapImage>
 			<DawnOfManQuote>TXT_KEY_CIV5_DAWN_CYATS_TEXT</DawnOfManQuote>
 			<DawnOfManImage>DOM_Maria_Theresa.dds</DawnOfManImage>

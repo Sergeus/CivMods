@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/17/2013 6:12:50 PM -->
+<GameData>
+	<BuildingClasses>
+		<Row>
+			<Type>BUILDINGCLASS_PIER</Type>
+			<DefaultBuilding>BUILDING_PIER</DefaultBuilding>
+			<Description>TXT_KEY_BUILDING_PIER</Description>
+		</Row>
+	</BuildingClasses>
+	<Buildings>
+		<Row>
+			<Type>BUILDING_PIER</Type>
+			<BuildingClass>BUILDINGCLASS_PIER</BuildingClass>
+			<Cost>120</Cost>
+			<GoldMaintenance>2</GoldMaintenance>
+			<PrereqTech>TECH_COMPASS</PrereqTech>
+			<Help>TXT_KEY_BUILDING_PIER_HELP</Help>
+			<Description>TXT_KEY_BUILDING_PIER</Description>
+			<Civilopedia>TXT_KEY_BUILDING_PIER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_PIER_STRATEGY</Strategy>
+			<ArtDefineTag>HARBOR</ArtDefineTag>
+			<Water>true</Water>
+			<MinAreaSize>10</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<ArtInfoEraVariation>true</ArtInfoEraVariation>
+			<DisplayPosition>16</DisplayPosition>
+			<AllowsWaterRoutes>true</AllowsWaterRoutes>
+			<TradeRouteSeaDistanceModifier>30</TradeRouteSeaDistanceModifier>
+			<TradeRouteSeaGoldBonus>70</TradeRouteSeaGoldBonus>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>26</PortraitIndex>
+		</Row>
+	</Buildings>
+</GameData>

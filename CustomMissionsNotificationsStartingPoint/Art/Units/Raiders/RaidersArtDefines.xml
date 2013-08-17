@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/17/2013 5:29:31 PM -->
+<GameData>
+	<ArtDefine_UnitInfos>
+		<Row>
+			<Type>ART_DEF_UNIT_ARGAST_RAIDERS</Type>
+			<DamageStates>1</DamageStates>
+			<Formation>Phalanx</Formation>
+		</Row>
+	</ArtDefine_UnitInfos>
+	<ArtDefine_UnitInfoMemberInfos>
+		<Row>
+			<UnitInfoType>ART_DEF_UNIT_ARGAST_RAIDERS</UnitInfoType>
+			<UnitMemberInfoType>ART_DEF_UNIT_MEMBER_SPEARMAN_V2</UnitMemberInfoType>
+			<NumMembers>4</NumMembers>
+		</Row>
+		<Row>
+			<UnitInfoType>ART_DEF_UNIT_ARGAST_RAIDERS</UnitInfoType>
+			<UnitMemberInfoType>ART_DEF_UNIT_MEMBER_BARBARIAN_EURO_ALPHA</UnitMemberInfoType>
+			<NumMembers>4</NumMembers>
+		</Row>
+		<Row>
+			<UnitInfoType>ART_DEF_UNIT_ARGAST_RAIDERS</UnitInfoType>
+			<UnitMemberInfoType>ART_DEF_UNIT_MEMBER_BARBARIAN_SWORDSMAN_V2</UnitMemberInfoType>
+			<NumMembers>4</NumMembers>
+		</Row>
+	</ArtDefine_UnitInfoMemberInfos>
+	<ArtDefine_StrategicView>
+		<Row>
+			<StrategicViewType>ART_DEF_UNIT_ARGAST_RAIDERS</StrategicViewType>
+			<TileType>Unit</TileType>
+			<Asset>SV_Spearman.dds</Asset>
+		</Row>
+	</ArtDefine_StrategicView>
+</GameData>

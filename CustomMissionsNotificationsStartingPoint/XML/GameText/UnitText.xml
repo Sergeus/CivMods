@@ -57,5 +57,19 @@
 		<Row Tag="TXT_KEY_UNIT_HELP_NEMYD_CONSCRIPTED_RAKER">
 			<Text>The backbone of the Numydian navy, Conscripted Rakers have become the bane of Svestan sailors.</Text>
 		</Row>
+		
+		<!-- Unit: Raiders -->
+		<Row Tag="TXT_KEY_UNIT_ARGAST_RAIDERS">
+			<Text>Raiders</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_ARGAST_RAIDERS">
+			<Text>Stronger and more mobile than the spearman, which they replace, Raiders inflict 10 damage to any enemy unit that ends its turn in an adjacent hex.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_ARGAST_RAIDERS_STRATEGY">
+			<Text>Raiders are fantastically positioned to move around enemy forces, using their boosted movement to cover ground quickly while their damaging ability fends off units diverted to stop them. Alternatively, station Raiders next to a city to damage its defenders, forcing them to stop to heal or be slowly destroyed.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ANTIQUITY_ARGAST_RAIDERS_TEXT">
+			<Text>[TOWRITE] Raiders pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
