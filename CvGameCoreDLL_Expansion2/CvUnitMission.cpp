@@ -1211,6 +1211,16 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 			return true;
 		}
 	}
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Generic Mission Handling
+	// ----------------------------------------------------------------
+	else
+	{
+		if (hUnit->CanHandleMission(iMission, bTestVisible))
+		{
+			return true;
+		}
+	}
 
 	return false;
 }
@@ -1644,6 +1654,16 @@ void CvUnitMission::StartMission(UnitHandle hUnit)
 					{
 						bAction = true;
 					}
+				}
+			}
+			// ----------------------------------------------------------------
+			// WoTMod Addition - Custom Generic Mission Handling
+			// ----------------------------------------------------------------
+			else
+			{
+				if (hUnit->HandleMission(pkQueueData->eMissionType))
+				{
+					bDelete = true;
 				}
 			}
 		}

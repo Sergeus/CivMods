@@ -1228,6 +1228,12 @@ public:
 	std::string debugDump(const FAutoVariableBase&) const;
 	std::string stackTraceRemark(const FAutoVariableBase&) const;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition - Custom Generic Mission Handling
+	// ----------------------------------------------------------------
+	bool CanHandleMission(int iMission, bool bTestVisible) const;
+	bool HandleMission(int iMission);
+
 protected:
 	const MissionQueueNode* HeadMissionQueueNode() const;
 	MissionQueueNode* HeadMissionQueueNode();
