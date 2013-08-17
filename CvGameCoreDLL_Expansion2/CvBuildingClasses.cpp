@@ -189,6 +189,12 @@ CvBuildingEntry::CvBuildingEntry(void):
 	m_ppaiTerrainYieldChange(NULL),
 	m_ppiBuildingClassYieldChanges(NULL),
 	m_paiBuildingClassHappiness(NULL),
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_ppaiTradeRouteYieldChanges(NULL),
+
 	m_paThemingBonusInfo(NULL),
 	m_iNumThemingBonuses(0)
 {
@@ -236,6 +242,11 @@ CvBuildingEntry::~CvBuildingEntry(void)
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiResourceYieldModifier);
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiTerrainYieldChange);
 	CvDatabaseUtility::SafeDelete2DArray(m_ppiBuildingClassYieldChanges);
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	CvDatabaseUtility::SafeDelete2DArray(m_ppaiTradeRouteYieldChanges);
 }
 
 /// Read from XML file
@@ -570,6 +581,32 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 			const int yield = pResults->GetInt(2);
 
 			m_ppaiSpecialistYieldChange[SpecialistID][YieldID] = yield;
+		}
+	}
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	// TradeRouteYieldModifiers
+	{
+		kUtility.Initialize2DArray(m_ppaiTradeRouteYieldChanges, "Domains", "Yields");
+
+		std::string strKey("Building_TradeRouteYieldChanges");
+		Database::Results* pResults = kUtility.GetResults(strKey);
+		if (pResults == NULL)
+		{
+			pResults = kUtility.PrepareResults(strKey, "select Domains.ID as DomainID, Yields.ID as YieldID, Yield from Building_TradeRouteYieldChanges inner join Domains on Domains.Type = DomainType inner join Yields on Yields.Type = YieldType where BuildingType = ?");
+		}
+
+		pResults->Bind(1, szBuildingType);
+
+		while (pResults->Step())
+		{
+			const int DomainID = pResults->GetInt(0);
+			const int YieldID = pResults->GetInt(1);
+			const int yield = pResults->GetInt(2);
+
+			m_ppaiTradeRouteYieldChanges[DomainID][YieldID] = yield;
 		}
 	}
 
@@ -1911,6 +1948,24 @@ int* CvBuildingEntry::GetSpecialistYieldChangeArray(int i) const
 	CvAssertMsg(i < GC.getNumSpecialistInfos(), "Index out of bounds");
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_ppaiSpecialistYieldChange[i];
+}
+
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+int CvBuildingEntry::GetTradeRouteYieldChange(int i, int j) const
+{
+	CvAssertMsg(i < NUM_DOMAIN_TYPES, "Index out of bounds");
+	CvAssertMsg(i > -1, "Index out of bounds");
+	CvAssertMsg(j < NUM_YIELD_TYPES, "Index out of bounds");
+	CvAssertMsg(j > -1, "Index out of bounds");
+	return m_ppaiTradeRouteYieldChanges ? m_ppaiTradeRouteYieldChanges[i][j] : -1;
+}
+int* CvBuildingEntry::GetTradeRouteYieldChangeArray(int i) const
+{
+	CvAssertMsg(i < NUM_DOMAIN_TYPES, "Index out of bounds");
+	CvAssertMsg(i > -1, "Index out of bounds");
+	return m_ppaiTradeRouteYieldChanges[i];
 }
 
 /// Modifier to resource yield

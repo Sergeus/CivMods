@@ -1806,6 +1806,28 @@ int CvPlayerTrade::GetTradeConnectionBaseValueTimes100(const TradeConnection& kT
 
 				return iAdjustedTechDifference * 100;
 			}
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+			else
+			{
+				CvCity* pCity = GC.getMap().plot(kTradeConnection.m_iOriginX, kTradeConnection.m_iOriginY)->getPlotCity();
+
+				int iResult = 0;
+
+				for (int i = 0; i < GC.getNumBuildingInfos(); i++)
+				{
+					const BuildingTypes eBuilding = static_cast<BuildingTypes>(i);
+					CvBuildingEntry* pkBuildingInfo = GC.getBuildingInfo(eBuilding);
+
+					if (pCity->GetCityBuildings()->GetNumBuilding(eBuilding) > 0)
+					{
+						iResult += pkBuildingInfo->GetTradeRouteYieldChange(kTradeConnection.m_eDomain, eYield);
+					}
+				}
+
+				return iResult * 100;
+			}
 		}
 	}
 	else
@@ -2266,15 +2288,35 @@ int CvPlayerTrade::GetTradeConnectionValueTimes100 (const TradeConnection& kTrad
 				}
 				break;
 			case YIELD_SCIENCE:
-				int iBaseValue = GetTradeConnectionBaseValueTimes100(kTradeConnection, eYield, bAsOriginPlayer);
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+				{ // SiegeMod only added this brace here
+					int iBaseValue = GetTradeConnectionBaseValueTimes100(kTradeConnection, eYield, bAsOriginPlayer);
 
-				iValue = iBaseValue;
+					iValue = iBaseValue;
 
-				int iModifier = 100;
+					int iModifier = 100;
 				
-				iValue *= iModifier;
-				iValue /= 100;
-				break;
+					iValue *= iModifier;
+					iValue /= 100;
+					break;
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+				}
+			default:
+				{
+					int iBaseValue = GetTradeConnectionBaseValueTimes100(kTradeConnection, eYield, bAsOriginPlayer);
+
+					iValue = iBaseValue;
+
+					int iModifier = 100;
+
+					iValue *= iModifier;
+					iValue /= 100;
+					break;
+				}
 			}
 		}
 	}
@@ -2321,6 +2363,21 @@ int CvPlayerTrade::GetTradeConnectionValueTimes100 (const TradeConnection& kTrad
 						iValue /= 100;						
 					}
 					break;
+				// ----------------------------------------------------------------
+				// SiegeMod Addition
+				// ----------------------------------------------------------------
+				default:
+					{
+						int iBaseValue = GetTradeConnectionBaseValueTimes100(kTradeConnection, eYield, bAsOriginPlayer);
+
+						iValue = iBaseValue;
+
+						int iModifier = 100;
+
+						iValue *= iModifier;
+						iValue /= 100;
+						break;
+					}
 				}
 			}
 		}
