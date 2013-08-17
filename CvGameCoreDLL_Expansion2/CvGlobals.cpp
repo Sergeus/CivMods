@@ -5412,6 +5412,11 @@ void CvGlobals::cacheGlobals()
 	m_iAI_OPERATIONAL_MAX_RECRUIT_TURNS_DEFAULT = getDefineINT("AI_OPERATIONAL_MAX_RECRUIT_TURNS_DEFAULT");
 	m_iAI_OPERATIONAL_MAX_RECRUIT_TURNS_ENEMY_TERRITORY = getDefineINT("AI_OPERATIONAL_MAX_RECRUIT_TURNS_ENEMY_TERRITORY");
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_iTRADE_ROUTE_DURATION_TURNS = getDefineINT("TRADE_ROUTE_DURATION_TURNS");
+
 	// -- floats --
 
 	m_fAI_PRODUCTION_WEIGHT_MOD_PER_TURN_LEFT = getDefineFLOAT("AI_PRODUCTION_WEIGHT_MOD_PER_TURN_LEFT");

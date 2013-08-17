@@ -7317,6 +7317,14 @@ public:
 		return m_fLEAGUE_PROJECT_REWARD_TIER_2_THRESHOLD;
 	}
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	inline int getTRADE_ROUTE_DURATION_TURNS()
+	{
+		return m_iTRADE_ROUTE_DURATION_TURNS;
+	}
+
 	////////////// END DEFINES //////////////////
 
 	void setDLLIFace(ICvEngineUtility3* pDll)
@@ -9091,6 +9099,11 @@ protected:
 	int m_iCOMBAT_CAPTURE_MIN_CHANCE;
 	int m_iCOMBAT_CAPTURE_MAX_CHANCE;
 	int m_iCOMBAT_CAPTURE_RATIO_MULTIPLIER;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int m_iTRADE_ROUTE_DURATION_TURNS;
 
 	// -- floats --
 
