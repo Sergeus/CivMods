@@ -2736,6 +2736,8 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 	// ----------------------------------------------------------------
 	kStream >> m_bTradeStopsWars;
 	kStream >> m_bPuppetsReligiousFollowers;
+	kStream >> m_bCannotBeDeclaredWarOn;
+	kStream >> m_bRefusingTradeCausesWar;
 
 	kStream >> m_iBaktunPreviousTurn;
 
@@ -2993,6 +2995,8 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	// ----------------------------------------------------------------
 	kStream << m_bTradeStopsWars;
 	kStream << m_bPuppetsReligiousFollowers;
+	kStream << m_bCannotBeDeclaredWarOn;
+	kStream << m_bRefusingTradeCausesWar;
 
 	kStream << m_iBaktunPreviousTurn;
 
