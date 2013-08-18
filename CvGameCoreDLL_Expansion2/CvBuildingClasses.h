@@ -296,6 +296,8 @@ public:
 	// ----------------------------------------------------------------
 	int GetTradeRouteYieldChange(int i, int j) const;
 	int* GetTradeRouteYieldChangeArray(int i) const;
+	bool IsFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const;
+	bool IsGivesFreePromotions() const;
 
 	CvThemingBonusInfo *GetThemingBonusInfo(int i) const;
 	int GetNumThemingBonuses() const {return m_iNumThemingBonuses;};
@@ -495,6 +497,8 @@ private:
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	int** m_ppaiTradeRouteYieldChanges;
+	std::multimap<int, int> m_FreePromotionUnitCombats;
+	bool m_bGivesFreePromotions;
 
 	CvThemingBonusInfo* m_paThemingBonusInfo;
 	int m_iNumThemingBonuses;

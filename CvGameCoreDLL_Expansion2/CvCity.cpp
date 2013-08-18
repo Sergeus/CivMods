@@ -11586,6 +11586,28 @@ ReligionTypes CvCity::GetReligionPuppeting() const
 {
 	return m_eReligionPuppeting;
 }
+void CvCity::AddFreePromotions(CvUnit* pUnit)
+{
+	for (int iBuilding = 0; iBuilding < GC.getNumBuildingInfos(); iBuilding++)
+	{
+		BuildingTypes eBuilding = (BuildingTypes)iBuilding;
+		CvBuildingEntry* pBuildingInfo = GC.getBuildingInfo(eBuilding);
+
+		if (GetCityBuildings()->GetNumBuilding(eBuilding) > 0 && pBuildingInfo->IsGivesFreePromotions())
+		{
+			for (int iPromotion = 0; iPromotion < GC.getNumPromotionInfos(); iPromotion++)
+			{
+				PromotionTypes ePromotion = (PromotionTypes)iPromotion;
+				CvPromotionEntry* pPromotionInfo = GC.getPromotionInfo(ePromotion);
+
+				if (pBuildingInfo->IsFreePromotionUnitCombat(iPromotion, pUnit->getUnitCombatType()))
+				{
+					pUnit->setHasPromotion(ePromotion, true);
+				}
+			}
+		}
+	}
+}
 
 
 //	--------------------------------------------------------------------------------
@@ -12115,6 +12137,8 @@ int CvCity::CreateUnit(UnitTypes eUnitType, UnitAITypes eAIType, bool bUseToSati
 	}
 
 	addProductionExperience(pUnit);
+
+	AddFreePromotions(pUnit);
 
 	CvPlot* pRallyPlot = getRallyPlot();
 	if(pRallyPlot != NULL)

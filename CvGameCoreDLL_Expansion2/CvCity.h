@@ -793,6 +793,7 @@ public:
 	void ChangeTurnsInfluencedByPuppetingReligion(int iValue);
 	ReligionTypes GetReligionPuppeting() const;
 	void SetReligionPuppeting(ReligionTypes eReligion);
+	void AddFreePromotions(CvUnit* pUnit);
 
 	int GetMaxHitPoints() const;
 	const FAutoArchive& getSyncArchive() const;

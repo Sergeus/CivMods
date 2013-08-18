@@ -194,6 +194,7 @@ CvBuildingEntry::CvBuildingEntry(void):
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	m_ppaiTradeRouteYieldChanges(NULL),
+	m_bGivesFreePromotions(false),
 
 	m_paThemingBonusInfo(NULL),
 	m_iNumThemingBonuses(0)
@@ -608,6 +609,34 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 
 			m_ppaiTradeRouteYieldChanges[DomainID][YieldID] = yield;
 		}
+	}
+
+	// m_freePromotionUnitCombats
+	{
+		std::string sqlKey = "FreePromotionUnitCombats";
+		Database::Results* pResults = kUtility.GetResults(sqlKey);
+
+		if (pResults == NULL)
+		{
+			const char* szSQL = "select UnitPromotions.ID, UnitCombatInfos.ID from Building_FreePromotionUnitCombats, UnitPromotions, UnitCombatInfos where BuildingType = ? and PromotionType = UnitPromotions.Type and UnitCombatType = UnitCombatInfos.Type";
+			pResults = kUtility.PrepareResults(sqlKey, szSQL);
+		}
+
+		pResults->Bind(1, szBuildingType);
+
+		while (pResults->Step())
+		{
+			const int unitPromotionID = pResults->GetInt(0);
+			const int unitCombatID = pResults->GetInt(1);
+
+			m_FreePromotionUnitCombats.insert(std::pair<int, int>(unitPromotionID, unitCombatID));
+
+			m_bGivesFreePromotions = true;
+		}
+
+		pResults->Reset();
+
+		std::multimap<int, int>(m_FreePromotionUnitCombats).swap(m_FreePromotionUnitCombats);
 	}
 
 	//ResourceYieldModifiers
@@ -1966,6 +1995,30 @@ int* CvBuildingEntry::GetTradeRouteYieldChangeArray(int i) const
 	CvAssertMsg(i < NUM_DOMAIN_TYPES, "Index out of bounds");
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_ppaiTradeRouteYieldChanges[i];
+}
+bool CvBuildingEntry::IsFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const
+{
+	std::multimap<int, int>::const_iterator it = m_FreePromotionUnitCombats.find(promotionID);
+	if(it != m_FreePromotionUnitCombats.end())
+	{
+		// get an iterator to the element that is one past the last element associated with key
+		std::multimap<int, int>::const_iterator lastElement = m_FreePromotionUnitCombats.upper_bound(promotionID);
+
+		// for each element in the sequence [itr, lastElement)
+		for ( ; it != lastElement; ++it)
+		{
+			if(it->second == unitCombatID)
+			{
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+bool CvBuildingEntry::IsGivesFreePromotions() const
+{
+	return m_bGivesFreePromotions;
 }
 
 /// Modifier to resource yield
