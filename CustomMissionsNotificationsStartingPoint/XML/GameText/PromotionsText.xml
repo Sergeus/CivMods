@@ -15,5 +15,12 @@
 		<Row Tag="TXT_KEY_PROMOTION_ADJACENT_ENEMY_DAMAGE_10_HELP">
 			<Text>Enemy units ending their turn on a hex next to this unit take 10 damage.</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_PROMOTION_LOW_MORALE">
+			<Text>Low Morale</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_LOW_MORALE_HELP">
+			<Text>Suffers a 15% combat penalty.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

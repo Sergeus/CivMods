@@ -29,5 +29,17 @@
 			<PediaEntry>TXT_KEY_PROMOTION_ADJACENT_ENEMY_DAMAGE_10</PediaEntry>
 			<AdjacentEnemyDamage>10</AdjacentEnemyDamage>
 		</Row>
+		<Row>
+			<Type>PROMOTION_LOW_MORALE</Type>
+			<Description>TXT_KEY_PROMOTION_LOW_MORALE</Description>
+			<Help>TXT_KEY_PROMOTION_LOW_MORALE_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PortraitIndex>57</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_WOLFPACK_1</PediaEntry>
+			<AttackMod>-15</AttackMod>
+			<DefenseMod>-15</DefenseMod>
+		</Row>
 	</UnitPromotions>
 </GameData>

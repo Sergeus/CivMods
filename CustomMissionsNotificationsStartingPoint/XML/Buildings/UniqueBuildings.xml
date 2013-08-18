@@ -7,6 +7,11 @@
 		<Column name="YieldType" type="text" reference="Yields(Type)"/>
 		<Column name="Yield" type="integer"/>
 	</Table>
+	<Table name="Building_FreePromotionUnitCombats">
+		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
+		<Column name="UnitCombatType" type="text" reference="UnitCombatInfos(Type)"/>
+		<Column name="PromotionType" type="text" reference="UnitPromotions(Type)"/>
+	</Table>
 	<Buildings>
 		<Row>
 			<Type>BUILDING_FORTIFIED_QUAY</Type>
@@ -31,6 +36,23 @@
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<PortraitIndex>26</PortraitIndex>
 		</Row>
+		<Row>
+			<Type>BUILDING_SLAVE_MARKET</Type>
+			<BuildingClass>BUILDINGCLASS_BARRACKS</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>75</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+			<Help>TXT_KEY_BUILDING_SLAVE_MARKET_HELP</Help>
+			<Description>TXT_KEY_BUILDING_SLAVE_MARKET</Description>
+			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_SLAVE_MARKET_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY</Strategy>
+			<ArtDefineTag>ART_DEF_BUILDING_BARRACKS</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<NeverCapture>true</NeverCapture>
+			<PortraitIndex>5</PortraitIndex>
+		</Row>
 	</Buildings>
 	<Building_TradeRouteYieldChanges>
 		<Row>
@@ -40,4 +62,148 @@
 			<Yield>2</Yield>
 		</Row>
 	</Building_TradeRouteYieldChanges>
+	<Building_UnitCombatProductionModifiers>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_NAVALMELEE</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_NAVALRANGED</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_BOMBER</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_FIGHTER</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_CARRIER</UnitCombatType>
+			<Modifier>100</Modifier>
+		</Row>
+	</Building_UnitCombatProductionModifiers>
+	<Building_FreePromotionUnitCombats>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_NAVALRANGED</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_NAVALMELEE</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_BOMBER</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_FIGHTER</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
+			<UnitCombatType>UNITCOMBAT_CARRIER</UnitCombatType>
+			<PromotionType>PROMOTION_LOW_MORALE</PromotionType>
+		</Row>
+	</Building_FreePromotionUnitCombats>
 </GameData>

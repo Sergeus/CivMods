@@ -26,8 +26,8 @@
 	<Civilization_BuildingClassOverrides>
 		<Row>
 			<CivilizationType>CIVILIZATION_ARGAST_EMPIRE</CivilizationType>
-			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType>
-			<BuildingType>BUILDING_CEILIDH_HALL</BuildingType>
+			<BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType>
+			<BuildingType>BUILDING_SLAVE_MARKET</BuildingType>
 		</Row>
 	</Civilization_BuildingClassOverrides>
 	<Civilization_UnitClassOverrides>
