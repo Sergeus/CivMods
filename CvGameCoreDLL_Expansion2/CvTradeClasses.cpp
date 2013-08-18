@@ -348,7 +348,7 @@ bool CvGameTrade::CreateTradeRoute(CvCity* pOriginCity, CvCity* pDestCity, Domai
 	int iCircuitsToComplete = 1; // how many circuits do we want this trade route to run to reach the target turns
 	if (iTurnsPerCircuit != 0)
 	{
-		iCircuitsToComplete = max(iTargetTurns / iTurnsPerCircuit, 2);
+		iCircuitsToComplete = max(iTargetTurns / iTurnsPerCircuit, 1); // changed from 2
 	}
 
 	m_aTradeConnections[iNewTradeRouteIndex].m_iCircuitsCompleted = 0;
@@ -3296,11 +3296,14 @@ int CvPlayerTrade::GetTradeRouteSpeed (DomainTypes eDomain)
 {
 	switch (eDomain)
 	{
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
 	case DOMAIN_SEA:
-		return 4;
+		return 5; // changed from 4
 		break;
 	case DOMAIN_LAND:
-		return 2;
+		return 3; // changed from 2
 		break;
 	}
 
