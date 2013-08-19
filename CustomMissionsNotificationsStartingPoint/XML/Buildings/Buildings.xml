@@ -9,6 +9,7 @@
 		</Row>
 	</BuildingClasses>
 	<Buildings>
+		<!-- Building: Pier -->
 		<Row>
 			<Type>BUILDING_PIER</Type>
 			<BuildingClass>BUILDINGCLASS_PIER</BuildingClass>
@@ -32,5 +33,7 @@
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<PortraitIndex>26</PortraitIndex>
 		</Row>
+		
+		<!-- Building: Clockworks Wonder, repulses all units and blocks war for 5 turns -->
 	</Buildings>
 </GameData>

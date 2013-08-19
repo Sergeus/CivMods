@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/19/2013 10:59:33 PM -->
+<GameData>
+	<Language_en_US>
+		<Row>
+			<Tag>TXT_KEY_TECH_CLOCKWORKS_DESC</Tag>
+			<Text>Clockworks</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CLOCKWORKS_CIV</Tag>
+			<Text>[TOWRITE] clockworks pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CLOCKWORKS_HELP</Tag>
+			<Text>[TOWRITE] Clockworks help</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CLOCKWORKS_QUOTE</Tag>
+			<Text>[TOWRITE] clockworks quote</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_DESC</Tag>
+			<Text>Mercantilism</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_CIV</Tag>
+			<Text>[TOWRITE] merchant freedom pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_HELP</Tag>
+			<Text>+2 Available Trade routes [NEWLINE]+3[ICON_GOLD] from trade routes</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_QUOTE</Tag>
+			<Text>[TOWRITE] merchant freedom quote</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CONSECRATED_MARKETS_DESC</Tag>
+			<Text>Consecration</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CONSECRATED_MARKETS_CIV</Tag>
+			<Text>[TOWRITE] consecrated markets pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CONSECRATED_MARKETS_HELP</Tag>
+			<Text>Foreign religions spread to your cities 15% slower</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CONSECRATED_MARKETS_QUOTE</Tag>
+			<Text>[TOWRITE] consecrated markets quote</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_NAVAL_FORMATIONS_DESC</Tag>
+			<Text>Naval Formations</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_NAVAL_FORMATIONS_CIV</Tag>
+			<Text>[TOWRITE] naval formations pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_NAVAL_FORMATIONS_HELP</Tag>
+			<Text>Feh</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_NAVAL_FORMATIONS_QUOTE</Tag>
+			<Text>[TOWRITE] naval formations quote</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_DESC</Tag>
+			<Text>Grand Inquisition</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_CIV</Tag>
+			<Text>[TOWRITE] grand inquisition pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_HELP</Tag>
+			<Text>[towrite] grand inquisition help</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_QUOTE</Tag>
+			<Text>Confessions are best signed in blood.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_DESC</Tag>
+			<Text>Theorical Inspiration</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_CIV</Tag>
+			<Text>[TOWRITE] theorical inspiration pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_HELP</Tag>
+			<Text>[TOWRITE] theorical inspiration help</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_QUOTE</Tag>
+			<Text>[TOWRITE] theorical inspiration quote</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_BLACK_POWDER_DESC</Tag>
+			<Text>Black Powder</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_BLACK_POWDER_CIV</Tag>
+			<Text>[TOWRITE] black powder pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_BLACK_POWDER_HELP</Tag>
+			<Text>[TOWRITE] black powder help</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_BLACK_POWDER_QUOTE</Tag>
+			<Text>They claimed there was no such thing as magic.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_DESC</Tag>
+			<Text>Transcendence</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_CIV</Tag>
+			<Text>[TOWRITE] transcendence pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_HELP</Tag>
+			<Text>[TOWRITE] transcendence help</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_QUOTE</Tag>
+			<Text>I am nothing. Yet I am everything. I Am All.</Text>
+		</Row>
+	</Language_en_US>
+</GameData>
