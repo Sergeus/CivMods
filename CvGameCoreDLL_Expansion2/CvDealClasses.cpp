@@ -2042,23 +2042,6 @@ bool CvGameDeals::FinalizeDeal(PlayerTypes eFromPlayer, PlayerTypes eToPlayer, b
 		}
 		// **** END HACK ****
 
-		// ----------------------------------------------------------------
-		// SiegeMod Addition
-		// ----------------------------------------------------------------
-		// If the deal was refused, and the player being refused's trait causes war then, we've gotta start a war!
-		if (bValid && !bAccepted)
-		{
-			CvPlayer& kPlayer = GET_PLAYER(kDeal.GetFromPlayer());
-			CvTeam& kTeam = GET_TEAM(kPlayer.getTeam());
-
-			TeamTypes eOtherTeam = GET_PLAYER(kDeal.GetToPlayer()).getTeam();
-
-			if (kPlayer.GetPlayerTraits()->IsRefusingTradeCausesWar() && kTeam.canDeclareWar(eOtherTeam))
-			{
-				kTeam.declareWar(eOtherTeam);
-			}
-		}
-
 		if(bValid && bAccepted)
 		{
 			// Determine total duration of the Deal
