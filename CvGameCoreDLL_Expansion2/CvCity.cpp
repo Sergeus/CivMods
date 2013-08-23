@@ -11793,6 +11793,44 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 					}
 
 				}
+
+				// ----------------------------------------------------------------
+				// SiegeMod Addition
+				// ----------------------------------------------------------------
+				if (pkBuildingInfo->IsEndsWars())
+				{
+					CvPlayer& kOwner = GET_PLAYER(getOwner());
+					CvTeam& kTeam = GET_TEAM(kOwner.getTeam());
+
+					for (int i= 0; i < MAX_TEAMS; i++)
+					{
+						TeamTypes eOtherTeam = (TeamTypes)i;
+						CvTeam kOtherTeam = GET_TEAM(eOtherTeam);
+
+						if (kTeam.isAtWar(eOtherTeam))
+						{
+							kTeam.makePeace(eOtherTeam);
+						}
+					}
+				}
+
+				//if (pkBuildingInfo->IsRepulsesEnemyUnits())
+				//{
+				//	CvPlayer& kPlayer = GET_PLAYER(getOwner());
+
+				//	CvPlotsVector& plots = kPlayer.GetPlots();
+
+				//	for (int i = 0; i < plots.size(); i++)
+				//	{
+				//		int iPlotIndex = plots[i];
+
+				//		if (iPlotIndex == -1)
+				//			break;
+
+				//		CvPlot* pPlot = GC.getMap().plotByIndex(iPlotIndex);
+
+				//	}
+				//}
 			}
 		}
 		break;

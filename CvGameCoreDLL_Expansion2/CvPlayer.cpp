@@ -10215,6 +10215,36 @@ void CvPlayer::DoUpdateUprisings()
 			DoResetUprisingCounter(/*bFirstTime*/ true);
 		}
 	}
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	CvTeam& kTeam = GET_TEAM(getTeam());
+	for (int i = 0; i < MAX_MAJOR_CIVS; i++)
+	{
+		PlayerTypes eOtherPlayer = (PlayerTypes)i;
+		CvPlayer& kOtherPlayer = GET_PLAYER(eOtherPlayer);
+
+		CvPlayerTraits* pOtherTraits = kOtherPlayer.GetPlayerTraits();
+
+		if (kTeam.isAtWar(kOtherPlayer.getTeam())
+			&& pOtherTraits->IsWarCausesRebels())
+		{
+			if (GetUprisingCounter() > 0)
+			{
+				ChangeUprisingCounter(-1);
+
+				if (GetUprisingCounter() == 0)
+				{
+					DoUprising();
+					SetUprisingCounter(pOtherTraits->GetWarRebellionInterval());
+				}
+			}
+			else 
+			{
+				SetUprisingCounter(pOtherTraits->GetWarRebellionInterval());
+			}
+		}
+	}
 }
 
 //	--------------------------------------------------------------------------------

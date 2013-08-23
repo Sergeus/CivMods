@@ -117,7 +117,7 @@ CvTraitEntry::CvTraitEntry() :
 	m_bTradeStopsWars(false),
 	m_bPuppetsReligiousFollowers(false),
 	m_bCannotBeDeclaredWarOn(false),
-	m_bRefusingTradeCausesWar(false),
+	m_bWarCausesRebels(false),
 
 	m_paiExtraYieldThreshold(NULL),
 	m_paiYieldChange(NULL),
@@ -669,9 +669,9 @@ bool CvTraitEntry::IsCannotBeDeclaredWarOn() const
 {
 	return m_bCannotBeDeclaredWarOn;
 }
-bool CvTraitEntry::IsRefusingTradeCausesWar() const
+bool CvTraitEntry::IsWarCausesRebels() const
 {
-	return m_bRefusingTradeCausesWar;
+	return m_bWarCausesRebels;
 }
 int CvTraitEntry::GetExtraUnitsWhenTrained() const
 {
@@ -684,6 +684,10 @@ int CvTraitEntry::GetReqTradeRoutesForPeace() const
 int CvTraitEntry::GetReligionTakeoverTurns() const
 {
 	return m_iReligionTakeOverTurns;
+}
+int CvTraitEntry::GetWarRebellionInterval() const
+{
+	return m_iWarRebellionInterval;
 }
 
 /// Accessor:: Get brief text description
@@ -1033,7 +1037,7 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 	m_bTradeStopsWars = kResults.GetBool("TradeStopsWars");
 	m_bPuppetsReligiousFollowers = kResults.GetBool("PuppetsReligiousFollowers");
 	m_bCannotBeDeclaredWarOn = kResults.GetBool("CannotBeDeclaredWarOn");
-	m_bRefusingTradeCausesWar = kResults.GetBool("RefuseTradeCausesWar");
+	m_bWarCausesRebels = kResults.GetBool("WarCausesRebels");
 
 	//Arrays
 	const char* szTraitType = GetType();
@@ -1536,9 +1540,10 @@ void CvPlayerTraits::InitPlayerTraits()
 			{
 				m_bCannotBeDeclaredWarOn = true;
 			}
-			if (trait->IsRefusingTradeCausesWar())
+			if (trait->IsWarCausesRebels())
 			{
-				m_bRefusingTradeCausesWar = true;
+				m_bWarCausesRebels = true;
+				m_iWarRebellionInterval = trait->GetWarRebellionInterval();
 			}
 
 			for(int iYield = 0; iYield < NUM_YIELD_TYPES; iYield++)
@@ -1720,6 +1725,7 @@ void CvPlayerTraits::Reset()
 	m_iExtraUnitsWhenTrained = 0;
 	m_iReqTradeRoutesForPeace = -1;
 	m_iReligionTakeoverTurns = -1;
+	m_iWarRebellionInterval = -1;
 
 	m_bFightWellDamaged = false;
 	m_bMoveFriendlyWoodsAsRoad = false;
@@ -1747,7 +1753,7 @@ void CvPlayerTraits::Reset()
 	m_bTradeStopsWars = false;
 	m_bPuppetsReligiousFollowers = false;
 	m_bCannotBeDeclaredWarOn = false;
-	m_bRefusingTradeCausesWar = false;
+	m_bWarCausesRebels = false;
 
 	m_eCampGuardType = NO_UNIT;
 	m_eCombatBonusImprovement = NO_IMPROVEMENT;
@@ -2705,6 +2711,7 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 	kStream >> m_iExtraUnitsWhenTrained;
 	kStream >> m_iReqTradeRoutesForPeace;
 	kStream >> m_iReligionTakeoverTurns;
+	kStream >> m_iWarRebellionInterval;
 
 	kStream >> m_bFightWellDamaged;
 	kStream >> m_bMoveFriendlyWoodsAsRoad;
@@ -2737,7 +2744,7 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 	kStream >> m_bTradeStopsWars;
 	kStream >> m_bPuppetsReligiousFollowers;
 	kStream >> m_bCannotBeDeclaredWarOn;
-	kStream >> m_bRefusingTradeCausesWar;
+	kStream >> m_bWarCausesRebels;
 
 	kStream >> m_iBaktunPreviousTurn;
 
@@ -2974,6 +2981,7 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	kStream << m_iExtraUnitsWhenTrained;
 	kStream << m_iReqTradeRoutesForPeace;
 	kStream << m_iReligionTakeoverTurns;
+	kStream << m_iWarRebellionInterval;
 
 	kStream << m_bFightWellDamaged;
 	kStream << m_bMoveFriendlyWoodsAsRoad;
@@ -2996,7 +3004,7 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	kStream << m_bTradeStopsWars;
 	kStream << m_bPuppetsReligiousFollowers;
 	kStream << m_bCannotBeDeclaredWarOn;
-	kStream << m_bRefusingTradeCausesWar;
+	kStream << m_bWarCausesRebels;
 
 	kStream << m_iBaktunPreviousTurn;
 

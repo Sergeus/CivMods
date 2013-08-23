@@ -124,6 +124,7 @@ public:
 	int GetExtraUnitsWhenTrained() const;
 	int GetReqTradeRoutesForPeace() const;
 	int GetReligionTakeoverTurns() const;
+	int GetWarRebellionInterval() const;
 
 	TechTypes GetFreeUnitPrereqTech() const;
 	ImprovementTypes GetCombatBonusImprovement() const;
@@ -156,7 +157,7 @@ public:
 	bool IsTradeStopsWars() const;
 	bool IsPuppetsReligiousFollowers() const;
 	bool IsCannotBeDeclaredWarOn() const;
-	bool IsRefusingTradeCausesWar() const;
+	bool IsWarCausesRebels() const;
 
 	const char* getShortDescription() const;
 	void setShortDescription(const char* szVal);
@@ -262,6 +263,7 @@ protected:
 	int m_iReqTradeRoutesForPeace;
 	int m_iReligionTakeOverTurns;
 	int m_iExtraUnitsWhenTrained;
+	int m_iWarRebellionInterval;
 
 	TechTypes m_eFreeUnitPrereqTech;
 	ImprovementTypes m_eCombatBonusImprovement;
@@ -294,7 +296,7 @@ protected:
 	bool m_bTradeStopsWars;
 	bool m_bPuppetsReligiousFollowers;
 	bool m_bCannotBeDeclaredWarOn;
-	bool m_bRefusingTradeCausesWar;
+	bool m_bWarCausesRebels;
 
 	CvString m_strShortDescription;
 
@@ -795,6 +797,10 @@ public:
 	{
 		return m_iReligionTakeoverTurns;
 	}
+	int GetWarRebellionInterval() const
+	{
+		return m_iWarRebellionInterval;
+	}
 	bool IsTradeStopsWars() const
 	{
 		return m_bTradeStopsWars;
@@ -807,9 +813,9 @@ public:
 	{
 		return m_bCannotBeDeclaredWarOn;
 	}
-	bool IsRefusingTradeCausesWar() const
+	bool IsWarCausesRebels() const
 	{
-		return m_bRefusingTradeCausesWar;
+		return m_bWarCausesRebels;
 	}
 
 	// Maya calendar routines
@@ -907,6 +913,7 @@ private:
 	int m_iExtraUnitsWhenTrained;
 	int m_iReqTradeRoutesForPeace;
 	int m_iReligionTakeoverTurns;
+	int m_iWarRebellionInterval;
 
 	bool m_bFightWellDamaged;
 	bool m_bMoveFriendlyWoodsAsRoad;
@@ -934,7 +941,7 @@ private:
 	bool m_bTradeStopsWars;
 	bool m_bPuppetsReligiousFollowers;
 	bool m_bCannotBeDeclaredWarOn;
-	bool m_bRefusingTradeCausesWar;
+	bool m_bWarCausesRebels;
 
 	UnitTypes m_eCampGuardType;
 	unsigned int m_uiFreeUnitIndex;

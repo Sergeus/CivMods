@@ -195,6 +195,7 @@ CvBuildingEntry::CvBuildingEntry(void):
 	// ----------------------------------------------------------------
 	m_ppaiTradeRouteYieldChanges(NULL),
 	m_bGivesFreePromotions(false),
+	m_bEndsWars(false),
 
 	m_paThemingBonusInfo(NULL),
 	m_iNumThemingBonuses(0)
@@ -372,6 +373,11 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	m_bArtInfoCulturalVariation = kResults.GetBool("ArtInfoCulturalVariation");
 	m_bArtInfoEraVariation = kResults.GetBool("ArtInfoEraVariation");
 	m_bArtInfoRandomVariation = kResults.GetBool("ArtInfoRandomVariation");
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_bEndsWars = kResults.GetBool("EndsWars");
 
 	//References
 	const char* szTextVal;
@@ -2019,6 +2025,10 @@ bool CvBuildingEntry::IsFreePromotionUnitCombat(const int promotionID, const int
 bool CvBuildingEntry::IsGivesFreePromotions() const
 {
 	return m_bGivesFreePromotions;
+}
+bool CvBuildingEntry::IsEndsWars() const
+{
+	return m_bEndsWars;
 }
 
 /// Modifier to resource yield

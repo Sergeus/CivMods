@@ -298,6 +298,7 @@ public:
 	int* GetTradeRouteYieldChangeArray(int i) const;
 	bool IsFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const;
 	bool IsGivesFreePromotions() const;
+	bool IsEndsWars() const;
 
 	CvThemingBonusInfo *GetThemingBonusInfo(int i) const;
 	int GetNumThemingBonuses() const {return m_iNumThemingBonuses;};
@@ -499,6 +500,7 @@ private:
 	int** m_ppaiTradeRouteYieldChanges;
 	std::multimap<int, int> m_FreePromotionUnitCombats;
 	bool m_bGivesFreePromotions;
+	bool m_bEndsWars;
 
 	CvThemingBonusInfo* m_paThemingBonusInfo;
 	int m_iNumThemingBonuses;
