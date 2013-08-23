@@ -2900,6 +2900,34 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 		}
 	}
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	CvPlayer& kOwner = GET_PLAYER(m_pCity->getOwner());
+	if (kOwner.GetReligions()->GetReligionCreatedByPlayer() != eReligion)
+	{
+		CvTeam& kOwnerTeam = GET_TEAM(kOwner.getTeam());
+
+		for (int i = 0; i < kOwnerTeam.GetTeamTechs()->GetNumTechsKnown(); i++)
+		{
+			TechTypes eTech = (TechTypes)i;
+			CvTechEntry* pTechEntry = GC.getTechInfo(eTech);
+
+			int techModifier = pTechEntry->GetForeignReligionSpreadModifier();
+
+			if (techModifier != 0
+				&& kOwnerTeam.GetTeamTechs()->HasTech(eTech))
+			{
+				int iMod = 100;
+				iMod += techModifier;
+
+				iPressure *= 100;
+				iPressure *= techModifier;
+				iPressure /= 100;
+			}
+		}
+	}
+
 	// Holy city for this religion?
 	if (IsHolyCityForReligion(eReligion))
 	{

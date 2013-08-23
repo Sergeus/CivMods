@@ -50,6 +50,11 @@ public:
 	int GetInfluenceSpreadModifier() const;;
 	int GetExtraVotesPerDiplomat() const;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int GetForeignReligionSpreadModifier() const;
+
 	int GetGridX() const;
 	int GetGridY() const;
 
@@ -114,6 +119,11 @@ private:
 	int m_iInternationalTradeRoutesChange;
 	int m_iInfluenceSpreadModifier;
 	int m_iExtraVotesPerDiplomat;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int m_iForeignReligionSpreadModifier;
 
 	int m_iGridX;
 	int m_iGridY;

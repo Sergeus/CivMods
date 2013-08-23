@@ -34,6 +34,11 @@ CvTechEntry::CvTechEntry(void):
 	m_iInternationalTradeRoutesChange(0),
 	m_iInfluenceSpreadModifier(0),
 	m_iExtraVotesPerDiplomat(0),
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_iForeignReligionSpreadModifier(0),
+
 	m_iGridX(0),
 	m_iGridY(0),
 	m_bEndsGame(false),
@@ -128,6 +133,11 @@ bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	m_iGridX = kResults.GetInt("GridX");
 	m_iGridY = kResults.GetInt("GridY");
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_iForeignReligionSpreadModifier = kResults.GetInt("ForeignReligionSpreadModifier");
+
 	//References
 	const char* szTextVal = NULL;
 	szTextVal = kResults.GetText("Era");
@@ -202,6 +212,14 @@ bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	}
 
 	return true;
+}
+
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+int CvTechEntry::GetForeignReligionSpreadModifier() const
+{
+	return m_iForeignReligionSpreadModifier;
 }
 
 /// Additional weight to having AI purchase this
