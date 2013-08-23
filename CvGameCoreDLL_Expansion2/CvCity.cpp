@@ -11694,7 +11694,7 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 			{
 				for (short i = 0; i < iExtraUnits; i++)
 				{
-					CreateUnit(eTrainUnit, eTrainAIUnit);
+					kOwner.initUnit(eTrainUnit, getX(), getY());
 				}
 			}
 
@@ -11802,12 +11802,12 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 					CvPlayer& kOwner = GET_PLAYER(getOwner());
 					CvTeam& kTeam = GET_TEAM(kOwner.getTeam());
 
-					for (int i= 0; i < MAX_TEAMS; i++)
+					for (int i= 0; i < MAX_CIV_TEAMS; i++)
 					{
 						TeamTypes eOtherTeam = (TeamTypes)i;
-						CvTeam kOtherTeam = GET_TEAM(eOtherTeam);
+						CvTeam& kOtherTeam = GET_TEAM(eOtherTeam);
 
-						if (kTeam.isAtWar(eOtherTeam))
+						if (kTeam.isAtWar(eOtherTeam) && eOtherTeam != BARBARIAN_TEAM)
 						{
 							kTeam.makePeace(eOtherTeam);
 						}
