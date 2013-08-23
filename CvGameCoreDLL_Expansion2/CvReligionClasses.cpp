@@ -2900,6 +2900,14 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 		}
 	}
 
+	// Holy city for this religion?
+	if (IsHolyCityForReligion(eReligion))
+	{
+		int iHolyCityPressure = GC.getGame().getGameSpeedInfo().getReligiousPressureAdjacentCity();
+		iHolyCityPressure *=  GC.getRELIGION_PER_TURN_FOUNDING_CITY_PRESSURE();
+		iPressure += iHolyCityPressure;
+	}
+
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
@@ -2908,7 +2916,7 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 	{
 		CvTeam& kOwnerTeam = GET_TEAM(kOwner.getTeam());
 
-		for (int i = 0; i < kOwnerTeam.GetTeamTechs()->GetNumTechsKnown(); i++)
+		for (int i = 0; i < GC.getNumTechInfos(); i++)
 		{
 			TechTypes eTech = (TechTypes)i;
 			CvTechEntry* pTechEntry = GC.getTechInfo(eTech);
@@ -2926,14 +2934,6 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 				iPressure /= 100;
 			}
 		}
-	}
-
-	// Holy city for this religion?
-	if (IsHolyCityForReligion(eReligion))
-	{
-		int iHolyCityPressure = GC.getGame().getGameSpeedInfo().getReligiousPressureAdjacentCity();
-		iHolyCityPressure *=  GC.getRELIGION_PER_TURN_FOUNDING_CITY_PRESSURE();
-		iPressure += iHolyCityPressure;
 	}
 
 	return iPressure;
