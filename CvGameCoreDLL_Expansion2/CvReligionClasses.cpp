@@ -2911,6 +2911,8 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
+
+	int iMod = 100;
 	CvPlayer& kOwner = GET_PLAYER(m_pCity->getOwner());
 	if (kOwner.GetReligions()->GetReligionCreatedByPlayer() != eReligion)
 	{
@@ -2926,15 +2928,28 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 			if (techModifier != 0
 				&& kOwnerTeam.GetTeamTechs()->HasTech(eTech))
 			{
-				int iMod = 100;
 				iMod += techModifier;
-
-				iPressure *= 100;
-				iPressure *= techModifier;
-				iPressure /= 100;
 			}
 		}
 	}
+
+	if (m_pCity->GetCityReligions()->GetReligiousMajority() == eReligion)
+	{
+		for (int i = 0; i < GC.getNumBuildingInfos(); i++)
+		{
+			BuildingTypes eBuilding = (BuildingTypes)i;
+
+			if (m_pCity->GetCityBuildings()->GetNumBuilding(eBuilding) > 0)
+			{
+				CvBuildingEntry* pBuildingInfo = GC.getBuildingInfo(eBuilding);
+				iMod += pBuildingInfo->GetReligionMajorityPressureModifier();
+			}
+		}
+	}
+
+	iPressure *= 100;
+	iPressure *= iMod;
+	iPressure /= 100;
 
 	return iPressure;
 }

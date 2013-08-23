@@ -296,6 +296,7 @@ public:
 	// ----------------------------------------------------------------
 	int GetTradeRouteYieldChange(int i, int j) const;
 	int* GetTradeRouteYieldChangeArray(int i) const;
+	int GetReligionMajorityPressureModifier() const;
 	bool IsFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const;
 	bool IsGivesFreePromotions() const;
 	bool IsEndsWars() const;
@@ -499,6 +500,7 @@ private:
 	// ----------------------------------------------------------------
 	int** m_ppaiTradeRouteYieldChanges;
 	std::multimap<int, int> m_FreePromotionUnitCombats;
+	int m_iReligionMajorityPressureModifier;
 	bool m_bGivesFreePromotions;
 	bool m_bEndsWars;
 

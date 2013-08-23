@@ -378,6 +378,7 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	m_bEndsWars = kResults.GetBool("EndsWars");
+	m_iReligionMajorityPressureModifier = kResults.GetInt("ReligionMajorityPressureModifier");
 
 	//References
 	const char* szTextVal;
@@ -2001,6 +2002,10 @@ int* CvBuildingEntry::GetTradeRouteYieldChangeArray(int i) const
 	CvAssertMsg(i < NUM_DOMAIN_TYPES, "Index out of bounds");
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_ppaiTradeRouteYieldChanges[i];
+}
+int CvBuildingEntry::GetReligionMajorityPressureModifier() const
+{
+	return m_iReligionMajorityPressureModifier;
 }
 bool CvBuildingEntry::IsFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const
 {
