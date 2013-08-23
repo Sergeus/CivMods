@@ -762,6 +762,18 @@ int CvTraitEntry::GetResourceQuantityModifier(int i) const
 	return m_piResourceQuantityModifiers ? m_piResourceQuantityModifiers[i] : -1;
 }
 
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+int CvTraitEntry::GetTerrainYieldChanges(TerrainTypes eTerrain, YieldTypes eYield) const
+{
+	CvAssertMsg(eIndex1 < GC.getNumTerrainInfos(), "Index out of bounds");
+	CvAssertMsg(eIndex1 > -1, "Index out of bounds");
+	CvAssertMsg(eIndex2 < NUM_YIELD_TYPES, "Index out of bounds");
+	CvAssertMsg(eIndex2 > -1, "Index out of bounds");
+	return m_ppiTerrainYieldChanges ? m_ppiTerrainYieldChanges[eTerrain][eYield] : 0;
+}
+
 /// Accessor:: Extra yield from an improvement
 int CvTraitEntry::GetImprovementYieldChanges(ImprovementTypes eIndex1, YieldTypes eIndex2) const
 {
@@ -1161,6 +1173,33 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 		}
 
 		pResults->Reset();
+	}
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	// TerrainYieldChanges
+	{
+		kUtility.Initialize2DArray(m_ppiTerrainYieldChanges, "Terrains", "Yields");
+
+		std::string strKey("Trait_TerrainYieldChanges");
+		Database::Results* pResults = kUtility.GetResults(strKey);
+
+		if (pResults == NULL)
+		{
+			pResults = kUtility.PrepareResults(strKey, "select Terrains.ID as TerrainID, Yields.ID as YieldID, Yield from Trait_TerrainYieldChanges inner join Terrains on Terrains.Type = TerrainType inner join Yields on Yields.Type = YieldType where TraitType = ?");
+		}
+
+		pResults->Bind(1, szTraitType);
+
+		while (pResults->Step())
+		{
+			const int TerrainID = pResults->GetInt(0);
+			const int YieldID = pResults->GetInt(1);
+			const int yield = pResults->GetInt(2);
+
+			m_ppiTerrainYieldChanges[TerrainID][YieldID] = yield;
+		}
 	}
 
 	//ImprovementYieldChanges
@@ -1579,6 +1618,20 @@ void CvPlayerTraits::InitPlayerTraits()
 					}
 				}
 
+				// ----------------------------------------------------------------
+				// SiegeMod Addition
+				// ----------------------------------------------------------------
+				for (int iTerrainLoop = 0; iTerrainLoop < GC.getNumTerrainInfos(); iTerrainLoop++)
+				{
+					int iChange = trait->GetTerrainYieldChanges((TerrainTypes)iTerrainLoop, (YieldTypes)iYield);
+					if (iChange > 0)
+					{
+						Firaxis::Array<int, NUM_YIELD_TYPES> yields = m_ppaaiTerrainYieldChange[iTerrainLoop];
+						yields[iYield] = (m_ppaaiTerrainYieldChange[iTerrainLoop][iYield] + iChange);
+						m_ppaaiTerrainYieldChange[iTerrainLoop] = yields;
+					}
+				}
+
 				for(int iImprovementLoop = 0; iImprovementLoop < GC.getNumImprovementInfos(); iImprovementLoop++)
 				{
 					int iChange = trait->GetImprovementYieldChanges((ImprovementTypes)iImprovementLoop, (YieldTypes)iYield);
@@ -1887,6 +1940,22 @@ int CvPlayerTraits::GetMaintenanceModifierUnitCombat(const int unitCombatID) con
 	}
 
 	return m_paiMaintenanceModifierUnitCombat[unitCombatID];
+}
+
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+int CvPlayerTraits::GetTerrainYieldChange(TerrainTypes eTerrain, YieldTypes eYield) const
+{
+	CvAssertMsg(eTerrain < GC.getNumTerrainInfos(),  "Invalid eTerrain parameter in call to CvPlayerTraits::GetTerrainYieldChange()");
+	CvAssertMsg(eYield < NUM_YIELD_TYPES,  "Invalid eYield parameter in call to CvPlayerTraits::GetTerrainYieldChange()");
+
+	if (eTerrain == NO_TERRAIN)
+	{
+		return 0;
+	}
+
+	return m_ppaaiTerrainYieldChange[(int)eTerrain][(int)eYield];
 }
 
 /// Extra yield from this improvement
@@ -2892,6 +2961,11 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 
 	kStream >> m_ppaaiUnimprovedFeatureYieldChange;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	kStream >> m_ppaaiTerrainYieldChange;
+
 	if (uiVersion >= 11)
 	{
 		kStream >> iNumEntries;
@@ -3074,6 +3148,11 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	kStream << m_ppaaiImprovementYieldChange;
 	kStream << m_ppaaiSpecialistYieldChange;
 	kStream << m_ppaaiUnimprovedFeatureYieldChange;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_ppaaiTerrainYieldChange;
 
 	kStream << (int)m_aUniqueLuxuryAreas.size();
 	for (unsigned int iI = 0; iI < m_aUniqueLuxuryAreas.size(); iI++)

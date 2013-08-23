@@ -7521,6 +7521,18 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay)
 			{
 				iYield += pWorkingCity->GetTerrainExtraYield(getTerrainType(), eYield);
 			}
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+			// Extra yield from traits on this terrain
+			if (ePlayer != NO_PLAYER)
+			{
+				int iExtraYield = GET_PLAYER(ePlayer).GetPlayerTraits()->GetTerrainYieldChange(getTerrainType(), eYield);
+				if (iExtraYield > 0)
+				{
+					iYield += iExtraYield;
+				}
+			}
 		}
 
 		ResourceTypes eResource = getResourceType(GET_PLAYER(ePlayer).getTeam());

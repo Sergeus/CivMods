@@ -182,6 +182,11 @@ public:
 	int GetUnimprovedFeatureYieldChanges(FeatureTypes eIndex1, YieldTypes eIndex2) const;
 	FreeResourceXCities GetFreeResourceXCities(ResourceTypes eResource) const;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int GetTerrainYieldChanges(TerrainTypes eTerrain, YieldTypes eYield) const;
+
 	bool IsFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const;
 	bool IsObsoleteByTech(TeamTypes eTeam);
 	bool IsEnabledByTech(TeamTypes eTeam);
@@ -317,6 +322,11 @@ protected:
 	int** m_ppiImprovementYieldChanges;
 	int** m_ppiSpecialistYieldChanges;
 	int** m_ppiUnimprovedFeatureYieldChanges;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int** m_ppiTerrainYieldChanges;
 
 	std::multimap<int, int> m_FreePromotionUnitCombats;
 	std::vector<FreeResourceXCities> m_aFreeResourceXCities;
@@ -756,6 +766,11 @@ public:
 	int GetUnimprovedFeatureYieldChange(FeatureTypes eFeature, YieldTypes eYield) const;
 	FreeResourceXCities GetFreeResourceXCities(ResourceTypes eResource) const;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	int GetTerrainYieldChange(TerrainTypes eTerrain, YieldTypes eYield) const;
+
 	bool HasFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const;
 
 	// Public functions to make trait-based game state changes
@@ -985,6 +1000,11 @@ private:
 	std::vector< Firaxis::Array<int, NUM_YIELD_TYPES > > m_ppaaiImprovementYieldChange;
 	std::vector< Firaxis::Array<int, NUM_YIELD_TYPES > > m_ppaaiSpecialistYieldChange;
 	std::vector< Firaxis::Array<int, NUM_YIELD_TYPES > > m_ppaaiUnimprovedFeatureYieldChange;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	std::vector< Firaxis::Array<int, NUM_YIELD_TYPES > > m_ppaaiTerrainYieldChange;
 
 	std::vector<FreeResourceXCities> m_aFreeResourceXCities;
 };
