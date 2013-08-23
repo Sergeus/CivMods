@@ -2,6 +2,33 @@
 <!-- Created by ModBuddy on 8/18/2013 6:15:48 PM -->
 <GameData>
 	<Units>
-		
+		<Update>
+			<Where Type="UNIT_SETTLER"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_INQUISITOR"/>
+			<Set PrereqTech="TECH_GRAND_INQUISITION"/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_FRIGATE"/>
+			<Set PrereqTech="TECH_NAVAL_FORMATIONS"/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_GALLEASS"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_SPEARMAN"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_CATAPULT"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_CARGO_SHIP"/>
+			<Set PrereqTech=""/>
+		</Update>
 	</Units>
 </GameData>

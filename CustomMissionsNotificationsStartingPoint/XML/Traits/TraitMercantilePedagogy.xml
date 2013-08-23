@@ -8,6 +8,7 @@
 			<ShortDescription>TXT_KEY_TRAIT_MERCANTILE_PEDAGOGY_SHORT</ShortDescription>
 			<TradeStopsWars>true</TradeStopsWars>
 			<ReqTradeRoutesForPeace>1</ReqTradeRoutesForPeace>
+			<CanPurchaseReligiousUnits>true</CanPurchaseReligiousUnits>
 		</Row>
 	</Traits>
 	<Trait_YieldChangesPerTradePartner>

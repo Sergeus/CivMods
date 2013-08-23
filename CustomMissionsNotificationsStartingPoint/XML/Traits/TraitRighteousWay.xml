@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 8/11/2013 12:46:34 AM -->
 <GameData>
+	<Table name="Trait_TerrainYieldChanges">
+		<Column name="TraitType" type="text" reference="Traits(Type)"/>
+		<Column name="TerrainType" type="text" reference="Terrains(Type)"/>
+		<Column name="YieldType" type="text" reference="Yields(Type)"/>
+		<Column name="Yield" type="integer"/>
+	</Table>
 	<Traits>
 		<Row>
 			<Type>TRAIT_RIGHTEOUS_WAY</Type>
@@ -10,4 +16,12 @@
 			<ReligionTakeoverTurns>5</ReligionTakeoverTurns>
 		</Row>
 	</Traits>
+	<Trait_TerrainYieldChanges>
+		<Row>
+			<TraitType>TRAIT_RIGHTEOUS_WAY</TraitType>
+			<TerrainType>TERRAIN_DESERT</TerrainType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>2</Yield>
+		</Row>
+	</Trait_TerrainYieldChanges>
 </GameData>

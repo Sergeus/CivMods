@@ -6,7 +6,7 @@
 			<Text>Mercantile Pedagogy</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TRAIT_MERCANTILE_PEDAGOGY">
-			<Text>+10[ICON_GOLD] per trade route. War cannot be declared between this civilization and any other with which this civilization has created four or more trade routes. Can purchase faith units with gold.</Text>
+			<Text>+10[ICON_GOLD] per trade partner. War cannot be declared between this civilization and any other with which this civilization has created four or more trade routes. Can purchase faith units with gold.</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_TRAIT_ALL_ENCOMPASSING_SHORT">
@@ -20,14 +20,14 @@
 			<Text>Righteous Way</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TRAIT_RIGHTEOUS_WAY">
-			<Text>+2 faith from desert tiles. Any city owned by another civilization not currently at war with the Cyats which converts to the Cyats’ religion will be captured by the Cyats 5 turns later.</Text>
+			<Text>+2[ICON_PEACE] from desert tiles. Any city owned by another civilization not currently at war with the Cyats which converts to the Cyats’ religion will be captured by the Cyats 5 turns later.</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_TRAIT_HARSH_NEGOTIATIONS_SHORT">
-			<Text>Harsh Negotiator</Text>
+			<Text>Public Opinion</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TRAIT_HARSH_NEGOTIATIONS">
-			<Text>War cannot be declared on this civilization. Refusing a trade deal proposed by this civilization (without a counter-offer) causes war.</Text>
+			<Text>War cannot be declared on this civilization. Civilizations at war with Numydia are subject to attacks by rebels.</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

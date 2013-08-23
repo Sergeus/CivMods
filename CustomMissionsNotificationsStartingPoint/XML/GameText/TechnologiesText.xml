@@ -84,7 +84,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_DESC</Tag>
-			<Text>Theorical Inspiration</Text>
+			<Text>Theorical Studies</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_CIV</Tag>
@@ -112,7 +112,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_BLACK_POWDER_QUOTE</Tag>
-			<Text>They claimed there was no such thing as magic.</Text>
+			<Text>And Svestans claim there is no such thing as magic.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_TRANSCENDENCE_DESC</Tag>
@@ -129,6 +129,10 @@
 		<Row>
 			<Tag>TXT_KEY_TECH_TRANSCENDENCE_QUOTE</Tag>
 			<Text>I am nothing. Yet I am everything. I Am All.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_RELIGION_SPREAD_CHANGED_BY_TECH">
+			<Text>Foreign religions spread to your cities {1_ForeignReligionModifier}% {2_SpeedAdjective}.</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

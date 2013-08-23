@@ -15,7 +15,7 @@
 		<Row>
 			<Class>UNITCLASS_FRIGATE</Class>
 			<Type>UNIT_SVESTA_GALLEON_FLEET</Type>
-			<PrereqTech>TECH_NAVIGATION</PrereqTech>
+			<PrereqTech>TECH_NAVAL_FORMATIONS</PrereqTech>
 			<Combat>25</Combat>
 			<RangedCombat>28</RangedCombat>
 			<Cost>185</Cost>
@@ -72,7 +72,6 @@
 		<Row>
 			<Class>UNITCLASS_SPEARMAN</Class>
 			<Type>UNIT_CYAT_DEVOUT</Type>
-			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
 			<Combat>11</Combat>
 			<Cost>56</Cost>
 			<FaithCost>112</FaithCost>
@@ -102,7 +101,6 @@
 		<Row>
 			<Class>UNITCLASS_GALLEASS</Class>
 			<Type>UNIT_NEMYD_CONSCRIPTED_RAKER</Type>
-			<PrereqTech>TECH_COMPASS</PrereqTech>
 			<Combat>16</Combat>
 			<RangedCombat>17</RangedCombat>
 			<Cost>100</Cost>
@@ -134,7 +132,6 @@
 		<Row>
 			<Class>UNITCLASS_SPEARMAN</Class>
 			<Type>UNIT_ARGAST_RAIDERS</Type>
-			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
 			<Combat>11</Combat>
 			<Cost>56</Cost>
 			<FaithCost>112</FaithCost>

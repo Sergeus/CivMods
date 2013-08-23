@@ -7,7 +7,8 @@
 			<Description>TXT_KEY_TRAIT_HARSH_NEGOTIATIONS</Description>
 			<ShortDescription>TXT_KEY_TRAIT_HARSH_NEGOTIATIONS_SHORT</ShortDescription>
 			<CannotBeDeclaredWarOn>true</CannotBeDeclaredWarOn>
-			<RefuseTradeCausesWar>true</RefuseTradeCausesWar>
+			<WarCausesRebels>true</WarCausesRebels>
+			<WarRebellionInterval>4</WarRebellionInterval>
 		</Row>
 	</Traits>
 </GameData>

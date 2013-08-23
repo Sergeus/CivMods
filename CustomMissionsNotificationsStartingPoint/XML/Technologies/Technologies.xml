@@ -3,7 +3,7 @@
 <GameData>
 	<Technologies>
 		<Update>
-			<Set GridX="-1" Disable="true"/>
+			<Set GridX="-1" Disable="true" Era="ERA_ANCIENT"/>
 		</Update>
 		<Row>
 			<Type>TECH_MERCHANT_FREEDOM</Type>
@@ -14,6 +14,7 @@
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
+			<InternationalTradeRoutesChange>2</InternationalTradeRoutesChange>
 			<Trade>1</Trade>
 			<GoodyTech>1</GoodyTech>
 			<WaterWork>1</WaterWork>
@@ -35,6 +36,7 @@
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
+			<InternationalTradeRoutesChange>1</InternationalTradeRoutesChange>
 			<Trade>1</Trade>
 			<GoodyTech>1</GoodyTech>
 			<GridX>1</GridX>
@@ -45,6 +47,7 @@
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
 			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
+			<ForeignReligionSpreadModifier>-15</ForeignReligionSpreadModifier>
 		</Row>
 		<Row>
 			<Type>TECH_NAVAL_FORMATIONS</Type>
@@ -75,6 +78,7 @@
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
+			<InternationalTradeRoutesChange>2</InternationalTradeRoutesChange>
 			<Trade>1</Trade>
 			<GridX>3</GridX>
 			<GridY>3</GridY>
@@ -166,4 +170,39 @@
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>
 	</Technologies>
+	<Technology_PrereqTechs>
+		<Delete/>
+		<Row>
+			<TechType>TECH_CLOCKWORKS</TechType>
+			<PrereqTech>TECH_THEORICAL_INSPIRATION</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_CLOCKWORKS</TechType>
+			<PrereqTech>TECH_NAVAL_FORMATIONS</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_BLACK_POWDER</TechType>
+			<PrereqTech>TECH_NAVAL_FORMATIONS</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_NAVAL_FORMATIONS</TechType>
+			<PrereqTech>TECH_MERCHANT_FREEDOM</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_GRAND_INQUISITION</TechType>
+			<PrereqTech>TECH_CONSECRATED_MARKETS</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_NAVAL_FORMATIONS</TechType>
+			<PrereqTech>TECH_MERCHANT_FREEDOM</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_TRANSCENDENCE</TechType>
+			<PrereqTech>TECH_GRAND_INQUISITION</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_THEORICAL_INSPIRATION</TechType>
+			<PrereqTech>TECH_CONSECRATED_MARKETS</PrereqTech>
+		</Row>
+	</Technology_PrereqTechs>
 </GameData>

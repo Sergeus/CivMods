@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/23/2013 11:43:24 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>CLOCKWORK_MAGNOLIA_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>ClockworkMagnoliaIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CLOCKWORK_MAGNOLIA_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>ClockworkMagnoliaIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CLOCKWORK_MAGNOLIA_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>ClockworkMagnoliaIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CLOCKWORK_MAGNOLIA_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>ClockworkMagnoliaIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

@@ -1,0 +1,1 @@
+ALTER TABLE Technologies ADD ForeignReligionSpreadModifier integer DEFAULT 0;

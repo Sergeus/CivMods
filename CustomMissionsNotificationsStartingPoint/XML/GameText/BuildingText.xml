@@ -35,13 +35,41 @@
 			<Text>Slave Market</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_SLAVE_MARKET_HELP">
-			<Text>Units trained in this city take half normal time, but suffer from a 15%[ICON_DEFENSE] penalty.</Text>
+			<Text>Units trained in this city take half normal time, but suffer from a 15%[ICON_STRENGTH] penalty.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY">
 			<Text>This building is deadly in combination with the Argastinian unique ability. Bonus units created by the ability do not suffer the combat penalty, but are still produced more often. The weakened units can be used as fodder to weaken the enemy before an even stronger force sweeps through to finish them off.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_BUILDINGS_SLAVE_MARKET_TEXT">
 			<Text>[TOWRITE] slave market pedia</Text>
+		</Row>
+		
+		<!-- Building: Inquisition Chapter -->
+		<Row Tag="TXT_KEY_BUILDING_INQUISITION_CHAPTER">
+			<Text>Inquisition Chapterhouse</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_INQUISITION_CHAPTER_HELP">
+			<Text>+2[ICON_PEACE] per turn[NEWLINE]This city's majority religion exerts +50% pressure in this city</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_INQUISITION_CHAPTER_STRATEGY">
+			<Text>[TOWRITE] inquisition chapter strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BUILDINGS_INQUISITION_CHAPTER_TEXT">
+			<Text>[TOWRITE] inquisition chapter pedia</Text>
+		</Row>
+		
+		<!-- Wonder: Clockwork Magnolia -->
+		<Row Tag="TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA">
+			<Text>Clockwork Magnolia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA_HELP">
+			<Text>All wars you are a part of are ended.[NEWLINE]+50% maximum distance for sea trade routes.[NEWLINE]+70% [ICON_GOLD] from sea trade routes.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA_STRATEGY">
+			<Text>[TOWRITE] clockwork magnolia strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA_PEDIA">
+			<Text>[TOWRITE] clockwork magnolia pedia</Text>
 		</Row>
 	</Language_en_US>
 </GameData>
