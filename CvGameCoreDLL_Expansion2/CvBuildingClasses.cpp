@@ -194,6 +194,7 @@ CvBuildingEntry::CvBuildingEntry(void):
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	m_ppaiTradeRouteYieldChanges(NULL),
+	m_iReligionMajorityPressureModifier(0),
 	m_bGivesFreePromotions(false),
 	m_bEndsWars(false),
 

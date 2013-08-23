@@ -12498,7 +12498,11 @@ bool CvCity::IsCanPurchase(bool bTestPurchaseCost, bool bTestTrainable, UnitType
 		// Unit
 		if(eUnitType != NO_UNIT)
 		{
-			if(!canTrain(eUnitType, false, !bTestTrainable))
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+			if(!canTrain(eUnitType, false, !bTestTrainable) 
+				&& !CanPurchaseReligiousTrait(eUnitType, bTestPurchaseCost))
 				return false;
 
 			iGoldCost = GetPurchaseCost(eUnitType);
@@ -12687,6 +12691,40 @@ bool CvCity::IsCanPurchase(bool bTestPurchaseCost, bool bTestTrainable, UnitType
 		}
 	}
 	break;
+	}
+
+	return true;
+}
+
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+bool CvCity::CanPurchaseReligiousTrait(UnitTypes eUnit, bool bTestPurchaseCost)
+{
+	CvPlayer& kOwner = GET_PLAYER(getOwner());
+
+	if (!kOwner.GetPlayerTraits()->IsCanPurchaseReligiousUnits())
+	{
+		return false;
+	}
+
+	int iFaithCost = GetFaithPurchaseCost(eUnit, true);
+
+	if (iFaithCost < 1)
+	{
+		return false;
+	}
+
+	int iGoldCost = GetPurchaseCost(eUnit);
+
+	if (iGoldCost < 1)
+	{
+		return false;
+	}
+
+	if (bTestPurchaseCost && kOwner.GetTreasury()->GetGold() < iGoldCost)
+	{
+		return false;
 	}
 
 	return true;

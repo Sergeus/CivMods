@@ -795,6 +795,8 @@ public:
 	void SetReligionPuppeting(ReligionTypes eReligion);
 	void AddFreePromotions(CvUnit* pUnit);
 
+	bool CanPurchaseReligiousTrait(UnitTypes eUnit, bool bTestPurchaseCost);
+
 	int GetMaxHitPoints() const;
 	const FAutoArchive& getSyncArchive() const;
 	FAutoArchive& getSyncArchive();

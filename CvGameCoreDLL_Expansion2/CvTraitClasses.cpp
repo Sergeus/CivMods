@@ -673,6 +673,10 @@ bool CvTraitEntry::IsWarCausesRebels() const
 {
 	return m_bWarCausesRebels;
 }
+bool CvTraitEntry::IsCanPurchaseReligiousUnits() const
+{
+	return m_bCanPurchaseReligiousUnits;
+}
 int CvTraitEntry::GetExtraUnitsWhenTrained() const
 {
 	return m_iExtraUnitsWhenTrained;
@@ -1038,6 +1042,7 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 	m_bPuppetsReligiousFollowers = kResults.GetBool("PuppetsReligiousFollowers");
 	m_bCannotBeDeclaredWarOn = kResults.GetBool("CannotBeDeclaredWarOn");
 	m_bWarCausesRebels = kResults.GetBool("WarCausesRebels");
+	m_bCanPurchaseReligiousUnits = kResults.GetBool("CanPurchaseReligiousUnits");
 
 	//Arrays
 	const char* szTraitType = GetType();
@@ -1544,6 +1549,10 @@ void CvPlayerTraits::InitPlayerTraits()
 			{
 				m_bWarCausesRebels = true;
 				m_iWarRebellionInterval = trait->GetWarRebellionInterval();
+			}
+			if (trait->IsCanPurchaseReligiousUnits())
+			{
+				m_bCanPurchaseReligiousUnits = true;
 			}
 
 			for(int iYield = 0; iYield < NUM_YIELD_TYPES; iYield++)
@@ -2745,6 +2754,7 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 	kStream >> m_bPuppetsReligiousFollowers;
 	kStream >> m_bCannotBeDeclaredWarOn;
 	kStream >> m_bWarCausesRebels;
+	kStream >> m_bCanPurchaseReligiousUnits;
 
 	kStream >> m_iBaktunPreviousTurn;
 
@@ -3005,6 +3015,7 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	kStream << m_bPuppetsReligiousFollowers;
 	kStream << m_bCannotBeDeclaredWarOn;
 	kStream << m_bWarCausesRebels;
+	kStream << m_bCanPurchaseReligiousUnits;
 
 	kStream << m_iBaktunPreviousTurn;
 
