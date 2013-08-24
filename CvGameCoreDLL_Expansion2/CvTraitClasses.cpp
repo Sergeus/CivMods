@@ -1710,6 +1710,10 @@ void CvPlayerTraits::Uninit()
 	m_ppaaiSpecialistYieldChange.clear();
 	m_ppaaiUnimprovedFeatureYieldChange.clear();
 	m_aFreeResourceXCities.clear();
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_ppaaiTerrainYieldChange.clear();
 }
 
 /// Reset data members
@@ -1820,6 +1824,12 @@ void CvPlayerTraits::Reset()
 	m_eCampGuardType = NO_UNIT;
 	m_eCombatBonusImprovement = NO_IMPROVEMENT;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_ppaaiTerrainYieldChange.clear();
+	m_ppaaiTerrainYieldChange.resize(GC.getNumTerrainInfos());
+
 	m_ppaaiImprovementYieldChange.clear();
 	m_ppaaiImprovementYieldChange.resize(GC.getNumImprovementInfos());
 	m_ppaaiSpecialistYieldChange.clear();
@@ -1854,6 +1864,13 @@ void CvPlayerTraits::Reset()
 		for(int iFeature = 0; iFeature < GC.getNumFeatureInfos(); iFeature++)
 		{
 			m_ppaaiUnimprovedFeatureYieldChange[iFeature] = yield;
+		}
+		// ----------------------------------------------------------------
+		// SiegeMod Addition
+		// ----------------------------------------------------------------
+		for (int iTerrain = 0; iTerrain < GC.getNumTerrainInfos(); iTerrain++)
+		{
+			m_ppaaiTerrainYieldChange[iTerrain] = yield;
 		}
 	}
 
