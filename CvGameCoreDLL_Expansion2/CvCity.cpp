@@ -12727,6 +12727,15 @@ bool CvCity::CanPurchaseReligiousTrait(UnitTypes eUnit, bool bTestPurchaseCost)
 		return false;
 	}
 
+	CvUnitEntry* pInfo = GC.getUnitInfo(eUnit);
+
+	TechTypes ePrereqTech = (TechTypes)pInfo->GetPrereqAndTech();
+
+	if (ePrereqTech != NO_TECH && !GET_TEAM(GET_PLAYER(getOwner()).getTeam()).GetTeamTechs()->HasTech(ePrereqTech))
+	{
+		return false;
+	}
+
 	return true;
 }
 
