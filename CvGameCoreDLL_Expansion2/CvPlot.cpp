@@ -6950,6 +6950,72 @@ void CvPlot::changeRiverCrossingCount(int iChange)
 	CvAssert(getRiverCrossingCount() >= 0);
 }
 
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+void CvPlot::DoImprovementExplosion()
+{
+	CvImprovementEntry* pInfo = GC.getImprovementInfo(getImprovementType());
+
+	if (!pInfo->IsExplodesOnEnemyEnterHex())
+	{
+		return;
+	}
+
+	int iDamageThisHex = pInfo->GetExplosionDamageToThisHex();
+	int iDamageOuterHexes = pInfo->GetExplosionDamageToOuterHexes();
+	int iDamageRange = pInfo->GetExplosionDamageRange();
+	PlayerTypes ePlayer = getOwner();
+
+	if (iDamageRange > -1)
+	{
+		IDInfoVector currentUnits;
+
+		// First let's damage everyone on this hex
+		if (getUnits(&currentUnits) > 0)
+		{
+			for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr < currentUnits.end(); ++itr)
+			{
+				CvUnit* pUnit = getUnit(*itr);
+				pUnit->changeDamage(iDamageThisHex, ePlayer);
+			}
+		}
+
+		// Then branch out and do splash damage to the others (these loops should collapse to nothing if range is 0, meaning the explosion will
+		// only affect the tile with the improvement on it, hence the range initialization to -1 instead of 0)
+		for (int iX = -1 * iDamageRange; iX < iDamageRange; iX++)
+		{
+			for (int iY = -1 * iDamageRange; iY < iDamageRange; iY++)
+			{
+				CvPlot* pPlot = plotXYWithRangeCheck(getX(), getY(), iX, iY, iDamageRange);
+
+				if (pPlot)
+				{
+					IDInfoVector neighborUnits;
+					if (pPlot->getUnits(&neighborUnits) > 0)
+					{
+						for (IDInfoVector::const_iterator itr = neighborUnits.begin(); itr < neighborUnits.end(); ++itr)
+						{
+							CvUnit* pUnit = getUnit(*itr);
+							pUnit->changeDamage(iDamageOuterHexes, ePlayer);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Finally we need to set up the aftermath
+	if (pInfo->IsExplosionDestroyedAfter())
+	{
+		setImprovementType(NO_IMPROVEMENT);
+	}
+	else if (pInfo->IsExplosionPillagedAfter())
+	{
+		SetImprovementPillaged(true);
+	}
+}
+
 
 //	--------------------------------------------------------------------------------
 short* CvPlot::getYield()

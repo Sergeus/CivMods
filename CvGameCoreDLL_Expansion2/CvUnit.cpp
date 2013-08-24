@@ -13256,6 +13256,18 @@ void CvUnit::setXY(int iX, int iY, bool bGroup, bool bUpdate, bool bShow, bool b
 	{
 		if(!bNoMove)
 		{
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+			CvImprovementEntry* pImprovementInfo = GC.getImprovementInfo(pNewPlot->getImprovementType());
+			// Exploding improvements go off on enemies in owned territory, and on anyone in unowned territory
+			if (pImprovementInfo->IsExplodesOnEnemyEnterHex() 
+				&& (GET_TEAM(GET_PLAYER(getOwner()).getTeam()).isAtWar(GET_PLAYER(pNewPlot->getOwner()).getTeam())
+				|| pNewPlot->getOwner() == NO_PLAYER))
+			{
+				pNewPlot->DoImprovementExplosion();
+			}
+
 			if(pNewPlot->isGoody(getTeam()))
 			{
 				GET_PLAYER(getOwner()).doGoody(pNewPlot, this);

@@ -689,6 +689,11 @@ public:
 	void ClearArchaeologicalRecord();
 	CvArchaeologyData GetArchaeologicalRecord() const;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	void DoImprovementExplosion();
+
 protected:
 	class PlotBoolField
 	{

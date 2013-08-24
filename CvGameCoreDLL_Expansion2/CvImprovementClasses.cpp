@@ -110,6 +110,16 @@ CvImprovementEntry::CvImprovementEntry(void):
 	m_bAllowsWalkWater(false),
 	m_bCreatedByGreatPerson(false),
 	m_bSpecificCivRequired(false),
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_bExplodesOnEnemyEnterHex(false),
+	m_bExplosionDestroyedAfter(false),
+	m_bExplosionPillagedAfter(false),
+	m_iExplosionDamageToThisHex(0),
+	m_iExplosionDamageToOuterHexes(0),
+	m_iExplosionDamageRange(-1),
+
 	m_eImprovementUsageType(IMPROVEMENTUSAGE_BASIC),
 	m_eRequiredCivilization(NO_CIVILIZATION),
 	m_iWorldSoundscapeScriptId(0),
@@ -234,6 +244,17 @@ bool CvImprovementEntry::CacheResults(Database::Results& kResults, CvDatabaseUti
 	m_bSpecificCivRequired = kResults.GetBool("SpecificCivRequired");
 	m_iResourceExtractionMod = kResults.GetInt("ResourceExtractionMod");
 	m_iLuxuryCopiesSiphonedFromMinor = kResults.GetInt("LuxuryCopiesSiphonedFromMinor");
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	m_bExplodesOnEnemyEnterHex = kResults.GetBool("ExplodesOnEnemyEnterHex");
+	m_bExplosionDestroyedAfter = kResults.GetBool("ExplosionDestroyedAfter");
+	m_bExplosionPillagedAfter = kResults.GetBool("ExplosionPillagedAfter");
+
+	m_iExplosionDamageToThisHex = kResults.GetInt("ExplosionDamageToThisHex");
+	m_iExplosionDamageToOuterHexes = kResults.GetInt("ExplosionDamageToOuterHexes");
+	m_iExplosionDamageRange = kResults.GetInt("ExplosionDamageRange");
 
 	const char* szCivilizationType = kResults.GetText("CivilizationType");
 	m_eRequiredCivilization = (CivilizationTypes)GC.getInfoTypeForString(szCivilizationType, true);
@@ -471,6 +492,34 @@ bool CvImprovementEntry::CacheResults(Database::Results& kResults, CvDatabaseUti
 	}
 
 	return true;
+}
+
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+bool CvImprovementEntry::IsExplodesOnEnemyEnterHex() const
+{
+	return m_bExplodesOnEnemyEnterHex;
+}
+bool CvImprovementEntry::IsExplosionDestroyedAfter() const
+{
+	return m_bExplosionDestroyedAfter;
+}
+bool CvImprovementEntry::IsExplosionPillagedAfter() const
+{
+	return m_bExplosionPillagedAfter;
+}
+int CvImprovementEntry::GetExplosionDamageToThisHex() const
+{
+	return m_iExplosionDamageToThisHex;
+}
+int CvImprovementEntry::GetExplosionDamageToOuterHexes() const
+{
+	return m_iExplosionDamageToOuterHexes;
+}
+int CvImprovementEntry::GetExplosionDamageRange() const
+{
+	return m_iExplosionDamageRange;
 }
 
 /// The gold maintenance cost

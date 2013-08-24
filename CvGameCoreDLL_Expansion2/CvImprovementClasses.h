@@ -103,6 +103,18 @@ public:
 	bool IsCreatedByGreatPerson() const;
 	bool IsSpecificCivRequired() const;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	bool IsExplodesOnEnemyEnterHex() const;
+	bool IsExplosionDestroyedAfter() const;
+	bool IsExplosionPillagedAfter() const;
+
+	int GetExplosionDamageToThisHex() const;
+	int GetExplosionDamageToOuterHexes() const;
+	int GetExplosionDamageRange() const;
+
+
 	CivilizationTypes GetRequiredCivilization() const;
 
 	const char* GetArtDefineTag() const;
@@ -209,6 +221,16 @@ protected:
 	bool m_bAllowsWalkWater;
 	bool m_bCreatedByGreatPerson;
 	bool m_bSpecificCivRequired;
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	bool m_bExplodesOnEnemyEnterHex;
+	bool m_bExplosionDestroyedAfter;
+	bool m_bExplosionPillagedAfter;
+	int m_iExplosionDamageToThisHex;
+	int m_iExplosionDamageToOuterHexes;
+	int m_iExplosionDamageRange;
 
 	CvString m_strArtDefineTag;
 	ImprovementUsageTypes m_eImprovementUsageType;
