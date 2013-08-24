@@ -195,6 +195,7 @@ CvBuildingEntry::CvBuildingEntry(void):
 	// ----------------------------------------------------------------
 	m_ppaiTradeRouteYieldChanges(NULL),
 	m_iReligionMajorityPressureModifier(0),
+	m_iUnitPurchaseCostModifier(0),
 	m_bGivesFreePromotions(false),
 	m_bEndsWars(false),
 
@@ -380,6 +381,7 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	// ----------------------------------------------------------------
 	m_bEndsWars = kResults.GetBool("EndsWars");
 	m_iReligionMajorityPressureModifier = kResults.GetInt("ReligionMajorityPressureModifier");
+	m_iUnitPurchaseCostModifier = kResults.GetInt("UnitPurchaseCostModifier");
 
 	//References
 	const char* szTextVal;
@@ -2007,6 +2009,10 @@ int* CvBuildingEntry::GetTradeRouteYieldChangeArray(int i) const
 int CvBuildingEntry::GetReligionMajorityPressureModifier() const
 {
 	return m_iReligionMajorityPressureModifier;
+}
+int CvBuildingEntry::GetUnitPurchaseCostModifier() const
+{
+	return m_iUnitPurchaseCostModifier;
 }
 bool CvBuildingEntry::IsFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const
 {

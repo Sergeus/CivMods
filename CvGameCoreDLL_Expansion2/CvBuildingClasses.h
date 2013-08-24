@@ -297,6 +297,7 @@ public:
 	int GetTradeRouteYieldChange(int i, int j) const;
 	int* GetTradeRouteYieldChangeArray(int i) const;
 	int GetReligionMajorityPressureModifier() const;
+	int GetUnitPurchaseCostModifier() const;
 	bool IsFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const;
 	bool IsGivesFreePromotions() const;
 	bool IsEndsWars() const;
@@ -503,6 +504,7 @@ private:
 	int m_iReligionMajorityPressureModifier;
 	bool m_bGivesFreePromotions;
 	bool m_bEndsWars;
+	int m_iUnitPurchaseCostModifier;
 
 	CvThemingBonusInfo* m_paThemingBonusInfo;
 	int m_iNumThemingBonuses;

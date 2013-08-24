@@ -1649,7 +1649,7 @@ void CvCity::doTurn()
 							message << GC.getReligionInfo(eReligion)->GetTextKey() << getNameKey() 
 								<< kPlayer.GetPlayerTraits()->GetReligionTakeoverTurns();
 
-							kPlayer.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), summary.toUTF8(), getX(), getY(), kOwner.getCivilizationType());
+							kPlayer.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), otherSummary.toUTF8(), getX(), getY(), kOwner.getCivilizationType());
 						}
 					}
 					// Second case: this city was previously under sway of this religion
@@ -4682,6 +4682,20 @@ int CvCity::GetPurchaseCost(UnitTypes eUnit)
 	}
 
 	int iCost = GetPurchaseCostFromProduction(getProductionNeeded(eUnit));
+
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	for (int i = 0; i < GC.getNumBuildingInfos(); i++)
+	{
+		BuildingTypes eBuilding = (BuildingTypes)i;
+
+		if (GetCityBuildings()->GetNumBuilding(eBuilding) > 0)
+		{
+			iModifier += GC.getBuildingInfo(eBuilding)->GetUnitPurchaseCostModifier();
+		}
+	}
+
 	iCost *= (100 + iModifier);
 	iCost /= 100;
 
