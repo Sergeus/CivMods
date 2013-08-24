@@ -1617,7 +1617,7 @@ void CvCity::doTurn()
 						Localization::String summary = Localization::Lookup("TXT_KEY_NOTIFICATION_CITY_FALLEN_UNDER_PUPPETING_RELIGION_SUMMARY");
 
 						// Notify the owner of this city, which has begun converting, depending on their 'has met' status with the religion controller
-						if (kOwnerTeam.isHasMet(eTeam))
+						if (kOwnerTeam.isHasMet(eTeam) && !kOwner.isMinorCiv())
 						{
 							int notificationID = GC.GetInfoTypes().find("NOTIFICATION_CITY_FALLEN_UNDER_PUPPETING_RELIGION")->second;
 
@@ -1627,7 +1627,7 @@ void CvCity::doTurn()
 
 							kOwner.GetNotifications()->Add((NotificationTypes)notificationID, message.toUTF8(), summary.toUTF8(), getX(), getY(), kPlayer.getCivilizationType());
 						}
-						else
+						else if (!kOwner.isMinorCiv())
 						{
 							int notificationID = GC.GetInfoTypes().find("NOTIFICATION_CITY_FALLEN_UNDER_PUPPETING_RELIGION_UNKNOWN")->second;
 
