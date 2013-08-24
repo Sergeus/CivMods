@@ -4525,6 +4525,28 @@ void CvUnit::DoAdjacentEnemyDamage()
 		}
 	}
 }
+void CvUnit::DoSetupFaithIfReligious()
+{
+	CvUnitEntry& kInfo = getUnitInfo();
+
+	int iReligionSpreads = kInfo.GetReligionSpreads();
+	int iReligiousStrength = kInfo.GetReligiousStrength();
+	int iFaithCost = kInfo.GetFaithCost();
+
+	CvPlayer& kOwner = GET_PLAYER(getOwner());
+
+	ReligionTypes eReligion = kOwner.GetReligions()->GetReligionCreatedByPlayer();
+
+	if (iFaithCost < 1 || iReligionSpreads < 1 || iReligiousStrength < 1
+		|| eReligion <= RELIGION_PANTHEON)
+	{
+		return;
+	}
+
+	GetReligionData()->SetReligion(eReligion);
+	GetReligionData()->SetSpreadsLeft(iReligionSpreads);
+	GetReligionData()->SetReligiousStrength(iReligiousStrength);
+}
 
 //	--------------------------------------------------------------------------------
 int CvUnit::GetNumGoodyHutsPopped() const

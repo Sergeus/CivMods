@@ -1234,6 +1234,7 @@ public:
 	int GetAdjacentEnemyDamage() const;
 	void ChangeAdjacentEnemyDamage(int iChange);
 	void DoAdjacentEnemyDamage();
+	void DoSetupFaithIfReligious();
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------

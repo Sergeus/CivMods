@@ -3244,6 +3244,8 @@ CvUnit* CvPlayer::initUnit(UnitTypes eUnit, int iX, int iY, UnitAITypes eUnitAI,
 
 	m_kPlayerAchievements.AddUnit(pUnit);
 
+	pUnit->DoSetupFaithIfReligious();
+
 	return pUnit;
 }
 

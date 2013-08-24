@@ -2947,8 +2947,7 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 		}
 	}
 
-	iPressure *= 100;
-	iPressure *= iMod;
+	iPressure *= (100 + iMod);
 	iPressure /= 100;
 
 	return iPressure;
@@ -4980,7 +4979,12 @@ void CvReligionAI::DoFaithPurchases()
 void CvReligionAI::BuyMissionary(ReligionTypes eReligion)
 {
 	CvPlayer &kPlayer = GET_PLAYER(m_pPlayer->GetID());
-	UnitTypes eMissionary = (UnitTypes)GC.getInfoTypeForString("UNIT_MISSIONARY");
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	UnitClassTypes eMissionaryClass = (UnitClassTypes)GC.getInfoTypeForString("UNITCLASS_MISSIONARY");
+	UnitTypes eMissionary = (UnitTypes)kPlayer.getCivilizationInfo().getCivilizationUnits(eMissionaryClass);
+
 	CvCity *pCapital = kPlayer.getCapitalCity();
 	if (pCapital)
 	{
@@ -5801,7 +5805,12 @@ bool CvReligionAI::HaveNearbyConversionTarget(ReligionTypes eReligion, bool bCan
 	int iLoop;
 	bool bStartedOwnReligion;
 	TeamTypes eTeam = m_pPlayer->getTeam();
-	UnitTypes eMissionary = (UnitTypes)GC.getInfoTypeForString("UNIT_MISSIONARY");
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	UnitClassTypes eMissionaryClass = (UnitClassTypes)GC.getInfoTypeForString("UNITCLASS_MISSIONARY");
+	UnitTypes eMissionary = (UnitTypes)m_pPlayer->getCivilizationInfo().getCivilizationUnits(eMissionaryClass);
+
 	int iMissionaryMoves = GC.getUnitInfo(eMissionary)->GetMoves();
 
 	CvCity* pCapital = m_pPlayer->getCapitalCity();
