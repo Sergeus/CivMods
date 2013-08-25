@@ -54,6 +54,7 @@ public:
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	int GetForeignReligionSpreadModifier() const;
+	bool IsStopsForeignReligions() const;
 
 	int GetGridX() const;
 	int GetGridY() const;
@@ -124,6 +125,7 @@ private:
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	int m_iForeignReligionSpreadModifier;
+	bool m_bStopsForeignReligions;
 
 	int m_iGridX;
 	int m_iGridY;

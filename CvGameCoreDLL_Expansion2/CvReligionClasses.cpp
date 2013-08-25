@@ -2871,6 +2871,26 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 	int iPressure = 0;
 	iNumTradeRoutesInvolved = 0;
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	CvPlayer& kOwner = GET_PLAYER(m_pCity->getOwner());
+	// Techs may stop pressure
+	if (kOwner.GetReligions()->GetReligionCreatedByPlayer() != eReligion)
+	{
+		for (int i = 0; i < GC.getNumTechInfos(); i++)
+		{
+			TechTypes eTech = (TechTypes)i;
+			CvTechEntry* pInfo = GC.getTechInfo(eTech);
+
+			CvTeam& kOwnerTeam = GET_TEAM(kOwner.getTeam());
+			if (kOwnerTeam.GetTeamTechs()->HasTech(eTech) && pInfo->IsStopsForeignReligions())
+			{
+				return 0;
+			}
+		}
+	}
+
 	// Loop through all the players
 	for(int iI = 0; iI < MAX_PLAYERS; iI++)
 	{
@@ -2913,7 +2933,6 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 	// ----------------------------------------------------------------
 
 	int iMod = 100;
-	CvPlayer& kOwner = GET_PLAYER(m_pCity->getOwner());
 	if (kOwner.GetReligions()->GetReligionCreatedByPlayer() != eReligion)
 	{
 		CvTeam& kOwnerTeam = GET_TEAM(kOwner.getTeam());

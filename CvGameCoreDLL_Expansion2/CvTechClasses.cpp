@@ -38,6 +38,7 @@ CvTechEntry::CvTechEntry(void):
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	m_iForeignReligionSpreadModifier(0),
+	m_bStopsForeignReligions(false),
 
 	m_iGridX(0),
 	m_iGridY(0),
@@ -137,6 +138,7 @@ bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	m_iForeignReligionSpreadModifier = kResults.GetInt("ForeignReligionSpreadModifier");
+	m_bStopsForeignReligions = kResults.GetInt("StopsForeignReligions");
 
 	//References
 	const char* szTextVal = NULL;
@@ -220,6 +222,10 @@ bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 int CvTechEntry::GetForeignReligionSpreadModifier() const
 {
 	return m_iForeignReligionSpreadModifier;
+}
+bool CvTechEntry::IsStopsForeignReligions() const
+{
+	return m_bStopsForeignReligions;
 }
 
 /// Additional weight to having AI purchase this
