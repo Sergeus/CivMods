@@ -128,11 +128,14 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_TRANSCENDENCE_QUOTE</Tag>
-			<Text>I am nothing. Yet I am everything. I Am All.</Text>
+			<Text>I am nothing. I am everything.</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_RELIGION_SPREAD_CHANGED_BY_TECH">
 			<Text>Foreign religions spread to your cities {1_ForeignReligionModifier}% {2_SpeedAdjective}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_FOREIGN_RELIGIONS_STOPPED_BY_TECH">
+			<Text>Foreign religions exert no pressure in cities you own.</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

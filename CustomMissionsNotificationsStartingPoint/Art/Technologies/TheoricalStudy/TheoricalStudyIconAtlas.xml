@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/24/2013 8:41:10 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>THEORICAL_STUDY_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>TheoricalStudyIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>THEORICAL_STUDY_ATLAS</Atlas>
+			<IconSize>214</IconSize>
+			<Filename>TheoricalStudyIcon214.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>THEORICAL_STUDY_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>TheoricalStudyIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>THEORICAL_STUDY_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>TheoricalStudyIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>THEORICAL_STUDY_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>TheoricalStudyIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>THEORICAL_STUDY_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>TheoricalStudyIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

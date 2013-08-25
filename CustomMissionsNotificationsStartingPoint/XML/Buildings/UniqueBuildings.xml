@@ -13,6 +13,7 @@
 		<Column name="PromotionType" type="text" reference="UnitPromotions(Type)"/>
 	</Table>
 	<Buildings>
+		<!-- Building: Fortified Quay, Unique to Svesta -->
 		<Row>
 			<Type>BUILDING_FORTIFIED_QUAY</Type>
 			<BuildingClass>BUILDINGCLASS_HARBOR</BuildingClass>
@@ -33,9 +34,10 @@
 			<AllowsWaterRoutes>true</AllowsWaterRoutes>
 			<TradeRouteSeaDistanceModifier>50</TradeRouteSeaDistanceModifier>
 			<TradeRouteSeaGoldBonus>100</TradeRouteSeaGoldBonus>
-			<IconAtlas>BW_ATLAS_1</IconAtlas>
-			<PortraitIndex>26</PortraitIndex>
+			<IconAtlas>FORTIFIED_QUAY_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
 		</Row>
+		<!-- Building: Slave Market, Unique to Argastinium-->
 		<Row>
 			<Type>BUILDING_SLAVE_MARKET</Type>
 			<BuildingClass>BUILDINGCLASS_BARRACKS</BuildingClass>
@@ -48,9 +50,9 @@
 			<Strategy>TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY</Strategy>
 			<ArtDefineTag>ART_DEF_BUILDING_BARRACKS</ArtDefineTag>
 			<MinAreaSize>-1</MinAreaSize>
-			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<IconAtlas>SLAVE_MARKET_ATLAS</IconAtlas>
 			<NeverCapture>true</NeverCapture>
-			<PortraitIndex>5</PortraitIndex>
+			<PortraitIndex>0</PortraitIndex>
 		</Row>
 	</Buildings>
 	<Building_TradeRouteYieldChanges>

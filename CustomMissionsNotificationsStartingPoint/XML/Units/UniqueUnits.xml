@@ -180,6 +180,14 @@
 			<UnitType>UNIT_ARGAST_RAIDERS</UnitType>
 			<PromotionType>PROMOTION_MOBILITY</PromotionType>
 		</Row>
+		<Row>
+			<UnitType>UNIT_CYAT_PREACHER</UnitType>
+			<PromotionType>PROMOTION_RIVAL_TERRITORY</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_CYAT_PREACHER</UnitType>
+			<PromotionType>PROMOTION_SIGHT_PENALTY</PromotionType>
+		</Row>
 	</Unit_FreePromotions>
 	<Unit_FreeUnitAfterSurvivingMeleeCombat>
 		<Row>

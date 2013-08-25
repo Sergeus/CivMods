@@ -23,7 +23,7 @@
 			<Quote>TXT_KEY_TECH_MERCHANT_FREEDOM_QUOTE</Quote>
 			<PortraitIndex>0</PortraitIndex>
 			<ScenarioTechButton>0</ScenarioTechButton>
-			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<IconAtlas>MERCANTILISM_ATLAS</IconAtlas>
 			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>
@@ -65,7 +65,7 @@
 			<Quote>TXT_KEY_TECH_NAVAL_FORMATIONS_QUOTE</Quote>
 			<PortraitIndex>0</PortraitIndex>
 			<ScenarioTechButton>0</ScenarioTechButton>
-			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<IconAtlas>NAVAL_FORMATIONS_ATLAS</IconAtlas>
 			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>
@@ -85,7 +85,7 @@
 			<Quote>TXT_KEY_TECH_CLOCKWORKS_QUOTE</Quote>
 			<PortraitIndex>0</PortraitIndex>
 			<ScenarioTechButton>0</ScenarioTechButton>
-			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<IconAtlas>CLOCKWORKS_ATLAS</IconAtlas>
 			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>
@@ -148,6 +148,7 @@
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
 			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
+			<StopsForeignReligions>true</StopsForeignReligions>
 		</Row>
 		<Row>
 			<Type>TECH_GRAND_INQUISITION</Type>

@@ -38,7 +38,7 @@
 			<Text>[TOWRITE] Devout pedia entry</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_CYAT_DEVOUT_STRATEGY">
-			<Text>Devout spawn Preachers whenever they enter combat and survive. Use this ability to flood your opponents with religious influence.</Text>
+			<Text>Devout spawn Preachers whenever they kill an enemy unit. Use this ability to flood your opponents with religious influence.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_HELP_CYAT_DEVOUT">
 			<Text>The Preachers spawned by Devout are vulnerable in combat zones. Ensure they fall back quickly.</Text>

@@ -58,6 +58,20 @@
 			<Text>[TOWRITE] inquisition chapter pedia</Text>
 		</Row>
 		
+		<!-- Building: Mercenary Holdfast -->
+		<Row Tag="TXT_KEY_BUILDING_MERCENARY_HOLDFAST">
+			<Text>Mercenary Holdfast</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MERCENARY_HOLDFAST_HELP">
+			<Text>Units cost 50% less [ICON_GOLD] to purchase.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MERCENARY_HOLDFAST_STRATEGY">
+			<Text>[TOWRITE] mercenary holdfast strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BUILDINGS_MERCENARY_HOLDFAST_TEXT">
+			<Text>[TOWRITE] mercenary holdfast pedia</Text>
+		</Row>
+		
 		<!-- Wonder: Clockwork Magnolia -->
 		<Row Tag="TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA">
 			<Text>Clockwork Magnolia</Text>

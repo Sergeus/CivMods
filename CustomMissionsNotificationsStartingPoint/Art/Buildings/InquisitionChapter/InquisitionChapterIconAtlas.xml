@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/24/2013 5:13:43 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>INQUISITION_CHAPTER_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>InquisitionChapterIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>INQUISITION_CHAPTER_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>InquisitionChapterIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>INQUISITION_CHAPTER_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>InquisitionChapterIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>INQUISITION_CHAPTER_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>InquisitionChapterIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

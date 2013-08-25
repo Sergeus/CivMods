@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/24/2013 6:11:35 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>CLOCKWORKS_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>ClockworksIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CLOCKWORKS_ATLAS</Atlas>
+			<IconSize>214</IconSize>
+			<Filename>ClockworksIcon214.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CLOCKWORKS_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>ClockworksIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CLOCKWORKS_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>ClockworksIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CLOCKWORKS_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>ClockworksIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CLOCKWORKS_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>ClockworksIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

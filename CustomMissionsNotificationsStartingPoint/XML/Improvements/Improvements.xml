@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 8/22/2013 8:38:17 PM -->
 <GameData>
+	<Improvements>
+		<Row>
+			<Type>IMPROVEMENT_POWDER_KEG_TRAP</Type>
+			<Description>TXT_KEY_IMPROVEMENT_POWDER_KEG_TRAP</Description>
+			<Civilopedia>TXT_KEY_CIV5_IMPROVEMENTS_POWDER_KEG_TRAP_TEXT</Civilopedia>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_MINE</ArtDefineTag>
+			<RequiresFlatlands>true</RequiresFlatlands>
+			<OutsideBorders>true</OutsideBorders>
+			<PillageGold>20</PillageGold>
+			<PortraitIndex>0</PortraitIndex>
+			<IconAtlas>POWDER_KEG_BUILD_ATLAS</IconAtlas>
+			<ExplodesOnEnemyEnterHex>true</ExplodesOnEnemyEnterHex>
+			<ExplosionDamageToThisHex>100</ExplosionDamageToThisHex>
+			<ExplosionDamageToOuterHexes>25</ExplosionDamageToOuterHexes>
+			<ExplosionDamageRange>1</ExplosionDamageRange>
+			<ExplosionDestroyedAfter>true</ExplosionDestroyedAfter>
+		</Row>
+	</Improvements>
 </GameData>

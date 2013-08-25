@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/24/2013 4:53:16 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>SLAVE_MARKET_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>SlaveMarketIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>SLAVE_MARKET_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>SlaveMarketIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>SLAVE_MARKET_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>SlaveMarketIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>SLAVE_MARKET_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>SlaveMarketIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/24/2013 10:29:37 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<!-- Build icon for putting on the tech tree -->
+		<Row>
+			<Atlas>POWDER_KEG_BUILD_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>PowderKegBuild256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>POWDER_KEG_BUILD_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>PowderKegBuild64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		
+		<!-- Action texture, for placing on buttons -->
+		<Row>
+			<Atlas>POWDER_KEG_ACTION_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>PowderKegAction64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>POWDER_KEG_ACTION_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>PowderKegAction45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

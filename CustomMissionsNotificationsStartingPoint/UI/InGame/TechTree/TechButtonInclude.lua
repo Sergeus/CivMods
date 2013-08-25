@@ -544,11 +544,22 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 			else
 				thisButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_RELIGION_SPREAD_CHANGED_BY_TECH", modifier, "faster" ) );
 			end
-
 			
 			buttonNum = buttonNum + 1;
 		end
 	end	
+
+	if tech.StopsForeignReligions == true then
+		local buttonName = "B"..tostring(buttonNum)
+		local thisButton = thisTechButtonInstance[buttonName]
+
+		if thisButton then
+			IconHookup(0, textureSize, "GENERIC_FUNC_ATLAS", thisButton)
+			thisButton:setHide(false)
+
+			thisButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_FOREIGN_RELIGIONS_STOPPED_BY_TECH"))
+		end
+	end
 
 	for row in GameInfo.Technology_FreePromotions(condition) do
 		local promotion = GameInfo.UnitPromotions[row.PromotionType];

@@ -13,6 +13,11 @@
 			<Description>TXT_KEY_BUILDING_INQUISITION_CHAPTER</Description>
 		</Row>
 		<Row>
+			<Type>BUILDINGCLASS_MERCENARY_HOLDFAST</Type>
+			<DefaultBuilding>BUILDING_MERCENARY_HOLDFAST</DefaultBuilding>
+			<Description>TXT_KEY_BUILDING_MERCENARY_HOLDFAST</Description>
+		</Row>
+		<Row>
 			<Type>BUILDINGCLASS_CLOCKWORK_MAGNOLIA</Type>
 			<DefaultBuilding>BUILDING_CLOCKWORK_MAGNOLIA</DefaultBuilding>
 			<Description>TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA</Description>
@@ -71,9 +76,31 @@
 			<ConquestProb>5</ConquestProb>
 			<MinAreaSize>-1</MinAreaSize>
 			<HurryCostModifier>25</HurryCostModifier>
-			<IconAtlas>EXPANSION_BW_ATLAS_1</IconAtlas>
-			<PortraitIndex>9</PortraitIndex>
+			<IconAtlas>INQUISITION_CHAPTER_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
 			<ReligionMajorityPressureModifier>50</ReligionMajorityPressureModifier>
+		</Row>
+		
+		<!-- Building: Mercenary Holdfast -->
+		<Row>
+			<Type>BUILDING_MERCENARY_HOLDFAST</Type>
+			<BuildingClass>BUILDINGCLASS_MERCENARY_HOLDFAST</BuildingClass>
+			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra>
+			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
+			<Cost>40</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_MERCHANT_FREEDOM</PrereqTech>
+			<Help>TXT_KEY_BUILDING_MERCENARY_HOLDFAST_HELP</Help>
+			<Description>TXT_KEY_BUILDING_MERCENARY_HOLDFAST</Description>
+			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_MERCENARY_HOLDFAST_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MERCENARY_HOLDFAST_STRATEGY</Strategy>
+			<ArtDefineTag>TEMPLE</ArtDefineTag>
+			<ConquestProb>5</ConquestProb>
+			<MinAreaSize>-1</MinAreaSize>
+			<HurryCostModifier>25</HurryCostModifier>
+			<IconAtlas>MERCENARY_HOLDFAST_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+			<UnitPurchaseCostModifier>-50</UnitPurchaseCostModifier>
 		</Row>
 		
 		<!-- Building: Clockworks Wonder -->
