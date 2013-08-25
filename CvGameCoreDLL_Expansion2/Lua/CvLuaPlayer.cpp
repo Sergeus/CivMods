@@ -275,6 +275,11 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(HasReligionInMostCities);
 	Method(DoesUnitPassFaithPurchaseCheck);
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	Method(GetFaithPerTurnFromTradeRoutes);
+
 	// Happiness
 
 	Method(GetHappiness);
@@ -6529,6 +6534,13 @@ int CvLuaPlayer::lGetEndTurnBlockingNotificationIndex(lua_State* L)
 int CvLuaPlayer::lGetEndTurnBlockingNotificationID(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlayerAI::GetEndTurnBlockingNotificationID);
+}
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+int CvLuaPlayer::lGetFaithPerTurnFromTradeRoutes(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlayerAI::GetFaithPerTurnFromTradeRoutes);
 }
 
 //------------------------------------------------------------------------------

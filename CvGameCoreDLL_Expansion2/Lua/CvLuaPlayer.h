@@ -605,6 +605,10 @@ protected:
 	// WoTMod Addition - Custom Notifications
 	// ----------------------------------------------------------------
 	static int lGetEndTurnBlockingNotificationID(lua_State* L);
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	static int lGetFaithPerTurnFromTradeRoutes(lua_State* L);
 
 	static int lIsStrike(lua_State* L);
 

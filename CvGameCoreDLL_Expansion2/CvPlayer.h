@@ -969,6 +969,7 @@ public:
 	// WoTMod Addition - Custom Notifications
 	// ----------------------------------------------------------------
 	int GetEndTurnBlockingNotificationID() const;
+	int GetFaithPerTurnFromTradeRoutes() const;
 
 	bool isTurnDone() const;
 	bool isLocalPlayer() const;

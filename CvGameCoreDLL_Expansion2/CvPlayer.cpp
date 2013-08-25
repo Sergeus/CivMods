@@ -9927,6 +9927,11 @@ int CvPlayer::GetTotalFaithPerTurn() const
 	// Faith per turn from Religion (Founder beliefs)
 	iFaithPerTurn += GetFaithPerTurnFromReligion();
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	iFaithPerTurn += GetFaithPerTurnFromTradeRoutes();
+
 	return iFaithPerTurn;
 }
 
@@ -9945,6 +9950,29 @@ int CvPlayer::GetFaithPerTurnFromCities() const
 	}
 
 	return iFaithPerTurn;
+}
+
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+int CvPlayer::GetFaithPerTurnFromTradeRoutes() const
+{
+	int iFaith = 0;
+	for (int i = 0; i < GC.getGame().GetGameTrade()->m_aTradeConnections.size(); i++)
+	{
+		TradeConnection& connection = GC.getGame().GetGameTrade()->m_aTradeConnections[i];
+
+		if (connection.m_eOriginOwner == GetID())
+		{
+			iFaith += connection.m_aiOriginYields[YIELD_FAITH];
+		}
+		else if (connection.m_eDestOwner == GetID())
+		{
+			iFaith += connection.m_aiDestYields[YIELD_FAITH];
+		}
+	}
+
+	return iFaith;
 }
 
 //	--------------------------------------------------------------------------------
