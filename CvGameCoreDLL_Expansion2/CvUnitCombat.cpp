@@ -334,7 +334,7 @@ void CvUnitCombat::ResolveMeleeCombat(const CvCombatInfo& kCombatInfo, uint uiPa
 		// If the attacker died, then the defender might have the ability which causes them to generate a unit after melee combat
 		for (int i = 0; i < GC.getNumUnitClassInfos(); i++)
 		{
-			if (!bDefenderDead)
+			if (!bDefenderDead && bAttackerDead)
 			{
 				int numBonus = GC.getUnitInfo(pkDefender->getUnitType())->GetFreeUnitAfterSurvivingMeleeCombat(i);
 				if (numBonus > 0)
@@ -348,7 +348,7 @@ void CvUnitCombat::ResolveMeleeCombat(const CvCombatInfo& kCombatInfo, uint uiPa
 					}
 				}
 			}
-			if (!bAttackerDead)
+			if (!bAttackerDead && bDefenderDead)
 			{
 				int numBonus = GC.getUnitInfo(pkAttacker->getUnitType())->GetFreeUnitAfterSurvivingMeleeCombat(i);
 				if (numBonus > 0)
