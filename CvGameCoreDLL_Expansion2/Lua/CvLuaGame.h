@@ -334,6 +334,11 @@ protected:
 	static int lGetReligionName(lua_State* L);
 	static int lGetFounderBenefitsReligion(lua_State* L);
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	static int lAddReformationBelief(lua_State* L);
+
 	static int lFoundPantheon(lua_State* L);
 	static int lFoundReligion(lua_State* L);
 	static int lEnhanceReligion(lua_State* L);

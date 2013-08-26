@@ -339,6 +339,11 @@ void CvLuaGame::RegisterMembers(lua_State* L)
 	Method(GetReligionName);
 	Method(GetFounderBenefitsReligion);
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	Method(AddReformationBelief);
+
 	Method(FoundPantheon);
 	Method(FoundReligion);
 	Method(EnhanceReligion);
@@ -2139,6 +2144,20 @@ int CvLuaGame::lSetMinimumFaithNextPantheon(lua_State* L)
 	GC.getGame().GetGameReligions()->SetMinimumFaithNextPantheon(lua_tointeger(L, 1));
 	return 1;
 }
+
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+int CvLuaGame::lAddReformationBelief(lua_State* L)
+{
+	PlayerTypes ePlayer = (PlayerTypes)lua_tointeger(L, 1);
+	ReligionTypes eReligion = (ReligionTypes)lua_tointeger(L, 2);
+	BeliefTypes eBelief = (BeliefTypes)lua_tointeger(L, 3);
+
+	GC.getGame().GetGameReligions()->AddReformationBelief(ePlayer, eReligion, eBelief);
+	return 1;
+}
+
 //------------------------------------------------------------------------------
 int CvLuaGame::lGetAvailablePantheonBeliefs(lua_State* L)
 {
