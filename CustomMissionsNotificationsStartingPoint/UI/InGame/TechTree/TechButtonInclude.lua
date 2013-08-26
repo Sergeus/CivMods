@@ -555,7 +555,7 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 
 		if thisButton then
 			IconHookup(0, textureSize, "GENERIC_FUNC_ATLAS", thisButton)
-			thisButton:setHide(false)
+			thisButton:SetHide(false)
 
 			thisButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_FOREIGN_RELIGIONS_STOPPED_BY_TECH"))
 		end

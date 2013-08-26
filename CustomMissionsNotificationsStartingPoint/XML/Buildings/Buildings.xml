@@ -18,6 +18,11 @@
 			<Description>TXT_KEY_BUILDING_MERCENARY_HOLDFAST</Description>
 		</Row>
 		<Row>
+			<Type>BUILDINGCLASS_THEORS_ACADEMY</Type>
+			<DefaultBuilding>BUILDING_THEORS_ACADEMY</DefaultBuilding>
+			<Description>TXT_KEY_BUILDING_THEORS_ACADEMY</Description>
+		</Row>
+		<Row>
 			<Type>BUILDINGCLASS_CLOCKWORK_MAGNOLIA</Type>
 			<DefaultBuilding>BUILDING_CLOCKWORK_MAGNOLIA</DefaultBuilding>
 			<Description>TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA</Description>
@@ -129,6 +134,28 @@
 			<WonderSplashAudio>AS2D_WONDER_SPEECH_SYDNEY_OPERA_HOUSE</WonderSplashAudio>
 			<EndsWars>true</EndsWars>
 		</Row>
+		
+		<!-- Building: Theors' Academy -->
+		<Row>
+			<Type>BUILDING_THEORS_ACADEMY</Type>
+			<BuildingClass>BUILDINGCLASS_THEORS_ACADEMY</BuildingClass>
+			<Cost>250</Cost>
+			<GoldMaintenance>2</GoldMaintenance>
+			<Help>TXT_KEY_BUILDING_THEORS_ACADEMY_HELP</Help>
+			<Description>TXT_KEY_BUILDING_THEORS_ACADEMY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_THEORS_ACADEMY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_THEORS_ACADEMY_STRATEGY</Strategy>
+			<ArtDefineTag>ART_DEF_BUILDING_UNIVERSITY</ArtDefineTag>
+			<MinAreaSize>10</MinAreaSize>
+			<PrereqTech>TECH_THEORICAL_INSPIRATION</PrereqTech>
+			<ConquestProb>100</ConquestProb>
+			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+			<SpecialistCount>2</SpecialistCount>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>16</DisplayPosition>
+			<IconAtlas>THEORS_ACADEMY_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+		</Row>
 	</Buildings>
 	<Building_YieldChanges>
 		<Row>
@@ -137,4 +164,25 @@
 			<Yield>2</Yield>
 		</Row>
 	</Building_YieldChanges>
+	<Building_TradeRouteYieldChanges>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMCY</BuildingType>
+			<DomainType>DOMAIN_SEA</DomainType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMCY</BuildingType>
+			<DomainType>DOMAIN_SEA</DomainType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+	</Building_TradeRouteYieldChanges>
+	<Building_YieldModifiers>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>50</Yield>
+		</Row>
+	</Building_YieldModifiers>
 </GameData>

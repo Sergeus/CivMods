@@ -5,6 +5,10 @@
 		<Update>
 			<Set PrereqTech=""/>
 		</Update>
+		<Update>
+			<Where Type="BUILD_RAILROAD"/>
+			<Set PrereqTech="TECH_RAILROAD"/>
+		</Update>
 
 		<Row>
 			<Type>BUILD_POWDER_KEG</Type>

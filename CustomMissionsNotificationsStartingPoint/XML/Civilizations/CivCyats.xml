@@ -62,5 +62,17 @@
 			<CivilizationType>CIVILIZATION_CYATS</CivilizationType>
 			<CityName>TXT_KEY_CITY_NAME_OSACHE</CityName>
 		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_CYATS</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_BYREEN</CityName>
+		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_CYATS</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_OSHAN</CityName>
+		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_CYATS</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_INESH</CityName>
+		</Row>
 	</Civilization_CityNames>
 </GameData>

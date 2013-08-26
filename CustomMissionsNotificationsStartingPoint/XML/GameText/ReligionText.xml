@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/25/2013 11:15:45 PM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_RELIGION_CIRRAN_ORTHODOXY">
+			<Text>Cirran Orthodoxy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RELIGION_CIRRAN_ORTHODOXY_PEDIA">
+			<Text>[TOWRITE] Cirran Orthodoxy pedia</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_RELIGION_KLONOA">
+			<Text>Klonoan</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RELIGION_KLONOA_PEDIA">
+			<Text>[TOWRITE] klonoa pedia</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_RELIGION_ADVARN">
+			<Text>Advarn</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RELIGION_ADVARN_PEDIA">
+			<Text>[TOWRITE] Advarn pedia</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

@@ -88,6 +88,60 @@
 		<Row Tag="TXT_KEY_CITY_NAME_ARGASTIN">
 			<Text>Argastin</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SUPORSTUS">
+			<Text>Suporstus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_KRADE">
+			<Text>Krade</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SAMTEK">
+			<Text>Samtek</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_HIA">
+			<Text>Hia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGASIUM">
+			<Text>Argasium</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGASTUS">
+			<Text>Argastus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGAN">
+			<Text>Argan</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_JUSLIK">
+			<Text>Juslik</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PRESHETS">
+			<Text>Preshets</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SUMAN">
+			<Text>Suman</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_HYRONIUM">
+			<Text>Hyronium</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SARLAN">
+			<Text>Sarlan</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PASHNIS">
+			<Text>Pashnis</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_KAVRAT">
+			<Text>Kavrat</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SUPAL">
+			<Text>Supal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGASIA">
+			<Text>Argasia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGAN_SUM">
+			<Text>Argam Sum</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGAN_CHIN">
+			<Text>Argan Chin</Text>
+		</Row>
 		
 		<!-- Numydian City Names -->
 		<Row Tag="TXT_KEY_CITY_NAME_NUMYD">
@@ -96,6 +150,15 @@
 		<Row Tag="TXT_KEY_CITY_NAME_ENASH">
 			<Text>Enash</Text>
 		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SUKREET">
+			<Text>Sukreet</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_KHARVAL">
+			<Text>Kharval</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SESHET">
+			<Text>Seshet</Text>
+		</Row>
 		
 		<!-- Cyat City Names -->
 		<Row Tag="TXT_KEY_CITY_NAME_CYRA">
@@ -103,6 +166,15 @@
 		</Row>
 		<Row Tag="TXT_KEY_CITY_NAME_OSACHE">
 			<Text>Osache</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_BYREEN">
+			<Text>Byreen</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_OSHAN">
+			<Text>Oshan</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_INESH">
+			<Text>Inesh</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

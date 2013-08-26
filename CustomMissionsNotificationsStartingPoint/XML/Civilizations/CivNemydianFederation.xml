@@ -64,5 +64,17 @@
 			<CivilizationType>CIVILIZATION_NEMYDIAN_FEDERATION</CivilizationType>
 			<CityName>TXT_KEY_CITY_NAME_ENASH</CityName>
 		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_NEMYDIAN_FEDERATION</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_SUKREET</CityName>
+		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_NEMYDIAN_FEDERATION</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_KHARVAL</CityName>
+		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_NEMYDIAN_FEDERATION</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_SESHET</CityName>
+		</Row>
 	</Civilization_CityNames>
 </GameData>

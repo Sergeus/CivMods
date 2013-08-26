@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/25/2013 8:04:08 PM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_TP_FAITH_FROM_TRADE_ROUTES">
+			<Text>+{1_AmountFaith}[ICON_PEACE] per turn from trade routes</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

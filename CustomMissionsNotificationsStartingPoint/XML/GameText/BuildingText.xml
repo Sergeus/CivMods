@@ -49,7 +49,7 @@
 			<Text>Inquisition Chapterhouse</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_INQUISITION_CHAPTER_HELP">
-			<Text>+2[ICON_PEACE] per turn[NEWLINE]This city's majority religion exerts +50% pressure in this city</Text>
+			<Text>This city's majority religion exerts +50% pressure in this city</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_INQUISITION_CHAPTER_STRATEGY">
 			<Text>[TOWRITE] inquisition chapter strategy</Text>
@@ -70,6 +70,20 @@
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_BUILDINGS_MERCENARY_HOLDFAST_TEXT">
 			<Text>[TOWRITE] mercenary holdfast pedia</Text>
+		</Row>
+		
+		<!-- Building: Theors Academy -->
+		<Row Tag="TXT_KEY_BUILDING_THEORS_ACADEMY">
+			<Text>Theors' Academy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_THEORS_ACADEMY_HELP">
+			<Text>+50%[ICON_RESEARCH] in this city[NEWLINE]+2[ICON_RESEARCH] per international trade route[NEWLINE]+1[ICON_PEACE] per international trade route</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_THEORS_ACADEMY_STRATEGY">
+			<Text>[TOWRITE] theors' academy strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_THEORS_ACADEMY_PEDIA">
+			<Text>[TOWRITE] theors' academy pedia</Text>
 		</Row>
 		
 		<!-- Wonder: Clockwork Magnolia -->

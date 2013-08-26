@@ -317,6 +317,41 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/ImprovementsText.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/UIText.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Buildings/TheorsAcademy/TheorsAcademyIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Religions/Religions.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Religions/Advarn/AdvarnIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Religions/Klonoa/KlonoaIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Religions/CirranOrthodoxy/CirranOrthodoxyIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/ReligionText.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -364,6 +399,7 @@
     <Folder Include="Art\Buildings\FortifiedQuay" />
     <Folder Include="Art\Buildings\InquisitionChapter" />
     <Folder Include="Art\Buildings\MercenaryHoldfast" />
+    <Folder Include="Art\Buildings\TheorsAcademy" />
     <Folder Include="Art\Buildings\SlaveMarket" />
     <Folder Include="Art\Civilizations" />
     <Folder Include="Art\Civilizations\Cyats" />
@@ -372,6 +408,10 @@
     <Folder Include="Art\Civilizations\Svesta" />
     <Folder Include="Art\Buildings" />
     <Folder Include="Art\Improvements" />
+    <Folder Include="Art\Religions" />
+    <Folder Include="Art\Religions\Advarn" />
+    <Folder Include="Art\Religions\Klonoa" />
+    <Folder Include="Art\Religions\CirranOrthodoxy" />
     <Folder Include="Art\Technologies" />
     <Folder Include="Art\Notifications" />
     <Folder Include="Art\Technologies\Mercantilism" />
@@ -396,6 +436,7 @@
     <Folder Include="XML\Interface" />
     <Folder Include="XML\Buildings" />
     <Folder Include="XML\Improvements" />
+    <Folder Include="XML\Religions" />
     <Folder Include="XML\Traits" />
     <Folder Include="XML\Units" />
     <Folder Include="XML\Technologies" />
@@ -499,6 +540,26 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Buildings\SlaveMarket\SlaveMarketIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Buildings\TheorsAcademy\TheorsAcademyIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Buildings\TheorsAcademy\TheorsAcademyIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Buildings\TheorsAcademy\TheorsAcademyIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Buildings\TheorsAcademy\TheorsAcademyIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Buildings\TheorsAcademy\TheorsAcademyIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -798,6 +859,102 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Religions\Advarn\AdvarnIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Advarn\AdvarnIcon16.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Advarn\AdvarnIcon24.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Advarn\AdvarnIcon32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Advarn\AdvarnIcon48.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Advarn\AdvarnIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Advarn\AdvarnIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Advarn\AdvarnIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyIcon16.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyIcon24.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyIcon32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyIcon48.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Klonoa\KlonoaIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Klonoa\KlonoaIcon16.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Klonoa\KlonoaIcon24.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Klonoa\KlonoaIcon32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Klonoa\KlonoaIcon48.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Klonoa\KlonoaIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Klonoa\KlonoaIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Klonoa\KlonoaIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Technologies\Clockworks\ClockworksIcon128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -954,6 +1111,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="UI\InGame\TopPanel.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="UI\InGame\WorldView\ActionInfoPanel.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1038,11 +1199,19 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\GameText\ReligionText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\GameText\TechnologiesText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\GameText\TraitText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\GameText\UIText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1083,6 +1252,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Notifications\NotificationProperties.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Religions\Religions.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
