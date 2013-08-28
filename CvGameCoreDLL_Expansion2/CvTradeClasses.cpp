@@ -1794,14 +1794,18 @@ int CvPlayerTrade::GetTradeConnectionBaseValueTimes100(const TradeConnection& kT
 
 			int iResult = 0;
 
-			for (int i = 0; i < GC.getNumBuildingInfos(); i++)
+			
+			if (kTradeConnection.m_eDomain != NO_DOMAIN && kTradeConnection.m_eDomain < NUM_DOMAIN_TYPES)
 			{
-				const BuildingTypes eBuilding = static_cast<BuildingTypes>(i);
-				CvBuildingEntry* pkBuildingInfo = GC.getBuildingInfo(eBuilding);
-
-				if (pCity->GetCityBuildings()->GetNumBuilding(eBuilding) > 0)
+				for (int i = 0; i < GC.getNumBuildingInfos(); i++)
 				{
-					iResult += pkBuildingInfo->GetTradeRouteYieldChange(kTradeConnection.m_eDomain, eYield);
+					const BuildingTypes eBuilding = static_cast<BuildingTypes>(i);
+					CvBuildingEntry* pkBuildingInfo = GC.getBuildingInfo(eBuilding);
+
+					if (pCity->GetCityBuildings()->GetNumBuilding(eBuilding) > 0)
+					{
+						iResult += pkBuildingInfo->GetTradeRouteYieldChange(kTradeConnection.m_eDomain, eYield);
+					}
 				}
 			}
 
