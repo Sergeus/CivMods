@@ -4683,6 +4683,8 @@ int CvCity::GetPurchaseCost(UnitTypes eUnit)
 
 	int iCost = GetPurchaseCostFromProduction(getProductionNeeded(eUnit));
 
+	iCost += GetGoldPurchaseCostFromFaith(eUnit);
+
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
@@ -4705,6 +4707,33 @@ int CvCity::GetPurchaseCost(UnitTypes eUnit)
 
 	// Make the number not be funky
 	int iDivisor = /*10*/ GC.getGOLD_PURCHASE_VISIBLE_DIVISOR();
+	iCost /= iDivisor;
+	iCost *= iDivisor;
+
+	return iCost;
+}
+
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+
+int CvCity::GetGoldPurchaseCostFromFaith(UnitTypes eUnit)
+{
+	CvUnitEntry* pInfo = GC.getUnitInfo(eUnit);
+
+	int iFaithCost = GetFaithPurchaseCost(eUnit, true);
+
+	if (iFaithCost <= 0)
+	{
+		return 0;
+	}
+
+	int iCostPerFaith = GC.getHURRY_GOLD_COST_PER_FAITH();
+	int iCost = iFaithCost * iCostPerFaith;
+
+	// dividing to make it even, in case someone adds obscure faith costs!
+	int iDivisor = 10;
+
 	iCost /= iDivisor;
 	iCost *= iDivisor;
 
@@ -12746,6 +12775,13 @@ bool CvCity::CanPurchaseReligiousTrait(UnitTypes eUnit, bool bTestPurchaseCost)
 	TechTypes ePrereqTech = (TechTypes)pInfo->GetPrereqAndTech();
 
 	if (ePrereqTech != NO_TECH && !GET_TEAM(GET_PLAYER(getOwner()).getTeam()).GetTeamTechs()->HasTech(ePrereqTech))
+	{
+		return false;
+	}
+
+	UnitClassTypes eUnitClass = (UnitClassTypes)pInfo->GetUnitClassType();
+
+	if (((UnitTypes)GET_PLAYER(getOwner()).getCivilizationInfo().getCivilizationUnits(eUnitClass)) != eUnit)
 	{
 		return false;
 	}

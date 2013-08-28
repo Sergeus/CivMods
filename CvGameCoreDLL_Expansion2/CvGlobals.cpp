@@ -5416,6 +5416,7 @@ void CvGlobals::cacheGlobals()
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	m_iTRADE_ROUTE_DURATION_TURNS = getDefineINT("TRADE_ROUTE_DURATION_TURNS");
+	m_iHURRY_GOLD_COST_PER_FAITH = getDefineINT("HURRY_GOLD_COST_PER_FAITH");
 
 	// -- floats --
 

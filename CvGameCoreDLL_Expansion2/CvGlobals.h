@@ -7324,6 +7324,10 @@ public:
 	{
 		return m_iTRADE_ROUTE_DURATION_TURNS;
 	}
+	inline int getHURRY_GOLD_COST_PER_FAITH()
+	{
+		return m_iHURRY_GOLD_COST_PER_FAITH;
+	}
 
 	////////////// END DEFINES //////////////////
 
@@ -9104,6 +9108,7 @@ protected:
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	int m_iTRADE_ROUTE_DURATION_TURNS;
+	int m_iHURRY_GOLD_COST_PER_FAITH;
 
 	// -- floats --
 

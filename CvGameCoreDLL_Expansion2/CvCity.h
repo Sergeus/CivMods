@@ -796,6 +796,7 @@ public:
 	void AddFreePromotions(CvUnit* pUnit);
 
 	bool CanPurchaseReligiousTrait(UnitTypes eUnit, bool bTestPurchaseCost);
+	int GetGoldPurchaseCostFromFaith(UnitTypes eUnit);
 
 	int GetMaxHitPoints() const;
 	const FAutoArchive& getSyncArchive() const;
