@@ -4683,11 +4683,12 @@ int CvCity::GetPurchaseCost(UnitTypes eUnit)
 
 	int iCost = GetPurchaseCostFromProduction(getProductionNeeded(eUnit));
 
-	iCost += GetGoldPurchaseCostFromFaith(eUnit);
-
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
+	iCost += GetGoldPurchaseCostFromFaith(eUnit);
+
+
 	for (int i = 0; i < GC.getNumBuildingInfos(); i++)
 	{
 		BuildingTypes eBuilding = (BuildingTypes)i;
@@ -12613,6 +12614,17 @@ bool CvCity::IsCanPurchase(bool bTestPurchaseCost, bool bTestTrainable, UnitType
 			}
 
 			CvUnitEntry* pkUnitInfo = GC.getUnitInfo(eUnitType);
+
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+			UnitClassTypes eUnitClass = (UnitClassTypes)pkUnitInfo->GetUnitClassType();
+			// Can't buy units that are overriden for us (or non-default units if they're not overriden for us)
+			if (GET_PLAYER(getOwner()).getCivilizationInfo().getCivilizationUnits(eUnitClass) != eUnitType)
+			{
+				return false;
+			}
+
 			if(pkUnitInfo)
 			{
 				if (pkUnitInfo->IsRequiresEnhancedReligion() && !(GC.getGame().GetGameReligions()->GetReligion(eReligion, NO_PLAYER)->m_bEnhanced))
