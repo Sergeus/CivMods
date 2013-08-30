@@ -21,7 +21,7 @@
 			<Cost>185</Cost>
 			<Moves>5</Moves>
 			<HurryCostModifier>20</HurryCostModifier>
-			<Range>1</Range>
+			<Range>2</Range>
 			<CombatClass>UNITCOMBAT_NAVALRANGED</CombatClass>
 			<Domain>DOMAIN_SEA</Domain>
 			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
@@ -187,6 +187,18 @@
 		<Row>
 			<UnitType>UNIT_CYAT_PREACHER</UnitType>
 			<PromotionType>PROMOTION_SIGHT_PENALTY</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_CYAT_PREACHER</UnitType>
+			<PromotionType>PROMOTION_ALLWATER_EMBARKATION</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_CYAT_DEVOUT</UnitType>
+			<PromotionType>PROMOTION_ALLWATER_EMBARKATION</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_NEMYD_CONSCRIPTED_RAKER</UnitType>
+			<PromotionType>PROMOTION_STEAM_POWERED</PromotionType>
 		</Row>
 	</Unit_FreePromotions>
 	<Unit_FreeUnitAfterSurvivingMeleeCombat>

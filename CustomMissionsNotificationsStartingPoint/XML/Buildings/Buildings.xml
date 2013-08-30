@@ -36,6 +36,70 @@
 			<Set PrereqTech=""/>
 		</Update>
 		<Update>
+			<Where Type="BUILDING_AQUEDUCT"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_MARKET"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_LIGHTHOUSE"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_CASTLE"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_COURTHOUSE"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_FORGE"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_LIBRARY"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_GARDEN"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_GRANARY"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_STABLE"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_MINT"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_SHRINE"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_TEMPLE"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_STONE_WORKS"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_WATER_MILL"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_WORKSHOP"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
 			<Where Type="BUILDING_HARBOR"/>
 			<Set PrereqTech="TECH_NAVAL_FORMATIONS"/>
 		</Update>
@@ -166,13 +230,13 @@
 	</Building_YieldChanges>
 	<Building_TradeRouteYieldChanges>
 		<Row>
-			<BuildingType>BUILDING_THEORS_ACADEMCY</BuildingType>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
 			<DomainType>DOMAIN_SEA</DomainType>
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>2</Yield>
 		</Row>
 		<Row>
-			<BuildingType>BUILDING_THEORS_ACADEMCY</BuildingType>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
 			<DomainType>DOMAIN_SEA</DomainType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>

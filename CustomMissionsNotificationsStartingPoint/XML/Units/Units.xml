@@ -30,5 +30,20 @@
 			<Where Type="UNIT_CARGO_SHIP"/>
 			<Set PrereqTech=""/>
 		</Update>
+		<Update>
+			<Where Type="UNIT_CARAVAN"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_WORK_BOAT"/>
+			<Set PrereqTech=""/>
+		</Update>
 	</Units>
+	<Unit_FreePromotions>
+		<Delete UnitType="UNIT_GALLEASS" PromotionType="PROMOTION_OCEAN_IMPASSABLE"/>
+		<Row>
+			<UnitType>UNIT_GALLEASS</UnitType>
+			<PromotionType>PROMOTION_STEAM_POWERED</PromotionType>
+		</Row>
+	</Unit_FreePromotions>
 </GameData>

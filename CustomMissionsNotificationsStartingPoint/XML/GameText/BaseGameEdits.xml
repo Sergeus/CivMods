@@ -6,6 +6,10 @@
 			<Where Tag="TXT_KEY_ERA_0"/>
 			<Set Text="Age of Consolidation"/>
 		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_ERA_0_SHORT"/>
+			<Set Text="Consolidation"/>
+		</Update>
 
 		<Update>
 			<Where Tag="TXT_KEY_ADDITIONAL_INTERNATIONAL_TRADE_ROUTE"/>

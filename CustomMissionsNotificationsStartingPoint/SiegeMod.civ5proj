@@ -352,6 +352,31 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/ReligionText.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/ScenarioText.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/ScenarioText.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Scenario/ScenarioParameters.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Terrains/Resources.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Scenario/SiegeModConstants.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -378,10 +403,29 @@
         <Description />
         <FileName>Lua/TurnsLeft.lua</FileName>
       </Content>
+      <Content>
+        <Type>Custom</Type>
+        <Name>TXT_KEY_SCENARIO_TITLE</Name>
+        <Description>TXT_KEY_SCENARIO_DESC</Description>
+        <FileName>UI/ScenarioLoadScreen.xml</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Scenario Initialization</Name>
+        <Description>Scenario Initialization</Description>
+        <FileName>Lua/ScenarioSetup/ScenarioInitialisation.lua</FileName>
+      </Content>
     </ModContent>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadLandmarkSystem>true</ReloadLandmarkSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
+    <HideSetupGame>true</HideSetupGame>
+    <ModProperties>
+      <Property>
+        <Name>Custom_Scenario_TXT_KEY_SCENARIO_TITLE</Name>
+        <Description>Art/Scenario_Background.dds</Description>
+      </Property>
+    </ModProperties>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
@@ -424,6 +468,7 @@
     <Folder Include="Lua" />
     <Folder Include="Art" />
     <Folder Include="Lua\DoubleUnitsTrait" />
+    <Folder Include="Lua\ScenarioSetup" />
     <Folder Include="Maps" />
     <Folder Include="UI\InGame\TechTree" />
     <Folder Include="XML" />
@@ -436,6 +481,8 @@
     <Folder Include="XML\Interface" />
     <Folder Include="XML\Buildings" />
     <Folder Include="XML\Improvements" />
+    <Folder Include="XML\Terrains" />
+    <Folder Include="XML\Scenario" />
     <Folder Include="XML\Religions" />
     <Folder Include="XML\Traits" />
     <Folder Include="XML\Units" />
@@ -955,6 +1002,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Scenario_Background.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Technologies\Clockworks\ClockworksIcon128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1099,7 +1150,27 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Lua\RandomEvents.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\ScenarioSetup\ScenarioInitialisation.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\ScenarioSetup\ScenarioParameters.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\ScenarioSetup\ScenarioUtilities.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Lua\TurnsLeft.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Maps\Siegemod.Civ5Map">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1126,6 +1197,22 @@
     <Content Include="UI\InGame\WorldView\NotificationPanel.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\ScenarioLoadScreen.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\ScenarioLoadScreen.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\ScenarioVictoryProgress.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\ScenarioVictoryProgress.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Buildings\BuildingAlterations.sql">
       <SubType>Lua</SubType>
@@ -1203,6 +1290,14 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\GameText\ScenarioText.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\GameText\ScenarioText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\GameText\TechnologiesText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1255,7 +1350,19 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\RandomEvents.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\Religions\Religions.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Scenario\ScenarioParameters.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Scenario\SiegeModConstants.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1268,6 +1375,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Technologies\Technologies.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Terrains\Resources.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

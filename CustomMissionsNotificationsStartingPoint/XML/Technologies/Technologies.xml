@@ -5,12 +5,16 @@
 		<Update>
 			<Set GridX="-1" Disable="true" Era="ERA_ANCIENT"/>
 		</Update>
+		<Update>
+			<Where Type="TECH_AGRICULTURE"/>
+			<Set BridgeBuilding="true" InternationalTradeRoutesChange="5" />
+		</Update>
 		<Row>
 			<Type>TECH_MERCHANT_FREEDOM</Type>
 			<Description>TXT_KEY_TECH_MERCHANT_FREEDOM_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_MERCHANT_FREEDOM_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_MERCHANT_FREEDOM_HELP</Help>
-			<Cost>20</Cost>
+			<Cost>272</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -32,7 +36,7 @@
 			<Description>TXT_KEY_TECH_CONSECRATED_MARKETS_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_CONSECRATED_MARKETS_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_CONSECRATED_MARKETS_HELP</Help>
-			<Cost>20</Cost>
+			<Cost>272</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -54,7 +58,7 @@
 			<Description>TXT_KEY_TECH_NAVAL_FORMATIONS_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_NAVAL_FORMATIONS_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_NAVAL_FORMATIONS_HELP</Help>
-			<Cost>20</Cost>
+			<Cost>325</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -74,7 +78,7 @@
 			<Description>TXT_KEY_TECH_CLOCKWORKS_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_CLOCKWORKS_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_CLOCKWORKS_HELP</Help>
-			<Cost>20</Cost>
+			<Cost>415</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -94,7 +98,7 @@
 			<Description>TXT_KEY_TECH_BLACK_POWDER_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_BLACK_POWDER_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_BLACK_POWDER_HELP</Help>
-			<Cost>20</Cost>
+			<Cost>415</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -114,7 +118,7 @@
 			<Description>TXT_KEY_TECH_THEORICAL_INSPIRATION_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_THEORICAL_INSPIRATION_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_THEORICAL_INSPIRATION_HELP</Help>
-			<Cost>20</Cost>
+			<Cost>325</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -134,7 +138,7 @@
 			<Description>TXT_KEY_TECH_TRANSCENDENCE_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_TRANSCENDENCE_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_TRANSCENDENCE_HELP</Help>
-			<Cost>20</Cost>
+			<Cost>415</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -155,7 +159,7 @@
 			<Description>TXT_KEY_TECH_GRAND_INQUISITION_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_GRAND_INQUISITION_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_GRAND_INQUISITION_HELP</Help>
-			<Cost>20</Cost>
+			<Cost>325</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -206,4 +210,16 @@
 			<PrereqTech>TECH_CONSECRATED_MARKETS</PrereqTech>
 		</Row>
 	</Technology_PrereqTechs>
+	<Technology_TradeRouteDomainExtraRange>
+		<Row>
+			<TechType>TECH_AGRICULTURE</TechType>
+			<DomainType>DOMAIN_SEA</DomainType>
+			<Range>10</Range>
+		</Row>
+		<Row>
+			<TechType>TECH_THEORICAL_INSPIRATION</TechType>
+			<DomainType>DOMAIN_SEA</DomainType>
+			<Range>7</Range>
+		</Row>
+	</Technology_TradeRouteDomainExtraRange>
 </GameData>

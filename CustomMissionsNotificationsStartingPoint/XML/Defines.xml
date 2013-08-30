@@ -5,5 +5,8 @@
 		<Row Name="TRADE_ROUTE_DURATION_TURNS">
 			<Value>5</Value>
 		</Row>
+		<Row Name="HURRY_GOLD_COST_PER_FAITH">
+			<Value>2</Value>
+		</Row>
 	</Defines>
 </GameData>

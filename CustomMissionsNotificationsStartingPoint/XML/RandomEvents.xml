@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/30/2013 8:02:20 PM -->
+<GameData>
+	<Table name="RandomEvents">
+		<!-- Basic Info -->
+		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
+		<Column name="Type" type="text" notnull="true" unique="true"/>
+		<Column name="Description" type="text" default="NULL" reference="Language_en_US(Tag)"/>
+		<!-- Occurrence controlling stuff -->
+		<Column name="Rarity" type="integer" default="50"/>
+		<Column name="ObsoleteEra" type="text" default="NULL" reference="Eras(Type)"/>
+		<Column name="ObsoleteTech" type="text" default="NULL" reference="Technologies(Type)"/>
+		<!-- UI Stuff -->
+		<Column name="CausesPopup" type="boolean" default="true"/>
+		<Column name="BackgroundImage" type="text" default="NULL"/>
+	</Table>
+</GameData>
