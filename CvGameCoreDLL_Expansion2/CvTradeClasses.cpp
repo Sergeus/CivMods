@@ -1811,6 +1811,7 @@ int CvPlayerTrade::GetTradeConnectionBaseValueTimes100(const TradeConnection& kT
 
 			if (eYield == YIELD_GOLD)
 			{
+				iResult *= 100;
 				if (!GET_PLAYER(kTradeConnection.m_eDestOwner).isMinorCiv())
 				{
 					int iBase = GC.getINTERNATIONAL_TRADE_BASE();
