@@ -30,8 +30,10 @@ gArgastReinforcementsFrequency = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_REIN
 gArgastReinforcementsProbability = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_REINFORCEMENT_PROBABILITY.Value
 gArgastDeclareWarEarliest = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DECLARE_WAR_EARLIEST.Value
 gArgastDenouncePlayerTurn = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DENOUNCE_PLAYER_NOT_AT_WAR.Value
+gNumydiaDenounceArgastTurn = GameInfo.SiegeModConstants.SIEGEMOD_NUMYDIA_DENOUNCE_ARGAST_NOT_AT_WAR_TURN.Value
 
-gArgastHasDenounced = false
+gArgastHasDenouncedSvesta = false
+gNumydiaHasDenouncedArgast = false
 
 gArgastReinforcements = {
 	[0] = GameInfoTypes.UNIT_ARGAST_RAIDERS,
@@ -111,16 +113,48 @@ function ArgastWar(playerID)
 	if currentTurn > gArgastDeclareWarEarliest and pArgastTeam:CanDeclareWar(pSvesta:GetTeam()) then
 		InitArgastWar(pArgast)
 
-	elseif currentTurn > gArgastDenouncePlayerTurn and not pArgastTeam:IsAtWar(pSvesta:GetTeam()) and not gArgastHasDenounced then
+	elseif currentTurn > gArgastDenouncePlayerTurn and not pArgastTeam:IsAtWar(pSvesta:GetTeam()) and not gArgastHasDenouncedSvesta then
 		print("Denouncing active player...")
 		pArgast:DoForceDenounce(playerID)
-		gArgastHasDenounced = true
+		gArgastHasDenouncedSvesta = true
 
 	elseif pArgastTeam:IsAtWar(pSvesta:GetTeam()) then
 		MaintainArgastWar(pArgast)
 	end
 end
 GameEvents.PlayerDoTurn.Add(ArgastWar)
+
+function NumydiaActions(playerID)
+	if playerID ~= Game.GetActivePlayer() then
+		return
+	end
+
+	print("Managing Numydia's actions...")
+
+	local currentTurn = Game.GetElapsedGameTurns()
+
+	local pNumydia
+	local pArgast
+
+	for i, pPlayer in pairs(Players) do
+		if pPlayer:GetCivilizationType() == GameInfoTypes.CIVILIZATION_NEMYDIAN_FEDERATION then
+			pNumydia = pPlayer
+			print("Found Numydia player...")
+		elseif pPlayer:GetCivilizationType() == GameInfoTypes.CIVILIZATION_ARGAST_EMPIRE then
+			pArgast = pPlayer
+			print("Found Argast player...")
+		end
+	end
+
+	local pNumydiaTeam = Teams[pNumydia:GetTeam()]
+	
+	if not pNumydiaTeam:IsAtWar(pArgast:GetTeam()) and not gNumydiaHasDenouncedArgast and currentTurn > gNumydiaDenounceArgastTurn then
+		print("Numydia is now denouncing Argast...")
+		pNumydia:DoForceDenounce(pArgast:GetID())
+		gNumydiaHasDenouncedArgast = true
+	end
+end
+GameEvents.PlayerDoTurn.Add(NumydiaActions)
 
 function ScaleConstantsBasedOnDifficulty()
 	print("Scenario constants not yet scaled by difficulty...")

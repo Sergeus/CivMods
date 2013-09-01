@@ -946,6 +946,14 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyFontIcon.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyFontIcon.ggxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyIcon128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -977,6 +985,14 @@
     <Content Include="Art\Religions\CirranOrthodoxy\CirranOrthodoxyIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Klonoa\KlonoaFontIcon.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Religions\Klonoa\KlonoaFontIcon.ggxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Religions\Klonoa\KlonoaIcon128.dds">
       <SubType>Lua</SubType>

@@ -24,5 +24,9 @@
 			<Type>SIEGEMOD_ARGAST_DENOUNCE_PLAYER_NOT_AT_WAR</Type>
 			<Value>5</Value>
 		</Row>
+		<Row>
+			<Type>SIEGEMOD_NUMYDIA_DENOUNCE_ARGAST_NOT_AT_WAR_TURN</Type>
+			<Value>7</Value>
+		</Row>
 	</SiegeModConstants>
 </GameData>

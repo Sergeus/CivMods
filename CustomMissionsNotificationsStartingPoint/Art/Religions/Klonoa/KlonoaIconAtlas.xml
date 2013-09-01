@@ -62,7 +62,7 @@
 	<IconFontTextures>
 		<Row>
 			<IconFontTexture>FONT_TEXTURE_KLONOA</IconFontTexture>
-			<IconFontTextureFile>KlonoaIcon24.dds</IconFontTextureFile>
+			<IconFontTextureFile>KlonoaFontIcon</IconFontTextureFile>
 		</Row>
 	</IconFontTextures>
 </GameData>
