@@ -412,7 +412,10 @@ public:
 	void SetUprisingCounter(int iValue);
 	void ChangeUprisingCounter(int iChange);
 	void DoResetUprisingCounter(bool bFirstTime);
-	void DoUprising();
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	void DoUprising(bool bCausedByTrait = false, PlayerTypes eCausePlayer = NO_PLAYER);
 
 	void DoUpdateCityRevolts();
 	int GetCityRevoltCounter() const;

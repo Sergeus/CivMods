@@ -10248,30 +10248,44 @@ void CvPlayer::DoUpdateUprisings()
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
-	CvTeam& kTeam = GET_TEAM(getTeam());
-	for (int i = 0; i < MAX_MAJOR_CIVS; i++)
+	if (!isBarbarian() && !isMinorCiv())
 	{
-		PlayerTypes eOtherPlayer = (PlayerTypes)i;
-		CvPlayer& kOtherPlayer = GET_PLAYER(eOtherPlayer);
-
-		CvPlayerTraits* pOtherTraits = kOtherPlayer.GetPlayerTraits();
-
-		if (kTeam.isAtWar(kOtherPlayer.getTeam())
-			&& pOtherTraits->IsWarCausesRebels())
+		CvTeam& kTeam = GET_TEAM(getTeam());
+		for (int i = 0; i < MAX_MAJOR_CIVS; i++)
 		{
-			if (GetUprisingCounter() > 0)
-			{
-				ChangeUprisingCounter(-1);
+			PlayerTypes eOtherPlayer = (PlayerTypes)i;
+			CvPlayer& kOtherPlayer = GET_PLAYER(eOtherPlayer);
 
-				if (GetUprisingCounter() == 0)
-				{
-					DoUprising();
-					SetUprisingCounter(pOtherTraits->GetWarRebellionInterval());
-				}
-			}
-			else 
+			CvPlayerTraits* pOtherTraits = kOtherPlayer.GetPlayerTraits();
+
+			if (kTeam.isAtWar(kOtherPlayer.getTeam())
+				&& pOtherTraits->IsWarCausesRebels())
 			{
-				SetUprisingCounter(pOtherTraits->GetWarRebellionInterval());
+				if (GetUprisingCounter() > 0)
+				{
+					ChangeUprisingCounter(-1);
+
+					if (GetUprisingCounter() == 0)
+					{
+						DoUprising(true, eOtherPlayer);
+						SetUprisingCounter(pOtherTraits->GetWarRebellionInterval());
+					}
+					else
+					{
+						Localization::String strMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_COUNTDOWN");
+						strMessage << kOtherPlayer.getLeaderTypeKey() << GetUprisingCounter();
+
+						GetNotifications()->Add((NotificationTypes)GC.getInfoTypeForString("NOTIFICATION_ENEMY_INSURGENTS_COUNTDOWN"), strMessage.toUTF8(), NULL, getCapitalCity()->getX(), getCapitalCity()->getY(), kOtherPlayer.getCivilizationType());
+					}
+				}
+				else 
+				{
+					SetUprisingCounter(pOtherTraits->GetWarRebellionInterval());
+
+					Localization::String strMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_INITIAL");
+					strMessage << kOtherPlayer.getLeaderTypeKey() << pOtherTraits->GetWarRebellionInterval();
+					GetNotifications()->Add((NotificationTypes)GC.getInfoTypeForString("NOTIFICATION_ENEMY_INSURGENTS_INITIAL"), strMessage.toUTF8(), NULL, getCapitalCity()->getX(), getCapitalCity()->getY(), kOtherPlayer.getCivilizationType());
+				}
 			}
 		}
 	}
@@ -10327,7 +10341,10 @@ void CvPlayer::DoResetUprisingCounter(bool bFirstTime)
 
 //	--------------------------------------------------------------------------------
 // Fire off an uprising somewhere
-void CvPlayer::DoUprising()
+// ----------------------------------------------------------------
+// SiegeMod Addition
+// ----------------------------------------------------------------
+void CvPlayer::DoUprising(bool bCausedByTrait, PlayerTypes eCausePlayer)
 {
 	// In hundreds
 	int iNumRebels = /*100*/ GC.getUPRISING_NUM_BASE();
@@ -10431,13 +10448,36 @@ void CvPlayer::DoUprising()
 			CvNotifications* pNotifications = GetNotifications();
 			if(pNotifications)
 			{
-				Localization::String strMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_REBELS");
-				Localization::String strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_REBELS_SUMMARY");
-				pNotifications->Add(NOTIFICATION_REBELS, strMessage.toUTF8(), strSummary.toUTF8(), pPlot->getX(), pPlot->getY(), eUnit, BARBARIAN_PLAYER);
+
+				// ----------------------------------------------------------------
+				// SiegeMod Addition
+				// ----------------------------------------------------------------
+				if (bCausedByTrait)
+				{
+					Localization::String strMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS");
+					strMessage << GET_PLAYER(eCausePlayer).getLeaderTypeKey();
+					pNotifications->Add((NotificationTypes)GC.getInfoTypeForString("NOTIFICATION_ENEMY_INSURGENTS"), strMessage.toUTF8(), NULL, pPlot->getX(), pPlot->getY(), eUnit, eCausePlayer);
+				}
+				else
+				{
+					Localization::String strMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_REBELS");
+					Localization::String strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_REBELS_SUMMARY");
+					pNotifications->Add(NOTIFICATION_REBELS, strMessage.toUTF8(), strSummary.toUTF8(), pPlot->getX(), pPlot->getY(), eUnit, BARBARIAN_PLAYER);
+				}
 			}
 
 			// Init unit
-			GET_PLAYER(BARBARIAN_PLAYER).initUnit(eUnit, pPlot->getX(), pPlot->getY());
+			// ----------------------------------------------------------------
+			// SiegeMod Addition
+			// ----------------------------------------------------------------
+			if (bCausedByTrait)
+			{
+				GET_PLAYER(eCausePlayer).initUnit(eUnit, pPlot->getX(), pPlot->getY());
+			}
+			else
+			{
+				GET_PLAYER(BARBARIAN_PLAYER).initUnit(eUnit, pPlot->getX(), pPlot->getY());
+			}
 			iNumRebels--;	// Reduce the count since we just added the seed rebel
 
 			// Loop until all rebels are placed
@@ -10446,9 +10486,23 @@ void CvPlayer::DoUprising()
 				iNumRebels--;
 
 				// Init unit
-				CvUnit* pUnit = GET_PLAYER(BARBARIAN_PLAYER).initUnit(eUnit, pPlot->getX(), pPlot->getY());
-				if (!pUnit->jumpToNearestValidPlotWithinRange(5))
-					pUnit->kill(false);		// Could not find a spot!
+				// ----------------------------------------------------------------
+				// SiegeMod Addition
+				// ----------------------------------------------------------------
+				if (bCausedByTrait)
+				{
+					CvUnit* pUnit = GET_PLAYER(eCausePlayer).initUnit(eUnit, pPlot->getX(), pPlot->getY());
+				
+					if (!pUnit->jumpToNearestValidPlotWithinRange(5))
+						pUnit->kill(false);		// Could not find a spot!
+				}
+				else
+				{
+					CvUnit* pUnit = GET_PLAYER(BARBARIAN_PLAYER).initUnit(eUnit, pPlot->getX(), pPlot->getY());
+				
+					if (!pUnit->jumpToNearestValidPlotWithinRange(5))
+						pUnit->kill(false);		// Could not find a spot!
+				}
 			}
 			while(iNumRebels > 0);
 		}

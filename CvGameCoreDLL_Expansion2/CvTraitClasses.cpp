@@ -88,6 +88,7 @@ CvTraitEntry::CvTraitEntry() :
 	m_iExtraUnitsWhenTrained(0),
 	m_iReqTradeRoutesForPeace(-1),
 	m_iReligionTakeOverTurns(-1),
+	m_iWarRebellionInterval(0),
 
 	m_eFreeUnitPrereqTech(NO_TECH),
 	m_eFreeBuilding(NO_BUILDING),
@@ -983,6 +984,7 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 	m_iReqTradeRoutesForPeace				= kResults.GetInt("ReqTradeRoutesForPeace");
 	m_iReligionTakeOverTurns				= kResults.GetInt("ReligionTakeoverTurns");
 	m_iExtraUnitsWhenTrained				= kResults.GetInt("ExtraUnitsWhenTrained");
+	m_iWarRebellionInterval					= kResults.GetInt("WarRebellionInterval");
 
 	const char* szTextVal = NULL;
 	szTextVal = kResults.GetText("FreeUnit");
