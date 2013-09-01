@@ -36,6 +36,11 @@
 			<UnitClassType>UNITCLASS_FRIGATE</UnitClassType>
 			<UnitType>UNIT_SVESTA_GALLEON_FLEET</UnitType>
 		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_SVESTA</CivilizationType>
+			<UnitClassType>UNITCLASS_CARAVAN</UnitClassType>
+			<UnitType/>
+		</Row>
 	</Civilization_UnitClassOverrides>
 	<Civilization_Leaders>
 		<Row>

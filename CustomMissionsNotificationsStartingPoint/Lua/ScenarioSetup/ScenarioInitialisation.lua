@@ -52,7 +52,7 @@ function InitSvesta(pPlayer)
 	print("Initializing Svesta...")
 
 	print("Founding Svestan pantheon...")
-	Game.FoundPantheon(pPlayer:GetID(), GameInfoTypes.BELIEF_MESSENGER_GODS)
+	Game.FoundPantheon(pPlayer:GetID(), GameInfoTypes.BELIEF_FAITH_HEALERS)
 	pPlayer:SetFaith(0)
 
 	print("Founding Advarn...")

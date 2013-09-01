@@ -16,8 +16,8 @@
 			<Class>UNITCLASS_FRIGATE</Class>
 			<Type>UNIT_SVESTA_GALLEON_FLEET</Type>
 			<PrereqTech>TECH_NAVAL_FORMATIONS</PrereqTech>
-			<Combat>25</Combat>
-			<RangedCombat>28</RangedCombat>
+			<Combat>19</Combat>
+			<RangedCombat>24</RangedCombat>
 			<Cost>185</Cost>
 			<Moves>5</Moves>
 			<HurryCostModifier>20</HurryCostModifier>
@@ -101,7 +101,7 @@
 		<Row>
 			<Class>UNITCLASS_GALLEASS</Class>
 			<Type>UNIT_NEMYD_CONSCRIPTED_RAKER</Type>
-			<Combat>16</Combat>
+			<Combat>15</Combat>
 			<RangedCombat>17</RangedCombat>
 			<Cost>100</Cost>
 			<Moves>4</Moves>

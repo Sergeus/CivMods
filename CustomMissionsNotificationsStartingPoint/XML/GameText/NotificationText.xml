@@ -60,5 +60,24 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_WAR_BLOCKED_PUPPETING_RELIGION_SUMMARY">
 			<Text>War Blocks Takeover</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_SUMMARY">
+			<Text>Insurgency</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS">
+			<Text>Insurgents loyal to {1_LeaderName} have appeared in your territory!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_INITIAL">
+			<Text>{1_LeaderName}'s insurgency has taken root in your lands. Their units will spawn in your territory in {2_NumTurns} turns.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_INITIAL_SUMMARY">
+			<Text>Insurgency</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_COUNTDOWN">
+			<Text>{1_LeaderName}'s insurgents will emerge in {2_NumTurns} turns.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_COUNTDOWN_SUMMARY">
+			<Text>Insurgency</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

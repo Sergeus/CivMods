@@ -399,6 +399,11 @@ function OnNotificationAdded( Id, type, toolTip, strSummary, iGameValue, iExtraG
 					index = techInfo.PortraitIndex
 					atlas = techInfo.IconAtlas
 
+				elseif (GameInfoTypes[notificationInfo.ExistingIconType] == GameInfoTypes.ICON_TYPE_CIV) then
+					local civInfo = GameInfo.Civilizations[iGameValue]
+					index = civInfo.PortraitIndex
+					atlas = civInfo.IconAtlas
+
 				elseif (notificationInfo.UsesRuntimeIndex == true) then
 					index = iGameValue
 

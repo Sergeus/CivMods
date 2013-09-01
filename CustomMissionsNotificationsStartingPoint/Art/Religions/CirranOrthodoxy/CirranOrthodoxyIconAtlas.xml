@@ -51,5 +51,18 @@
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
-	</IconTextureAtlases>
+	</IconTextureAtlases><!--
+	<IconFontMapping>
+		<Row>
+			<IconName>ICON_RELIGION_CIRRAN_ORTHODOXY</IconName>
+			<IconMapping>0</IconMapping>
+			<IconFontTexture>FONT_TEXTURE_CIRRAN_ORTHODOXY</IconFontTexture>
+		</Row>
+	</IconFontMapping>
+	<IconFontTextures>
+		<Row>
+			<IconFontTexture>FONT_TEXTURE_CIRRAN_ORTHODOXY</IconFontTexture>
+			<IconFontTextureFile>CirranOrthodoxyIcon24.dds</IconFontTextureFile>
+		</Row>
+	</IconFontTextures>-->
 </GameData>

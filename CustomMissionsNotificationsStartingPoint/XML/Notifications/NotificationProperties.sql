@@ -15,6 +15,8 @@ INSERT INTO NotificationIconTypes (Type)
 VALUES ('ICON_TYPE_PROJECT');
 INSERT INTO NotificationIconTypes (Type)
 VALUES ('ICON_TYPE_TECH');
+INSERT INTO NotificationIconTypes (Type)
+VALUES ('ICON_TYPE_CIV');
 
 CREATE TABLE TempNotifications
 (

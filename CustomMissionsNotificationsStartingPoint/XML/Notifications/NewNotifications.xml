@@ -71,5 +71,26 @@
 			<IconIndex>0</IconIndex>
 			<IconAtlas>PUPPET_RELIGION_NOTIFICATION_ATLAS</IconAtlas>
 		</Row>
+		
+		<!-- Trait Causes Rebels notifications -->
+		<Row>
+			<Type>NOTIFICATION_ENEMY_INSURGENTS</Type>
+			<Message>TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS</Message>
+			<Summary>TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_SUMMARY</Summary>
+			<MiniCivIcon>true</MiniCivIcon>
+			<ExistingIconType>ICON_TYPE_UNIT</ExistingIconType>
+		</Row>
+		<Row>
+			<Type>NOTIFICATION_ENEMY_INSURGENTS_INITIAL</Type>
+			<Message>TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_INITIAL</Message>
+			<Summary>TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_INITIAL_SUMMARY</Summary>
+			<ExistingIconType>ICON_TYPE_CIV</ExistingIconType>
+		</Row>
+		<Row>
+			<Type>NOTIFICATION_ENEMY_INSURGENTS_COUNTDOWN</Type>
+			<Message>TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_COUNTDOWN</Message>
+			<Summary>TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_COUNTDOWN_SUMMARY</Summary>
+			<ExistingIconType>ICON_TYPE_CIV</ExistingIconType>
+		</Row>
 	</Notifications>
 </GameData>

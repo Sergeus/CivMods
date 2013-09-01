@@ -33,82 +33,82 @@
 		<!-- Base Game Updates -->
 		<Update>
 			<Where Type="BUILDING_BARRACKS"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="90"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_AQUEDUCT"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="110"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_MARKET"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="140"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_LIGHTHOUSE"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="130"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_CASTLE"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="160"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_COURTHOUSE"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="200"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_FORGE"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="150"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_LIBRARY"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="110"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_GARDEN"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="140"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_GRANARY"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="110"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_STABLE"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="130"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_MINT"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="170"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_SHRINE"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="90"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_TEMPLE"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="140"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_STONE_WORKS"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="120"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_WATER_MILL"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="140"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_WORKSHOP"/>
-			<Set PrereqTech=""/>
+			<Set PrereqTech="" Cost="210"/>
 		</Update>
 		<Update>
 			<Where Type="BUILDING_HARBOR"/>
-			<Set PrereqTech="TECH_NAVAL_FORMATIONS"/>
+			<Set PrereqTech="TECH_NAVAL_FORMATIONS" Cost="270"/>
 		</Update>
 		
 		<!-- Building: Pier -->
 		<Row>
 			<Type>BUILDING_PIER</Type>
 			<BuildingClass>BUILDINGCLASS_PIER</BuildingClass>
-			<Cost>120</Cost>
+			<Cost>90</Cost>
 			<GoldMaintenance>2</GoldMaintenance>
 			<Help>TXT_KEY_BUILDING_PIER_HELP</Help>
 			<Description>TXT_KEY_BUILDING_PIER</Description>
@@ -134,7 +134,7 @@
 			<BuildingClass>BUILDINGCLASS_INQUISITION_CHAPTER</BuildingClass>
 			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
-			<Cost>40</Cost>
+			<Cost>310</Cost>
 			<GoldMaintenance>1</GoldMaintenance>
 			<PrereqTech>TECH_GRAND_INQUISITION</PrereqTech>
 			<Help>TXT_KEY_BUILDING_INQUISITION_CHAPTER_HELP</Help>
@@ -156,7 +156,7 @@
 			<BuildingClass>BUILDINGCLASS_MERCENARY_HOLDFAST</BuildingClass>
 			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra>
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
-			<Cost>40</Cost>
+			<Cost>280</Cost>
 			<GoldMaintenance>1</GoldMaintenance>
 			<PrereqTech>TECH_MERCHANT_FREEDOM</PrereqTech>
 			<Help>TXT_KEY_BUILDING_MERCENARY_HOLDFAST_HELP</Help>
@@ -176,7 +176,7 @@
 		<Row>
 			<Type>BUILDING_CLOCKWORK_MAGNOLIA</Type>
 			<BuildingClass>BUILDINGCLASS_CLOCKWORK_MAGNOLIA</BuildingClass>
-			<Cost>250</Cost>
+			<Cost>600</Cost>
 			<GoldMaintenance>3</GoldMaintenance>
 			<Help>TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA_HELP</Help>
 			<Description>TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA</Description>
@@ -203,7 +203,7 @@
 		<Row>
 			<Type>BUILDING_THEORS_ACADEMY</Type>
 			<BuildingClass>BUILDINGCLASS_THEORS_ACADEMY</BuildingClass>
-			<Cost>250</Cost>
+			<Cost>320</Cost>
 			<GoldMaintenance>2</GoldMaintenance>
 			<Help>TXT_KEY_BUILDING_THEORS_ACADEMY_HELP</Help>
 			<Description>TXT_KEY_BUILDING_THEORS_ACADEMY</Description>
