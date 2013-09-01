@@ -44,6 +44,8 @@ CvGameTrade::~CvGameTrade(void)
 void CvGameTrade::Init (void)
 {
 	Reset();
+
+	BuildTechDifference();
 }
 
 //	--------------------------------------------------------------------------------
