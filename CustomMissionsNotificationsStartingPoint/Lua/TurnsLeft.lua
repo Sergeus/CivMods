@@ -310,12 +310,6 @@ function CyatsActions(playerID)
 end
 GameEvents.PlayerDoTurn.Add(CyatsActions)
 
-function InitExpansions()
-	print("Expansion values should be set here...")
-end
-
-InitExpansions()
-
 function ScaleConstantsBasedOnDifficulty()
 	print("Scenario constants not yet scaled by difficulty...")
 end
