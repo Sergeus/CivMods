@@ -83,7 +83,7 @@ gCyatsFreeMissionaryNearSvestaInterval = GameInfo.SiegeModConstants.SIEGEMOD_CYA
 gCyatsNumPreachersPerSpawn = GameInfo.SiegeModConstants.SIEGEMOD_NUM_PREACHERS_PER_SPAWN.Value
 gCyatsMinPreacherSpawnDistance = GameInfo.SiegeModConstants.SIEGEMOD_MIN_PREACHER_SPAWN_DISTANCE.Value
 
-gCyatsNextExpansionTurn = gCyatsExpansionMinimum + Map.Rand(gCyatsExpansionVariance) - Map.Rand(gCyatsExpansionVariance)
+gCyatsNextExpansionTurn = gCyatsExpansionMinimum + Map.Rand(gCyatsExpansionVariance, "CyatsExpansion") - Map.Rand(gCyatsExpansionVariance, "CyatsExpansion")
 
 gArgastHasDenouncedSvesta = false
 gNumydiaHasDenouncedArgast = false
@@ -113,9 +113,9 @@ end
 function ReinforceArgast(pArgast)
 	print("Reinforcing Argast's armies...")
 	for i, coord in pairs(gArgastFortCoords) do
-		local unitRand = Map.Rand(#gArgastReinforcements)
+		local unitRand = Map.Rand(#gArgastReinforcements, "ArgastReinforcements")
 
-		local spawnRand = Map.Rand(100)
+		local spawnRand = Map.Rand(100, "ArgastReinforcements")
 		
 		if (spawnRand <= gArgastReinforcementsProbability) then
 			print("Giving unit " .. gArgastReinforcements[unitRand] .. " to Argast at " .. coord.X .. "," .. coord.Y .. "...")
@@ -242,7 +242,7 @@ function SpawnCyatPreacherNear(pCyats, iCenterX, iCenterY)
 
 	local r = 2
 
-	r = r + Map.Rand(2)
+	r = r + Map.Rand(2, "CyatPreacher")
 
 	print("Searching plots at radius " .. r .. "...")
 

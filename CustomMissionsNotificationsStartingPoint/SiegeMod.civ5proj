@@ -468,6 +468,7 @@
     <Folder Include="Lua" />
     <Folder Include="Art" />
     <Folder Include="Lua\DoubleUnitsTrait" />
+    <Folder Include="Lua\lib" />
     <Folder Include="Lua\ScenarioSetup" />
     <Folder Include="Maps" />
     <Folder Include="UI\InGame\TechTree" />
@@ -1173,6 +1174,10 @@
     <Content Include="Lua\DoubleUnitsTrait\ReqTradeRoutesForPeace.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\lib\PlotIterators.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Lua\RandomEvents.lua">
       <SubType>Lua</SubType>
