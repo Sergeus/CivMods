@@ -82,8 +82,11 @@
 		</Row>
 		
 		<!-- Scenario-specific notifications -->
-		<Row Tag="TXT_KEY_NOTIFICATION_NUMYDIA_EXPANDED_SUMMARY">
-			<Text>Numydia Expanded</Text>
+		<Row Tag="TXT_KEY_NOTIFICATION_ENEMY_EXPANDED_SUMMARY">
+			<Text>{!_CivName} Expanded</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_ENEMY_EXPANDED">
+			<Text>{1_CivName} has expanded, founding {2_CityName}.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_NUMYDIA_EXPANDED">
 			<Text>War between Numydia and Argastinium is inevitable. In an attempt to bolster their position, Numydia have expanded to new land.</Text>

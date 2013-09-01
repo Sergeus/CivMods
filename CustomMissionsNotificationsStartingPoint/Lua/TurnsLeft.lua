@@ -3,6 +3,13 @@
 -- DateCreated: 8/22/2013 10:09:03 PM
 --------------------------------------------------------------
 
+include("PlotIterators")
+
+gSvestaCoords = {
+	["X"] = 36,
+	["Y"] = 23,
+}
+
 gArgastFortCoords = {
 	[0] = { 
 		["X"] = 32,
@@ -55,17 +62,28 @@ gArgastExpansionCoords = {
 		["X"] = 13,
 		["Y"] = 40,
 	},
+	[2] = {
+		["X"] = 50,
+		["Y"] = 38,
+	},
 }
 
 gArgastReinforcementsFrequency = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_REINFORCEMENT_FREQUENCY.Value
 gArgastReinforcementsProbability = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_REINFORCEMENT_PROBABILITY.Value
 gArgastDeclareWarEarliest = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DECLARE_WAR_EARLIEST.Value
 gArgastDenouncePlayerTurn = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DENOUNCE_PLAYER_NOT_AT_WAR.Value
+
 gNumydiaDenounceArgastTurn = GameInfo.SiegeModConstants.SIEGEMOD_NUMYDIA_DENOUNCE_ARGAST_NOT_AT_WAR_TURN.Value
 gNumydiaExpansionTurn = GameInfo.SiegeModConstants.SIEGEMOD_NUMYDIA_EXPANSION_TURN.Value
-gCyatsExpansionTurnFirst = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_TURN_FIRST.Value
-gCyatsExpansionTurnSecond = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_TURN_SECOND.Value
-gCyatsExpansionTurnThird = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_TURN_THIRD.Value
+
+gCyatsExpansionMinimum = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_MINIMUM.Value
+gCyatsExpansionInterval = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_INTERVAL.Value
+gCyatsExpansionVariance = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_VARIANCE.Value
+gCyatsFreeMissionaryNearSvestaInterval = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_FREE_MISSIONARY_NEAR_SVESTA_INTERVAL.Value
+gCyatsNumPreachersPerSpawn = GameInfo.SiegeModConstants.SIEGEMOD_NUM_PREACHERS_PER_SPAWN.Value
+gCyatsMinPreacherSpawnDistance = GameInfo.SiegeModConstants.SIEGEMOD_MIN_PREACHER_SPAWN_DISTANCE.Value
+
+gCyatsNextExpansionTurn = gCyatsExpansionMinimum + Map.Rand(gCyatsExpansionVariance) - Map.Rand(gCyatsExpansionVariance)
 
 gArgastHasDenouncedSvesta = false
 gNumydiaHasDenouncedArgast = false
@@ -201,10 +219,46 @@ function NumydiaActions(playerID)
 		print("Giving Numydia another worker for their new city...")
 		pNumydia:InitUnit(GameInfoTypes.UNIT_WORKER, gNumydiaExpansionCoords.X, gNumydiaExpansionCoords.Y)
 
-		Players[Game.GetActivePlayer()]:AddNotification(GameInfoTypes.NOTIFICATION_NUMYDIA_EXPANDED, nil, nil, gNumydiaExpansionCoords.X, gNumydiaExpansionCoords.Y, GameInfoTypes.CIVILIZATION_NUMYDIA)
+		local message = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_NUMYDIA_EXPANDED")
+		local summary = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_ENEMY_EXPANDED_SUMMARY", pNumydia:GetNameKey())
+
+		Players[Game.GetActivePlayer()]:AddNotification(GameInfoTypes.NOTIFICATION_ENEMY_EXPANDED, message, summary, gNumydiaExpansionCoords.X, gNumydiaExpansionCoords.Y, GameInfoTypes.CIVILIZATION_NUMYDIA)
 	end
 end
 GameEvents.PlayerDoTurn.Add(NumydiaActions)
+
+function IsValidForPreacher(pPlot)
+	if pPlot:IsWater() or pPlot:IsUnit() or pPlot:IsImpassable() then
+		return false
+	end
+
+	return true
+end
+
+function SpawnCyatPreacherNear(pCyats, iCenterX, iCenterY)
+	print("Spawning a Cyat preacher somewhere near " .. iCenterX .. "," .. iCenterY .. "...")
+
+	local pPlot = Map.GetPlot(iCenterX, iCenterY)
+
+	local r = 2
+
+	r = r + Map.Rand(2)
+
+	print("Searching plots at radius " .. r .. "...")
+
+	local numSpawned = 0
+	local distance = gCyatsMinPreacherSpawnDistance
+
+	for pEdgePlot in PlotRingIterator(pPlot, r) do
+		if distance >= gCyatsMinPreacherSpawnDistance and IsValidForPreacher(pEdgePlot) then
+			print("Spawning preacher at " .. pEdgePlot:GetX() .. "," .. pEdgePlot:GetY() .. "...")
+			pCyats:InitUnit(GameInfoTypes.UNIT_CYAT_PREACHER, pEdgePlot:GetX(), pEdgePlot:GetY())
+			distance = 0
+		else
+			distance = distance + 1
+		end
+	end
+end
 
 function CyatsActions(playerID)
 	if playerID ~= Game.GetActivePlayer() then
@@ -224,9 +278,43 @@ function CyatsActions(playerID)
 
 	local currentTurn = Game.GetElapsedGameTurns()
 
+	if math.fmod(currentTurn, gCyatsFreeMissionaryNearSvestaInterval) == 0 then
+		print("Time to spawn a preacher near Svesta...")
+		SpawnCyatPreacherNear(pCyats, pSvestaCoords.X, pSvestaCoords.Y)
+	end
 
+	if currentTurn == gCyatsNextExpansionTurn and gCyatsExpansionCoords[gCyatsNextExpansion] ~= nil then
+		print("Cyats are expanding now...")
+
+		print("Founding city...")
+		pCyats:Found(gCyatsExpansionCoords[gCyatsNextExpansion].X, gCyatsExpansionCoords[gCyatsNextExpansion].Y)
+
+		if math.fmod(gCyatsNextExpansion, 2) then
+			print("Giving them a new worker to go with the city...")
+			pCyats:InitUnit(GameInfoTypes.UNIT_WORKER, gCyatsExpansionCoords[gCyatsNextExpansion].X, gCyatsExpansionCoords[gCyatsNextExpansion].Y)
+		end
+
+		print("Notifying player...")
+
+		-- TODO should include city name in notification message
+
+		local message = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_ENEMY_EXPANDED", pCyats:GetNameKey())
+		local summary = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_ENEMY_EXPANDED_SUMMARY", pCyats:GetNameKey())
+
+		Players[Game.GetActivePlayer()]:AddNotification(GameInfoTypes.NOTIFICATION_ENEMY_EXPANDED, message, summary,
+			gCyatsExpansionCoords[gCyatsNextExpansion].X, gCyatsExpansionCoords[gCyatsNextExpansion].Y, GameInfoTypes.CIVILIZATION_CYATS)
+
+		print("Increasing city index...")
+		gCyatsNextExpansion = gCyatsNextExpansion + 1
+	end
 end
 GameEvents.PlayerDoTurn.Add(CyatsActions)
+
+function InitExpansions()
+	print("Expansion values should be set here...")
+end
+
+InitExpansions()
 
 function ScaleConstantsBasedOnDifficulty()
 	print("Scenario constants not yet scaled by difficulty...")
