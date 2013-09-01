@@ -10273,7 +10273,7 @@ void CvPlayer::DoUpdateUprisings()
 					else
 					{
 						Localization::String strMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_COUNTDOWN");
-						strMessage << kOtherPlayer.getLeaderTypeKey() << GetUprisingCounter();
+						strMessage << kOtherPlayer.getName() << GetUprisingCounter();
 
 						GetNotifications()->Add((NotificationTypes)GC.getInfoTypeForString("NOTIFICATION_ENEMY_INSURGENTS_COUNTDOWN"), strMessage.toUTF8(), NULL, getCapitalCity()->getX(), getCapitalCity()->getY(), kOtherPlayer.getCivilizationType());
 					}
@@ -10283,7 +10283,7 @@ void CvPlayer::DoUpdateUprisings()
 					SetUprisingCounter(pOtherTraits->GetWarRebellionInterval());
 
 					Localization::String strMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_INITIAL");
-					strMessage << kOtherPlayer.getLeaderTypeKey() << pOtherTraits->GetWarRebellionInterval();
+					strMessage << kOtherPlayer.getName() << pOtherTraits->GetWarRebellionInterval();
 					GetNotifications()->Add((NotificationTypes)GC.getInfoTypeForString("NOTIFICATION_ENEMY_INSURGENTS_INITIAL"), strMessage.toUTF8(), NULL, getCapitalCity()->getX(), getCapitalCity()->getY(), kOtherPlayer.getCivilizationType());
 				}
 			}
@@ -10455,7 +10455,7 @@ void CvPlayer::DoUprising(bool bCausedByTrait, PlayerTypes eCausePlayer)
 				if (bCausedByTrait)
 				{
 					Localization::String strMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS");
-					strMessage << GET_PLAYER(eCausePlayer).getLeaderTypeKey();
+					strMessage << GET_PLAYER(eCausePlayer).getName();
 					pNotifications->Add((NotificationTypes)GC.getInfoTypeForString("NOTIFICATION_ENEMY_INSURGENTS"), strMessage.toUTF8(), NULL, pPlot->getX(), pPlot->getY(), eUnit, eCausePlayer);
 				}
 				else
