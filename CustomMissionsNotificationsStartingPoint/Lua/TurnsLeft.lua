@@ -31,6 +31,8 @@ gArgastReinforcementsProbability = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_RE
 gArgastDeclareWarEarliest = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DECLARE_WAR_EARLIEST.Value
 gArgastDenouncePlayerTurn = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DENOUNCE_PLAYER_NOT_AT_WAR.Value
 
+gArgastHasDenounced = false
+
 gArgastReinforcements = {
 	[0] = GameInfoTypes.UNIT_ARGAST_RAIDERS,
 	[1] = GameInfoTypes.UNIT_CATAPULT,
@@ -109,9 +111,10 @@ function ArgastWar(playerID)
 	if currentTurn > gArgastDeclareWarEarliest and pArgastTeam:CanDeclareWar(pSvesta:GetTeam()) then
 		InitArgastWar(pArgast)
 
-	elseif currentTurn > gArgastDenouncePlayerTurn and not pArgastTeam:IsAtWar(pSvesta:GetTeam()) then
+	elseif currentTurn > gArgastDenouncePlayerTurn and not pArgastTeam:IsAtWar(pSvesta:GetTeam()) and not gArgastHasDenounced then
 		print("Denouncing active player...")
 		pArgast:DoForceDenounce(playerID)
+		gArgastHasDenounced = true
 
 	elseif pArgastTeam:IsAtWar(pSvesta:GetTeam()) then
 		MaintainArgastWar(pArgast)

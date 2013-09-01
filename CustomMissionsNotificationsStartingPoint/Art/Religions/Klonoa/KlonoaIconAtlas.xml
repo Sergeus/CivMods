@@ -51,7 +51,7 @@
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
-	</IconTextureAtlases><!--
+	</IconTextureAtlases>
 	<IconFontMapping>
 		<Row>
 			<IconName>ICON_RELIGION_KLONOA</IconName>
@@ -64,5 +64,5 @@
 			<IconFontTexture>FONT_TEXTURE_KLONOA</IconFontTexture>
 			<IconFontTextureFile>KlonoaIcon24.dds</IconFontTextureFile>
 		</Row>
-	</IconFontTextures>-->
+	</IconFontTextures>
 </GameData>

@@ -51,7 +51,7 @@
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
-	</IconTextureAtlases><!--
+	</IconTextureAtlases>
 	<IconFontMapping>
 		<Row>
 			<IconName>ICON_RELIGION_ADVARN</IconName>
@@ -62,7 +62,7 @@
 	<IconFontTextures>
 		<Row>
 			<IconFontTexture>FONT_TEXTURE_ADVARN</IconFontTexture>
-			<IconFontTextureFile>AdvarnIcon24.dds</IconFontTextureFile>
+			<IconFontTextureFile>AdvarnFontIcon</IconFontTextureFile>
 		</Row>
-	</IconFontTextures>-->
+	</IconFontTextures>
 </GameData>
