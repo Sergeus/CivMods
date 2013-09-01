@@ -61,6 +61,7 @@
 			<Text>War Blocks Takeover</Text>
 		</Row>
 
+		<!-- Insurgency trait notifications -->
 		<Row Tag="TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_SUMMARY">
 			<Text>Insurgency</Text>
 		</Row>
@@ -78,6 +79,14 @@
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_COUNTDOWN_SUMMARY">
 			<Text>Insurgency</Text>
+		</Row>
+		
+		<!-- Scenario-specific notifications -->
+		<Row Tag="TXT_KEY_NOTIFICATION_NUMYDIA_EXPANDED_SUMMARY">
+			<Text>Numydia Expanded</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_NUMYDIA_EXPANDED">
+			<Text>War between Numydia and Argastinium is inevitable. In an attempt to bolster their position, Numydia have expanded to new land.</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

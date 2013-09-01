@@ -92,5 +92,11 @@
 			<Summary>TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS_COUNTDOWN_SUMMARY</Summary>
 			<ExistingIconType>ICON_TYPE_CIV</ExistingIconType>
 		</Row>
+		<Row>
+			<Type>NOTIFICATION_NUMYDIA_EXPANDED</Type>
+			<Message>TXT_KEY_NOTIFICATION_NUMYDIA_EXPANDED</Message>
+			<Summary>TXT_KEY_NOTIFICATION_NUMYDIA_EXPANDED_SUMMARY</Summary>
+			<ExistingIconType>ICON_TYPE_CIV</ExistingIconType>
+		</Row>
 	</Notifications>
 </GameData>

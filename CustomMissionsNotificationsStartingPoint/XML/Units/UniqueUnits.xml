@@ -200,6 +200,10 @@
 			<UnitType>UNIT_NEMYD_CONSCRIPTED_RAKER</UnitType>
 			<PromotionType>PROMOTION_STEAM_POWERED</PromotionType>
 		</Row>
+		<Row>
+			<UnitType>UNIT_NEMYD_CONSCRIPTED_RAKER</UnitType>
+			<PromotionType>PROMOTION_RIVAL_TERRITORY</PromotionType>
+		</Row>
 	</Unit_FreePromotions>
 	<Unit_FreeUnitAfterSurvivingMeleeCombat>
 		<Row>

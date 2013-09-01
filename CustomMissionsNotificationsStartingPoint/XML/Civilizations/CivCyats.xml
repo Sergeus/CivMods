@@ -74,5 +74,17 @@
 			<CivilizationType>CIVILIZATION_CYATS</CivilizationType>
 			<CityName>TXT_KEY_CITY_NAME_INESH</CityName>
 		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_CYATS</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_KOSHUN</CityName>
+		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_CYATS</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_TREERYN</CityName>
+		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_CYATS</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_ALSACHE</CityName>
+		</Row>
 	</Civilization_CityNames>
 </GameData>

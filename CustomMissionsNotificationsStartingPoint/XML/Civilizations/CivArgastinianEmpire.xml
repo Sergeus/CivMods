@@ -132,5 +132,17 @@
 			<CivilizationType>CIVILIZATION_ARGAST_EMPIRE</CivilizationType>
 			<CityName>TXT_KEY_CITY_NAME_ARGAN_CHIN</CityName>
 		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_ARGAST_EMPIRE</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_ARGAN_HOST</CityName>
+		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_ARGAST_EMPIRE</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_INGSET</CityName>
+		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_ARGAST_EMPIRE</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_LOCHTIN</CityName>
+		</Row>
 	</Civilization_CityNames>
 </GameData>

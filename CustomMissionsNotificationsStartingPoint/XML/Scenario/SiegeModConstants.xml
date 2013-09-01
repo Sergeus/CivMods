@@ -28,5 +28,21 @@
 			<Type>SIEGEMOD_NUMYDIA_DENOUNCE_ARGAST_NOT_AT_WAR_TURN</Type>
 			<Value>7</Value>
 		</Row>
+		<Row>
+			<Type>SIEGEMOD_NUMYDIA_EXPANSION_TURN</Type>
+			<Value>17</Value>
+		</Row>
+		<Row>
+			<Type>SIEGEMOD_CYATS_EXPANSION_TURN_FIRST</Type>
+			<Value>22</Value>
+		</Row>
+		<Row>
+			<Type>SIEGEMOD_CYATS_EXPANSION_TURN_SECOND</Type>
+			<Value>31</Value>
+		</Row>
+		<Row>
+			<Type>SIEGEMOD_CYATS_EXPANSION_TURN_THIRD</Type>
+			<Value>39</Value>
+		</Row>
 	</SiegeModConstants>
 </GameData>

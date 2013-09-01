@@ -45,5 +45,9 @@
 			<UnitType>UNIT_GALLEASS</UnitType>
 			<PromotionType>PROMOTION_STEAM_POWERED</PromotionType>
 		</Row>
+		<Row>
+			<UnitType>UNIT_FRIGATE</UnitType>
+			<PromotionType>PROMOTION_RIVAL_TERRITORY</PromotionType>
+		</Row>
 	</Unit_FreePromotions>
 </GameData>

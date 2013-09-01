@@ -76,5 +76,9 @@
 			<CivilizationType>CIVILIZATION_NEMYDIAN_FEDERATION</CivilizationType>
 			<CityName>TXT_KEY_CITY_NAME_SESHET</CityName>
 		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_NEMYDIAN_FEDERATION</CivilizationType>
+			<CityName>TXT_KEY_CITY_NAME_INTEP</CityName>
+		</Row>
 	</Civilization_CityNames>
 </GameData>
