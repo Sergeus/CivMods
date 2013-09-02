@@ -2949,6 +2949,12 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 			{
 				iMod += techModifier;
 			}
+
+			CvTeam& kReligionFounderTeam = GET_TEAM(GET_PLAYER(GC.getGame().GetGameReligions()->GetReligion(eReligion)->m_eFounder).getTeam());
+			if (kReligionFounderTeam.GetTeamTechs()->HasTech(eTech))
+			{
+				iMod += pTechEntry->GetPlayerReligionPressureAbroadModifier();
+			}
 		}
 	}
 

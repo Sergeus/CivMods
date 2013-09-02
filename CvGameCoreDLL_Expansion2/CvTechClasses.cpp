@@ -138,6 +138,7 @@ bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	m_iForeignReligionSpreadModifier = kResults.GetInt("ForeignReligionSpreadModifier");
+	m_iPlayerReligionPressureAbroadModifier = kResults.GetInt("PlayerReligionPressureAbroadModifier");
 	m_bStopsForeignReligions = kResults.GetInt("StopsForeignReligions");
 
 	//References
@@ -222,6 +223,10 @@ bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 int CvTechEntry::GetForeignReligionSpreadModifier() const
 {
 	return m_iForeignReligionSpreadModifier;
+}
+int CvTechEntry::GetPlayerReligionPressureAbroadModifier() const
+{
+	return m_iPlayerReligionPressureAbroadModifier;
 }
 bool CvTechEntry::IsStopsForeignReligions() const
 {
