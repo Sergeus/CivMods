@@ -91,6 +91,8 @@ gNumydiaHasDenouncedArgast = false
 gArgastNextExpansion = 0
 gCyatsNextExpansion = 0
 
+gGoldRequiredForWin = GameInfo.SiegeModConstants.SIEGEMOD_GOLD_REQUIRED_FOR_VICTORY.Value
+
 gArgastReinforcements = {
 	[0] = GameInfoTypes.UNIT_ARGAST_RAIDERS,
 	[1] = GameInfoTypes.UNIT_CATAPULT,
@@ -102,7 +104,7 @@ function InitArgastWar(pArgast)
 	print("Initializing Argast's war with the player...")
 
 	print("Giving Argast some free Raiders...")
-	for i, coord in pairs(gArgastFortCoords) do
+	for _, coord in pairs(gArgastFortCoords) do
 		pArgast:InitUnit(GameInfoTypes.UNIT_ARGAST_RAIDERS, coord.X, coord.Y)
 	end
 
@@ -112,7 +114,7 @@ end
 
 function ReinforceArgast(pArgast)
 	print("Reinforcing Argast's armies...")
-	for i, coord in pairs(gArgastFortCoords) do
+	for _, coord in pairs(gArgastFortCoords) do
 		local unitRand = Map.Rand(#gArgastReinforcements, "ArgastReinforcements")
 
 		local spawnRand = Map.Rand(100, "ArgastReinforcements")
@@ -166,6 +168,10 @@ function ArgastWar(playerID)
 
 	print("Argast war check sees turn number " .. currentTurn .. "...")
 
+	if not pArgastTeam:CanDeclareWar(pSvesta:GetTeam()) then
+		print("Argast cannot declare war on Svesta this turn.")
+	end
+
 	if currentTurn > gArgastDeclareWarEarliest and pArgastTeam:CanDeclareWar(pSvesta:GetTeam()) then
 		InitArgastWar(pArgast)
 
@@ -192,7 +198,7 @@ function NumydiaActions(playerID)
 	local pNumydia
 	local pArgast
 
-	for i, pPlayer in pairs(Players) do
+	for _, pPlayer in pairs(Players) do
 		if pPlayer:GetCivilizationType() == GameInfoTypes.CIVILIZATION_NEMYDIAN_FEDERATION then
 			pNumydia = pPlayer
 			print("Found Numydia player...")
@@ -269,7 +275,7 @@ function CyatsActions(playerID)
 
 	local pCyats
 
-	for i, pPlayer in pairs(Players) do
+	for _, pPlayer in pairs(Players) do
 		if pPlayer:GetCivilizationType() == GameInfoTypes.CIVILIZATION_CYATS then
 			pCyats = pPlayer
 			print("Found Cyats player...")
@@ -280,7 +286,7 @@ function CyatsActions(playerID)
 
 	if math.fmod(currentTurn, gCyatsFreeMissionaryNearSvestaInterval) == 0 then
 		print("Time to spawn a preacher near Svesta...")
-		SpawnCyatPreacherNear(pCyats, pSvestaCoords.X, pSvestaCoords.Y)
+		SpawnCyatPreacherNear(pCyats, gSvestaCoords.X, gSvestaCoords.Y)
 	end
 
 	if currentTurn == gCyatsNextExpansionTurn and gCyatsExpansionCoords[gCyatsNextExpansion] ~= nil then
@@ -296,9 +302,9 @@ function CyatsActions(playerID)
 
 		print("Notifying player...")
 
-		-- TODO should include city name in notification message
+		local pCity = Map.GetPlot(gCyatsExpansionCoords[gCyatsNextExpansion].X, gCyatsExpansionCoords[gCyatsNextExpansion].Y):GetPlotCity()
 
-		local message = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_ENEMY_EXPANDED", pCyats:GetNameKey())
+		local message = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_ENEMY_EXPANDED", pCyats:GetNameKey(), pCity:GetNameKey())
 		local summary = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_ENEMY_EXPANDED_SUMMARY", pCyats:GetNameKey())
 
 		Players[Game.GetActivePlayer()]:AddNotification(GameInfoTypes.NOTIFICATION_ENEMY_EXPANDED, message, summary,
@@ -306,12 +312,19 @@ function CyatsActions(playerID)
 
 		print("Increasing city index...")
 		gCyatsNextExpansion = gCyatsNextExpansion + 1
+
+		gCyatsNextExpansionTurn = gCyatsNextExpansionTurn + gCyatsExpansionInterval 
+			+ Map.Rand(gCyatsExpansionVariance, "CyatsExpansion") - Map.Rand(gCyatsExpansionVariance, "CyatsExpansion")
 	end
 end
 GameEvents.PlayerDoTurn.Add(CyatsActions)
 
 function ScaleConstantsBasedOnDifficulty()
 	print("Scenario constants not yet scaled by difficulty...")
+
+	print("Telling other contexts about the gold required to win...")
+
+	LuaEvents.SiegeModGoldRequiredChanged(gGoldRequiredForWin)
 end
 
 ScaleConstantsBasedOnDifficulty()

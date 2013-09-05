@@ -5,22 +5,24 @@
 ----------------------------------------------------------------
 include("\ScenarioUtilities.lua")
 
+gGoldRequired = 1000000
+
+function OnGoldRequiredUpdated(goldRequired)
+	print("Required gold changed to " .. goldRequired .. "...")
+	gGoldRequired = goldRequired
+end
+LuaEvents.SiegeModGoldRequiredChanged.Add(OnGoldRequiredUpdated)
+
 ---------------------------------------------------------------------
 function OnUpdate()
 	-- Loop through all the Majors checking for a luxury based victory
-	local iLuxuriesAcquired = 0;
-	local iLuxuriesRequired = GetLuxuriesRequired();
-	for iPlayerLoop = 0, GameDefines.MAX_MAJOR_CIVS-1, 1 do
-		local player = Players[iPlayerLoop];
-		if (player:IsAlive()) then
-			if (GetLuxuriesAcquired(player) >= iLuxuriesRequired) then
-				ScenarioWin(ContextPtr, player, "VICTORY_DIPLOMATIC")
-			else
-				if (iPlayerLoop == Game.GetActivePlayer()) then
-					iLuxuriesAcquired = GetLuxuriesAcquired(player);
-				end
-			end
-		end
+
+	local pSvesta = Players[Game.GetActivePlayer()]
+
+	local svestaGold = pSvesta:GetGold()
+
+	if svestaGold > gGoldRequired then
+		ScenarioWin(ContextPtr, pSvesta, "VICTORY_MERCANTILE")
 	end
 
 	-- Check for a domination victory or out of turns
@@ -30,7 +32,7 @@ function OnUpdate()
 		ScenarioLose(ContextPtr)
 	else
 		-- Update the victory progress banner
-		Controls.VictoryProgressLabel:LocalizeAndSetText("TXT_KEY_SCENARIO_VICTORY_PROGRESS", iLuxuriesAcquired, iLuxuriesRequired);
+		Controls.VictoryProgressLabel:LocalizeAndSetText("TXT_KEY_SCENARIO_VICTORY_PROGRESS", gGoldRequired - svestaGold);
 		-- Controls.VictoryProgressLabel:LocalizeAndSetText("TXT_KEY_SCENARIO_TURNS_REMAINING", ScenarioTurnsRemaining());
 		-- Controls.VictoryProgressLabel:LocalizeAndSetText("TXT_KEY_SCENARIO_TURNS_AND_OPPONENTS_REMAINING", ScenarioTurnsRemaining(), ScenarioCountOpponents());
 		Controls.Grid:DoAutoSize();
@@ -51,26 +53,4 @@ Controls.BriefingButton:RegisterCallback(Mouse.eLClick, OnBriefingButton);
 Events.SerialEventEnterCityScreen.Add(function() ContextPtr:SetHide(true) end);
 Events.SerialEventExitCityScreen.Add(function() ContextPtr:SetHide(false) end);
 
----------------------------------------------------------------------
-function GetLuxuriesRequired()
-	-- 15 luxuries less one for each difficulty removed from Deity
-	-- So Deity requires all 15 (15 - (7-7)),
-	-- while Chieftain only needs 9 (15 - (7-1))
-	return 15 - (7 - PreGame.GetHandicap(0));
-end
-
-function GetLuxuriesAcquired(pPlayer)
-	local luxCount = 0;
-
-	for resource in GameInfo.Resources() do
-		local resourceID = resource.ID;
-		if (pPlayer:GetNumResourceTotal(resourceID, true) > 0) then
-			if (resource.Happiness ~= 0) then
-				luxCount = luxCount + 1;
-			end
-		end
-	end
-
-	return luxCount;
-end
 ---------------------------------------------------------------------

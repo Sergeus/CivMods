@@ -377,6 +377,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Scenario/SiegeModConstants.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Scenario/Victories.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -414,6 +419,12 @@
         <Name>Scenario Initialization</Name>
         <Description>Scenario Initialization</Description>
         <FileName>Lua/ScenarioSetup/ScenarioInitialisation.lua</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Victory Progress</Name>
+        <Description>Victory Progress</Description>
+        <FileName>UI/ScenarioVictoryProgress.xml</FileName>
       </Content>
     </ModContent>
     <ReloadUnitSystem>true</ReloadUnitSystem>
@@ -1396,6 +1407,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Scenario\SiegeModConstants.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Scenario\Victories.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

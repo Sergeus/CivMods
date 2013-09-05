@@ -19,7 +19,7 @@
       <Text>SiegeMod Map</Text>
     </Row>
     <Row Tag="TXT_KEY_SCENARIO_VICTORY_PROGRESS">
-      <Text>Luxuries acquired by you: {1_LuxuriesAcquired}[NEWLINE]Luxuries required for victory: {2_LuxuriesRequired}</Text>
+      <Text>You need {1_GoldDifference} more [ICON_GOLD] to permanently purchase your independence from Argastinium.</Text>
     </Row>
 
     <!-- Common last man standing text - shouldn't need changing -->

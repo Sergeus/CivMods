@@ -60,5 +60,9 @@
 			<Type>SIEGEMOD_MIN_PREACHER_SPAWN_DISTANCE</Type>
 			<Value>2</Value>
 		</Row>
+		<Row>
+			<Type>SIEGEMOD_GOLD_REQUIRED_FOR_VICTORY</Type>
+			<Value>5000</Value>
+		</Row>
 	</SiegeModConstants>
 </GameData>

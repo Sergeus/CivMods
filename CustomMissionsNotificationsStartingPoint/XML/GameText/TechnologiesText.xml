@@ -132,10 +132,25 @@
 		</Row>
 
 		<Row Tag="TXT_KEY_RELIGION_SPREAD_CHANGED_BY_TECH">
-			<Text>Foreign religions spread to your cities {1_ForeignReligionModifier}% {2_SpeedAdjective}.</Text>
+			<Text>Foreign religions exert {1_ForeignReligionModifier}% {2_MoreOrLess} pressure in your cities.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_FOREIGN_RELIGIONS_STOPPED_BY_TECH">
 			<Text>Foreign religions exert no pressure in cities you own.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLAYER_RELIGION_SPREADS_FASTER_BECAUSE_TECH">
+			<Text>Your religion exerts {1_Modifier}% {2_MoreOrLess} pressure in foreign cities.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COMPARATIVE_DESCRIPTOR_MORE">
+			<Text>more</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COMPARATIVE_DESCRIPTOR_LESS">
+			<Text>less</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COMPARATIVE_DESCRIPTOR_FASTER">
+			<Text>faster</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COMPARATIVE_DESCRIPTOR_SLOWER">
+			<Text>slower</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

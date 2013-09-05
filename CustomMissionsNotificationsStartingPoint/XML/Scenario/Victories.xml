@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/3/2013 9:42:56 PM -->
+<GameData>
+	<Victories>
+		<Row>
+			<Type>VICTORY_MERCANTILE</Type>
+			<Description>TXT_KEY_VICTORY_MERCANTILE_</Description>
+			<VictoryStatement>TXT_KEY_VICTORY_MERCANTILE_BANG</VictoryStatement>
+			<VictoryBackground>Victory_Diplomatic.dds</VictoryBackground>
+			<Civilopedia>TXT_KEY_VICTORY_MERCANTILE_PEDIA</Civilopedia>
+			<WinsGame>true</WinsGame>
+			<Audio>AS2D_VICTORY_SPEECH_ALTERNATE_CONQUEST_VICTORY</Audio>
+		</Row>
+	</Victories>
+</GameData>

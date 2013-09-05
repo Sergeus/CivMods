@@ -540,9 +540,9 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 			local modifier = tech.ForeignReligionSpreadModifier
 			if (modifier < 0) then
 				modifier = modifier * -1
-				thisButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_RELIGION_SPREAD_CHANGED_BY_TECH", modifier, "slower" ) );
+				thisButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_RELIGION_SPREAD_CHANGED_BY_TECH", modifier, "TXT_KEY_COMPARATIVE_DESCRIPTOR_LESS" ) );
 			else
-				thisButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_RELIGION_SPREAD_CHANGED_BY_TECH", modifier, "faster" ) );
+				thisButton:SetToolTipString( Locale.ConvertTextKey( "TXT_KEY_RELIGION_SPREAD_CHANGED_BY_TECH", modifier, "TXT_KEY_COMPARATIVE_DESCRIPTOR_MORE" ) );
 			end
 			
 			buttonNum = buttonNum + 1;
@@ -560,6 +560,29 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 			thisButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_FOREIGN_RELIGIONS_STOPPED_BY_TECH"))
 		end
 	end
+
+	if tech.PlayerReligionPressureAbroadModifier ~= 0 then
+		local buttonName = "B"..tostring(buttonNum)
+		local thisButton = thisTechButtonInstance[buttonName]
+
+		if thisButton then
+			IconHookup(0, textureSeize, "GENERIC_FUNC_ATLAS", thisButton)
+			thisButton:SetHide(false)
+
+			local modifier = tech.PlayerReligionPressureAbroadModifier
+
+			if modifier < 0 then
+				modifier = modifier * -1
+
+				thisButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_PLAYER_RELIGION_SPREADS_FASTER_BECAUSE_TECH", modifier, "TXT_KEY_COMPARATIVE_DESCRIPTOR_LESS"))
+			else
+				thisButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_PLAYER_RELIGION_SPREADS_FASTER_BECAUSE_TECH", modifier, "TXT_KEY_COMPARATIVE_DESCRIPTOR_MORE"))
+			end
+		end
+	end
+	------------------------------
+	-- SiegeMod Addition - End
+	------------------------------
 
 	for row in GameInfo.Technology_FreePromotions(condition) do
 		local promotion = GameInfo.UnitPromotions[row.PromotionType];

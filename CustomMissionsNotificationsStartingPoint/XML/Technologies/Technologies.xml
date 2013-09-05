@@ -14,7 +14,7 @@
 			<Description>TXT_KEY_TECH_MERCHANT_FREEDOM_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_MERCHANT_FREEDOM_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_MERCHANT_FREEDOM_HELP</Help>
-			<Cost>272</Cost>
+			<Cost>340</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -36,7 +36,7 @@
 			<Description>TXT_KEY_TECH_CONSECRATED_MARKETS_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_CONSECRATED_MARKETS_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_CONSECRATED_MARKETS_HELP</Help>
-			<Cost>272</Cost>
+			<Cost>340</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -58,7 +58,7 @@
 			<Description>TXT_KEY_TECH_NAVAL_FORMATIONS_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_NAVAL_FORMATIONS_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_NAVAL_FORMATIONS_HELP</Help>
-			<Cost>325</Cost>
+			<Cost>395</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -78,7 +78,7 @@
 			<Description>TXT_KEY_TECH_CLOCKWORKS_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_CLOCKWORKS_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_CLOCKWORKS_HELP</Help>
-			<Cost>415</Cost>
+			<Cost>510</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -98,7 +98,7 @@
 			<Description>TXT_KEY_TECH_BLACK_POWDER_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_BLACK_POWDER_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_BLACK_POWDER_HELP</Help>
-			<Cost>415</Cost>
+			<Cost>495</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -118,7 +118,7 @@
 			<Description>TXT_KEY_TECH_THEORICAL_INSPIRATION_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_THEORICAL_INSPIRATION_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_THEORICAL_INSPIRATION_HELP</Help>
-			<Cost>325</Cost>
+			<Cost>410</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -138,7 +138,7 @@
 			<Description>TXT_KEY_TECH_TRANSCENDENCE_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_TRANSCENDENCE_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_TRANSCENDENCE_HELP</Help>
-			<Cost>415</Cost>
+			<Cost>510</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -153,13 +153,14 @@
 			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 			<StopsForeignReligions>true</StopsForeignReligions>
+			<PlayerReligionPressureAbroadModifier>100</PlayerReligionPressureAbroadModifier>
 		</Row>
 		<Row>
 			<Type>TECH_GRAND_INQUISITION</Type>
 			<Description>TXT_KEY_TECH_GRAND_INQUISITION_DESC</Description>
 			<Civilopedia>TXT_KEY_TECH_GRAND_INQUISITION_CIV</Civilopedia>
 			<Help>TXT_KEY_TECH_GRAND_INQUISITION_HELP</Help>
-			<Cost>325</Cost>
+			<Cost>395</Cost>
 			<AdvancedStartCost>0</AdvancedStartCost>
 			<Era>ERA_ANCIENT</Era>
 			<FirstFreeUnitClass>0</FirstFreeUnitClass>
@@ -222,4 +223,91 @@
 			<Range>7</Range>
 		</Row>
 	</Technology_TradeRouteDomainExtraRange>
+	<Technology_Flavors>
+		<Row>
+			<TechType>TECH_MERCHANT_FREEDOM</TechType>
+			<FlavorType>FLAVOR_GOLD</FlavorType>
+			<Flavor>8</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_MERCHANT_FREEDOM</TechType>
+			<FlavorType>FLAVOR_NAVAL</FlavorType>
+			<Flavor>3</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_NAVAL_FORMATIONS</TechType>
+			<FlavorType>FLAVOR_NAVAL</FlavorType>
+			<Flavor>9</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_NAVAL_FORMATIONS</TechType>
+			<FlavorType>FLAVOR_OFFENSE</FlavorType>
+			<Flavor>7</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_NAVAL_FORMATIONS</TechType>
+			<FlavorType>FLAVOR_RANGED</FlavorType>
+			<Flavor>7</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_BLACK_POWDER</TechType>
+			<FlavorType>FLAVOR_DEFENSE</FlavorType>
+			<Flavor>9</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_BLACK_POWDER</TechType>
+			<FlavorType>FLAVOR_CITY_DEFENSE</FlavorType>
+			<Flavor>4</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_CONSECRATED_MARKETS</TechType>
+			<FlavorType>FLAVOR_GOLD</FlavorType>
+			<Flavor>5</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_CONSECRATED_MARKETS</TechType>
+			<FlavorType>FLAVOR_RELIGION</FlavorType>
+			<Flavor>9</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_GRAND_INQUISITION</TechType>
+			<FlavorType>FLAVOR_RELIGION</FlavorType>
+			<Flavor>9</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_TRANSCENDENCE</TechType>
+			<FlavorType>FLAVOR_RELIGION</FlavorType>
+			<Flavor>10</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_THEORICAL_INSPIRATION</TechType>
+			<FlavorType>FLAVOR_RELIGION</FlavorType>
+			<Flavor>5</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_THEORICAL_INSPIRATION</TechType>
+			<FlavorType>FLAVOR_SCIENCE</FlavorType>
+			<Flavor>2</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_THEORICAL_INSPIRATION</TechType>
+			<FlavorType>FLAVOR_GOLD</FlavorType>
+			<Flavor>2</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_CLOCKWORKS</TechType>
+			<FlavorType>FLAVOR_WONDER</FlavorType>
+			<Flavor>10</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_CLOCKWORKS</TechType>
+			<FlavorType>FLAVOR_GOLD</FlavorType>
+			<Flavor>9</Flavor>
+		</Row>
+		<Row>
+			<TechType>TECH_CLOCKWORKS</TechType>
+			<FlavorType>FLAVOR_DEFENSE</FlavorType>
+			<Flavor>7</Flavor>
+		</Row>
+	</Technology_Flavors>
 </GameData>

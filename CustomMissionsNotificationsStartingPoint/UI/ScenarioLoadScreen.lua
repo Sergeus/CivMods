@@ -115,8 +115,8 @@ function SetPlayerIndex(playerIndex)
     PopulateUniqueBonuses(Controls, civ, leader)
           
     -- Sets Dawn of Man Quote
-    Controls.DoMFullText:LocalizeAndSetText(civ.DawnOfManQuote or "")
-    Controls.DoMPanelText:LocalizeAndSetText(civ.DawnOfManQuote or "")
+    Controls.DoMFullText:LocalizeAndSetText("TXT_KEY_SCENARIO_BRIEFING_TEXT")
+    Controls.DoMPanelText:LocalizeAndSetText("TXT_KEY_SCENARIO_BRIEFING_TEXT")
   else
     -- Setup entry for random player.
     Controls.Title:LocalizeAndSetText("TXT_KEY_RANDOM_LEADER")
