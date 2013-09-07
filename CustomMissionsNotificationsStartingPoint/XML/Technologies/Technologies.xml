@@ -199,10 +199,6 @@
 			<PrereqTech>TECH_CONSECRATED_MARKETS</PrereqTech>
 		</Row>
 		<Row>
-			<TechType>TECH_NAVAL_FORMATIONS</TechType>
-			<PrereqTech>TECH_MERCHANT_FREEDOM</PrereqTech>
-		</Row>
-		<Row>
 			<TechType>TECH_TRANSCENDENCE</TechType>
 			<PrereqTech>TECH_GRAND_INQUISITION</PrereqTech>
 		</Row>

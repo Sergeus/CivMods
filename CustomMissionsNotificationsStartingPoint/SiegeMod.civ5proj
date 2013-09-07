@@ -430,7 +430,7 @@
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadLandmarkSystem>true</ReloadLandmarkSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
-    <HideSetupGame>true</HideSetupGame>
+    <HideSetupGame>false</HideSetupGame>
     <ModProperties>
       <Property>
         <Name>Custom_Scenario_TXT_KEY_SCENARIO_TITLE</Name>

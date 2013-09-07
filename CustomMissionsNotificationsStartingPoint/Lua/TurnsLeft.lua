@@ -132,7 +132,7 @@ function MaintainArgastWar(pArgast)
 
 	local pPlayer = Players[Game.GetActivePlayer()]
 
-	if (not pArgastTeam:IsAtWar(pPlayer.GetTeam())) then
+	if (not pArgastTeam:IsAtWar(pPlayer:GetTeam())) then
 		print("ERROR: The MaintainArgastWar function has been called even though Argast isn't at war with the player...")
 		return
 	end
@@ -326,5 +326,11 @@ function ScaleConstantsBasedOnDifficulty()
 
 	LuaEvents.SiegeModGoldRequiredChanged(gGoldRequiredForWin)
 end
+
+function GetSiegeModGoldRequired()
+	print("Return gold required" .. gGoldRequiredForWin .. "...")
+	LuaEvents.SiegeModGoldRequiredChanged(gGoldRequiredForWin)
+end
+LuaEvents.SiegeModGoldRequired.Add(GetSiegeModGoldRequired)
 
 ScaleConstantsBasedOnDifficulty()

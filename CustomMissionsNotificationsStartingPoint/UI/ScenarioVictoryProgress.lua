@@ -13,6 +13,12 @@ function OnGoldRequiredUpdated(goldRequired)
 end
 LuaEvents.SiegeModGoldRequiredChanged.Add(OnGoldRequiredUpdated)
 
+function GetGoldRequired() 
+	print("Getting gold required...")
+	LuaEvents.SiegeModGoldRequired()
+end
+GetGoldRequired()
+
 ---------------------------------------------------------------------
 function OnUpdate()
 	-- Loop through all the Majors checking for a luxury based victory
