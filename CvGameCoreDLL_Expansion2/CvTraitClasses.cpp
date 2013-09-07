@@ -119,6 +119,7 @@ CvTraitEntry::CvTraitEntry() :
 	m_bPuppetsReligiousFollowers(false),
 	m_bCannotBeDeclaredWarOn(false),
 	m_bWarCausesRebels(false),
+	m_bCannotFoundPantheon(false),
 
 	m_paiExtraYieldThreshold(NULL),
 	m_paiYieldChange(NULL),
@@ -678,6 +679,10 @@ bool CvTraitEntry::IsCanPurchaseReligiousUnits() const
 {
 	return m_bCanPurchaseReligiousUnits;
 }
+bool CvTraitEntry::IsCannotFoundPantheon() const
+{
+	return m_bCannotFoundPantheon;
+}
 int CvTraitEntry::GetExtraUnitsWhenTrained() const
 {
 	return m_iExtraUnitsWhenTrained;
@@ -1057,6 +1062,7 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 	m_bCannotBeDeclaredWarOn = kResults.GetBool("CannotBeDeclaredWarOn");
 	m_bWarCausesRebels = kResults.GetBool("WarCausesRebels");
 	m_bCanPurchaseReligiousUnits = kResults.GetBool("CanPurchaseReligiousUnits");
+	m_bCannotFoundPantheon = kResults.GetBool("CannotFoundPantheon");
 
 	//Arrays
 	const char* szTraitType = GetType();
@@ -1594,6 +1600,10 @@ void CvPlayerTraits::InitPlayerTraits()
 			if (trait->IsCanPurchaseReligiousUnits())
 			{
 				m_bCanPurchaseReligiousUnits = true;
+			}
+			if (!trait->IsCannotFoundPantheon())
+			{
+				m_bCannotFoundPantheon = true;
 			}
 
 			for(int iYield = 0; iYield < NUM_YIELD_TYPES; iYield++)
@@ -2843,6 +2853,7 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 	kStream >> m_bCannotBeDeclaredWarOn;
 	kStream >> m_bWarCausesRebels;
 	kStream >> m_bCanPurchaseReligiousUnits;
+	kStream >> m_bCannotFoundPantheon;
 
 	kStream >> m_iBaktunPreviousTurn;
 
@@ -3109,6 +3120,7 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	kStream << m_bCannotBeDeclaredWarOn;
 	kStream << m_bWarCausesRebels;
 	kStream << m_bCanPurchaseReligiousUnits;
+	kStream << m_bCannotFoundPantheon;
 
 	kStream << m_iBaktunPreviousTurn;
 

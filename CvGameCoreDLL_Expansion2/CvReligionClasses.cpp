@@ -596,6 +596,12 @@ CvGameReligions::FOUNDING_RESULT CvGameReligions::CanCreatePantheon(PlayerTypes 
 		return FOUNDING_NOT_ENOUGH_FAITH;
 	}
 
+	if (kPlayer.GetPlayerTraits()->IsCannotFoundPantheon())
+	{
+		// TODO: Implement a separate condition
+		return FOUNDING_NOT_ENOUGH_FAITH;
+	}
+
 	// Has a religion been enhanced yet (and total number of religions/pantheons is equal to number of religions allowed)?
 	ReligionList::const_iterator it;
 	for(it = m_CurrentReligions.begin(); it != m_CurrentReligions.end(); it++)

@@ -159,6 +159,7 @@ public:
 	bool IsCannotBeDeclaredWarOn() const;
 	bool IsWarCausesRebels() const;
 	bool IsCanPurchaseReligiousUnits() const;
+	bool IsCannotFoundPantheon() const;
 
 	const char* getShortDescription() const;
 	void setShortDescription(const char* szVal);
@@ -304,6 +305,7 @@ protected:
 	bool m_bCannotBeDeclaredWarOn;
 	bool m_bWarCausesRebels;
 	bool m_bCanPurchaseReligiousUnits;
+	bool m_bCannotFoundPantheon;
 
 	CvString m_strShortDescription;
 
@@ -838,6 +840,10 @@ public:
 	{
 		return m_bCanPurchaseReligiousUnits;
 	}
+	bool IsCannotFoundPantheon() const
+	{
+		return m_bCannotFoundPantheon;
+	}
 
 	// Maya calendar routines
 	bool IsUsingMayaCalendar() const;
@@ -964,6 +970,7 @@ private:
 	bool m_bCannotBeDeclaredWarOn;
 	bool m_bWarCausesRebels;
 	bool m_bCanPurchaseReligiousUnits;
+	bool m_bCannotFoundPantheon;
 
 	UnitTypes m_eCampGuardType;
 	unsigned int m_uiFreeUnitIndex;
