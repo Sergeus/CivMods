@@ -387,6 +387,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Technologies/Eras.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Technologies/Transcendence/TranscendenceIconAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -477,6 +482,7 @@
     <Folder Include="Art\Technologies\Mercantilism" />
     <Folder Include="Art\Technologies\NavalFormations" />
     <Folder Include="Art\Technologies\Clockworks" />
+    <Folder Include="Art\Technologies\Transcendence" />
     <Folder Include="Art\Technologies\TheoricalStudy" />
     <Folder Include="Art\Units" />
     <Folder Include="Art\Units\Galleon Fleet" />
@@ -1156,6 +1162,34 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Technologies\TheoricalStudy\TheoricalStudyIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Transcendence\TranscendenceIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Transcendence\TranscendenceIcon214.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Transcendence\TranscendenceIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Transcendence\TranscendenceIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Transcendence\TranscendenceIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Transcendence\TranscendenceIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Transcendence\TranscendenceIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

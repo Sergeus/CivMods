@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/7/2013 10:50:20 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>TRANSCENDENCE_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>TranscendenceIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>TRANSCENDENCE_ATLAS</Atlas>
+			<IconSize>214</IconSize>
+			<Filename>TranscendenceIcon214.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>TRANSCENDENCE_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>TranscendenceIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>TRANSCENDENCE_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>TranscendenceIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>TRANSCENDENCE_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>TranscendenceIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>TRANSCENDENCE_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>TranscendenceIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>
