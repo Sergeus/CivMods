@@ -76,7 +76,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_HELP</Tag>
-			<Text>Allows the construction of [COLOR_POSITIVE_TEXT]Inquisition Chapterhouses[ENDCOLOR], which provide [ICON_PEACE] [COLOR_POSITIVE_TEXT]faith[ENDCOLOR] and reduce the pressure exerted by non-majority religions. Also allows the purchasing of [COLOR_POSITIVE_TEXT]Inquisitors[ENDCOLOR] with faith.</Text>
+			<Text>Allows the construction of [COLOR_POSITIVE_TEXT]Inquisition Chapterhouses[ENDCOLOR], which provide [ICON_PEACE] [COLOR_POSITIVE_TEXT]faith[ENDCOLOR] and increase the pressure exerted by majority religions. Also allows the purchasing of [COLOR_POSITIVE_TEXT]Inquisitors[ENDCOLOR] with faith.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_QUOTE</Tag>

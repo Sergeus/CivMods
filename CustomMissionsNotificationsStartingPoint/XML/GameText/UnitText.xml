@@ -27,7 +27,7 @@
 			<Text>Preachers are slower moving, more powerful missionaries that do not suffer from attrition. Use them to maintain dominance over a foreign city and then capture it using the Cyats' unique ability.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_HELP_CYAT_PREACHER">
-			<Text>[TOWRITE] Preacher help</Text>
+			<Text>Powerful missionary replacement.</Text>
 		</Row>
 		
 		<!-- Unit: Devout -->

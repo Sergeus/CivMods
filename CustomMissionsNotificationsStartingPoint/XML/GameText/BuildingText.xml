@@ -49,7 +49,7 @@
 			<Text>Inquisition Chapterhouse</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_INQUISITION_CHAPTER_HELP">
-			<Text>This city's majority religion exerts +50% pressure in this city</Text>
+			<Text>This city's majority religion exerts +50% pressure in this city.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_INQUISITION_CHAPTER_STRATEGY">
 			<Text>[TOWRITE] inquisition chapter strategy</Text>

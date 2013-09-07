@@ -382,6 +382,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Scenario/Victories.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Technologies/Eras.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
