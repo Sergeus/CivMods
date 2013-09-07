@@ -12615,18 +12615,25 @@ bool CvCity::IsCanPurchase(bool bTestPurchaseCost, bool bTestTrainable, UnitType
 
 			CvUnitEntry* pkUnitInfo = GC.getUnitInfo(eUnitType);
 
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
-			UnitClassTypes eUnitClass = (UnitClassTypes)pkUnitInfo->GetUnitClassType();
-			// Can't buy units that are overriden for us (or non-default units if they're not overriden for us)
-			if (GET_PLAYER(getOwner()).getCivilizationInfo().getCivilizationUnits(eUnitClass) != eUnitType)
-			{
-				return false;
-			}
-
 			if(pkUnitInfo)
 			{
+
+				// ----------------------------------------------------------------
+				// SiegeMod Addition
+				// ----------------------------------------------------------------
+				UnitClassTypes eUnitClass = (UnitClassTypes)pkUnitInfo->GetUnitClassType();
+				// Can't buy units that are overriden for us (or non-default units if they're not overriden for us)
+				if (GET_PLAYER(getOwner()).getCivilizationInfo().getCivilizationUnits(eUnitClass) != eUnitType)
+				{
+					return false;
+				}
+				// Also can't purchase units that require a tech before they can be trained
+				TechTypes ePrereqTech = (TechTypes)pkUnitInfo->GetPrereqAndTech();
+				if (ePrereqTech != NO_TECH && !GET_TEAM(GET_PLAYER(getOwner()).getTeam()).GetTeamTechs()->HasTech(ePrereqTech))
+				{
+					return false;
+				}
+
 				if (pkUnitInfo->IsRequiresEnhancedReligion() && !(GC.getGame().GetGameReligions()->GetReligion(eReligion, NO_PLAYER)->m_bEnhanced))
 				{
 					return false;
