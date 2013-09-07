@@ -48,7 +48,7 @@
 			<Quote>TXT_KEY_TECH_CONSECRATED_MARKETS_QUOTE</Quote>
 			<PortraitIndex>0</PortraitIndex>
 			<ScenarioTechButton>0</ScenarioTechButton>
-			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<IconAtlas>CONSECRATION_ATLAS</IconAtlas>
 			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 			<ForeignReligionSpreadModifier>-15</ForeignReligionSpreadModifier>

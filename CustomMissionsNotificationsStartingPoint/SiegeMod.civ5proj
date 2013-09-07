@@ -392,6 +392,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>Art/Technologies/Transcendence/TranscendenceIconAtlas.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Technologies/Consecration/ConsecrationIconAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -482,6 +487,7 @@
     <Folder Include="Art\Technologies\Mercantilism" />
     <Folder Include="Art\Technologies\NavalFormations" />
     <Folder Include="Art\Technologies\Clockworks" />
+    <Folder Include="Art\Technologies\Consecration" />
     <Folder Include="Art\Technologies\Transcendence" />
     <Folder Include="Art\Technologies\TheoricalStudy" />
     <Folder Include="Art\Units" />
@@ -1078,6 +1084,34 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Technologies\Clockworks\ClockworksIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Consecration\ConsecrationIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Consecration\ConsecrationIcon214.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Consecration\ConsecrationIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Consecration\ConsecrationIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Consecration\ConsecrationIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Consecration\ConsecrationIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\Consecration\ConsecrationIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

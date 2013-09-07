@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/7/2013 11:15:00 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>CONSECRATION_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>ConsecrationIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CONSECRATION_ATLAS</Atlas>
+			<IconSize>214</IconSize>
+			<Filename>ConsecrationIcon214.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CONSECRATION_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>ConsecrationIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CONSECRATION_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>ConsecrationIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CONSECRATION_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>ConsecrationIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>CONSECRATION_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>ConsecrationIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>
