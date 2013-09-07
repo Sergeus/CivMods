@@ -28,7 +28,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_HELP</Tag>
-			<Text>Allows you to establish an additional 2 trade routes. Also provides +3 [ICON_GOLD] [COLOR_POSITIVE_TEXT]gold[ENDCOLOR] per trade route.</Text>
+			<Text>Allows you to construct [COLOR_POSITIVE_TEXT]Mercenary Holdfasts[ENDCOLOR], which reduce the purchase cost of units. Also increases your trade route cap by 2.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_QUOTE</Tag>
