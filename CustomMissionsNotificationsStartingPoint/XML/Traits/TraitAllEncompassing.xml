@@ -7,6 +7,7 @@
 			<Description>TXT_KEY_TRAIT_ALL_ENCOMPASSING</Description>
 			<ShortDescription>TXT_KEY_TRAIT_ALL_ENCOMPASSING_SHORT</ShortDescription>
 			<ExtraUnitsWhenTrained>1</ExtraUnitsWhenTrained>
+			<CannotFoundPantheon>true</CannotFoundPantheon>
 		</Row>
 	</Traits>
 	<Trait_FreePromotionUnitCombats>

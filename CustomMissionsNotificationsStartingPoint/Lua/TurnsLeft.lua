@@ -4,13 +4,16 @@
 --------------------------------------------------------------
 
 include("PlotIterators")
+include("TableSaverLoader")
 
-gSvestaCoords = {
+gT = {}
+
+gT.gSvestaCoords = {
 	["X"] = 36,
 	["Y"] = 23,
 }
 
-gArgastFortCoords = {
+gT.gArgastFortCoords = {
 	[0] = { 
 		["X"] = 32,
 		["Y"] = 26,
@@ -33,12 +36,12 @@ gArgastFortCoords = {
 	},
 }
 
-gNumydiaExpansionCoords = {
+gT.gNumydiaExpansionCoords = {
 	["X"] = 24,
 	["Y"] = 20,
 }
 
-gCyatsExpansionCoords = {
+gT.gCyatsExpansionCoords = {
 	[0] = {
 		["X"] = 58,
 		["Y"] = 28,
@@ -53,7 +56,7 @@ gCyatsExpansionCoords = {
 	},
 }
 
-gArgastExpansionCoords = {
+gT.gArgastExpansionCoords = {
 	[0] = {
 		["X"] = 18,
 		["Y"] = 40,
@@ -68,30 +71,30 @@ gArgastExpansionCoords = {
 	},
 }
 
-gArgastReinforcementsFrequency = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_REINFORCEMENT_FREQUENCY.Value
-gArgastReinforcementsProbability = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_REINFORCEMENT_PROBABILITY.Value
-gArgastDeclareWarEarliest = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DECLARE_WAR_EARLIEST.Value
-gArgastDenouncePlayerTurn = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DENOUNCE_PLAYER_NOT_AT_WAR.Value
+gT.gArgastReinforcementsFrequency = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_REINFORCEMENT_FREQUENCY.Value
+gT.gArgastReinforcementsProbability = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_REINFORCEMENT_PROBABILITY.Value
+gT.gArgastDeclareWarEarliest = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DECLARE_WAR_EARLIEST.Value
+gT.gArgastDenouncePlayerTurn = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DENOUNCE_PLAYER_NOT_AT_WAR.Value
 
-gNumydiaDenounceArgastTurn = GameInfo.SiegeModConstants.SIEGEMOD_NUMYDIA_DENOUNCE_ARGAST_NOT_AT_WAR_TURN.Value
-gNumydiaExpansionTurn = GameInfo.SiegeModConstants.SIEGEMOD_NUMYDIA_EXPANSION_TURN.Value
+gT.gNumydiaDenounceArgastTurn = GameInfo.SiegeModConstants.SIEGEMOD_NUMYDIA_DENOUNCE_ARGAST_NOT_AT_WAR_TURN.Value
+gT.gNumydiaExpansionTurn = GameInfo.SiegeModConstants.SIEGEMOD_NUMYDIA_EXPANSION_TURN.Value
 
-gCyatsExpansionMinimum = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_MINIMUM.Value
-gCyatsExpansionInterval = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_INTERVAL.Value
-gCyatsExpansionVariance = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_VARIANCE.Value
-gCyatsFreeMissionaryNearSvestaInterval = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_FREE_MISSIONARY_NEAR_SVESTA_INTERVAL.Value
-gCyatsNumPreachersPerSpawn = GameInfo.SiegeModConstants.SIEGEMOD_NUM_PREACHERS_PER_SPAWN.Value
-gCyatsMinPreacherSpawnDistance = GameInfo.SiegeModConstants.SIEGEMOD_MIN_PREACHER_SPAWN_DISTANCE.Value
+gT.gCyatsExpansionMinimum = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_MINIMUM.Value
+gT.gCyatsExpansionInterval = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_INTERVAL.Value
+gT.gCyatsExpansionVariance = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_VARIANCE.Value
+gT.gCyatsFreeMissionaryNearSvestaInterval = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_FREE_MISSIONARY_NEAR_SVESTA_INTERVAL.Value
+gT.gCyatsNumPreachersPerSpawn = GameInfo.SiegeModConstants.SIEGEMOD_NUM_PREACHERS_PER_SPAWN.Value
+gT.gCyatsMinPreacherSpawnDistance = GameInfo.SiegeModConstants.SIEGEMOD_MIN_PREACHER_SPAWN_DISTANCE.Value
 
-gCyatsNextExpansionTurn = gCyatsExpansionMinimum + Map.Rand(gCyatsExpansionVariance, "CyatsExpansion") - Map.Rand(gCyatsExpansionVariance, "CyatsExpansion")
+gT.gCyatsNextExpansionTurn = gT.gCyatsExpansionMinimum + Map.Rand(gT.gCyatsExpansionVariance, "CyatsExpansion") - Map.Rand(gT.gCyatsExpansionVariance, "CyatsExpansion")
 
-gArgastHasDenouncedSvesta = false
-gNumydiaHasDenouncedArgast = false
+gT.gArgastHasDenouncedSvesta = false
+gT.gNumydiaHasDenouncedArgast = false
 
-gArgastNextExpansion = 0
-gCyatsNextExpansion = 0
+gT.gArgastNextExpansion = 0
+gT.gCyatsNextExpansion = 0
 
-gGoldRequiredForWin = GameInfo.SiegeModConstants.SIEGEMOD_GOLD_REQUIRED_FOR_VICTORY.Value
+gT.gGoldRequiredForWin = GameInfo.SiegeModConstants.SIEGEMOD_GOLD_REQUIRED_FOR_VICTORY.Value
 
 gArgastReinforcements = {
 	[0] = GameInfoTypes.UNIT_ARGAST_RAIDERS,
@@ -104,7 +107,7 @@ function InitArgastWar(pArgast)
 	print("Initializing Argast's war with the player...")
 
 	print("Giving Argast some free Raiders...")
-	for _, coord in pairs(gArgastFortCoords) do
+	for _, coord in pairs(gT.gArgastFortCoords) do
 		pArgast:InitUnit(GameInfoTypes.UNIT_ARGAST_RAIDERS, coord.X, coord.Y)
 	end
 
@@ -114,12 +117,12 @@ end
 
 function ReinforceArgast(pArgast)
 	print("Reinforcing Argast's armies...")
-	for _, coord in pairs(gArgastFortCoords) do
+	for _, coord in pairs(gT.gArgastFortCoords) do
 		local unitRand = Map.Rand(#gArgastReinforcements, "ArgastReinforcements")
 
 		local spawnRand = Map.Rand(100, "ArgastReinforcements")
 		
-		if (spawnRand <= gArgastReinforcementsProbability) then
+		if (spawnRand <= gT.gArgastReinforcementsProbability) then
 			print("Giving unit " .. gArgastReinforcements[unitRand] .. " to Argast at " .. coord.X .. "," .. coord.Y .. "...")
 
 			pArgast:InitUnit(gArgastReinforcements[unitRand], coord.X, coord.Y)
@@ -140,7 +143,7 @@ function MaintainArgastWar(pArgast)
 	print("Maintaining Argast's war with the player...")
 	local currentTurn = Game.GetElapsedGameTurns()
 
-	if math.fmod(currentTurn, gArgastReinforcementsFrequency) == 0 then
+	if math.fmod(currentTurn, gT.gArgastReinforcementsFrequency) == 0 then
 		ReinforceArgast(pArgast)
 	end
 end
@@ -172,13 +175,13 @@ function ArgastWar(playerID)
 		print("Argast cannot declare war on Svesta this turn.")
 	end
 
-	if currentTurn > gArgastDeclareWarEarliest and pArgastTeam:CanDeclareWar(pSvesta:GetTeam()) then
+	if currentTurn > gT.gArgastDeclareWarEarliest and pArgastTeam:CanDeclareWar(pSvesta:GetTeam()) then
 		InitArgastWar(pArgast)
 
-	elseif currentTurn > gArgastDenouncePlayerTurn and not pArgastTeam:IsAtWar(pSvesta:GetTeam()) and not gArgastHasDenouncedSvesta then
+	elseif currentTurn > gT.gArgastDenouncePlayerTurn and not pArgastTeam:IsAtWar(pSvesta:GetTeam()) and not gT.gArgastHasDenouncedSvesta then
 		print("Denouncing active player...")
 		pArgast:DoForceDenounce(playerID)
-		gArgastHasDenouncedSvesta = true
+		gT.gArgastHasDenouncedSvesta = true
 
 	elseif pArgastTeam:IsAtWar(pSvesta:GetTeam()) then
 		MaintainArgastWar(pArgast)
@@ -210,25 +213,25 @@ function NumydiaActions(playerID)
 
 	local pNumydiaTeam = Teams[pNumydia:GetTeam()]
 	
-	if not pNumydiaTeam:IsAtWar(pArgast:GetTeam()) and not gNumydiaHasDenouncedArgast and currentTurn > gNumydiaDenounceArgastTurn then
+	if not pNumydiaTeam:IsAtWar(pArgast:GetTeam()) and not gT.gNumydiaHasDenouncedArgast and currentTurn > gT.gNumydiaDenounceArgastTurn then
 		print("Numydia is now denouncing Argast...")
 		pNumydia:DoForceDenounce(pArgast:GetID())
-		gNumydiaHasDenouncedArgast = true
+		gT.gNumydiaHasDenouncedArgast = true
 	end
 
-	if currentTurn == gNumydiaExpansionTurn then
+	if currentTurn == gT.gNumydiaExpansionTurn then
 		print("Numydia is now expanding...")
 
 		print("Founding city...")
-		pNumydia:Found(gNumydiaExpansionCoords.X, gNumydiaExpansionCoords.Y)
+		pNumydia:Found(gT.gNumydiaExpansionCoords.X, gT.gNumydiaExpansionCoords.Y)
 
 		print("Giving Numydia another worker for their new city...")
-		pNumydia:InitUnit(GameInfoTypes.UNIT_WORKER, gNumydiaExpansionCoords.X, gNumydiaExpansionCoords.Y)
+		pNumydia:InitUnit(GameInfoTypes.UNIT_WORKER, gT.gNumydiaExpansionCoords.X, gT.gNumydiaExpansionCoords.Y)
 
 		local message = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_NUMYDIA_EXPANDED")
 		local summary = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_ENEMY_EXPANDED_SUMMARY", pNumydia:GetNameKey())
 
-		Players[Game.GetActivePlayer()]:AddNotification(GameInfoTypes.NOTIFICATION_ENEMY_EXPANDED, message, summary, gNumydiaExpansionCoords.X, gNumydiaExpansionCoords.Y, GameInfoTypes.CIVILIZATION_NUMYDIA)
+		Players[Game.GetActivePlayer()]:AddNotification(GameInfoTypes.NOTIFICATION_ENEMY_EXPANDED, message, summary, gT.gNumydiaExpansionCoords.X, gT.gNumydiaExpansionCoords.Y, GameInfoTypes.CIVILIZATION_NUMYDIA)
 	end
 end
 GameEvents.PlayerDoTurn.Add(NumydiaActions)
@@ -253,12 +256,13 @@ function SpawnCyatPreacherNear(pCyats, iCenterX, iCenterY)
 	print("Searching plots at radius " .. r .. "...")
 
 	local numSpawned = 0
-	local distance = gCyatsMinPreacherSpawnDistance
+	local distance = gT.gCyatsMinPreacherSpawnDistance
 
 	for pEdgePlot in PlotRingIterator(pPlot, r) do
-		if distance >= gCyatsMinPreacherSpawnDistance and IsValidForPreacher(pEdgePlot) then
+		if distance >= gT.gCyatsMinPreacherSpawnDistance and IsValidForPreacher(pEdgePlot) and numSpawned < gT.gCyatsNumPreachersPerSpawn then
 			print("Spawning preacher at " .. pEdgePlot:GetX() .. "," .. pEdgePlot:GetY() .. "...")
 			pCyats:InitUnit(GameInfoTypes.UNIT_CYAT_PREACHER, pEdgePlot:GetX(), pEdgePlot:GetY())
+			numSpawned = numSpawned + 1
 			distance = 0
 		else
 			distance = distance + 1
@@ -284,37 +288,37 @@ function CyatsActions(playerID)
 
 	local currentTurn = Game.GetElapsedGameTurns()
 
-	if math.fmod(currentTurn, gCyatsFreeMissionaryNearSvestaInterval) == 0 then
+	if math.fmod(currentTurn, gT.gCyatsFreeMissionaryNearSvestaInterval) == 0 then
 		print("Time to spawn a preacher near Svesta...")
-		SpawnCyatPreacherNear(pCyats, gSvestaCoords.X, gSvestaCoords.Y)
+		SpawnCyatPreacherNear(pCyats, gT.gSvestaCoords.X, gT.gSvestaCoords.Y)
 	end
 
-	if currentTurn == gCyatsNextExpansionTurn and gCyatsExpansionCoords[gCyatsNextExpansion] ~= nil then
+	if currentTurn == gT.gCyatsNextExpansionTurn and gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion] ~= nil then
 		print("Cyats are expanding now...")
 
 		print("Founding city...")
-		pCyats:Found(gCyatsExpansionCoords[gCyatsNextExpansion].X, gCyatsExpansionCoords[gCyatsNextExpansion].Y)
+		pCyats:Found(gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].X, gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].Y)
 
-		if math.fmod(gCyatsNextExpansion, 2) then
+		if math.fmod(gT.gCyatsNextExpansion, 2) then
 			print("Giving them a new worker to go with the city...")
-			pCyats:InitUnit(GameInfoTypes.UNIT_WORKER, gCyatsExpansionCoords[gCyatsNextExpansion].X, gCyatsExpansionCoords[gCyatsNextExpansion].Y)
+			pCyats:InitUnit(GameInfoTypes.UNIT_WORKER, gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].X, gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].Y)
 		end
 
 		print("Notifying player...")
 
-		local pCity = Map.GetPlot(gCyatsExpansionCoords[gCyatsNextExpansion].X, gCyatsExpansionCoords[gCyatsNextExpansion].Y):GetPlotCity()
+		local pCity = Map.GetPlot(gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].X, gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].Y):GetPlotCity()
 
 		local message = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_ENEMY_EXPANDED", pCyats:GetNameKey(), pCity:GetNameKey())
 		local summary = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_ENEMY_EXPANDED_SUMMARY", pCyats:GetNameKey())
 
 		Players[Game.GetActivePlayer()]:AddNotification(GameInfoTypes.NOTIFICATION_ENEMY_EXPANDED, message, summary,
-			gCyatsExpansionCoords[gCyatsNextExpansion].X, gCyatsExpansionCoords[gCyatsNextExpansion].Y, GameInfoTypes.CIVILIZATION_CYATS)
+			gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].X, gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].Y, GameInfoTypes.CIVILIZATION_CYATS)
 
 		print("Increasing city index...")
-		gCyatsNextExpansion = gCyatsNextExpansion + 1
+		gT.gCyatsNextExpansion = gT.gCyatsNextExpansion + 1
 
-		gCyatsNextExpansionTurn = gCyatsNextExpansionTurn + gCyatsExpansionInterval 
-			+ Map.Rand(gCyatsExpansionVariance, "CyatsExpansion") - Map.Rand(gCyatsExpansionVariance, "CyatsExpansion")
+		gT.gCyatsNextExpansionTurn = gT.gCyatsNextExpansionTurn + gT.gCyatsExpansionInterval 
+			+ Map.Rand(gT.gCyatsExpansionVariance, "CyatsExpansion") - Map.Rand(gT.gCyatsExpansionVariance, "CyatsExpansion")
 	end
 end
 GameEvents.PlayerDoTurn.Add(CyatsActions)
@@ -324,13 +328,36 @@ function ScaleConstantsBasedOnDifficulty()
 
 	print("Telling other contexts about the gold required to win...")
 
-	LuaEvents.SiegeModGoldRequiredChanged(gGoldRequiredForWin)
+	LuaEvents.SiegeModGoldRequiredChanged(gT.gGoldRequiredForWin)
 end
 
 function GetSiegeModGoldRequired()
-	print("Return gold required" .. gGoldRequiredForWin .. "...")
-	LuaEvents.SiegeModGoldRequiredChanged(gGoldRequiredForWin)
+	print("Return gold required" .. gT.gGoldRequiredForWin .. "...")
+	LuaEvents.SiegeModGoldRequiredChanged(gT.gGoldRequiredForWin)
 end
 LuaEvents.SiegeModGoldRequired.Add(GetSiegeModGoldRequired)
 
 ScaleConstantsBasedOnDifficulty()
+
+function Init()
+	local bNewGame = true
+	local DBQuery = Modding.OpenSaveData().Query
+	for row in DBQuery("SELECT name FROM sqlite_master WHERE name='SiegeMod_Info'") do
+		if row.name then bNewGame = false end	-- presence of SiegeMod_Info tells us that game already in session
+	end
+
+	if bNewGame then
+		print("Initializing for new game...")
+	else
+		print("Initializing for loaded game...")
+		TableLoad(gT, "SiegeMod")
+	end
+end
+
+Init()
+
+function SaveGame()
+	print("Saving the game...")
+	TableSave(gT, "SiegeMod")
+end
+GameEvents.GameSaving.Add(SaveGame)

@@ -7,3 +7,4 @@ ALTER TABLE Traits ADD CannotBeDeclaredWarOn boolean DEFAULT false;
 ALTER TABLE Traits ADD WarCausesRebels boolean DEFAULT false;
 ALTER TABLE Traits ADD WarRebellionInterval integer DEFAULT 0;
 ALTER TABLE Traits ADD CanPurchaseReligiousUnits boolean DEFAULT false;
+ALTER TABLE Traits ADD CannotFoundPantheon boolean DEFAULT false;

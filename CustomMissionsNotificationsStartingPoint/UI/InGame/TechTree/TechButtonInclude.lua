@@ -549,7 +549,7 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 		end
 	end	
 
-	if tech.StopsForeignReligions == true then
+	if (tech.StopsForeignReligions == true) then
 		local buttonName = "B"..tostring(buttonNum)
 		local thisButton = thisTechButtonInstance[buttonName]
 
@@ -559,6 +559,8 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 
 			thisButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_FOREIGN_RELIGIONS_STOPPED_BY_TECH"))
 		end
+
+		buttonNum = buttonNum + 1
 	end
 
 	if tech.PlayerReligionPressureAbroadModifier ~= 0 then
@@ -566,7 +568,7 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 		local thisButton = thisTechButtonInstance[buttonName]
 
 		if thisButton then
-			IconHookup(0, textureSeize, "GENERIC_FUNC_ATLAS", thisButton)
+			IconHookup(0, textureSize, "GENERIC_FUNC_ATLAS", thisButton)
 			thisButton:SetHide(false)
 
 			local modifier = tech.PlayerReligionPressureAbroadModifier
@@ -579,6 +581,8 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 				thisButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_PLAYER_RELIGION_SPREADS_FASTER_BECAUSE_TECH", modifier, "TXT_KEY_COMPARATIVE_DESCRIPTOR_MORE"))
 			end
 		end
+
+		buttonNum = buttonNum + 1
 	end
 	------------------------------
 	-- SiegeMod Addition - End

@@ -430,7 +430,7 @@
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadLandmarkSystem>true</ReloadLandmarkSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
-    <HideSetupGame>false</HideSetupGame>
+    <HideSetupGame>true</HideSetupGame>
     <ModProperties>
       <Property>
         <Name>Custom_Scenario_TXT_KEY_SCENARIO_TITLE</Name>
@@ -1187,6 +1187,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Lua\lib\PlotIterators.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\lib\TableSaverLoader.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
