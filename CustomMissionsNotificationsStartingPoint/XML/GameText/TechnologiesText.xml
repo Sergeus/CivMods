@@ -12,11 +12,11 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_CLOCKWORKS_HELP</Tag>
-			<Text>[TOWRITE] Clockworks help</Text>
+			<Text>Allows you to construct the [COLOR_POSITIVE_TEXT]Clockwork Magnolia[ENDCOLOR], a powerful wonder that provides [ICON_GOLD] [COLOR_POSITIVE_TEXT]gold[ENDCOLOR] bonuses to trade routes and ends all wars you are involved in.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_CLOCKWORKS_QUOTE</Tag>
-			<Text>[TOWRITE] clockworks quote</Text>
+			<Text>Would that all things could be reliable as clockwork.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_DESC</Tag>
@@ -28,11 +28,11 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_HELP</Tag>
-			<Text>+2 Available Trade routes [NEWLINE]+3[ICON_GOLD] from trade routes</Text>
+			<Text>Allows you to establish an additional 2 trade routes. Also provides +3 [ICON_GOLD] [COLOR_POSITIVE_TEXT]gold[ENDCOLOR] per trade route.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_QUOTE</Tag>
-			<Text>[TOWRITE] merchant freedom quote</Text>
+			<Text>It is a delicate balance between law and trade. A balance struck by gold.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_CONSECRATED_MARKETS_DESC</Tag>
@@ -44,11 +44,11 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_CONSECRATED_MARKETS_HELP</Tag>
-			<Text>Foreign religions spread to your cities 15% slower</Text>
+			<Text>Reduces the pressure exerted by foreign religions and allows you to establish an additional trade route.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_CONSECRATED_MARKETS_QUOTE</Tag>
-			<Text>[TOWRITE] consecrated markets quote</Text>
+			<Text>On this holiest ground we pay homage to all held sacrosanct.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_NAVAL_FORMATIONS_DESC</Tag>
@@ -60,11 +60,11 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_NAVAL_FORMATIONS_HELP</Tag>
-			<Text>Feh</Text>
+			<Text>Unlocks powerful naval units and buildings essential to training and maintaining a large navy.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_NAVAL_FORMATIONS_QUOTE</Tag>
-			<Text>[TOWRITE] naval formations quote</Text>
+			<Text>Before this, we called a single ship a formation.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_DESC</Tag>
@@ -76,7 +76,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_HELP</Tag>
-			<Text>[towrite] grand inquisition help</Text>
+			<Text>Allows the construction of [COLOR_POSITIVE_TEXT]Inquisition Chapterhouses[ENDCOLOR], which provide [ICON_PEACE] [COLOR_POSITIVE_TEXT]faith[ENDCOLOR] and reduce the pressure exerted by non-majority religions. Also allows the purchasing of [COLOR_POSITIVE_TEXT]Inquisitors[ENDCOLOR] with faith.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_QUOTE</Tag>
@@ -92,11 +92,11 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_HELP</Tag>
-			<Text>[TOWRITE] theorical inspiration help</Text>
+			<Text>Allows you to construct [COLOR_POSITIVE_TEXT]Theors' Academies[ENDCOLOR], boosting a city's [ICON_RESEARCH] [COLOR_POSITIVE_TEXT]science[ENDCOLOR] output, and giving bonus [ICON_PEACE] [COLOR_POSITIVE_TEXT]faith[ENDCOLOR] and [ICON_RESEARCH] [COLOR_POSITIVE_TEXT]science[ENDCOLOR] in cities where trade routes originate. Also boosts the range of naval trade routes.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_QUOTE</Tag>
-			<Text>[TOWRITE] theorical inspiration quote</Text>
+			<Text>That which is beyond our capacity to study is yet an opportunity to learn.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_BLACK_POWDER_DESC</Tag>
@@ -108,7 +108,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_BLACK_POWDER_HELP</Tag>
-			<Text>[TOWRITE] black powder help</Text>
+			<Text>Allows workers to construct [COLOR_POSITIVE_TEXT]Powder Keg Traps[ENDCOLOR], powerful defensive improvements that explode and damage invading military units.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_BLACK_POWDER_QUOTE</Tag>
@@ -124,7 +124,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_TRANSCENDENCE_HELP</Tag>
-			<Text>[TOWRITE] transcendence help</Text>
+			<Text>Removes the effects of foreign religious pressure from your cities, as well as increasing the pressure your religion exerts abroad.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_TRANSCENDENCE_QUOTE</Tag>

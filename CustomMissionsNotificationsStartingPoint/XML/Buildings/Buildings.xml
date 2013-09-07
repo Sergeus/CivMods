@@ -270,5 +270,50 @@
 			<FlavorType>FLAVOR_RELIGION</FlavorType>
 			<Flavor>8</Flavor>
 		</Row>
+		<Row>
+			<BuildingType>BUILDING_MERCENARY_HOLDFAST</BuildingType>
+			<FlavorType>FLAVOR_GOLD</FlavorType>
+			<Flavor>1</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MERCENARY_HOLDFAST</BuildingType>
+			<FlavorType>FLAVOR_MILITARY_TRAINING</FlavorType>
+			<Flavor>3</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MERCENARY_HOLDFAST</BuildingType>
+			<FlavorType>FLAVOR_CITY_DEFENSE</FlavorType>
+			<Flavor>1</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_CLOCKWORK_MAGNOLIA</BuildingType>
+			<FlavorType>FLAVOR_WONDER</FlavorType>
+			<Flavor>9</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_CLOCKWORK_MAGNOLIA</BuildingType>
+			<FlavorType>FLAVOR_DEFENSE</FlavorType>
+			<Flavor>9</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_CLOCKWORK_MAGNOLIA</BuildingType>
+			<FlavorType>FLAVOR_GOLD</FlavorType>
+			<Flavor>6</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
+			<FlavorType>FLAVOR_SCIENCE</FlavorType>
+			<Flavor>7</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
+			<FlavorType>FLAVOR_RELIGION</FlavorType>
+			<Flavor>3</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
+			<FlavorType>FLAVOR_I_TRADE_ORIGIN</FlavorType>
+			<Flavor>8</Flavor>
+		</Row>
 	</Building_Flavors>
 </GameData>
