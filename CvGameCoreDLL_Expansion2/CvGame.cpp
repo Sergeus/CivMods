@@ -9420,6 +9420,18 @@ void CvGame::ReadSupportingClassData(FDataStream& kStream)
 //	--------------------------------------------------------------------------------
 void CvGame::Write(FDataStream& kStream) const
 {
+	// Let's tell the Lua system that we're saving, shall we?
+	ICvEngineScriptSystem1* pkScriptsSystem = gDLL->GetScriptSystem();
+
+	if (pkScriptsSystem)
+	{
+		CvLuaArgsHandle args;
+
+		bool bResult;
+
+		LuaSupport::CallHook(pkScriptsSystem, "GameSaving", args.get(), bResult);
+	}
+
 	// Current version number
 	kStream << g_CurrentCvGameVersion;
 
