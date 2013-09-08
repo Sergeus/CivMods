@@ -173,6 +173,10 @@
 			<PromotionType>PROMOTION_TARGETING_2</PromotionType>
 		</Row>
 		<Row>
+			<UnitType>UNIT_SVESTA_GALLEON_FLEET</UnitType>
+			<PromotionType>PROMOTION_ONLY_DEFENSIVE</PromotionType>
+		</Row>
+		<Row>
 			<UnitType>UNIT_ARGAST_RAIDERS</UnitType>
 			<PromotionType>PROMOTION_ADJACENT_ENEMY_DAMAGE_10</PromotionType>
 		</Row>
@@ -203,6 +207,10 @@
 		<Row>
 			<UnitType>UNIT_NEMYD_CONSCRIPTED_RAKER</UnitType>
 			<PromotionType>PROMOTION_RIVAL_TERRITORY</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_NEMYD_CONSCRIPTED_RAKER</UnitType>
+			<PromotionType>PROMOTION_ONLY_DEFENSIVE</PromotionType>
 		</Row>
 	</Unit_FreePromotions>
 	<Unit_FreeUnitAfterSurvivingMeleeCombat>
