@@ -40,8 +40,8 @@
 			<XPValueDefense>3</XPValueDefense>
 			<UnitArtInfo>ART_DEF_UNIT_GALLEON_FLEET</UnitArtInfo>
 			<UnitFlagIconOffset>51</UnitFlagIconOffset>
-			<IconAtlas>UNIT_ATLAS_2</IconAtlas>
-			<PortraitIndex>8</PortraitIndex>
+			<IconAtlas>GALLEON_FLEET_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
 			<MoveRate>WOODEN_BOAT</MoveRate>
 		</Row>
 		<Row>

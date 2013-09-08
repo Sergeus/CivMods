@@ -10,6 +10,7 @@ SiegeMod
 - Added icon for Transcendence and Consecration techs
 - Plot tooltips no longer refer to old techs
 - Galleon fleets and Conscripted Rakers can no longer melee as well as ranged attack
+- Unit icon added for galleon fleet
 
 #### V1.0 SiegeMod
 - See http://forums.civfanatics.com/showthread.php?t=508975 for details.
