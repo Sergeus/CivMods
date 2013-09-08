@@ -299,7 +299,7 @@ function CyatsActions(playerID)
 		print("Founding city...")
 		pCyats:Found(gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].X, gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].Y)
 
-		if math.fmod(gT.gCyatsNextExpansion, 2) then
+		if math.fmod(gT.gCyatsNextExpansion, 2) == 0 then
 			print("Giving them a new worker to go with the city...")
 			pCyats:InitUnit(GameInfoTypes.UNIT_WORKER, gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].X, gT.gCyatsExpansionCoords[gT.gCyatsNextExpansion].Y)
 		end
