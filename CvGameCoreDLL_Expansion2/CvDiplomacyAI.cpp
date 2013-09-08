@@ -9337,7 +9337,10 @@ void CvDiplomacyAI::DoPlayerDeclaredWarOnSomeone(PlayerTypes ePlayer, TeamTypes 
 	CvAssertMsg(eOtherTeam <= MAX_CIV_TEAMS, "DIPLOMACY_AI: Invalid Team Index.  Please send Jon this with your last 5 autosaves and what changelist # you're playing.");
 
 	// Disregard barbarians
-	if(GET_TEAM(eOtherTeam).isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(GET_TEAM(eOtherTeam).isBarbarian() || GET_TEAM(eOtherTeam).IsShadowSpawn())
 		return;
 
 	CvAssertMsg(eOtherTeam < MAX_CIV_TEAMS, "DIPLOMACY_AI: Invalid Team Index.  Please send Jon this with your last 5 autosaves and what changelist # you're playing.");

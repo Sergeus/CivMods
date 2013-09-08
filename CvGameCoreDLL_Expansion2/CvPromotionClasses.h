@@ -129,6 +129,13 @@ public:
 	// ----------------------------------------------------------------
 	int GetAdjacentEnemyDamage() const;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int GetTurnDamage() const;
+
+	bool IsBlocksHealing() const;
+
 	bool IsCannotBeChosen() const;
 	bool IsLostWithUpgrade() const;
 	bool IsNotWithUpgrade() const;
@@ -287,6 +294,13 @@ protected:
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	int m_iAdjacentEnemyDamage;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int m_iTurnDamage;
+
+	bool m_bBlocksHealing;
 
 	bool m_bCannotBeChosen;
 	bool m_bLostWithUpgrade;

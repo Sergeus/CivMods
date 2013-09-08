@@ -1609,6 +1609,14 @@ CvGlobals::CvGlobals() :
 	m_iINTERNATIONAL_TRADE_EXCLUSIVE_CONNECTION(200),
 	m_iINTERNATIONAL_TRADE_CITY_GPT_DIVISOR(20),
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_iPROMOTION_HORN_HERO_DECAY(-1),
+	m_iSHADOW_CIVILIZATION(37),
+	m_iSHADOW_HANDICAP(1),
+	m_iSHADOW_LEADER(-1),
+
 // -- floats --
 
 	m_fAI_PRODUCTION_WEIGHT_MOD_PER_TURN_LEFT(0.015f),
@@ -5411,6 +5419,14 @@ void CvGlobals::cacheGlobals()
 	m_iWITHDRAW_MOD_BLOCKED_TILE = getDefineINT("WITHDRAW_MOD_BLOCKED_TILE");
 	m_iAI_OPERATIONAL_MAX_RECRUIT_TURNS_DEFAULT = getDefineINT("AI_OPERATIONAL_MAX_RECRUIT_TURNS_DEFAULT");
 	m_iAI_OPERATIONAL_MAX_RECRUIT_TURNS_ENEMY_TERRITORY = getDefineINT("AI_OPERATIONAL_MAX_RECRUIT_TURNS_ENEMY_TERRITORY");
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_iPROMOTION_HORN_HERO_DECAY = getDefineINT("PROMOTION_HORN_HERO_DECAY");
+	m_iSHADOW_CIVILIZATION = getDefineINT("SHADOW_CIVILIZATION");
+	m_iSHADOW_HANDICAP = getDefineINT("SHADOW_HANDICAP");
+	m_iSHADOW_LEADER = getDefineINT("SHADOW_LEADER");
 
 	// ----------------------------------------------------------------
 	// SiegeMod Addition

@@ -1236,6 +1236,17 @@ public:
 	void DoAdjacentEnemyDamage();
 	void DoSetupFaithIfReligious();
 	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool CanDiscoverHornOfValere() const;
+	int GetTurnDamage() const;
+	void ChangeTurnDamage(int iValue);
+	void DoTurnDamage();
+	void ChangeHealBlocked(int iNewValue);
+	int GetHealBlockedCount() const;
+	bool IsHealBlocked() const;
+	bool IsShadowspawn() const;
+	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------
 	bool CanHandleMission(int iMission, bool bTestVisible) const;
@@ -1258,6 +1269,11 @@ protected:
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	int m_iAdjacentEnemyDamage;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int m_iTurnDamage;
+	bool m_iHealBlockedCount;
 
 	typedef enum Flags
 	{

@@ -503,6 +503,12 @@
     <ClCompile Include="WoTNotifications.cpp">
       <Filter>WoTSources</Filter>
     </ClCompile>
+    <ClCompile Include="WoTHornOfValere.cpp">
+      <Filter>WoTSources</Filter>
+    </ClCompile>
+    <ClCompile Include="WoTShadowspawn.cpp">
+      <Filter>WoTSources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="banned.h">
@@ -1019,6 +1025,15 @@
       <Filter>Lua</Filter>
     </ClInclude>
     <ClInclude Include="WoTNotifications.h">
+      <Filter>WoTHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomLog.h">
+      <Filter>WoTHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="WoTHornOfValere.h">
+      <Filter>WoTHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="WoTShadowspawn.h">
       <Filter>WoTHeaders</Filter>
     </ClInclude>
   </ItemGroup>

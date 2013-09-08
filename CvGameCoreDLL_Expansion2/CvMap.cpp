@@ -209,6 +209,21 @@ FDataStream& operator>>(FDataStream& loadFrom, CvLandmass& writeTo)
 	return loadFrom;
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+FDataStream& operator<<(FDataStream& saveTo, const HornOfValere& readFrom)
+{
+	readFrom.Write(saveTo);
+	return saveTo;
+}
+
+FDataStream& operator>>(FDataStream& loadFrom, HornOfValere& writeTo) 
+{
+	writeTo.Read(loadFrom);
+	return loadFrom;
+}
+
 static uint sgCvMapInstanceCount = 0;
 //////////////////////////////////////////////////////////////////////////////
 
@@ -240,6 +255,11 @@ CvMap::CvMap()
 	m_pResourceForceReveal = NULL;
 
 	m_iAIMapHints = 0;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pHornOfValere = NULL;
 
 	reset(&defaultMapData);
 }
@@ -370,6 +390,14 @@ void CvMap::uninit()
 	SAFE_DELETE_ARRAY(m_paiNumResource);
 	SAFE_DELETE_ARRAY(m_paiNumResourceOnLand);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (m_pHornOfValere) 
+	{
+		SAFE_DELETE(m_pHornOfValere);
+	}
+
 	SAFE_DELETE_ARRAY(m_pMapPlots);
 
 
@@ -470,6 +498,11 @@ void CvMap::reset(CvMapInitData* pInitInfo)
 
 	m_vDeferredFogPlots.clear();
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pHornOfValere = FNEW(HornOfValere(), c_eCiv5GameplayDLL, 0);
+
 	gDLL->DoMapSetup(numPlots());
 }
 
@@ -562,6 +595,14 @@ void CvMap::doTurn()
 	for(iI = 0; iI < numPlots(); iI++)
 	{
 		plotByIndexUnchecked(iI)->doTurn();
+	}
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (m_bHasHornOfValere && m_pHornOfValere)
+	{
+		m_pHornOfValere->DoTurn();
 	}
 }
 
@@ -698,6 +739,102 @@ void CvMap::verifyUnitValidPlot()
 	for(iI = 0; iI < numPlots(); iI++)
 	{
 		plotByIndexUnchecked(iI)->verifyUnitValidPlot();
+	}
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+bool CvMap::IsHasHornOfValere() const
+{
+	return m_bHasHornOfValere;
+}
+
+void CvMap::SetHasHornOfValere(bool bNewValue)
+{
+	m_bHasHornOfValere = bNewValue;
+}
+
+void CvMap::PlaceHornOfValere(int iX, int iY)
+{
+	if (IsHasHornOfValere())
+	{
+		m_pHornOfValere->MoveHorn(iX, iY);
+	}
+	else
+	{
+		m_pHornOfValere->MoveHorn(iX, iY);
+
+		m_pHornOfValere->SetActive(true);
+
+		SetHasHornOfValere(true);
+
+		Database::Results kResults;
+		if (GC.GetGameDatabase()->Execute(kResults, "SELECT Value from WoTModConstants WHERE Type ='HORN_OF_VALERE_DISCOVERY_RANGE'"))
+		{
+			if (kResults.Step())
+			{
+				m_pHornOfValere->SetDiscoveryRange(kResults.GetInt(0));
+			}
+		}
+		else
+		{
+			m_pHornOfValere->SetDiscoveryRange(1);
+		}
+	}
+}
+
+int CvMap::GetTurnsSinceHornBlown() const
+{
+	if (IsHasHornOfValere())
+	{
+		return m_pHornOfValere->GetTurnsSinceHornBlown();
+	}
+	return 50000;
+}
+
+void CvMap::SetTurnsSinceHornBlown(int iNewValue)
+{
+	if (IsHasHornOfValere())
+	{
+		m_pHornOfValere->SetTurnsSinceHornBlown(iNewValue);
+	}
+}
+
+int CvMap::GetHornOfValereDiscoveryDistance() const
+{
+	if (IsHasHornOfValere())
+	{
+		return m_pHornOfValere->GetDiscoveryRange();
+	}
+	return -1;
+}
+
+bool CvMap::IsHornBlower(CvUnit* pUnit)
+{
+	if (IsHasHornOfValere() && m_pHornOfValere)
+	{
+		return m_pHornOfValere->IsHornBlower(pUnit);
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void CvMap::DoTransferHornOfValere(CvUnit* pNewOwner)
+{
+	if (IsHasHornOfValere() && m_pHornOfValere)
+	{
+		m_pHornOfValere->TransferHorn(pNewOwner);
+	}
+}
+
+void CvMap::DoDropHornOfValere(CvUnit* pUnit)
+{
+	if (IsHasHornOfValere() && m_pHornOfValere)
+	{
+		m_pHornOfValere->DropHorn(pUnit);
 	}
 }
 
@@ -1400,6 +1537,12 @@ void CvMap::Read(FDataStream& kStream)
 	m_iAIMapHints = 0;
 	kStream >> m_iAIMapHints;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream >> m_bHasHornOfValere;
+	kStream >> *m_pHornOfValere;
+
 	setup();
 
 	updateAdjacency();
@@ -1448,6 +1591,12 @@ void CvMap::Write(FDataStream& kStream) const
 	kStream << m_landmasses;
 
 	kStream << m_iAIMapHints;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_bHasHornOfValere;
+	kStream << *m_pHornOfValere;
 
 }
 

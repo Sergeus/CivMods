@@ -70,6 +70,10 @@ const MissionTypes getMISSION_CHANGE_TRADE_UNIT_HOME_CITY();
 const MissionTypes getMISSION_SELL_EXOTIC_GOODS();
 const MissionTypes getMISSION_GIVE_POLICIES();
 const MissionTypes getMISSION_ONE_SHOT_TOURISM();
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+const MissionTypes getMISSION_BLOW_HORN_OF_VALERE();
 const unsigned int getNUM_MISSION_TYPES();
 
 const GreatWorkArtifactClass getARTIFACT_ANCIENT_RUIN();

@@ -264,6 +264,12 @@ void CvLuaPlot::PushMethods(lua_State* L, int t)
 	Method(GetArchaeologyArtifactPlayer1);
 	Method(GetArchaeologyArtifactPlayer2);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	Method(IsHasHornOfValere);
+	Method(SetHasHornOfValere);
+
 }
 //------------------------------------------------------------------------------
 void CvLuaPlot::HandleMissingInstance(lua_State* L)
@@ -1749,6 +1755,16 @@ int CvLuaPlot::lIsBuildRemovesFeature(lua_State* L)
 
 	lua_pushboolean(L, bFeatureRemoved);
 	return 1;
+}
+
+int CvLuaPlot::lIsHasHornOfValere(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlot::IsHasHornOfValere);
+}
+
+int CvLuaPlot::lSetHasHornOfValere(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlot::SetHasHornOfValere);
 }
 
 //------------------------------------------------------------------------------

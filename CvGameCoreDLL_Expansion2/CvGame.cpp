@@ -49,6 +49,11 @@
 #include "CvBarbarians.h"
 #include "CvGoodyHuts.h"
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+#include "WoTShadowspawn.h"
+
 #include <sstream>
 
 #include "FTempHeap.h"
@@ -495,6 +500,11 @@ bool CvGame::InitMap(CvGameInitialItemsOverrides& kGameInitialItemsOverrides)
 
 	CvBarbarians::MapInit(GC.getMap().numPlots());
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	WoTShadowspawn::Init();
+
 	// Run this for all maps because a map should never crash the game on
 	// load regardless of where that map came from.  (The map scripts are mod-able after all!!!)
 	CvWorldBuilderMapLoader::ValidateCoast();
@@ -569,6 +579,11 @@ void CvGame::InitPlayers()
 
 	CivilizationTypes eBarbCiv = (CivilizationTypes)GC.getBARBARIAN_CIVILIZATION();
 	CivilizationTypes eMinorCiv = (CivilizationTypes)GC.getMINOR_CIVILIZATION();
+	
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	CivilizationTypes eShadowCiv = (CivilizationTypes)GC.getSHADOW_CIVILIZATION();
 
 	CvCivilizationInfo* pBarbarianCivilizationInfo = GC.getCivilizationInfo(eBarbCiv);
 	int barbarianPlayerColor = pBarbarianCivilizationInfo->getDefaultPlayerColor();
@@ -636,6 +651,23 @@ void CvGame::InitPlayers()
 			CvPreGame::setPlayerColor(BARBARIAN_PLAYER, ((PlayerColorTypes)barbarianPlayerColor));
 			CvPreGame::setMinorCiv(BARBARIAN_PLAYER, false);
 		}
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		// init shadowspawn slot
+		else if (iI == SHADOW_PLAYER)
+		{
+			CvCivilizationInfo* pShadowInfo = GC.getCivilizationInfo(eShadowCiv);
+
+			CvPreGame::setTeamType(SHADOW_PLAYER, SHADOW_TEAM);
+			CvPreGame::setSlotStatus(SHADOW_PLAYER, SS_COMPUTER);
+			CvPreGame::setNetID(SHADOW_PLAYER, -1);
+			CvPreGame::setHandicap(SHADOW_PLAYER, (HandicapTypes)GC.getSHADOW_HANDICAP());
+			CvPreGame::setCivilization(SHADOW_PLAYER, eShadowCiv);
+			CvPreGame::setLeaderHead(SHADOW_PLAYER, (LeaderHeadTypes)GC.getSHADOW_LEADER());
+			CvPreGame::setPlayerColor(SHADOW_PLAYER, (PlayerColorTypes)pShadowInfo->getDefaultPlayerColor());
+			CvPreGame::setMinorCiv(SHADOW_PLAYER, false);
+		}
 		// Major Civs
 		else if(iI < MAX_MAJOR_CIVS)
 		{
@@ -695,7 +727,11 @@ void CvGame::setInitialItems(CvGameInitialItemsOverrides& kInitialItemOverrides)
 	{
 		CvPlayer& kPlayer = GET_PLAYER((PlayerTypes) iPlayerLoop);
 
-		if(kPlayer.isAlive() && !kPlayer.isMinorCiv() && !kPlayer.isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+		if(kPlayer.isAlive() && !kPlayer.isMinorCiv() && !kPlayer.isBarbarian()
+			&& !kPlayer.IsShadowspawn())
 		{
 			kPlayer.GetFlavorManager()->AdjustWeightsForMap();
 		}
@@ -906,6 +942,11 @@ void CvGame::uninit()
 {
 	CvGoodyHuts::Uninit();
 	CvBarbarians::Uninit();
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	WoTShadowspawn::Uninit();
 
 	SAFE_DELETE_ARRAY(m_paiUnitCreatedCount);
 	SAFE_DELETE_ARRAY(m_paiUnitClassCreatedCount);
@@ -1269,7 +1310,10 @@ void CvGame::initDiplomacy()
 		CvTeam& kTeamA = GET_TEAM(eTeamA);
 		kTeamA.meet(eTeamA, false);
 
-		if(kTeamA.isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(kTeamA.isBarbarian() || kTeamA.IsShadowSpawn())
 		{
 			for(int iJ = 0; iJ < MAX_CIV_TEAMS; iJ++)
 			{
@@ -7462,6 +7506,11 @@ void CvGame::doTurn()
 
 	CvBarbarians::BeginTurn();
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	WoTShadowspawn::BeginTurn();
+
 	doUpdateCacheOnTurn();
 
 	DoUpdateCachedWorldReligionTechProgress();
@@ -7485,6 +7534,11 @@ void CvGame::doTurn()
 	CvBarbarians::DoCamps();
 
 	CvBarbarians::DoUnits();
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	WoTShadowspawn::DoUnits();
 
 	GetGameReligions()->DoTurn();
 	GetGameTrade()->DoTurn();
@@ -9415,6 +9469,11 @@ void CvGame::ReadSupportingClassData(FDataStream& kStream)
 
 	CvBarbarians::Read(kStream, uiVersion);
 	CvGoodyHuts::Read(kStream, uiVersion);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	WoTShadowspawn::Read(kStream);
 }
 
 //	--------------------------------------------------------------------------------
@@ -9617,6 +9676,11 @@ void CvGame::WriteSupportingClassData(FDataStream& kStream)
 
 	CvBarbarians::Write(kStream);
 	CvGoodyHuts::Write(kStream);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	WoTShadowspawn::Write(kStream);
 }
 
 //	--------------------------------------------------------------------------------
@@ -11484,6 +11548,14 @@ CombatPredictionTypes CvGame::GetCombatPrediction(const CvUnit* pAttackingUnit, 
 	}
 
 	return ePrediction;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+void CvGame::DoShadowSpawnUnit(int iX, int iY)
+{
+	WoTShadowspawn::SpawnShadowspawnUnit(GC.getMap().plot(iX, iY));
 }
 
 //------------------------------------------------------------

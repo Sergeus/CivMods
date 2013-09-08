@@ -378,6 +378,12 @@ public:
 
 	bool IsHomeFrontForPlayer(PlayerTypes ePlayer) const;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsHasHornOfValere() const;
+	void SetHasHornOfValere(bool bNewValue);
+
 	PlotTypes getPlotType() const
 	{
 		return (PlotTypes)m_ePlotType;
@@ -843,6 +849,11 @@ protected:
 	bool m_bImprovedByGiftFromMajor:1;
 	bool m_bIsAdjacentToLand:1;				// Cached value, do not serialize
 	bool m_bIsImpassable:1;					// Cached value, do not serialize
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool m_bHornOfValere:1;
 
 	CvArchaeologyData m_kArchaeologyData;
 

@@ -26,6 +26,12 @@
 #include "CvInfos.h"
 #include "CvPlotManager.h"
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+#include "WoTHornOfValere.h"
+#include "FAutoVariable.h"
+
 // a simplified version of CvArea for use primarily with the continent generation system
 // one huge difference is that impassible terrain doesn't split a landmass like it would a CvArea
 class CvLandmass
@@ -69,7 +75,11 @@ protected:
 
 FDataStream& operator<<(FDataStream&, const CvLandmass&);
 FDataStream& operator>>(FDataStream&, CvLandmass&);
-
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+FDataStream& operator<<(FDataStream&, const HornOfValere&);
+FDataStream& operator>>(FDataStream&, HornOfValere&);
 
 
 class CvAStar;
@@ -131,6 +141,19 @@ public:
 	void updateAdjacency();
 
 	void verifyUnitValidPlot();
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsHasHornOfValere() const;
+	void SetHasHornOfValere(bool bNewValue);
+	void PlaceHornOfValere(int iX, int iY);
+	int GetTurnsSinceHornBlown() const;
+	void SetTurnsSinceHornBlown(int iNewValue);
+	bool IsHornBlower(CvUnit* pUnit);
+	void DoTransferHornOfValere(CvUnit* pNewOwner);
+	void DoDropHornOfValere(CvUnit* pUnit);
+	int GetHornOfValereDiscoveryDistance() const;
 
 	CvPlot* syncRandPlot(int iFlags = 0, int iArea = -1, int iMinUnitDistance = -1, int iTimeout = 100);
 
@@ -340,6 +363,12 @@ protected:
 	GUID m_guid;
 
 	CvPlotManager	m_kPlotManager;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool m_bHasHornOfValere;
+	HornOfValere* m_pHornOfValere;
 };
 
 #endif

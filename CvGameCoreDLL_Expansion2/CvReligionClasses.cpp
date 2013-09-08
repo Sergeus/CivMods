@@ -2206,7 +2206,11 @@ int CvPlayerReligions::GetCostNextProphet(bool bIncludeBeliefDiscounts, bool bAd
 		iCost /= 100;
 
 		// Adjust for difficulty
-		if(!m_pPlayer->isHuman() && !m_pPlayer->IsAITeammateOfHuman() && !m_pPlayer->isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(!m_pPlayer->isHuman() && !m_pPlayer->IsAITeammateOfHuman() && !m_pPlayer->isBarbarian()
+			&& !m_pPlayer->IsShadowspawn())
 		{
 			iCost *= GC.getGame().getHandicapInfo().getAITrainPercent();
 			iCost /= 100;
@@ -5881,7 +5885,10 @@ bool CvReligionAI::HaveNearbyConversionTarget(ReligionTypes eReligion, bool bCan
 			}
 			else
 			{
-				if (!kPlayer.isBarbarian())
+				// ----------------------------------------------------------------
+				// WoTMod Addition
+				// ----------------------------------------------------------------
+				if (!kPlayer.isBarbarian() && !kPlayer.IsShadowspawn())
 				{
 					if (m_pPlayer->GetDiplomacyAI()->IsPlayerAgreeNotToConvert(ePlayer))
 					{

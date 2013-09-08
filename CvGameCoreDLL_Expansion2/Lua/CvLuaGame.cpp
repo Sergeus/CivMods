@@ -384,6 +384,11 @@ void CvLuaGame::RegisterMembers(lua_State* L)
 
 	Method(GetNumArchaeologySites);
 	Method(GetNumHiddenArchaeologySites);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	Method(DoShadowspawnSpawnUnit);
 }
 //------------------------------------------------------------------------------
 
@@ -2506,6 +2511,18 @@ int CvLuaGame::lIsProcessingMessages(lua_State* L)
 {
 	lua_pushboolean(L, gDLL->IsProcessingGameCoreMessages());
 	return 1;
+}
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvLuaGame::lDoShadowspawnSpawnUnit(lua_State* L)
+{
+	int iX = lua_tointeger(L, 1);
+	int iY = lua_tointeger(L, 2);
+
+	GC.getGame().DoShadowSpawnUnit(iX, iY);
+
+	return 0;
 }
 //------------------------------------------------------------------------------
 int CvLuaGame::lGetGreatWorkTooltip(lua_State* L)

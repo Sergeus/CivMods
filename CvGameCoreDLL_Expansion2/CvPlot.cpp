@@ -3455,6 +3455,14 @@ bool CvPlot::isGoody(TeamTypes eTeam) const
 		return false;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (GET_TEAM(eTeam).IsShadowSpawn())
+	{
+		return false;
+	}
+
 	return ((getImprovementType() == NO_IMPROVEMENT) ? false : GC.getImprovementInfo(getImprovementType())->IsGoody());
 }
 
@@ -3468,6 +3476,14 @@ bool CvPlot::isRevealedGoody(TeamTypes eTeam) const
 	}
 
 	if(GET_TEAM(eTeam).isBarbarian() || GET_TEAM(eTeam).isMinorCiv())
+	{
+		return false;
+	}
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (GET_TEAM(eTeam).IsShadowSpawn())
 	{
 		return false;
 	}
@@ -3529,6 +3545,14 @@ bool CvPlot::IsFriendlyTerritory(PlayerTypes ePlayer) const
 {
 	// No friendly territory for barbs!
 	if(GET_PLAYER(ePlayer).isBarbarian())
+	{
+		return false;
+	}
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (GET_PLAYER(ePlayer).IsShadowspawn())
 	{
 		return false;
 	}
@@ -8238,7 +8262,10 @@ bool CvPlot::setRevealed(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly, Tea
 		}
 
 		// Natural Wonder
-		if(eTeam != BARBARIAN_TEAM)
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(eTeam != BARBARIAN_TEAM && eTeam != SHADOW_TEAM)
 		{
 			if(getFeatureType() != NO_FEATURE)
 			{
@@ -8290,7 +8317,10 @@ bool CvPlot::setRevealed(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly, Tea
 					int iFinderGold = 0;
 					bool bFirstFinder = false;
 					CvTeam& kTeam = GET_TEAM(eTeam);
-					if(!kTeam.isMinorCiv() && !kTeam.isBarbarian() && !kTeam.isObserver())
+					// ----------------------------------------------------------------
+					// WoTMod Addition
+					// ----------------------------------------------------------------
+					if(!kTeam.isMinorCiv() && !kTeam.isBarbarian() && !kTeam.isObserver() && !kTeam.IsShadowSpawn())
 					{
 						if(getNumMajorCivsRevealed() == 0)
 						{
@@ -9571,6 +9601,12 @@ void CvPlot::read(FDataStream& kStream)
 	kStream >> bitPackWorkaround;
 	m_bImprovedByGiftFromMajor = bitPackWorkaround;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream >> bitPackWorkaround;
+	m_bHornOfValere = bitPackWorkaround;
+
 	kStream >> m_eOwner;
 	kStream >> m_ePlotType;
 	kStream >> m_eTerrainType;
@@ -9769,6 +9805,11 @@ void CvPlot::write(FDataStream& kStream) const
 	kStream << m_bRoughFeature;
 	kStream << m_bResourceLinkedCityActive;
 	kStream << m_bImprovedByGiftFromMajor;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_bHornOfValere;
 	// m_bPlotLayoutDirty not saved
 	// m_bLayoutStateWorked not saved
 
@@ -10655,6 +10696,19 @@ bool CvPlot::MustPayMaintenanceHere(PlayerTypes ePlayer) const
 	}
 
 	return true;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+void CvPlot::SetHasHornOfValere(bool bNewValue)
+{
+	m_bHornOfValere = bNewValue;
+}
+
+bool CvPlot::IsHasHornOfValere() const
+{
+	return m_bHornOfValere;
 }
 
 //	---------------------------------------------------------------------------

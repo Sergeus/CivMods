@@ -79,7 +79,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="WoTHornOfValere.cpp" />
     <ClCompile Include="WoTNotifications.cpp" />
+    <ClCompile Include="WoTShadowspawn.cpp" />
     <ClCompile Include="_precompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mod|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -244,6 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="banned.h" />
+    <ClInclude Include="CustomLog.h" />
     <ClInclude Include="CvAchievementUnlocker.h" />
     <ClInclude Include="CvAdvisorCounsel.h" />
     <ClInclude Include="CvAdvisorRecommender.h" />
@@ -414,7 +417,9 @@
     <ClInclude Include="Lua\CvLuaTeam.h" />
     <ClInclude Include="Lua\CvLuaTeamTech.h" />
     <ClInclude Include="Lua\CvLuaUnit.h" />
+    <ClInclude Include="WoTHornOfValere.h" />
     <ClInclude Include="WoTNotifications.h" />
+    <ClInclude Include="WoTShadowspawn.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CvGameCoreDLL.rc" />

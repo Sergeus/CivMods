@@ -1511,6 +1511,11 @@ public:
 
 	CvPlayerAchievements& GetPlayerAchievements(){return m_kPlayerAchievements;}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsShadowspawn() const;
+
 	bool hasTurnTimerExpired();
 
 protected:

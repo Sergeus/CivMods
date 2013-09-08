@@ -700,7 +700,10 @@ void CvPlayerTechs::Reset()
 	}
 
 	// Tweak tech priorities to recognize unique properties of this civ
-	if(!m_pPlayer->isMinorCiv() && !m_pPlayer->isBarbarian() && m_pPlayer->getCivilizationType() != NO_CIVILIZATION)
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!m_pPlayer->isMinorCiv() && !m_pPlayer->isBarbarian() && !m_pPlayer->IsShadowspawn() && m_pPlayer->getCivilizationType() != NO_CIVILIZATION)
 	{
 		CvCivilizationInfo* pkInfo = GC.getCivilizationInfo(m_pPlayer->getCivilizationType());
 		if(pkInfo)
@@ -1312,7 +1315,11 @@ void CvPlayerTechs::CheckForTechAchievement() const
 							int iNumPlayersWith = 0;
 							for(iJ = 0; iJ < MAX_MAJOR_CIVS; iJ++)
 							{
-								if(!GET_PLAYER((PlayerTypes)iJ).isBarbarian() && !GET_PLAYER((PlayerTypes)iJ).isMinorCiv())
+								if(!GET_PLAYER((PlayerTypes)iJ).isBarbarian() && !GET_PLAYER((PlayerTypes)iJ).isMinorCiv()
+									// ----------------------------------------------------------------
+									// WoTMod Addition
+									// ----------------------------------------------------------------
+									&& !GET_PLAYER((PlayerTypes)iJ).IsShadowspawn())
 								{
 									if(GET_TEAM(GET_PLAYER((PlayerTypes)iJ).getTeam()).GetTeamTechs()->HasTech(eTech))
 									{

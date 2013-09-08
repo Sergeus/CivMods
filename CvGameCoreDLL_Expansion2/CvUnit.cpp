@@ -265,6 +265,12 @@ CvUnit::CvUnit() :
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	, m_iAdjacentEnemyDamage(0)
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	//, m_iTurnDamage("CvUnit::m_iTurnDamage", m_syncArchive, 0)
+	, m_iTurnDamage(0)
+	, m_iHealBlockedCount(0)
 
 	, m_strName("")
 	, m_eGreatWork(NO_GREAT_WORK)
@@ -678,7 +684,10 @@ void CvUnit::initWithNameOffset(int iID, UnitTypes eUnit, int iNameOffset, UnitA
 	kPlayer.UpdateUnitProductionMaintenanceMod();
 
 	// Minor Civ quest
-	if(!kPlayer.isMinorCiv() && !isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!kPlayer.isMinorCiv() && !isBarbarian() && !kPlayer.IsShadowspawn())
 	{
 		PlayerTypes eMinor;
 		for(int iMinorCivLoop = MAX_MAJOR_CIVS; iMinorCivLoop < MAX_CIV_PLAYERS; iMinorCivLoop++)
@@ -1256,7 +1265,10 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer /*= NO_PLAYER*/)
 	// If a player killed this Unit...
 	if(ePlayer != NO_PLAYER)
 	{
-		if(!isBarbarian() && !GET_PLAYER(ePlayer).isBarbarian())
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		if(!isBarbarian() && !GET_PLAYER(ePlayer).isBarbarian() && !IsShadowspawn() && !GET_PLAYER(ePlayer).IsShadowspawn())
 		{
 			// Notify Diplo AI that damage has been done
 			// Best unit that can be built now is given value of 100
@@ -1296,6 +1308,16 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer /*= NO_PLAYER*/)
 	{
 		startDelayedDeath();
 		return;
+	}
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// If we've gotten this far and this unit is still a Hornblower, we should 
+	// drop the Horn of Valere
+	if (GC.getMap().IsHornBlower(this))
+	{
+		GC.getMap().DoDropHornOfValere(this);
 	}
 
 
@@ -1666,6 +1688,11 @@ void CvUnit::doTurn()
 	{
 		DoAdjacentEnemyDamage();
 	}
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	DoTurnDamage();
 
 	// Only increase our Fortification level if we've actually been told to Fortify
 	if(IsFortifiedThisTurn())
@@ -2784,6 +2811,12 @@ bool CvUnit::IsAngerFreeUnit() const
 
 	// We don't care about other Minors or the Barbs
 	if(GET_PLAYER(getOwner()).isBarbarian())
+		return true;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (GET_PLAYER(getOwner()).IsShadowspawn())
 		return true;
 
 	return false;
@@ -4778,6 +4811,14 @@ bool CvUnit::canHeal(const CvPlot* pPlot, bool bTestVisible) const
 		return false;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (IsHealBlocked())
+	{
+		return false;
+	}
+
 	// JON - This should change when one-unit-per-plot city stuff is handled better
 	// Unit Healing in cities
 
@@ -5045,7 +5086,10 @@ int CvUnit::healTurns(const CvPlot* pPlot) const
 void CvUnit::doHeal()
 {
 	VALIDATE_OBJECT
-	if(!isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!isBarbarian() && !IsHealBlocked())
 	{
 		changeDamage(-(healRate(plot())));
 	}
@@ -9144,7 +9188,10 @@ int CvUnit::upgradePrice(UnitTypes eUnit) const
 		iPrice = int(iPrice * fMultiplier);
 	}
 
-	if(!isHuman() && !kPlayer.IsAITeammateOfHuman() && !isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!isHuman() && !kPlayer.IsAITeammateOfHuman() && !isBarbarian() && !IsShadowspawn())
 	{
 		iPrice *= GC.getGame().getHandicapInfo().getAIUnitUpgradePercent();
 		iPrice /= 100;
@@ -9615,7 +9662,10 @@ int CvUnit::workRate(bool bMax, BuildTypes /*eBuild*/) const
 	iRate *= std::max(0, (kPlayer.getWorkerSpeedModifier() + kPlayer.GetPlayerTraits()->GetWorkerSpeedModifier() + 100));
 	iRate /= 100;
 
-	if(!kPlayer.isHuman() && !kPlayer.IsAITeammateOfHuman() && !kPlayer.isBarbarian())
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(!kPlayer.isHuman() && !kPlayer.IsAITeammateOfHuman() && !kPlayer.isBarbarian() && !kPlayer.IsShadowspawn())
 	{
 		iRate *= std::max(0, (GC.getGame().getHandicapInfo().getAIWorkRateModifier() + 100));
 		iRate /= 100;
@@ -9846,6 +9896,12 @@ int CvUnit::GetStrategicResourceCombatPenalty() const
 	// barbs don't have resources
 	if(isBarbarian())
 		return iPenalty;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (IsShadowspawn())
+		return 0;
 
 	CvPlayerAI& kPlayer = GET_PLAYER(getOwner());
 
@@ -17253,6 +17309,11 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		// SiegeMod Addition
 		// ----------------------------------------------------------------
 		ChangeAdjacentEnemyDamage(thisPromotion.GetAdjacentEnemyDamage() * iChange);
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		ChangeTurnDamage(thisPromotion.GetTurnDamage() * iChange);
+		ChangeHealBlocked(thisPromotion.IsBlocksHealing() ? iChange : 0);
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
 		{
@@ -17521,6 +17582,12 @@ void CvUnit::read(FDataStream& kStream)
 	// ----------------------------------------------------------------
 	kStream >> m_iAdjacentEnemyDamage;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream >> m_iTurnDamage;
+	kStream >> m_iHealBlockedCount;
+
 	kStream >> m_iEnemyDamageChance;
 	kStream >> m_iNeutralDamageChance;
 
@@ -17687,6 +17754,12 @@ void CvUnit::write(FDataStream& kStream) const
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	kStream << m_iAdjacentEnemyDamage;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_iTurnDamage;
+	kStream << m_iHealBlockedCount;
 
 	kStream << m_iEnemyDamageChance;
 	kStream << m_iNeutralDamageChance;
@@ -20992,6 +21065,101 @@ std::string CvUnit::stackTraceRemark(const FAutoVariableBase& var) const
 		}
 	}
 	return result;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+bool CvUnit::CanDiscoverHornOfValere() const
+{
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+	if (pkScriptSystem)
+	{
+		CvLuaArgsHandle args;
+		args->Push(getOwner());
+		args->Push(GetID());
+
+		// Will return false if there are no registered listeners.
+		bool bResult = false;
+		if (LuaSupport::CallTestAll(pkScriptSystem, "UnitCanDiscoverHornOfValere", args.get(), bResult))
+		{
+			return bResult;
+		}
+	}
+
+	return false;
+}
+
+void CvUnit::DoTurnDamage()
+{
+	if (GetTurnDamage() > 0)
+	{
+		changeDamage(GetTurnDamage());
+
+		if(getDamage() >= GC.getMAX_HIT_POINTS())
+		{
+			CvString strBuffer;
+			Localization::String strSummary;
+			CvNotifications* pNotification = GET_PLAYER(getOwner()).GetNotifications();
+			if(pNotification)
+			{
+				if (isHasPromotion((PromotionTypes)GC.getPROMOTION_HORN_HERO_DECAY()))
+				{
+					strBuffer = GetLocalizedText("TXT_KEY_NOTIFICATION_HORN_HERO_DIED", getNameKey());
+					strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_HORN_HERO_DIED_SUMMARY");
+				}
+				else
+				{
+					strBuffer = GetLocalizedText("TXT_KEY_MISC_YOU_UNIT_WAS_DESTROYED_ATTRITION", getNameKey());
+					strSummary = Localization::Lookup("TXT_KEY_UNIT_LOST");
+				}
+				pNotification->Add(NOTIFICATION_UNIT_DIED, strBuffer, strSummary.toUTF8(), getX(), getY(), (int)getUnitType(), getOwner());
+			}
+		}
+	}
+}
+
+int CvUnit::GetTurnDamage() const
+{
+	return m_iTurnDamage;
+}
+
+void CvUnit::ChangeTurnDamage(int iValue)
+{
+	VALIDATE_OBJECT
+
+	if (iValue != 0)
+	{
+		m_iTurnDamage += iValue;
+	}
+}
+
+int CvUnit::GetHealBlockedCount() const
+{
+	return m_iHealBlockedCount;
+}
+
+bool CvUnit::IsHealBlocked() const
+{
+	return GetHealBlockedCount() > 0;
+}
+
+void CvUnit::ChangeHealBlocked(int iValue)
+{
+	VALIDATE_OBJECT	
+
+	if (iValue != 0)
+	{
+		m_iHealBlockedCount += iValue;
+	}
+}
+
+bool CvUnit::IsShadowspawn() const
+{
+	VALIDATE_OBJECT
+
+	return GET_PLAYER(getOwner()).IsShadowspawn();
 }
 
 //	--------------------------------------------------------------------------------

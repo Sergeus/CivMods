@@ -557,6 +557,11 @@ public:
 
 	CombatPredictionTypes GetCombatPrediction(const CvUnit* pAttackingUnit, const CvUnit* pDefendingUnit);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	void DoShadowSpawnUnit(int iX, int iY);
+
 	void NetMessageStaticsReset();
 	void SetLastTurnAICivsProcessed();
 

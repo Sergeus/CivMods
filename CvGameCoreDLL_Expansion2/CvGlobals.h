@@ -7329,6 +7329,26 @@ public:
 		return m_iHURRY_GOLD_COST_PER_FAITH;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	inline int getPROMOTION_HORN_HERO_DECAY()
+	{
+		return m_iPROMOTION_HORN_HERO_DECAY;
+	}
+	inline int getSHADOW_CIVILIZATION()
+	{
+		return m_iSHADOW_CIVILIZATION;
+	}
+	inline int getSHADOW_HANDICAP()
+	{
+		return m_iSHADOW_HANDICAP;
+	}
+	inline int getSHADOW_LEADER()
+	{
+		return m_iSHADOW_LEADER;
+	}
+
 	////////////// END DEFINES //////////////////
 
 	void setDLLIFace(ICvEngineUtility3* pDll)
@@ -9109,6 +9129,14 @@ protected:
 	// ----------------------------------------------------------------
 	int m_iTRADE_ROUTE_DURATION_TURNS;
 	int m_iHURRY_GOLD_COST_PER_FAITH;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int m_iPROMOTION_HORN_HERO_DECAY;
+	int m_iSHADOW_CIVILIZATION;
+	int m_iSHADOW_HANDICAP;
+	int m_iSHADOW_LEADER;
 
 	// -- floats --
 

@@ -380,6 +380,11 @@ protected:
 
 	static int lGetNumArchaeologySites(lua_State *L);
 	static int lGetNumHiddenArchaeologySites(lua_State *L);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	static int lDoShadowspawnSpawnUnit(lua_State* L);
 };
 
 #endif //CVLUAGAME_H
