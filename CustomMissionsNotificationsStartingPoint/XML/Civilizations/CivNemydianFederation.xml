@@ -23,18 +23,16 @@
 			<SiegeMod>true</SiegeMod>
 		</Row>
 	</Civilizations>
-	<Civilization_BuildingClassOverrides>
-		<Row>
-			<CivilizationType>CIVILIZATION_NEMYDIAN_FEDERATION</CivilizationType>
-			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType>
-			<BuildingType>BUILDING_CEILIDH_HALL</BuildingType>
-		</Row>
-	</Civilization_BuildingClassOverrides>
 	<Civilization_UnitClassOverrides>
 		<Row>
 			<CivilizationType>CIVILIZATION_NEMYDIAN_FEDERATION</CivilizationType>
 			<UnitClassType>UNITCLASS_GALLEASS</UnitClassType>
 			<UnitType>UNIT_NEMYD_CONSCRIPTED_RAKER</UnitType>
+		</Row>
+		<Row>
+			<CivilizationType>CIVILIZATION_NEMYDIAN_FEDERATION</CivilizationType>
+			<UnitClassType>UNITCLASS_TRIREME</UnitClassType>
+			<UnitType>UNIT_NEMYDIAN_PIRATE</UnitType>
 		</Row>
 	</Civilization_UnitClassOverrides>
 	<Civilization_Leaders>

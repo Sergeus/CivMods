@@ -71,5 +71,19 @@
 		<Row Tag="TXT_KEY_CIV5_ANTIQUITY_ARGAST_RAIDERS_TEXT">
 			<Text>[TOWRITE] Raiders pedia</Text>
 		</Row>
+		
+		<!-- Unit: Pirate -->
+		<Row Tag="TXT_KEY_UNIT_NEMYDIAN_PIRATE">
+			<Text>Sloop</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_NEMYDIAN_PIRATE">
+			<Text>Sloops are weak but extremely fast naval units, ideal for harrying trade connections between foreign civilizations.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_NEMYDIAN_PIRATE_STRATEGY">
+			<Text>Sloops can move long distances in a single turn, particularly in shallow water. Use them to make hit-and-run attacks on enemy trade routes.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_NEMYDIAN_PIRATE_TEXT">
+			<Text>[TOWRITE] sloop pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

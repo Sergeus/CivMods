@@ -12,19 +12,19 @@
 		</Update>
 		<Update>
 			<Where Type="UNIT_FRIGATE"/>
-			<Set PrereqTech="TECH_NAVAL_FORMATIONS" Combat="18" RangedCombat="20"/>
+			<Set PrereqTech="TECH_NAVAL_FORMATIONS" ObsoleteTech="" Combat="18" RangedCombat="20"/>
 		</Update>
 		<Update>
 			<Where Type="UNIT_GALLEASS"/>
-			<Set PrereqTech="" RangedCombat="13"/>
+			<Set PrereqTech="" RangedCombat="13" ObsoleteTech=""/>
 		</Update>
 		<Update>
 			<Where Type="UNIT_SPEARMAN"/>
-			<Set PrereqTech="" Combat="17"/>
+			<Set PrereqTech="" Combat="17" ObsoleteTech=""/>
 		</Update>
 		<Update>
 			<Where Type="UNIT_CATAPULT"/>
-			<Set PrereqTech="" Combat="13" RangedCombat="15"/>
+			<Set PrereqTech="" Combat="13" RangedCombat="15" ObsoleteTech=""/>
 		</Update>
 		<Update>
 			<Where Type="UNIT_CARGO_SHIP"/>

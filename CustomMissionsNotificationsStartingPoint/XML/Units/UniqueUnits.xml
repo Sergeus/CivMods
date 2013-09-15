@@ -32,7 +32,6 @@
 			<MilitarySupport>true</MilitarySupport>
 			<MilitaryProduction>true</MilitaryProduction>
 			<Pillage>true</Pillage>
-			<ObsoleteTech>TECH_ELECTRONICS</ObsoleteTech>
 			<Mechanized>true</Mechanized>
 			<AdvancedStartCost>50</AdvancedStartCost>
 			<MinAreaSize>10</MinAreaSize>
@@ -87,7 +86,6 @@
 			<MilitarySupport>true</MilitarySupport>
 			<MilitaryProduction>true</MilitaryProduction>
 			<Pillage>true</Pillage>
-			<ObsoleteTech>TECH_CIVIL_SERVICE</ObsoleteTech>
 			<GoodyHutUpgradeUnitClass>UNITCLASS_PIKEMAN</GoodyHutUpgradeUnitClass>
 			<AdvancedStartCost>15</AdvancedStartCost>
 			<XPValueAttack>3</XPValueAttack>
@@ -117,7 +115,6 @@
 			<MilitaryProduction>true</MilitaryProduction>
 			<Pillage>true</Pillage>
 			<Mechanized>true</Mechanized>
-			<ObsoleteTech>TECH_NAVIGATION</ObsoleteTech>
 			<AdvancedStartCost>30</AdvancedStartCost>
 			<MinAreaSize>10</MinAreaSize>
 			<XPValueAttack>3</XPValueAttack>
@@ -147,7 +144,6 @@
 			<MilitarySupport>true</MilitarySupport>
 			<MilitaryProduction>true</MilitaryProduction>
 			<Pillage>true</Pillage>
-			<ObsoleteTech>TECH_CIVIL_SERVICE</ObsoleteTech>
 			<GoodyHutUpgradeUnitClass>UNITCLASS_PIKEMAN</GoodyHutUpgradeUnitClass>
 			<AdvancedStartCost>15</AdvancedStartCost>
 			<XPValueAttack>3</XPValueAttack>
@@ -157,6 +153,34 @@
 			<UnitFlagIconOffset>9</UnitFlagIconOffset>
 			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
 			<PortraitIndex>9</PortraitIndex>
+		</Row>
+		<Row>
+			<Class>UNITCLASS_TRIREME</Class>
+			<Type>UNIT_NEMYDIAN_PIRATE</Type>
+			<Combat>5</Combat>
+			<Cost>56</Cost>
+			<Moves>7</Moves>
+			<CombatClass>UNITCOMBAT_NAVALRANGED</CombatClass>
+			<Domain>DOMAIN_SEA</Domain>
+			<DefaultUnitAI>UNITAI_ASSAULT_SEA</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_NEMYDIAN_PIRATE</Description>
+			<Civilopedia>TXT_KEY_CIV5_NEMYDIAN_PIRATE_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_NEMYDIAN_PIRATE_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_HELP_NEMYDIAN_PIRATE</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<Mechanized>true</Mechanized>
+			<AdvancedStartCost>30</AdvancedStartCost>
+			<MinAreaSize>10</MinAreaSize>
+			<XPValueAttack>3</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<UnitArtInfo>ART_DEF_UNIT_U_BYZANTIUM_DROMON</UnitArtInfo>
+			<UnitFlagAtlas>EXPANSION_UNIT_FLAG_ATLAS</UnitFlagAtlas>
+			<UnitFlagIconOffset>5</UnitFlagIconOffset>
+			<IconAtlas>EXPANSION_UNIT_ATLAS_1</IconAtlas>
+			<PortraitIndex>5</PortraitIndex>
+			<MoveRate>WOODEN_BOAT</MoveRate>
 		</Row>
 	</Units>
 	<Unit_FreePromotions>
@@ -211,6 +235,14 @@
 		<Row>
 			<UnitType>UNIT_NEMYD_CONSCRIPTED_RAKER</UnitType>
 			<PromotionType>PROMOTION_ONLY_DEFENSIVE</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_NEMYDIAN_PIRATE</UnitType>
+			<PromotionType>PROMOTION_STEAM_POWERED</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_NEMYDIAN_PIRATE</UnitType>
+			<PromotionType>PROMOTION_RIVAL_TERRITORY</PromotionType>
 		</Row>
 	</Unit_FreePromotions>
 	<Unit_FreeUnitAfterSurvivingMeleeCombat>
@@ -277,6 +309,16 @@
 			<UnitType>UNIT_ARGAST_RAIDERS</UnitType>
 			<FlavorType>FLAVOR_DEFENSE</FlavorType>
 			<Flavor>8</Flavor>
+		</Row>
+		<Row>
+			<UnitType>UNIT_NEMYDIAN_PIRATE</UnitType>
+			<FlavorType>FLAVOR_NAVAL</FlavorType>
+			<Flavor>7</Flavor>
+		</Row>
+		<Row>
+			<UnitType>UNIT_NEMYDIAN_PIRATE</UnitType>
+			<FlavorType>FLAVOR_NAVAL</FlavorType>
+			<Flavor>9</Flavor>
 		</Row>
 	</Unit_Flavors>
 </GameData>
