@@ -12,7 +12,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_CLOCKWORKS_HELP</Tag>
-			<Text>Allows you to construct the [COLOR_POSITIVE_TEXT]Clockwork Magnolia[ENDCOLOR], a powerful wonder that provides [ICON_GOLD] [COLOR_POSITIVE_TEXT]gold[ENDCOLOR] bonuses to trade routes and ends all wars you are involved in.</Text>
+			<Text>Allows you to construct the [COLOR_POSITIVE_TEXT]Clockwork Magnolia[ENDCOLOR], a powerful wonder that provides [ICON_GOLD] gold bonuses to trade routes and ends all wars you are involved in. Also allows you to establish an additional 2 trade routes.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_CLOCKWORKS_QUOTE</Tag>
@@ -28,7 +28,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_HELP</Tag>
-			<Text>Allows you to construct [COLOR_POSITIVE_TEXT]Mercenary Holdfasts[ENDCOLOR], which reduce the purchase cost of units. Also increases your trade route cap by 2.</Text>
+			<Text>Allows you to construct [COLOR_POSITIVE_TEXT]Mercenary Holdfasts[ENDCOLOR], which reduce the purchase cost of units. Also allows you to establish an additional 2 trade routes.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_QUOTE</Tag>
@@ -76,7 +76,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_HELP</Tag>
-			<Text>Allows the construction of [COLOR_POSITIVE_TEXT]Inquisition Chapterhouses[ENDCOLOR], which provide [ICON_PEACE] [COLOR_POSITIVE_TEXT]faith[ENDCOLOR] and increase the pressure exerted by majority religions. Also allows the purchasing of [COLOR_POSITIVE_TEXT]Inquisitors[ENDCOLOR] with faith.</Text>
+			<Text>Allows the construction of [COLOR_POSITIVE_TEXT]Inquisition Chapterhouses[ENDCOLOR], which provide [ICON_PEACE] faith and increase the pressure exerted by majority religions. Also allows the purchasing of [COLOR_POSITIVE_TEXT]Inquisitors[ENDCOLOR] with faith.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_QUOTE</Tag>
@@ -92,7 +92,7 @@
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_HELP</Tag>
-			<Text>Allows you to construct [COLOR_POSITIVE_TEXT]Theors' Academies[ENDCOLOR], boosting a city's [ICON_RESEARCH] [COLOR_POSITIVE_TEXT]science[ENDCOLOR] output, and giving bonus [ICON_PEACE] [COLOR_POSITIVE_TEXT]faith[ENDCOLOR] and [ICON_RESEARCH] [COLOR_POSITIVE_TEXT]science[ENDCOLOR] in cities where trade routes originate. Also boosts the range of naval trade routes.</Text>
+			<Text>Allows you to construct [COLOR_POSITIVE_TEXT]Theors' Academies[ENDCOLOR], boosting a city's [ICON_RESEARCH] science output, and giving bonus [ICON_PEACE] faith and [ICON_RESEARCH] science in cities where trade routes originate. Also boosts the range of naval trade routes.</Text>
 		</Row>
 		<Row>
 			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_QUOTE</Tag>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/15/2013 7:10:45 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>GRAND_INQUISITION_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>GrandInquisitionIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>GRAND_INQUISITION_ATLAS</Atlas>
+			<IconSize>214</IconSize>
+			<Filename>GrandInquisitionIcon214.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>GRAND_INQUISITION_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>GrandInquisitionIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>GRAND_INQUISITION_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>GrandInquisitionIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>GRAND_INQUISITION_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>GrandInquisitionIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>GRAND_INQUISITION_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>GrandInquisitionIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

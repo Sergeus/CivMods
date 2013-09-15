@@ -402,6 +402,16 @@
         <Type>UpdateDatabase</Type>
         <FileName>Art/Units/Galleon Fleet/GalleonFleetIconAtlas.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Technologies/BlackPowder/BlackPowderIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Technologies/GrandInquisition/GrandInquisitionIconAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -493,6 +503,8 @@
     <Folder Include="Art\Technologies\NavalFormations" />
     <Folder Include="Art\Technologies\Clockworks" />
     <Folder Include="Art\Technologies\Consecration" />
+    <Folder Include="Art\Technologies\BlackPowder" />
+    <Folder Include="Art\Technologies\GrandInquisition" />
     <Folder Include="Art\Technologies\Transcendence" />
     <Folder Include="Art\Technologies\TheoricalStudy" />
     <Folder Include="Art\Units" />
@@ -1064,6 +1076,34 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Technologies\BlackPowder\BlackPowderIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\BlackPowder\BlackPowderIcon214.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\BlackPowder\BlackPowderIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\BlackPowder\BlackPowderIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\BlackPowder\BlackPowderIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\BlackPowder\BlackPowderIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\BlackPowder\BlackPowderIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Technologies\Clockworks\ClockworksIcon128.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1117,6 +1157,34 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Technologies\Consecration\ConsecrationIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\GrandInquisition\GrandInquisitionIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\GrandInquisition\GrandInquisitionIcon214.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\GrandInquisition\GrandInquisitionIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\GrandInquisition\GrandInquisitionIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\GrandInquisition\GrandInquisitionIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\GrandInquisition\GrandInquisitionIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\GrandInquisition\GrandInquisitionIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

@@ -109,7 +109,7 @@
 			<Quote>TXT_KEY_TECH_BLACK_POWDER_QUOTE</Quote>
 			<PortraitIndex>0</PortraitIndex>
 			<ScenarioTechButton>0</ScenarioTechButton>
-			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<IconAtlas>BLACK_POWDER_ATLAS</IconAtlas>
 			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>
@@ -129,7 +129,7 @@
 			<Quote>TXT_KEY_TECH_THEORICAL_INSPIRATION_QUOTE</Quote>
 			<PortraitIndex>0</PortraitIndex>
 			<ScenarioTechButton>0</ScenarioTechButton>
-			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<IconAtlas>THEORICAL_STUDY_ATLAS</IconAtlas>
 			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>
@@ -171,7 +171,7 @@
 			<Quote>TXT_KEY_TECH_GRAND_INQUISITION_QUOTE</Quote>
 			<PortraitIndex>0</PortraitIndex>
 			<ScenarioTechButton>0</ScenarioTechButton>
-			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<IconAtlas>GRAND_INQUISITION_ATLAS</IconAtlas>
 			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>

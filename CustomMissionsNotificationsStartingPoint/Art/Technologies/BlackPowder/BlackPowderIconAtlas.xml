@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/15/2013 6:42:39 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>BLACK_POWDER_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>BlackPowderIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>BLACK_POWDER_ATLAS</Atlas>
+			<IconSize>214</IconSize>
+			<Filename>BlackPowderIcon214.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>BLACK_POWDER_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>BlackPowderIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>BLACK_POWDER_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>BlackPowderIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>BLACK_POWDER_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>BlackPowderIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>BLACK_POWDER_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>BlackPowderIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>
