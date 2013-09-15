@@ -6,14 +6,14 @@
 			<Text>Mercantile Pedagogy</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TRAIT_MERCANTILE_PEDAGOGY">
-			<Text>+10[ICON_GOLD] per trade partner. War cannot be declared between this civilization and any other with which this civilization has created four or more trade routes. Can purchase faith units with gold.</Text>
+			<Text>+10[ICON_GOLD] per trade partner. War cannot be declared between this civilization and any other with which this civilization has created four or more trade routes. Can purchase [ICON_PEACE] faith units with [ICON_GOLD] gold.</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_TRAIT_ALL_ENCOMPASSING_SHORT">
 			<Text>All Encompassing</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TRAIT_ALL_ENCOMPASSING">
-			<Text>Training one military unit causes a second of the same unit type to appear adjacent to the city. All siege units have +2 range and have the indirect fire promotion.</Text>
+			<Text>Training one military unit causes a second of the same unit type to appear adjacent to the city. All siege units have +2[ICON_RANGE_STRENGTH] range and have the indirect fire promotion.</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_TRAIT_RIGHTEOUS_WAY_SHORT">
