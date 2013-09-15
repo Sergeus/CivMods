@@ -7,6 +7,7 @@ SiegeMod
 - Removed obsoletetechs from units that referred to non-SiegeMod techs
 - Fixed a bug that caused Svesta's ability to block war with 1 trade route instead of 4
 - Added the Sloop unit, second unique for Numydia
+- Resized panels on scenario setup screen so that Svesta UA displays properly
 
 #### CHANGELOG V1.1
 
