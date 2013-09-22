@@ -9647,6 +9647,18 @@ void CvGame::saveReplay()
 
 void CvGame::showEndGameSequence()
 {
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+	if (pkScriptSystem)
+	{
+		CvLuaArgsHandle args;
+
+		args->Push(getVictory());
+		args->Push(getWinner());
+
+		bool bResult;
+		LuaSupport::CallHook(pkScriptSystem, "VictoryAchieved", args.get(), bResult);
+	}
 
 	GC.GetEngineUserInterface()->OpenEndGameMenu();
 }
