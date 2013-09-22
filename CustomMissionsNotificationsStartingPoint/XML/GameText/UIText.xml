@@ -5,5 +5,14 @@
 		<Row Tag="TXT_KEY_TP_FAITH_FROM_TRADE_ROUTES">
 			<Text>+{1_AmountFaith}[ICON_PEACE] per turn from trade routes</Text>
 		</Row>
+		<Row Tag="TXT_KEY_VICTORY_MERCANTILE_">
+			<Text>Economic</Text>
+		</Row>
+		<Row Tag="TXT_KEY_VICTORY_MERCANTILE_BANG">
+			<Text>Economic Victory!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_VICTORY_FLAVOR_MERCANTILE">
+			<text>Argast takes his gold and turns his sights elsewhere. You have leveraged your vast wealth to redirect his wrath upon your enemies, ensuring your safety, at least for now.</text>
+		</Row>
 	</Language_en_US>
 </GameData>

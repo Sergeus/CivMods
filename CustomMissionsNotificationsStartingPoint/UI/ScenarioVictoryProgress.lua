@@ -21,13 +21,11 @@ GetGoldRequired()
 
 ---------------------------------------------------------------------
 function OnUpdate()
-	-- Loop through all the Majors checking for a luxury based victory
-
 	local pSvesta = Players[Game.GetActivePlayer()]
 
 	local svestaGold = pSvesta:GetGold()
 
-	if svestaGold > gGoldRequired then
+	if svestaGold >= gGoldRequired then
 		ScenarioWin(ContextPtr, pSvesta, "VICTORY_MERCANTILE")
 	end
 

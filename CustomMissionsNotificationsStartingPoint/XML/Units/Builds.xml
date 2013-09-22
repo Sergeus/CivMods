@@ -12,7 +12,6 @@
 
 		<Row>
 			<Type>BUILD_POWDER_KEG</Type>
-			<PrereqTech>TECH_BLACK_POWDER</PrereqTech>
 			<Time>700</Time>
 			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
 			<Description>TXT_KEY_BUILD_POWDER_KEG_TRAP</Description>
@@ -20,7 +19,7 @@
 			<HotKey>KB_I</HotKey>
 			<OrderPriority>97</OrderPriority>
 			<IconIndex>0</IconIndex>
-			<IconAtlas>POWDER_KEG_ACTION_ATLAS</IconAtlas>
+			<IconAtlas>UNIT_ACTION_ATLAS_EXP2</IconAtlas>
 		</Row>
 	</Builds>
 	<BuildFeatures>
@@ -34,7 +33,6 @@
 			<BuildType>BUILD_POWDER_KEG</BuildType>
 			<FeatureType>FEATURE_FOREST</FeatureType>
 			<Time>400</Time>
-			<Production>20</Production>
 			<Remove>true</Remove>
 		</Row>
 		<Row>

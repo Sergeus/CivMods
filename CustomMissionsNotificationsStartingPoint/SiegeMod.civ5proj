@@ -300,6 +300,11 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
+        <FileName>XML/Scenario/VictoriesEdits.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
         <FileName>Art/Technologies/TheoricalStudy/TheoricalStudyIconAtlas.xml</FileName>
       </Action>
       <Action>
@@ -493,6 +498,7 @@
     <Folder Include="Art\Civilizations\Svesta" />
     <Folder Include="Art\Buildings" />
     <Folder Include="Art\Improvements" />
+    <Folder Include="Art\Victory" />
     <Folder Include="Art\Religions" />
     <Folder Include="Art\Religions\Advarn" />
     <Folder Include="Art\Religions\Klonoa" />
@@ -516,6 +522,7 @@
     <Folder Include="Lua\lib" />
     <Folder Include="Lua\ScenarioSetup" />
     <Folder Include="Maps" />
+    <Folder Include="UI\InGame\Popups" />
     <Folder Include="UI\InGame\TechTree" />
     <Folder Include="XML" />
     <Folder Include="UI" />
@@ -1332,6 +1339,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Victory\Victory_Economic.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="CvGameCore_Expansion2.dll">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1349,10 +1360,6 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Lua\DoubleUnitsTrait\DoubleUnits.lua">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Lua\DoubleUnitsTrait\ReqTradeRoutesForPeace.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1393,6 +1400,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Maps\SiegeModTest1.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\Popups\EndGameMenu.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1585,6 +1596,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Scenario\Victories.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Scenario\VictoriesEdits.sql">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
