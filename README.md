@@ -1,6 +1,10 @@
 SiegeMod
 ====
 
+#### CHANGELOG V1.3
+- Modularized victory system
+- Fixed victory display/reference for SiegeMod victory type
+
 #### CHANGELOG V1.2
 - Added remaining tech icons
 - Fixed a bug where Galleon fleet icon wasn't used in notifications
