@@ -417,6 +417,16 @@
         <Type>UpdateDatabase</Type>
         <FileName>Art/Technologies/GrandInquisition/GrandInquisitionIconAtlas.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Raiders/RaidersIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Conscripted Raker/ConscriptedRakerIconAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -498,6 +508,7 @@
     <Folder Include="Art\Civilizations\Svesta" />
     <Folder Include="Art\Buildings" />
     <Folder Include="Art\Improvements" />
+    <Folder Include="Art\Units\Conscripted Raker" />
     <Folder Include="Art\Victory" />
     <Folder Include="Art\Religions" />
     <Folder Include="Art\Religions\Advarn" />
@@ -1311,9 +1322,21 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Units\Conscripted Raker\ConscriptedRakerFlag32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Conscripted Raker\ConscriptedRakerIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Units\Galleon Fleet\GalleonFleetArtDefines.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Galleon Fleet\GalleonFleetFlag32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Units\Galleon Fleet\GalleonFleetIcon128.dds">
       <SubType>Lua</SubType>
@@ -1340,6 +1363,14 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Art\Units\Raiders\RaidersArtDefines.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Raiders\RaidersFlag32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Raiders\RaidersIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

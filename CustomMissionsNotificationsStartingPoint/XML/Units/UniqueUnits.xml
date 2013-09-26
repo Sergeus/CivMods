@@ -38,7 +38,8 @@
 			<XPValueAttack>3</XPValueAttack>
 			<XPValueDefense>3</XPValueDefense>
 			<UnitArtInfo>ART_DEF_UNIT_GALLEON_FLEET</UnitArtInfo>
-			<UnitFlagIconOffset>51</UnitFlagIconOffset>
+			<UnitFlagAtlas>GALLEON_FLEET_FLAG_ATLAS</UnitFlagAtlas>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
 			<IconAtlas>GALLEON_FLEET_ATLAS</IconAtlas>
 			<PortraitIndex>0</PortraitIndex>
 			<MoveRate>WOODEN_BOAT</MoveRate>
@@ -120,8 +121,8 @@
 			<XPValueAttack>3</XPValueAttack>
 			<XPValueDefense>3</XPValueDefense>
 			<UnitArtInfo>ART_DEF_UNIT_GALLEASS</UnitArtInfo>
-			<UnitFlagAtlas>EXPANSION_UNIT_FLAG_ATLAS</UnitFlagAtlas>
-			<UnitFlagIconOffset>14</UnitFlagIconOffset>
+			<UnitFlagAtlas>CONSCRIPTED_RAKER_FLAG_ATLAS</UnitFlagAtlas>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
 			<IconAtlas>EXPANSION_UNIT_ATLAS_1</IconAtlas>
 			<PortraitIndex>14</PortraitIndex>
 			<MoveRate>WOODEN_BOAT</MoveRate>
@@ -150,7 +151,8 @@
 			<XPValueDefense>3</XPValueDefense>
 			<Conscription>2</Conscription>
 			<UnitArtInfo>ART_DEF_UNIT_ARGAST_RAIDERS</UnitArtInfo>
-			<UnitFlagIconOffset>9</UnitFlagIconOffset>
+			<UnitFlagAtlas>RAIDERS_FLAG_ATLAS</UnitFlagAtlas>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
 			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
 			<PortraitIndex>9</PortraitIndex>
 		</Row>
