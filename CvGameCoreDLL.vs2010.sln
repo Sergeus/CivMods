@@ -10,14 +10,21 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Mod|Win32 = Mod|Win32
+		ModDebug|Win32 = ModDebug|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E323AF8E-688B-4ED7-BA84-269D8F3AAE2D}.Mod|Win32.ActiveCfg = Mod|Win32
 		{E323AF8E-688B-4ED7-BA84-269D8F3AAE2D}.Mod|Win32.Build.0 = Mod|Win32
+		{E323AF8E-688B-4ED7-BA84-269D8F3AAE2D}.ModDebug|Win32.ActiveCfg = ModDebug|Win32
+		{E323AF8E-688B-4ED7-BA84-269D8F3AAE2D}.ModDebug|Win32.Build.0 = ModDebug|Win32
 		{BA66E125-88D7-48AF-8CCF-F4F1901040AE}.Mod|Win32.ActiveCfg = Mod|Win32
 		{BA66E125-88D7-48AF-8CCF-F4F1901040AE}.Mod|Win32.Build.0 = Mod|Win32
+		{BA66E125-88D7-48AF-8CCF-F4F1901040AE}.ModDebug|Win32.ActiveCfg = ModDebug|Win32
+		{BA66E125-88D7-48AF-8CCF-F4F1901040AE}.ModDebug|Win32.Build.0 = ModDebug|Win32
 		{F58F230D-EE4A-40E0-91D5-93626E790055}.Mod|Win32.ActiveCfg = Mod|Win32
 		{F58F230D-EE4A-40E0-91D5-93626E790055}.Mod|Win32.Build.0 = Mod|Win32
+		{F58F230D-EE4A-40E0-91D5-93626E790055}.ModDebug|Win32.ActiveCfg = ModDebug|Win32
+		{F58F230D-EE4A-40E0-91D5-93626E790055}.ModDebug|Win32.Build.0 = ModDebug|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
