@@ -4516,7 +4516,11 @@ void CvUnit::DoAdjacentEnemyDamage()
 							{
 								pUnit->changeDamage(GetAdjacentEnemyDamage(), getOwner());
 
-								// possibly send one of those messages to the top of the screen if damaging a human player unit?
+								if (pUnit->isHuman()) 
+								{
+									CvString message = GetLocalizedText("TXT_KEY_PASSIVE_DAMAGE_BY_OTHER_UNIT", pUnit->getNameKey(), GetAdjacentEnemyDamage(), getNameKey());
+									GC.GetEngineUserInterface()->AddMessage(0, pUnit->getOwner(), true, GC.getEVENT_MESSAGE_TIME(), message);
+								}
 							}
 						}
 					}
