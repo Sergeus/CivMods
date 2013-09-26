@@ -4,6 +4,8 @@ SiegeMod
 #### CHANGELOG V1.3
 - Modularized victory system
 - Fixed victory display/reference for SiegeMod victory type
+- Added placeholder DoM screen
+- Added UI message for adjacent damage caused by Argast's raiders
 
 #### CHANGELOG V1.2
 - Added remaining tech icons

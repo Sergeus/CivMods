@@ -18,7 +18,7 @@
 			<AlphaIconAtlas>SVESTA_ALPHA_ATLAS</AlphaIconAtlas>
 			<MapImage>MapAmerica512.dds</MapImage>
 			<DawnOfManQuote>TXT_KEY_CIV5_DAWN_SVESTA_TEXT</DawnOfManQuote>
-			<DawnOfManImage>DOM_Maria_Theresa.dds</DawnOfManImage>
+			<DawnOfManImage>SiegeModDoM.dds</DawnOfManImage>
 			<DawnOfManAudio>AS2D_DOM_SPEECH_AUSTRIA</DawnOfManAudio>
 			<SiegeMod>true</SiegeMod>
 		</Row>
