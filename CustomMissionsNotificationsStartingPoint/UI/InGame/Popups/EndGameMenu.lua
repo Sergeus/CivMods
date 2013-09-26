@@ -151,12 +151,10 @@ function OnDisplay( type, team )
 		Controls.EndGameText:SetText( Locale.ConvertTextKey( victoryInfo.FlavorText ) );
 		if (victoryInfo.Tutorial == true) then
 			bTutorialGame = true
-			print("This is a tutorial")
 		end
 
 		if( type == EndGameTypes.Technology ) then
-	    	deferredDisplayTime = 7;
-			print("tech")
+	    	deferredDisplayTime = 7
 		end
 
 		if(PreGame.GetGameOption("GAMEOPTION_NO_EXTENDED_PLAY") ~= 1)then
