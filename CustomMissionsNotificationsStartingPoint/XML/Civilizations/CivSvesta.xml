@@ -19,7 +19,7 @@
 			<MapImage>MapAmerica512.dds</MapImage>
 			<DawnOfManQuote>TXT_KEY_CIV5_DAWN_SVESTA_TEXT</DawnOfManQuote>
 			<DawnOfManImage>SiegeModDoM.dds</DawnOfManImage>
-			<DawnOfManAudio>AS2D_DOM_SPEECH_AUSTRIA</DawnOfManAudio>
+			<DawnOfManAudio/>
 			<SiegeMod>true</SiegeMod>
 		</Row>
 	</Civilizations>

@@ -64,8 +64,8 @@
 			<ReligionSpreads>2</ReligionSpreads>
 			<ReligiousStrength>2000</ReligiousStrength>
 			<UnitArtInfo>ART_DEF_UNIT_MISSIONARY</UnitArtInfo>
-			<UnitFlagAtlas>EXPANSION_UNIT_FLAG_ATLAS</UnitFlagAtlas>
-			<UnitFlagIconOffset>20</UnitFlagIconOffset>
+			<UnitFlagAtlas>PREACHER_FLAG_ATLAS</UnitFlagAtlas>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
 			<IconAtlas>EXPANSION_UNIT_ATLAS_1</IconAtlas>
 			<PortraitIndex>20</PortraitIndex>
 		</Row>
@@ -93,7 +93,8 @@
 			<XPValueDefense>3</XPValueDefense>
 			<Conscription>2</Conscription>
 			<UnitArtInfo>ART_DEF_UNIT_SPEARMAN</UnitArtInfo>
-			<UnitFlagIconOffset>9</UnitFlagIconOffset>
+			<UnitFlagAtlas>DEVOUT_FLAG_ATLAS</UnitFlagAtlas>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
 			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
 			<PortraitIndex>9</PortraitIndex>
 		</Row>
@@ -178,8 +179,8 @@
 			<XPValueAttack>3</XPValueAttack>
 			<XPValueDefense>3</XPValueDefense>
 			<UnitArtInfo>ART_DEF_UNIT_U_BYZANTIUM_DROMON</UnitArtInfo>
-			<UnitFlagAtlas>EXPANSION_UNIT_FLAG_ATLAS</UnitFlagAtlas>
-			<UnitFlagIconOffset>5</UnitFlagIconOffset>
+			<UnitFlagAtlas>SLOOP_FLAG_ATLAS</UnitFlagAtlas>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
 			<IconAtlas>EXPANSION_UNIT_ATLAS_1</IconAtlas>
 			<PortraitIndex>5</PortraitIndex>
 			<MoveRate>WOODEN_BOAT</MoveRate>

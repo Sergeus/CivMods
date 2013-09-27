@@ -6,7 +6,7 @@ SiegeMod
 - Fixed victory display/reference for SiegeMod victory type
 - Added placeholder DoM screen
 - Added UI message for adjacent damage caused by Argast's raiders
-- Added unit flag art for some units
+- Added unit flag art for all SiegeMod units
 
 #### CHANGELOG V1.2
 - Added remaining tech icons

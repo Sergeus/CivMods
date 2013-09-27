@@ -427,6 +427,21 @@
         <Type>UpdateDatabase</Type>
         <FileName>Art/Units/Conscripted Raker/ConscriptedRakerIconAtlas.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Sloop/SloopIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Devout/DevoutIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Preacher/PreacherIconAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -509,6 +524,9 @@
     <Folder Include="Art\Buildings" />
     <Folder Include="Art\Improvements" />
     <Folder Include="Art\Units\Conscripted Raker" />
+    <Folder Include="Art\Units\Devout" />
+    <Folder Include="Art\Units\Preacher" />
+    <Folder Include="Art\Units\Sloop" />
     <Folder Include="Art\Victory" />
     <Folder Include="Art\Religions" />
     <Folder Include="Art\Religions\Advarn" />
@@ -1330,6 +1348,14 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Units\Devout\DevoutFlag32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Devout\DevoutIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Units\Galleon Fleet\GalleonFleetArtDefines.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1362,6 +1388,14 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Units\Preacher\PreacherFlag32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Preacher\PreacherIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Units\Raiders\RaidersArtDefines.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1371,6 +1405,14 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Units\Raiders\RaidersIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Sloop\SloopFlag32.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Sloop\SloopIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
