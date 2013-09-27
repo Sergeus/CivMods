@@ -8189,14 +8189,12 @@ int CvLuaPlayer::lDoForceDenounce(lua_State* L)
 	CvPlayerAI* pkPlayer = GetInstance(L);
 	PlayerTypes eOtherPlayer = (PlayerTypes) lua_tointeger(L, 2);
 
-	pkPlayer->GetDiplomacyAI()->DoDenouncePlayer(eOtherPlayer);
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
+	CvDeal* pDeal = GC.getGame().GetGameDeals()->GetTempDeal();
 
-	// Show leader if active player is being denounced
-	if(GC.getGame().getActivePlayer() == eOtherPlayer)
-	{
-		const char* strText = pkPlayer->GetDiplomacyAI()->GetDiploStringForMessage(DIPLO_MESSAGE_REPEAT_NO);
-		gDLL->GameplayDiplomacyAILeaderMessage(pkPlayer->GetID(), DIPLO_UI_STATE_BLANK_DISCUSSION_MEAN_AI, strText, LEADERHEAD_ANIM_NEGATIVE);
-	}
+	pkPlayer->GetDiplomacyAI()->DoSendStatementToPlayer(eOtherPlayer, DIPLO_STATEMENT_DENOUNCE, 0, pDeal);
 
 	return 1;
 }
