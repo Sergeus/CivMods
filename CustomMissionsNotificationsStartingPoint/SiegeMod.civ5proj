@@ -547,7 +547,6 @@
     <Folder Include="Art\Units\Raiders" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
-    <Folder Include="Lua\DoubleUnitsTrait" />
     <Folder Include="Lua\lib" />
     <Folder Include="Lua\ScenarioSetup" />
     <Folder Include="Maps" />
@@ -1435,10 +1434,6 @@
     <Content Include="Lua\CustomNotifUtil.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Lua\DoubleUnitsTrait\DoubleUnits.lua">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Lua\lib\PlotIterators.lua">
       <SubType>Lua</SubType>
