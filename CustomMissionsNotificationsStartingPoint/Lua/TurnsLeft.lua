@@ -149,21 +149,21 @@ function MaintainArgastWar(pArgast)
 end
 
 function ArgastWar(playerID)
-	if playerID ~= Game.GetActivePlayer() then
-		return
-	end
-
-	print("Checking Argast's war status...")
-
-	local pSvesta = Players[playerID]
+	local pSvesta = Players[Game.GetActivePlayer()]
 
 	local pArgast
-	for id, pPlayer in pairs(Players) do
+	for _, pPlayer in pairs(Players) do
 		if pPlayer:GetCivilizationType() == GameInfoTypes.CIVILIZATION_ARGAST_EMPIRE then
 			print("Found Argast...")
 			pArgast = pPlayer
 		end
 	end
+
+	if playerID ~= pArgast:GetID() then
+		return
+	end
+
+	print("Checking Argast's war status...")
 
 	local pArgastTeam = Teams[pArgast:GetTeam()]
 
@@ -180,7 +180,7 @@ function ArgastWar(playerID)
 
 	elseif currentTurn > gT.gArgastDenouncePlayerTurn and not pArgastTeam:IsAtWar(pSvesta:GetTeam()) and not gT.gArgastHasDenouncedSvesta then
 		print("Denouncing active player...")
-		pArgast:DoForceDenounce(playerID)
+		pArgast:DoForceDenounce(pSvesta:GetID())
 		gT.gArgastHasDenouncedSvesta = true
 
 	elseif pArgastTeam:IsAtWar(pSvesta:GetTeam()) then
