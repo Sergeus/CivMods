@@ -10,6 +10,7 @@ SiegeMod
 - Fixed a bug where Argast would declare war on you if your expired trade routes dropped below the required at the beginning of your turn. (Eg. when trade routes ended and were waiting for you to reassign them.)
 - Fixed a (base game) bug where Argast would precede his denunciation of the player with an unrelated trade comment.
 - Fixed a map error, one of Argast's cities was starting with population 1, when it should have been higher.
+- Blocked war between the player and the Cyats, since that negated the Cyats' ability.
 
 #### CHANGELOG V1.2
 - Added remaining tech icons

@@ -6,6 +6,9 @@
 include("PlotIterators")
 include("TableSaverLoader")
 
+-- -------------------------------------------------------------
+-- Scenario 'Globals'
+-- -------------------------------------------------------------
 gT = {}
 
 gT.gSvestaCoords = {
@@ -101,6 +104,9 @@ gArgastReinforcements = {
 	[1] = GameInfoTypes.UNIT_CATAPULT,
 }
 
+-- -------------------------------------------------------------
+-- AI Actions
+-- -------------------------------------------------------------
 function InitArgastWar(pArgast)
 	local pArgastTeam = Teams[pArgast:GetTeam()]
 
@@ -323,6 +329,9 @@ function CyatsActions(playerID)
 end
 GameEvents.PlayerDoTurn.Add(CyatsActions)
 
+-- -------------------------------------------------------------
+-- Initialization
+-- -------------------------------------------------------------
 function ScaleConstantsBasedOnDifficulty()
 	print("Scenario constants not yet scaled by difficulty...")
 
@@ -361,3 +370,26 @@ function SaveGame()
 	TableSave(gT, "SiegeMod")
 end
 GameEvents.GameSaving.Add(SaveGame)
+
+-- -------------------------------------------------------------
+-- Scenario Restrictions
+-- -------------------------------------------------------------
+
+function BlockWarWithCyats(eTeam, eOtherTeam)
+	local pSvestaTeam = Teams[Players[Game.GetActivePlayer()]:GetTeam()]
+
+	local pCyatsTeam
+	for _, pPlayer in pairs(Players) do
+		if pPlayer:GetCivilizationType() == GameInfoTypes.CIVILIZATION_CYATS then
+			pCyatsTeam = Teams[pPlayer:GetTeam()]
+		end
+	end
+
+	if (pSvestaTeam:GetID() == eTeam and pCyatsTeam:GetID() == eOtherTeam)
+		or (pSvestaTeam:GetID() == eOtherTeam and pCyatsTeam:GetID() == eTeam) then
+		
+		print("Blocking war between the player and the Cyats...")
+		return false
+	end
+end
+GameEvents.CanDeclareWar.Add(BlockWarWithCyats)
