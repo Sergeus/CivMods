@@ -41,4 +41,11 @@
 			<TerrainType>TERRAIN_SNOW</TerrainType>
 		</Row>
 	</Improvemement_ValidTerrains>
+	<Improvement_Flavors>
+		<Row>
+			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
+			<FlavorType>FLAVOR_DEFENSE</FlavorType>
+			<Flavor>9</Flavor>
+		</Row>
+	</Improvement_Flavors>
 </GameData>
