@@ -6978,6 +6978,15 @@ void CvPlot::DoImprovementExplosion()
 			{
 				CvUnit* pUnit = getUnit(*itr);
 				pUnit->changeDamage(iDamageThisHex, ePlayer);
+
+				// Send a message to the human player if they own the damaged unit
+				if (pUnit->isHuman())
+				{
+					CvString message = GetLocalizedText("TXT_KEY_DAMAGE_BY_EXPLODING_IMPROVEMENT", 
+						pUnit->getNameKey(), iDamageOuterHexes, pInfo->GetDescriptionKey());
+
+					GC.GetEngineUserInterface()->AddMessage(0, pUnit->getOwner(), true, GC.getEVENT_MESSAGE_TIME(), message);
+				}
 			}
 		}
 
@@ -6998,10 +7007,33 @@ void CvPlot::DoImprovementExplosion()
 						{
 							CvUnit* pUnit = getUnit(*itr);
 							pUnit->changeDamage(iDamageOuterHexes, ePlayer);
+
+							// Send a message to the human player if they owned this unit
+							if (pUnit->isHuman())
+							{
+								CvString message = GetLocalizedText("TXT_KEY_DAMAGE_BY_EXPLODING_IMPROVEMENT_NEARBY", 
+									pUnit->getNameKey(), iDamageOuterHexes, pInfo->GetDescriptionKey());
+
+								GC.GetEngineUserInterface()->AddMessage(0, pUnit->getOwner(), true, GC.getEVENT_MESSAGE_TIME(), message);
+							}
 						}
 					}
 				}
 			}
+		}
+	}
+
+	// Notify everyone who can see the improvement that it has blown up
+	for (int i = 0; i < MAX_MAJOR_CIVS; i++)
+	{
+		PlayerTypes ePlayer = (PlayerTypes)i;
+		CvPlayer& pkPlayer = GET_PLAYER(ePlayer);
+
+		if (!pkPlayer.isMinorCiv() && !pkPlayer.isBarbarian()
+			&& isVisible(pkPlayer.getTeam()))
+		{
+			CvString message = GetLocalizedText("TXT_KEY_NOTIFICATION_IMPROVEMENT_EXPLODED", pInfo->GetDescriptionKey(), iDamageThisHex, iDamageOuterHexes);
+			pkPlayer.GetNotifications()->Add((NotificationTypes)GC.GetInfoTypes().find("NOTIFICATION_IMPROVEMENT_EXPLODED")->second, message, NULL, getX(), getY(), 0);
 		}
 	}
 
