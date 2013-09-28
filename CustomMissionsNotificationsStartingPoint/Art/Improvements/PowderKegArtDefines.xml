@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/28/2013 7:22:44 PM -->
+<GameData>
+	<ArtDefine_LandmarkTypes>
+		<Row>
+			<Type>ART_DEF_IMPROVEMENT_POWDER_KEG_TRAP</Type>
+			<LandmarkType>Improvement</LandmarkType>
+			<FriendlyName>Powder Keg Trap</FriendlyName>
+		</Row>
+	</ArtDefine_LandmarkTypes>
+	<ArtDefine_Landmarks>
+		<Row>
+			<Era>Any</Era>
+			<State>Any</State>
+			<Scale>0.33</Scale>
+			<ImprovementType>ART_DEF_IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
+			<LayoutHandler>SNAPSHOT</LayoutHandler>
+			<ResourceType>ART_DEF_RESOURCE_NONE</ResourceType>
+			<Model>PowderKeg.fxsxml</Model>
+			<TerrainContour>0</TerrainContour>
+		</Row>
+	</ArtDefine_Landmarks>
+</GameData>

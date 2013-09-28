@@ -15,11 +15,11 @@
 			<Time>700</Time>
 			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
 			<Description>TXT_KEY_BUILD_POWDER_KEG_TRAP</Description>
-			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_SHOVEL</EntityEvent>
 			<HotKey>KB_I</HotKey>
 			<OrderPriority>97</OrderPriority>
 			<IconIndex>0</IconIndex>
-			<IconAtlas>UNIT_ACTION_ATLAS_EXP2</IconAtlas>
+			<IconAtlas>POWDER_KEG_ACTION_ATLAS</IconAtlas>
 		</Row>
 	</Builds>
 	<BuildFeatures>

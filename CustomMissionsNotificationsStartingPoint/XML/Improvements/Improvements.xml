@@ -6,7 +6,7 @@
 			<Type>IMPROVEMENT_POWDER_KEG_TRAP</Type>
 			<Description>TXT_KEY_IMPROVEMENT_POWDER_KEG_TRAP</Description>
 			<Civilopedia>TXT_KEY_CIV5_IMPROVEMENTS_POWDER_KEG_TRAP_TEXT</Civilopedia>
-			<ArtDefineTag>ART_DEF_IMPROVEMENT_MINE</ArtDefineTag>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_POWDER_KEG_TRAP</ArtDefineTag>
 			<OutsideBorders>true</OutsideBorders>
 			<PillageGold>20</PillageGold>
 			<PortraitIndex>0</PortraitIndex>
@@ -19,7 +19,7 @@
 			<ExplosionDestroyedAfter>true</ExplosionDestroyedAfter>
 		</Row>
 	</Improvements>
-	<Improvemement_ValidTerrains>
+	<Improvement_ValidTerrains>
 		<Row>
 			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
 			<TerrainType>TERRAIN_GRASS</TerrainType>
@@ -40,7 +40,7 @@
 			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
 			<TerrainType>TERRAIN_SNOW</TerrainType>
 		</Row>
-	</Improvemement_ValidTerrains>
+	</Improvement_ValidTerrains>
 	<Improvement_Flavors>
 		<Row>
 			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
