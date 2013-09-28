@@ -11,7 +11,7 @@
 			<PillageGold>20</PillageGold>
 			<PortraitIndex>0</PortraitIndex>
 			<IconAtlas>POWDER_KEG_BUILD_ATLAS</IconAtlas>
-			<!--<BuildableOnResources>true</BuildableOnResources>-->
+			<RequiresFlatlands>true</RequiresFlatlands>
 			<ExplodesOnEnemyEnterHex>true</ExplodesOnEnemyEnterHex>
 			<ExplosionDamageToThisHex>100</ExplosionDamageToThisHex>
 			<ExplosionDamageToOuterHexes>25</ExplosionDamageToOuterHexes>
@@ -19,4 +19,26 @@
 			<ExplosionDestroyedAfter>true</ExplosionDestroyedAfter>
 		</Row>
 	</Improvements>
+	<Improvemement_ValidTerrains>
+		<Row>
+			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
+			<TerrainType>TERRAIN_GRASS</TerrainType>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
+			<TerrainType>TERRAIN_PLAINS</TerrainType>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
+			<TerrainType>TERRAIN_DESERT</TerrainType>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
+			<TerrainType>TERRAIN_TUNDRA</TerrainType>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
+			<TerrainType>TERRAIN_SNOW</TerrainType>
+		</Row>
+	</Improvemement_ValidTerrains>
 </GameData>

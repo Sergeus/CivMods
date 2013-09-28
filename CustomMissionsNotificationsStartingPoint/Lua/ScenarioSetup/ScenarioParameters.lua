@@ -27,15 +27,15 @@ ScenarioAICivilizations = {
 }
 
 
---ScenarioDifficulties = {
---  "HANDICAP_CHIEFTAIN",
---  "HANDICAP_WARLORD",
---  "HANDICAP_PRINCE",
---  "HANDICAP_KING",
---  "HANDICAP_EMPEROR",
---  "HANDICAP_IMMORTAL",
---  "HANDICAP_DEITY",
---}
+ScenarioDifficulties = {
+  "HANDICAP_CHIEFTAIN",
+  "HANDICAP_WARLORD",
+  "HANDICAP_PRINCE",
+  "HANDICAP_KING",
+  "HANDICAP_EMPEROR",
+  "HANDICAP_IMMORTAL",
+  "HANDICAP_DEITY",
+}
 ScenarioDefaultDifficulty = "HANDICAP_PRINCE"
 
 

@@ -4,6 +4,7 @@
 	<Language_en_US>
 		<Row Tag="TXT_KEY_IMPROVEMENT_POWDER_KEG_TRAP">
 			<Text>Powder Keg Trap</Text>
+			<Gender>neuter:a</Gender>
 		</Row>
 		<Row Tag="TXT_KEY_CIV5_IMPROVEMENTS_POWDER_KEG_TRAP_TEXT">
 			<Text>[TOWRITE] powder keg trap pedia</Text>

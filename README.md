@@ -3,6 +3,8 @@ SiegeMod
 
 #### CHANGELOG V1.4
 - Exposed difficulty selection in scenario load screen and resized for custom display
+- Fixed a crash caused when a unit stepped on a Powder Keg Trap
+- Added a notification and messages for Powder Keg Traps that makes their functions and activation more apparent to the player.
 
 #### CHANGELOG V1.3.1
 - Fixed a bug (introduced in v1.3) that prevented Argast from declaring war on the player

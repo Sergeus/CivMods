@@ -21,7 +21,7 @@
 			<IconIndex>0</IconIndex>
 			<IconAtlas>UNIT_ACTION_ATLAS_EXP2</IconAtlas>
 		</Row>
-	</Builds><!--
+	</Builds>
 	<BuildFeatures>
 		<Row>
 			<BuildType>BUILD_POWDER_KEG</BuildType>
@@ -41,7 +41,7 @@
 			<Time>600</Time>
 			<Remove>false</Remove>
 		</Row>
-	</BuildFeatures>-->
+	</BuildFeatures>
 	<Unit_Builds>
 		<Row>
 			<UnitType>UNIT_WORKER</UnitType>

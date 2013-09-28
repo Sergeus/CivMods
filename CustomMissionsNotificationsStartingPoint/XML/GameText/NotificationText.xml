@@ -81,6 +81,14 @@
 			<Text>Insurgency</Text>
 		</Row>
 		
+		<!-- Exploding improvement notifications -->
+		<Row Tag="TXT_KEY_NOTIFICATION_IMPROVEMENT_EXPLODED_SUMMARY">
+			<Text>Explosion</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_IMPROVEMENT_EXPLODED">
+			<Text>{1_ImprovementName: gender: *:an?An; *:a?A;} {1_ImprovementName} has exploded, inflicting {2_ThisHexDamage} damage in the immediate area and {3_BlastRadiusDamage} to other units nearby.</Text>
+		</Row>
+		
 		<!-- Scenario-specific notifications -->
 		<Row Tag="TXT_KEY_NOTIFICATION_ENEMY_EXPANDED_SUMMARY">
 			<Text>{!_CivName} Expanded</Text>

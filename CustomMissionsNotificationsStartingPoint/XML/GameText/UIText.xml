@@ -17,5 +17,11 @@
 		<Row Tag="TXT_KEY_PASSIVE_DAMAGE_BY_OTHER_UNIT">
 			<Text>Your {1_UnitName} ({2_Damage} damage) was raided by {3_UnitName: plural 2?; other?{3_UnitName: gender *:an?an; *:a?a; } ;}enemy {3_UnitName}.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_DAMAGE_BY_EXPLODING_IMPROVEMENT_NEARBY">
+			<Text>Your {1_UnitName} ({2_Damage} damage) was injured by a nearby exploding {3_ImprovementName}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DAMAGE_BY_EXPLODING_IMPROVEMENT">
+			<Text>Your {1_UnitName} ({2_Damage} damage) was caught in the blast from an exploding {3_ImprovementName}.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

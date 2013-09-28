@@ -98,5 +98,14 @@
 			<Summary>TXT_KEY_NOTIFICATION_ENEMY_EXPANDED_SUMMARY</Summary>
 			<ExistingIconType>ICON_TYPE_CIV</ExistingIconType>
 		</Row>
+		
+		<!-- Powder Keg Trap notifications -->
+		<Row>
+			<Type>NOTIFICATION_IMPROVEMENT_EXPLODED</Type>
+			<Message>TXT_KEY_NOTIFICATION_IMPROVEMENT_EXPLODED</Message>
+			<Summary>TXT_KEY_NOTIFICATION_IMPROVEMENT_EXPLODED_SUMMARY</Summary>
+			<IconIndex>0</IconIndex>
+			<IconAtlas>NOTIFICATION_IMPROVEMENT_EXPLODED_ATLAS</IconAtlas>
+		</Row>
 	</Notifications>
 </GameData>
