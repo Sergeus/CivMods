@@ -4,6 +4,10 @@ SiegeMod
 #### CHANGELOG V1.4
 - Exposed difficulty selection in scenario load screen and resized for custom display
 
+#### CHANGELOG V1.3.1
+- Fixed a bug (introduced in v1.3) that prevented Argast from declaring war on the player
+- Fixed a bug where Argast's raiders and Cyats' Devout were weaker than they should have been.
+
 #### CHANGELOG V1.3
 - Modularized victory system
 - Fixed victory display/reference for SiegeMod victory type
