@@ -72,7 +72,7 @@
 		<Row>
 			<Class>UNITCLASS_SPEARMAN</Class>
 			<Type>UNIT_CYAT_DEVOUT</Type>
-			<Combat>11</Combat>
+			<Combat>17</Combat>
 			<Cost>56</Cost>
 			<FaithCost>112</FaithCost>
 			<RequiresFaithPurchaseEnabled>true</RequiresFaithPurchaseEnabled>
@@ -131,7 +131,7 @@
 		<Row>
 			<Class>UNITCLASS_SPEARMAN</Class>
 			<Type>UNIT_ARGAST_RAIDERS</Type>
-			<Combat>11</Combat>
+			<Combat>17</Combat>
 			<Cost>56</Cost>
 			<FaithCost>112</FaithCost>
 			<RequiresFaithPurchaseEnabled>true</RequiresFaithPurchaseEnabled>

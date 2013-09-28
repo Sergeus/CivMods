@@ -390,5 +390,7 @@ function BlockWarWithCyats(eTeam, eOtherTeam)
 		print("Blocking war between the player and the Cyats...")
 		return false
 	end
+
+	return true
 end
 GameEvents.CanDeclareWar.Add(BlockWarWithCyats)

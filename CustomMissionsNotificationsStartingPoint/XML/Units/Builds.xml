@@ -15,13 +15,13 @@
 			<Time>700</Time>
 			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
 			<Description>TXT_KEY_BUILD_POWDER_KEG_TRAP</Description>
-			<EntityEvent>ENTITY_EVENT_IRRIGATE</EntityEvent>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<HotKey>KB_I</HotKey>
 			<OrderPriority>97</OrderPriority>
 			<IconIndex>0</IconIndex>
 			<IconAtlas>UNIT_ACTION_ATLAS_EXP2</IconAtlas>
 		</Row>
-	</Builds>
+	</Builds><!--
 	<BuildFeatures>
 		<Row>
 			<BuildType>BUILD_POWDER_KEG</BuildType>
@@ -41,7 +41,7 @@
 			<Time>600</Time>
 			<Remove>false</Remove>
 		</Row>
-	</BuildFeatures>
+	</BuildFeatures>-->
 	<Unit_Builds>
 		<Row>
 			<UnitType>UNIT_WORKER</UnitType>

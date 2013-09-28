@@ -11,6 +11,7 @@
 			<PillageGold>20</PillageGold>
 			<PortraitIndex>0</PortraitIndex>
 			<IconAtlas>POWDER_KEG_BUILD_ATLAS</IconAtlas>
+			<BuildableOnResources>true</BuildableOnResources>
 			<ExplodesOnEnemyEnterHex>true</ExplodesOnEnemyEnterHex>
 			<ExplosionDamageToThisHex>100</ExplosionDamageToThisHex>
 			<ExplosionDamageToOuterHexes>25</ExplosionDamageToOuterHexes>
