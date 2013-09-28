@@ -210,13 +210,13 @@
       </Box>
 
       <!-- Dawn of Man Text Area - Right Panel -->
-      <Box Anchor="R,T" Offset="38,155" Size="524,404" Color="255,255,255,0" ID="DoMPanelBox" >
-        <Grid Anchor="C,T" Offset="0,0" Size="520,404" Padding="0,0" Style="GridBlackIndent8" Hidden="0" >
-          <Grid Anchor="C,T" Offset="0,0" Size="524,404" Padding="0,0" Style="Grid9Frame" Hidden="0" >
+      <Box Anchor="R,T" Offset="38,175" Size="524,384" Color="255,255,255,0" ID="DoMPanelBox" >
+        <Grid Anchor="C,T" Offset="0,0" Size="520,384" Padding="0,0" Style="GridBlackIndent8" Hidden="0" >
+          <Grid Anchor="C,T" Offset="0,0" Size="524,384" Padding="0,0" Style="Grid9Frame" Hidden="0" >
             <Image Anchor="R,C" AnchorSide="O.I" Offset="-11,0" Size="32,64" Texture="Assets/UI/Art/Controls/9 Grids/Dec32x64Right.dds" />
 
-            <ScrollPanel Anchor="L,T" Offset="0,6" Size="500,392" Vertical="1" ID="DoMPanelScrollPanel" >
-              <ScrollBar Style="VertSlider" Length="356" Offset="0,18" Anchor="R,T" AnchorSide="O,I" />
+            <ScrollPanel Anchor="L,T" Offset="0,6" Size="500,372" Vertical="1" ID="DoMPanelScrollPanel" >
+              <ScrollBar Style="VertSlider" Length="336" Offset="0,18" Anchor="R,T" AnchorSide="O,I" />
               <UpButton  Offset="0.0" Style="ScrollBarUp" Anchor="R,T" AnchorSide="O,I" />
               <DownButton Offset="0.0" Style="ScrollBarDown" Anchor="R,B" AnchorSide="O,I" />
 

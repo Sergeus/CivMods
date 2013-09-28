@@ -341,12 +341,10 @@ function ScaleConstantsBasedOnDifficulty()
 end
 
 function GetSiegeModGoldRequired()
-	print("Return gold required" .. gT.gGoldRequiredForWin .. "...")
+	print("Return gold required " .. gT.gGoldRequiredForWin .. "...")
 	LuaEvents.SiegeModGoldRequiredChanged(gT.gGoldRequiredForWin)
 end
 LuaEvents.SiegeModGoldRequired.Add(GetSiegeModGoldRequired)
-
-ScaleConstantsBasedOnDifficulty()
 
 function Init()
 	local bNewGame = true
@@ -357,6 +355,7 @@ function Init()
 
 	if bNewGame then
 		print("Initializing for new game...")
+		ScaleConstantsBasedOnDifficulty()
 	else
 		print("Initializing for loaded game...")
 		TableLoad(gT, "SiegeMod")

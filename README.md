@@ -1,6 +1,9 @@
 SiegeMod
 ====
 
+#### CHANGELOG V1.4
+- Exposed difficulty selection in scenario load screen and resized for custom display
+
 #### CHANGELOG V1.3
 - Modularized victory system
 - Fixed victory display/reference for SiegeMod victory type

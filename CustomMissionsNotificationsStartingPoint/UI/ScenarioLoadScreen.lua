@@ -277,13 +277,13 @@ function HideMapBox()
   Controls.MapBox:SetHide(g_HideMap)
 
   -- Expand the difficulty box to fill the space
-  Controls.DifficultyBox:SetOffset(Vector2(38, 155))
-  Controls.DifficultyBox:SetSize(Vector2(354, 258+140+6))
+  Controls.DifficultyBox:SetOffset(Vector2(38, 175))
+  Controls.DifficultyBox:SetSize(Vector2(354, 238+140+6))
 
   -- And all the sub-controls
-  Controls.DifficultyBackground:SetSize(Vector2(350, 258+140+6))
-  Controls.DifficultyFrame:SetSize(Vector2(354, 258+140+6))
-  Controls.DifficultyScrollPanel:SetSize(Vector2(330, 220+140+6))
+  Controls.DifficultyBackground:SetSize(Vector2(350, 238+140+6))
+  Controls.DifficultyFrame:SetSize(Vector2(354, 238+140+6))
+  Controls.DifficultyScrollPanel:SetSize(Vector2(330, 200+140+6))
 
   -- Recalc the scroll bar size
   Controls.DifficultyScrollPanel:CalculateInternalSize()
