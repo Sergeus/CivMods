@@ -124,8 +124,8 @@
 			<UnitArtInfo>ART_DEF_UNIT_GALLEASS</UnitArtInfo>
 			<UnitFlagAtlas>CONSCRIPTED_RAKER_FLAG_ATLAS</UnitFlagAtlas>
 			<UnitFlagIconOffset>0</UnitFlagIconOffset>
-			<IconAtlas>EXPANSION_UNIT_ATLAS_1</IconAtlas>
-			<PortraitIndex>14</PortraitIndex>
+			<IconAtlas>CONSCRIPTED_RAKER_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
 			<MoveRate>WOODEN_BOAT</MoveRate>
 		</Row>
 		<Row>
