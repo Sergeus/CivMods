@@ -9,18 +9,6 @@
 	<SiegeModConstants>
 		<Row>
 			<ID>0</ID>
-			<Type>SIEGEMOD_ARGAST_REINFORCEMENT_FREQUENCY</Type>
-			<Value>4</Value>
-		</Row>
-		<Row>
-			<Type>SIEGEMOD_ARGAST_REINFORCEMENT_PROBABILITY</Type>
-			<Value>50</Value>
-		</Row>
-		<Row>
-			<Type>SIEGEMOD_ARGAST_DECLARE_WAR_EARLIEST</Type>
-			<Value>2</Value>
-		</Row>
-		<Row>
 			<Type>SIEGEMOD_ARGAST_DENOUNCE_PLAYER_NOT_AT_WAR</Type>
 			<Value>5</Value>
 		</Row>
@@ -47,22 +35,6 @@
 		<Row>
 			<Type>SIEGEMOD_CYATS_EXPANSION_VARIANCE</Type>
 			<Value>4</Value>
-		</Row>
-		<Row>
-			<Type>SIEGEMOD_CYATS_FREE_MISSIONARY_NEAR_SVESTA_INTERVAL</Type>
-			<Value>6</Value>
-		</Row>
-		<Row>
-			<Type>SIEGEMOD_NUM_PREACHERS_PER_SPAWN</Type>
-			<Value>1</Value>
-		</Row>
-		<Row>
-			<Type>SIEGEMOD_MIN_PREACHER_SPAWN_DISTANCE</Type>
-			<Value>2</Value>
-		</Row>
-		<Row>
-			<Type>SIEGEMOD_GOLD_REQUIRED_FOR_VICTORY</Type>
-			<Value>5000</Value>
 		</Row>
 	</SiegeModConstants>
 </GameData>

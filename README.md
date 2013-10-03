@@ -3,6 +3,7 @@ SiegeMod
 
 #### CHANGELOG V1.4
 - Exposed difficulty selection in scenario load screen and resized for custom display
+- Difficulty selection now scales scenario events (amount of money needed to win, number of enemy units, etc.)
 - Fixed a crash caused when a unit stepped on a Powder Keg Trap
 - Added a notification and messages for Powder Keg Traps that makes their functions and activation more apparent to the player.
 - Added in-game artwork for Powder Keg Trap.

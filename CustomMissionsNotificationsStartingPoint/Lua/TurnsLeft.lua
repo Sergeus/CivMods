@@ -5,6 +5,7 @@
 
 include("PlotIterators")
 include("TableSaverLoader")
+include("SiegeModDifficultyConstants")
 
 -- -------------------------------------------------------------
 -- Scenario 'Globals'
@@ -74,9 +75,11 @@ gT.gArgastExpansionCoords = {
 	},
 }
 
-gT.gArgastReinforcementsFrequency = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_REINFORCEMENT_FREQUENCY.Value
-gT.gArgastReinforcementsProbability = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_REINFORCEMENT_PROBABILITY.Value
-gT.gArgastDeclareWarEarliest = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DECLARE_WAR_EARLIEST.Value
+-- IMPORTANT - All values assigned below that don't use the SiegeModConstants table are overwritten by the difficulty-scaled values.
+-- If you want to change any of these, then you'll need to change SiegeModDifficultyConstants.lua
+gT.gArgastReinforcementsFrequency = 4
+gT.gArgastReinforcementsProbability = 50
+gT.gArgastDeclareWarEarliest = 2
 gT.gArgastDenouncePlayerTurn = GameInfo.SiegeModConstants.SIEGEMOD_ARGAST_DENOUNCE_PLAYER_NOT_AT_WAR.Value
 
 gT.gNumydiaDenounceArgastTurn = GameInfo.SiegeModConstants.SIEGEMOD_NUMYDIA_DENOUNCE_ARGAST_NOT_AT_WAR_TURN.Value
@@ -85,9 +88,9 @@ gT.gNumydiaExpansionTurn = GameInfo.SiegeModConstants.SIEGEMOD_NUMYDIA_EXPANSION
 gT.gCyatsExpansionMinimum = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_MINIMUM.Value
 gT.gCyatsExpansionInterval = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_INTERVAL.Value
 gT.gCyatsExpansionVariance = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_EXPANSION_VARIANCE.Value
-gT.gCyatsFreeMissionaryNearSvestaInterval = GameInfo.SiegeModConstants.SIEGEMOD_CYATS_FREE_MISSIONARY_NEAR_SVESTA_INTERVAL.Value
-gT.gCyatsNumPreachersPerSpawn = GameInfo.SiegeModConstants.SIEGEMOD_NUM_PREACHERS_PER_SPAWN.Value
-gT.gCyatsMinPreacherSpawnDistance = GameInfo.SiegeModConstants.SIEGEMOD_MIN_PREACHER_SPAWN_DISTANCE.Value
+gT.gCyatsFreeMissionaryNearSvestaInterval = 6
+gT.gCyatsNumPreachersPerSpawn = 1
+gT.gCyatsMinPreacherSpawnDistance = 2
 
 gT.gCyatsNextExpansionTurn = gT.gCyatsExpansionMinimum + Map.Rand(gT.gCyatsExpansionVariance, "CyatsExpansion") - Map.Rand(gT.gCyatsExpansionVariance, "CyatsExpansion")
 
@@ -97,7 +100,7 @@ gT.gNumydiaHasDenouncedArgast = false
 gT.gArgastNextExpansion = 0
 gT.gCyatsNextExpansion = 0
 
-gT.gGoldRequiredForWin = GameInfo.SiegeModConstants.SIEGEMOD_GOLD_REQUIRED_FOR_VICTORY.Value
+gT.gGoldRequiredForWin = 5000
 
 gArgastReinforcements = {
 	[0] = GameInfoTypes.UNIT_ARGAST_RAIDERS,
@@ -181,10 +184,10 @@ function ArgastWar(playerID)
 		print("Argast cannot declare war on Svesta this turn.")
 	end
 
-	if currentTurn > gT.gArgastDeclareWarEarliest and pArgastTeam:CanDeclareWar(pSvesta:GetTeam()) then
+	if currentTurn >= gT.gArgastDeclareWarEarliest and pArgastTeam:CanDeclareWar(pSvesta:GetTeam()) then
 		InitArgastWar(pArgast)
 
-	elseif currentTurn > gT.gArgastDenouncePlayerTurn and not pArgastTeam:IsAtWar(pSvesta:GetTeam()) and not gT.gArgastHasDenouncedSvesta then
+	elseif currentTurn >= gT.gArgastDenouncePlayerTurn and not pArgastTeam:IsAtWar(pSvesta:GetTeam()) and not gT.gArgastHasDenouncedSvesta then
 		print("Denouncing active player...")
 		pArgast:DoForceDenounce(pSvesta:GetID())
 		gT.gArgastHasDenouncedSvesta = true
@@ -330,16 +333,51 @@ end
 GameEvents.PlayerDoTurn.Add(CyatsActions)
 
 -- -------------------------------------------------------------
--- Initialization
+-- Difficulty Scaling
 -- -------------------------------------------------------------
 function ScaleConstantsBasedOnDifficulty()
-	print("Scenario constants not yet scaled by difficulty...")
+	print("Scaling scenario events based on selected difficulty...")
 
-	print("Telling other contexts about the gold required to win...")
+	local iHandicap = Game.GetHandicapType()
+
+	local handicapInfo = GameInfo.HandicapInfos[iHandicap]
+
+	print("Found handicap " .. handicapInfo.Type .. "...")
+
+	gT.gGoldRequiredForWin = DifficultyConstants.GoldForVictory[iHandicap]
+
+	print(gT.gGoldRequiredForWin .. " gold is required for victory")
 
 	LuaEvents.SiegeModGoldRequiredChanged(gT.gGoldRequiredForWin)
+
+	gT.gCyatsNumPreachersPerSpawn = DifficultyConstants.CyatsPreachersPerSpawn[iHandicap]
+
+	print("Initial number of Cyat Preachers per spawn is " .. gT.gCyatsNumPreachersPerSpawn)
+
+	gT.gCyatsMinPreacherSpawnDistance = DifficultyConstants.CyatsMinPreacherSpawnDistance[iHandicap]
+
+	print("Initial Cyat Preacher min spawn distance is " .. gT.gCyatsMinPreacherSpawnDistance)
+
+	gT.gCyatsFreeMissionaryNearSvestaInterval = DifficultyConstants.CyatsPreacherSpawnNearSvestaInterval[iHandicap]
+
+	print("Cyats will spawn Preacher(s) near Svesta every " .. gT.gCyatsFreeMissionaryNearSvestaInterval .. " turns")
+
+	gT.gArgastDeclareWarEarliest = DifficultyConstants.ArgastDeclareWarEarliestTurn[iHandicap]
+
+	print("Argast will declare war, at earliest, on turn " .. gT.gArgastDeclareWarEarliest)
+
+	gT.gArgastReinforcementsFrequency = DifficultyConstants.ArgastReinforcementFrequency[iHandicap]
+
+	print("Argast will receive reinforcements (while at war with the player) every " .. gT.gArgastReinforcementsFrequency .. " turns")
+
+	gT.gArgastReinforcementsProbability = DifficultyConstants.ArgastReinforcementProbability[iHandicap]
+
+	print("Each plot where Argast can be reinforced has a " .. gT.gArgastReinforcementsProbability .. "% chance of spawning a unit")
 end
 
+-- -------------------------------------------------------------
+-- Initialization
+-- -------------------------------------------------------------
 function GetSiegeModGoldRequired()
 	print("Return gold required " .. gT.gGoldRequiredForWin .. "...")
 	LuaEvents.SiegeModGoldRequiredChanged(gT.gGoldRequiredForWin)
