@@ -6,7 +6,8 @@ SiegeMod
 - Difficulty selection now scales scenario events (amount of money needed to win, number of enemy units, etc.)
 - Fixed a crash caused when a unit stepped on a Powder Keg Trap
 - Added a notification and messages for Powder Keg Traps that makes their functions and activation more apparent to the player.
-- Added in-game artwork for Powder Keg Trap.
+- Added all remaining unit icons.
+- 3D artwork! Terrain graphics for Powder Keg Trap, reskinned Missionary for Preacher.
 
 #### CHANGELOG V1.3.1
 - Fixed a bug (introduced in v1.3) that prevented Argast from declaring war on the player
