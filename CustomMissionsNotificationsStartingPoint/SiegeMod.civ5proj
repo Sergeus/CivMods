@@ -447,6 +447,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>Art/Improvements/PowderKegArtDefines.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Preacher/PreacherArtDefines.xml</FileName>
+      </Action>
     </ModActions>
     <ModContent>
       <Content>
@@ -1436,6 +1441,18 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Units\Preacher\Preacher.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Preacher\preacher.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Preacher\PreacherArtDefines.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Units\Preacher\PreacherFlag32.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1443,6 +1460,26 @@
     <Content Include="Art\Units\Preacher\PreacherIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Preacher\Preacher_01.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Preacher\preacher_01.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Preacher\Preacher_02.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Preacher\preacher_02.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Preacher\preacher_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Units\Raiders\RaidersArtDefines.xml">
       <SubType>Lua</SubType>

@@ -63,7 +63,7 @@
 			<SpreadReligion>true</SpreadReligion>
 			<ReligionSpreads>2</ReligionSpreads>
 			<ReligiousStrength>2000</ReligiousStrength>
-			<UnitArtInfo>ART_DEF_UNIT_MISSIONARY</UnitArtInfo>
+			<UnitArtInfo>ART_DEF_UNIT_PREACHER</UnitArtInfo>
 			<UnitFlagAtlas>PREACHER_FLAG_ATLAS</UnitFlagAtlas>
 			<UnitFlagIconOffset>0</UnitFlagIconOffset>
 			<IconAtlas>EXPANSION_UNIT_ATLAS_1</IconAtlas>
