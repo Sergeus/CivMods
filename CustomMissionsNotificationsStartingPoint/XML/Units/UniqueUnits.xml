@@ -95,8 +95,8 @@
 			<UnitArtInfo>ART_DEF_UNIT_SPEARMAN</UnitArtInfo>
 			<UnitFlagAtlas>DEVOUT_FLAG_ATLAS</UnitFlagAtlas>
 			<UnitFlagIconOffset>0</UnitFlagIconOffset>
-			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
-			<PortraitIndex>9</PortraitIndex>
+			<IconAtlas>DEVOUT_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
 		</Row>
 		<Row>
 			<Class>UNITCLASS_GALLEASS</Class>
