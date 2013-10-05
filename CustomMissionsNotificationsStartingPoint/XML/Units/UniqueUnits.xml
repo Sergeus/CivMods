@@ -66,8 +66,8 @@
 			<UnitArtInfo>ART_DEF_UNIT_PREACHER</UnitArtInfo>
 			<UnitFlagAtlas>PREACHER_FLAG_ATLAS</UnitFlagAtlas>
 			<UnitFlagIconOffset>0</UnitFlagIconOffset>
-			<IconAtlas>EXPANSION_UNIT_ATLAS_1</IconAtlas>
-			<PortraitIndex>20</PortraitIndex>
+			<IconAtlas>PREACHER_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
 		</Row>
 		<Row>
 			<Class>UNITCLASS_SPEARMAN</Class>
