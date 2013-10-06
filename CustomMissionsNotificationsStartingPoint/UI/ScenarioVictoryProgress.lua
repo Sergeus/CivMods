@@ -37,7 +37,7 @@ function OnUpdate()
 	else
 		-- Update the victory progress banner
 		Controls.VictoryProgressLabel:LocalizeAndSetText("TXT_KEY_SCENARIO_VICTORY_PROGRESS", gGoldRequired - svestaGold);
-		-- Controls.VictoryProgressLabel:LocalizeAndSetText("TXT_KEY_SCENARIO_TURNS_REMAINING", ScenarioTurnsRemaining());
+		Controls.TurnsRemaining:LocalizeAndSetText("TXT_KEY_SCENARIO_TURNS_REMAINING", ScenarioTurnsRemaining());
 		-- Controls.VictoryProgressLabel:LocalizeAndSetText("TXT_KEY_SCENARIO_TURNS_AND_OPPONENTS_REMAINING", ScenarioTurnsRemaining(), ScenarioCountOpponents());
 		Controls.Grid:DoAutoSize();
 	end

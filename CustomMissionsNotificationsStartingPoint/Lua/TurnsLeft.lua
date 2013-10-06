@@ -240,7 +240,7 @@ function NumydiaActions(playerID)
 		local message = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_NUMYDIA_EXPANDED")
 		local summary = Locale.ConvertTextKey("TXT_KEY_NOTIFICATION_ENEMY_EXPANDED_SUMMARY", pNumydia:GetNameKey())
 
-		Players[Game.GetActivePlayer()]:AddNotification(GameInfoTypes.NOTIFICATION_ENEMY_EXPANDED, message, summary, gT.gNumydiaExpansionCoords.X, gT.gNumydiaExpansionCoords.Y, GameInfoTypes.CIVILIZATION_NUMYDIA)
+		Players[Game.GetActivePlayer()]:AddNotification(GameInfoTypes.NOTIFICATION_ENEMY_EXPANDED, message, summary, gT.gNumydiaExpansionCoords.X, gT.gNumydiaExpansionCoords.Y, GameInfoTypes.CIVILIZATION_NEMYDIAN_FEDERATION)
 	end
 end
 GameEvents.PlayerDoTurn.Add(NumydiaActions)

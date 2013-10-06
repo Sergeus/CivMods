@@ -1,6 +1,11 @@
 SiegeMod
 ====
 
+#### CHANGELOG V1.5
+- Fixed a bug where America's icon was used in the notification about Numydia's expansion
+- Fixed a bug where Powder Keg Trap didn't require the Black Powder tech
+- The turn limit on the scenario is now displayed to the player!
+
 #### CHANGELOG V1.4
 - Exposed difficulty selection in scenario load screen and resized for custom display
 - Difficulty selection now scales scenario events (amount of money needed to win, number of enemy units, etc.)

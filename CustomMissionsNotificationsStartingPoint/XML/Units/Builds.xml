@@ -15,6 +15,7 @@
 			<Time>700</Time>
 			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
 			<Description>TXT_KEY_BUILD_POWDER_KEG_TRAP</Description>
+			<PrereqTech>TECH_BLACK_POWDER</PrereqTech>
 			<EntityEvent>ENTITY_EVENT_SHOVEL</EntityEvent>
 			<HotKey>KB_I</HotKey>
 			<OrderPriority>97</OrderPriority>
