@@ -7,6 +7,7 @@ SiegeMod
 - The turn limit on the scenario is now displayed to the player!
 - Fixed a map error where a plot owned by Svesta had both a plantation and a jungle on it.
 - Reduced the number of units the player starts with.
+- Fixed a bug that allowed Argast to found a pantheon.
 
 #### CHANGELOG V1.4
 - Exposed difficulty selection in scenario load screen and resized for custom display
