@@ -5,6 +5,8 @@ SiegeMod
 - Fixed a bug where America's icon was used in the notification about Numydia's expansion
 - Fixed a bug where Powder Keg Trap didn't require the Black Powder tech
 - The turn limit on the scenario is now displayed to the player!
+- Fixed a map error where a plot owned by Svesta had both a plantation and a jungle on it.
+- Reduced the number of units the player starts with.
 
 #### CHANGELOG V1.4
 - Exposed difficulty selection in scenario load screen and resized for custom display
