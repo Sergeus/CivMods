@@ -19,6 +19,18 @@ function GetGoldRequired()
 end
 GetGoldRequired()
 
+function WinOnOwnTurn(iPlayer)
+	if iPlayer ~= Game.GetActivePlayer() then
+		return
+	end
+
+	local pSvesta = Players[iPlayer]
+	if pSvesta:GetGold() >= gGoldRequired then
+		ScenarioWin(ContextPtr, pSvesta, "VICTORY_MERCANTILE")
+	end
+end
+GameEvents.PlayerDoTurn.Add(WinOnOwnTurn)
+
 ---------------------------------------------------------------------
 function OnUpdate()
 	local pSvesta = Players[Game.GetActivePlayer()]
