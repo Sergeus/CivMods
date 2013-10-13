@@ -1601,7 +1601,7 @@ void CvPlayerTraits::InitPlayerTraits()
 			{
 				m_bCanPurchaseReligiousUnits = true;
 			}
-			if (!trait->IsCannotFoundPantheon())
+			if (trait->IsCannotFoundPantheon())
 			{
 				m_bCannotFoundPantheon = true;
 			}

@@ -596,6 +596,9 @@ CvGameReligions::FOUNDING_RESULT CvGameReligions::CanCreatePantheon(PlayerTypes 
 		return FOUNDING_NOT_ENOUGH_FAITH;
 	}
 
+	// ----------------------------------------------------------------
+	// SiegeMod Addition
+	// ----------------------------------------------------------------
 	if (kPlayer.GetPlayerTraits()->IsCannotFoundPantheon())
 	{
 		// TODO: Implement a separate condition
