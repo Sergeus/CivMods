@@ -263,13 +263,17 @@ void CvLuaPlot::PushMethods(lua_State* L, int t)
 	Method(GetArchaeologyArtifactEra);
 	Method(GetArchaeologyArtifactPlayer1);
 	Method(GetArchaeologyArtifactPlayer2);
+	Method(GetArchaeologyArtifactWork);
+	Method(HasWrittenArtifact);
+
+	Method(GetCityPurchaseID);
+	Method(SetCityPurchaseID);
 
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	Method(IsHasHornOfValere);
 	Method(SetHasHornOfValere);
-
 }
 //------------------------------------------------------------------------------
 void CvLuaPlot::HandleMissingInstance(lua_State* L)
@@ -1801,4 +1805,34 @@ int CvLuaPlot::lGetArchaeologyArtifactPlayer2(lua_State* L)
 	int iPlayer = kPlot->GetArchaeologicalRecord().m_ePlayer2;
 	lua_pushinteger(L, iPlayer);
 	return 1;
+}
+
+//------------------------------------------------------------------------------
+int CvLuaPlot::lGetArchaeologyArtifactWork(lua_State* L)
+{
+	CvPlot* kPlot = GetInstance(L);
+	int iWork = (int)kPlot->GetArchaeologicalRecord().m_eWork;
+	lua_pushinteger(L, iWork);
+	return 1;
+}
+
+//------------------------------------------------------------------------------
+//bool HasWrittenArtifact();
+int CvLuaPlot::lHasWrittenArtifact(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlot::HasWrittenArtifact);
+}
+
+//------------------------------------------------------------------------------
+//int GetCityPurchaseID();
+int CvLuaPlot::lGetCityPurchaseID(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlot::GetCityPurchaseID);
+}
+
+//------------------------------------------------------------------------------
+//void SetCityPurchaseID(int ID);
+int CvLuaPlot::lSetCityPurchaseID(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlot::SetCityPurchaseID);
 }

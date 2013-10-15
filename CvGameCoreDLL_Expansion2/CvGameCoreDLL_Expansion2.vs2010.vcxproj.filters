@@ -509,6 +509,12 @@
     <ClCompile Include="WoTShadowspawn.cpp">
       <Filter>WoTSources</Filter>
     </ClCompile>
+    <ClCompile Include="CvTargeting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CvCityManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="banned.h">
@@ -1035,6 +1041,12 @@
     </ClInclude>
     <ClInclude Include="WoTShadowspawn.h">
       <Filter>WoTHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="CvTargeting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CvCityManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

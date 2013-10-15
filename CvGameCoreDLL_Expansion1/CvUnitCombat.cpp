@@ -1095,6 +1095,8 @@ void CvUnitCombat::ResolveCityMeleeCombat(const CvCombatInfo& kCombatInfo, uint 
 //	---------------------------------------------------------------------------
 void CvUnitCombat::GenerateAirCombatInfo(CvUnit& kAttacker, CvUnit* pkDefender, CvPlot& plot, CvCombatInfo* pkCombatInfo)
 {
+	int iExperience = 0;
+
 	pkCombatInfo->setUnit(BATTLE_UNIT_ATTACKER, &kAttacker);
 	pkCombatInfo->setUnit(BATTLE_UNIT_DEFENDER, pkDefender);
 	pkCombatInfo->setPlot(&plot);
@@ -1123,7 +1125,6 @@ void CvUnitCombat::GenerateAirCombatInfo(CvUnit& kAttacker, CvUnit* pkDefender, 
 	//////////////////////////////////////////////////////////////////////
 
 	bool bBarbarian = false;
-	int iExperience = 0;
 	int iMaxXP = 0;
 
 	int iAttackerDamageInflicted;
@@ -1237,6 +1238,15 @@ void CvUnitCombat::GenerateAirCombatInfo(CvUnit& kAttacker, CvUnit* pkDefender, 
 	pkCombatInfo->setInBorders(BATTLE_UNIT_DEFENDER, plot.getOwner() == kAttacker.getOwner());
 	pkCombatInfo->setUpdateGlobal(BATTLE_UNIT_DEFENDER, !bBarbarian);
 
+	if (iInterceptionDamage > 0)
+	{
+		iExperience = /*2*/ GC.getEXPERIENCE_DEFENDING_AIR_SWEEP_GROUND();
+		pkCombatInfo->setExperience( BATTLE_UNIT_INTERCEPTOR, iExperience );
+		pkCombatInfo->setMaxExperienceAllowed( BATTLE_UNIT_INTERCEPTOR, MAX_INT );
+		pkCombatInfo->setInBorders( BATTLE_UNIT_INTERCEPTOR, plot.getOwner() == kAttacker.getOwner() );
+		pkCombatInfo->setUpdateGlobal( BATTLE_UNIT_INTERCEPTOR, !bBarbarian );
+	}
+
 	pkCombatInfo->setAttackIsBombingMission(true);
 	pkCombatInfo->setDefenderRetaliates(true);
 
@@ -1270,6 +1280,12 @@ void CvUnitCombat::ResolveAirUnitVsCombat(const CvCombatInfo& kCombatInfo, uint 
 	{
 		pInterceptor->setMadeInterception(true);
 		pInterceptor->setCombatUnit(NULL);
+		pInterceptor->changeExperience(
+			kCombatInfo.getExperience(BATTLE_UNIT_INTERCEPTOR),
+			kCombatInfo.getMaxExperienceAllowed(BATTLE_UNIT_INTERCEPTOR),
+			true,
+			kCombatInfo.getInBorders(BATTLE_UNIT_INTERCEPTOR),
+			kCombatInfo.getUpdateGlobal(BATTLE_UNIT_INTERCEPTOR));
 	}
 
 	CvPlot* pkTargetPlot = kCombatInfo.getPlot();

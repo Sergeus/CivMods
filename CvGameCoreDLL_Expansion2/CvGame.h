@@ -548,7 +548,7 @@ public:
 	bool allUnitAIProcessed() const;
 
 	void updateTurnTimer();
-	bool hasTurnTimerExpired(PlayerTypes playerID, bool gameLoopUpdate=false);
+	bool hasTurnTimerExpired(PlayerTypes playerID);
 	void TurnTimerSync(float fCurTurnTime, float fTurnStartTime);
 	void GetTurnTimerData(float& fCurTurnTime, float& fTurnStartTime);
 
@@ -771,6 +771,7 @@ protected:
 
 	void CheckPlayerTurnDeactivate();
 
+	void PopulateDigSite(CvPlot& kPlot, EraTypes eEra, GreatWorkArtifactClass eArtifact);
 	void SpawnArchaeologySitesHistorically();
 
 

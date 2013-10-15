@@ -515,6 +515,9 @@
     <ClCompile Include="CvDllContext.cpp">
       <Filter>Dll Interface</Filter>
     </ClCompile>
+    <ClCompile Include="CvTargeting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CvAchievementUnlocker.h">
@@ -1038,6 +1041,9 @@
     </ClInclude>
     <ClInclude Include="CustomLog.h">
       <Filter>WoTHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="CvTargeting.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
