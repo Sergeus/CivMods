@@ -74,6 +74,7 @@ public:
 	int GetPlotBuyCostModifier() const;
 	int GetPlotCultureCostModifier() const;
 	int GetCultureFromKills() const;
+	int GetFaithFromKills() const;
 	int GetCityCultureBonus() const;
 	int GetCapitalThemingBonusModifier() const;
 	int GetPolicyCostModifier() const;
@@ -218,6 +219,7 @@ protected:
 	int m_iPlotBuyCostModifier;
 	int m_iPlotCultureCostModifier;
 	int m_iCultureFromKills;
+	int m_iFaithFromKills;
 	int m_iCityCultureBonus;
 	int m_iCapitalThemingBonusModifier;
 	int m_iPolicyCostModifier;
@@ -478,6 +480,10 @@ public:
 	{
 		return m_iCultureFromKills;
 	};
+	int GetFaithFromKills() const
+	{
+		return m_iFaithFromKills;
+	};
 	int GetCityCultureBonus() const
 	{
 		return m_iCityCultureBonus;
@@ -717,6 +723,7 @@ public:
 	{
 		return m_bUniqueLuxuryRequiresNewArea;
 	}
+	bool WillGetUniqueLuxury(CvArea *pArea) const;
 	bool IsRiverTradeRoad() const
 	{
 		return m_bRiverTradeRoad;
@@ -889,6 +896,7 @@ private:
 	int m_iPlotBuyCostModifier;
 	int m_iPlotCultureCostModifier;
 	int m_iCultureFromKills;
+	int m_iFaithFromKills;
 	int m_iCityCultureBonus;
 	int m_iCapitalThemingBonusModifier;
 	int m_iPolicyCostModifier;
