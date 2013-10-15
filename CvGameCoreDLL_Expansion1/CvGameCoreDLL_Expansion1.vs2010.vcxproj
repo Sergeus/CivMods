@@ -63,7 +63,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>CvWorldBuilderMapWin32.lib;CvGameCoreDLLUtilWin32.lib;CvLocalizationWin32.lib;CvGameDatabaseWin32.lib;FireWorksWin32.lib;FLuaWin32.lib;lua51_Win32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)\CvGameCore_Expansion1.dll</OutputFile>
+      <OutputFile>$(OutDir)$(ProjectName)$(Platform)$(Configuration).dll</OutputFile>
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(SolutionDir)\CvWorldBuilderMap\lib\;$(SolutionDir)\CvGameCoreDLLUtil\lib\;$(SolutionDir)\CvLocalization\lib\;$(SolutionDir)\CvGameDatabase\lib\;$(SolutionDir)FirePlace\lib\;$(SolutionDir)ThirdPartyLibs\Lua51\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DelayLoadDLLs>%(DelayLoadDLLs)</DelayLoadDLLs>
@@ -84,6 +84,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CvTargeting.cpp" />
     <ClCompile Include="_precompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mod|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -352,6 +353,7 @@
     <ClInclude Include="CvStructs.h" />
     <ClInclude Include="CvTacticalAI.h" />
     <ClInclude Include="CvTacticalAnalysisMap.h" />
+    <ClInclude Include="CvTargeting.h" />
     <ClInclude Include="CvTeam.h" />
     <ClInclude Include="CvTechAI.h" />
     <ClInclude Include="CvTechClasses.h" />
