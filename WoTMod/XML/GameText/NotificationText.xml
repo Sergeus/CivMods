@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 5/10/2013 9:32:46 PM -->
 <GameData>
-  <!-- TODO: Insert table creation example here. -->
- 
-  <!-- TODO: Insert table data example here.-->
-  
-  <!-- Enter your Game Data here. -->
 	<Language_en_US>
+		<!-- Horn of Valere notifications -->
 		<Row Tag="TXT_KEY_HORN_DISCOVERED">
 			<Text>Your {@1_UnitName} has discovered the Horn of Valere!</Text>
 		</Row>
@@ -32,6 +28,27 @@
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_HORN_HERO_DIED_SUMMARY">
 			<Text>Hero pulled from the Pattern</Text>
+		</Row>
+		
+		<!-- Last Battle notifications -->
+		<Row Tag="TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT">
+			<Text>{@1_LeaderName} has sided with the Light!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT_SUMMARY">
+			<Text>Light</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT_UNKNOWN">
+			<Text>An unmet civilization has sided with the Light!</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW">
+			<Text>{@1_LeaderName} has sided with the Shadow!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW_SUMMARY">
+			<Text>Shadow</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW_UNKNOWN">
+			<Text>An unmet civilization has sided with the Shadow!</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

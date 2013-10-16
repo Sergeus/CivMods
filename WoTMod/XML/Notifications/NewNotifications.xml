@@ -16,5 +16,22 @@
 			<ChecksKnown>true</ChecksKnown>
 			<UnknownMessage>TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_UNKNOWN_OWNER</UnknownMessage>
 		</Row>
+
+		<Row>
+			<Type>NOTIFICATION_OTHER_CIV_JOINED_LIGHT</Type>
+			<Message>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT</Message>
+			<Summary>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT_SUMMARY</Summary>
+			<MiniCivIcon>true</MiniCivIcon>
+			<ChecksKnown>true</ChecksKnown>
+			<UnknownMessage>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT_UNKNOWN</UnknownMessage>
+		</Row>
+		<Row>
+			<Type>NOTIFICATION_OTHER_CIV_JOINED_SHADOW</Type>
+			<Message>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW</Message>
+			<Summary>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW_SUMMARY</Summary>
+			<MiniCivIcon>true</MiniCivIcon>
+			<ChecksKnown>true</ChecksKnown>
+			<UnknownMessage>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW_UNKNOWN</UnknownMessage>
+		</Row>
 	</Notifications>
 </GameData>
