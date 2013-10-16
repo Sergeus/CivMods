@@ -494,6 +494,7 @@
     <Folder Include="Lua\Blight" />
     <Folder Include="UI" />
     <Folder Include="UI\InGame" />
+    <Folder Include="UI\InGame\Popups" />
     <Folder Include="UI\InGame\WorldView" />
     <Folder Include="XML" />
     <Folder Include="XML\HornOfValere" />
@@ -1038,6 +1039,14 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Lua\PlotIterators.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\Popups\EndGameMenu.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\TopPanel.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
