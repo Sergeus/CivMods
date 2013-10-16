@@ -159,6 +159,11 @@ CvGame::~CvGame()
 	SAFE_DELETE_ARRAY(m_aiRankTeam);
 	SAFE_DELETE_ARRAY(m_aiTeamRank);
 	SAFE_DELETE_ARRAY(m_aiTeamScore);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE_ARRAY(m_aiLastBattleSideChoices);
 }
 
 //	--------------------------------------------------------------------------------
@@ -356,6 +361,37 @@ void CvGame::init(HandicapTypes eHandicap)
 	else
 	{
 		setEstimateEndTurn(getGameTurn() + getMaxTurns());
+	}
+
+	// TODO: estimate last battle turn by speed here
+	int iLastBattleBeginTurn = 2;
+
+	if (GetLastBattleBeginTurn() == 0)
+	{
+		bValid = false;
+
+		for(iI = 0; iI < GC.getNumVictoryInfos(); iI++)
+		{
+			VictoryTypes eVictory = static_cast<VictoryTypes>(iI);
+			CvVictoryInfo* pkVictoryInfo = GC.getVictoryInfo(eVictory);
+			if(pkVictoryInfo)
+			{
+				if(isVictoryValid(eVictory))
+				{
+					if(pkVictoryInfo->IsLastBattle())
+					{
+						bValid = true;
+						break;
+					}
+				}
+			}
+
+		}
+
+		if (bValid)
+		{
+			SetLastBattleBeginTurn(iLastBattleBeginTurn - getGameTurn());
+		}
 	}
 
 	setStartYear(GC.getSTART_YEAR());
@@ -1257,6 +1293,16 @@ void CvGame::reset(HandicapTypes eHandicap, bool bConstructorCall)
 			{
 				m_ppaaiTeamVictoryRank[iI][iJ] = NO_TEAM;
 			}
+		}
+
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		CvAssertMsg(m_aiLastBattleSideChoices==NULL, "about to leak memory, CvGame::m_aiLastBattleSideChoices");
+		m_aiLastBattleSideChoices = FNEW(int[MAX_PLAYERS], c_eCiv5GameplayDLL, 0);
+		for (int iI = 0; iI < MAX_PLAYERS; iI++)
+		{
+			m_aiLastBattleSideChoices[iI] = NO_SIDE;
 		}
 
 		CvAssertMsg(m_pSettlerSiteEvaluator==NULL, "about to leak memory, CvGame::m_pSettlerSiteEvaluator");
@@ -4469,6 +4515,17 @@ void CvGame::setMaxTurns(int iNewValue)
 	CvAssert(getMaxTurns() >= 0);
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvGame::GetLastBattleBeginTurn()
+{
+	return CvPreGame::GetLastBattleBeginTurn();
+}
+void CvGame::SetLastBattleBeginTurn(int iNewValue)
+{
+	CvPreGame::SetLastBattleBeginTurn(iNewValue);
+}
 
 //	--------------------------------------------------------------------------------
 void CvGame::changeMaxTurns(int iChange)
@@ -9354,6 +9411,12 @@ void CvGame::Read(FDataStream& kStream)
 	ArrayWrapper<int> wrapm_aiTeamScore(MAX_TEAMS, m_aiTeamScore);
 	kStream >> wrapm_aiTeamScore;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	ArrayWrapper<int> wrapm_aiLastBattleSideChoices(MAX_PLAYERS, m_aiLastBattleSideChoices);
+	kStream >> wrapm_aiLastBattleSideChoices;
+
 	UnitArrayHelpers::Read(kStream, m_paiUnitCreatedCount);
 	UnitClassArrayHelpers::Read(kStream, m_paiUnitClassCreatedCount);
 	BuildingClassArrayHelpers::Read(kStream, m_paiBuildingClassCreatedCount);
@@ -9589,6 +9652,11 @@ void CvGame::Write(FDataStream& kStream) const
 	kStream << ArrayWrapper<int>(MAX_TEAMS, m_aiRankTeam);
 	kStream << ArrayWrapper<int>(MAX_TEAMS, m_aiTeamRank);
 	kStream << ArrayWrapper<int>(MAX_TEAMS, m_aiTeamScore);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream << ArrayWrapper<int>(MAX_PLAYERS, m_aiLastBattleSideChoices);
 
 	UnitArrayHelpers::Write(kStream, m_paiUnitCreatedCount, GC.getNumUnitInfos());
 
@@ -10398,6 +10466,88 @@ int CvGame::GetResearchAgreementCost(PlayerTypes ePlayer1, PlayerTypes ePlayer2)
 	iCost /= 100;
 
 	return iCost;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+void CvGame::DoStartLastBattle()
+{
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+	if(pkScriptSystem)
+	{
+		CvLuaArgsHandle args;
+		bool bResult;
+		LuaSupport::CallHook(pkScriptSystem, "LastBattleStart", args.get(), bResult);
+	}
+
+	// first we'll have all of the AIs choose sides (not do anything, just choose)
+	for (int iI = 0; iI < MAX_PLAYERS; iI++)
+	{
+		PlayerTypes ePlayer = (PlayerTypes)iI;
+		CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
+
+		if (!kPlayer.isHuman() && !kPlayer.isBarbarian() && !kPlayer.IsShadowspawn())
+		{
+			kPlayer.AI_chooseLastBattleSide();
+		}
+	}
+
+	// TODO the player needs time to choose?
+
+	for (int iI = 0; iI < MAX_PLAYERS; iI++)
+	{
+		PlayerTypes ePlayer = (PlayerTypes)iI;
+		CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
+		CvTeam& kTeam = GET_TEAM(kPlayer.getTeam());
+
+		LastBattleSideTypes eSide = GetChosenLastBattleSide(ePlayer);
+
+		// TODO potential bug, AIs on the same team making different choices
+
+		if (eSide != NO_SIDE)
+		{
+			for (int iJ = 0; iJ < MAX_PLAYERS; iJ++)
+			{
+				// war declaration
+				PlayerTypes eOtherPlayer = (PlayerTypes)iJ;
+				CvPlayerAI& kOtherPlayer = GET_PLAYER(eOtherPlayer);
+				CvTeam& kOtherTeam = GET_TEAM(kOtherPlayer.getTeam());
+
+				LastBattleSideTypes eOtherSide = GetChosenLastBattleSide(eOtherPlayer);
+
+				if (eSide != eOtherSide)
+				{
+					kTeam.declareWar(kOtherPlayer.getTeam(), false);
+					kTeam.setPermanentWarPeace(kOtherPlayer.getTeam(), true);
+					kOtherTeam.setPermanentWarPeace(kPlayer.getTeam(), true);
+				}
+			}
+
+			// lua hook for having chosen a side (notifications handled on lua side)
+			ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+			if(pkScriptSystem)
+			{
+				CvLuaArgsHandle args;
+				args->Push(ePlayer);
+				args->Push(eSide);
+				bool bResult;
+				LuaSupport::CallHook(pkScriptSystem, "PlayerChosenLastBattleSide", args.get(), bResult);
+			}
+		}
+	}
+}
+bool CvGame::IsLastBattle()
+{
+	return getGameTurn() >= GetLastBattleBeginTurn();
+}
+void CvGame::ChooseLastBattleSide(PlayerTypes ePlayer, LastBattleSideTypes eSide)
+{
+	m_aiLastBattleSideChoices[ePlayer] = eSide;
+}
+LastBattleSideTypes CvGame::GetChosenLastBattleSide(PlayerTypes ePlayer)
+{
+	return (LastBattleSideTypes)m_aiLastBattleSideChoices[ePlayer];
 }
 
 

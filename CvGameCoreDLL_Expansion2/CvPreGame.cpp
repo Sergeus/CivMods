@@ -275,6 +275,10 @@ PREGAMEVARDEFAULT(std::string,                        s_versionString);
 PREGAMEVAR(std::vector<bool>,                  s_turnNotifySteamInvite,        MAX_PLAYERS);
 PREGAMEVAR(std::vector<bool>,                  s_turnNotifyEmail,							MAX_PLAYERS);
 PREGAMEVAR(std::vector<CvString>,              s_turnNotifyEmailAddress,    MAX_PLAYERS);
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+PREGAMEVAR(int,									s_lastBattleBeginTurn,	0);
 
 
 typedef std::map<uint, uint> HashToOptionMap;
@@ -1055,6 +1059,18 @@ bool SetGameOptions(const std::vector<CustomOption>& gameOptions)
 
 	SyncGameOptionsWithEnumList();
 	return true;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int GetLastBattleBeginTurn()
+{
+	return s_lastBattleBeginTurn;
+}
+void SetLastBattleBeginTurn(int iNewValue)
+{
+	s_lastBattleBeginTurn = iNewValue;
 }
 
 GameSpeedTypes gameSpeed()
@@ -1890,6 +1906,8 @@ void readArchive(FDataStream& loadFrom, bool bReadVersion)
 		loadFrom >> s_turnNotifyEmail;
 		loadFrom >> s_turnNotifyEmailAddress;
 	}
+
+	loadFrom >> s_lastBattleBeginTurn;
 
 	// Rebuild the hash lookup to the options
 	s_GameOptionsHash.clear();
@@ -3258,6 +3276,11 @@ void writeArchive(FDataStream& saveTo)
 	saveTo << s_turnNotifySteamInvite;
 	saveTo << s_turnNotifyEmail;
 	saveTo << s_turnNotifyEmailAddress;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	saveTo << s_lastBattleBeginTurn;
 }
 
 void write(FDataStream& saveTo)

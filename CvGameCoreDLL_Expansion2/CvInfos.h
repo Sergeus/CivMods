@@ -706,6 +706,10 @@ public:
 	bool isPermanent() const;
 	bool IsReligionInAllCities() const;
 	bool IsFindAllNaturalWonders() const;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsLastBattle() const;
 
 	const char* getMovie() const;
 
@@ -732,6 +736,10 @@ protected:
 	bool m_bPermanent;
 	bool m_bReligionInAllCities;
 	bool m_bFindAllNaturalWonders;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool m_bLastBattle;
 
 	CvString m_strMovie;
 

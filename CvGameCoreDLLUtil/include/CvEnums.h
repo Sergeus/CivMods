@@ -1466,6 +1466,17 @@ enum VoteTypes
 	NO_VOTE = -1,
 };
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+enum LastBattleSideTypes
+{
+	// TODO extract into moddable DB field
+	NO_SIDE = -1,
+	SIDE_LIGHT,
+	SIDE_SHADOW
+};
+
 enum PlayerVoteTypes			
 {
 	PLAYER_VOTE_NEVER = -5,

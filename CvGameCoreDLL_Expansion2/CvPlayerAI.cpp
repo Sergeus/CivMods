@@ -530,6 +530,33 @@ void CvPlayerAI::AI_chooseResearch()
 	}
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+void CvPlayerAI::AI_chooseLastBattleSide()
+{
+	if (isBarbarian() || IsShadowspawn())
+	{
+		return;
+	}
+
+	// TODO actually make reasonable choices here
+	int lightFlavor = getLeaderInfo().getFlavorValue(GC.getInfoTypeForString("FLAVOR_LIGHT"));
+
+	int lightChance = lightFlavor * 100;
+
+	int rand = GC.getGame().getJonRandNum(100, "Choosing Last Battle side");
+
+	if (rand < lightChance)
+	{
+		GC.getGame().ChooseLastBattleSide(GetID(), SIDE_LIGHT);
+	}
+	else
+	{
+		GC.getGame().ChooseLastBattleSide(GetID(), SIDE_SHADOW);
+	}
+}
+
 // sort player numbers
 struct CityAndProduction
 {

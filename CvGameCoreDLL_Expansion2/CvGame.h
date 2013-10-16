@@ -561,6 +561,12 @@ public:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	void DoShadowSpawnUnit(int iX, int iY);
+	int GetLastBattleBeginTurn();
+	void SetLastBattleBeginTurn(int iNewValue);
+	void DoStartLastBattle();
+	bool IsLastBattle();
+	void ChooseLastBattleSide(PlayerTypes ePlayer, LastBattleSideTypes eSide);
+	LastBattleSideTypes GetChosenLastBattleSide(PlayerTypes ePlayer);
 
 	void NetMessageStaticsReset();
 	void SetLastTurnAICivsProcessed();
@@ -687,6 +693,11 @@ protected:
 	int** m_apaiPlayerVote;
 	int** m_ppaaiTeamVictoryRank;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int* m_aiLastBattleSideChoices;
+
 	Database::Results* m_pDiploResponseQuery;
 
 	std::vector<CvString> m_aszDestroyedCities;
@@ -773,8 +784,6 @@ protected:
 
 	void PopulateDigSite(CvPlot& kPlot, EraTypes eEra, GreatWorkArtifactClass eArtifact);
 	void SpawnArchaeologySitesHistorically();
-
-
 };
 
 #endif

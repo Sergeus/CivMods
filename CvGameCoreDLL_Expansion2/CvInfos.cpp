@@ -2595,6 +2595,13 @@ bool CvVictoryInfo::IsFindAllNaturalWonders() const
 {
 	return m_bFindAllNaturalWonders;
 }
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+bool CvVictoryInfo::IsLastBattle() const
+{
+	return m_bLastBattle;
+}
 //------------------------------------------------------------------------------
 const char* CvVictoryInfo::getMovie() const
 {
@@ -2620,6 +2627,11 @@ bool CvVictoryInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	m_bPermanent = kResults.GetBool("Permanent");
 	m_bReligionInAllCities = kResults.GetBool("ReligionInAllCities");
 	m_bFindAllNaturalWonders = kResults.GetBool("FindAllNaturalWonders");
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_bLastBattle = kResults.GetBool("LastBattle");
+
 	m_iPopulationPercentLead = kResults.GetInt("PopulationPercentLead");
 	m_iLandPercent = kResults.GetInt("LandPercent");
 	m_iMinLandPercent = kResults.GetInt("MinLandPercent");
