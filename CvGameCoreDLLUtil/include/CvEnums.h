@@ -1471,10 +1471,7 @@ enum VoteTypes
 // ----------------------------------------------------------------
 enum LastBattleSideTypes
 {
-	// TODO extract into moddable DB field
 	NO_SIDE = -1,
-	SIDE_LIGHT,
-	SIDE_SHADOW
 };
 
 enum PlayerVoteTypes			

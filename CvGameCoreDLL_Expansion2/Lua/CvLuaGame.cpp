@@ -2562,7 +2562,12 @@ int CvLuaGame::lGetLastBattleBeginTurn(lua_State* L)
 }
 int CvLuaGame::lSetLastBattleBeginTurn(lua_State* L)
 {
-	const int iNewTurn = lua_tointeger(L, 1);
+	int iNewTurn = lua_tointeger(L, 1);
+
+	if (iNewTurn <= GC.getGame().getGameTurn())
+	{
+		iNewTurn = GC.getGame().getGameTurn() + 1;
+	}
 
 	GC.getGame().SetLastBattleBeginTurn(iNewTurn);
 	return 0;

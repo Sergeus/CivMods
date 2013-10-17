@@ -10492,9 +10492,9 @@ void CvGame::DoStartLastBattle()
 			kPlayer.AI_chooseLastBattleSide();
 		}
 	}
-
-	// TODO the player needs time to choose?
-
+}
+void CvGame::startLastBattle()
+{
 	for (int iI = 0; iI < MAX_PLAYERS; iI++)
 	{
 		PlayerTypes ePlayer = (PlayerTypes)iI;
@@ -10516,7 +10516,15 @@ void CvGame::DoStartLastBattle()
 
 				LastBattleSideTypes eOtherSide = GetChosenLastBattleSide(eOtherPlayer);
 
-				if (eSide != eOtherSide)
+				int lightSide = GC.getInfoTypeForString("SIDE_LIGHT");
+				int shadowSide = GC.getInfoTypeForString("SIDE_SHADOW");
+
+				// Light players go to war with Shadow players
+				// Shadow players go war with everyone
+				// Only players who have met each other actually go to war
+				if (((eSide == lightSide && eOtherSide == shadowSide)
+					|| (eSide == shadowSide && eOtherSide == shadowSide))
+					&& kTeam.isHasMet(kOtherPlayer.getTeam()))
 				{
 					kTeam.declareWar(kOtherPlayer.getTeam(), false);
 					kTeam.setPermanentWarPeace(kOtherPlayer.getTeam(), true);
@@ -10544,10 +10552,33 @@ bool CvGame::IsLastBattle()
 void CvGame::ChooseLastBattleSide(PlayerTypes ePlayer, LastBattleSideTypes eSide)
 {
 	m_aiLastBattleSideChoices[ePlayer] = eSide;
+
+	DoCheckLastBattleSidesChosen();
 }
 LastBattleSideTypes CvGame::GetChosenLastBattleSide(PlayerTypes ePlayer)
 {
 	return (LastBattleSideTypes)m_aiLastBattleSideChoices[ePlayer];
+}
+void CvGame::DoCheckLastBattleSidesChosen()
+{
+	bool bAllCivsChosen = true;
+
+	for (int iI = 0; iI < MAX_PLAYERS; iI++)
+	{
+		PlayerTypes ePlayer = (PlayerTypes)iI;
+
+		// Dragonsworn and Shadowspawn don't get to choose
+		if (ePlayer != BARBARIAN_PLAYER && ePlayer != SHADOW_PLAYER 
+			&& GetChosenLastBattleSide(ePlayer) == NO_SIDE)
+		{
+			bAllCivsChosen = false;
+		}
+	}
+
+	if (bAllCivsChosen)
+	{
+		startLastBattle();
+	}
 }
 
 

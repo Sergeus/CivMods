@@ -784,6 +784,12 @@ protected:
 
 	void PopulateDigSite(CvPlot& kPlot, EraTypes eEra, GreatWorkArtifactClass eArtifact);
 	void SpawnArchaeologySitesHistorically();
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	void DoCheckLastBattleSidesChosen();
+	void startLastBattle();
 };
 
 #endif

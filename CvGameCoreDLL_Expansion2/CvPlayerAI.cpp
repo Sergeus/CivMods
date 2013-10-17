@@ -549,11 +549,11 @@ void CvPlayerAI::AI_chooseLastBattleSide()
 
 	if (rand < lightChance)
 	{
-		GC.getGame().ChooseLastBattleSide(GetID(), SIDE_LIGHT);
+		GC.getGame().ChooseLastBattleSide(GetID(), (LastBattleSideTypes)GC.getInfoTypeForString("SIDE_LIGHT"));
 	}
 	else
 	{
-		GC.getGame().ChooseLastBattleSide(GetID(), SIDE_SHADOW);
+		GC.getGame().ChooseLastBattleSide(GetID(), (LastBattleSideTypes)GC.getInfoTypeForString("SIDE_SHADOW"));
 	}
 }
 

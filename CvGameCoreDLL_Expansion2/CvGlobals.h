@@ -7594,6 +7594,7 @@ protected:
 	// WoTMod Addition - Custom Notifications
 	// ----------------------------------------------------------------
 	std::vector<WoTNotificationInfo*> m_pNotifications;
+	
 
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;
 	CvCitySpecializationXMLEntries* m_pCitySpecializations;
