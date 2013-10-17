@@ -385,6 +385,12 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	static int lDoShadowspawnSpawnUnit(lua_State* L);
+	static int lDoStartLastBattle(lua_State* L);
+	static int lIsLastBattle(lua_State* L);
+	static int lChooseLastBattleSide(lua_State* L);
+	static int lGetChosenLastBattleSide(lua_State* L);
+	static int lGetLastBattleBeginTurn(lua_State* L);
+	static int lSetLastBattleBeginTurn(lua_State* L);
 };
 
 #endif //CVLUAGAME_H

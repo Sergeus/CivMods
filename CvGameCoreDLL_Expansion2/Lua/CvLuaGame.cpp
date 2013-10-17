@@ -389,6 +389,12 @@ void CvLuaGame::RegisterMembers(lua_State* L)
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	Method(DoShadowspawnSpawnUnit);
+	Method(DoStartLastBattle);
+	Method(IsLastBattle);
+	Method(ChooseLastBattleSide);
+	Method(GetChosenLastBattleSide);
+	Method(GetLastBattleBeginTurn);
+	Method(SetLastBattleBeginTurn);
 }
 //------------------------------------------------------------------------------
 
@@ -2524,6 +2530,44 @@ int CvLuaGame::lDoShadowspawnSpawnUnit(lua_State* L)
 
 	return 0;
 }
+int CvLuaGame::lDoStartLastBattle(lua_State* L)
+{
+	GC.getGame().DoStartLastBattle();
+	return 0;
+}
+int CvLuaGame::lIsLastBattle(lua_State* L)
+{
+	lua_pushboolean(L, GC.getGame().IsLastBattle());
+	return 1;
+}
+int CvLuaGame::lChooseLastBattleSide(lua_State* L)
+{
+	const int iPlayerID = lua_tointeger(L, 1);
+	const int iSide = lua_tointeger(L, 2);
+
+	GC.getGame().ChooseLastBattleSide((PlayerTypes)iPlayerID, (LastBattleSideTypes)iSide);
+	return 0;
+}
+int CvLuaGame::lGetChosenLastBattleSide(lua_State* L)
+{
+	const int iPlayerID = lua_tointeger(L, 1);
+
+	lua_pushinteger(L, GC.getGame().GetChosenLastBattleSide((PlayerTypes)iPlayerID));
+	return 1;
+}
+int CvLuaGame::lGetLastBattleBeginTurn(lua_State* L)
+{
+	lua_pushinteger(L, GC.getGame().GetLastBattleBeginTurn());
+	return 1;
+}
+int CvLuaGame::lSetLastBattleBeginTurn(lua_State* L)
+{
+	const int iNewTurn = lua_tointeger(L, 1);
+
+	GC.getGame().SetLastBattleBeginTurn(iNewTurn);
+	return 0;
+}
+
 //------------------------------------------------------------------------------
 int CvLuaGame::lGetGreatWorkTooltip(lua_State* L)
 {
