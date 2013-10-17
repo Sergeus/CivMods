@@ -21,6 +21,8 @@
 			<Type>NOTIFICATION_OTHER_CIV_JOINED_LIGHT</Type>
 			<Message>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT</Message>
 			<Summary>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT_SUMMARY</Summary>
+			<IconAtlas>NOTIFICATION_CHOOSE_LIGHT_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
 			<MiniCivIcon>true</MiniCivIcon>
 			<ChecksKnown>true</ChecksKnown>
 			<UnknownMessage>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT_UNKNOWN</UnknownMessage>
@@ -29,6 +31,8 @@
 			<Type>NOTIFICATION_OTHER_CIV_JOINED_SHADOW</Type>
 			<Message>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW</Message>
 			<Summary>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW_SUMMARY</Summary>
+			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
 			<MiniCivIcon>true</MiniCivIcon>
 			<ChecksKnown>true</ChecksKnown>
 			<UnknownMessage>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW_UNKNOWN</UnknownMessage>

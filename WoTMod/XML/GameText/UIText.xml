@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/17/2013 9:14:30 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Last Battle choice menu -->
+		<Row Tag="TXT_KEY_SIDE_LIGHT">
+			<Text>Light</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SIDE_SHADOW">
+			<Text>Shadow</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_LIGHT_BUTTON">
+			<Text>Side with the Light</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CHOOSE_SHADOW_BUTTON">
+			<Text>Side with the Shadow</Text>
+		</Row>
+		
+		<!-- Last Battle victory information -->
+		<Row Tag="TXT_KEY_VICTORY_LAST_BATTLE">
+			<Text>Tarmon Gai'don</Text>
+		</Row>
+		<Row Tag="TXT_KEY_VICTORY_LAST_BATTLE_BANG">
+			<Text>Tarmon Gai'don!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_VICTORY_LAST_BATTLE_PEDIA">
+			<Text>[TOWRITE] last battle pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_VICTORY_FLAVOR_LAST_BATTLE">
+			<Text>[TOWRITE] last battle flavor</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

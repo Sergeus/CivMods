@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/17/2013 9:32:52 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>NOTIFICATION_CHOOSE_LIGHT_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>JoinedLightNotificationIcon.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>JoinedShadowNotificationIcon.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

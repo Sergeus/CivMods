@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/17/2013 11:15:15 PM -->
+<GameData>
+	<Table name="Unit_FreeUnitAfterSurvivingMeleeCombat">
+		<Column name="UnitType" type="text" reference="Units(Type)"/>
+		<Column name="UnitClassType" type="text" reference="UnitClasses(Type)"/>
+		<Column name="NumberFree" type="integer" default="0"/>
+	</Table>
+	<Table name="Unit_FreeUnitWhenTradeRoutePlundered">
+		<Column name="UnitType" type="text" reference="Units(Type)"/>
+		<Column name="UnitClassType" type="text" reference="UnitClasses(Type)"/>
+		<Column name="NumberFree" type="integer" default="0"/>
+	</Table>
+</GameData>

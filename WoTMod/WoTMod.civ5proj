@@ -64,12 +64,33 @@
         <Description>test</Description>
         <FileName>Lua/Blight/BlightUtils.lua</FileName>
       </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Last Battle Choice</Name>
+        <Description>Last Battle Choice Screen</Description>
+        <FileName>UI/InGame/Popups/LastBattleChoiceMenu.xml</FileName>
+      </Content>
     </ModContent>
     <ModActions>
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
         <FileName>XML/Notifications/NotificationProperties.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Traits/TraitEdits.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Technologies/TechnologiesEdits.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Buildings/BuildingEdits.sql</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
@@ -90,6 +111,21 @@
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
         <FileName>XML/PromotionAlterations.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Traits/NewTraitTables.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Buildings/NewBuildingTables.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Units/NewUnitsTables.xml</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
@@ -451,6 +487,21 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Victories/Victories.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/UIText.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Notifications/NotificationIconAtlases.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Victories/LastBattleSides.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -488,6 +539,8 @@
     <Folder Include="Art\Leaders\AemonAlThorin" />
     <Folder Include="Art\Leaders\Rhuarc" />
     <Folder Include="Art\Leaders\PedronNiall" />
+    <Folder Include="Art\UI" />
+    <Folder Include="Art\UI\LastBattle" />
     <Folder Include="Art\Units" />
     <Folder Include="Art\Notifications" />
     <Folder Include="Art\Units\Flags\Darkhound" />
@@ -512,6 +565,7 @@
     <Folder Include="XML\Civilizations" />
     <Folder Include="XML\Leaders" />
     <Folder Include="XML\GameInfo" />
+    <Folder Include="XML\Buildings" />
     <Folder Include="XML\Victories" />
     <Folder Include="XML\Technologies" />
     <Folder Include="XML\Shadowspawn" />
@@ -905,6 +959,26 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Notifications\JoinedLightNotificationIcon.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Notifications\JoinedShadowNotificationIcon.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Notifications\NotificationIconAtlases.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\UI\LastBattle\LightChoiceBackground.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\UI\LastBattle\ShadowChoiceBackground.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Units\Flags\Darkhound\DarkhoundFlag32.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1013,7 +1087,7 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
-    <Content Include="CvGameCore_Expansion1.dll">
+    <Content Include="CvGameCore_Expansion2.dll">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1057,6 +1131,14 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="UI\InGame\Popups\LastBattleChoiceMenu.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\Popups\LastBattleChoiceMenu.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="UI\InGame\TopPanel.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1072,6 +1154,14 @@
     <Content Include="UI\InGame\WorldView\NotificationPanel.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Buildings\BuildingEdits.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Buildings\NewBuildingTables.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Civilizations\BaseGameCivDisables.xml">
       <SubType>Lua</SubType>
@@ -1146,6 +1236,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\GameText\TraitText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\GameText\UIText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
@@ -1225,6 +1319,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\Technologies\TechnologiesEdits.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\Technologies\TechnologiesFlavors.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1249,6 +1347,14 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\Traits\NewTraitTables.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Traits\TraitEdits.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\Traits\TraitMattinGreatHunt.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1261,6 +1367,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\Units\NewUnitsTables.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\Units\UnitClasses.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1270,6 +1380,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Units\Units.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Victories\LastBattleSides.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
