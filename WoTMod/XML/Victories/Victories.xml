@@ -56,6 +56,7 @@
 			<WinsGame>true</WinsGame>
 			<Audio>AS2D_VICTORY_SPEECH_ALTERNATE_CONQUEST_VICTORY</Audio>
 			<FlavorText>TXT_KEY_VICTORY_FLAVOR_LAST_BATTLE</FlavorText>
+			<LastBattle>true</LastBattle>
 		</Row>
 	</Victories>
 </GameData>
