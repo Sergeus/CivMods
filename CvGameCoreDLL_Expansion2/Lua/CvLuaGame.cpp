@@ -2551,12 +2551,6 @@ int CvLuaGame::lChooseLastBattleSide(lua_State* L)
 	const int iPlayerID = lua_tointeger(L, 1);
 	const int iSide = lua_tointeger(L, 2);
 
-	// we can't change sides after the Last Battle starts
-	if (GC.getGame().IsLastBattle())
-	{
-		return 0;
-	}
-
 	GC.getGame().ChooseLastBattleSide((PlayerTypes)iPlayerID, (LastBattleSideTypes)iSide);
 	return 0;
 }

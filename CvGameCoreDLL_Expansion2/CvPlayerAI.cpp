@@ -546,13 +546,11 @@ void CvPlayerAI::AI_chooseLastBattleSide()
 	}
 
 	// TODO actually make reasonable choices here
-	int lightFlavor = getLeaderInfo().getFlavorValue(GC.getInfoTypeForString("FLAVOR_LIGHT"));
-
-	int lightChance = lightFlavor * 100;
+	int chance = 50;
 
 	int rand = GC.getGame().getJonRandNum(100, "Choosing Last Battle side");
 
-	if (rand < lightChance)
+	if (rand < chance)
 	{
 		CUSTOMLOG("AI player %s has chosen the Light", getCivilizationDescription());
 		GC.getGame().ChooseLastBattleSide(GetID(), (LastBattleSideTypes)GC.getInfoTypeForString("SIDE_LIGHT"));

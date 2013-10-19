@@ -10530,6 +10530,9 @@ void CvGame::startLastBattle()
 
 		if (eSide != NO_SIDE)
 		{
+			int lightSide = GC.getInfoTypeForString("SIDE_LIGHT");
+			int shadowSide = GC.getInfoTypeForString("SIDE_SHADOW");
+
 			for (int iJ = 0; iJ < MAX_PLAYERS; iJ++)
 			{
 				// war declaration
@@ -10538,9 +10541,6 @@ void CvGame::startLastBattle()
 				CvTeam& kOtherTeam = GET_TEAM(kOtherPlayer.getTeam());
 
 				LastBattleSideTypes eOtherSide = GetChosenLastBattleSide(eOtherPlayer);
-
-				int lightSide = GC.getInfoTypeForString("SIDE_LIGHT");
-				int shadowSide = GC.getInfoTypeForString("SIDE_SHADOW");
 
 				// Light players go to war with Shadow players
 				// Shadow players go war with everyone
@@ -10554,6 +10554,12 @@ void CvGame::startLastBattle()
 					kTeam.setPermanentWarPeace(kOtherPlayer.getTeam(), true);
 					kOtherTeam.setPermanentWarPeace(kPlayer.getTeam(), true);
 				}
+			}
+
+			// Shadow players make peace with the Shadowspawn
+			if (eSide == shadowSide)
+			{
+				kTeam.makePeace(SHADOW_TEAM, true, true);
 			}
 
 			// lua hook for having chosen a side (notifications handled on lua side)
