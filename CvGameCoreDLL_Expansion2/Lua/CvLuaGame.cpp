@@ -2532,6 +2532,12 @@ int CvLuaGame::lDoShadowspawnSpawnUnit(lua_State* L)
 }
 int CvLuaGame::lDoStartLastBattle(lua_State* L)
 {
+	// can't start the Last Battle if it has already started
+	if (GC.getGame().IsLastBattle())
+	{
+		return 0;
+	}
+
 	GC.getGame().DoStartLastBattle();
 	return 0;
 }
@@ -2544,6 +2550,12 @@ int CvLuaGame::lChooseLastBattleSide(lua_State* L)
 {
 	const int iPlayerID = lua_tointeger(L, 1);
 	const int iSide = lua_tointeger(L, 2);
+
+	// we can't change sides after the Last Battle starts
+	if (GC.getGame().IsLastBattle())
+	{
+		return 0;
+	}
 
 	GC.getGame().ChooseLastBattleSide((PlayerTypes)iPlayerID, (LastBattleSideTypes)iSide);
 	return 0;
@@ -2567,6 +2579,12 @@ int CvLuaGame::lSetLastBattleBeginTurn(lua_State* L)
 	if (iNewTurn <= GC.getGame().getGameTurn())
 	{
 		iNewTurn = GC.getGame().getGameTurn() + 1;
+	}
+
+	// we can't change the turn the Last Battle starts on if it has already started
+	if (GC.getGame().IsLastBattle())
+	{
+		return 0;
 	}
 
 	GC.getGame().SetLastBattleBeginTurn(iNewTurn);
