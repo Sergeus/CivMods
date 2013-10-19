@@ -53,6 +53,7 @@
 // WoTMod Addition
 // ----------------------------------------------------------------
 #include "WoTShadowspawn.h"
+#include "CustomLog.h"
 
 #include <sstream>
 
@@ -316,6 +317,12 @@ void CvGame::init(HandicapTypes eHandicap)
 
 	setStartTurn(getGameTurn());
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// before we do the victory stuff, let's be sure the PreGame victories setup is correct, right?
+	CvPreGame::cacheVictories();
+
 	iEstimateEndTurn = 0;
 
 	for(iI = 0; iI < kGameSpeedInfo.getNumTurnIncrements(); iI++)
@@ -363,6 +370,9 @@ void CvGame::init(HandicapTypes eHandicap)
 		setEstimateEndTurn(getGameTurn() + getMaxTurns());
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
 	// TODO: estimate last battle turn by speed here
 	int iLastBattleBeginTurn = 2;
 
@@ -380,6 +390,7 @@ void CvGame::init(HandicapTypes eHandicap)
 				{
 					if(pkVictoryInfo->IsLastBattle())
 					{
+						CUSTOMLOG("Last Battle victory condition is enabled");
 						bValid = true;
 						break;
 					}
@@ -390,7 +401,9 @@ void CvGame::init(HandicapTypes eHandicap)
 
 		if (bValid)
 		{
-			SetLastBattleBeginTurn(iLastBattleBeginTurn - getGameTurn());
+			int lastBattleTurn = iLastBattleBeginTurn - getGameTurn();
+			CUSTOMLOG("Setting Last Battle begin turn to %i", lastBattleTurn);
+			SetLastBattleBeginTurn(lastBattleTurn);
 		}
 	}
 
@@ -7720,6 +7733,14 @@ void CvGame::doTurn()
 	// Victory stuff
 	testVictory();
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (getGameTurn() == GetLastBattleBeginTurn())
+	{
+		DoStartLastBattle();
+	}
+
 	// Who's Winning
 	if(GET_PLAYER(getActivePlayer()).isAlive() && !IsStaticTutorialActive())
 	{
@@ -10481,13 +10502,15 @@ void CvGame::DoStartLastBattle()
 		LuaSupport::CallHook(pkScriptSystem, "LastBattleStart", args.get(), bResult);
 	}
 
+	CUSTOMLOG("AIs now choosing their side for the Last Battle");
 	// first we'll have all of the AIs choose sides (not do anything, just choose)
 	for (int iI = 0; iI < MAX_PLAYERS; iI++)
 	{
 		PlayerTypes ePlayer = (PlayerTypes)iI;
 		CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
 
-		if (!kPlayer.isHuman() && !kPlayer.isBarbarian() && !kPlayer.IsShadowspawn())
+		if (!kPlayer.isHuman() && !kPlayer.isBarbarian() && !kPlayer.IsShadowspawn()
+			&& kPlayer.isAlive())
 		{
 			kPlayer.AI_chooseLastBattleSide();
 		}
@@ -10524,6 +10547,7 @@ void CvGame::startLastBattle()
 				// Only players who have met each other actually go to war
 				if (((eSide == lightSide && eOtherSide == shadowSide)
 					|| (eSide == shadowSide && eOtherSide == shadowSide))
+					&& ePlayer != eOtherPlayer
 					&& kTeam.isHasMet(kOtherPlayer.getTeam()))
 				{
 					kTeam.declareWar(kOtherPlayer.getTeam(), false);
@@ -10569,9 +10593,11 @@ void CvGame::DoCheckLastBattleSidesChosen()
 
 		// Dragonsworn and Shadowspawn don't get to choose
 		if (ePlayer != BARBARIAN_PLAYER && ePlayer != SHADOW_PLAYER 
+			&& GET_PLAYER(ePlayer).isAlive()
 			&& GetChosenLastBattleSide(ePlayer) == NO_SIDE)
 		{
 			bAllCivsChosen = false;
+			break;
 		}
 	}
 

@@ -227,6 +227,8 @@ void                                       setInternetGame(bool isInternetGame);
 // WoTMod Addition
 // ----------------------------------------------------------------
 void									   SetLastBattleBeginTurn(int iNewValue);
+int										   numVictories();
+void									   cacheVictories();
 
 void                                       setLeaderHead(PlayerTypes p, LeaderHeadTypes l);
 void                                       setLeaderName(PlayerTypes p, const CvString& n);

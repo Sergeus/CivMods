@@ -31,6 +31,11 @@
 #include "cvStopWatch.h"
 #include "CvEconomicAI.h"
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+#include "CustomLog.h"
+
 // Include this after all other headers.
 #include "LintFree.h"
 
@@ -549,10 +554,12 @@ void CvPlayerAI::AI_chooseLastBattleSide()
 
 	if (rand < lightChance)
 	{
+		CUSTOMLOG("AI player %s has chosen the Light", getCivilizationDescription());
 		GC.getGame().ChooseLastBattleSide(GetID(), (LastBattleSideTypes)GC.getInfoTypeForString("SIDE_LIGHT"));
 	}
 	else
 	{
+		CUSTOMLOG("AI player %s has chosen the Light", getCivilizationDescription());
 		GC.getGame().ChooseLastBattleSide(GetID(), (LastBattleSideTypes)GC.getInfoTypeForString("SIDE_SHADOW"));
 	}
 }

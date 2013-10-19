@@ -240,7 +240,7 @@ PREGAMEVAR(bool,                               s_dummyvalue,	          false);
 PREGAMEVAR(std::vector<bool>,                  s_multiplayerOptions,     NUM_MPOPTION_TYPES);
 PREGAMEVAR(std::vector<int>,                   s_netIDs,                 MAX_PLAYERS);
 PREGAMEVAR(std::vector<CvString>,              s_nicknames,              MAX_PLAYERS);
-PREGAMEVAR(int,                                s_numVictoryInfos,        GC.getNumVictoryInfos());
+PREGAMEVAR(int,                                s_numVictoryInfos,        numVictories());
 PREGAMEVAR(int,                                s_pitBossTurnTime,        0);
 PREGAMEVAR(std::vector<bool>,                  s_playableCivs,           MAX_PLAYERS);
 PREGAMEVAR(std::vector<PlayerColorTypes>,      s_playerColors,           MAX_PLAYERS);
@@ -313,6 +313,45 @@ std::vector<CvString> s_leaderNamesLocalized(MAX_PLAYERS);
 GameStartTypes	s_gameStartType;
 
 StorageLocation	s_loadFileStorage;
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int numVictories()
+{
+	// querying the database to count victory infos, like Firaxis should have done?
+	Database::Connection* pDB = GC.GetGameDatabase();
+	if (pDB)
+	{
+		Database::Results kResults;
+
+		int count = 0;
+		if (pDB->Execute(kResults, "SELECT * FROM Victories"))
+		{
+			while (kResults.Step())
+			{
+				count++;
+			}
+		}
+		return count;
+	}
+
+	return 5; // default to only vanilla victories
+}
+
+void cacheVictories()
+{
+	// Data-defined victory conditions
+	s_numVictoryInfos = numVictories();
+	s_victories.clear();
+	if(s_numVictoryInfos > 0)
+	{
+		for(int i = 0; i < s_numVictoryInfos; ++i)
+		{
+			s_victories.push_back(true);
+		}
+	}
+}
 
 //	-----------------------------------------------------------------------
 //	Bind a leader head key to the leader head using the current leader head ID
@@ -1418,7 +1457,7 @@ void loadFromIni(FIGameIniParser& iniParser)
 	if(szHolder != "EMPTY")
 	{
 		StringToBools(szHolder, &iNumBools, &pbBools);
-		iNumBools = std::min(iNumBools, GC.getNumVictoryInfos());
+		iNumBools = std::min(iNumBools, numVictories());
 		int i;
 		std::vector<bool> tempVBool;
 		for(i = 0; i < iNumBools; i++)
@@ -1955,7 +1994,7 @@ void resetGame()
 	s_calendar  = (CalendarTypes)0;//GC.getSTANDARD_CALENDAR();	// NO_ option?
 
 	// Data-defined victory conditions
-	s_numVictoryInfos = GC.getNumVictoryInfos();
+	s_numVictoryInfos = numVictories();
 	s_victories.clear();
 	if(s_numVictoryInfos > 0)
 	{
@@ -2032,7 +2071,7 @@ void ResetGameOptions()
 	SyncGameOptionsWithEnumList();
 
 	// victory conditions
-	s_numVictoryInfos = GC.getNumVictoryInfos();
+	s_numVictoryInfos = numVictories();
 	s_victories.clear();
 	if(s_numVictoryInfos > 0)
 	{
