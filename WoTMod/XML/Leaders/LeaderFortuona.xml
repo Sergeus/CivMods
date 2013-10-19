@@ -261,5 +261,15 @@
 			<FlavorType>FLAVOR_MAGIC</FlavorType>
 			<Flavor>6</Flavor>
 		</Row>
+		<Row>
+			<LeaderType>LEADER_AEMON</LeaderType>
+			<FlavorType>FLAVOR_LIGHT</FlavorType>
+			<Flavor>5</Flavor>
+		</Row>
+		<Row>
+			<LeaderType>LEADER_AEMON</LeaderType>
+			<FlavorType>FLAVOR_SHADOW</FlavorType>
+			<Flavor>4</Flavor>
+		</Row>
 	</Leader_Flavors>
 </GameData>

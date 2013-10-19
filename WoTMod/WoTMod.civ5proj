@@ -100,6 +100,11 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
+        <FileName>XML/Civilizations/BaseGameCivDisables.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
         <FileName>Art/Hawkwing Unit/HawkwingArtDefines.xml</FileName>
       </Action>
       <Action>
@@ -441,11 +446,6 @@
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
         <FileName>Art/Leaders/Rhuarc/RhuarcAtlas.xml</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
-        <FileName>XML/Civilizations/BaseGameCivDisables.xml</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
