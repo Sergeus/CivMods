@@ -295,19 +295,9 @@ void WoTShadowspawn::CacheShadowspawnUnitClasses()
 
 			CUSTOMLOG("Discovered shadowspawn unit class: %s", szUnitClass);
 
-			for (int iUnitClassLoop = 0; iUnitClassLoop < GC.getNumUnitClassInfos(); iUnitClassLoop++)
-			{
-				UnitClassTypes eUnitClass = (UnitClassTypes)iUnitClassLoop;
+			int iUnitClassId = GC.getInfoTypeForString(szUnitClass);
 
-				CvUnitClassInfo* pClassInfo = GC.getUnitClassInfo(eUnitClass);
-
-				if (strcmp(pClassInfo->GetType(), szUnitClass) == 0)
-				{
-					CUSTOMLOG("Shadowspawn cache now contains class %s with unit ID %i.", pClassInfo->GetType(), eUnitClass);
-
-					m_aeShadowspawnUnitClasses.push_back(eUnitClass);
-				}
-			}
+			m_aeShadowspawnUnitClasses.push_back((UnitClassTypes)iUnitClassId);
 		}
 	}
 }
