@@ -36,6 +36,10 @@
 // WoTMod Addition - Custom Notifications
 // ----------------------------------------------------------------
 #include "WoTNotifications.h"
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+#include "WoTGovernorClasses.h"
 
 #include "CvDllDatabaseUtility.h"
 #include "CvDllScriptSystemUtility.h"
@@ -1822,6 +1826,10 @@ CvGlobals::CvGlobals() :
 	m_pLeagueProjectRewards(NULL),
 	m_pResolutions(NULL),
 	m_pGameDatabase(NULL)
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	, m_pGovernors(NULL)
 {
 }
 
@@ -1985,6 +1993,11 @@ void CvGlobals::init()
 	// ----------------------------------------------------------------
 	//m_pNotifications = FNEW(CvNotificationXMLEntries, c_eCiv5GameplayDLL, 0);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pGovernors = FNEW(WoTGovernorXMLEntries, c_eCiv5GameplayDLL, 0);
+
 	auto_ptr<ICvDLLDatabaseUtility1> pkLoader(getDatabaseLoadUtility());
 
 	Database::Connection* pDB = GetGameDatabase();
@@ -2050,6 +2063,10 @@ void CvGlobals::uninit()
 	// WoTMod Addition - Custom Notifications
 	// ----------------------------------------------------------------
 	//SAFE_DELETE(m_pNotifications);
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE(m_pGovernors);
 
 	SAFE_DELETE(m_pImprovements); // player uses the improvement count in deallocating.
 	SAFE_DELETE(m_pTechs);        // improvements uses tech to deallocate. arrghh!
@@ -2586,6 +2603,37 @@ WoTNotificationInfo* CvGlobals::GetNotificationInfo(int iNotificationID)
 		return m_pNotifications[iNotificationID];
 	else
 		return NULL;
+}
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvGlobals::GetNumGovernorClassInfos()
+{
+	return m_paGovernorClassInfo.size();
+}
+std::vector<WoTGovernorClassInfo*>& CvGlobals::GetGovernorClassInfos()
+{
+	return m_paGovernorClassInfo;
+}
+WoTGovernorClassInfo* CvGlobals::GetGovernorClassInfo(GovernorClassTypes eGovernorClass)
+{
+	return m_paGovernorClassInfo[eGovernorClass];
+}
+int CvGlobals::GetNumGovernorInfos()
+{
+	return m_pGovernors->GetNumGovernors();
+}
+std::vector<WoTGovernorEntry*>& CvGlobals::GetGovernorInfos()
+{
+	return m_pGovernors->GetGovernorEntries();
+}
+WoTGovernorEntry* CvGlobals::GetGovernorInfo(GovernorTypes eGovernor)
+{
+	return m_pGovernors->GetEntry(eGovernor);
+}
+WoTGovernorXMLEntries* CvGlobals::GetGameGovernors()
+{
+	return m_pGovernors;
 }
 
 int& CvGlobals::getNumPlayableCivilizationInfos()
@@ -5806,6 +5854,11 @@ void CvGlobals::deleteInfoArrays()
 	SAFE_DELETE_ARRAY(GC.getFootstepAudioTags());
 
 	deleteInfoArray(m_paEntityEventInfo);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	deleteInfoArray(m_paGovernorClassInfo);
 }
 
 //

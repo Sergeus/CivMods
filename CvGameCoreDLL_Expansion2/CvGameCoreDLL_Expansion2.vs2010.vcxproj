@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="WoTGovernorClasses.cpp" />
     <ClCompile Include="WoTHornOfValere.cpp" />
     <ClCompile Include="WoTNotifications.cpp" />
     <ClCompile Include="WoTShadowspawn.cpp" />
@@ -484,6 +485,7 @@
     <ClInclude Include="Lua\CvLuaTeam.h" />
     <ClInclude Include="Lua\CvLuaTeamTech.h" />
     <ClInclude Include="Lua\CvLuaUnit.h" />
+    <ClInclude Include="WoTGovernorClasses.h" />
     <ClInclude Include="WoTHornOfValere.h" />
     <ClInclude Include="WoTNotifications.h" />
     <ClInclude Include="WoTShadowspawn.h" />

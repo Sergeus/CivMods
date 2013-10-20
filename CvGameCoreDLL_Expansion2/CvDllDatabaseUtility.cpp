@@ -335,6 +335,11 @@ bool CvDllDatabaseUtility::PrefetchGameData()
 	//	PrefetchCollection(pkNotificationEntries->GetNotificationEntries(), "Notifications");
 	//}
 	PrefetchCollection(GC.GetNotificationInfo(), "Notifications");
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	PrefetchCollection(GC.GetGovernorClassInfos(), "GovernorClasses");
+	PrefetchCollection(GC.GetGovernorInfos(), "Governors");
 
 	//Technologies
 	PrefetchCollection(GC.getTechInfo(), "Technologies");

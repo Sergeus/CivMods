@@ -515,6 +515,9 @@
     <ClCompile Include="CvCityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WoTGovernorClasses.cpp">
+      <Filter>WoTSources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="banned.h">
@@ -1047,6 +1050,9 @@
     </ClInclude>
     <ClInclude Include="CvCityManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WoTGovernorClasses.h">
+      <Filter>WoTHeaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

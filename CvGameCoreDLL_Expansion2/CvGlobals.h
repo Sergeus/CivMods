@@ -128,6 +128,12 @@ class CvNetMessageHandler;
 // WoTMod Addition - Custom Notifications
 // ----------------------------------------------------------------
 class WoTNotificationInfo;
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+class WoTGovernorClassInfo;
+class WoTGovernorEntry;
+class WoTGovernorXMLEntries;
 
 class CvDLLInterfaceIFaceBase;
 class ICvDLLDatabaseUtility1;
@@ -325,6 +331,18 @@ public:
 	int GetNumNotificationInfos();
 	std::vector<WoTNotificationInfo*>& GetNotificationInfo();
 	WoTNotificationInfo* GetNotificationInfo(int iNotificationID);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int GetNumGovernorClassInfos();
+	std::vector<WoTGovernorClassInfo*>& GetGovernorClassInfos();
+	WoTGovernorClassInfo* GetGovernorClassInfo(GovernorClassTypes eGovernorClass);
+
+	int GetNumGovernorInfos();
+	std::vector<WoTGovernorEntry*>& GetGovernorInfos();
+	_Ret_maybenull_ WoTGovernorEntry* GetGovernorInfo(GovernorTypes eGovernor);
+	WoTGovernorXMLEntries* GetGameGovernors();
 
 	int& getNumPlayableCivilizationInfos();
 	int& getNumAIPlayableCivilizationInfos();
@@ -7594,6 +7612,10 @@ protected:
 	// WoTMod Addition - Custom Notifications
 	// ----------------------------------------------------------------
 	std::vector<WoTNotificationInfo*> m_pNotifications;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	std::vector<WoTGovernorClassInfo*> m_paGovernorClassInfo;
 	
 
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;
@@ -7619,6 +7641,10 @@ protected:
 	CvLeagueProjectRewardXMLEntries* m_pLeagueProjectRewards;
 	CvResolutionXMLEntries* m_pResolutions;
 	//CvNotificationXMLEntries* m_pNotifications;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	WoTGovernorXMLEntries* m_pGovernors;
 
 	//////////////////////////////////////////////////////////////////////////
 	// GLOBAL TYPES

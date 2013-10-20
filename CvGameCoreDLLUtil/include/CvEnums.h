@@ -1473,6 +1473,14 @@ enum LastBattleSideTypes
 {
 	NO_SIDE = -1,
 };
+enum GovernorClassTypes
+{
+	NO_GOVERNORCLASS = -1,
+};
+enum GovernorTypes
+{
+	NO_GOVERNOR = -1,
+};
 
 enum PlayerVoteTypes			
 {
