@@ -32,5 +32,13 @@
 		<Row Tag="TXT_KEY_VICTORY_FLAVOR_LAST_BATTLE">
 			<Text>[TOWRITE] last battle flavor</Text>
 		</Row>
+		
+		<!-- No Shadowspawn game option -->
+		<Row Tag="TXT_KEY_GAMEOPTION_NO_SHADOWSPAWN">
+			<Text>No Shadowspawn</Text>
+		</Row>
+		<Row Tag="TXT_KEY_GAMEOPTION_NO_SHADOWSPAWN_HELP">
+			<Text>Shadowspawn and the Blight do not appear on the map.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

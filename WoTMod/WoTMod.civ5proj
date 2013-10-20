@@ -96,6 +96,11 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
+        <FileName>XML/Governors/Governors.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
         <FileName>XML/Buildings/BuildingEdits.sql</FileName>
       </Action>
       <Action>
@@ -496,17 +501,22 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>XML/GameText/UIText.xml</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
         <FileName>Art/Notifications/NotificationIconAtlases.xml</FileName>
       </Action>
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
         <FileName>XML/Victories/LastBattleSides.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/UIText.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameInfo/GameOptions.xml</FileName>
       </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
@@ -563,9 +573,12 @@
     <Folder Include="Lua\Blight" />
     <Folder Include="Lua\LastBattle" />
     <Folder Include="UI" />
+    <Folder Include="UI\FrontEnd\GameSetup" />
     <Folder Include="UI\InGame" />
+    <Folder Include="UI\InGame\Menus" />
     <Folder Include="UI\InGame\Popups" />
     <Folder Include="UI\InGame\WorldView" />
+    <Folder Include="UI\FrontEnd" />
     <Folder Include="XML" />
     <Folder Include="XML\HornOfValere" />
     <Folder Include="XML\GameText" />
@@ -573,6 +586,7 @@
     <Folder Include="XML\Leaders" />
     <Folder Include="XML\GameInfo" />
     <Folder Include="XML\Buildings" />
+    <Folder Include="XML\Governors" />
     <Folder Include="XML\Victories" />
     <Folder Include="XML\Technologies" />
     <Folder Include="XML\Shadowspawn" />
@@ -1138,6 +1152,14 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="UI\FrontEnd\GameSetup\AdvancedSetup.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\Menus\GameMenu.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="UI\InGame\Popups\EndGameMenu.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1222,6 +1244,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\GameInfo\GameOptions.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\GameText\CivText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1255,6 +1281,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\GameText\UnitText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Governors\Governors.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
