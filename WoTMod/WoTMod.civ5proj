@@ -70,6 +70,12 @@
         <Description>Last Battle Choice Screen</Description>
         <FileName>UI/InGame/Popups/LastBattleChoiceMenu.xml</FileName>
       </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Last Battle Notifications</Name>
+        <Description>Notifications for the Last Battle</Description>
+        <FileName>Lua/LastBattle/LastBattleNotifications.lua</FileName>
+      </Content>
     </ModContent>
     <ModActions>
       <Action>
@@ -555,6 +561,7 @@
     <Folder Include="Art" />
     <Folder Include="Lua\HornOfValere" />
     <Folder Include="Lua\Blight" />
+    <Folder Include="Lua\LastBattle" />
     <Folder Include="UI" />
     <Folder Include="UI\InGame" />
     <Folder Include="UI\InGame\Popups" />
@@ -1122,6 +1129,10 @@
     <Content Include="Lua\HornOfValere\HornOfValereTest.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\LastBattle\LastBattleNotifications.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Lua\PlotIterators.lua">
       <SubType>Lua</SubType>

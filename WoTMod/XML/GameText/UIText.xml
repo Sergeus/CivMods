@@ -15,6 +15,9 @@
 		<Row Tag="TXT_KEY_CHOOSE_SHADOW_BUTTON">
 			<Text>Side with the Shadow</Text>
 		</Row>
+		<Row Tag="TXT_KEY_LAST_BATTLE_STARTED">
+			<Text>The Dark One's touch hangs heavy across the land, threatening to unravel the Pattern.</Text>
+		</Row>
 		
 		<!-- Last Battle victory information -->
 		<Row Tag="TXT_KEY_VICTORY_LAST_BATTLE">

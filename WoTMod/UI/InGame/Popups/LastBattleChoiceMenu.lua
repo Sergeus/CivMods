@@ -3,9 +3,13 @@
 -- DateCreated: 10/17/2013 8:14:07 PM
 --------------------------------------------------------------
 
+include("IconSupport")
+
 ContextPtr:SetHide(true)
 
 function OnDisplay()
+	CivIconHookup( Game.GetActivePlayer(), 80, Controls.CivIcon, Controls.CivIconBG, Controls.CivIconShadow, false, true );
+
 	ContextPtr:SetHide(false)
 end
 GameEvents.LastBattleStart.Add(OnDisplay)

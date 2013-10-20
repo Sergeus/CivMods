@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 10/17/2013 8:13:50 PM -->
-<Context>
+<Context ColorSet="Beige_Black" Font="TwCenMT20" FontStyle="Shadow">
 	<Box Style="BGBlock" ID="BGBlock" />
 
-	<!-- Side treatments -->
-	<Box Style="MenuLeftSideTreatment"/>
-	<Box Style="MenuRightSideTreatment"/>
-
-	<!-- Upper Treatment -->
-	<Image Anchor="C,T" AnchorSide="I.O" Offset="0,-27" Size="256,64" Texture="DecTop256x64.dds"  >
-		<Image Anchor="C,C" Offset="0,-10" Size="80,80" Texture="NotificationFrameBase.dds"  >
-			<Image ID="CivIconBG" Size="80.80" Anchor="C,C" Offset="0,0" TextureOffset="141,0" Texture="CivIconBGSizes.dds" />
-			<Image ID="CivIconShadow" Size="64.64" Anchor="C,C" Offset="1,1" Texture="CivSymbolAtlas64.dds" Color="Black.128"/>
-			<Image ID="CivIcon" Size="64,64" Offset="0,0"  Anchor="C,C" Texture="CivSymbolsColor512.dds" />
-		</Image>
-	</Image>
-
 	<Grid Size="990,650" Anchor="C,C" Offset="0,20" Style="Grid9DetailFive140" ConsumeMouse="1" ID="BGLastBattle">
+
+		<!-- Upper Treatment -->
+		<Image Anchor="C,T" AnchorSide="I.O" Offset="0,-27" Size="256,64" Texture="DecTop256x64.dds"  >
+			<Image Anchor="C,C" Offset="0,-10" Size="80,80" Texture="NotificationFrameBase.dds"  >
+				<Image ID="CivIconBG" Size="80.80" Anchor="C,C" Offset="0,0" TextureOffset="141,0" Texture="CivIconBGSizes.dds" />
+				<Image ID="CivIconShadow" Size="64.64" Anchor="C,C" Offset="1,1" Texture="CivSymbolAtlas64.dds" Color="Black.128"/>
+				<Image ID="CivIcon" Size="64,64" Offset="0,0"  Anchor="C,C" Texture="CivSymbolsColor512.dds" />
+			</Image>
+		</Image>
+
+		<!-- Side treatments -->
+		<Box Style="MenuLeftSideTreatment"/>
+		<Box Style="MenuRightSideTreatment"/>
 		
 		<!-- Background Images -->
-		<Stack Anchor="C,C" Offset="0,14" Size="953,531" StackGrowth="Right">
-			<Image Texture="LightChoiceBackground.dds" Size="475,531" Anchor="L,T" />
-			<Image Texture="ShadowChoiceBackground.dds" Size="475,531" Anchor="L,T" />
+		<Stack Anchor="C,T" Offset="0,44" Size="972,572" StackGrowth="Right">
+			<AlphaAnim Texture="LightChoiceBackground.dds" Size="486,574" Offset="0,0" Anchor="L,T" Cycle="Once" Stopped="1" AlphaStart="0.4" AlphaEnd="0.4" Speed="1" />
+			<AlphaAnim Texture="ShadowChoiceBackground.dds" Size="486,572" Offset="0,0" Anchor="L,T" Cycle="Once" Stopped="1" AlphaStart="0.4" AlphaEnd="0.4" Speed="1" />
 		</Stack>
 		
 		<!-- Top Bar -->
@@ -34,11 +34,11 @@
 
 		<!-- Description box -->
 		<Grid Anchor="C,B" ID="LastBattleMessageContainer"  Offset="0,100" Size="840,90" Padding="0" Style="Grid9FrameBlack" Hidden="0" >
-			<Label ID="LastBattleChoiceText" String="TXT_KEY_LAST_BATTLE_STARTED" WrapWidth="800"  LeadingOffset="-4" Anchor="C,B" Offset="0,15" Font="TwCenMT20" ColorSet="Beige_Black_Alpha" />
+			<Label ID="LastBattleChoiceText" String="TXT_KEY_LAST_BATTLE_STARTED" WrapWidth="800"  LeadingOffset="-4" Anchor="C,C" Offset="0,15" Font="TwCenMT20" ColorSet="Beige_Black_Alpha" />
 		</Grid>
 		
 		<!-- Choice buttons -->
-		<Box Anchor="C,B" AnchorSide="I.I" Offset="0,54"   Size="910,56" Color="255,255,255,0" >
+		<Box Anchor="C,B" AnchorSide="I.I" Offset="0,54" Size="910,56" Color="255,255,255,0" >
 			<!-- Bottom Buttons -->
 			<Stack Anchor="C,B"  Offset="0,0" Padding="10" StackGrowth="Right">
 				<GridButton Size="275,36" ID="LightButton" Style="BaseButton" String="TXT_KEY_CHOOSE_LIGHT_BUTTON" />
