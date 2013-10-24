@@ -10,7 +10,7 @@
 #include "Database.h"
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//  class : CvGovernorClassInfo
+//  class : WoTGovernorClassInfo
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 class WoTGovernorClassInfo : public CvBaseInfo
 {
@@ -79,4 +79,29 @@ public:
 
 private:
 	std::vector<WoTGovernorEntry*> m_paGovernorEntries;
+};
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  class : WoTCityGovernors
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class WoTCityGovernors
+{
+public:
+	WoTCityGovernors();
+	~WoTCityGovernors();
+
+	GovernorTypes GetGovernorType();
+	int GetYieldChange(YieldTypes yield);
+
+	void Init(WoTGovernorXMLEntries* pGovernors, CvCity* pCity);
+	void Uninit();
+	void Reset();
+
+	void Read(FDataStream& kStream);
+	void Write(FDataStream& kStream);
+
+private:
+	GovernorTypes m_eGovernorType;
+
+	int* m_aiYieldChange;
 };

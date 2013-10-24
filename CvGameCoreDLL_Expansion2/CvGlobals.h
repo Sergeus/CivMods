@@ -391,6 +391,10 @@ public:
 	std::vector<CvPlayerOptionInfo*>& getPlayerOptionInfo();
 	_Ret_maybenull_ CvPlayerOptionInfo* getPlayerOptionInfo(PlayerOptionTypes ePlayerOptionNum);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int GetNumYieldInfos();
 	std::vector<CvYieldInfo*>& getYieldInfo();
 	_Ret_maybenull_ CvYieldInfo* getYieldInfo(YieldTypes eYieldNum);
 

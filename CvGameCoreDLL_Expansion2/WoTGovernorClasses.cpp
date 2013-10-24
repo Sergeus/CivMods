@@ -107,3 +107,59 @@ void WoTGovernorXMLEntries::DeleteArray()
 
 	m_paGovernorEntries.clear();
 }
+
+//======================================================================================================
+//					WoTCityGovernors
+//======================================================================================================
+
+WoTCityGovernors::WoTCityGovernors() :
+	m_eGovernorType(NO_GOVERNOR),
+	m_aiYieldChange(NULL)
+{
+
+}
+
+WoTCityGovernors::~WoTCityGovernors()
+{
+	
+}
+
+void WoTCityGovernors::Init(WoTGovernorXMLEntries* pGovernors, CvCity* pCity)
+{
+
+}
+
+void WoTCityGovernors::Reset()
+{
+	m_eGovernorType = NO_GOVERNOR;
+
+	for (int i = 0; i < GC.GetNumYieldInfos(); i++)
+	{
+		m_aiYieldChange[i] = 0;
+	}
+}
+
+void WoTCityGovernors::Uninit()
+{
+	SAFE_DELETE_ARRAY(m_aiYieldChange);
+}
+
+GovernorTypes WoTCityGovernors::GetGovernorType()
+{
+	return m_eGovernorType;
+}
+
+int WoTCityGovernors::GetYieldChange(YieldTypes yield)
+{
+	return m_aiYieldChange[yield];
+}
+
+void WoTCityGovernors::Read(FDataStream& kStream)
+{
+	uint uiVersion = 1;
+	kStream >> uiVersion;
+
+	kStream >> m_eGovernorType;
+
+	for (int i = 0;
+}

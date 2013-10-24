@@ -2907,6 +2907,14 @@ CvYieldInfo* CvGlobals::getYieldInfo(YieldTypes eYieldNum)
 		return NULL;
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvGlobals::GetNumYieldInfos()
+{
+	return m_paYieldInfo.size();
+}
+
 int CvGlobals::getNumRouteInfos()
 {
 	return (int)m_paRouteInfo.size();
