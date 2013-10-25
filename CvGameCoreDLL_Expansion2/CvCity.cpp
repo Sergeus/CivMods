@@ -7940,6 +7940,11 @@ int CvCity::GetFaithPerTurn() const
 	iFaith += GetFaithPerTurnFromTraits();
 	iFaith += GetFaithPerTurnFromReligion();
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	iFaith += GetCityGovernors()->GetYieldChange(YIELD_FAITH);
+
 	// Puppet?
 	int iModifier = 0;
 	if(IsPuppet())
@@ -9676,7 +9681,20 @@ int CvCity::getBaseYieldRate(YieldTypes eIndex) const
 	iValue += GetBaseYieldRateFromMisc(eIndex);
 	iValue += GetBaseYieldRateFromReligion(eIndex);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	iValue += GetBaseYieldRateFromGovernors(eIndex);
+
 	return iValue;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvCity::GetBaseYieldRateFromGovernors(YieldTypes eYieldType) const
+{
+	return GetCityGovernors()->GetYieldChange(eYieldType);
 }
 
 //	--------------------------------------------------------------------------------
@@ -14028,6 +14046,11 @@ void CvCity::read(FDataStream& kStream)
 
 	kStream >> *m_pCityEspionage;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pCityGovernors->Read(kStream);
+
 	if (uiVersion >= 3)
 	{
 		kStream >> m_iExtraHitPoints;
@@ -14277,6 +14300,11 @@ void CvCity::write(FDataStream& kStream) const
 	kStream << *m_pCityReligions;
 	m_pEmphases->Write(kStream);
 	kStream << *m_pCityEspionage;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pCityGovernors->Write(kStream);
 
 	kStream << m_iExtraHitPoints;
 }

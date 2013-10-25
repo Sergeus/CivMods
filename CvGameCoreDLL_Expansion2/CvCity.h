@@ -765,6 +765,7 @@ public:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	WoTCityGovernors* GetCityGovernors() const;
+	int GetBaseYieldRateFromGovernors(YieldTypes eYieldType) const;
 
 	void read(FDataStream& kStream);
 	void write(FDataStream& kStream) const;
