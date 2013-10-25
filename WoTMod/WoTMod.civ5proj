@@ -191,16 +191,6 @@
       <Action>
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
-        <FileName>Art/Aes Sedai/AesSedaiArtDefines.xml</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
-        <FileName>Art/Aes Sedai/AesSedaiTextureAtlas.xml</FileName>
-      </Action>
-      <Action>
-        <Set>OnModActivated</Set>
-        <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/NotificationText.xml</FileName>
       </Action>
       <Action>
@@ -518,6 +508,16 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameInfo/GameOptions.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Aes Sedai/AesSedaiArtDefines.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Units/Aes Sedai/AesSedaiTextureAtlas.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -542,10 +542,10 @@
     <Folder Include="Art\Civilizations\Manetheren" />
     <Folder Include="Art\Civilizations\Aiel" />
     <Folder Include="Art\Civilizations\Seanchan" />
+    <Folder Include="Art\Governors\Blacksmith" />
     <Folder Include="Art\Hawkwing Unit" />
     <Folder Include="Art\Birgitte Unit" />
     <Folder Include="Art\Blight" />
-    <Folder Include="Art\Aes Sedai" />
     <Folder Include="Art\Civilizations" />
     <Folder Include="Art\Leaders" />
     <Folder Include="Art\Leaders\MattinStepaneos" />
@@ -555,10 +555,12 @@
     <Folder Include="Art\Leaders\AemonAlThorin" />
     <Folder Include="Art\Leaders\Rhuarc" />
     <Folder Include="Art\Leaders\PedronNiall" />
+    <Folder Include="Art\Governors" />
     <Folder Include="Art\UI" />
     <Folder Include="Art\UI\LastBattle" />
     <Folder Include="Art\Units" />
     <Folder Include="Art\Notifications" />
+    <Folder Include="Art\Units\Aes Sedai\" />
     <Folder Include="Art\Units\Flags\Darkhound" />
     <Folder Include="Art\Units\Icons" />
     <Folder Include="Art\Units\Icons\Darkhound" />
@@ -596,30 +598,6 @@
     <Folder Include="XML\Units" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Art\Aes Sedai\AesSedaiArtDefines.xml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Aes Sedai\AesSedaiAtlas128.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Aes Sedai\AesSedaiAtlas256.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Aes Sedai\AesSedaiAtlas45.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Aes Sedai\AesSedaiAtlas64.dds">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
-    </Content>
-    <Content Include="Art\Aes Sedai\AesSedaiTextureAtlas.xml">
-      <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
-    </Content>
     <Content Include="Art\Birgitte Unit\BirgitteArtDefines.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -844,6 +822,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Governors\Blacksmith\BlacksmithIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Hawkwing Unit\hawkwing.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -999,6 +981,34 @@
     <Content Include="Art\UI\LastBattle\ShadowChoiceBackground.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Aes Sedai\AesSedaiArtDefines.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Aes Sedai\AesSedaiIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Aes Sedai\AesSedaiIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Aes Sedai\AesSedaiIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Aes Sedai\AesSedaiIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Aes Sedai\AesSedaiIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Units\Aes Sedai\AesSedaiTextureAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="Art\Units\Flags\Darkhound\DarkhoundFlag32.dds">
       <SubType>Lua</SubType>

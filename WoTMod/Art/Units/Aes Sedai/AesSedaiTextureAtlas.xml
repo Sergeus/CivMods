@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 5/9/2013 11:49:05 PM -->
 <GameData>
-  <!-- TODO: Insert table creation example here. -->
- 
-  <!-- TODO: Insert table data example here.-->
-  
-  <!-- Enter your Game Data here. -->
-
 	<IconTextureAtlases>
 		<Row>
 			<Atlas>WOT_AES_SEDAI_ATLAS</Atlas>
 			<IconSize>256</IconSize>
-			<Filename>AesSedaiAtlas256.dds</Filename>
+			<Filename>AesSedaiIcon256.dds</Filename>
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>WOT_AES_SEDAI_ATLAS</Atlas>
 			<IconSize>128</IconSize>
-			<Filename>AesSedaiAtlas128.dds</Filename>
+			<Filename>AesSedaiIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>WOT_AES_SEDAI_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>AesSedaiIcon80.dds</Filename>
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>WOT_AES_SEDAI_ATLAS</Atlas>
 			<IconSize>64</IconSize>
-			<Filename>AesSedaiAtlas64.dds</Filename>
+			<Filename>AesSedaiIcon64.dds</Filename>
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 		<Row>
 			<Atlas>WOT_AES_SEDAI_ATLAS</Atlas>
 			<IconSize>45</IconSize>
-			<Filename>AesSedaiAtlas45.dds</Filename>
+			<Filename>AesSedaiIcon45.dds</Filename>
 			<IconsPerRow>1</IconsPerRow>
 			<IconsPerColumn>1</IconsPerColumn>
 		</Row>
 	</IconTextureAtlases>
-  
 </GameData>

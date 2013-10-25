@@ -4,7 +4,7 @@
 	<Table name="GovernorClasses">
 		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
 		<Column name="Type" type="text" notnull="true" unique="true"/>
-		<Column name="Description" type="text"/>
+		<Column name="Description" type="text" reference="Language_en_US(Tag)"/>
 		<Column name="DefaultGovernor" type="text" reference="Governors(Type)"/>
 	</Table>
 	<Table name="Governors">
@@ -14,6 +14,8 @@
 		<Column name="Civilopedia" type="text" reference="Language_en_US(Tag)"/>
 		<Column name="Strategy" type="text" reference="Language_en_US(Tag)"/>
 		<Column name="Help" type="text" reference="Language_en_US(Tag)"/>
+		<Column name="IconAtlas" type="text" reference="IconTextureAtlases(Atlas)"/>
+		<Column name="IconIndex" type="integer" default="0"/>
 	</Table>
 	<Table name="Governor_YieldChanges">
 		<Column name="GovernorType" type="text" reference="Governors(Type)"/>
