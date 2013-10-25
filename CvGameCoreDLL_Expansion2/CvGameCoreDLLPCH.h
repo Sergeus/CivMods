@@ -154,6 +154,15 @@ typedef wchar_t          wchar;
 #include "CvAdvisorCounsel.h"
 #include "CvAdvisorRecommender.h"
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+#include "WoTGovernorClasses.h"
+#include "WoTHornOfValere.h"
+#include "WoTShadowspawn.h"
+#include "WoTSerialization.h"
+#include "WoTNotifications.h"
+
 using namespace fastdelegate;
 
 #ifdef FINAL_RELEASE

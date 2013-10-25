@@ -472,6 +472,15 @@ void CvLuaCity::PushMethods(lua_State* L, int t)
 	Method(GetNumForcedWorkingPlots);
 
 	Method(GetReligionCityRangeStrikeModifier);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	Method(IsHasGovernor);
+	Method(GetGovernorType);
+	Method(SetGovernorType);
+	Method(GetGovernorYieldChange);
+	Method(SetGovernorYieldChange);
 }
 //------------------------------------------------------------------------------
 void CvLuaCity::HandleMissingInstance(lua_State* L)
@@ -3930,3 +3939,54 @@ int CvLuaCity::lGetReligionCityRangeStrikeModifier(lua_State* L)
 	return 1;
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvLuaCity::lIsHasGovernor(lua_State* L)
+{
+	CvCity* pkCity = GetInstance(L);
+
+	lua_pushboolean(L, pkCity->GetCityGovernors()->IsHasGovernor());
+
+	return 1;
+}
+int CvLuaCity::lGetGovernorType(lua_State* L)
+{
+	CvCity* pkCity = GetInstance(L);
+
+	lua_pushinteger(L, pkCity->GetCityGovernors()->GetGovernorType());
+
+	return 1;
+}
+int CvLuaCity::lSetGovernorType(lua_State* L)
+{
+	CvCity* pkCity = GetInstance(L);
+
+	int iGovernorType = lua_tointeger(L, 2);
+
+	pkCity->GetCityGovernors()->SetGovernorType((GovernorTypes)iGovernorType);
+
+	return 0;
+}
+int CvLuaCity::lGetGovernorYieldChange(lua_State* L)
+{
+	CvCity* pkCity = GetInstance(L);
+
+	int iYieldType = lua_tointeger(L, 2);
+
+	lua_pushinteger(L, pkCity->GetCityGovernors()->GetYieldChange((YieldTypes)iYieldType));
+
+	return 1;
+}
+int CvLuaCity::lSetGovernorYieldChange(lua_State* L)
+{
+	CvCity* pkCity = GetInstance(L);
+
+	int iYieldType = lua_tointeger(L, 2);
+
+	int iYield = lua_tointeger(L, 3);
+
+	pkCity->GetCityGovernors()->SetYieldChange((YieldTypes)iYieldType, iYield);
+
+	return 0;
+}

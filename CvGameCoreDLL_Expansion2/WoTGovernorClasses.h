@@ -91,11 +91,15 @@ public:
 	~WoTCityGovernors();
 
 	GovernorTypes GetGovernorType();
-	int GetYieldChange(YieldTypes yield);
+	void SetGovernorType(GovernorTypes eNewType);
+	int GetYieldChange(YieldTypes eYieldType);
+	void SetYieldChange(YieldTypes eYieldType, int iYield);
 
 	void Init(WoTGovernorXMLEntries* pGovernors, CvCity* pCity);
 	void Uninit();
 	void Reset();
+
+	bool IsHasGovernor();
 
 	void Read(FDataStream& kStream);
 	void Write(FDataStream& kStream);
@@ -104,4 +108,7 @@ private:
 	GovernorTypes m_eGovernorType;
 
 	int* m_aiYieldChange;
+
+	WoTGovernorXMLEntries* m_pGovernors;
+	CvCity* m_pCity;
 };

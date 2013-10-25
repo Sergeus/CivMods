@@ -36,6 +36,10 @@ class CvCityReligions;
 class CvCityEspionage;
 class CvCityCulture;
 class CvPlayer;
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+class WoTCityGovernors;
 
 class CvCity
 {
@@ -757,6 +761,11 @@ public:
 	CvCityEspionage* GetCityEspionage() const;
 	CvCityCulture* GetCityCulture() const;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	WoTCityGovernors* GetCityGovernors() const;
+
 	void read(FDataStream& kStream);
 	void write(FDataStream& kStream) const;
 
@@ -975,6 +984,11 @@ protected:
 	CvCityEmphases* m_pEmphases;
 	CvCityEspionage* m_pCityEspionage;
 	CvCityCulture* m_pCityCulture;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	WoTCityGovernors* m_pCityGovernors;
 
 	mutable int m_bombardCheckTurn;
 

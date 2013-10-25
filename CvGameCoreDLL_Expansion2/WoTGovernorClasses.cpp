@@ -50,6 +50,16 @@ int WoTGovernorEntry::GetGovernorClassType() const
 	return m_iGovernorClassType;
 }
 
+int WoTGovernorEntry::GetYieldChange(int i) const
+{
+	return m_piYieldChange[i];
+}
+
+int* WoTGovernorEntry::GetYieldChangeArray() const
+{
+	return m_piYieldChange;
+}
+
 const WoTGovernorClassInfo& WoTGovernorEntry::GetGovernorClassInfo() const
 {
 	return *m_pkGovernorClassInfo;
@@ -115,7 +125,9 @@ void WoTGovernorXMLEntries::DeleteArray()
 
 WoTCityGovernors::WoTCityGovernors() :
 	m_eGovernorType(NO_GOVERNOR),
-	m_aiYieldChange(NULL)
+	m_aiYieldChange(NULL),
+	m_pCity(NULL),
+	m_pGovernors(NULL)
 {
 
 }
@@ -127,7 +139,12 @@ WoTCityGovernors::~WoTCityGovernors()
 
 void WoTCityGovernors::Init(WoTGovernorXMLEntries* pGovernors, CvCity* pCity)
 {
+	m_pCity = pCity;
+	m_pGovernors = pGovernors;
 
+	m_aiYieldChange = FNEW(int[GC.GetNumYieldInfos()], c_eCiv5GameplayDLL, 0);
+
+	Reset();
 }
 
 void WoTCityGovernors::Reset()
@@ -149,10 +166,41 @@ GovernorTypes WoTCityGovernors::GetGovernorType()
 {
 	return m_eGovernorType;
 }
+void WoTCityGovernors::SetGovernorType(GovernorTypes eNewGovernorType)
+{
+	if (eNewGovernorType != GetGovernorType())
+	{
+		if (eNewGovernorType == NO_GOVERNOR)
+		{
+			Reset();
+		}
+		else
+		{
+			m_eGovernorType = eNewGovernorType;
+
+			WoTGovernorEntry* pInfo = GC.GetGovernorInfo(eNewGovernorType);
+
+			for (int i = 0; i < GC.GetNumYieldInfos(); i++)
+			{
+				m_aiYieldChange[i] = pInfo->GetYieldChange(i);
+			}
+		}
+	}
+}
 
 int WoTCityGovernors::GetYieldChange(YieldTypes yield)
 {
 	return m_aiYieldChange[yield];
+}
+
+void WoTCityGovernors::SetYieldChange(YieldTypes eYieldType, int iYield)
+{
+	m_aiYieldChange[eYieldType] = iYield;
+}
+
+bool WoTCityGovernors::IsHasGovernor()
+{
+	return m_eGovernorType != NO_GOVERNOR;
 }
 
 void WoTCityGovernors::Read(FDataStream& kStream)

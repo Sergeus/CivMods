@@ -42,6 +42,11 @@
 #include "cvStopWatch.h"
 #include "CvCityManager.h"
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+#include "WoTGovernorClasses.h"
+
 // include after all other headers
 #include "LintFree.h"
 
@@ -235,6 +240,10 @@ CvCity::CvCity() :
 	// ----------------------------------------------------------------
 	, m_iTurnsInfluencedByPuppetingReligion(0)
 	, m_eReligionPuppeting(NO_RELIGION)
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	, m_pCityGovernors(FNEW(WoTCityGovernors, c_eCiv5GameplayDLL, 0))
 
 	, m_bRouteToCapitalConnectedLastTurn(false)
 	, m_bRouteToCapitalConnectedThisTurn(false)
@@ -638,6 +647,11 @@ void CvCity::uninit()
 	m_pEmphases->Uninit();
 	m_pCityEspionage->Uninit();
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pCityGovernors->Uninit();
+
 	m_orderQueue.clear();
 }
 
@@ -863,6 +877,11 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 			m_paiUnitProductionTime.setAt(iI, 0);
 		}
 
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		m_pCityGovernors->Init(GC.GetGameGovernors(), this);
+
 		CvAssertMsg((0 < iNumSpecialistInfos),  "GC.getNumSpecialistInfos() is not greater than zero but an array is being allocated in CvCity::reset");
 		m_paiSpecialistCount.clear();
 		m_paiSpecialistCount.resize(iNumSpecialistInfos);
@@ -981,6 +1000,14 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 
 		AI_reset();
 	}
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+WoTCityGovernors* CvCity::GetCityGovernors() const
+{
+	return m_pCityGovernors;
 }
 
 

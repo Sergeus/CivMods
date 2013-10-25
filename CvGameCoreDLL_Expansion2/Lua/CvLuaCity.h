@@ -482,6 +482,15 @@ protected:
 	static int lGetCultureFromSpecialist(lua_State* L);
 
 	static int lGetReligionCityRangeStrikeModifier(lua_State* L);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	static int lIsHasGovernor(lua_State* L);
+	static int lGetGovernorType(lua_State* L);
+	static int lSetGovernorType(lua_State* L);
+	static int lGetGovernorYieldChange(lua_State* L);
+	static int lSetGovernorYieldChange(lua_State* L);
 };
 
 #endif //CVLUACITY_H
