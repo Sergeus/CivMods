@@ -518,6 +518,9 @@
     <ClCompile Include="WoTGovernorClasses.cpp">
       <Filter>WoTSources</Filter>
     </ClCompile>
+    <ClCompile Include="WoTSerialization.cpp">
+      <Filter>WoTSources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="banned.h">
@@ -1052,6 +1055,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WoTGovernorClasses.h">
+      <Filter>WoTHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="WoTSerialization.h">
       <Filter>WoTHeaders</Filter>
     </ClInclude>
   </ItemGroup>

@@ -244,6 +244,10 @@ bool HornOfValere::IsHornBlower(CvUnit* pUnit) const
 
 void HornOfValere::Read(FDataStream& kStream)
 {
+	uint uiVersion;
+
+	kStream >> uiVersion;
+
 	kStream >> m_iXPosition;
 	kStream >> m_iYPosition;
 	kStream >> m_iTurnsSinceHornBlown;
@@ -258,6 +262,10 @@ void HornOfValere::Read(FDataStream& kStream)
 
 void HornOfValere::Write(FDataStream& kStream) const
 {
+	uint uiVersion = 1;
+
+	kStream << uiVersion;
+
 	kStream << m_iXPosition;
 	kStream << m_iYPosition;
 	kStream << m_iTurnsSinceHornBlown;

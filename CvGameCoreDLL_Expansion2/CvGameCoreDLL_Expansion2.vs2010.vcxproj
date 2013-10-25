@@ -144,6 +144,7 @@
     <ClCompile Include="WoTGovernorClasses.cpp" />
     <ClCompile Include="WoTHornOfValere.cpp" />
     <ClCompile Include="WoTNotifications.cpp" />
+    <ClCompile Include="WoTSerialization.cpp" />
     <ClCompile Include="WoTShadowspawn.cpp" />
     <ClCompile Include="CvCityManager.cpp" />
     <ClCompile Include="CvTargeting.cpp" />
@@ -488,6 +489,7 @@
     <ClInclude Include="WoTGovernorClasses.h" />
     <ClInclude Include="WoTHornOfValere.h" />
     <ClInclude Include="WoTNotifications.h" />
+    <ClInclude Include="WoTSerialization.h" />
     <ClInclude Include="WoTShadowspawn.h" />
   </ItemGroup>
   <ItemGroup>

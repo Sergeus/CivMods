@@ -4,6 +4,7 @@
 // ----------------------------------------------------------------
 #include "CvGameCoreDLLPCH.h"
 #include "WoTGovernorClasses.h"
+#include "WoTSerialization.h"
 
 //======================================================================================================
 //					WoTGovernorClassInfo
@@ -156,10 +157,21 @@ int WoTCityGovernors::GetYieldChange(YieldTypes yield)
 
 void WoTCityGovernors::Read(FDataStream& kStream)
 {
-	uint uiVersion = 1;
+	uint uiVersion;
 	kStream >> uiVersion;
 
 	kStream >> m_eGovernorType;
 
-	for (int i = 0;
+	kStream >> ArrayWrapper<int>(GC.GetNumYieldInfos(), m_aiYieldChange);
+}
+
+void WoTCityGovernors::Write(FDataStream& kStream)
+{
+	uint uiVersion = 1;
+
+	kStream << uiVersion;
+
+	kStream << m_eGovernorType;
+
+	kStream << ArrayWrapper<int>(GC.GetNumYieldInfos(), m_aiYieldChange);
 }

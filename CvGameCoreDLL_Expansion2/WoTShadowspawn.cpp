@@ -95,6 +95,10 @@ void WoTShadowspawn::Read(FDataStream& kStream)
 	// Map should be initialized before this
 	Init();
 
+	uint uiVersion;
+
+	kStream >> uiVersion;
+
 	kStream >> m_iSpawnDelay;
 	kStream >> m_iSpawnRate;
 	kStream >> m_iSpawnVariance;
@@ -107,6 +111,10 @@ void WoTShadowspawn::Read(FDataStream& kStream)
 
 void WoTShadowspawn::Write(FDataStream& kStream)
 {
+	uint uiVersion = 1;
+
+	kStream << uiVersion;
+
 	kStream << m_iSpawnDelay;
 	kStream << m_iSpawnRate;
 	kStream << m_iSpawnVariance;
