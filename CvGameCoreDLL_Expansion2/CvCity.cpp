@@ -7823,10 +7823,19 @@ int CvCity::GetBaseJONSCulturePerTurn() const
 	iCulturePerTurn += GetJONSCulturePerTurnFromPolicies();
 	iCulturePerTurn += GetJONSCulturePerTurnFromSpecialists();
 	iCulturePerTurn += GetJONSCulturePerTurnFromGreatWorks();
-	iCulturePerTurn += GetBaseYieldRateFromTerrain(YIELD_CULTURE);
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	//iCulturePerTurn += GetBaseYieldRateFromTerrain(YIELD_CULTURE);
 	iCulturePerTurn += GetJONSCulturePerTurnFromTraits();
 	iCulturePerTurn += GetJONSCulturePerTurnFromReligion();
 	iCulturePerTurn += GetJONSCulturePerTurnFromLeagues();
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// because this is how it should work
+	iCulturePerTurn += getBaseYieldRate(YIELD_CULTURE);
 
 	return iCulturePerTurn;
 }
