@@ -57,7 +57,7 @@
 	<Civilization_FreeTechs>
 		<Row>
 			<CivilizationType>CIVILIZATION_ILLIAN</CivilizationType>
-			<TechType>TECH_AGRICULTURE</TechType>
+			<TechType>TECH_FIRE</TechType>
 		</Row>
 	</Civilization_FreeTechs>
 	<Civilization_CityNames>

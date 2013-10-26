@@ -16,36 +16,6 @@
 			<EffectTypeTag>MUD</EffectTypeTag>
 			<PortraitIndex>8</PortraitIndex>
 			<IconAtlas>TERRAIN_ATLAS</IconAtlas>
-			<ResourceArtTag>RESOURCE_BLIGHT</ResourceArtTag>
 		</Row>
 	</Features>
-
-	<Resources>
-		<Row>
-			<Type>RESOURCE_BLIGHT</Type>
-			<TechReveal>TECH_AGRICULTURE</TechReveal>
-			<TechCityTrade>TECH_AGRICULTURE</TechCityTrade>
-			<AIStopTradingEra>ERA_INDUSTRIAL</AIStopTradingEra>
-			<Description>TXT_KEY_FEATURE_BLIGHT</Description>
-			<Civilopedia>TXT_KEY_CIV5_FEATURES_BLIGHT_PEDIA</Civilopedia>
-			<Help>TXT_KEY_RESOURCE_IRON_HELP</Help>
-			<ResourceClassType>RESOURCECLASS_RUSH</ResourceClassType>
-			<ArtDefineTag>ART_DEF_FEATURE_BLIGHT</ArtDefineTag>
-			<ArtDefineTagHeavy>ART_DEF_RESOURCE_IRON_HEAVY</ArtDefineTagHeavy>
-			<AltArtDefineTag>ART_DEF_RESOURCE_IRON_MARSH</AltArtDefineTag>
-			<AltArtDefineTagHeavy>ART_DEF_RESOURCE_IRON_HEAVY_MARSH</AltArtDefineTagHeavy>
-			<ConstAppearance>100</ConstAppearance>
-			<MinAreaSize>3</MinAreaSize>
-			<MaxLatitude>90</MaxLatitude>
-			<RandApp1>10</RandApp1>
-			<RandApp2>10</RandApp2>
-			<Player>100</Player>
-			<Hills>true</Hills>
-			<Flatlands>true</Flatlands>
-			<NoRiverSide>true</NoRiverSide>
-			<IconString>[ICON_RES_IRON]</IconString>
-			<PortraitIndex>0</PortraitIndex>
-			<IconAtlas>RESOURCE_ATLAS</IconAtlas>
-		</Row>
-	</Resources>
 </GameData>

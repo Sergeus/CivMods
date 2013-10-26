@@ -2,6 +2,74 @@
 <!-- Created by ModBuddy on 6/8/2013 11:41:52 PM -->
 <GameData>
 	<Language_en_US>
+		<!-- Technology: Fire -->
+		<Row>
+			<Tag>TXT_KEY_TECH_FIRE_DESC</Tag>
+			<Text>Fire</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_FIRE_CIV</Tag>
+			<Text>Added using Indie Stone Tech Tree Editor.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_FIRE_HELP</Tag>
+			<Text>Added using Indie Stone Tech Tree Editor.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_FIRE_QUOTE</Tag>
+			<Text>'Some Famous Quote' - Some Famous Person</Text>
+		</Row>
+		
+		<!-- Technology: The Pattern -->
+		<Row Tag="TXT_KEY_TECH_THE_PATTERN_DESC">
+			<Text>The Pattern</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_THE_PATTERN_CIV">
+			<Text>[TOWRITE] the pattern pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_THE_PATTERN_HELP">
+			<Text>[TOWRITE] the pattern help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_THE_PATTERN_QUOTE">
+			<Text>[TOWRITE] the pattern quote</Text>
+		</Row>
+		
+		<!-- Technology: Stone Tools-->
+		<Row>
+			<Tag>TXT_KEY_TECH_STONE_TOOLS_DESC</Tag>
+			<Text>Stone Tools</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_STONE_TOOLS_CIV</Tag>
+			<Text>Added using Indie Stone Tech Tree Editor.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_STONE_TOOLS_HELP</Tag>
+			<Text>Added using Indie Stone Tech Tree Editor.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_STONE_TOOLS_QUOTE</Tag>
+			<Text>'Some Famous Quote' - Some Famous Person</Text>
+		</Row>
+		
+		<!-- Technology: Fishing -->
+		<Row>
+			<Tag>TXT_KEY_TECH_FISHING_DESC</Tag>
+			<Text>Fishing</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_FISHING_CIV</Tag>
+			<Text>Added using Indie Stone Tech Tree Editor.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_FISHING_HELP</Tag>
+			<Text>Added using Indie Stone Tech Tree Editor.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_FISHING_QUOTE</Tag>
+			<Text>'Some Famous Quote' - Some Famous Person</Text>
+		</Row>
+		
 		<!-- Technology: Patched Cloak -->
 		<Row Tag="TXT_KEY_TECH_PATCHED_CLOAK_TITLE">
 			<Text>Patched Cloak</Text>
@@ -266,20 +334,6 @@
 		</Row>
 		<Row Tag="TXT_KEY_TECH_GLOWBULBS_QUOTE">
 			<Text>[TOWRITE] glowbulbs quote</Text>
-		</Row>
-		
-		<!-- Technology: The Pattern -->
-		<Row Tag="TXT_KEY_TECH_PATTERN_TITLE">
-			<Text>The Pattern</Text>
-		</Row>
-		<Row Tag="TXT_KEY_TECH_PATTERN_PEDIA">
-			<Text>[TOWRITE] the pattern pedia</Text>
-		</Row>
-		<Row Tag="TXT_KEY_TECH_PATTERN_HELP">
-			<Text>[TOWRITE] the pattern help</Text>
-		</Row>
-		<Row Tag="TXT_KEY_TECH_PATTERN_QUOTE">
-			<Text>[TOWRITE] the pattern quote</Text>
 		</Row>
 		
 		<!-- Technology: The Prophecy of the Dragon -->
