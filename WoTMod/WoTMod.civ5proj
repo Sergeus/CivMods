@@ -76,6 +76,12 @@
         <Description>Notifications for the Last Battle</Description>
         <FileName>Lua/LastBattle/LastBattleNotifications.lua</FileName>
       </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Governor Mission Subscribers</Name>
+        <Description>Tells the game when Governor missions can be performed</Description>
+        <FileName>Lua/Governors/GovernorsMissionsSubscribers.lua</FileName>
+      </Content>
     </ModContent>
     <ModActions>
       <Action>
@@ -533,6 +539,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/GovernorText.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Units/BaseGameEdits.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -591,6 +602,7 @@
     <Folder Include="Lua\HornOfValere" />
     <Folder Include="Lua\Blight" />
     <Folder Include="Lua\LastBattle" />
+    <Folder Include="Lua\Governors" />
     <Folder Include="UI" />
     <Folder Include="UI\FrontEnd\GameSetup" />
     <Folder Include="UI\InGame" />
@@ -1156,6 +1168,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="Lua\Governors\GovernorsMissionsSubscribers.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Lua\HornOfValere\HornOfValereBlowingConditions.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1449,6 +1465,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Traits\TraitMattinGreatHunt.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Units\BaseGameEdits.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

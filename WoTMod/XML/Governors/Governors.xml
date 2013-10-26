@@ -27,6 +27,10 @@
 		<Column name="GovernorClassType" type="text" notnull="true" reference="GovernorClasses(Type)"/>
 		<Column name="GovernorType" type="text" reference="Governors(Type)"/>
 	</Table>
+	<Table name="Unit_GovernorClasses">
+		<Column name="UnitType" type="text" reference="Units(Type)"/>
+		<Column name="GovernorClassType" type="text" reference="GovernorClasses(type)"/>
+	</Table>
 	<GovernorClasses>
 		<Row>
 			<ID>0</ID>

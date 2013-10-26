@@ -45,5 +45,27 @@
 		<Row Tag="TXT_KEY_CITYVIEW_CITY_GOVERNOR">
 			<Text>{1_GovernorDescription}[NEWLINE]----------------[NEWLINE]{2_YieldChanges}----------------[NEWLINE]{3_Help}</Text>
 		</Row>
+		
+		<!-- Horn of Valere Mission -->
+		<Row Tag="TXT_KEY_MISSION_BLOW_HORN_OF_VALERE">
+			<Text>Blow the Horn of Valere</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISSION_BLOW_HORN_OF_VALERE_HELP">
+			<Text>Summons the Heroes of the Horn to fight at your side for a limited time.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISSION_BLOW_HORN_OF_VALERE_DISABLED_HELP">
+			<Text>The Heroes can only be brought into the Pattern so frequently. You must wait before blowing the Horn again.</Text>
+		</Row>
+		
+		<!-- Create Governor Mission -->
+		<Row Tag="TXT_KEY_MISSION_CREATE_GOVERNOR">
+			<Text>Govern City</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISSION_CREATE_GOVERNOR_HELP">
+			<Text>The Great Person becomes a governor in this city, providing a variety of bonuses. This consumes the Great Person.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISSION_CREATE_GOVERNOR_DISABLED_HELP">
+			<Text>This unit must be in a city owned by your civilization to be able to install itself as a governor.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
