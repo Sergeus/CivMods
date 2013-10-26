@@ -1985,6 +1985,10 @@ CvCivilizationInfo::CvCivilizationInfo():
 	m_bCoastalCiv(NULL),
 	m_bPlaceFirst(NULL),
 	m_pbReligions(NULL)
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	, m_piCivilizationGovernors(NULL)
 {
 
 }
@@ -2000,6 +2004,11 @@ CvCivilizationInfo::~CvCivilizationInfo()
 	SAFE_DELETE_ARRAY(m_pbCivilizationFreeTechs);
 	SAFE_DELETE_ARRAY(m_pbCivilizationDisableTechs);
 	SAFE_DELETE_ARRAY(m_pbReligions);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE_ARRAY(m_piCivilizationGovernors);
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -2026,6 +2035,29 @@ void CvCivilizationInfo::InitBuildingDefaults(int*& piDefaults, CvDatabaseUtilit
 		const int buildingID = pResults->GetInt(1);
 
 		piDefaults[idx] = buildingID;
+	}
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+void CvCivilizationInfo::InitGovernorDefaults(int*& piDefaults, CvDatabaseUtility& kUtility)
+{
+	kUtility.InitializeArray(piDefaults, "GovernorClasses", -1);
+
+	std::string strKey("InitGovernorDefaults");
+	Database::Results* pResults = kUtility.GetResults(strKey);
+	if (pResults == NULL)
+	{
+		pResults = kUtility.PrepareResults(strKey, "select GovernorClasses.ID, Governors.ID as GovernorID from GovernorClasses inner join Governors on Governors.Type = DefaultGovernor");
+	}
+
+	while (pResults->Step())
+	{
+		const int idx = pResults->GetInt(0);
+		const int governorID = pResults->GetInt(1);
+
+		piDefaults[idx] = governorID;
 	}
 }
 
@@ -2185,6 +2217,19 @@ bool CvCivilizationInfo::isCivilizationUnitOverridden(int i) const
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_CivilizationUnitOverridden[i];
 }
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvCivilizationInfo::GetCivilizationGovernors(int i) const
+{
+	return m_piCivilizationGovernors[i];
+}
+bool CvCivilizationInfo::IsCivilizationGovernorOverridden(int i) const
+{
+	return m_CivilizationGovernorOverridden[i];
+}
+
 //------------------------------------------------------------------------------
 int CvCivilizationInfo::getCivilizationFreeUnitsClass(int i) const
 {
@@ -2255,6 +2300,10 @@ bool CvCivilizationInfo::CacheResults(Database::Results& kResults, CvDatabaseUti
 
 	const size_t maxUnitClasses = kUtility.MaxRows("UnitClasses");
 	const size_t maxBuildingClasses = kUtility.MaxRows("BuildingClasses");
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	const size_t maxGovernorClasses = kUtility.MaxRows("GovernorClasses");
 
 	const char* szTextVal = NULL;	//! temporary val
 
@@ -2411,6 +2460,38 @@ bool CvCivilizationInfo::CacheResults(Database::Results& kResults, CvDatabaseUti
 
 		pResults->Reset();
 
+	}
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// Governor types
+	{
+		InitGovernorDefaults(m_piCivilizationGovernors, kUtility);
+
+		m_CivilizationGovernorOverridden.reserve(maxGovernorClasses);
+		m_CivilizationGovernorOverridden.clear();
+		m_CivilizationGovernorOverridden.resize(maxGovernorClasses, false);
+
+		std::string key = "Civilization_GovernorClassOverrides";
+		Database::Results* pResults = kUtility.GetResults(key);
+		if (pResults == NULL)
+		{
+			pResults = kUtility.PrepareResults(key, "select GovernorClasses.ID, coalesce(Governors.ID, -1) from CivilizationGovernorClassOverrides inner join GovernorClasses on GovernorClassType = GovernorClasses.Type left outer join Governors on GovernorType = Governors.Type where CivilizationType = ?");
+		}
+
+		pResults->Bind(1, szType);
+
+		while (pResults->Step())
+		{
+			const int idx = pResults->GetInt(0);
+			const int governorID = pResults->GetInt(1);
+
+			m_piCivilizationGovernors[idx] = governorID;
+			m_CivilizationGovernorOverridden[idx] = true;
+		}
+
+		pResults->Reset();
 	}
 
 	//FreeUnits

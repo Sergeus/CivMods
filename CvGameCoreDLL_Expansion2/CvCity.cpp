@@ -7819,7 +7819,10 @@ int CvCity::GetBaseJONSCulturePerTurn() const
 	VALIDATE_OBJECT
 
 	int iCulturePerTurn = 0;
-	iCulturePerTurn += GetJONSCulturePerTurnFromBuildings();
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	//iCulturePerTurn += GetJONSCulturePerTurnFromBuildings();
 	iCulturePerTurn += GetJONSCulturePerTurnFromPolicies();
 	iCulturePerTurn += GetJONSCulturePerTurnFromSpecialists();
 	iCulturePerTurn += GetJONSCulturePerTurnFromGreatWorks();

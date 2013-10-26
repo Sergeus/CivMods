@@ -618,6 +618,12 @@ public:
 	int getCivilizationFreeUnitsClass(int i) const;
 	int getCivilizationFreeUnitsDefaultUnitAI(int i) const;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int GetCivilizationGovernors(int i) const;
+	bool IsCivilizationGovernorOverridden(int i) const;
+
 	bool isLeaders(int i) const;
 	bool isCivilizationFreeBuildingClass(int i) const;
 	bool isCivilizationFreeTechs(int i) const;
@@ -640,6 +646,11 @@ protected:
 	// allocate and initialize the civilization's default units
 	void InitUnitDefaults(int*& piDefaults, CvDatabaseUtility& kUtility);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	void InitGovernorDefaults(int*& piDefaults, CvDatabaseUtility& kUtility);
+
 	int m_iDefaultPlayerColor;
 	int m_iArtStyleType;
 	int m_iNumLeaders;				 // the number of leaders the Civ has, this is needed so that random leaders can be generated easily
@@ -661,6 +672,11 @@ protected:
 	int* m_piCivilizationFreeUnitsClass;
 	int* m_piCivilizationFreeUnitsDefaultUnitAI;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int* m_piCivilizationGovernors;
+
 	bool* m_pbLeaders;
 	bool* m_pbCivilizationFreeBuildingClass;
 	bool* m_pbCivilizationFreeTechs;
@@ -674,6 +690,10 @@ protected:
 
 	std::vector<bool> m_CivilizationBuildingOverridden;
 	std::vector<bool> m_CivilizationUnitOverridden;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	std::vector<bool> m_CivilizationGovernorOverridden;
 
 private:
 	CvCivilizationInfo(const CvCivilizationInfo&);
