@@ -470,6 +470,13 @@ void CvLuaUnit::PushMethods(lua_State* L, int t)
 	Method(IsLargerCivThan);
 
 	Method(IsRangedSupportFire);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	Method(IsCanGovernCities);
+	Method(GetGovernorType);
+	Method(DoGovernCity);
 }
 //------------------------------------------------------------------------------
 const char* CvLuaUnit::GetTypeName()
@@ -4499,4 +4506,32 @@ int CvLuaUnit::lIsRangedSupportFire(lua_State* L)
 
 	lua_pushboolean(L, bResult);
 	return 1;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvLuaUnit::lIsCanGovernCities(lua_State* L)
+{
+	CvUnit* pkUnit = GetInstance(L);
+	const bool bResult = pkUnit->IsCanGovernCities();
+
+	lua_pushboolean(L, bResult);
+	return 1;
+}
+int CvLuaUnit::lGetGovernorType(lua_State* L)
+{
+	CvUnit* pkUnit = GetInstance(L);
+	const GovernorTypes eGovernorType = pkUnit->GetGovernorType();
+
+	lua_pushinteger(L, eGovernorType);
+	return 1;
+}
+int CvLuaUnit::lDoGovernCity(lua_State* L)
+{
+	CvUnit* pkUnit = GetInstance(L);
+
+	pkUnit->DoGovernCity();
+
+	return 0;
 }

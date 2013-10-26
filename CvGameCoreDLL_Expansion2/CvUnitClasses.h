@@ -156,6 +156,10 @@ public:
 	// ----------------------------------------------------------------
 	int GetFreeUnitAfterSurvivingMeleeCombat(int i) const;
 	int GetFreeUnitWhenTradeRoutePlundered(int i) const;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsGovernorClass(int i) const;
 
 
 	// Derived fields (not in XML)
@@ -283,6 +287,10 @@ private:
 	// ----------------------------------------------------------------
 	int* m_piFreeUnitAfterSurvivingMeleeCombat;
 	int* m_piFreeUnitWhenTradeRoutePlundered;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool* m_pbGovernorClasses;
 
 	bool* m_pbUpgradeUnitClass;
 	bool* m_pbUnitAIType;

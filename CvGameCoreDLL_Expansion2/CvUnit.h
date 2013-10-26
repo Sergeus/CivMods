@@ -1251,6 +1251,9 @@ public:
 	int GetHealBlockedCount() const;
 	bool IsHealBlocked() const;
 	bool IsShadowspawn() const;
+	bool IsCanGovernCities() const;
+	GovernorTypes GetGovernorType() const;
+	void DoGovernCity();
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------

@@ -479,6 +479,13 @@ protected:
 	static int lIsLargerCivThan(lua_State* L);
 
 	static int lIsRangedSupportFire(lua_State* L);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	static int lIsCanGovernCities(lua_State* L);
+	static int lGetGovernorType(lua_State* L);
+	static int lDoGovernCity(lua_State* L);
 };
 
 

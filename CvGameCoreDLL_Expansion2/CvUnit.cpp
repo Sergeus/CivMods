@@ -21311,6 +21311,49 @@ bool CvUnit::IsShadowspawn() const
 	return GET_PLAYER(getOwner()).IsShadowspawn();
 }
 
+bool CvUnit::IsCanGovernCities() const
+{
+	VALIDATE_OBJECT
+
+	return GetGovernorType() != NO_GOVERNOR;
+}
+
+GovernorTypes CvUnit::GetGovernorType() const
+{
+	VALIDATE_OBJECT
+	GovernorTypes eGovernorType = NO_GOVERNOR;
+
+	CvCivilizationInfo& kCiv = GET_PLAYER(getOwner()).getCivilizationInfo();
+
+	for(int iI = 0; iI < GC.GetNumGovernorClassInfos(); iI++)
+	{
+		const GovernorClassTypes eGovernorClass = static_cast<GovernorClassTypes>(iI);
+		WoTGovernorClassInfo* pkGovernorClassInfo = GC.GetGovernorClassInfo(eGovernorClass);
+		if(pkGovernorClassInfo)
+		{
+			if(m_pUnitInfo->IsGovernorClass(iI))
+			{
+				eGovernorType = (GovernorTypes) kCiv.GetCivilizationGovernors(iI);
+				break;
+			}
+		}
+	}
+
+	return eGovernorType;
+}
+
+void CvUnit::DoGovernCity()
+{
+	if (plot()->isCity())
+	{
+		CvCity* pCity = plot()->getPlotCity();
+
+		pCity->GetCityGovernors()->SetGovernorType(GetGovernorType());
+
+		kill(true);
+	}
+}
+
 //	--------------------------------------------------------------------------------
 DestructionNotification<UnitHandle>& CvUnit::getDestructionNotification()
 {

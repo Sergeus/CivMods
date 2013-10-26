@@ -119,6 +119,10 @@ CvUnitEntry::CvUnitEntry(void) :
 	// ----------------------------------------------------------------
 	m_piFreeUnitAfterSurvivingMeleeCombat(NULL),
 	m_piFreeUnitWhenTradeRoutePlundered(NULL),
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pbGovernorClasses(NULL),
 
 	m_bUnitArtInfoEraVariation(false),
 	m_bUnitArtInfoCulturalVariation(false),
@@ -154,6 +158,10 @@ CvUnitEntry::~CvUnitEntry(void)
 	// ----------------------------------------------------------------
 	SAFE_DELETE_ARRAY(m_piFreeUnitAfterSurvivingMeleeCombat);
 	SAFE_DELETE_ARRAY(m_piFreeUnitWhenTradeRoutePlundered);
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE_ARRAY(m_pbGovernorClasses);
 }
 
 bool CvUnitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
@@ -307,6 +315,11 @@ bool CvUnitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	kUtility.PopulateArrayByExistence(m_pbGreatPeoples, "Specialists", "Unit_GreatPersons", "GreatPersonType", "UnitType", szUnitType);
 	kUtility.PopulateArrayByExistence(m_pbBuildings, "Buildings", "Unit_Buildings", "BuildingType", "UnitType", szUnitType);
 	kUtility.PopulateArrayByExistence(m_pbBuildingClassRequireds, "BuildingClasses", "Unit_BuildingClassRequireds", "BuildingClassType", "UnitType", szUnitType);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kUtility.PopulateArrayByExistence(m_pbGovernorClasses, "GovernorClasses", "Unit_GovernorClasses", "GovernorClassType", "UnitType", szUnitType);
 
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
@@ -1079,6 +1092,14 @@ int CvUnitEntry::GetFreeUnitWhenTradeRoutePlundered(int i) const
 	CvAssertMsg(i < GC.getNumUnitClassInfos(), "Index out of bounds");
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_piFreeUnitWhenTradeRoutePlundered ? m_piFreeUnitWhenTradeRoutePlundered[i] : 0;
+}
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+bool CvUnitEntry::IsGovernorClass(int i) const
+{
+	return m_pbGovernorClasses ? m_pbGovernorClasses[i] : false;
 }
 
 /// Project required to train this unit?
