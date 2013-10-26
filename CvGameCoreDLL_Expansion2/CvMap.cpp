@@ -501,7 +501,7 @@ void CvMap::reset(CvMapInitData* pInitInfo)
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
-	m_pHornOfValere = FNEW(HornOfValere(), c_eCiv5GameplayDLL, 0);
+	m_pHornOfValere = FNEW(HornOfValere, c_eCiv5GameplayDLL, 0);
 
 	gDLL->DoMapSetup(numPlots());
 }
