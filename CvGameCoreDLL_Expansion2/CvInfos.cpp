@@ -2477,7 +2477,7 @@ bool CvCivilizationInfo::CacheResults(Database::Results& kResults, CvDatabaseUti
 		Database::Results* pResults = kUtility.GetResults(key);
 		if (pResults == NULL)
 		{
-			pResults = kUtility.PrepareResults(key, "select GovernorClasses.ID, coalesce(Governors.ID, -1) from CivilizationGovernorClassOverrides inner join GovernorClasses on GovernorClassType = GovernorClasses.Type left outer join Governors on GovernorType = Governors.Type where CivilizationType = ?");
+			pResults = kUtility.PrepareResults(key, "select GovernorClasses.ID, coalesce(Governors.ID, -1) from Civilization_GovernorClassOverrides inner join GovernorClasses on GovernorClassType = GovernorClasses.Type left outer join Governors on GovernorType = Governors.Type where CivilizationType = ?");
 		}
 
 		pResults->Bind(1, szType);
