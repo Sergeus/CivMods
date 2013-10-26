@@ -22,12 +22,22 @@
 		<Column name="YieldType" type="text" reference="Yields(Type)"/>
 		<Column name="Yield" type="integer"/>
 	</Table>
+	<Table name="Civilization_GovernorClassOverrides">
+		<Column name="CivilizationType" type="text" reference="Civilizations(type)"/>
+		<Column name="GovernorClassType" type="text" notnull="true" reference="GovernorClasses(Type)"/>
+		<Column name="GovernorType" type="text" reference="Governors(Type)"/>
+	</Table>
 	<GovernorClasses>
 		<Row>
 			<ID>0</ID>
 			<Type>GOVERNORCLASS_BLACKSMITH</Type>
 			<Description>TXT_KEY_GOVERNOR_BLACKSMITH</Description>
 			<DefaultGovernor>GOVERNOR_BLACKSMITH</DefaultGovernor>
+		</Row>
+		<Row>
+			<Type>GOVERNORCLASS_CHANNELER</Type>
+			<Description>TXT_KEY_GOVERNOR_CHANNELER</Description>
+			<DefaultGovernor>GOVERNOR_CHANNELER</DefaultGovernor>
 		</Row>
 	</GovernorClasses>
 	<Governors>
@@ -38,12 +48,31 @@
 			<Civilopedia>TXT_KEY_GOVERNOR_BLACKSMITH_CIV</Civilopedia>
 			<Strategy>TXT_KEY_GOVERNOR_BLACKSMITH_STRATEGY</Strategy>
 			<Help>TXT_KEY_GOVERNOR_BLACKSMITH_HELP</Help>
+			<IconAtlas>WOT_GOVERNOR_BLACKSMITH_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>GOVERNOR_CHANNELER</Type>
+			<Description>TXT_KEY_GOVERNOR_CHANNELER</Description>
+			<Civilopedia>TXT_KEY_GOVERNOR_CHANNELER_CIV</Civilopedia>
+			<Strategy>TXT_KEY_GOVERNOR_CHANNELER_STRATEGY</Strategy>
+			<Help>TXT_KEY_GOVERNOR_CHANNELER_HELP</Help>
+			<IconAtlas>WOT_GOVERNOR_CHANNELER_ATLAS</IconAtlas>
 		</Row>
 	</Governors>
 	<Governor_YieldChanges>
 		<Row>
 			<GovernorType>GOVERNOR_BLACKSMITH</GovernorType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<GovernorType>GOVERNOR_CHANNELER</GovernorType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<GovernorType>GOVERNOR_CHANNELER</GovernorType>
+			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 		</Row>
 	</Governor_YieldChanges>

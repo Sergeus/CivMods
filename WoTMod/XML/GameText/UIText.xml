@@ -40,5 +40,10 @@
 		<Row Tag="TXT_KEY_GAMEOPTION_NO_SHADOWSPAWN_HELP">
 			<Text>Shadowspawn and the Blight do not appear on the map.</Text>
 		</Row>
+		
+		<!-- Governor Tooltip -->
+		<Row Tag="TXT_KEY_CITYVIEW_CITY_GOVERNOR">
+			<Text>{1_GovernorDescription}[NEWLINE]----------------[NEWLINE]{2_YieldChanges}----------------[NEWLINE]{3_Help}</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

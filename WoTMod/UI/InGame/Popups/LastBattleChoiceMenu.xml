@@ -6,7 +6,7 @@
 	<Grid Size="990,650" Anchor="C,C" Offset="0,20" Style="Grid9DetailFive140" ConsumeMouse="1" ID="BGLastBattle">
 
 		<!-- Upper Treatment -->
-		<Image Anchor="C,T" AnchorSide="I.O" Offset="0,-27" Size="256,64" Texture="DecTop256x64.dds"  >
+		<Image Anchor="C,T" AnchorSide="I.O" Offset="0,-27" Size="256,64" Texture="Top512IconTrim.dds"  >
 			<Image Anchor="C,C" Offset="0,-10" Size="80,80" Texture="NotificationFrameBase.dds"  >
 				<Image ID="CivIconBG" Size="80.80" Anchor="C,C" Offset="0,0" TextureOffset="141,0" Texture="CivIconBGSizes.dds" />
 				<Image ID="CivIconShadow" Size="64.64" Anchor="C,C" Offset="1,1" Texture="CivSymbolAtlas64.dds" Color="Black.128"/>

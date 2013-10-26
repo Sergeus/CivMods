@@ -518,6 +518,21 @@
         <Type>UpdateDatabase</Type>
         <FileName>Art/Units/Aes Sedai/AesSedaiTextureAtlas.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Governors/Blacksmith/BlacksmithIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Governors/Channeler/ChannelerIconAtlas.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/GovernorText.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -543,6 +558,7 @@
     <Folder Include="Art\Civilizations\Aiel" />
     <Folder Include="Art\Civilizations\Seanchan" />
     <Folder Include="Art\Governors\Blacksmith" />
+    <Folder Include="Art\Governors\Channeler" />
     <Folder Include="Art\Hawkwing Unit" />
     <Folder Include="Art\Birgitte Unit" />
     <Folder Include="Art\Blight" />
@@ -558,6 +574,7 @@
     <Folder Include="Art\Governors" />
     <Folder Include="Art\UI" />
     <Folder Include="Art\UI\LastBattle" />
+    <Folder Include="Art\UI\Governors" />
     <Folder Include="Art\Units" />
     <Folder Include="Art\Notifications" />
     <Folder Include="Art\Units\Aes Sedai\" />
@@ -578,6 +595,7 @@
     <Folder Include="UI\FrontEnd\GameSetup" />
     <Folder Include="UI\InGame" />
     <Folder Include="UI\InGame\Menus" />
+    <Folder Include="UI\InGame\CityView" />
     <Folder Include="UI\InGame\Popups" />
     <Folder Include="UI\InGame\WorldView" />
     <Folder Include="UI\FrontEnd" />
@@ -826,6 +844,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="Art\Governors\Channeler\ChannelerIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="Art\Hawkwing Unit\hawkwing.fxsxml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -973,6 +995,10 @@
     <Content Include="Art\Notifications\NotificationIconAtlases.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\UI\Governors\topGovernorTrim.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\UI\LastBattle\LightChoiceBackground.dds">
       <SubType>Lua</SubType>
@@ -1166,6 +1192,18 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="UI\InGame\CityView\CityView.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\CityView\CityView.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\CityView\CityView_small.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
     <Content Include="UI\InGame\Menus\GameMenu.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
@@ -1259,6 +1297,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\GameText\CivText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\GameText\GovernorText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
