@@ -21,6 +21,7 @@ WoTNotificationInfo::WoTNotificationInfo()
 	m_bUrgent(false),
 	m_bExpiresAtTurnEnd(true),
 	m_bPlaysFXOnPlot(true),
+	m_bAlwaysDismissable(false),
 	m_strType(),
 	m_strMessage(),
 	m_strSummary(),
@@ -55,6 +56,7 @@ bool WoTNotificationInfo::CacheResults(Database::Results &kResults, CvDatabaseUt
 	m_bUrgent = kResults.GetBool("Urgent");
 	m_bExpiresAtTurnEnd = kResults.GetBool("ExpiresAtTurnEnd");
 	m_bPlaysFXOnPlot = kResults.GetBool("PlaysFXOnPlot");
+	m_bAlwaysDismissable = kResults.GetBool("AlwaysDismissable");
 
 	m_strType = kResults.GetText("Type");
 	m_strMessage = kResults.GetText("Message");
@@ -183,4 +185,9 @@ bool WoTNotificationInfo::IsExpiresAtTurnEnd() const
 bool WoTNotificationInfo::IsPlaysFXOnPlot() const
 {
 	return m_bPlaysFXOnPlot;
+}
+
+bool WoTNotificationInfo::IsAlwaysDismissable() const
+{
+	return m_bAlwaysDismissable;
 }
