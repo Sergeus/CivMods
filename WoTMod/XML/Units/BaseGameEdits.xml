@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 10/26/2013 6:41:20 PM -->
 <GameData>
+	<Units>
+		<Update>
+			<Where Type="UNIT_SETTLER"/>
+			<Set PrereqTech="TECH_FIRE"/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_WORKER"/>
+			<Set PrereqTech="TECH_AGRICULTURE"/>
+		</Update>
+	</Units>
 	<Unit_GovernorClasses>
 		<Row>
 			<UnitType>UNIT_ENGINEER</UnitType>

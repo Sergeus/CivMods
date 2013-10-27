@@ -35,8 +35,8 @@
 			<EntityEventType>ENTITY_EVENT_GREAT_EVENT</EntityEventType>
 			<OrderPriority>199</OrderPriority>
 			<Visible>1</Visible>
-			<IconIndex>1</IconIndex>
-			<IconAtlas>UNIT_ACTION_ATLAS_RELIGION</IconAtlas>
+			<IconIndex>0</IconIndex>
+			<IconAtlas>CREATE_GOVERNOR_ACTION_ATLAS</IconAtlas>
 		</Row>
 	</Missions>
 </GameData>

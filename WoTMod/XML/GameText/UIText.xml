@@ -62,7 +62,7 @@
 			<Text>Govern City</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MISSION_CREATE_GOVERNOR_HELP">
-			<Text>The Great Person becomes a governor in this city, providing a variety of bonuses. This consumes the Great Person.</Text>
+			<Text>The Great Person becomes a governor in this city, providing a variety of bonuses. It consumes the Great Person.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MISSION_CREATE_GOVERNOR_DISABLED_HELP">
 			<Text>This unit must be in a city owned by your civilization to be able to install itself as a governor.</Text>

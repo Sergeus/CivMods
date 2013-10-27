@@ -534,6 +534,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Units/BaseGameEdits.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Governors/Mission/CreateGovernorMissionIconAtlases.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -560,6 +565,7 @@
     <Folder Include="Art\Civilizations\Seanchan" />
     <Folder Include="Art\Governors\Blacksmith" />
     <Folder Include="Art\Governors\Channeler" />
+    <Folder Include="Art\Governors\Mission" />
     <Folder Include="Art\Hawkwing Unit" />
     <Folder Include="Art\Birgitte Unit" />
     <Folder Include="Art\Blight" />
@@ -849,6 +855,26 @@
     <Content Include="Art\Governors\Channeler\ChannelerIconAtlas.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Governors\Mission\CreateGovernorActionIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Governors\Mission\CreateGovernorActionIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Governors\Mission\CreateGovernorMissionIconAtlases.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Governors\Mission\CreateGovernorTerrainIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Governors\Mission\CreateGovernorTerrainIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Hawkwing Unit\hawkwing.fxsxml">
       <SubType>Lua</SubType>

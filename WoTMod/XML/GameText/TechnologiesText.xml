@@ -15,9 +15,8 @@
 			<Tag>TXT_KEY_TECH_FIRE_HELP</Tag>
 			<Text>Added using Indie Stone Tech Tree Editor.</Text>
 		</Row>
-		<Row>
-			<Tag>TXT_KEY_TECH_FIRE_QUOTE</Tag>
-			<Text>'Some Famous Quote' - Some Famous Person</Text>
+		<Row Tag="TXT_KEY_TECH_FIRE_QUOTE">
+			<Text>'At the moment, I'd rather have dry feet and a warm fire.' - Davram Bashere</Text>
 		</Row>
 		
 		<!-- Technology: The Pattern -->
@@ -65,9 +64,8 @@
 			<Tag>TXT_KEY_TECH_FISHING_HELP</Tag>
 			<Text>Added using Indie Stone Tech Tree Editor.</Text>
 		</Row>
-		<Row>
-			<Tag>TXT_KEY_TECH_FISHING_QUOTE</Tag>
-			<Text>'Some Famous Quote' - Some Famous Person</Text>
+		<Row Tag="TXT_KEY_TECH_FISHING_QUOTE">
+			<Text>'A bird cannot teach a fish to fly, nor a fish teach a bird to swim.' - Moiraine Damodred</Text>
 		</Row>
 		
 		<!-- Technology: Patched Cloak -->
