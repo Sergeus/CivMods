@@ -7,6 +7,7 @@
 			<Message>TXT_KEY_HORN_DISCOVERED</Message>
 			<Summary>TXT_KEY_HORN_DISCOVERED_SUMMARY</Summary>
 			<ExistingIconType>ICON_TYPE_UNIT</ExistingIconType>
+			<AlwaysDismissable>true</AlwaysDismissable>
 		</Row>
 		<Row>
 			<Type>NOTIFICATION_HORN_OF_VALERE_BLOWN</Type>
@@ -15,6 +16,7 @@
 			<MiniCivIcon>true</MiniCivIcon>
 			<ChecksKnown>true</ChecksKnown>
 			<UnknownMessage>TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_UNKNOWN_OWNER</UnknownMessage>
+			<AlwaysDismissable>true</AlwaysDismissable>
 		</Row>
 
 		<Row>
@@ -26,6 +28,7 @@
 			<MiniCivIcon>true</MiniCivIcon>
 			<ChecksKnown>true</ChecksKnown>
 			<UnknownMessage>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT_UNKNOWN</UnknownMessage>
+			<AlwaysDismissable>true</AlwaysDismissable>
 		</Row>
 		<Row>
 			<Type>NOTIFICATION_OTHER_CIV_JOINED_SHADOW</Type>
@@ -36,6 +39,15 @@
 			<MiniCivIcon>true</MiniCivIcon>
 			<ChecksKnown>true</ChecksKnown>
 			<UnknownMessage>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW_UNKNOWN</UnknownMessage>
+			<AlwaysDismissable>true</AlwaysDismissable>
+		</Row>
+
+		<Row>
+			<Type>NOTIFICATION_YOUR_CITY_HAS_GAINED_GOVERNOR</Type>
+			<Message>TXT_KEY_NOTIFICATION_YOUR_CITY_HAS_GAINED_GOVERNOR</Message>
+			<Summary>TXT_KEY_NOTIFICATION_YOUR_CITY_HAS_GAINED_GOVERNOR_SUMMARY</Summary>
+			<ExistingIconType>ICON_TYPE_GOVERNOR</ExistingIconType>
+			<AlwaysDismissable>true</AlwaysDismissable>
 		</Row>
 	</Notifications>
 </GameData>

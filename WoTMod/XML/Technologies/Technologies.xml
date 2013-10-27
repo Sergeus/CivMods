@@ -32,7 +32,7 @@
 			<Quote>TXT_KEY_TECH_FIRE_QUOTE</Quote>
 			<PortraitIndex>0</PortraitIndex>
 			<ScenarioTechButton>0</ScenarioTechButton>
-			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<IconAtlas>FIRE_ATLAS</IconAtlas>
 			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>

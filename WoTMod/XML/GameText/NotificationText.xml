@@ -50,5 +50,13 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW_UNKNOWN">
 			<Text>An unmet civilization has sided with the Shadow!</Text>
 		</Row>
+		
+		<!-- Governor Notification -->
+		<Row Tag="TXT_KEY_NOTIFICATION_YOUR_CITY_HAS_GAINED_GOVERNOR">
+			<Text>{1_UnitName} has become the {2_GovernorType} governor of {3_CityName}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_YOUR_CITY_HAS_GAINED_GOVERNOR_SUMMARY">
+			<Text>Governor</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

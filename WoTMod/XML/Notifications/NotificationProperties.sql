@@ -15,6 +15,8 @@ INSERT INTO NotificationIconTypes (Type)
 VALUES ('ICON_TYPE_PROJECT');
 INSERT INTO NotificationIconTypes (Type)
 VALUES ('ICON_TYPE_TECH');
+INSERT INTO NotificationIconTypes (Type)
+VALUES ('ICON_TYPE_GOVERNOR');
 
 CREATE TABLE TempNotifications
 (
@@ -54,7 +56,8 @@ CREATE TABLE Notifications
 	Civ2Anchor text DEFAULT "R,T",
 	UIContext text DEFAULT null,
 	ExpiresAtTurnEnd boolean DEFAULT true,
-	PlaysFXOnPlot boolean DEFAULT true
+	PlaysFXOnPlot boolean DEFAULT true,
+	AlwaysDismissable boolean DEFAULT false
 );
 
 INSERT INTO Notifications (ID, Type, Welcomeness, Urgent)
