@@ -605,22 +605,29 @@ bool CvNotifications::MayUserDismiss(int iLookupIndex)
 				// ----------------------------------------------------------------
 				if (m_aNotifications[iIndex].m_eNotificationType >= NotificationTypes::NOTIFICATION_WOT_CUSTOM)
 				{
-					ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
-					if (pkScriptSystem)
+					if (GC.GetNotificationInfo(m_aNotifications[iIndex].m_eNotificationType)->IsAlwaysDismissable())
 					{
-						CvLuaArgsHandle args;
-
-						args->Push(m_aNotifications[iIndex].m_ePlayerID);
-						args->Push(m_aNotifications[iIndex].m_eNotificationType);
-						args->Push(m_aNotifications[iIndex].m_iLookupIndex);
-
-						// default to true if there are no subscribers
-						bool bResult = true;
-						if (LuaSupport::CallTestAny(pkScriptSystem, "PlayerCanDismissNotification",
-							args.get(), bResult))
+						return true;
+					}
+					else
+					{
+						ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+						if (pkScriptSystem)
 						{
-							return bResult;
-						}
+							CvLuaArgsHandle args;
+
+							args->Push(m_aNotifications[iIndex].m_ePlayerID);
+							args->Push(m_aNotifications[iIndex].m_eNotificationType);
+							args->Push(m_aNotifications[iIndex].m_iLookupIndex);
+
+							// default to true if there are no subscribers
+							bool bResult = true;
+							if (LuaSupport::CallTestAny(pkScriptSystem, "PlayerCanDismissNotification",
+								args.get(), bResult))
+							{
+								return bResult;
+							}
+						}	
 					}
 				}
 
