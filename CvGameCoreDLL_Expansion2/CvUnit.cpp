@@ -270,6 +270,7 @@ CvUnit::CvUnit() :
 	// ----------------------------------------------------------------
 	//, m_iTurnDamage("CvUnit::m_iTurnDamage", m_syncArchive, 0)
 	, m_iTurnDamage(0)
+	, m_iRangedAttackSelfDamageChance(0)
 	, m_iHealBlockedCount(0)
 
 	, m_strName("")
@@ -490,6 +491,21 @@ void CvUnit::initWithNameOffset(int iID, UnitTypes eUnit, int iNameOffset, UnitA
 
 			if(!GC.getPromotionInfo(ePromotion)->IsHoveringUnit())	// Hovering units handled above
 				setHasPromotion(ePromotion, true);
+		}
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		// we also have promotions that are free until a certain project is completed (by anyone)
+		else if (getUnitInfo().GetFreePromotionsUntilProjectCompleted(iI) > NO_PROJECT)
+		{
+			ProjectTypes eProject = (ProjectTypes)getUnitInfo().GetFreePromotionsUntilProjectCompleted(iI);
+
+			ePromotion = (PromotionTypes)iI;
+
+			if (!GC.getGame().isProjectMaxedOut(eProject))
+			{
+				setHasPromotion(ePromotion, true);
+			}
 		}
 	}
 
@@ -17456,6 +17472,7 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		// WoTMod Addition
 		// ----------------------------------------------------------------
 		ChangeTurnDamage(thisPromotion.GetTurnDamage() * iChange);
+		ChangeRangedAttackSelfDamageChance(thisPromotion.GetRangedAttackSelfDamageChance() * iChange);
 		ChangeHealBlocked(thisPromotion.IsBlocksHealing() ? iChange : 0);
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
@@ -21281,6 +21298,21 @@ void CvUnit::ChangeTurnDamage(int iValue)
 	if (iValue != 0)
 	{
 		m_iTurnDamage += iValue;
+	}
+}
+
+int CvUnit::GetRangedAttackSelfDamageChance() const
+{
+	return m_iRangedAttackSelfDamageChance;
+}
+
+void CvUnit::ChangeRangedAttackSelfDamageChance(int iValue)
+{
+	VALIDATE_OBJECT
+
+	if (iValue != 0)
+	{
+		m_iRangedAttackSelfDamageChance += iValue;
 	}
 }
 

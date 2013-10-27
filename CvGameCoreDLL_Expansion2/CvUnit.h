@@ -1247,6 +1247,8 @@ public:
 	int GetTurnDamage() const;
 	void ChangeTurnDamage(int iValue);
 	void DoTurnDamage();
+	int GetRangedAttackSelfDamageChance() const;
+	void ChangeRangedAttackSelfDamageChance(int iValue);
 	void ChangeHealBlocked(int iNewValue);
 	int GetHealBlockedCount() const;
 	bool IsHealBlocked() const;
@@ -1281,6 +1283,7 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	int m_iTurnDamage;
+	int m_iRangedAttackSelfDamageChance;
 	bool m_iHealBlockedCount;
 
 	typedef enum Flags

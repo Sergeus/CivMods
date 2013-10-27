@@ -133,7 +133,7 @@ public:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	int GetTurnDamage() const;
-
+	int GetRangedAttackSelfDamageChance() const;
 	bool IsBlocksHealing() const;
 
 	bool IsCannotBeChosen() const;
@@ -299,7 +299,7 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	int m_iTurnDamage;
-
+	int m_iRangedAttackSelfDamageChance;
 	bool m_bBlocksHealing;
 
 	bool m_bCannotBeChosen;

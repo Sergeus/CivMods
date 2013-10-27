@@ -123,6 +123,10 @@ CvUnitEntry::CvUnitEntry(void) :
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_pbGovernorClasses(NULL),
+	m_piFreePromotionsUntilProjectCompleted(NULL),
+	m_bChanneler(false),
+	m_bUsesSaidar(false),
+	m_bUsesSaidin(false),
 
 	m_bUnitArtInfoEraVariation(false),
 	m_bUnitArtInfoCulturalVariation(false),
@@ -162,6 +166,7 @@ CvUnitEntry::~CvUnitEntry(void)
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	SAFE_DELETE_ARRAY(m_pbGovernorClasses);
+	SAFE_DELETE_ARRAY(m_piFreePromotionsUntilProjectCompleted);
 }
 
 bool CvUnitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
@@ -236,6 +241,13 @@ bool CvUnitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	m_bRangeAttackOnlyInDomain = kResults.GetBool("RangeAttackOnlyInDomain");
 	m_bTrade = kResults.GetBool("Trade");
 	m_iNumExoticGoods = kResults.GetInt("NumExoticGoods");
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_bChanneler = kResults.GetBool("Channeler");
+	m_bUsesSaidin = kResults.GetBool("UsesSaidin");
+	m_bUsesSaidar = kResults.GetBool("UsesSaidar");
 
 	m_strUnitArtInfoTag = kResults.GetText("UnitArtInfo");
 	m_bUnitArtInfoCulturalVariation = kResults.GetBool("UnitArtInfoCulturalVariation");
@@ -320,12 +332,14 @@ bool CvUnitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	kUtility.PopulateArrayByExistence(m_pbGovernorClasses, "GovernorClasses", "Unit_GovernorClasses", "GovernorClassType", "UnitType", szUnitType);
+	kUtility.PopulateArrayByValue(m_piFreePromotionsUntilProjectCompleted, "UnitPromotions", "Unit_FreePromotionsUntilProjectCompleted", "PromotionType", "UnitType", szUnitType, "ProjectType", -1);
 
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	kUtility.PopulateArrayByValue(m_piFreeUnitAfterSurvivingMeleeCombat, "UnitClasses", "Unit_FreeUnitAfterSurvivingMeleeCombat", "UnitClassType", "UnitType", szUnitType, "NumberFree");
 	kUtility.PopulateArrayByValue(m_piFreeUnitWhenTradeRoutePlundered, "UnitClasses", "Unit_FreeUnitWhenTradeRoutePlundered", "UnitClassType", "UnitType", szUnitType, "NumberFree");
+
 
 	//TechTypes
 	{
@@ -1100,6 +1114,10 @@ int CvUnitEntry::GetFreeUnitWhenTradeRoutePlundered(int i) const
 bool CvUnitEntry::IsGovernorClass(int i) const
 {
 	return m_pbGovernorClasses ? m_pbGovernorClasses[i] : false;
+}
+int CvUnitEntry::GetFreePromotionsUntilProjectCompleted(int i) const
+{
+	return m_piFreePromotionsUntilProjectCompleted ? m_piFreePromotionsUntilProjectCompleted[i] : -1;
 }
 
 /// Project required to train this unit?

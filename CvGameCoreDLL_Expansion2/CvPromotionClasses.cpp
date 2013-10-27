@@ -104,6 +104,7 @@ CvPromotionEntry::CvPromotionEntry():
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_iTurnDamage(0),
+	m_iRangedAttackSelfDamageChance(0),
 	m_bBlocksHealing(false),
 
 	m_bCannotBeChosen(false),
@@ -324,6 +325,7 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_iTurnDamage = kResults.GetInt("TurnDamage");
+	m_iRangedAttackSelfDamageChance = kResults.GetInt("RangedAttackSelfDamageChance");
 	m_bBlocksHealing = kResults.GetBool("BlocksHealing");
 
 	//References
@@ -1187,6 +1189,10 @@ int CvPromotionEntry::GetAdjacentEnemyDamage() const
 int CvPromotionEntry::GetTurnDamage() const
 {
 	return m_iTurnDamage;
+}
+int CvPromotionEntry::GetRangedAttackSelfDamageChance() const
+{
+	return m_iRangedAttackSelfDamageChance;
 }
 
 bool CvPromotionEntry::IsBlocksHealing() const

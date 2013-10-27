@@ -160,6 +160,7 @@ public:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	bool IsGovernorClass(int i) const;
+	int GetFreePromotionsUntilProjectCompleted(int i) const;
 
 
 	// Derived fields (not in XML)
@@ -261,6 +262,13 @@ private:
 	bool m_bTrade;
 	int m_iNumExoticGoods;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool m_bChanneler;
+	bool m_bUsesSaidin;
+	bool m_bUsesSaidar;
+
 	// This is not loaded from XML, but cached so we don't have to recalculate every time
 	int m_iCachedPower;
 
@@ -291,6 +299,7 @@ private:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	bool* m_pbGovernorClasses;
+	int* m_piFreePromotionsUntilProjectCompleted;
 
 	bool* m_pbUpgradeUnitClass;
 	bool* m_pbUnitAIType;
