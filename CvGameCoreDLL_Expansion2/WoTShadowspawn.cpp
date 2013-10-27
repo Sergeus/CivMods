@@ -88,6 +88,8 @@ void WoTShadowspawn::Uninit()
 {
 	SAFE_DELETE_ARRAY(m_aiPlotShadowspawnSpawnCounter);
 	SAFE_DELETE_ARRAY(m_aiPlotShadowspawnNumUnitsSpawned);
+
+	m_aeShadowspawnUnitClasses.clear();
 }
 
 void WoTShadowspawn::Read(FDataStream& kStream)

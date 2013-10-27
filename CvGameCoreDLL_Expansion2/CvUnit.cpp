@@ -21348,7 +21348,21 @@ void CvUnit::DoGovernCity()
 	{
 		CvCity* pCity = plot()->getPlotCity();
 
-		pCity->GetCityGovernors()->SetGovernorType(GetGovernorType());
+		GovernorTypes eGovernorType = GetGovernorType();
+
+		pCity->GetCityGovernors()->SetGovernorType(eGovernorType);
+
+		CvNotifications* pNotifications = GET_PLAYER(getOwner()).GetNotifications();
+
+		if (pNotifications)
+		{
+			CvString message = GetLocalizedText("TXT_KEY_NOTIFICATION_YOUR_CITY_HAS_GAINED_GOVERNOR",
+				getNameKey(), GC.GetGovernorInfo(eGovernorType)->GetDescriptionKey(),
+				pCity->getNameKey());	
+
+			pNotifications->Add((NotificationTypes)GC.getInfoTypeForString("NOTIFICATION_YOUR_CITY_HAS_GAINED_GOVERNOR"),
+				message, NULL, getX(), getY(), eGovernorType);
+		}
 
 		kill(true);
 	}
