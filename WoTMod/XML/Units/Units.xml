@@ -5,7 +5,7 @@
 		<Row>
 			<Class>UNITCLASS_HORN_HUNTER</Class>
 			<Type>UNIT_HORN_HUNTER</Type>
-			<PrereqTech>TECH_HORN_LEGEND</PrereqTech>
+			<!--<PrereqTech>TECH_HORN_LEGEND</PrereqTech>-->
 			<Combat>1</Combat>
 			<Cost>25</Cost>
 			<Moves>2</Moves>
@@ -31,7 +31,7 @@
 		<Row>
 			<Class>UNITCLASS_AES_SEDAI</Class>
 			<Type>UNIT_AES_SEDAI</Type>
-			<PrereqTech>TECH_SAIDAR</PrereqTech>
+			<!--<PrereqTech>TECH_SAIDAR</PrereqTech>-->
 			<Combat>15</Combat>
 			<RangedCombat>45</RangedCombat>
 			<Cost>25</Cost>
@@ -108,29 +108,63 @@
 		</Row>
 
 		<Row>
-			<Class>UNITCLASS_CAPTAIN</Class>
-			<Type>UNIT_CAPTAIN</Type>
-			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
-			<Combat>15</Combat>
-			<Cost>45</Cost>
+			<Class>UNITCLASS_SLINGER</Class>
+			<Type>UNIT_SLINGER</Type>
+			<PrereqTech>TECH_STONE_TOOLS</PrereqTech>
+			<Combat>3</Combat>
+			<RangedCombat>6</RangedCombat>
+			<Cost>40</Cost>
 			<Moves>2</Moves>
-			<CombatClass>UNITCOMBAT_MELEE</CombatClass>
+			<Range>2</Range>
+			<CombatClass>UNITCOMBAT_ARCHER</CombatClass>
 			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_CAPTAIN</Description>
-			<Civilopedia>TXT_KEY_UNIT_CAPTAIN_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_CAPTAIN_STRATEGY</Strategy>
-			<Help>TXT_KEY_UNIT_CAPTAIN_HELP</Help>
+			<DefaultUnitAI>UNITAI_RANGED</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_SLINGER</Description>
+			<Civilopedia>TXT_KEY_CIV5_SLINGER_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_CIV5_SLINGER_STRATEGY</Strategy>
+			<Help>TXT_KEY_CIV5_SLINGER_HELP</Help>
 			<MilitarySupport>true</MilitarySupport>
 			<MilitaryProduction>true</MilitaryProduction>
 			<Pillage>true</Pillage>
+			<AdvancedStartCost>15</AdvancedStartCost>
 			<XPValueAttack>3</XPValueAttack>
 			<XPValueDefense>3</XPValueDefense>
-			<AdvancedStartCost>20</AdvancedStartCost>
-			<UnitArtInfo>ART_DEF_UNIT_HERO_HAWKWING</UnitArtInfo>
-			<UnitFlagIconOffset>1</UnitFlagIconOffset>
-			<PortraitIndex>1</PortraitIndex>
-			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
+			<UnitArtInfo>ART_DEF_UNIT_U_INCAN_SLINGER</UnitArtInfo>
+			<IconAtlas>DLC02_UNIT_ATLAS</IconAtlas>
+			<UnitFlagAtlas>DLC02_UNIT_FLAG_ATLAS</UnitFlagAtlas>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
+			<PortraitIndex>0</PortraitIndex>
+		</Row>
+
+		<Row>
+			<Class>UNITCLASS_MADMAN</Class>
+			<Type>UNIT_MADMAN</Type>
+			<PrereqTech>TECH_THE_PATTERN</PrereqTech>
+			<Combat>6</Combat>
+			<RangedCombat>8</RangedCombat>
+			<Cost>40</Cost>
+			<Moves>2</Moves>
+			<Range>2</Range>
+			<CombatClass>UNITCOMBAT_ARCHER</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_RANGED</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_MADMAN</Description>
+			<Civilopedia>TXT_KEY_CIV5_MADMAN_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_CIV5_MADMAN_STRATEGY</Strategy>
+			<Help>TXT_KEY_CIV5_MADMAN_HELP</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<AdvancedStartCost>15</AdvancedStartCost>
+			<XPValueAttack>3</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<UnitArtInfo>ART_DEF_UNIT_U_INCAN_SLINGER</UnitArtInfo>
+			<IconAtlas>DLC02_UNIT_ATLAS</IconAtlas>
+			<UnitFlagAtlas>DLC02_UNIT_FLAG_ATLAS</UnitFlagAtlas>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
+			<PortraitIndex>0</PortraitIndex>
+			<Channeler>true</Channeler>
+			<UsesSaidin>true</UsesSaidin>
 		</Row>
 	</Units>
 
@@ -149,23 +183,36 @@
 		</Row>
 	</Unit_FreePromotions>
 
-	<Unit_Builds>
+	<Unit_FreePromotionsUntilProjectCompleted>
 		<Row>
-			<UnitType>UNIT_CAPTAIN</UnitType>
-			<BuildType>BUILD_MILITARY_CAMP</BuildType>
+			<UnitType>UNIT_MADMAN</UnitType>
+			<PromotionType>PROMOTION_MADNESS_1</PromotionType>
+			<ProjectType>PROJECT_CLEANSE_SAIDIN</ProjectType>
 		</Row>
-	</Unit_Builds>
+	</Unit_FreePromotionsUntilProjectCompleted>
+
+	<Unit_AITypes>
+		<Row>
+			<UnitType>UNIT_SLINGER</UnitType>
+			<UnitAIType>UNITAI_RANGED</UnitAIType>
+		</Row>
+	</Unit_AITypes>
 
 	<Unit_Flavors>
 		<Row>
-			<UnitType>UNIT_CAPTAIN</UnitType>
-			<FlavorType>FLAVOR_EXPANSION</FlavorType>
-			<Flavor>6</Flavor>
-		</Row>
-		<Row>
-			<UnitType>UNIT_CAPTAIN</UnitType>
+			<UnitType>UNIT_SLINGER</UnitType>
 			<FlavorType>FLAVOR_OFFENSE</FlavorType>
 			<Flavor>2</Flavor>
+		</Row>
+		<Row>
+			<UnitType>UNIT_SLINGER</UnitType>
+			<FlavorType>FLAVOR_DEFENSE</FlavorType>
+			<Flavor>1</Flavor>
+		</Row>
+		<Row>
+			<UnitType>UNIT_SLINGER</UnitType>
+			<FlavorType>FLAVOR_RANGED</FlavorType>
+			<Flavor>8</Flavor>
 		</Row>
 	</Unit_Flavors>
 </GameData>

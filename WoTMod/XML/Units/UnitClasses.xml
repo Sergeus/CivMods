@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 4/24/2013 3:11:22 AM -->
 <GameData>
-  <!-- TODO: Insert table creation example here. -->
- 
-  <!-- TODO: Insert table data example here.-->
-  
-  <!-- Enter your Game Data here. -->
 	<UnitClasses>
 		<Row>
 			<Type>UNITCLASS_HORN_HUNTER</Type>
@@ -23,10 +18,14 @@
 			<DefaultUnit>UNIT_AES_SEDAI</DefaultUnit>
 		</Row>
 		<Row>
-			<Type>UNITCLASS_CAPTAIN</Type>
-			<Description>TXT_KEY_UNITCLASS_CAPTAIN</Description>
-			<DefaultUnit>UNIT_CAPTAIN</DefaultUnit>
+			<Type>UNITCLASS_SLINGER</Type>
+			<Description>TXT_KEY_UNITCLASS_SLINGER</Description>
+			<DefaultUnit>UNIT_SLINGER</DefaultUnit>
+		</Row>
+		<Row>
+			<Type>UNITCLASS_MADMAN</Type>
+			<Description>TXT_KEY_UNITCLASS_MADMAN</Description>
+			<DefaultUnit>UNIT_MADMAN</DefaultUnit>
 		</Row>
 	</UnitClasses>
-	
 </GameData>

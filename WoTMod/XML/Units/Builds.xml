@@ -2,6 +2,11 @@
 <!-- Created by ModBuddy on 4/25/2013 4:08:52 AM -->
 <GameData>
 	<Builds>
+		<Update>
+			<Where Type="BUILD_FISHING_BOATS"/>
+			<Set PrereqTech="TECH_FISHING"/>
+		</Update>
+		
 		<Row>
 			<Type>BUILD_MILITARY_CAMP</Type>
 			<ImprovementType>IMPROVEMENT_MILITARY_CAMP</ImprovementType>

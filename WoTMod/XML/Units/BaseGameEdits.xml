@@ -10,6 +10,10 @@
 			<Where Type="UNIT_WORKER"/>
 			<Set PrereqTech="TECH_AGRICULTURE"/>
 		</Update>
+		<Update>
+			<Where Type="UNIT_WORKBOAT"/>
+			<Set PrereqTech="TECH_FISHING"/>
+		</Update>
 	</Units>
 	<Unit_GovernorClasses>
 		<Row>

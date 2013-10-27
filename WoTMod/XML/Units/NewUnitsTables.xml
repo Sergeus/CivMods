@@ -11,4 +11,9 @@
 		<Column name="UnitClassType" type="text" reference="UnitClasses(Type)"/>
 		<Column name="NumberFree" type="integer" default="0"/>
 	</Table>
+	<Table name="Unit_FreePromotionsUntilProjectCompleted">
+		<Column name="UnitType" type="text" reference="Units(Type)"/>
+		<Column name="PromotionType" type="text" reference="UnitPromotions(type)"/>
+		<Column name="ProjectType" type="text" reference="Projects(Type)"/>
+	</Table>
 </GameData>

@@ -42,37 +42,17 @@
 			<TurnDamage>20</TurnDamage>
 			<BlocksHealing>true</BlocksHealing>
 		</Row>
+		<Row>
+			<Type>PROMOTION_MADNESS_1</Type>
+			<Description>TXT_KEY_PROMOTION_MADNESS_1</Description>
+			<Help>TXT_KEY_PROMOTION_MADNESS_1_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<PortraitIndex>57</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_MADNESS_1_PEDIA_ENTRY</PediaEntry>
+			<RangedAttackSelfDamageChance>25</RangedAttackSelfDamageChance>
+		</Row>
 	</UnitPromotions>
-
-	<Language_en_US>
-		<Row Tag="TXT_KEY_PROMOTION_HORN_HERO_DECAY">
-			<Text>Pull of the Pattern</Text>
-		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_HORN_HERO_DECAY_HELP">
-			<Text>The Heroes of the Horn have been called from beyond the Pattern, and the Pattern is pulling them back into Tel'aran'rhiod.</Text>
-		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_HORN_HERO_DECAY_PEDIA_ENTRY">
-			<Text>[TOWRITE] Pull of the Pattern pedia entry</Text>
-		</Row>
-		
-		<Row Tag="TXT_KEY_PROMOTION_HORN_HUNTER">
-			<Text>Horn Hunter</Text>
-		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_HORN_HUNTER_HELP">
-			<Text>Can discover the hidden Horn of Valere.</Text>
-		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_HORN_HUNTER_PEDIA_ENTRY">
-			<Text>[TOWRITE]Horn Hunter pedia entry</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_PROMOTION_HORN_BLOWER">
-			<Text>HornBlower</Text>
-		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_HORN_BLOWER_HELP">
-			<Text>Possesses the Horn of Valere.</Text>
-		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_HORN_BLOWER_PEDIA_ENTRY">
-			<Text>[TOWRITE]Horn Blower pedia entry</Text>
-		</Row>
-	</Language_en_US>
 </GameData>

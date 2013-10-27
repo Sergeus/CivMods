@@ -3,16 +3,13 @@
 <GameData>
 	<Language_en_US>
 		<!-- Technology: Fire -->
-		<Row>
-			<Tag>TXT_KEY_TECH_FIRE_DESC</Tag>
+		<Row Tag="TXT_KEY_TECH_FIRE_DESC">
 			<Text>Fire</Text>
 		</Row>
-		<Row>
-			<Tag>TXT_KEY_TECH_FIRE_CIV</Tag>
+		<Row Tag="TXT_KEY_TECH_FIRE_CIV">
 			<Text>Added using Indie Stone Tech Tree Editor.</Text>
 		</Row>
-		<Row>
-			<Tag>TXT_KEY_TECH_FIRE_HELP</Tag>
+		<Row Tag="TXT_KEY_TECH_FIRE_HELP">
 			<Text>Added using Indie Stone Tech Tree Editor.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TECH_FIRE_QUOTE">
@@ -34,34 +31,27 @@
 		</Row>
 		
 		<!-- Technology: Stone Tools-->
-		<Row>
-			<Tag>TXT_KEY_TECH_STONE_TOOLS_DESC</Tag>
+		<Row Tag="TXT_KEY_TECH_STONE_TOOLS_DESC">
 			<Text>Stone Tools</Text>
 		</Row>
-		<Row>
-			<Tag>TXT_KEY_TECH_STONE_TOOLS_CIV</Tag>
+		<Row Tag="TXT_KEY_TECH_STONE_TOOLS_CIV">
 			<Text>Added using Indie Stone Tech Tree Editor.</Text>
 		</Row>
-		<Row>
-			<Tag>TXT_KEY_TECH_STONE_TOOLS_HELP</Tag>
+		<Row Tag="TXT_KEY_TECH_STONE_TOOLS_HELP">
 			<Text>Added using Indie Stone Tech Tree Editor.</Text>
 		</Row>
-		<Row>
-			<Tag>TXT_KEY_TECH_STONE_TOOLS_QUOTE</Tag>
+		<Row Tag="TXT_KEY_TECH_STONE_TOOLS_QUOTE">
 			<Text>'Some Famous Quote' - Some Famous Person</Text>
 		</Row>
 		
 		<!-- Technology: Fishing -->
-		<Row>
-			<Tag>TXT_KEY_TECH_FISHING_DESC</Tag>
+		<Row Tag="TXT_KEY_TECH_FISHING_DESC">
 			<Text>Fishing</Text>
 		</Row>
-		<Row>
-			<Tag>TXT_KEY_TECH_FISHING_CIV</Tag>
+		<Row Tag="TXT_KEY_TECH_FISHING_CIV">
 			<Text>Added using Indie Stone Tech Tree Editor.</Text>
 		</Row>
-		<Row>
-			<Tag>TXT_KEY_TECH_FISHING_HELP</Tag>
+		<Row Tag="TXT_KEY_TECH_FISHING_HELP">
 			<Text>Added using Indie Stone Tech Tree Editor.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TECH_FISHING_QUOTE">
@@ -407,5 +397,16 @@
 			<Tag>TXT_KEY_TECH_TRANSCENDENCE_QUOTE</Tag>
 			<Text>[TOWRITE] transcedence quote</Text>
 		</Row>
+		
+		<!-- Eras -->
+		<!-- After Breaking -->
+		<Update>
+			<Where Tag="TXT_KEY_ERA_0"/>
+			<Set Text="After Breaking"/>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_ERA_ANCIENT_STRATEGY"/>
+			<Set Text="[TOWRITE] after breaking strategy"/>
+		</Update>
 	</Language_en_US>
 </GameData>

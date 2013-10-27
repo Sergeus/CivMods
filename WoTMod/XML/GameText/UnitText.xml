@@ -58,19 +58,33 @@
 		<Row Tag="TXT_KEY_UNIT_HORN_HERO_HAWKWING_HELP">
 			<Text>[TOWRITE]Hawkwing help</Text>
 		</Row>
-
-		<!-- Unit: Captain -->
-		<Row Tag="TXT_KEY_UNIT_CAPTAIN">
-			<Text>Captain</Text>
+		
+		<!-- Unit: Slinger -->
+		<Row Tag="TXT_KEY_UNIT_SLINGER">
+			<Text>Slinger</Text>
 		</Row>
-		<Row Tag="TXT_KEY_UNIT_CAPTAIN_PEDIA">
-			<Text>[TOWRITE] Captain pedia</Text>
+		<Row Tag="TXT_KEY_CIV5_SLINGER_TEXT">
+			<Text>[TOWRITE] slinger pedia</Text>
 		</Row>
-		<Row Tag="TXT_KEY_UNIT_CAPTAIN_STRATEGY">
-			<Text>[TOWRITE] Captain strategy</Text>
+		<Row Tag="TXT_KEY_CIV5_SLINGER_STRATEGY">
+			<Text>[TOWRITE] slinger strategy</Text>
 		</Row>
-		<Row Tag="TXT_KEY_UNIT_CAPTAIN_HELP">
-			<Text>[TOWRITE] Captain help</Text>
+		<Row Tag="TXT_KEY_CIV5_SLINGER_HELP">
+			<Text>[TOWRITE] slinger help</Text>
+		</Row>
+		
+		<!-- Unit: Madman -->
+		<Row Tag="TXT_KEY_UNIT_MADMAN">
+			<Text>Madman</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_MADMAN_TEXT">
+			<Text>[TOWRITE] madman pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_MADMAN_STRATEGY">
+			<Text>[TOWRITE] madman strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_MADMAN_HELP">
+			<Text>[TOWRITE] madman help</Text>
 		</Row>
 		
 		<!-- Builds -->
@@ -83,6 +97,51 @@
 		</Row>
 		<Row Tag="TXT_KEY_BUILD_MILITARY_CAMP_REC">
 			<Text>[TOWRITE] military camp recommendation</Text>
+		</Row>
+		
+		<!-- Promotions -->
+		<!-- Promotion: Pull of the Pattern -->
+		<Row Tag="TXT_KEY_PROMOTION_HORN_HERO_DECAY">
+			<Text>Pull of the Pattern</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_HORN_HERO_DECAY_HELP">
+			<Text>The Heroes of the Horn have been called from beyond the Pattern, and the Pattern is pulling them back into Tel'aran'rhiod.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_HORN_HERO_DECAY_PEDIA_ENTRY">
+			<Text>[TOWRITE] Pull of the Pattern pedia entry</Text>
+		</Row>
+
+		<!-- Promotion: Horn Hunter -->
+		<Row Tag="TXT_KEY_PROMOTION_HORN_HUNTER">
+			<Text>Horn Hunter</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_HORN_HUNTER_HELP">
+			<Text>Can discover the hidden Horn of Valere.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_HORN_HUNTER_PEDIA_ENTRY">
+			<Text>[TOWRITE]Horn Hunter pedia entry</Text>
+		</Row>
+
+		<!-- Promotion: Hornblower -->
+		<Row Tag="TXT_KEY_PROMOTION_HORN_BLOWER">
+			<Text>HornBlower</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_HORN_BLOWER_HELP">
+			<Text>Possesses the Horn of Valere.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_HORN_BLOWER_PEDIA_ENTRY">
+			<Text>[TOWRITE]Horn Blower pedia entry</Text>
+		</Row>
+		
+		<!-- Promotion: Madness 1 -->
+		<Row Tag="TXT_KEY_PROMOTION_MADNESS_1">
+			<Text>Madness</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_MADNESS_1_HELP">
+			<Text>This unit has a 25% chance of attacking itself instead of its target in ranged combat.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_MADNESS_1_PEDIA_ENTRY">
+			<Text>[TOWRITE] madness 1 pedia</Text>
 		</Row>
 	</Language_en_US>
 </GameData>
