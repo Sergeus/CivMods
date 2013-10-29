@@ -2666,34 +2666,21 @@ CvUnitCombat::ATTACK_RESULT CvUnitCombat::AttackRanged(CvUnit& kAttacker, int iX
 		// This attack has backfired
 		if (GC.getGame().getJonRandNum(100, "Attack backfiring") < backFireChance)
 		{
-			CvUnit* pDefender = &kAttacker;
-
 			CvCombatInfo kCombatInfo;
-			CvUnitCombat::GenerateRangedCombatInfo(kAttacker, pDefender, *kAttacker.plot(), &kCombatInfo);
+			CvUnitCombat::GenerateRangedCombatInfo(kAttacker, &kAttacker, *kAttacker.plot(), &kCombatInfo);
 
-			uint uiParentEventID = 0;
 			if (!bDoImmediate)
 			{
 				auto_ptr<ICvPlot1> pDllPlot = GC.WrapPlotPointer(kAttacker.plot());
 				GC.GetEngineUserInterface()->lookAt(pDllPlot.get(), CAMERALOOKAT_NORMAL);
-
-				kCombatInfo.setVisualizeCombat(true);
-
-				auto_ptr<ICvCombatInfo1> pDllCombatInfo(new CvDllCombatInfo(&kCombatInfo));
-				uiParentEventID = gDLL->GameplayUnitCombat(pDllCombatInfo.get());
-
-				// Set the combat units so that other missions do not continue until combat is over.
-				kAttacker.setCombatUnit(pDefender, true);
-				eResult = ATTACK_QUEUED;
 			}
-			else
+			
+			kAttacker.changeDamage(kCombatInfo.getDamageInflicted());
+
+			if (kAttacker.getDamage() >= kAttacker.GetMaxHitPoints())
 			{
-				eResult = ATTACK_COMPLETED;
+				return ATTACK_COMPLETED;
 			}
-
-			ResolveCombat(kCombatInfo, uiParentEventID);
-
-			return eResult;
 		}
 	}
 	// Range-striking a Unit
