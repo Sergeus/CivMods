@@ -12,4 +12,13 @@
 		<Column name="UnitCombatType" type="text" reference="UnitCombatInfos(Type)"/>
 		<Column name="PromotionType" type="text" reference="UnitPromotions(Type)"/>
 	</Table>
+	<Table name="Building_GovernorOrPrereqs">
+		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
+		<Column name="GovernorClassType" type="text" reference="GovernorClasses(Type)"/>
+	</Table>
+	<Table name="Building_FreePromotionOnePowerWielding">
+		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
+		<Column name="OnePowerType" type="text" reference="OnePowers(Type)"/>
+		<Column name="PromotionType" type="text" reference="UnitPromotions(Type)"/>
+	</Table>
 </GameData>

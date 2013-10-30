@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/28/2013 11:03:34 PM -->
+<GameData>
+	<BuildingClasses>
+		<Row>
+			<Type>BUILDINGCLASS_NATRINS_BARROW</Type>
+			<Description>TXT_KEY_BUILDING_NATRINS_BARROW</Description>
+			<DefaultBuilding>BUILDING_NATRINS_BARROW</DefaultBuilding>
+			<MaxGlobalInstances>1</MaxGlobalInstances>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_THIRTEENTH_DEPOSITORY</Type>
+			<Description>TXT_KEY_BUILDING_THIRTEENTH_DEPOSITORY</Description>
+			<DefaultBuilding>BUILDING_THIRTEENTH_DEPOSITORY</DefaultBuilding>
+			<MaxGlobalInstances>1</MaxGlobalInstances>
+		</Row>
+	</BuildingClasses>
+
+	<Buildings>
+		<Row>
+			<Type>BUILDING_NATRINS_BARROW</Type>
+			<BuildingClass>BUILDINGCLASS_NATRINS_BARROW</BuildingClass>
+			<Cost>185</Cost>
+			<!--<PrereqTech>TECH_CALENDAR</PrereqTech>-->
+			<Description>TXT_KEY_BUILDING_NATRINS_BARROW</Description>
+			<Civilopedia>TXT_KEY_WONDER_NATRINS_BARROW_DESC</Civilopedia>
+			<Quote>TXT_KEY_WONDER_NATRINS_BARROW_QUOTE</Quote>
+			<ArtDefineTag>STONEHENGE</ArtDefineTag>
+			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
+			<SpecialistType>SPECIALIST_LEADER</SpecialistType>
+			<GreatPeopleRateChange>2</GreatPeopleRateChange>
+			<Happiness>4</Happiness>
+			<NukeImmune>true</NukeImmune>
+			<HurryCostModifier>-1</HurryCostModifier>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>100</ConquestProb>
+			<DisplayPosition>4</DisplayPosition>
+			<IconAtlas>BW_ATLAS_2</IconAtlas>
+			<PortraitIndex>2</PortraitIndex>
+			<WonderSplashImage>WonderConceptStonehedge.dds</WonderSplashImage>
+			<WonderSplashAudio>AS2D_WONDER_SPEECH_STONEHENGE_01</WonderSplashAudio>
+		</Row>
+		<Row>
+			<Type>BUILDING_THIRTEENTH_DEPOSITORY</Type>
+			<BuildingClass>BUILDINGCLASS_THIRTEENTH_DEPOSITORY</BuildingClass>
+			<Cost>185</Cost>
+			<PrereqTech>TECH_WRITING</PrereqTech>
+			<Description>TXT_KEY_BUILDING_THIRTEENTH_DEPOSITORY</Description>
+			<Civilopedia>TXT_KEY_WONDER_THIRTEENTH_DEPOSITORY_DESC</Civilopedia>
+			<Quote>TXT_KEY_WONDER_THIRTEENTH_DEPOSITORY_QUOTE</Quote>
+			<ArtDefineTag>STONEHENGE</ArtDefineTag>
+			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
+			<SpecialistType>SPECIALIST_LEADER</SpecialistType>
+			<GreatPeopleRateChange>1</GreatPeopleRateChange>
+			<NukeImmune>true</NukeImmune>
+			<HurryCostModifier>-1</HurryCostModifier>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>100</ConquestProb>
+			<DisplayPosition>4</DisplayPosition>
+			<IconAtlas>BW_ATLAS_2</IconAtlas>
+			<PortraitIndex>2</PortraitIndex>
+			<WonderSplashImage>WonderConceptStonehedge.dds</WonderSplashImage>
+			<WonderSplashAudio>AS2D_WONDER_SPEECH_STONEHENGE_01</WonderSplashAudio>
+			<GreatWorkSlotType>GREAT_WORK_SLOT_LITERATURE</GreatWorkSlotType>
+			<GreatWorkCount>3</GreatWorkCount>
+		</Row>
+	</Buildings>
+
+	<Building_YieldChanges>
+		<Row>
+			<BuildingType>BUILDING_NATRINS_BARROW</BuildingType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_THIRTEENTH_DEPOSITORY</BuildingType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>4</Yield>
+		</Row>
+	</Building_YieldChanges>
+
+	<Building_ThemingBonuses>
+		<!-- Thirteenth depository -->
+	</Building_ThemingBonuses>
+
+	<Building_FreePromotionOnePowerWielding>
+		<Row>
+			<BuildingType>BUILDING_THIRTEENTH_DEPOSITORY</BuildingType>
+			<OnePowerType>ONE_POWER_SAIDAR</OnePowerType>
+			<PromotionType>PROMOTION_SECRET_KNOWLEDGE</PromotionType>
+		</Row>
+	</Building_FreePromotionOnePowerWielding>
+</GameData>

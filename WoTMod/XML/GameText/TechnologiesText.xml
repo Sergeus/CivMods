@@ -57,6 +57,62 @@
 		<Row Tag="TXT_KEY_TECH_FISHING_QUOTE">
 			<Text>'A bird cannot teach a fish to fly, nor a fish teach a bird to swim.' - Moiraine Damodred</Text>
 		</Row>
+
+		<!-- Technology: Weaving -->
+		<Row Tag="TXT_KEY_TECH_WEAVING_DESC">
+			<Text>Weaving</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_WEAVING_CIV">
+			<Text>[TOWRITE] weaving pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_WEAVING_HELP">
+			<Text>[TOWRITE] weaving help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_WEAVING_QUOTE">
+			<Text>[TOWRITE] weaving quote</Text>
+		</Row>
+		
+		<!-- Technology: Copper Working -->
+		<Row Tag="TXT_KEY_TECH_COPPER_WORKING_DESC">
+			<Text>Copper Working</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_COPPER_WORKING_CIV">
+			<Text>[TOWRITE] copper working pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_COPPER_WORKING_HELP">
+			<Text>[TOWRITE] copper working help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_COPPER_WORKING_QUOTE">
+			<Text>[TOWRITE] copper working quote</Text>
+		</Row>
+		
+		<!-- Technology: Foraging -->
+		<Row Tag="TXT_KEY_TECH_FORAGING_DESC">
+			<Text>Foraging</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FORAGING_CIV">
+			<Text>[TOWRITE] foraging pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FORAGING_HELP">
+			<Text>[TOWRITE] foraging help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FORAGING_QUOTE">
+			<Text>[TOWRITE] foraging quote</Text>
+		</Row>
+		
+		<!-- Technology: Thatch -->
+		<Row Tag="TXT_KEY_TECH_THATCH_DESC">
+			<Text>Thatch</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_THATCH_CIV">
+			<Text>[TOWRITE] thatch pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_THATCH_HELP">
+			<Text>[TOWRITE] thatch help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_THATCH_QUOTE">
+			<Text>[TOWRITE] thatch quote</Text>
+		</Row>
 		
 		<!-- Technology: Patched Cloak -->
 		<Row Tag="TXT_KEY_TECH_PATCHED_CLOAK_TITLE">
@@ -126,20 +182,6 @@
 		</Row>
 		<Row Tag="TXT_KEY_TECH_SAANGREAL_QUOTE">
 			<Text>[TOWRITE] sa'angreal quote</Text>
-		</Row>
-		
-		<!-- Technology: Weaving -->
-		<Row Tag="TXT_KEY_TECH_WEAVING_TITLE">
-			<Text>Weaving</Text>
-		</Row>
-		<Row Tag="TXT_KEY_TECH_WEAVING_PEDIA">
-			<Text>[TOWRITE] weaving pedia</Text>
-		</Row>
-		<Row Tag="TXT_KEY_TECH_WEAVING_HELP">
-			<Text>[TOWRITE] weaving help</Text>
-		</Row>
-		<Row Tag="TXT_KEY_TECH_WEAVING_QUOTE">
-			<Text>[TOWRITE] weaving quote</Text>
 		</Row>
 		
 		<!-- Technology: A'dam -->

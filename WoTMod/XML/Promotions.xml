@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 4/23/2013 3:19:42 AM -->
 <GameData>
-  <!-- TODO: Insert table creation example here. -->
- 
-  <!-- TODO: Insert table data example here.-->
-  
-  <!-- Enter your Game Data here. -->
 	<UnitPromotions>
 		<Row>
 			<Type>PROMOTION_HORN_HUNTER</Type>
@@ -53,6 +48,18 @@
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_MADNESS_1_PEDIA_ENTRY</PediaEntry>
 			<RangedAttackSelfDamageChance>25</RangedAttackSelfDamageChance>
+		</Row>
+		<Row>
+			<Type>PROMOTION_SECRET_KNOWLEDGE</Type>
+			<Description>TXT_KEY_PROMOTION_SECRET_KNOWLEDGE</Description>
+			<Help>TXT_KEY_PROMOTION_SECRET_KNOWLEDGE_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<PortraitIndex>44</PortraitIndex>
+			<RangedAttackModifier>33</RangedAttackModifier>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_SECRET_KNOWLEDGE_PEDIA</PediaEntry>
 		</Row>
 	</UnitPromotions>
 </GameData>

@@ -87,6 +87,17 @@
 			<Text>[TOWRITE] madman help</Text>
 		</Row>
 		
+		<!-- Unit: Great Leader -->
+		<Row Tag="TXT_KEY_UNIT_GREAT_LEADER">
+			<Text>Great Leader</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_GREAT_LEADER_TEXT">
+			<Text>[TOWRITE] great leader pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_GREAT_LEADER_STRATEGY">
+			<Text>[TOWRITE] great leader strategy</Text>
+		</Row>
+		
 		<!-- Builds -->
 		<!-- Build: Military Camp -->
 		<Row Tag="TXT_KEY_BUILD_MILITARY_CAMP">
@@ -142,6 +153,29 @@
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_MADNESS_1_PEDIA_ENTRY">
 			<Text>[TOWRITE] madness 1 pedia</Text>
+		</Row>
+		
+		<!-- Promotion: Secret Knowledge -->
+		<Row Tag="TXT_KEY_PROMOTION_SECRET_KNOWLEDGE">
+			<Text>Secret Knowledge</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SECRET_KNOWLEDGE_HELP">
+			<Text>[TOWRITE] secret knowledge help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SECRET_KNOWLEDGE_PEDIA">
+			<Text>[TOWRITE] secret knowledge pedia</Text>
+		</Row>
+		
+		<!-- Specialists -->
+		<!-- Specialist: Leader -->
+		<Row Tag="TXT_KEY_SPECIALIST_LEADER">
+			<Text>Leader</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPECIALIST_LEADER_STRATEGY">
+			<Text>[TOWRITE] leader specialist strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SPECIALIST_LEADER_TITLE">
+			<Text>Great Leader</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

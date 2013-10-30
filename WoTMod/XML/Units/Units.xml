@@ -164,7 +164,30 @@
 			<UnitFlagIconOffset>0</UnitFlagIconOffset>
 			<PortraitIndex>0</PortraitIndex>
 			<Channeler>true</Channeler>
-			<UsesSaidin>true</UsesSaidin>
+		</Row>
+
+		<Row>
+			<Class>UNITCLASS_LEADER</Class>
+			<Type>UNIT_LEADER</Type>
+			<Cost>-1</Cost>
+			<Moves>2</Moves>
+			<CivilianAttackPriority>CIVILIAN_ATTACK_PRIORITY_HIGH</CivilianAttackPriority>
+			<Special>SPECIALUNIT_PEOPLE</Special>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ENGINEER</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_GREAT_LEADER</Description>
+			<Civilopedia>TXT_KEY_CIV5_GREAT_LEADER_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_GREAT_LEADER_STRATEGY</Strategy>
+			<AdvancedStartCost>-1</AdvancedStartCost>
+			<WorkRate>1</WorkRate>
+			<CombatLimit>0</CombatLimit>
+			<GoldenAgeTurns>8</GoldenAgeTurns>
+			<UnitArtInfo>ART_DEF_UNIT_ENGINEER</UnitArtInfo>
+			<UnitArtInfoEraVariation>true</UnitArtInfoEraVariation>
+			<UnitFlagIconOffset>89</UnitFlagIconOffset>
+			<IconAtlas>UNIT_ATLAS_2</IconAtlas>
+			<PortraitIndex>47</PortraitIndex>
+			<MoveRate>GREAT_PERSON</MoveRate>
 		</Row>
 	</Units>
 
@@ -190,6 +213,20 @@
 			<ProjectType>PROJECT_CLEANSE_SAIDIN</ProjectType>
 		</Row>
 	</Unit_FreePromotionsUntilProjectCompleted>
+
+	<Unit_OnePowerWielding>
+		<Row>
+			<UnitType>UNIT_MADMAN</UnitType>
+			<OnePowerType>ONE_POWER_SAIDIN</OnePowerType>
+		</Row>
+	</Unit_OnePowerWielding>
+
+	<Unit_GreatPersons>
+		<Row>
+			<UnitType>UNIT_LEADER</UnitType>
+			<GreatPersonType>SPECIALIST_LEADER</GreatPersonType>
+		</Row>
+	</Unit_GreatPersons>
 
 	<Unit_AITypes>
 		<Row>

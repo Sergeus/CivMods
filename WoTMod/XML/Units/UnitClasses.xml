@@ -27,5 +27,10 @@
 			<Description>TXT_KEY_UNITCLASS_MADMAN</Description>
 			<DefaultUnit>UNIT_MADMAN</DefaultUnit>
 		</Row>
+		<Row>
+			<Type>UNITCLASS_LEADER</Type>
+			<Description>TXT_KEY_UNITCLASS_LEADER</Description>
+			<DefaultUnit>UNIT_LEADER</DefaultUnit>
+		</Row>
 	</UnitClasses>
 </GameData>

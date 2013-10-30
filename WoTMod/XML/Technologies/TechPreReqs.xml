@@ -151,16 +151,52 @@
 			<PrereqTech>TECH_FIRE</PrereqTech>
 		</Row>
 		<Row>
-			<TechType>TECH_AGRICULTURE</TechType>
-			<PrereqTech>TECH_FIRE</PrereqTech>
-		</Row>
-		<Row>
 			<TechType>TECH_ANIMAL_HUSBANDRY</TechType>
 			<PrereqTech>TECH_FISHING</PrereqTech>
 		</Row>
 		<Row>
 			<TechType>TECH_ANIMAL_HUSBANDRY</TechType>
 			<PrereqTech>TECH_THE_PATTERN</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_WEAVING</TechType>
+			<PrereqTech>TECH_THE_PATTERN</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_POTTERY</TechType>
+			<PrereqTech>TECH_THE_PATTERN</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_COPPER_WORKING</TechType>
+			<PrereqTech>TECH_STONE_TOOLS</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_MINING</TechType>
+			<PrereqTech>TECH_STONE_TOOLS</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_FORAGING</TechType>
+			<PrereqTech>TECH_FIRE</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_AGRICULTURE</TechType>
+			<PrereqTech>TECH_FORAGING</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_AGRICULTURE</TechType>
+			<PrereqTech>TECH_STONE_TOOLS</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_AGRICULTURE</TechType>
+			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_WRITING</TechType>
+			<PrereqTech>TECH_WEAVING</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_THATCH</TechType>
+			<PrereqTech>TECH_WEAVING</PrereqTech>
 		</Row>
 	</Technology_PrereqTechs>
 </GameData>

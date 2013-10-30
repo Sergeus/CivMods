@@ -8,12 +8,24 @@
 		</Update>
 
 		<Update>
-			<Set AdvancedStartCost="0" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="1" GridY="8" ScenarioTechButton="0" />
+			<Set AdvancedStartCost="0" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="2" GridY="6" ScenarioTechButton="0" />
 			<Where Type="TECH_AGRICULTURE" />
 		</Update>
 		<Update>
-			<Set Cost="20" AdvancedStartCost="0" FirstFreeUnitClass="0" InternationalTradeRoutesChange="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="2" GridY="2" PortraitIndex="0" ScenarioTechButton="0" AudioIntro="AS2D_TECH_AGRICULTURE" AudioIntroHeader="AS2D_HEADING_TECH_AGRICULTURE" />
+			<Set Cost="20" AdvancedStartCost="0" FirstFreeUnitClass="0" InternationalTradeRoutesChange="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="2" GridY="1" ScenarioTechButton="0" />
 			<Where Type="TECH_ANIMAL_HUSBANDRY" />
+		</Update>
+		<Update>
+			<Set Cost="20" AdvancedStartCost="0" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="2" GridY="9" PortraitIndex="0" ScenarioTechButton="0" />
+			<Where Type="TECH_MINING" />
+		</Update>
+		<Update>
+			<Set Cost="20" AdvancedStartCost="0" Era="ERA_CLASSICAL" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="3" GridY="3" PortraitIndex="0" ScenarioTechButton="0" />
+			<Where Type="TECH_WRITING" />
+		</Update>
+		<Update>
+			<Set Cost="20" AdvancedStartCost="0" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="2" GridY="3" PortraitIndex="0" ScenarioTechButton="0" />
+			<Where Type="TECH_POTTERY" />
 		</Update>
 		
 		<!-- New Technologies -->
@@ -68,7 +80,7 @@
 			<Trade>1</Trade>
 			<GoodyTech>1</GoodyTech>
 			<GridX>1</GridX>
-			<GridY>6</GridY>
+			<GridY>8</GridY>
 			<Quote>TXT_KEY_TECH_STONE_TOOLS_QUOTE</Quote>
 			<PortraitIndex>0</PortraitIndex>
 			<ScenarioTechButton>0</ScenarioTechButton>
@@ -90,6 +102,86 @@
 			<GridX>1</GridX>
 			<GridY>1</GridY>
 			<Quote>TXT_KEY_TECH_FISHING_QUOTE</Quote>
+			<PortraitIndex>0</PortraitIndex>
+			<ScenarioTechButton>0</ScenarioTechButton>
+			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
+			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
+		</Row>
+		<Row>
+			<Type>TECH_WEAVING</Type>
+			<Description>TXT_KEY_TECH_WEAVING_DESC</Description>
+			<Civilopedia>TXT_KEY_TECH_WEAVING_CIV</Civilopedia>
+			<Help>TXT_KEY_TECH_WEAVING_HELP</Help>
+			<Cost>20</Cost>
+			<AdvancedStartCost>0</AdvancedStartCost>
+			<Era>ERA_ANCIENT</Era>
+			<FirstFreeUnitClass>0</FirstFreeUnitClass>
+			<Trade>1</Trade>
+			<GoodyTech>1</GoodyTech>
+			<GridX>2</GridX>
+			<GridY>4</GridY>
+			<Quote>TXT_KEY_TECH_WEAVING_QUOTE</Quote>
+			<PortraitIndex>0</PortraitIndex>
+			<ScenarioTechButton>0</ScenarioTechButton>
+			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
+			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
+		</Row>
+		<Row>
+			<Type>TECH_COPPER_WORKING</Type>
+			<Description>TXT_KEY_TECH_COPPER_WORKING_DESC</Description>
+			<Civilopedia>TXT_KEY_TECH_COPPER_WORKING_CIV</Civilopedia>
+			<Help>TXT_KEY_TECH_COPPER_WORKING_HELP</Help>
+			<Cost>20</Cost>
+			<AdvancedStartCost>0</AdvancedStartCost>
+			<Era>ERA_ANCIENT</Era>
+			<FirstFreeUnitClass>0</FirstFreeUnitClass>
+			<Trade>1</Trade>
+			<GoodyTech>1</GoodyTech>
+			<GridX>2</GridX>
+			<GridY>8</GridY>
+			<Quote>TXT_KEY_TECH_COPPER_WORKING_QUOTE</Quote>
+			<PortraitIndex>0</PortraitIndex>
+			<ScenarioTechButton>0</ScenarioTechButton>
+			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
+			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
+		</Row>
+		<Row>
+			<Type>TECH_FORAGING</Type>
+			<Description>TXT_KEY_TECH_FORAGING_DESC</Description>
+			<Civilopedia>TXT_KEY_TECH_FORAGING_CIV</Civilopedia>
+			<Help>TXT_KEY_TECH_FORAGING_HELP</Help>
+			<Cost>20</Cost>
+			<AdvancedStartCost>0</AdvancedStartCost>
+			<Era>ERA_ANCIENT</Era>
+			<FirstFreeUnitClass>0</FirstFreeUnitClass>
+			<Trade>1</Trade>
+			<GoodyTech>1</GoodyTech>
+			<GridX>1</GridX>
+			<GridY>6</GridY>
+			<Quote>TXT_KEY_TECH_FORAGING_QUOTE</Quote>
+			<PortraitIndex>0</PortraitIndex>
+			<ScenarioTechButton>0</ScenarioTechButton>
+			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
+			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
+		</Row>
+		<Row>
+			<Type>TECH_THATCH</Type>
+			<Description>TXT_KEY_TECH_THATCH_DESC</Description>
+			<Civilopedia>TXT_KEY_TECH_THATCH_CIV</Civilopedia>
+			<Help>TXT_KEY_TECH_THATCH_HELP</Help>
+			<Cost>20</Cost>
+			<AdvancedStartCost>0</AdvancedStartCost>
+			<Era>ERA_CLASSICAL</Era>
+			<FirstFreeUnitClass>0</FirstFreeUnitClass>
+			<Trade>1</Trade>
+			<GoodyTech>1</GoodyTech>
+			<GridX>3</GridX>
+			<GridY>5</GridY>
+			<Quote>TXT_KEY_TECH_THATCH_QUOTE</Quote>
 			<PortraitIndex>0</PortraitIndex>
 			<ScenarioTechButton>0</ScenarioTechButton>
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>

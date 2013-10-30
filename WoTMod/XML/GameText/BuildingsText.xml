@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/30/2013 6:55:27 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Wonder: Natrin's Barrow -->
+		<Row Tag="TXT_KEY_BUILDING_NATRINS_BARROW">
+			<Text>Natrin's Barrow</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_NATRINS_BARROW_DESC">
+			<Text>[TOWRITE] natrin's barrow pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_NATRINS_BARROW_QUOTE">
+			<Text>[TOWRITE] natrin's barrow quote</Text>
+		</Row>
+		
+		<!-- Building: Inn -->
+		<Row Tag="TXT_KEY_BUILDING_INN">
+			<Text>Inn</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BUILDING_INN_CIV">
+			<Text>[TOWRITE] inn pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_INN_STRATEGY">
+			<Text>[TOWRITE] inn strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_INN_HELP">
+			<Text>[TOWRITE] inn help</Text>
+		</Row>
+		
+		<!-- Building: Village Green -->
+		<Row Tag="TXT_KEY_BUILDING_VILLAGE_GREEN">
+			<Text>Village Green</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BUILDING_VILLAGE_GREEN_CIV">
+			<Text>[TOWRITE] village green pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_VILLAGE_GREEN_STRATEGY">
+			<Text>[TOWRITE] village green strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_VILLAGE_GREEN_HELP">
+			<Text>[TOWRITE] village green help</Text>
+		</Row>
+	</Language_en_US>
+</GameData>
