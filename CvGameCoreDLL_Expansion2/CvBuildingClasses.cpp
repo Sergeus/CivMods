@@ -198,7 +198,6 @@ CvBuildingEntry::CvBuildingEntry(void):
 	m_ppaiTradeRouteYieldChanges(NULL),
 	m_iReligionMajorityPressureModifier(0),
 	m_iUnitPurchaseCostModifier(0),
-	m_bGivesFreePromotions(false),
 	m_bEndsWars(false),
 
 	m_paThemingBonusInfo(NULL),
@@ -643,13 +642,40 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 			const int unitCombatID = pResults->GetInt(1);
 
 			m_FreePromotionUnitCombats.insert(std::pair<int, int>(unitPromotionID, unitCombatID));
-
-			m_bGivesFreePromotions = true;
 		}
 
 		pResults->Reset();
 
 		std::multimap<int, int>(m_FreePromotionUnitCombats).swap(m_FreePromotionUnitCombats);
+	}
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// m_FreePromotionsOnePowerWielding
+	{
+		std::string sqlKey = "Building_FreePromotionOnePowerWielding";
+		Database::Results* pResults = kUtility.GetResults(sqlKey);
+
+		if (pResults == NULL)
+		{
+			const char* szSQL = "select UnitPromotions.ID, OnePowers.ID from Building_FreePromotionOnePowerWielding, UnitPromotions, OnePowers where BuildingType = ? and PromotionType = UnitPromotions.Type and OnePowerType = OnePowers.Type";
+			pResults = kUtility.PrepareResults(sqlKey, szSQL);
+		}
+
+		pResults->Bind(1, szBuildingType);
+
+		while (pResults->Step())
+		{
+			const int unitPromotionID = pResults->GetInt(0);
+			const int onePowerID = pResults->GetInt(1);
+
+			m_FreePromotionsOnePowerWielding.insert(std::pair<int, int>(unitPromotionID, onePowerID));
+		}
+
+		pResults->Reset();
+
+		std::multimap<int, int>(m_FreePromotionsOnePowerWielding).swap(m_FreePromotionsOnePowerWielding);
 	}
 
 	//ResourceYieldModifiers
@@ -2042,13 +2068,32 @@ bool CvBuildingEntry::IsFreePromotionUnitCombat(const int promotionID, const int
 
 	return false;
 }
-bool CvBuildingEntry::IsGivesFreePromotions() const
-{
-	return m_bGivesFreePromotions;
-}
 bool CvBuildingEntry::IsEndsWars() const
 {
 	return m_bEndsWars;
+}
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+bool CvBuildingEntry::IsFreePromotionOnePowerWielding(const int iPromotion, const OnePowerTypes eOnePower)
+{
+	std::multimap<int, int>::const_iterator it = m_FreePromotionsOnePowerWielding.find(iPromotion);
+	if(it != m_FreePromotionsOnePowerWielding.end())
+	{
+		// get an iterator to the element that is one past the last element associated with key
+		std::multimap<int, int>::const_iterator lastElement = m_FreePromotionsOnePowerWielding.upper_bound(iPromotion);
+
+		// for each element in the sequence [itr, lastElement)
+		for ( ; it != lastElement; ++it)
+		{
+			if(it->second == eOnePower)
+			{
+				return true;
+			}
+		}
+	}
+
+	return false;
 }
 
 /// Modifier to resource yield

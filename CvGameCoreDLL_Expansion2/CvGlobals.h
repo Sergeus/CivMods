@@ -134,6 +134,7 @@ class WoTNotificationInfo;
 class WoTGovernorClassInfo;
 class WoTGovernorEntry;
 class WoTGovernorXMLEntries;
+class WoTOnePowerInfo;
 
 class CvDLLInterfaceIFaceBase;
 class ICvDLLDatabaseUtility1;
@@ -343,6 +344,10 @@ public:
 	std::vector<WoTGovernorEntry*>& GetGovernorInfos();
 	_Ret_maybenull_ WoTGovernorEntry* GetGovernorInfo(GovernorTypes eGovernor);
 	WoTGovernorXMLEntries* GetGameGovernors();
+
+	int GetNumOnePowerInfos();
+	std::vector<WoTOnePowerInfo*>& GetOnePowerInfos();
+	WoTOnePowerInfo* GetOnePowerInfo(OnePowerTypes eOnePower);
 
 	int& getNumPlayableCivilizationInfos();
 	int& getNumAIPlayableCivilizationInfos();
@@ -7620,6 +7625,7 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	std::vector<WoTGovernorClassInfo*> m_paGovernorClassInfo;
+	std::vector<WoTOnePowerInfo*> m_paOnePowerInfo;
 	
 
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;

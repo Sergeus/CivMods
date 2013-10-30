@@ -300,8 +300,11 @@ public:
 	int GetReligionMajorityPressureModifier() const;
 	int GetUnitPurchaseCostModifier() const;
 	bool IsFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const;
-	bool IsGivesFreePromotions() const;
 	bool IsEndsWars() const;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsFreePromotionOnePowerWielding(const int iPromotion, const OnePowerTypes eOnePower);
 
 	CvThemingBonusInfo *GetThemingBonusInfo(int i) const;
 	int GetNumThemingBonuses() const {return m_iNumThemingBonuses;};
@@ -504,9 +507,12 @@ private:
 	int** m_ppaiTradeRouteYieldChanges;
 	std::multimap<int, int> m_FreePromotionUnitCombats;
 	int m_iReligionMajorityPressureModifier;
-	bool m_bGivesFreePromotions;
 	bool m_bEndsWars;
 	int m_iUnitPurchaseCostModifier;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	std::multimap<int, int> m_FreePromotionsOnePowerWielding;
 
 	CvThemingBonusInfo* m_paThemingBonusInfo;
 	int m_iNumThemingBonuses;

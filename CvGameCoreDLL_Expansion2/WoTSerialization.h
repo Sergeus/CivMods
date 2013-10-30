@@ -8,3 +8,5 @@
 // ----------------------------------------------------------------
 FDataStream & operator<<(FDataStream&, const GovernorTypes&);
 FDataStream & operator>>(FDataStream&, GovernorTypes&);
+FDataStream & operator>>(FDataStream&, const OnePowerTypes&);
+FDataStream & operator<<(FDataStream&, OnePowerTypes&);

@@ -1256,6 +1256,7 @@ public:
 	bool IsCanGovernCities() const;
 	GovernorTypes GetGovernorType() const;
 	void DoGovernCity();
+	bool IsOnePowerWielding(OnePowerTypes eOnePower);
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------

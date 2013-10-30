@@ -1481,6 +1481,10 @@ enum GovernorTypes
 {
 	NO_GOVERNOR = -1,
 };
+enum OnePowerTypes 
+{
+	NO_SOURCE = -1,
+};
 
 enum PlayerVoteTypes			
 {

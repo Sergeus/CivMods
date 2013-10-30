@@ -2675,7 +2675,7 @@ CvUnitCombat::ATTACK_RESULT CvUnitCombat::AttackRanged(CvUnit& kAttacker, int iX
 				GC.GetEngineUserInterface()->lookAt(pDllPlot.get(), CAMERALOOKAT_NORMAL);
 			}
 			
-			kAttacker.changeDamage(kCombatInfo.getDamageInflicted());
+			kAttacker.changeDamage(kCombatInfo.getDamageInflicted(BATTLE_UNIT_ATTACKER));
 
 			if (kAttacker.getDamage() >= kAttacker.GetMaxHitPoints())
 			{

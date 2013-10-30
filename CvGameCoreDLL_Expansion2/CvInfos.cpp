@@ -6887,3 +6887,21 @@ bool CvVoteSourceInfo::CacheResults(Database::Results& kResults, CvDatabaseUtili
 
 	return true;
 }
+
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+WoTOnePowerInfo::WoTOnePowerInfo()
+{
+
+}
+
+WoTOnePowerInfo::~WoTOnePowerInfo()
+{
+
+}
+
+bool WoTOnePowerInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
+{
+	return CvBaseInfo::CacheResults(kResults, kUtility);
+}

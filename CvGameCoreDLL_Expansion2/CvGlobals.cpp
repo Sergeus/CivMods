@@ -2635,6 +2635,18 @@ WoTGovernorXMLEntries* CvGlobals::GetGameGovernors()
 {
 	return m_pGovernors;
 }
+int CvGlobals::GetNumOnePowerInfos()
+{
+	return m_paOnePowerInfo.size();
+}
+std::vector<WoTOnePowerInfo*>& CvGlobals::GetOnePowerInfos()
+{
+	return m_paOnePowerInfo;
+}
+WoTOnePowerInfo* CvGlobals::GetOnePowerInfo(OnePowerTypes eOnePower)
+{
+	return m_paOnePowerInfo[eOnePower];
+}
 
 int& CvGlobals::getNumPlayableCivilizationInfos()
 {

@@ -11752,7 +11752,7 @@ void CvCity::AddFreePromotions(CvUnit* pUnit)
 		BuildingTypes eBuilding = (BuildingTypes)iBuilding;
 		CvBuildingEntry* pBuildingInfo = GC.getBuildingInfo(eBuilding);
 
-		if (GetCityBuildings()->GetNumBuilding(eBuilding) > 0 && pBuildingInfo->IsGivesFreePromotions())
+		if (GetCityBuildings()->GetNumBuilding(eBuilding) > 0)
 		{
 			for (int iPromotion = 0; iPromotion < GC.getNumPromotionInfos(); iPromotion++)
 			{
@@ -11762,6 +11762,19 @@ void CvCity::AddFreePromotions(CvUnit* pUnit)
 				if (pBuildingInfo->IsFreePromotionUnitCombat(iPromotion, pUnit->getUnitCombatType()))
 				{
 					pUnit->setHasPromotion(ePromotion, true);
+				}
+
+				// ----------------------------------------------------------------
+				// WoTMod Addition
+				// ----------------------------------------------------------------
+				// we also have buildings that give free promotions to units wielding specific sources of magic!
+				for (int iOnePower = 0; iOnePower < GC.GetNumOnePowerInfos(); iOnePower++)
+				{
+					OnePowerTypes eOnePower = (OnePowerTypes)iOnePower;
+					if (pBuildingInfo->IsFreePromotionOnePowerWielding(iPromotion, eOnePower))
+					{
+						pUnit->setHasPromotion(ePromotion, true);
+					}
 				}
 			}
 		}

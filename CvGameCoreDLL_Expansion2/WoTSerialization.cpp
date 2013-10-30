@@ -15,3 +15,18 @@ FDataStream& operator>>(FDataStream& kStream, GovernorTypes& egovernorType)
 	egovernorType = static_cast<GovernorTypes>(igovernorType);
 	return kStream;
 }
+
+FDataStream& operator<<(FDataStream& kStream, const OnePowerTypes& eOnePowerType)
+{
+	kStream << static_cast<int>(eOnePowerType);
+	return kStream;
+}
+
+FDataStream& operator>>(FDataStream& kStream, OnePowerTypes& eOnePowerType)
+{
+	int iOnePowerType;
+	kStream >> iOnePowerType;
+
+	eOnePowerType = static_cast<OnePowerTypes>(iOnePowerType);
+	return kStream;
+}

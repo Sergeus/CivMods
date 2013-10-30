@@ -2287,4 +2287,19 @@ private:
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 typedef CvBaseInfo CvDomainInfo;
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  class : WoTOnePowerInfo
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class WoTOnePowerInfo : public CvBaseInfo
+{
+public:
+	WoTOnePowerInfo();
+	~WoTOnePowerInfo();
+
+	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
+};
+
 #endif
