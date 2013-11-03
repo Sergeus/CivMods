@@ -12899,7 +12899,7 @@ bool CvCity::doCheckProduction()
 		}
 	}
 
-	if(!isProduction() && isHuman() && !isProductionAutomated())
+	if(!isProduction() && isHuman() && !isProductionAutomated() && !IsIgnoreCityForHappiness())
 	{
 		chooseProduction();
 		return bOK;
