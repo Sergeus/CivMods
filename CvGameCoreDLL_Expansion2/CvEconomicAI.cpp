@@ -2240,7 +2240,7 @@ void CvEconomicAI::DisbandExtraArchaeologists(){
 	}
 	
 	CvUnit* pUnit;
-	UnitTypes eArch = (UnitTypes) GC.getInfoTypeForString("UNIT_ARCHAEOLOGIST");
+	UnitTypes eArch = (UnitTypes) GC.getInfoTypeForString("UNIT_ARCHAEOLOGIST", true /*bHideAssert*/);
 	if(eArch == NO_UNIT){
 		return;
 	}
