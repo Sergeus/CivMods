@@ -198,11 +198,18 @@ void WoTShadowspawn::SpawnShadowspawnUnit(CvPlot* pPlot)
 
 	UnitTypes eUnit = GetRandomShadowSpawnUnitType();
 
-	CUSTOMLOG("Placing unit %i at %i, %i.", eUnit, pPlot->getX(), pPlot->getY());
+	if (eUnit != NO_UNIT)
+	{
+		CUSTOMLOG("Placing unit %i at %i, %i.", eUnit, pPlot->getX(), pPlot->getY());
 
-	kShadowPlayer.initUnit(eUnit, pPlot->getX(), pPlot->getY(), UNITAI_FAST_ATTACK);
+		kShadowPlayer.initUnit(eUnit, pPlot->getX(), pPlot->getY(), UNITAI_FAST_ATTACK);
 
-	m_aiPlotShadowspawnNumUnitsSpawned[pPlot->GetPlotIndex()];
+		m_aiPlotShadowspawnNumUnitsSpawned[pPlot->GetPlotIndex()];
+	}
+	else
+	{
+		CUSTOMLOG("GetRandomShadowSpawnUnitType returned NO_UNIT, which is probably bad.");
+	}
 }
 
 UnitTypes WoTShadowspawn::GetRandomShadowSpawnUnitType()
@@ -229,6 +236,8 @@ UnitTypes WoTShadowspawn::GetRandomShadowSpawnUnitType()
 			return eUnit;
 		}
 	}
+
+	return NO_UNIT;
 }
 
 bool WoTShadowspawn::IsValidShadowspawnSpawn(CvPlot* pPlot)
