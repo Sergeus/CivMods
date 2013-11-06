@@ -1688,6 +1688,12 @@ void CvGame::CheckPlayerTurnDeactivate()
 										}
 									}
 								}
+								else
+								{
+									CvString logOutput;
+									logOutput.Format("CheckPlayerTurnDeactivate(): Next sequential player not set TurnActive due to player(%i)'s team(%i) being TurnActive.", kPlayer.GetID(), kPlayer.getTeam());
+									gDLL->netMessageDebugLog(logOutput);
+								}
 							}
 							else
 							{

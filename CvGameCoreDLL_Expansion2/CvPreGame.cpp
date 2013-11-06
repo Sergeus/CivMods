@@ -1161,11 +1161,6 @@ HandicapTypes lastHumanHandicap(PlayerTypes p)
 	return NO_HANDICAP;
 }
 
-bool isEarthMap()
-{
-	return s_isEarthMap;
-}
-
 bool isHotSeat()
 {
 	GameTypes g = gameType();
@@ -2472,15 +2467,6 @@ void setCustomWorldSize(int iWidth, int iHeight, int iPlayers, int iMinorCivs)
 		s_worldInfo = CvWorldInfo::CreateCustomWorldSize(kClosestSizeType, iWidth, iHeight);
 }
 
-void setEarthMap(bool bIsEarthMap)
-{
-	s_isEarthMap = bIsEarthMap;
-	if(bIsEarthMap)
-	{
-		setRandomMapScript(false);
-	}
-}
-
 void setEmailAddress(PlayerTypes p, const CvString& address)
 {
 	if(p >= 0 && p < MAX_PLAYERS)
@@ -2940,9 +2926,6 @@ void setRandomMapScript(bool isRandomMapScript)
 		s_randomMapScript = isRandomMapScript;
 		ResetMapOptions();
 	}
-
-	if(isRandomMapScript)
-		setEarthMap(false);
 }
 
 void setReady(PlayerTypes p, bool bIsReady)
