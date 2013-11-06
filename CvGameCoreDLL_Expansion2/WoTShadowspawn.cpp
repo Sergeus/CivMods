@@ -15,10 +15,10 @@ int WoTShadowspawn::m_iSpawnDelay = -1;
 int WoTShadowspawn::m_iSpawnRate = -1;
 int WoTShadowspawn::m_iSpawnVariance = -1;
 int WoTShadowspawn::m_iNumBlightPlots = -1;
-FeatureTypes WoTShadowspawn::m_eBlightFeatureType = FeatureTypes::NO_FEATURE;
+FeatureTypes WoTShadowspawn::m_eBlightFeatureType = NO_FEATURE;
 short* WoTShadowspawn::m_aiPlotShadowspawnSpawnCounter = NULL;
 short* WoTShadowspawn::m_aiPlotShadowspawnNumUnitsSpawned = NULL;
-std::vector<UnitClassTypes> WoTShadowspawn::m_aeShadowspawnUnitClasses = std::vector<UnitClassTypes>();
+std::vector<UnitClassTypes> WoTShadowspawn::m_aeShadowspawnUnitClasses;
 
 void WoTShadowspawn::Init()
 {
