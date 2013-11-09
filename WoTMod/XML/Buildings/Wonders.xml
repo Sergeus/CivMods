@@ -17,11 +17,17 @@
 	</BuildingClasses>
 
 	<Buildings>
+		<!-- Moving existing buildings around -->
+		<Update>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+			<Where Type="BUILDING_GREAT_LIBRARY"/>
+		</Update>
+		
 		<Row>
 			<Type>BUILDING_NATRINS_BARROW</Type>
 			<BuildingClass>BUILDINGCLASS_NATRINS_BARROW</BuildingClass>
 			<Cost>185</Cost>
-			<!--<PrereqTech>TECH_CALENDAR</PrereqTech>-->
+			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
 			<Description>TXT_KEY_BUILDING_NATRINS_BARROW</Description>
 			<Civilopedia>TXT_KEY_WONDER_NATRINS_BARROW_DESC</Civilopedia>
 			<Quote>TXT_KEY_WONDER_NATRINS_BARROW_QUOTE</Quote>
@@ -46,7 +52,7 @@
 			<Cost>185</Cost>
 			<PrereqTech>TECH_WRITING</PrereqTech>
 			<Description>TXT_KEY_BUILDING_THIRTEENTH_DEPOSITORY</Description>
-			<Civilopedia>TXT_KEY_WONDER_THIRTEENTH_DEPOSITORY_DESC</Civilopedia>
+			<Civilopedia>TXT_KEY_WONDER_THIRTEENTH_DEPOSITORY_PEDIA</Civilopedia>
 			<Quote>TXT_KEY_WONDER_THIRTEENTH_DEPOSITORY_QUOTE</Quote>
 			<ArtDefineTag>STONEHENGE</ArtDefineTag>
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>

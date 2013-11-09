@@ -13,6 +13,17 @@
 			<Text>[TOWRITE] natrin's barrow quote</Text>
 		</Row>
 		
+		<!-- Wonder: Thirteenth Depository -->
+		<Row Tag="TXT_KEY_BUILDING_THIRTEENTH_DEPOSITORY">
+			<Text>Thirteenth Depository</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_THIRTEENTH_DEPOSITORY_PEDIA">
+			<Text>[TOWRITE] thirteenth depository pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_THIRTEENTH_DEPOSITORY_QUOTE">
+			<Text>[TOWRITE] thirteenth depository quote</Text>
+		</Row>
+		
 		<!-- Building: Inn -->
 		<Row Tag="TXT_KEY_BUILDING_INN">
 			<Text>Inn</Text>
