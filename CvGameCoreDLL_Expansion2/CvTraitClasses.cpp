@@ -780,10 +780,10 @@ int CvTraitEntry::GetResourceQuantityModifier(int i) const
 // ----------------------------------------------------------------
 int CvTraitEntry::GetTerrainYieldChanges(TerrainTypes eTerrain, YieldTypes eYield) const
 {
-	CvAssertMsg(eIndex1 < GC.getNumTerrainInfos(), "Index out of bounds");
-	CvAssertMsg(eIndex1 > -1, "Index out of bounds");
-	CvAssertMsg(eIndex2 < NUM_YIELD_TYPES, "Index out of bounds");
-	CvAssertMsg(eIndex2 > -1, "Index out of bounds");
+	CvAssertMsg(eTerrain < GC.getNumTerrainInfos(), "Index out of bounds");
+	CvAssertMsg(eTerrain > -1, "Index out of bounds");
+	CvAssertMsg(eYield < NUM_YIELD_TYPES, "Index out of bounds");
+	CvAssertMsg(eYield > -1, "Index out of bounds");
 	return m_ppiTerrainYieldChanges ? m_ppiTerrainYieldChanges[eTerrain][eYield] : 0;
 }
 

@@ -2598,7 +2598,7 @@ std::vector<WoTNotificationInfo*>& CvGlobals::GetNotificationInfo()
 WoTNotificationInfo* CvGlobals::GetNotificationInfo(int iNotificationID)
 {
 	CvAssert(iNotificationID > -1);
-	CvAssert(iNotificationID < GC.getNumNotificationsCustomInfos());
+	CvAssert(iNotificationID < GC.GetNumNotificationInfos());
 	if (iNotificationID > -1 && iNotificationID < GetNumNotificationInfos())
 		return m_pNotifications[iNotificationID];
 	else
