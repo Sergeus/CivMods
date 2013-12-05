@@ -766,6 +766,7 @@ public:
 	// ----------------------------------------------------------------
 	WoTCityGovernors* GetCityGovernors() const;
 	int GetBaseYieldRateFromGovernors(YieldTypes eYieldType) const;
+	bool IsBuildingGovernorValid(BuildingTypes eBuilding, bool bTestVisible, CvString* toolTipSink) const;
 
 	void read(FDataStream& kStream);
 	void write(FDataStream& kStream) const;

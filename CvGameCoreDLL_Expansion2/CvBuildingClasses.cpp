@@ -199,6 +199,10 @@ CvBuildingEntry::CvBuildingEntry(void):
 	m_iReligionMajorityPressureModifier(0),
 	m_iUnitPurchaseCostModifier(0),
 	m_bEndsWars(false),
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pabGovernorClassOrPrereqs(NULL),
 
 	m_paThemingBonusInfo(NULL),
 	m_iNumThemingBonuses(0)
@@ -240,6 +244,11 @@ CvBuildingEntry::~CvBuildingEntry(void)
 	SAFE_DELETE_ARRAY(m_piNumFreeUnits);
 	SAFE_DELETE_ARRAY(m_paiBuildingClassHappiness);
 	SAFE_DELETE_ARRAY(m_paThemingBonusInfo);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE_ARRAY(m_pabGovernorClassOrPrereqs);
 
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiResourceYieldChange);
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiFeatureYieldChange);
@@ -505,6 +514,11 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	kUtility.PopulateArrayByExistence(m_piLocalResourceAnds, "Resources", "Building_LocalResourceAnds", "ResourceType", "BuildingType", szBuildingType);
 	kUtility.PopulateArrayByExistence(m_piLocalResourceOrs, "Resources", "Building_LocalResourceOrs", "ResourceType", "BuildingType", szBuildingType);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kUtility.PopulateArrayByExistence(m_pabGovernorClassOrPrereqs, "GovernorClasses", "Building_GovernorOrPrereqs", "GovernorClassType", "BuildingType", szBuildingType);
+
 	//ResourceYieldChanges
 	{
 		kUtility.Initialize2DArray(m_ppaiResourceYieldChange, "Resources", "Yields");
@@ -677,6 +691,28 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 
 		std::multimap<int, int>(m_FreePromotionsOnePowerWielding).swap(m_FreePromotionsOnePowerWielding);
 	}
+	//// m_paiGovernorOrPrereqs
+	//{
+	//	kUtility.InitializeArray(m_paiGovernorOrPrereqs, "Buildings", -1);
+
+	//	std::string strKey = "Building_GovernorOrPrereqs";
+	//	Database::Results* pResults = kUtility.GetResults(strKey);
+
+	//	if (pResults == NULL)
+	//	{
+	//		pResults = kUtility.PrepareResults(strKey, "select Buildings.ID from Building_GovernorOrPrereqs inner join Governors on Governors.Type = GovernorType where BuildingType = ?;");
+	//	}
+
+	//	pResults->Bind(1, szBuildingType, -1, false);
+
+	//	int i = 0;
+	//	while (pResults->Step())
+	//	{
+	//		m_paiGovernorOrPrereqs[i++] = pResults->GetInt(0);
+	//	}
+
+	//	pResults->Reset();
+	//}
 
 	//ResourceYieldModifiers
 	{
@@ -2075,7 +2111,7 @@ bool CvBuildingEntry::IsEndsWars() const
 // ----------------------------------------------------------------
 // WoTMod Addition
 // ----------------------------------------------------------------
-bool CvBuildingEntry::IsFreePromotionOnePowerWielding(const int iPromotion, const OnePowerTypes eOnePower)
+bool CvBuildingEntry::IsFreePromotionOnePowerWielding(const int iPromotion, const OnePowerTypes eOnePower) const
 {
 	std::multimap<int, int>::const_iterator it = m_FreePromotionsOnePowerWielding.find(iPromotion);
 	if(it != m_FreePromotionsOnePowerWielding.end())
@@ -2094,6 +2130,12 @@ bool CvBuildingEntry::IsFreePromotionOnePowerWielding(const int iPromotion, cons
 	}
 
 	return false;
+}
+bool CvBuildingEntry::IsGovernorClassOrPrereq(GovernorClassTypes eGovernorClass) const
+{
+	CvAssertMsg(eGovernorClass < GC.GetNumGovernorClassInfos(), "Index out of bounds");
+	CvAssertMsg(eGovernorClass > -1, "Index out of bounds");
+	return m_pabGovernorClassOrPrereqs[eGovernorClass];
 }
 
 /// Modifier to resource yield

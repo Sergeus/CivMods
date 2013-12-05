@@ -2732,6 +2732,15 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 		return false;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// Governor requirements met?
+	if (!IsBuildingGovernorValid(eBuilding, bTestVisible, toolTipSink))
+	{
+		return false;
+	}
+
 	// Holy city requirement
 	if (pkBuildingInfo->IsRequiresHolyCity() && !GetCityReligions()->IsHolyCityAnyReligion())
 	{
@@ -9707,6 +9716,50 @@ int CvCity::getBaseYieldRate(YieldTypes eIndex) const
 int CvCity::GetBaseYieldRateFromGovernors(YieldTypes eYieldType) const
 {
 	return GetCityGovernors()->GetYieldChange(eYieldType);
+}
+bool CvCity::IsBuildingGovernorValid(BuildingTypes eBuilding, bool bTestVisible, CvString* toolTipSink) const
+{
+	CvBuildingEntry* pkBuildingInfo = GC.getBuildingInfo(eBuilding);
+	if (!pkBuildingInfo)
+	{
+		return false;
+	}
+
+	int iOrGovernors = 0;
+
+	// Governor ORs
+	for (int iGovernorClass = 0; iGovernorClass < GC.GetNumGovernorClassInfos(); iGovernorClass++)
+	{
+		GovernorClassTypes eGovernorClass = (GovernorClassTypes)iGovernorClass;
+
+		WoTGovernorClassInfo* pkGovernorClassInfo = GC.GetGovernorClassInfo(eGovernorClass);
+		if (!pkGovernorClassInfo)
+			continue;
+
+		CvCivilizationInfo& pkCivInfo = GET_PLAYER(getOwner()).getCivilizationInfo();
+		GovernorTypes eGovernor = (GovernorTypes)pkCivInfo.GetCivilizationGovernors(eGovernorClass);
+		WoTGovernorEntry* pkGovernorInfo = GC.GetGovernorInfo(eGovernor);
+
+		if (!pkGovernorInfo)
+			continue;
+
+		// If we match a given OR prereq, then this building is valid
+		if (pkBuildingInfo->IsGovernorClassOrPrereq(eGovernorClass) && GetCityGovernors()->GetGovernorType() == eGovernor)
+			return true;
+		// otherwise if there is a prereq we haven't met, record that and move on to the next one
+		else if (pkBuildingInfo->IsGovernorClassOrPrereq(eGovernorClass))
+		{
+			iOrGovernors++;
+			
+			GC.getGame().BuildCannotPerformActionHelpText(toolTipSink, "TXT_KEY_NO_ACTION_BUILDING_LOCAL_GOVERNOR", pkGovernorInfo->GetDescription());
+		}
+	}
+
+	// if there are no prereqs, then this building is valid
+	if (iOrGovernors == 0)
+		return true;
+
+	return bTestVisible;
 }
 
 //	--------------------------------------------------------------------------------

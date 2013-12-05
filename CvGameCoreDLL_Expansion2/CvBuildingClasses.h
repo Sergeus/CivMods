@@ -304,7 +304,8 @@ public:
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
-	bool IsFreePromotionOnePowerWielding(const int iPromotion, const OnePowerTypes eOnePower);
+	bool IsFreePromotionOnePowerWielding(const int iPromotion, const OnePowerTypes eOnePower) const;
+	bool IsGovernorClassOrPrereq(GovernorClassTypes eGovernorClass) const;
 
 	CvThemingBonusInfo *GetThemingBonusInfo(int i) const;
 	int GetNumThemingBonuses() const {return m_iNumThemingBonuses;};
@@ -513,6 +514,7 @@ private:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	std::multimap<int, int> m_FreePromotionsOnePowerWielding;
+	bool* m_pabGovernorClassOrPrereqs;
 
 	CvThemingBonusInfo* m_paThemingBonusInfo;
 	int m_iNumThemingBonuses;
