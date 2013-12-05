@@ -691,28 +691,6 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 
 		std::multimap<int, int>(m_FreePromotionsOnePowerWielding).swap(m_FreePromotionsOnePowerWielding);
 	}
-	//// m_paiGovernorOrPrereqs
-	//{
-	//	kUtility.InitializeArray(m_paiGovernorOrPrereqs, "Buildings", -1);
-
-	//	std::string strKey = "Building_GovernorOrPrereqs";
-	//	Database::Results* pResults = kUtility.GetResults(strKey);
-
-	//	if (pResults == NULL)
-	//	{
-	//		pResults = kUtility.PrepareResults(strKey, "select Buildings.ID from Building_GovernorOrPrereqs inner join Governors on Governors.Type = GovernorType where BuildingType = ?;");
-	//	}
-
-	//	pResults->Bind(1, szBuildingType, -1, false);
-
-	//	int i = 0;
-	//	while (pResults->Step())
-	//	{
-	//		m_paiGovernorOrPrereqs[i++] = pResults->GetInt(0);
-	//	}
-
-	//	pResults->Reset();
-	//}
 
 	//ResourceYieldModifiers
 	{
