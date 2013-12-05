@@ -67,5 +67,10 @@
 		<Row Tag="TXT_KEY_MISSION_CREATE_GOVERNOR_DISABLED_HELP">
 			<Text>This unit must be in a city owned by your civilization to be able to install itself as a governor.</Text>
 		</Row>
+		
+		<!-- Building cannot be built due to Governor OR Prereq -->
+		<Row Tag="TXT_KEY_NO_ACTION_BUILDING_LOCAL_GOVERNOR">
+			<Text>[NEWLINE]A {1_GovernorDescription} governor will allow this building to be constructed.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

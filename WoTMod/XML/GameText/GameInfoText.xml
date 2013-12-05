@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 12/5/2013 9:56:21 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- One Power types -->
+		<Row Tag="TXT_KEY_ONE_POWER_SAIDAR">
+			<Text>Saidar</Text>
+		</Row>
+		<Row Tag="TXT_KEY_ONE_POWER_SAIDIN">
+			<Text>Saidin</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TRUE_POWER">
+			<Text>True Power</Text>
+		</Row>
+	</Language_en_US>
+</GameData>
