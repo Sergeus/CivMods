@@ -182,6 +182,7 @@ void HornOfValere::FindHorn(CvUnit* pUnit)
 
 		if (pkScriptSystem)
 		{
+			CUSTOMLOG("Calling UnitDiscoveredHornOfValere with %i owner and %i unit ID.", pUnit->getOwner(), pUnit->GetID());
 			CvLuaArgsHandle args;
 			args->Push(pUnit->getOwner());
 			args->Push(pUnit->GetID());

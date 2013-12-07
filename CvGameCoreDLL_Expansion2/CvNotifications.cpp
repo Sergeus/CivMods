@@ -1212,6 +1212,8 @@ void CvNotifications::Activate(Notification& notification)
 			args->Push(notification.m_iGameDataIndex);
 			args->Push(notification.m_iExtraGameData);
 
+			CUSTOMLOG("Calling PlayerNotificationActivated with lots of parameters.");
+
 			bool bResult;
 			LuaSupport::CallHook(pkScriptSystem, "PlayerNotificationActivated", args.get(), bResult);
 		}

@@ -4799,8 +4799,6 @@ int CvCity::GetPurchaseCost(UnitTypes eUnit)
 
 int CvCity::GetGoldPurchaseCostFromFaith(UnitTypes eUnit)
 {
-	CvUnitEntry* pInfo = GC.getUnitInfo(eUnit);
-
 	int iFaithCost = GetFaithPurchaseCost(eUnit, true);
 
 	if (iFaithCost <= 0)
@@ -11810,7 +11808,6 @@ void CvCity::AddFreePromotions(CvUnit* pUnit)
 			for (int iPromotion = 0; iPromotion < GC.getNumPromotionInfos(); iPromotion++)
 			{
 				PromotionTypes ePromotion = (PromotionTypes)iPromotion;
-				CvPromotionEntry* pPromotionInfo = GC.getPromotionInfo(ePromotion);
 
 				if (pBuildingInfo->IsFreePromotionUnitCombat(iPromotion, pUnit->getUnitCombatType()))
 				{
@@ -12030,7 +12027,6 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 					for (int i= 0; i < MAX_CIV_TEAMS; i++)
 					{
 						TeamTypes eOtherTeam = (TeamTypes)i;
-						CvTeam& kOtherTeam = GET_TEAM(eOtherTeam);
 
 						if (kTeam.isAtWar(eOtherTeam) && eOtherTeam != BARBARIAN_TEAM)
 						{

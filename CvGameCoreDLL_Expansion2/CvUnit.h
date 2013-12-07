@@ -1285,7 +1285,7 @@ protected:
 	// ----------------------------------------------------------------
 	int m_iTurnDamage;
 	int m_iRangedAttackSelfDamageChance;
-	bool m_iHealBlockedCount;
+	int m_iHealBlockedCount;
 
 	typedef enum Flags
 	{

@@ -10063,7 +10063,7 @@ int CvPlayer::GetFaithPerTurnFromCities() const
 int CvPlayer::GetFaithPerTurnFromTradeRoutes() const
 {
 	int iFaith = 0;
-	for (int i = 0; i < GC.getGame().GetGameTrade()->m_aTradeConnections.size(); i++)
+	for (unsigned i = 0; i < GC.getGame().GetGameTrade()->m_aTradeConnections.size(); i++)
 	{
 		TradeConnection& connection = GC.getGame().GetGameTrade()->m_aTradeConnections[i];
 

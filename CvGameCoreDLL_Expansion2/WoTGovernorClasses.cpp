@@ -27,6 +27,8 @@ bool WoTGovernorClassInfo::CacheResults(Database::Results& kResults, CvDatabaseU
 
 	const char* szDefaultGovernor = kResults.GetText("DefaultGovernor");
 	m_iDefaultGovernorIndex = GC.getInfoTypeForString(szDefaultGovernor, true);
+
+	return true;
 }
 
 //======================================================================================================
@@ -78,6 +80,8 @@ bool WoTGovernorEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	const char* szGovernorType = GetType();
 
 	kUtility.SetYields(m_piYieldChange, "Governor_YieldChanges", "GovernorType", szGovernorType);
+
+	return true;
 }
 
 //======================================================================================================

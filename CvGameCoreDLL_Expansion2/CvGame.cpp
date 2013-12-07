@@ -9595,17 +9595,25 @@ void CvGame::ReadSupportingClassData(FDataStream& kStream)
 //	--------------------------------------------------------------------------------
 void CvGame::Write(FDataStream& kStream) const
 {
-	// Let's tell the Lua system that we're saving, shall we?
-	ICvEngineScriptSystem1* pkScriptsSystem = gDLL->GetScriptSystem();
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// This is commented out because it causes an intermittent hang at game start
+	// due to deadlock between game core and Lua engine
+	// Need to find a better save point trigger.
+	//// Let's tell the Lua system that we're saving, shall we?
+	//ICvEngineScriptSystem1* pkScriptsSystem = gDLL->GetScriptSystem();
 
-	if (pkScriptsSystem)
-	{
-		CvLuaArgsHandle args;
+	//if (pkScriptsSystem)
+	//{
+	//	CvLuaArgsHandle args;
 
-		bool bResult;
+	//	CUSTOMLOG("Calling GameSaving Lua hook.");
 
-		LuaSupport::CallHook(pkScriptsSystem, "GameSaving", args.get(), bResult);
-	}
+	//	bool bResult;
+
+	//	LuaSupport::CallHook(pkScriptsSystem, "GameSaving", args.get(), bResult);
+	//}
 
 	// Current version number
 	kStream << g_CurrentCvGameVersion;
@@ -10503,6 +10511,7 @@ void CvGame::DoStartLastBattle()
 	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 	if(pkScriptSystem)
 	{
+		CUSTOMLOG("Calling LastBattleStart Lua hook.");
 		CvLuaArgsHandle args;
 		bool bResult;
 		LuaSupport::CallHook(pkScriptSystem, "LastBattleStart", args.get(), bResult);
@@ -10572,6 +10581,7 @@ void CvGame::startLastBattle()
 			ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 			if(pkScriptSystem)
 			{
+				CUSTOMLOG("Calling PlayerChosenLastBattleSide with %i player and %i side.", ePlayer, eSide);
 				CvLuaArgsHandle args;
 				args->Push(ePlayer);
 				args->Push(eSide);
