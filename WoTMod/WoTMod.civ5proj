@@ -647,6 +647,7 @@
     <Folder Include="UI\InGame" />
     <Folder Include="UI\InGame\Menus" />
     <Folder Include="UI\InGame\CityView" />
+    <Folder Include="UI\InGame\TechTree" />
     <Folder Include="UI\InGame\Popups" />
     <Folder Include="UI\InGame\WorldView" />
     <Folder Include="UI\FrontEnd" />
@@ -1322,6 +1323,10 @@
     <Content Include="UI\InGame\Popups\LastBattleChoiceMenu.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\TechTree\TechTree.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="UI\InGame\TopPanel.lua">
       <SubType>Lua</SubType>

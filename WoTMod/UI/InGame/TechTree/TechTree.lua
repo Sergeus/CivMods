@@ -78,50 +78,76 @@ function InitialSetup()
 	-- add the Era panels to the background
 	AddEraPanels();
 
+	---------------------------------------
+	-- WoTMod
+	-- Credit to Alzara: http://forums.civfanatics.com/showthread.php?t=420316
+	---------------------------------------
 	-- add the pipes
 	local techPipes = {};
-	for row in GameInfo.Technologies() do
-		techPipes[row.Type] = 
-		{
-			leftConnectionUp = false;
-			leftConnectionDown = false;
-			leftConnectionCenter = false;
-			leftConnectionType = 0;
-			rightConnectionUp = false;
-			rightConnectionDown = false;
-			rightConnectionCenter = false;
-			rightConnectionType = 0;
-			xOffset = 0;
-			techType = row.Type;
-		};
+	local i = 0;
+
+	for row in GameInfo.Technology_PrereqTechs() do
+		local tech = GameInfo.Technologies[row.TechType];
+		local prereq = GameInfo.Technologies[row.PrereqTech];
+
+		if tech and prereq then
+			local bTechLeftConnUp = false;
+			local bTechLeftConnDown = false;
+			local bTechLeftConnCentre = false;
+			local bPrereqRightConnUp = false;
+			local bPrereqRightConnDown = false;
+			local bPrereqRightConnCentre = false;
+			local nPrereqXOffset = (tech.GridX - prereq.GridX) - 1;
+			local nTechXOffset = -nPrereqXOffset;
+
+			if tech.GridY < prereq.GridY then
+				bTechLeftConnDown = true;
+				bPrereqRightConnUp = true;
+			elseif tech.GridY > prereq.GridY then
+				bTechLeftConnUp = true;
+				bPrereqRightConnDown = true;
+			else -- tech.GridY == prereq.GridY
+				bTechLeftConnCentre = true;
+				bPrereqRightConnCentre = true;
+			end
+
+			techPipes[i] =
+			{
+				leftConnectionUp = bTechLeftConnUp;
+				leftConnectionDown = bTechLeftConnDown;
+				leftConnectionCenter = bTechLeftConnCentre;
+				leftConnectionType = 0;
+				rightConnectionUp = false;
+				rightConnectionDown = false;
+				rightConnectionCenter = false;
+				rightConnectionType = 0;
+				xOffset = nTechXOffset;
+				techType = tech.Type;
+			};
+
+			i = i + 1;
+
+			techPipes[i] =
+			{
+				leftConnectionUp = false;
+				leftConnectionDown = false;
+				leftConnectionCenter = false;
+				leftConnectionType = 0;
+				rightConnectionUp = bPrereqRightConnUp;
+				rightConnectionDown = bPrereqRightConnDown;
+				rightConnectionCenter = bPrereqRightConnCentre;
+				rightConnectionType = 0;
+				xOffset = nPrereqXOffset;
+				techType = prereq.Type;
+			};
+
+			i = i + 1;
+		end
 	end
-	
+
 	local cnxCenter = 1
 	local cnxUp = 2
 	local cnxDown = 4
-	
-	-- Figure out which left and right adapters we need
-	for row in GameInfo.Technology_PrereqTechs() do
-		local prereq = GameInfo.Technologies[row.PrereqTech];
-		local tech = GameInfo.Technologies[row.TechType];
-		if tech and prereq then
-			if tech.GridY < prereq.GridY then
-				techPipes[tech.Type].leftConnectionDown = true;
-				techPipes[prereq.Type].rightConnectionUp = true;
-			elseif tech.GridY > prereq.GridY then
-				techPipes[tech.Type].leftConnectionUp = true;
-				techPipes[prereq.Type].rightConnectionDown = true;
-			else -- tech.GridY == prereq.GridY
-				techPipes[tech.Type].leftConnectionCenter = true;
-				techPipes[prereq.Type].rightConnectionCenter = true;
-			end
-			
-			local xOffset = (tech.GridX - prereq.GridX) - 1;
-			if xOffset > techPipes[prereq.Type].xOffset then
-				techPipes[prereq.Type].xOffset = xOffset;
-			end
-		end
-	end
 
 	for pipeIndex, thisPipe in pairs(techPipes) do
 		if thisPipe.leftConnectionDown then
