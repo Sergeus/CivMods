@@ -36,11 +36,11 @@
 			<Where Type="TECH_WRITING" />
 		</Update>
 		<Update>
-			<Set Cost="20" AdvancedStartCost="0" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="4" GridY="2" PortraitIndex="0" ScenarioTechButton="0" />
+			<Set Cost="20" AdvancedStartCost="0" Era="ERA_CLASSICAL" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="4" GridY="2" PortraitIndex="0" ScenarioTechButton="0" />
 			<Where Type="TECH_HORSEBACK_RIDING" />
 		</Update>
 		<Update>
-			<Set Cost="20" AdvancedStartCost="0" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="4" PortraitIndex="0" ScenarioTechButton="0" />
+			<Set Cost="20" AdvancedStartCost="0" Era="ERA_CLASSICAL" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="4" PortraitIndex="0" ScenarioTechButton="0" />
 			<Where Type="TECH_CONSTRUCTION" />
 		</Update>
 		<Update>
@@ -52,7 +52,7 @@
 			<Where Type="TECH_METAL_CASTING" />
 		</Update>
 		<Update>
-			<Set Cost="20" AdvancedStartCost="0" FirstFreeUnitClass="0" InternationalTradeRoutesChange="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="5" GridY="1" PortraitIndex="0" ScenarioTechButton="0" />
+			<Set Cost="20" AdvancedStartCost="0" Era="ERA_MEDIEVAL" FirstFreeUnitClass="0" InternationalTradeRoutesChange="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="5" GridY="1" PortraitIndex="0" ScenarioTechButton="0" />
 			<Where Type="TECH_COMPASS" />
 		</Update>
 		<Update>
@@ -68,7 +68,7 @@
 			<Where Type="TECH_NAVIGATION" />
 		</Update>
 		<Update>
-			<Set Cost="20" AdvancedStartCost="0" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="7" GridY="7" PortraitIndex="0" ScenarioTechButton="0" />
+			<Set Cost="20" AdvancedStartCost="0" Era="ERA_RENAISSANCE" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="7" GridY="7" PortraitIndex="0" ScenarioTechButton="0" />
 			<Where Type="TECH_METALLURGY" />
 		</Update>
 		<Update>
@@ -356,26 +356,6 @@
 			  <AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>
 		<Row>
-			  <Type>TECH_CHAIN_OF_COMMAND</Type>
-			  <Description>TXT_KEY_TECH_CHAIN_OF_COMMAND_DESC</Description>
-			  <Civilopedia>TXT_KEY_TECH_CHAIN_OF_COMMAND_CIV</Civilopedia>
-			  <Help>TXT_KEY_TECH_CHAIN_OF_COMMAND_HELP</Help>
-			  <Cost>20</Cost>
-			  <AdvancedStartCost>0</AdvancedStartCost>
-			  <Era>ERA_MEDIEVAL</Era>
-			  <FirstFreeUnitClass>0</FirstFreeUnitClass>
-			  <Trade>1</Trade>
-			  <GoodyTech>1</GoodyTech>
-			  <GridX>5</GridX>
-			  <GridY>5</GridY>
-			  <Quote>TXT_KEY_TECH_CHAIN_OF_COMMAND_QUOTE</Quote>
-			  <PortraitIndex>0</PortraitIndex>
-			  <ScenarioTechButton>0</ScenarioTechButton>
-			  <IconAtlas>TECH_ATLAS_1</IconAtlas>
-			  <AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
-			  <AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
-		</Row>
-		<Row>
 			  <Type>TECH_SEXTANT</Type>
 			  <Description>TXT_KEY_TECH_SEXTANT_DESC</Description>
 			  <Civilopedia>TXT_KEY_TECH_SEXTANT_CIV</Civilopedia>
@@ -393,6 +373,26 @@
 			  <IconAtlas>TECH_ATLAS_1</IconAtlas>
 			  <AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
 			  <AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
+		</Row>
+		<Row>
+			<Type>TECH_CHAIN_OF_COMMAND</Type>
+			<Description>TXT_KEY_TECH_CHAIN_OF_COMMAND_DESC</Description>
+			<Civilopedia>TXT_KEY_TECH_CHAIN_OF_COMMAND_CIV</Civilopedia>
+			<Help>TXT_KEY_TECH_CHAIN_OF_COMMAND_HELP</Help>
+			<Cost>20</Cost>
+			<AdvancedStartCost>0</AdvancedStartCost>
+			<Era>ERA_MEDIEVAL</Era>
+			<FirstFreeUnitClass>0</FirstFreeUnitClass>
+			<Trade>1</Trade>
+			<GoodyTech>1</GoodyTech>
+			<GridX>5</GridX>
+			<GridY>5</GridY>
+			<Quote>TXT_KEY_TECH_CHAIN_OF_COMMAND_QUOTE</Quote>
+			<PortraitIndex>0</PortraitIndex>
+			<ScenarioTechButton>0</ScenarioTechButton>
+			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>
+			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>
 		<Row>
 			  <Type>TECH_STRATEGIC_THEORY</Type>
@@ -520,7 +520,7 @@
 			  <Help>TXT_KEY_TECH_SISTERHOOD_HELP</Help>
 			  <Cost>20</Cost>
 			  <AdvancedStartCost>0</AdvancedStartCost>
-			  <Era>ERA_RENAISSANCE</Era>
+			  <Era>ERA_MEDIEVAL</Era>
 			  <FirstFreeUnitClass>0</FirstFreeUnitClass>
 			  <Trade>1</Trade>
 			  <GoodyTech>1</GoodyTech>

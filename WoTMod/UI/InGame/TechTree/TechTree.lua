@@ -379,14 +379,22 @@ function AddEraPanels()
 	-- find the range of columns that each era takes
 	for tech in GameInfo.Technologies() do
 		local eraID = GameInfo.Eras[tech.Era].ID;
-		if not eraColumns[eraID] then
-			eraColumns[eraID] = { minGridX = tech.GridX; maxGridX = tech.GridX; researched = false; };
-		else
-			if tech.GridX < eraColumns[eraID].minGridX then
-				eraColumns[eraID].minGridX = tech.GridX;
-			end
-			if tech.GridX > eraColumns[eraID].maxGridX then
-				eraColumns[eraID].maxGridX = tech.GridX;
+		---------------------------------------
+		-- WoTMod
+		---------------------------------------
+		if tech.GridX >= 0 then
+			if not eraColumns[eraID] then
+				print("Initializing era " .. eraID .. " to " .. tech.GridX .. " due to tech " .. tech.Type)
+				eraColumns[eraID] = { minGridX = tech.GridX; maxGridX = tech.GridX; researched = false; };
+			else
+				if tech.GridX < eraColumns[eraID].minGridX then
+					print("Era " .. eraID .. " minimum set to " .. tech.GridX .. " due to tech " .. tech.Type)
+					eraColumns[eraID].minGridX = tech.GridX;
+				end
+				if tech.GridX > eraColumns[eraID].maxGridX then
+					print("Era " .. eraID .. " maximum set to " .. tech.GridX .. " due to tech " .. tech.Type)
+					eraColumns[eraID].maxGridX = tech.GridX;
+				end
 			end
 		end
 	end
