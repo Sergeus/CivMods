@@ -594,6 +594,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>Barathor's More Luxuries/XML/NewLuxuries_Text.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Art/Technologies/LegendOfTheHorn/TechLegendOfTheHornIconAtlases.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -637,6 +642,7 @@
     <Folder Include="Art\Governors" />
     <Folder Include="Art\Technologies" />
     <Folder Include="Art\Technologies\Fire" />
+    <Folder Include="Art\Technologies\LegendOfTheHorn" />
     <Folder Include="Art\UI" />
     <Folder Include="Art\UI\LastBattle" />
     <Folder Include="Art\UI\Governors" />
@@ -1115,6 +1121,34 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Technologies\Fire\TechFireIconAtlases.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\LegendOfTheHorn\LegendOfTheHornIcon128.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\LegendOfTheHorn\LegendOfTheHornIcon214.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\LegendOfTheHorn\LegendOfTheHornIcon256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\LegendOfTheHorn\LegendOfTheHornIcon45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\LegendOfTheHorn\LegendOfTheHornIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\LegendOfTheHorn\LegendOfTheHornIcon80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Technologies\LegendOfTheHorn\TechLegendOfTheHornIconAtlases.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
