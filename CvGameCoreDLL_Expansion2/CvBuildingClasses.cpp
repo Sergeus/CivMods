@@ -203,7 +203,7 @@ CvBuildingEntry::CvBuildingEntry(void):
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_pabGovernorClassOrPrereqs(NULL),
-	m_iOnePowerBlockingRange(-1),
+	m_piOnePowerBlockingRange(NULL),
 
 	m_paThemingBonusInfo(NULL),
 	m_iNumThemingBonuses(0)
@@ -250,6 +250,7 @@ CvBuildingEntry::~CvBuildingEntry(void)
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	SAFE_DELETE_ARRAY(m_pabGovernorClassOrPrereqs);
+	SAFE_DELETE_ARRAY(m_piOnePowerBlockingRange);
 
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiResourceYieldChange);
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiFeatureYieldChange);
@@ -395,11 +396,6 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	m_iReligionMajorityPressureModifier = kResults.GetInt("ReligionMajorityPressureModifier");
 	m_iUnitPurchaseCostModifier = kResults.GetInt("UnitPurchaseCostModifier");
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	m_iOnePowerBlockingRange = kResults.GetInt("OnePowerBlockingRange");
-
 	//References
 	const char* szTextVal;
 	szTextVal = kResults.GetText("BuildingClass");
@@ -524,6 +520,7 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	kUtility.PopulateArrayByExistence(m_pabGovernorClassOrPrereqs, "GovernorClasses", "Building_GovernorOrPrereqs", "GovernorClassType", "BuildingType", szBuildingType);
+	kUtility.PopulateArrayByValue(m_piOnePowerBlockingRange, "OnePowers", "Building_OnePowerBlocking", "OnePowerType", "BuildingType", szBuildingType, "Range", -1);
 
 	//ResourceYieldChanges
 	{
@@ -2121,9 +2118,11 @@ bool CvBuildingEntry::IsGovernorClassOrPrereq(GovernorClassTypes eGovernorClass)
 	CvAssertMsg(eGovernorClass > -1, "Index out of bounds");
 	return m_pabGovernorClassOrPrereqs[eGovernorClass];
 }
-int CvBuildingEntry::GetOnePowerBlockingRange() const
+int CvBuildingEntry::GetOnePowerBlockingRange(OnePowerTypes eOnePower) const
 {
-	return m_iOnePowerBlockingRange;
+	CvAssertMsg(eOnePower < GC.GetNumOnePowerInfos(), "Index out of bounds");
+	CvAssertMsg(eOnePower > -1, "Index out of bounds");
+	return m_piOnePowerBlockingRange[eOnePower];
 }
 
 /// Modifier to resource yield
@@ -2841,23 +2840,27 @@ void CvCityBuildings::SetNumRealBuildingTimed(BuildingTypes eIndex, int iNewValu
 		// WoTMod Addition
 		// ----------------------------------------------------------------
 		// Update the plots around this city if this building blocks channeling for any distance
-		if (buildingEntry->GetOnePowerBlockingRange() > -1)
+		for (int iOnePower = 0; iOnePower < GC.GetNumOnePowerInfos(); iOnePower++)
 		{
-			int iBlockRange = buildingEntry->GetOnePowerBlockingRange();
-			int cityX = m_pCity->getX();
-			int cityY = m_pCity->getY();
-
-			m_pCity->plot()->SetCannotChannelHere(true);
-
-			for (int iX = -1 * iBlockRange; iX < iBlockRange; iX++)
+			OnePowerTypes eOnePower = static_cast<OnePowerTypes>(iOnePower);
+			int iBlockRange = buildingEntry->GetOnePowerBlockingRange(eOnePower);
+			if (iBlockRange > -1)
 			{
-				for (int iY = -1 * iBlockRange; iY < iBlockRange; iY++)
-				{
-					CvPlot* pPlot = plotXYWithRangeCheck(cityX, cityY, iX, iY, iBlockRange);
+				int cityX = m_pCity->getX();
+				int cityY = m_pCity->getY();
 
-					if (pPlot)
+				m_pCity->plot()->ChangeCannotChannelHere(eOnePower, iChangeNumRealBuilding);
+
+				for (int iX = -1 * iBlockRange; iX < iBlockRange; iX++)
+				{
+					for (int iY = -1 * iBlockRange; iY < iBlockRange; iY++)
 					{
-						pPlot->SetCannotChannelHere(true);
+						CvPlot* pPlot = plotXYWithRangeCheck(cityX, cityY, iX, iY, iBlockRange);
+
+						if (pPlot)
+						{
+							pPlot->ChangeCannotChannelHere(eOnePower, iChangeNumRealBuilding);
+						}
 					}
 				}
 			}

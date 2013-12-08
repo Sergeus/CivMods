@@ -149,6 +149,10 @@ CvPlot::CvPlot() :
 {
 	FSerialization::plotsToCheck.insert(this);
 	m_paiBuildProgress = NULL;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_iCannotChannelHere = NULL;
 
 	m_szScriptData = NULL;
 
@@ -189,6 +193,11 @@ void CvPlot::uninit()
 	m_pCenterUnit = NULL;
 
 	SAFE_DELETE_ARRAY(m_paiBuildProgress);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE_ARRAY(m_iCannotChannelHere);
 
 	m_units.clear();
 }
@@ -241,7 +250,6 @@ void CvPlot::reset(int iX, int iY, bool bConstructorCall)
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_bHornOfValere = false;
-	m_bCannotChannelHere = false;
 
 	m_eOwner = NO_PLAYER;
 	m_ePlotType = PLOT_OCEAN;
@@ -315,6 +323,13 @@ void CvPlot::reset(int iX, int iY, bool bConstructorCall)
 		for(int iI = 0; iI < MAX_MAJOR_CIVS; ++iI)
 		{
 			m_abNoSettling[iI] = false;
+		}
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		for (int iI = 0; iI < GC.GetNumOnePowerInfos(); ++iI)
+		{
+			m_iCannotChannelHere = 0;
 		}
 	}
 	for(int iI = 0; iI < REALLY_MAX_TEAMS; ++iI)
@@ -9538,8 +9553,6 @@ void CvPlot::read(FDataStream& kStream)
 	// ----------------------------------------------------------------
 	kStream >> bitPackWorkaround;
 	m_bHornOfValere = bitPackWorkaround;
-	kStream >> bitPackWorkaround;
-	m_bCannotChannelHere = bitPackWorkaround;
 
 	kStream >> m_eOwner;
 	kStream >> m_ePlotType;
@@ -9657,6 +9670,12 @@ void CvPlot::read(FDataStream& kStream)
 	for(uint i = 0; i < MAX_MAJOR_CIVS; i++)
 		kStream >> m_abNoSettling[i];
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	for (uint i = 0; i < GC.GetNumOnePowerInfos(); i++)
+		kStream >> m_iCannotChannelHere[i];
+
 	bool hasScriptData = false;
 	kStream >> hasScriptData;
 	if(hasScriptData)
@@ -9746,7 +9765,6 @@ void CvPlot::write(FDataStream& kStream) const
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	kStream << m_bHornOfValere;
-	kStream << m_bCannotChannelHere;
 	// m_bPlotLayoutDirty not saved
 	// m_bLayoutStateWorked not saved
 
@@ -9817,6 +9835,12 @@ void CvPlot::write(FDataStream& kStream) const
 
 	for(uint i = 0; i < MAX_MAJOR_CIVS; i++)
 		kStream << m_abNoSettling[i];
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	for (uint i = 0; i < GC.GetNumOnePowerInfos(); i++)
+		kStream << m_iCannotChannelHere[i];
 
 	// char * should have died in 1989...
 	bool hasScriptData = (m_szScriptData != NULL);
@@ -10648,14 +10672,14 @@ bool CvPlot::IsHasHornOfValere() const
 	return m_bHornOfValere;
 }
 
-void CvPlot::SetCannotChannelHere(bool bNewValue)
+void CvPlot::ChangeCannotChannelHere(OnePowerTypes eOnePower, int iChange)
 {
-	m_bCannotChannelHere = bNewValue;
+	m_iCannotChannelHere[eOnePower] += iChange;
 }
 
-bool CvPlot::IsCannotChannelHere() const
+bool CvPlot::IsCannotChannelHere(OnePowerTypes eOnePower) const
 {
-	return m_bCannotChannelHere;
+	return m_iCannotChannelHere[eOnePower] > 0;
 }
 
 //	---------------------------------------------------------------------------

@@ -260,6 +260,7 @@ CvMap::CvMap()
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_pHornOfValere = NULL;
+	m_pCannotChannelHere = NULL;
 
 	reset(&defaultMapData);
 }
@@ -290,6 +291,10 @@ void CvMap::InitPlots()
 	m_pRevealedRouteType		= FNEW(short[REALLY_MAX_TEAMS*iNumPlots], c_eCiv5GameplayDLL, 0);
 	m_pNoSettling				= FNEW(bool[MAX_MAJOR_CIVS*iNumPlots], c_eCiv5GameplayDLL, 0);
 	m_pResourceForceReveal		= FNEW(bool[REALLY_MAX_TEAMS*iNumPlots], c_eCiv5GameplayDLL, 0);
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pCannotChannelHere		= FNEW(short[GC.GetNumOnePowerInfos()*iNumPlots], c_eCiv5GameplayDLL, 0);
 
 	memset(m_pYields, 0, NUM_YIELD_TYPES*iNumPlots*sizeof(short));
 	memset(m_pFoundValue, 0, REALLY_MAX_PLAYERS*iNumPlots*sizeof(int));
@@ -301,6 +306,10 @@ void CvMap::InitPlots()
 	memset(m_pRevealedRouteType, 0,REALLY_MAX_TEAMS*iNumPlots *sizeof(short));
 	memset(m_pNoSettling, 0,MAX_MAJOR_CIVS*iNumPlots *sizeof(bool));
 	memset(m_pResourceForceReveal, 0,REALLY_MAX_TEAMS*iNumPlots *sizeof(bool));
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	memset(m_pCannotChannelHere, 0, GC.GetNumOnePowerInfos() * iNumPlots * sizeof(short));
 
 
 	short* pYields					= m_pYields;
@@ -312,6 +321,10 @@ void CvMap::InitPlots()
 	short* pRevealedRouteType		= m_pRevealedRouteType;
 	bool*  pNoSettling				= m_pNoSettling;
 	bool*  pResourceForceReveal		= m_pResourceForceReveal;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	short* pCannotChannelHere		= m_pCannotChannelHere;
 
 	for(int i = 0; i < iNumPlots; i++)
 	{
@@ -327,6 +340,11 @@ void CvMap::InitPlots()
 
 		m_pMapPlots[i].m_abResourceForceReveal		= pResourceForceReveal;
 
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------		
+		m_pCannotChannelHere						= pCannotChannelHere;
+
 
 		pYields					+= NUM_YIELD_TYPES;
 		pFoundValue				+= REALLY_MAX_PLAYERS;
@@ -337,6 +355,10 @@ void CvMap::InitPlots()
 		pRevealedRouteType		+= REALLY_MAX_TEAMS;
 		pNoSettling				+= MAX_MAJOR_CIVS;
 		pResourceForceReveal	+= REALLY_MAX_TEAMS;
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		pCannotChannelHere		+= GC.GetNumOnePowerInfos();
 
 	}
 
@@ -397,6 +419,7 @@ void CvMap::uninit()
 	{
 		SAFE_DELETE(m_pHornOfValere);
 	}
+	SAFE_DELETE_ARRAY(m_pCannotChannelHere);
 
 	SAFE_DELETE_ARRAY(m_pMapPlots);
 

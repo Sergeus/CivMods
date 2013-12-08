@@ -356,6 +356,10 @@ protected:
 	short* m_pRevealedRouteType;
 	bool*  m_pNoSettling;
 	bool* m_pResourceForceReveal;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	short* m_pCannotChannelHere;
 
 	FFreeListTrashArray<CvArea> m_areas;
 	FFreeListTrashArray<CvLandmass> m_landmasses;
