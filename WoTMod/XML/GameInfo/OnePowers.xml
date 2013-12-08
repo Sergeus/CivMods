@@ -17,7 +17,7 @@
 			<Description>TXT_KEY_ONE_POWER_SAIDIN</Description>
 		</Row>
 		<Row>
-			<Type>TRUE_POWER</Type>
+			<Type>ONE_POWER_TRUE_POWER</Type>
 			<Description>TXT_KEY_TRUE_POWER</Description>
 		</Row>
 	</OnePowers>
