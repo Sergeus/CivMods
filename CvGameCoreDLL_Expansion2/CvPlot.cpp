@@ -194,11 +194,6 @@ void CvPlot::uninit()
 
 	SAFE_DELETE_ARRAY(m_paiBuildProgress);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	SAFE_DELETE_ARRAY(m_iCannotChannelHere);
-
 	m_units.clear();
 }
 
