@@ -21400,6 +21400,26 @@ void CvUnit::DoGovernCity()
 	}
 }
 
+bool CvUnit::IsOnePowerWielding(OnePowerTypes eOnePower) const
+{
+	CvUnitEntry& pInfo = getUnitInfo();
+
+	return pInfo.IsUsesOnePowerSource(eOnePower);
+}
+
+bool CvUnit::IsChanneler() const
+{
+	for (int i = 0; i < GC.GetNumOnePowerInfos(); i++)
+	{
+		if (IsOnePowerWielding((OnePowerTypes)i))
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
 //	--------------------------------------------------------------------------------
 DestructionNotification<UnitHandle>& CvUnit::getDestructionNotification()
 {

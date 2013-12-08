@@ -237,6 +237,12 @@ void CvPlot::reset(int iX, int iY, bool bConstructorCall)
 	m_bIsAdjacentToLand = false;
 	m_bIsImpassable = false;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_bHornOfValere = false;
+	m_bCannotChannelHere = false;
+
 	m_eOwner = NO_PLAYER;
 	m_ePlotType = PLOT_OCEAN;
 	m_eTerrainType = NO_TERRAIN;
@@ -9532,6 +9538,8 @@ void CvPlot::read(FDataStream& kStream)
 	// ----------------------------------------------------------------
 	kStream >> bitPackWorkaround;
 	m_bHornOfValere = bitPackWorkaround;
+	kStream >> bitPackWorkaround;
+	m_bCannotChannelHere = bitPackWorkaround;
 
 	kStream >> m_eOwner;
 	kStream >> m_ePlotType;
@@ -9738,6 +9746,7 @@ void CvPlot::write(FDataStream& kStream) const
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	kStream << m_bHornOfValere;
+	kStream << m_bCannotChannelHere;
 	// m_bPlotLayoutDirty not saved
 	// m_bLayoutStateWorked not saved
 
@@ -10637,6 +10646,16 @@ void CvPlot::SetHasHornOfValere(bool bNewValue)
 bool CvPlot::IsHasHornOfValere() const
 {
 	return m_bHornOfValere;
+}
+
+void CvPlot::SetCannotChannelHere(bool bNewValue)
+{
+	m_bCannotChannelHere = bNewValue;
+}
+
+bool CvPlot::IsCannotChannelHere() const
+{
+	return m_bCannotChannelHere;
 }
 
 //	---------------------------------------------------------------------------

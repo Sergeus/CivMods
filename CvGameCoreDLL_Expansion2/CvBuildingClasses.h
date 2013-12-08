@@ -306,6 +306,7 @@ public:
 	// ----------------------------------------------------------------
 	bool IsFreePromotionOnePowerWielding(const int iPromotion, const OnePowerTypes eOnePower) const;
 	bool IsGovernorClassOrPrereq(GovernorClassTypes eGovernorClass) const;
+	int GetOnePowerBlockingRange() const;
 
 	CvThemingBonusInfo *GetThemingBonusInfo(int i) const;
 	int GetNumThemingBonuses() const {return m_iNumThemingBonuses;};
@@ -515,6 +516,7 @@ private:
 	// ----------------------------------------------------------------
 	std::multimap<int, int> m_FreePromotionsOnePowerWielding;
 	bool* m_pabGovernorClassOrPrereqs;
+	int m_iOnePowerBlockingRange;
 
 	CvThemingBonusInfo* m_paThemingBonusInfo;
 	int m_iNumThemingBonuses;

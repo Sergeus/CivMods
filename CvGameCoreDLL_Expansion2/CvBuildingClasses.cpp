@@ -203,6 +203,7 @@ CvBuildingEntry::CvBuildingEntry(void):
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_pabGovernorClassOrPrereqs(NULL),
+	m_iOnePowerBlockingRange(-1),
 
 	m_paThemingBonusInfo(NULL),
 	m_iNumThemingBonuses(0)
@@ -393,6 +394,11 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	m_bEndsWars = kResults.GetBool("EndsWars");
 	m_iReligionMajorityPressureModifier = kResults.GetInt("ReligionMajorityPressureModifier");
 	m_iUnitPurchaseCostModifier = kResults.GetInt("UnitPurchaseCostModifier");
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_iOnePowerBlockingRange = kResults.GetInt("OnePowerBlockingRange");
 
 	//References
 	const char* szTextVal;
@@ -2115,6 +2121,10 @@ bool CvBuildingEntry::IsGovernorClassOrPrereq(GovernorClassTypes eGovernorClass)
 	CvAssertMsg(eGovernorClass > -1, "Index out of bounds");
 	return m_pabGovernorClassOrPrereqs[eGovernorClass];
 }
+int CvBuildingEntry::GetOnePowerBlockingRange() const
+{
+	return m_iOnePowerBlockingRange;
+}
 
 /// Modifier to resource yield
 int CvBuildingEntry::GetResourceYieldModifier(int i, int j) const
@@ -2824,6 +2834,32 @@ void CvCityBuildings::SetNumRealBuildingTimed(BuildingTypes eIndex, int iNewValu
 			if(buildingEntry->GetResourceQuantityRequirement(iResourceLoop) > 0)
 			{
 				pPlayer->changeNumResourceUsed((ResourceTypes) iResourceLoop, iChangeNumRealBuilding * buildingEntry->GetResourceQuantityRequirement(iResourceLoop));
+			}
+		}
+
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		// Update the plots around this city if this building blocks channeling for any distance
+		if (buildingEntry->GetOnePowerBlockingRange() > -1)
+		{
+			int iBlockRange = buildingEntry->GetOnePowerBlockingRange();
+			int cityX = m_pCity->getX();
+			int cityY = m_pCity->getY();
+
+			m_pCity->plot()->SetCannotChannelHere(true);
+
+			for (int iX = -1 * iBlockRange; iX < iBlockRange; iX++)
+			{
+				for (int iY = -1 * iBlockRange; iY < iBlockRange; iY++)
+				{
+					CvPlot* pPlot = plotXYWithRangeCheck(cityX, cityY, iX, iY, iBlockRange);
+
+					if (pPlot)
+					{
+						pPlot->SetCannotChannelHere(true);
+					}
+				}
 			}
 		}
 

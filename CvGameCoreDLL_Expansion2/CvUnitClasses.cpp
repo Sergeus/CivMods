@@ -1112,10 +1112,20 @@ int CvUnitEntry::GetFreeUnitWhenTradeRoutePlundered(int i) const
 // ----------------------------------------------------------------
 bool CvUnitEntry::IsGovernorClass(int i) const
 {
+	CvAssertMsg(i < GC.GetNumGovernorClassInfos(), "Index out of bounds");
+	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_pbGovernorClasses ? m_pbGovernorClasses[i] : false;
+}
+bool CvUnitEntry::IsUsesOnePowerSource(int i) const
+{
+	CvAssertMsg(i < GC.GetNumOnePowerInfos(), "Index out of bounds");
+	CvAssertMsg(i > -1, "Index out of bounds");
+	return m_pbOnePowerTypes ? m_pbOnePowerTypes[i] : false;
 }
 int CvUnitEntry::GetFreePromotionsUntilProjectCompleted(int i) const
 {
+	CvAssertMsg(i < GC.getNumProjectInfos(), "Index out of bounds");
+	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_piFreePromotionsUntilProjectCompleted ? m_piFreePromotionsUntilProjectCompleted[i] : -1;
 }
 

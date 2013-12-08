@@ -387,6 +387,8 @@ public:
 	// ----------------------------------------------------------------
 	bool IsHasHornOfValere() const;
 	void SetHasHornOfValere(bool bNewValue);
+	bool IsCannotChannelHere() const;
+	void SetCannotChannelHere(bool bNewValue);
 
 	PlotTypes getPlotType() const
 	{
@@ -861,6 +863,7 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	bool m_bHornOfValere:1;
+	bool m_bCannotChannelHere:1;
 
 	CvArchaeologyData m_kArchaeologyData;
 
