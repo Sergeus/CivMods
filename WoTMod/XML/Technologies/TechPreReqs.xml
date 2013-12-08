@@ -281,6 +281,10 @@
 			<PrereqTech>TECH_CHAIN_OF_COMMAND</PrereqTech>
 		</Row>
 		<Row>
+			<TechType>TECH_SISTERHOOD</TechType>
+			<PrereqTech>TECH_THE_ONE_POWER</PrereqTech>
+		</Row>
+		<Row>
 			<TechType>TECH_LEGENDARY_ARTIFACTS</TechType>
 			<PrereqTech>TECH_LEGEND_OF_THE_HORN</PrereqTech>
 		</Row>
@@ -415,6 +419,30 @@
 		<Row>
 			<TechType>TECH_CURRENCY</TechType>
 			<PrereqTech>TECH_ROYAL_DECREE</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_CUENDILLAR</TechType>
+			<PrereqTech>TECH_TERANGREAL</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_ANGREAL</TechType>
+			<PrereqTech>TECH_CUENDILLAR</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_ANGREAL</TechType>
+			<PrereqTech>TECH_DREAMING</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_SEXTANT</TechType>
+			<PrereqTech>TECH_THE_WHEEL</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_CALENDAR</TechType>
+			<PrereqTech>TECH_TRADING_POLICIES</PrereqTech>
+		</Row>
+		<Row>
+			<TechType>TECH_FLEET_LOGISTICS</TechType>
+			<PrereqTech>TECH_CALENDAR</PrereqTech>
 		</Row>
 	</Technology_PrereqTechs>
 </GameData>
