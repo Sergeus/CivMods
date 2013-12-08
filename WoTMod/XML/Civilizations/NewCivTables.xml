@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 12/8/2013 10:46:02 PM -->
+<GameData>
+	<Table name="MinorCivilization_OnePowerBlocking">
+		<Column name="MinorCivType" type="text" reference="MinorCivilizations(type)"/>
+		<Column name="OnePowerType" type="text" reference="OnePowers(Type)"/>
+	</Table>
+</GameData>
