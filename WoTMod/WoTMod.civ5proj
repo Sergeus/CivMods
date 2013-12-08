@@ -579,6 +579,21 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/GameInfoText.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Barathor's More Luxuries/XML/NewLuxuries_Art.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Barathor's More Luxuries/XML/NewLuxuries_Resources.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>Barathor's More Luxuries/XML/NewLuxuries_Text.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -636,6 +651,13 @@
     <Folder Include="Art\Units\Icons\Myrddraal" />
     <Folder Include="Art\Units\Icons\BirgitteSilverbow" />
     <Folder Include="Art\Units\Icons\Trolloc" />
+    <Folder Include="Barathor%27s More Luxuries\" />
+    <Folder Include="Barathor%27s More Luxuries\Art" />
+    <Folder Include="Barathor%27s More Luxuries\Art\Font Icon Atlas" />
+    <Folder Include="Barathor%27s More Luxuries\Art\Icon Atlas" />
+    <Folder Include="Barathor%27s More Luxuries\Art\Luxury Olives" />
+    <Folder Include="Barathor%27s More Luxuries\Art\Luxury Tobacco" />
+    <Folder Include="Barathor%27s More Luxuries\XML" />
     <Folder Include="Lua" />
     <Folder Include="Art" />
     <Folder Include="Lua\HornOfValere" />
@@ -1241,6 +1263,186 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Units\Icons\Trolloc\TrollocIconAtlas.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Font Icon Atlas\fonticons_newluxuries.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Font Icon Atlas\FontIcons_NewLuxuries.ggxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Icon Atlas\NewLuxuries_ResourceAtlas256.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Icon Atlas\NewLuxuries_ResourceAtlas45.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Icon Atlas\NewLuxuries_ResourceAtlas64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Icon Atlas\NewLuxuries_ResourceAtlas80.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\olive.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\olive.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\olive_trees_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\olive_trees_sref.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\pil_olive_trees_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_ind_olive.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_ind_olive.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_ind_olive_hb.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_ind_olive_hb.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_ind_olive_pil.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_ind_olive_pil.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_mid_olive.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_mid_olive.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_mid_olive_hb.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_mid_olive_hb.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_mid_olive_pil.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\plantation_mid_olive_pil.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Olives\sv_olive.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\hb_plantation_ind_tobacco.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\hb_plantation_ind_tobacco.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\hb_plantation_mid_tobacco.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\hb_plantation_mid_tobacco.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\plantation_ind_tobacco.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\plantation_ind_tobacco.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\plantation_mid_tobacco.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\plantation_mid_tobacco.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\pl_plantation_ind_tobacco.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\pl_plantation_ind_tobacco.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\pl_plantation_mid_tobacco.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\pl_plantation_mid_tobacco.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\pl_tobacco_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\resource_tobacco.fxsxml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\resource_tobacco.gr2">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\sv_tobacco.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\tobacco_diff.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\Art\Luxury Tobacco\tobacco_sref.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\XML\NewLuxuries_Art.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\XML\NewLuxuries_Resources.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Barathor%27s More Luxuries\XML\NewLuxuries_Text.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
