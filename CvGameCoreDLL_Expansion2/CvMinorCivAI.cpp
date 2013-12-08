@@ -9785,6 +9785,27 @@ void CvMinorCivAI::SetDisableNotifications(bool bDisableNotifications)
 	}
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+bool CvMinorCivAI::IsOnePowerBlocking(OnePowerTypes eOnePower) const
+{
+	CvMinorCivInfo* pInfo = GC.getMinorCivInfo(GetMinorCivType());
+	if (pInfo)
+	{
+		return pInfo->IsOnePowerBlocking(eOnePower);
+	}
+	return false;
+}
+void CvMinorCivAI::SetOnePowerBlocking(OnePowerTypes eOnePower, bool bNewValue)
+{
+	CvMinorCivInfo* pInfo = GC.getMinorCivInfo(GetMinorCivType());
+	if (pInfo)
+	{
+		pInfo->SetOnePowerBlocking(eOnePower, bNewValue);
+	}
+}
+
 //======================================================================================================
 //					CvMinorCivInfo
 //======================================================================================================
@@ -9793,12 +9814,20 @@ CvMinorCivInfo::CvMinorCivInfo() :
 	m_iArtStyleType(NO_ARTSTYLE),
 	m_iMinorCivTrait(NO_MINOR_CIV_TRAIT_TYPE),
 	m_piFlavorValue(NULL)
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	, m_pbOnePowerBlocking(NULL)
 {
 }
 //------------------------------------------------------------------------------
 CvMinorCivInfo::~CvMinorCivInfo()
 {
 	SAFE_DELETE_ARRAY(m_piFlavorValue);
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE_ARRAY(m_pbOnePowerBlocking);
 }
 //------------------------------------------------------------------------------
 int CvMinorCivInfo::getDefaultPlayerColor() const
@@ -9911,6 +9940,21 @@ void CvMinorCivInfo::setArtStyleSuffix(const char* szVal)
 {
 	m_strArtStyleSuffix = szVal;
 }
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+bool CvMinorCivInfo::IsOnePowerBlocking(OnePowerTypes eOnePower) const
+{
+	CvAssertMsg(eOnePower < GC.GetNumOnePowerInfos(), "Index out of bounds");
+	CvAssertMsg(eOnePower > -1, "Index out of bounds");
+	return m_pbOnePowerBlocking[eOnePower];
+}
+void CvMinorCivInfo::SetOnePowerBlocking(OnePowerTypes eOnePower, bool bNewValue)
+{
+	CvAssertMsg(eOnePower < GC.GetNumOnePowerInfos(), "Index out of bounds");
+	CvAssertMsg(eOnePower > -1, "Index out of bounds");
+	m_pbOnePowerBlocking[eOnePower] = bNewValue;
+}
 //------------------------------------------------------------------------------
 bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
 {
@@ -9944,6 +9988,11 @@ bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 
 	szTextVal = kResults.GetText("MinorCivTrait");
 	m_iMinorCivTrait = GC.getInfoTypeForString(szTextVal, true);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kUtility.PopulateArrayByExistence(m_pbOnePowerBlocking, "OnePowers", "MinorCivilization_OnePowerBlocking", "OnePowerType", "MinorCivType", GetType());
 
 	//Arrays
 	const char* szType = GetType();

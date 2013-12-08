@@ -4828,6 +4828,21 @@ void CvPlot::setOwner(PlayerTypes eNewValue, int iAcquiringCityID, bool bCheckUn
 					{
 						changeAdjacentSight(GET_PLAYER(pMinorCivAI->GetAlly()).getTeam(), GC.getPLOT_VISIBILITY_RANGE(), false, NO_INVISIBLE, NO_DIRECTION, false);
 					}
+					// ----------------------------------------------------------------
+					// WoTMod Addition
+					// ----------------------------------------------------------------
+					// if the old owner blocked one power usage, need to decrement 'cannot channel on this plot' for relevant sources
+					if (pMinorCivAI)
+					{
+						for (int i = 0; i < GC.GetNumOnePowerInfos(); i++)
+						{
+							OnePowerTypes eOnePower = static_cast<OnePowerTypes>(i);
+							if (pMinorCivAI->IsOnePowerBlocking(eOnePower))
+							{
+								ChangeCannotChannelHere(eOnePower, -1);
+							}
+						}
+					}
 				}
 
 				if(area())
@@ -4992,6 +5007,22 @@ void CvPlot::setOwner(PlayerTypes eNewValue, int iAcquiringCityID, bool bCheckUn
 					if(pMinorCivAI && pMinorCivAI->GetAlly() != NO_PLAYER)
 					{
 						changeAdjacentSight(GET_PLAYER(pMinorCivAI->GetAlly()).getTeam(), GC.getPLOT_VISIBILITY_RANGE(), true, NO_INVISIBLE, NO_DIRECTION, false);
+					}
+
+					// ----------------------------------------------------------------
+					// WoTMod Addition
+					// ----------------------------------------------------------------
+					// if the new owner blocks usages of certain One Power sources, need to increment 'cannot channel here' count
+					if (pMinorCivAI)
+					{
+						for (int i = 0; i < GC.GetNumOnePowerInfos(); i++)
+						{
+							OnePowerTypes eOnePower = static_cast<OnePowerTypes>(i);
+							if (pMinorCivAI->IsOnePowerBlocking(eOnePower))
+							{
+								ChangeCannotChannelHere(eOnePower, 1);
+							}
+						}
 					}
 				}
 

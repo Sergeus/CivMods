@@ -551,6 +551,12 @@ public:
 	bool IsDisableNotifications() const;
 	void SetDisableNotifications(bool bDisableNotifications);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsOnePowerBlocking(OnePowerTypes eOnePower) const;
+	void SetOnePowerBlocking(OnePowerTypes eOnePowerTypes, bool bNewValue);
+
 private:
 	CvPlayer* m_pPlayer;
 	MinorCivTypes m_minorCivType;
@@ -632,6 +638,12 @@ public:
 
 	int GetMinorCivTrait() const;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsOnePowerBlocking(OnePowerTypes eOnePower) const;
+	void SetOnePowerBlocking(OnePowerTypes eOnePower, bool bNewValue);
+
 	// Deprecated Members
 	const char* getAdjectiveKeyWide() const;
 	const char* getShortDescriptionKeyWide() const;
@@ -650,6 +662,10 @@ protected:
 
 	bool m_bAIPlayable;
 	bool m_bPlayable;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool* m_pbOnePowerBlocking;
 
 	CvString m_strArtDefineTag;
 	CvString m_strArtStylePrefix;
