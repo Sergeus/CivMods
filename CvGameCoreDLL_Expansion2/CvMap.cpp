@@ -343,7 +343,7 @@ void CvMap::InitPlots()
 		// ----------------------------------------------------------------
 		// WoTMod Addition
 		// ----------------------------------------------------------------		
-		m_pCannotChannelHere						= pCannotChannelHere;
+		m_pMapPlots[i].m_iCannotChannelHere			= pCannotChannelHere;
 
 
 		pYields					+= NUM_YIELD_TYPES;
@@ -419,7 +419,6 @@ void CvMap::uninit()
 	{
 		SAFE_DELETE(m_pHornOfValere);
 	}
-	SAFE_DELETE_ARRAY(m_pCannotChannelHere);
 
 	SAFE_DELETE_ARRAY(m_pMapPlots);
 
@@ -434,6 +433,11 @@ void CvMap::uninit()
 	SAFE_DELETE_ARRAY(m_pRevealedRouteType);
 	SAFE_DELETE_ARRAY(m_pNoSettling);
 	SAFE_DELETE_ARRAY(m_pResourceForceReveal);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE_ARRAY(m_pCannotChannelHere);
 
 	m_iGridWidth = 0;
 	m_iGridHeight = 0;

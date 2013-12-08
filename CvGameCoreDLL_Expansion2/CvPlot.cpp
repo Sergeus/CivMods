@@ -149,10 +149,6 @@ CvPlot::CvPlot() :
 {
 	FSerialization::plotsToCheck.insert(this);
 	m_paiBuildProgress = NULL;
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	m_iCannotChannelHere = NULL;
 
 	m_szScriptData = NULL;
 
@@ -324,7 +320,7 @@ void CvPlot::reset(int iX, int iY, bool bConstructorCall)
 		// ----------------------------------------------------------------
 		for (int iI = 0; iI < GC.GetNumOnePowerInfos(); ++iI)
 		{
-			m_iCannotChannelHere = 0;
+			m_iCannotChannelHere[iI] = 0;
 		}
 	}
 	for(int iI = 0; iI < REALLY_MAX_TEAMS; ++iI)
