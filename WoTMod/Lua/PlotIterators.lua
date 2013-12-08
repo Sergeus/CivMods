@@ -1,3 +1,5 @@
+-- Originally created by whoward69: http://forums.civfanatics.com/showthread.php?t=474634
+
 --
 -- Plot iterator functions
 --   All functions create an iterator centered on pPlot starting in the specified sector and working in the given direction around the ring/area
