@@ -11,7 +11,7 @@
 			<TechReveal>TECH_CUENDILLAR</TechReveal>
 			<TechCityTrade>TECH_CUENDILLAR</TechCityTrade>
 			<Description>TXT_KEY_RESOURCE_CUENDILLAR</Description>
-			<Civilopedia>TXT_KEY_CIV5_RESOURCE_CUENDILLAR_TEXT</Civilopedia>
+			<Civilopedia>TXT_KEY_RESOURCE_CUENDILLAR_PEDIA</Civilopedia>
 			<Help>TXT_KEY_RESOURCE_CUENDILLAR_HELP</Help>
 			<ResourceClassType>RESOURCECLASS_MODERN</ResourceClassType>
 			<ArtDefineTag>ART_DEF_RESOURCE_MARBLE</ArtDefineTag>
