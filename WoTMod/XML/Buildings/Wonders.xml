@@ -70,6 +70,7 @@
 			<GreatWorkSlotType>GREAT_WORK_SLOT_LITERATURE</GreatWorkSlotType>
 			<GreatWorkCount>3</GreatWorkCount>
 		</Row>
+		
 	</Buildings>
 
 	<Building_YieldChanges>
@@ -86,7 +87,14 @@
 	</Building_YieldChanges>
 
 	<Building_ThemingBonuses>
-		<!-- Thirteenth depository -->
+		<Row>
+			<BuildingType>BUILDING_THIRTEENTH_DEPOSITORY</BuildingType>
+			<Description>Different eras</Description>
+			<Bonus>2</Bonus>
+			<UniqueEras>true</UniqueEras>
+			<RequiresUniquePlayers>true</RequiresUniquePlayers>
+			<AIPriority>2</AIPriority>
+		</Row>
 	</Building_ThemingBonuses>
 
 	<Building_FreePromotionOnePowerWielding>
