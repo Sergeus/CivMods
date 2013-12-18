@@ -58,6 +58,7 @@
 			<Cost>185</Cost>
 			<PrereqTech>TECH_WRITING</PrereqTech>
 			<Description>TXT_KEY_BUILDING_THIRTEENTH_DEPOSITORY</Description>
+			<ThemingBonusHelp>TXT_KEY_THIRTEENTH_DEPOSITORY_THEMING_BONUS_HELP</ThemingBonusHelp>
 			<Civilopedia>TXT_KEY_WONDER_THIRTEENTH_DEPOSITORY_PEDIA</Civilopedia>
 			<Quote>TXT_KEY_WONDER_THIRTEENTH_DEPOSITORY_QUOTE</Quote>
 			<ArtDefineTag>STONEHENGE</ArtDefineTag>
@@ -84,6 +85,7 @@
 			<Description>TXT_KEY_BUILDING_GUARDIAN</Description>
 			<Civilopedia>TXT_KEY_WONDER_GUARDIAN_PEDIA</Civilopedia>
 			<Quote>TXT_KEY_WONDER_GUARDIAN_QUOTE</Quote>
+			<Help>TXT_KEY_WONDER_GUARDIAN_HELP</Help>
 			<ArtDefineTag>STONEHENGE</ArtDefineTag>
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
 			<GreatPeopleRateChange>1</GreatPeopleRateChange>
@@ -121,10 +123,10 @@
 		<Row>
 			<BuildingType>BUILDING_THIRTEENTH_DEPOSITORY</BuildingType>
 			<Description>Different eras</Description>
-			<Bonus>2</Bonus>
+			<Bonus>6</Bonus>
 			<UniqueEras>true</UniqueEras>
 			<RequiresUniquePlayers>true</RequiresUniquePlayers>
-			<AIPriority>2</AIPriority>
+			<AIPriority>3</AIPriority>
 		</Row>
 	</Building_ThemingBonuses>
 

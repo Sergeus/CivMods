@@ -72,20 +72,6 @@
 			<Text>[TOWRITE] weaving quote</Text>
 		</Row>
 		
-		<!-- Technology: Copper Working -->
-		<Row Tag="TXT_KEY_TECH_COPPER_WORKING_DESC">
-			<Text>Copper Working</Text>
-		</Row>
-		<Row Tag="TXT_KEY_TECH_COPPER_WORKING_CIV">
-			<Text>[TOWRITE] copper working pedia</Text>
-		</Row>
-		<Row Tag="TXT_KEY_TECH_COPPER_WORKING_HELP">
-			<Text>[TOWRITE] copper working help</Text>
-		</Row>
-		<Row Tag="TXT_KEY_TECH_COPPER_WORKING_QUOTE">
-			<Text>[TOWRITE] copper working quote</Text>
-		</Row>
-		
 		<!-- Technology: Foraging -->
 		<Row Tag="TXT_KEY_TECH_FORAGING_DESC">
 			<Text>Foraging</Text>
@@ -129,24 +115,24 @@
 		</Row>
 		
 		<!-- Technology: One Power -->
-		<Row Tag="TXT_KEY_TECH_ONE_POWER_TITLE">
+		<Row Tag="TXT_KEY_TECH_THE_ONE_POWER_DESC">
 			<Text>The One Power</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_ONE_POWER_PEDIA">
+		<Row Tag="TXT_KEY_TECH_THE_ONE_POWER_CIV">
 			<Text>[TOWRITE] one power pedia</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_ONE_POWER_HELP">
+		<Row Tag="TXT_KEY_TECH_THE_ONE_POWER_HELP">
 			<Text>[TOWRITE] one power help</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_ONE_POWER_QUOTE">
+		<Row Tag="TXT_KEY_TECH_THE_ONE_POWER_QUOTE">
 			<Text>[TOWRITE] one power quote</Text>
 		</Row>
 		
 		<!-- Technology: Angreal -->
-		<Row Tag="TXT_KEY_TECH_ANGREAL_TITLE">
+		<Row Tag="TXT_KEY_TECH_ANGREAL_DESC">
 			<Text>Angreal</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_ANGREAL_PEDIA">
+		<Row Tag="TXT_KEY_TECH_ANGREAL_CIV">
 			<Text>[TOWRITE] angreal pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TECH_ANGREAL_HELP">
@@ -157,10 +143,10 @@
 		</Row>
 		
 		<!-- Technology: Ter'angreal-->
-		<Row Tag="TXT_KEY_TECH_TERANGREAL_TITLE">
+		<Row Tag="TXT_KEY_TECH_TERANGREAL_DESC">
 			<Text>Ter'angreal</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_TERANGREAL_PEDIA">
+		<Row Tag="TXT_KEY_TECH_TERANGREAL_CIV">
 			<Text>[TOWRITE] ter'angreal pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TECH_TERANGREAL_HELP">
@@ -185,10 +171,10 @@
 		</Row>
 		
 		<!-- Technology: A'dam -->
-		<Row Tag="TXT_KEY_TECH_ADAM_TITLE">
+		<Row Tag="TXT_KEY_TECH_ADAM_DESC">
 			<Text>A'dam</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_ADAM_PEDIA">
+		<Row Tag="TXT_KEY_TECH_ADAM_CIV">
 			<Text>[TOWRITE] a'dam pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TECH_ADAM_HELP">
@@ -199,10 +185,10 @@
 		</Row>
 		
 		<!-- Technology: Cuendillar -->
-		<Row Tag="TXT_KEY_TECH_CUENDILLAR_TITLE">
+		<Row Tag="TXT_KEY_TECH_CUENDILLAR_DESC">
 			<Text>Cuendillar</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_CUENDILLAR_PEDIA">
+		<Row Tag="TXT_KEY_TECH_CUENDILLAR_CIV">
 			<Text>[TOWRITE] cuendillar pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TECH_CUENDILLAR_HELP">
@@ -213,10 +199,10 @@
 		</Row>
 		
 		<!-- Technology: Traveling -->
-		<Row Tag="TXT_KEY_TECH_TRAVELING_TITLE">
+		<Row Tag="TXT_KEY_TECH_TRAVELING_DESC">
 			<Text>Traveling</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_TRAVELING_PEDIA">
+		<Row Tag="TXT_KEY_TECH_TRAVELING_CIV">
 			<Text>[TOWRITE] traveling pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TECH_TRAVELING_HELP">
@@ -381,16 +367,16 @@
 		</Row>
 		
 		<!-- Technology: The Legend of the Horn -->
-		<Row Tag="TXT_KEY_TECH_HORN_LEGEND_TITLE">
+		<Row Tag="TXT_KEY_TECH_LEGEND_OF_THE_HORN_DESC">
 			<Text>The Legend of the Horn</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_HORN_LEGEND_PEDIA">
+		<Row Tag="TXT_KEY_TECH_LEGEND_OF_THE_HORN_CIV">
 			<Text>[TOWRITE] horn legend pedia</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_HORN_LEGEND_HELP">
+		<Row Tag="TXT_KEY_TECH_LEGEND_OF_THE_HORN_HELP">
 			<Text>[TOWRITE] horn legend help</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_HORN_LEGEND_QUOTE">
+		<Row Tag="TXT_KEY_TECH_LEGEND_OF_THE_HORN_QUOTE">
 			<Text>[TOWRITE] horn legend quote</Text>
 		</Row>
 		
@@ -409,10 +395,10 @@
 		</Row>
 		
 		<!-- Technology: Dreaming -->
-		<Row Tag="TXT_KEY_TECH_DREAMING_TITLE">
+		<Row Tag="TXT_KEY_TECH_DREAMING_DESC">
 			<Text>Dreaming</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_DREAMING_PEDIA">
+		<Row Tag="TXT_KEY_TECH_DREAMING_CIV">
 			<Text>[TOWRITE] dreaming pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TECH_DREAMING_HELP">
