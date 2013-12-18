@@ -23,6 +23,23 @@
 		<Row Tag="TXT_KEY_WONDER_THIRTEENTH_DEPOSITORY_QUOTE">
 			<Text>[TOWRITE] thirteenth depository quote</Text>
 		</Row>
+		<Row Tag="TXT_KEY_THIRTEENTH_DEPOSITORY_THEMING_BONUS_HELP">
+			<Text>Unique eras, unique civs.</Text>
+		</Row>
+		
+		<!-- Wonder: The Guardian -->
+		<Row Tag="TXT_KEY_BUILDING_GUARDIAN">
+			<Text>The Guardian</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_GUARDIAN_PEDIA">
+			<Text>[TOWRITE] the guardian pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_GUARDIAN_QUOTE">
+			<Text>[TOWRITE] the guardian quote</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_GUARDIAN_HELP">
+			<Text>Units may not touch the True Source (affecting Saidar and Saidin) within 2 hexes of the city the Guardian is built in.</Text>
+		</Row>
 		
 		<!-- Building: Inn -->
 		<Row Tag="TXT_KEY_BUILDING_INN">

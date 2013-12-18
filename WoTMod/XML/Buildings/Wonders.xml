@@ -14,6 +14,12 @@
 			<DefaultBuilding>BUILDING_THIRTEENTH_DEPOSITORY</DefaultBuilding>
 			<MaxGlobalInstances>1</MaxGlobalInstances>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_GUARDIAN</Type>
+			<Description>TXT_KEY_BUILDING_GUARDIAN</Description>
+			<DefaultBuilding>BUILDING_GUARDIAN</DefaultBuilding>
+			<MaxGlobalInstances>1</MaxGlobalInstances>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
@@ -70,7 +76,27 @@
 			<GreatWorkSlotType>GREAT_WORK_SLOT_LITERATURE</GreatWorkSlotType>
 			<GreatWorkCount>3</GreatWorkCount>
 		</Row>
-		
+		<Row>
+			<Type>BUILDING_GUARDIAN</Type>
+			<BuildingClass>BUILDINGCLASS_GUARDIAN</BuildingClass>
+			<Cost>185</Cost>
+			<PrereqTech>TECH_TERANGREAL</PrereqTech>
+			<Description>TXT_KEY_BUILDING_GUARDIAN</Description>
+			<Civilopedia>TXT_KEY_WONDER_GUARDIAN_PEDIA</Civilopedia>
+			<Quote>TXT_KEY_WONDER_GUARDIAN_QUOTE</Quote>
+			<ArtDefineTag>STONEHENGE</ArtDefineTag>
+			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
+			<GreatPeopleRateChange>1</GreatPeopleRateChange>
+			<NukeImmune>true</NukeImmune>
+			<HurryCostModifier>-1</HurryCostModifier>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>100</ConquestProb>
+			<DisplayPosition>4</DisplayPosition>
+			<IconAtlas>BW_ATLAS_2</IconAtlas>
+			<PortraitIndex>2</PortraitIndex>
+			<WonderSplashImage>WonderConceptStonehedge.dds</WonderSplashImage>
+			<WonderSplashAudio>AS2D_WONDER_SPEECH_STONEHENGE_01</WonderSplashAudio>
+		</Row>
 	</Buildings>
 
 	<Building_YieldChanges>
@@ -82,6 +108,11 @@
 		<Row>
 			<BuildingType>BUILDING_THIRTEENTH_DEPOSITORY</BuildingType>
 			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>4</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_GUARDIAN</BuildingType>
+			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>4</Yield>
 		</Row>
 	</Building_YieldChanges>
@@ -104,4 +135,15 @@
 			<PromotionType>PROMOTION_SECRET_KNOWLEDGE</PromotionType>
 		</Row>
 	</Building_FreePromotionOnePowerWielding>
+
+	<Building_OnePowerBlocking>
+		<Row>
+			<BuildingType>BUILDING_GUARDIAN</BuildingType>
+			<OnePowerType>ONE_POWER_SAIDAR</OnePowerType>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_GUARDIAN</BuildingType>
+			<OnePowerType>ONE_POWER_SAIDIN</OnePowerType>
+		</Row>
+	</Building_OnePowerBlocking>
 </GameData>
