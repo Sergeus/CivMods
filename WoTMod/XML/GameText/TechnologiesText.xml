@@ -426,6 +426,272 @@
 			<Text>[TOWRITE] transcedence quote</Text>
 		</Row>
 		
+		<!-- Technology: Bronze Smithing -->
+		<Row Tag="TXT_KEY_TECH_BRONZE_SMITHING_DESC">
+			<Text>Bronze Smithing</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_BRONZE_SMITHING_CIV">
+			<Text>[TOWRITE] bronze smithing pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_BRONZE_SMITHING_HELP">
+			<Text>[TOWRITE] bronze smithing help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_BRONZE_SMITHING_QUOTE">
+			<Text>[TOWRITE] bronze smithing quote</Text>
+		</Row>
+
+		<!-- Technology: Iron Smithing -->
+		<Row Tag="TXT_KEY_TECH_IRON_SMITHING_DESC">
+			<Text>Iron Smithing</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_IRON_SMITHING_CIV">
+			<Text>[TOWRITE] iron smithing pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_IRON_SMITHING_HELP">
+			<Text>[TOWRITE] iron smithing help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_IRON_SMITHING_QUOTE">
+			<Text>[TOWRITE] iron smithing quote</Text>
+		</Row>
+
+		<!-- Technology: Quarrying -->
+		<Row Tag="TXT_KEY_TECH_QUARRYING_DESC">
+			<Text>Quarrying</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_QUARRYING_CIV">
+			<Text>[TOWRITE] Quarrying pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_QUARRYING_HELP">
+			<Text>[TOWRITE] Quarrying help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_QUARRYING_QUOTE">
+			<Text>[TOWRITE] Quarrying quote</Text>
+		</Row>
+
+		<!-- Technology: Hull Construction -->
+		<Row Tag="TXT_KEY_TECH_HULL_CONSTRUCTION_DESC">
+			<Text>Hull Construction</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_HULL_CONSTRUCTION_CIV">
+			<Text>[TOWRITE] Hull Construction pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_HULL_CONSTRUCTION_HELP">
+			<Text>[TOWRITE] Hull Construction help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_HULL_CONSTRUCTION_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Hull Construction quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Tactical Formations -->
+		<Row Tag="TXT_KEY_TECH_TACTICAL_FORMATIONS_DESC">
+			<Text>Tactical Formations</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TACTICAL_FORMATIONS_CIV">
+			<Text>[TOWRITE] Tactical Formations pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TACTICAL_FORMATIONS_HELP">
+			<Text>[TOWRITE] Tactical Formations help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TACTICAL_FORMATIONS_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Tactical Formations quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Sextant -->
+		<Row Tag="TXT_KEY_TECH_SEXTANT_DESC">
+			<Text>Sextant</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SEXTANT_CIV">
+			<Text>[TOWRITE] Sextant pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SEXTANT_HELP">
+			<Text>[TOWRITE] Sextant help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SEXTANT_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Sextant quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Chain of Command -->
+		<Row Tag="TXT_KEY_TECH_CHAIN_OF_COMMAND_DESC">
+			<Text>Chain of Command</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CHAIN_OF_COMMAND_CIV">
+			<Text>[TOWRITE] Chain of Command pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CHAIN_OF_COMMAND_HELP">
+			<Text>[TOWRITE] Chain of Command help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CHAIN_OF_COMMAND_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Chain of Command quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Strategic theory -->
+		<Row Tag="TXT_KEY_TECH_STRATEGIC_THEORY_DESC">
+			<Text>Strategic theory</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_STRATEGIC_THEORY_CIV">
+			<Text>[TOWRITE] Strategic theory pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_STRATEGIC_THEORY_HELP">
+			<Text>[TOWRITE] Strategic theory help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_STRATEGIC_THEORY_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Strategic theory quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Military Logistics -->
+		<Row Tag="TXT_KEY_TECH_MILITARY_LOGISTICS_DESC">
+			<Text>Military Logistics</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_MILITARY_LOGISTICS_CIV">
+			<Text>[TOWRITE] Military Logistics pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_MILITARY_LOGISTICS_HELP">
+			<Text>[TOWRITE] Military Logistics help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_MILITARY_LOGISTICS_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Military Logistics quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Siege Mechanics -->
+		<Row Tag="TXT_KEY_TECH_SIEGE_MECHANICS_DESC">
+			<Text>Siege Mechanics</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SIEGE_MECHANICS_CIV">
+			<Text>[TOWRITE] Siege Mechanics pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SIEGE_MECHANICS_HELP">
+			<Text>[TOWRITE] Siege Mechanics help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SIEGE_MECHANICS_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Siege Mechanics quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Legendary Artifacts -->
+		<Row Tag="TXT_KEY_TECH_LEGENDARY_ARTIFACTS_DESC">
+			<Text>Legendary Artifacts</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_LEGENDARY_ARTIFACTS_CIV">
+			<Text>[TOWRITE] Legendary Artifacts pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_LEGENDARY_ARTIFACTS_HELP">
+			<Text>[TOWRITE] Legendary Artifacts help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_LEGENDARY_ARTIFACTS_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Legendary Artifacts quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Cavalry Lines -->
+		<Row Tag="TXT_KEY_TECH_CAVALRY_LINES_DESC">
+			<Text>Cavalry Lines</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CAVALRY_LINES_CIV">
+			<Text>[TOWRITE] Cavalry Lines pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CAVALRY_LINES_HELP">
+			<Text>[TOWRITE] Cavalry Lines help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_CAVALRY_LINES_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Cavalry Lines quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Trading Policies -->
+		<Row Tag="TXT_KEY_TECH_TRADING_POLICIES_DESC">
+			<Text>Trading Policies</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TRADING_POLICIES_CIV">
+			<Text>[TOWRITE] Trading Policies pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TRADING_POLICIES_HELP">
+			<Text>[TOWRITE] Trading Policies help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_TRADING_POLICIES_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Trading Policies quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Sisterhood -->
+		<Row Tag="TXT_KEY_TECH_SISTERHOOD_DESC">
+			<Text>Sisterhood</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SISTERHOOD_CIV">
+			<Text>[TOWRITE] Sisterhood pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SISTERHOOD_HELP">
+			<Text>[TOWRITE] Sisterhood help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_SISTERHOOD_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Sisterhood quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Royal Decree -->
+		<Row Tag="TXT_KEY_TECH_ROYAL_DECREE_DESC">
+			<Text>Royal Decree</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ROYAL_DECREE_CIV">
+			<Text>[TOWRITE] Royal Decree pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ROYAL_DECREE_HELP">
+			<Text>[TOWRITE] Royal Decree help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_ROYAL_DECREE_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Royal Decree quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Fleet Logistics -->
+		<Row Tag="TXT_KEY_TECH_FLEET_LOGISTICS_DESC">
+			<Text>Fleet Logistics</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FLEET_LOGISTICS_CIV">
+			<Text>[TOWRITE] Fleet Logistics pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FLEET_LOGISTICS_HELP">
+			<Text>[TOWRITE] Fleet Logistics help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_FLEET_LOGISTICS_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Fleet Logistics quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Gentling -->
+		<Row Tag="TXT_KEY_TECH_GENTLING_DESC">
+			<Text>Gentling</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_GENTLING_CIV">
+			<Text>[TOWRITE] Gentling pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_GENTLING_HELP">
+			<Text>[TOWRITE] Gentling help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_GENTLING_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Gentling quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Political Theory -->
+		<Row Tag="TXT_KEY_TECH_POLITICAL_THEORY_DESC">
+			<Text>Political Theory</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_POLITICAL_THEORY_CIV">
+			<Text>[TOWRITE] Political Theory pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_POLITICAL_THEORY_HELP">
+			<Text>[TOWRITE] Political Theory help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_POLITICAL_THEORY_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Political Theory quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
+		<!-- Technology: Moneylenders -->
+		<Row Tag="TXT_KEY_TECH_MONEYLENDERS_DESC">
+			<Text>Moneylenders</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_MONEYLENDERS_CIV">
+			<Text>[TOWRITE] Moneylenders pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_MONEYLENDERS_HELP">
+			<Text>[TOWRITE] Moneylenders help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TECH_MONEYLENDERS_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Moneylenders quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		</Row>
+
 		<!-- Eras -->
 		<!-- After Breaking -->
 		<Update>

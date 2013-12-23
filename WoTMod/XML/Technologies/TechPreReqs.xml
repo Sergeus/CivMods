@@ -9,7 +9,6 @@
 		<Delete TechType="TECH_SAILING" PrereqTech="TECH_POTTERY" />
 		<Delete TechType="TECH_CALENDAR" PrereqTech="TECH_POTTERY" />
 		<Delete TechType="TECH_TRAPPING" PrereqTech="TECH_ANIMAL_HUSBANDRY" />
-		<Delete TechType="TECH_THE_WHEEL" PrereqTech="TECH_ANIMAL_HUSBANDRY" />
 		<Delete TechType="TECH_THE_WHEEL" PrereqTech="TECH_ARCHERY" />
 		<Delete TechType="TECH_MASONRY" PrereqTech="TECH_MINING" />
 		<Delete TechType="TECH_BRONZE_WORKING" PrereqTech="TECH_MINING" />
@@ -363,10 +362,6 @@
 		<Row>
 			<TechType>TECH_GENTLING</TechType>
 			<PrereqTech>TECH_SISTERHOOD</PrereqTech>
-		</Row>
-		<Row>
-			<TechType>TECH_ANGREAL</TechType>
-			<PrereqTech>TECH_TERANGREAL</PrereqTech>
 		</Row>
 		<Row>
 			<TechType>TECH_DREAMING</TechType>
