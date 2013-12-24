@@ -1,1 +1,0 @@
-ALTER TABLE Units ADD Channeler boolean DEFAULT false;

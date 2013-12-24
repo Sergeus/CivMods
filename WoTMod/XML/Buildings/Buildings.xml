@@ -12,6 +12,21 @@
 			<Description>TXT_KEY_BUILDINGCLASS_VILLAGE_GREEN</Description>
 			<DefaultBuilding>BUILDING_VILLAGE_GREEN</DefaultBuilding>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_WISDOMS_COTTAGE</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_WISDOMS_COTTAGE</Description>
+			<DefaultBuilding>BUILDING_WISDOMS_COTTAGE</DefaultBuilding>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_SHRINE_OF_LIGHT</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_SHRINE_OF_LIGHT</Description>
+			<DefaultBuilding>BUILDING_SHRINE_OF_LIGHT</DefaultBuilding>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_PIER</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_PIER</Description>
+			<DefaultBuilding>BUILDING_PIER</DefaultBuilding>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
@@ -41,7 +56,7 @@
 			<Type>BUILDING_VILLAGE_GREEN</Type>
 			<BuildingClass>BUILDINGCLASS_VILLAGE_GREEN</BuildingClass>
 			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
-			<Cost>100</Cost>
+			<Cost>70</Cost>
 			<GoldMaintenance>1</GoldMaintenance>
 			<PrereqTech>TECH_FORAGING</PrereqTech>
 			<Description>TXT_KEY_BUILDING_VILLAGE_GREEN</Description>
@@ -52,6 +67,71 @@
 			<MinAreaSize>-1</MinAreaSize>
 			<ConquestProb>66</ConquestProb>
 			<Happiness>1</Happiness>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
+
+		<Row>
+			<Type>BUILDING_WISDOMS_COTTAGE</Type>
+			<BuildingClass>BUILDINGCLASS_WISDOMS_COTTAGE</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_FORAGING</PrereqTech>
+			<Description>TXT_KEY_BUILDING_WISDOMS_COTTAGE_DESC</Description>
+			<Civilopedia>TXT_KEY_CIV5_BUILDING_WISDOMS_COTTAGE_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_WISDOMS_COTTAGE_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_WISDOMS_COTTAGE_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
+
+		<Row>
+			<Type>BUILDING_SHRINE_OF_LIGHT</Type>
+			<BuildingClass>BUILDINGCLASS_SHRINE_OF_LIGHT</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>40</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_THE_PATTERN</PrereqTech>
+			<Description>TXT_KEY_BUILDING_SHRINE_OF_LIGHT_DESC</Description>
+			<Civilopedia>TXT_KEY_CIV5_BUILDING_SHRINE_OF_LIGHT_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SHRINE_OF_LIGHT_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_SHRINE_OF_LIGHT_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<Happiness>1</Happiness>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
+
+		<Row>
+			<Type>BUILDING_PIER</Type>
+			<BuildingClass>BUILDINGCLASS_PIER</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_SAILING</PrereqTech>
+			<Description>TXT_KEY_BUILDING_PIER_DESC</Description>
+			<Civilopedia>TXT_KEY_CIV5_BUILDING_PIER_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_PIER_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_PIER_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<Water>true</Water>
 			<HurryCostModifier>25</HurryCostModifier>
 			<DisplayPosition>2</DisplayPosition>
 			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
@@ -69,6 +149,16 @@
 		<Row>
 			<BuildingType>BUILDING_VILLAGE_GREEN</BuildingType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_WISDOMS_COTTAGE</BuildingType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SHRINE_OF_LIGHT</BuildingType>
+			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
 		</Row>
 	</Building_YieldChanges>

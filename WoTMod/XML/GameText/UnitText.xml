@@ -86,6 +86,20 @@
 		<Row Tag="TXT_KEY_CIV5_MADMAN_HELP">
 			<Text>[TOWRITE] madman help</Text>
 		</Row>
+
+		<!-- Unit: Gleeman -->
+		<Row Tag="TXT_KEY_UNIT_GLEEMAN">
+			<Text>Gleeman</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_GLEEMAN">
+			<Text>[TOWRITE] Gleeman help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ANTIQUITY_GLEEMAN_TEXT">
+			<Text>[TOWRITE] Gleeman pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_GLEEMAN_STRATEGY">
+			<Text>[TOWRITE] Gleeman strategy</Text>
+		</Row>
 		
 		<!-- Unit: Great Leader -->
 		<Row Tag="TXT_KEY_UNIT_GREAT_LEADER">

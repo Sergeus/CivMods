@@ -68,5 +68,47 @@
 		<Row Tag="TXT_KEY_BUILDING_VILLAGE_GREEN_HELP">
 			<Text>[TOWRITE] village green help</Text>
 		</Row>
+
+		<!-- Building: Wisdom's Cottage -->
+		<Row Tag="TXT_KEY_BUILDING_WISDOMS_COTTAGE_DESC">
+			<Text>Wisdom's Cottage</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_WISDOMS_COTTAGE_CIV">
+			<Text>[TOWRITE] Wisdom's Cottage pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_WISDOMS_COTTAGE_HELP">
+			<Text>[TOWRITE] Wisdom's Cottage help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_WISDOMS_COTTAGE_STRATEGY">
+			<Text>[TOWRITE] Wisdom's Cottage strategy</Text>
+		</Row>
+
+		<!-- Building: Shrine to the Light -->
+		<Row Tag="TXT_KEY_BUILDING_SHRINE_OF_LIGHT_DESC">
+			<Text>Shrine to the Light</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SHRINE_OF_LIGHT_CIV">
+			<Text>[TOWRITE] Shrine to the Light pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SHRINE_OF_LIGHT_HELP">
+			<Text>[TOWRITE] Shrine to the Light help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SHRINE_OF_LIGHT_STRATEGY">
+			<Text>[TOWRITE] Shrine to the Light strategy</Text>
+		</Row>
+
+		<!-- Building: Pier -->
+		<Row Tag="TXT_KEY_BUILDING_PIER_DESC">
+			<Text>Pier</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PIER_CIV">
+			<Text>[TOWRITE] Pier pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PIER_HELP">
+			<Text>[TOWRITE] Pier help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PIER_STRATEGY">
+			<Text>[TOWRITE] Pier strategy</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

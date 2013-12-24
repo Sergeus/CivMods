@@ -28,6 +28,11 @@
 			<DefaultUnit>UNIT_MADMAN</DefaultUnit>
 		</Row>
 		<Row>
+			<Type>UNITCLASS_GLEEMAN</Type>
+			<Description>TXT_KEY_UNIT_GLEEMAN</Description>
+			<DefaultUnit>UNIT_GLEEMAN</DefaultUnit>
+		</Row>
+		<Row>
 			<Type>UNITCLASS_LEADER</Type>
 			<Description>TXT_KEY_UNITCLASS_LEADER</Description>
 			<DefaultUnit>UNIT_LEADER</DefaultUnit>

@@ -142,10 +142,12 @@
 		<Row>
 			<BuildingType>BUILDING_GUARDIAN</BuildingType>
 			<OnePowerType>ONE_POWER_SAIDAR</OnePowerType>
+			<Range>2</Range>
 		</Row>
 		<Row>
 			<BuildingType>BUILDING_GUARDIAN</BuildingType>
 			<OnePowerType>ONE_POWER_SAIDIN</OnePowerType>
+			<Range>2</Range>
 		</Row>
 	</Building_OnePowerBlocking>
 </GameData>
