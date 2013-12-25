@@ -454,7 +454,11 @@ public:
 	int GetUnhappinessCombatPenalty() const;
 
 	void SetBaseCombatStrength(int iCombat);
-	int GetBaseCombatStrength(bool bIgnoreEmbarked = false) const;
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// int GetBaseCombatStrength(bool bIgnoreEmbarked = false) const;
+	int GetBaseCombatStrength(bool bIgnoreEmbarked = false, const CvPlot* pFromPlot = NULL) const;
 	int GetBaseCombatStrengthConsideringDamage() const;
 
 	int GetGenericMaxStrengthModifier(const CvUnit* pOtherUnit, const CvPlot* pBattlePlot, bool bIgnoreUnitAdjacency) const;
@@ -1258,6 +1262,7 @@ public:
 	void DoGovernCity();
 	bool IsOnePowerWielding(OnePowerTypes eOnePower) const;
 	bool IsChanneler() const;
+	bool IsOnePowerBlocked(const CvPlot* pFromPlot) const;
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------

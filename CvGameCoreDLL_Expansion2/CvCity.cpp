@@ -12034,24 +12034,6 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 						}
 					}
 				}
-
-				//if (pkBuildingInfo->IsRepulsesEnemyUnits())
-				//{
-				//	CvPlayer& kPlayer = GET_PLAYER(getOwner());
-
-				//	CvPlotsVector& plots = kPlayer.GetPlots();
-
-				//	for (int i = 0; i < plots.size(); i++)
-				//	{
-				//		int iPlotIndex = plots[i];
-
-				//		if (iPlotIndex == -1)
-				//			break;
-
-				//		CvPlot* pPlot = GC.getMap().plotByIndex(iPlotIndex);
-
-				//	}
-				//}
 			}
 		}
 		break;

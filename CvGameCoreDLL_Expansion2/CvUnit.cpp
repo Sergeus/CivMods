@@ -10061,9 +10061,23 @@ void CvUnit::SetBaseCombatStrength(int iCombat)
 }
 
 //	--------------------------------------------------------------------------------
-int CvUnit::GetBaseCombatStrength(bool bIgnoreEmbarked) const
+int CvUnit::GetBaseCombatStrength(bool bIgnoreEmbarked, const CvPlot* pFromPlot) const
 {
 	VALIDATE_OBJECT
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// channeling units are sometimes disabled by the attacking plot
+	if (!pFromPlot && IsOnePowerBlocked(plot()))
+	{
+		return 0;
+	}
+	else if (IsOnePowerBlocked(pFromPlot))
+	{
+		return 0;
+	}
+
 	if(m_bEmbarked && !bIgnoreEmbarked)
 	{
 		return GetEmbarkedUnitDefense() / 100;
@@ -10347,7 +10361,10 @@ int CvUnit::GetMaxAttackStrength(const CvPlot* pFromPlot, const CvPlot* pToPlot,
 	if(isEmbarked() && !bIsEmbarkedAttackingLand)
 		return GetEmbarkedUnitDefense();
 
-	if(GetBaseCombatStrength(bIsEmbarkedAttackingLand) == 0)
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(GetBaseCombatStrength(bIsEmbarkedAttackingLand, pFromPlot) == 0)
 		return 0;
 
 	int iCombat;
@@ -10504,7 +10521,10 @@ int CvUnit::GetMaxAttackStrength(const CvPlot* pFromPlot, const CvPlot* pToPlot,
 	if(iModifier < -90)
 		iModifier = -90;
 
-	iCombat = GetBaseCombatStrength(bIsEmbarkedAttackingLand) * (iModifier + 100);
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	iCombat = GetBaseCombatStrength(bIsEmbarkedAttackingLand, pFromPlot) * (iModifier + 100);
 
 	return std::max(1, iCombat);
 }
@@ -10520,7 +10540,10 @@ int CvUnit::GetMaxDefenseStrength(const CvPlot* pInPlot, const CvUnit* pAttacker
 		return GetEmbarkedUnitDefense();;
 	}
 
-	if(GetBaseCombatStrength() == 0)
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if(GetBaseCombatStrength(false, pInPlot) == 0)
 		return 0;
 
 	int iCombat;
@@ -10619,7 +10642,10 @@ int CvUnit::GetMaxDefenseStrength(const CvPlot* pInPlot, const CvUnit* pAttacker
 	if(iModifier < -90)
 		iModifier = -90;
 
-	iCombat = GetBaseCombatStrength() * (iModifier + 100);
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	iCombat = GetBaseCombatStrength(false, pInPlot) * (iModifier + 100);
 
 	// Boats do more damage VS one another
 	if(pAttacker != NULL)
@@ -10681,6 +10707,16 @@ bool CvUnit::canSiege(TeamTypes eTeam) const
 int CvUnit::GetBaseRangedCombatStrength() const
 {
 	VALIDATE_OBJECT
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// channeling units are sometimes disabled by the attacking plot
+	if (IsOnePowerBlocked(plot()))
+	{
+		return 0;
+	}
+
 	return m_pUnitInfo->GetRangedCombat();
 }
 
@@ -21414,6 +21450,36 @@ bool CvUnit::IsChanneler() const
 		if (IsOnePowerWielding((OnePowerTypes)i))
 		{
 			return true;
+		}
+	}
+
+	return false;
+}
+
+bool CvUnit::IsOnePowerBlocked(const CvPlot* pFromPlot) const
+{
+	if (pFromPlot)
+	{
+		if (IsChanneler())
+		{
+			bool blocked = false;
+			for (int i = 0; i < GC.GetNumOnePowerInfos(); i++)
+			{
+				OnePowerTypes eOnePower = static_cast<OnePowerTypes>(i);
+				if (IsOnePowerWielding(eOnePower) && pFromPlot->IsCannotChannelHere(eOnePower))
+				{
+					blocked = true;
+				}
+				else if (IsOnePowerWielding(eOnePower))
+				{
+					return false;
+				}
+			}
+
+			if (blocked)
+			{
+				return true;
+			}
 		}
 	}
 
