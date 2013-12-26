@@ -124,6 +124,20 @@
 			<Text>[TOWRITE] military camp recommendation</Text>
 		</Row>
 		
+		<!-- Build: Perform Show -->
+		<Row Tag="TXT_KEY_BUILD_PERFORM_SHOW">
+			<Text>Perform Show</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILD_PERFORM_SHOW_HELP">
+			<Text>[TOWRITE] perform show help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILD_PERFORM_SHOW_REC">
+			<Text>[TOWRITE] perform show recommendation</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISSION_PERFORM_SHOW_DISABLED_HELP">
+			<Text>Shows can only be performed within your own territory and at least 4 hexes away from the nearest active show.</Text>
+		</Row>
+		
 		<!-- Promotions -->
 		<!-- Promotion: Pull of the Pattern -->
 		<Row Tag="TXT_KEY_PROMOTION_HORN_HERO_DECAY">

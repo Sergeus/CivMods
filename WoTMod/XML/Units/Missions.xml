@@ -38,16 +38,5 @@
 			<IconIndex>0</IconIndex>
 			<IconAtlas>CREATE_GOVERNOR_ACTION_ATLAS</IconAtlas>
 		</Row>
-		<Row>
-			<Type>MISSION_PERFORM_SHOW</Type>
-			<Description>TXT_KEY_MISSION_PERFORM_SHOW</Description>
-			<Help>TXT_KEY_MISSION_PERFORM_SHOW_HELP</Help>
-			<DisabledHelp>TXT_KEY_MISSION_PERFORM_SHOW_DISABLED_HELP</DisabledHelp>
-			<EntityEventType>ENTITY_EVENT_GREAT_EVENT</EntityEventType>
-			<OrderPriority>199</OrderPriority>
-			<Visible>1</Visible>
-			<IconIndex>0</IconIndex>
-			<IconAtlas>PERFORM_SHOW_ACTION_ATLAS</IconAtlas>
-		</Row>
 	</Missions>
 </GameData>

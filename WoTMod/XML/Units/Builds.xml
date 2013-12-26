@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 4/25/2013 4:08:52 AM -->
 <GameData>
+	<Table name="Build_BuildActiveExclusive">
+		<Column name="BuildType" type="text" reference="Builds(Type)"/>
+		<Column name="ExclusionBuildType" type="text" reference="Builds(Type)"/>
+		<Column name="Range" type="integer"/>
+	</Table>
+	
 	<Builds>
 		<Update>
 			<Where Type="BUILD_FISHING_BOATS"/>
@@ -18,6 +24,19 @@
 			<OrderPriority>96</OrderPriority>
 			<IconIndex>51</IconIndex>
 			<IconAtlas>UNIT_ACTION_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>BUILD_PERFORM_SHOW</Type>
+			<Description>TXT_KEY_BUILD_PERFORM_SHOW</Description>
+			<Help>TXT_KEY_BUILD_PERFORM_SHOW_HELP</Help>
+			<DisabledHelp>TXT_KEY_MISSION_PERFORM_SHOW_DISABLED_HELP</DisabledHelp>
+			<Recommendation>TXT_KEY_BUILD_PERFORM_SHOW_REC</Recommendation>
+			<EntityEvent>ENTITY_EVENT_MINE</EntityEvent>
+			<OrderPriority>96</OrderPriority>
+			<IconIndex>51</IconIndex>
+			<IconAtlas>UNIT_ACTION_ATLAS</IconAtlas>
+			<Happiness>2</Happiness>
+			<OwnTerritoryMakesValid>true</OwnTerritoryMakesValid>
 		</Row>
 	</Builds>
 	<BuildFeatures>
@@ -41,4 +60,11 @@
 			<Remove>true</Remove>
 		</Row>
 	</BuildFeatures>
+	<Build_BuildActiveExclusive>
+		<Row>
+			<BuildType>BUILD_PERFORM_SHOW</BuildType>
+			<ExclusionBuildType>BUILD_PERFORM_SHOW</ExclusionBuildType>
+			<Range>4</Range>
+		</Row>
+	</Build_BuildActiveExclusive>
 </GameData>
