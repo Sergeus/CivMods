@@ -10243,7 +10243,7 @@ void CvPlayer::DoUpdateHappiness()
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	// Change from units
-	m_iHappinessFromLeagues += GetHappinessFromUnits();
+	m_iHappiness += GetHappinessFromUnits();
 
 	// Increase for each City connected to Capital with a Trade Route
 	DoUpdateCityConnectionHappiness();

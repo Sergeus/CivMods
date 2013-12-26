@@ -8683,7 +8683,7 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible,
 								for (IDInfoVector::const_iterator itr = neighborUnits.begin(); itr < neighborUnits.end(); ++itr)
 								{
 									CvUnit* pUnit = getUnit(*itr);
-									if (pUnit->getBuildType() == eBuild)
+									if (pUnit != this && pUnit->getBuildType() == eBuild)
 									{
 										return false;
 									}

@@ -227,6 +227,15 @@ void CvUnitMission::PushMission(UnitHandle hUnit, MissionTypes eMission, int iDa
 
 	InsertAtEndMissionQueue(hUnit, mission, !bAppend);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	CvBuildInfo* pInfo = GC.getBuildInfo(hUnit->getBuildType());
+	if (pInfo && pInfo->GetHappiness() != 0)
+	{
+		GET_PLAYER(hUnit->getOwner()).DoUpdateHappiness();
+	}
+
 	if(bManual)
 	{
 		if(hUnit->getOwner() == GC.getGame().getActivePlayer())
@@ -306,11 +315,28 @@ void CvUnitMission::PopMission(UnitHandle hUnit)
 		gDLL->GameplayUnitWork(pDllUnit.get(), -1);
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	BuildTypes eBuild = hUnit->getBuildType();
+
 	MissionQueueNode* pTailNode = TailMissionQueueNode(hUnit->m_missionQueue);
 
 	if(pTailNode != NULL)
 	{
 		DeleteMissionQueueNode(hUnit, pTailNode);
+	}
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (eBuild != NO_BUILD)
+	{
+		CvBuildInfo* pkInfo = GC.getBuildInfo(eBuild);
+		if (pkInfo && pkInfo->GetHappiness() != 0)
+		{
+			GET_PLAYER(hUnit->getOwner()).DoUpdateHappiness();
+		}
 	}
 }
 
