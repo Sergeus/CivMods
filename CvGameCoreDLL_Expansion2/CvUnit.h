@@ -1263,6 +1263,7 @@ public:
 	bool IsOnePowerWielding(OnePowerTypes eOnePower) const;
 	bool IsChanneler() const;
 	bool IsOnePowerBlocked(const CvPlot* pFromPlot) const;
+	int GetHappiness() const;
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------

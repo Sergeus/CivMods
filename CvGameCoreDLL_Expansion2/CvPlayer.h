@@ -1515,6 +1515,7 @@ public:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	bool IsShadowspawn() const;
+	int GetHappinessFromUnits() const;
 
 	bool hasTurnTimerExpired();
 

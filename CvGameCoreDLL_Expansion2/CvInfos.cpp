@@ -3744,6 +3744,13 @@ CvBuildInfo::CvBuildInfo() :
 	m_bRemoveRoute(false),
 	m_bWater(false),
 	m_bCanBeEmbarked(false),
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_iHappiness(0),
+	m_bOwnTerritoryMakesValid(false),
+	m_paiBuildExclusions(NULL),
+
 	m_paiFeatureTech(NULL),
 	m_paiFeatureTime(NULL),
 	m_paiFeatureProduction(NULL),
@@ -3761,6 +3768,11 @@ CvBuildInfo::~CvBuildInfo()
 	SAFE_DELETE_ARRAY(m_paiFeatureCost);
 	SAFE_DELETE_ARRAY(m_paiTechTimeChange);
 	SAFE_DELETE_ARRAY(m_pabFeatureRemove);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE_ARRAY(m_paiBuildExclusions);
 }
 //------------------------------------------------------------------------------
 int CvBuildInfo::getTime() const
@@ -3832,6 +3844,23 @@ bool CvBuildInfo::IsCanBeEmbarked() const
 {
 	return m_bCanBeEmbarked;
 }
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvBuildInfo::GetHappiness() const
+{
+	return m_iHappiness;
+}
+bool CvBuildInfo::IsOwnTerritoryMakesValid() const
+{
+	return m_bOwnTerritoryMakesValid;
+}
+int CvBuildInfo::GetBuildExclusiveRange(BuildTypes eBuild) const
+{
+	CvAssertMsg(eBuild < GC.getNumBuildInfos(), "Index out of bounds");
+	CvAssertMsg(eBuild > -1, "Index out of bounds");
+	return m_paiBuildExclusions ? m_paiBuildExclusions[eBuild] : -1;
+}
 
 //------------------------------------------------------------------------------
 int CvBuildInfo::getFeatureTech(int i) const
@@ -3890,6 +3919,12 @@ bool CvBuildInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	m_bWater = kResults.GetBool("Water");
 	m_bCanBeEmbarked = kResults.GetBool("CanBeEmbarked");
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_iHappiness = kResults.GetInt("Happiness");
+	m_bOwnTerritoryMakesValid = kResults.GetBool("OwnTerritoryMakesValid");
+
 	const char* szPrereqTech = kResults.GetText("PrereqTech");
 	m_iTechPrereq = GC.getInfoTypeForString(szPrereqTech, true);
 
@@ -3938,6 +3973,11 @@ bool CvBuildInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	
 	const char* szBuildType = GetType();
 	kUtility.PopulateArrayByValue(m_paiTechTimeChange, "Technologies", "Build_TechTimeChanges", "TechType", "BuildType", szBuildType, "TimeChange");
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kUtility.PopulateArrayByValue(m_paiBuildExclusions, "Builds", "Build_BuildActiveExclusive", "ExclusionBuildType", "BuildType", szBuildType, "Range", -1);
 
 	return true;
 }

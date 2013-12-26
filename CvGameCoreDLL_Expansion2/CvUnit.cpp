@@ -8659,6 +8659,42 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible,
 
 	if(!bTestVisible)
 	{
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		// check for exclusions of nearby active builds
+		for (int i = 0; i < GC.getNumBuildInfos(); i++)
+		{
+			BuildTypes eBuild = static_cast<BuildTypes>(i);
+			int range = pkBuildInfo->GetBuildExclusiveRange(eBuild);
+			if (range > -1)
+			{
+				for (int iX = -1 * range; iX < range; iX++)
+				{
+					for (int iY = -1 * range; iY < range; iY++)
+					{
+						CvPlot* pPlot = plotXYWithRangeCheck(getX(), getY(), iX, iY, range);
+
+						if (pPlot)
+						{
+							IDInfoVector neighborUnits;
+							if (pPlot->getUnits(&neighborUnits) > 0)
+							{
+								for (IDInfoVector::const_iterator itr = neighborUnits.begin(); itr < neighborUnits.end(); ++itr)
+								{
+									CvUnit* pUnit = getUnit(*itr);
+									if (pUnit->getBuildType() == eBuild)
+									{
+										return false;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
 		// check for any other units working in this plot
 		pPlot = plot();
 		const IDInfo* pUnitNode = pPlot->headUnitNode();
@@ -21484,6 +21520,22 @@ bool CvUnit::IsOnePowerBlocked(const CvPlot* pFromPlot) const
 	}
 
 	return false;
+}
+
+int CvUnit::GetHappiness() const
+{
+	int iTotalHappiness = 0;
+
+	BuildTypes eBuild = getBuildType();
+
+	if (eBuild != NO_BUILD)
+	{
+		CvBuildInfo* pInfo = GC.getBuildInfo(eBuild);
+
+		iTotalHappiness += pInfo->GetHappiness();
+	}
+
+	return iTotalHappiness;
 }
 
 //	--------------------------------------------------------------------------------

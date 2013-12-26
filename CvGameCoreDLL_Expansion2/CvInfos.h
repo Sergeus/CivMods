@@ -1131,6 +1131,13 @@ public:
 	int getFeatureCost(int i) const;
 	int getTechTimeChange(int i) const;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int GetHappiness() const;
+	bool IsOwnTerritoryMakesValid() const;
+	int GetBuildExclusiveRange(BuildTypes eBuild) const;
+
 	bool isFeatureRemove(int i) const;
 
 	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
@@ -1144,6 +1151,13 @@ protected:
 	int m_iRoute;
 	int m_iEntityEvent;
 	int m_iMissionType;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	int m_iHappiness;
+	bool m_bOwnTerritoryMakesValid;
+	int* m_paiBuildExclusions;
 
 	bool m_bKill;
 	bool m_bRepair;

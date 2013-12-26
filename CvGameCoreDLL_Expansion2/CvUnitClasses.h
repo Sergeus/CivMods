@@ -263,11 +263,6 @@ private:
 	bool m_bTrade;
 	int m_iNumExoticGoods;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	bool m_bChanneler;
-
 	// This is not loaded from XML, but cached so we don't have to recalculate every time
 	int m_iCachedPower;
 

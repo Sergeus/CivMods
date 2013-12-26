@@ -125,7 +125,6 @@ CvUnitEntry::CvUnitEntry(void) :
 	m_pbGovernorClasses(NULL),
 	m_pbOnePowerTypes(NULL),
 	m_piFreePromotionsUntilProjectCompleted(NULL),
-	m_bChanneler(false),
 
 	m_bUnitArtInfoEraVariation(false),
 	m_bUnitArtInfoCulturalVariation(false),
@@ -241,11 +240,6 @@ bool CvUnitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	m_bRangeAttackOnlyInDomain = kResults.GetBool("RangeAttackOnlyInDomain");
 	m_bTrade = kResults.GetBool("Trade");
 	m_iNumExoticGoods = kResults.GetInt("NumExoticGoods");
-
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	m_bChanneler = kResults.GetBool("Channeler");
 
 	m_strUnitArtInfoTag = kResults.GetText("UnitArtInfo");
 	m_bUnitArtInfoCulturalVariation = kResults.GetBool("UnitArtInfoCulturalVariation");

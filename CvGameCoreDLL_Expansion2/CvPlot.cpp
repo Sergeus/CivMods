@@ -2194,6 +2194,15 @@ bool CvPlot::canBuild(BuildTypes eBuild, PlayerTypes ePlayer, bool bTestVisible,
 		}
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// own territory might make it valid
+	if (thisBuildInfo.IsOwnTerritoryMakesValid() && getOwner() == ePlayer)
+	{
+		bValid = true;
+	}
+
 	if(thisBuildInfo.IsRemoveRoute())
 	{
 		if(!getPlotCity() && getRouteType() != NO_ROUTE)

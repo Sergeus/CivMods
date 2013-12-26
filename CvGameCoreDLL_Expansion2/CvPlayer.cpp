@@ -10239,6 +10239,12 @@ void CvPlayer::DoUpdateHappiness()
 	// Increase from Leagues
 	m_iHappiness += GetHappinessFromLeagues();
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// Change from units
+	m_iHappinessFromLeagues += GetHappinessFromUnits();
+
 	// Increase for each City connected to Capital with a Trade Route
 	DoUpdateCityConnectionHappiness();
 	m_iHappiness += GetHappinessFromTradeRoutes();
@@ -24893,6 +24899,19 @@ void CvPlayer::GatherPerTurnReplayStats(int iGameTurn)
 bool CvPlayer::IsShadowspawn() const
 {
 	return (GetID() == SHADOW_PLAYER);
+}
+int CvPlayer::GetHappinessFromUnits() const
+{
+	int iTotalHappiness = 0;
+
+	int iLoop;
+	const CvUnit* pLoopUnit;
+	for(pLoopUnit = firstUnit(&iLoop); pLoopUnit != NULL; pLoopUnit = nextUnit(&iLoop))
+	{
+		iTotalHappiness += pLoopUnit->GetHappiness();
+	}
+
+	return iTotalHappiness;
 }
 
 //	---------------------------------------------------------------------------
