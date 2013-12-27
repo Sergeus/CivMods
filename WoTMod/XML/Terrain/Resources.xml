@@ -53,6 +53,28 @@
 			<PortraitIndex>6</PortraitIndex>
 			<IconAtlas>RESOURCE_ATLAS</IconAtlas>
 		</Row>
+		<Row>
+			<Type>RESOURCE_HERBS</Type>
+			<Happiness>4</Happiness>
+			<TechCityTrade>TECH_CALENDAR</TechCityTrade>
+			<Description>TXT_KEY_RESOURCE_HERBS</Description>
+			<Civilopedia>TXT_KEY_CIV5_RESOURCE_HERBS_TEXT</Civilopedia>
+			<ResourceClassType>RESOURCECLASS_LUXURY</ResourceClassType>
+			<ArtDefineTag>ART_DEF_RESOURCE_INCENSE</ArtDefineTag>
+			<PlacementOrder>3</PlacementOrder>
+			<ConstAppearance>50</ConstAppearance>
+			<MinAreaSize>3</MinAreaSize>
+			<MaxLatitude>90</MaxLatitude>
+			<RandApp1>25</RandApp1>
+			<RandApp2>25</RandApp2>
+			<Player>67</Player>
+			<Flatlands>true</Flatlands>
+			<GroupRange>3</GroupRange>
+			<GroupRand>10</GroupRand>
+			<IconString>[ICON_RES_HERBS]</IconString>
+			<PortraitIndex>22</PortraitIndex>
+			<IconAtlas>RESOURCE_ATLAS</IconAtlas>
+		</Row>
 	</Resources>
 
 	<Resource_QuantityTypes>
@@ -79,6 +101,16 @@
 		<Row>
 			<ResourceType>RESOURCE_ZEMAI</ResourceType>
 			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<ResourceType>RESOURCE_HERBS</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<ResourceType>RESOURCE_HERBS</ResourceType>
+			<YieldType>YIELD_GOLD</YieldType>
 			<Yield>1</Yield>
 		</Row>
 	</Resource_YieldChanges>
@@ -111,6 +143,14 @@
 			<ResourceType>RESOURCE_ZEMAI</ResourceType>
 			<TerrainType>TERRAIN_DESERT</TerrainType>
 		</Row>
+		<Row>
+			<ResourceType>RESOURCE_HERBS</ResourceType>
+			<TerrainType>TERRAIN_PLAINS</TerrainType>
+		</Row>
+		<Row>
+			<ResourceType>RESOURCE_HERBS</ResourceType>
+			<TerrainType>TERRAIN_GRASS</TerrainType>
+		</Row>
 	</Resource_TerrainBooleans>
 	<Resource_FeatureBooleans>
 		<Row>
@@ -119,6 +159,10 @@
 		</Row>
 		<Row>
 			<ResourceType>RESOURCE_CUENDILLAR</ResourceType>
+			<FeatureType>FEATURE_FOREST</FeatureType>
+		</Row>
+		<Row>
+			<ResourceType>RESOURCE_HERBS</ResourceType>
 			<FeatureType>FEATURE_FOREST</FeatureType>
 		</Row>
 	</Resource_FeatureBooleans>

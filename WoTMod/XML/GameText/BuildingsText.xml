@@ -77,7 +77,8 @@
 			<Text>[TOWRITE] Wisdom's Cottage pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_WISDOMS_COTTAGE_HELP">
-			<Text>[TOWRITE] Wisdom's Cottage help</Text>
+			<Text>Each source of [ICON_RES_SHEEP] Sheep and [ICON_RES_WHEAT] Wheat worked by this City produces +1 [ICON_FOOD] Food.
+			[NEWLINE]Each source of [ICON_RES_HERBS] Herbs worked by this City produces +3 [ICON_PRODUCTION] Production.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_WISDOMS_COTTAGE_STRATEGY">
 			<Text>[TOWRITE] Wisdom's Cottage strategy</Text>
@@ -105,7 +106,7 @@
 			<Text>[TOWRITE] Pier pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_PIER_HELP">
-			<Text>[TOWRITE] Pier help</Text>
+			<Text>Each source of [ICON_RES_FISH] Fish worked by this City produces +2 [ICON_FOOD] Food.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_PIER_STRATEGY">
 			<Text>[TOWRITE] Pier strategy</Text>
@@ -119,7 +120,7 @@
 			<Text>[TOWRITE] Hunting Grounds pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_HUNTING_GROUNDS_HELP">
-			<Text>[TOWRITE] Hunting Grounds help</Text>
+			<Text>Each source of [ICON_RES_DEER] Deer worked by this city produces +1 [ICON_FOOD] Food.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_HUNTING_GROUNDS_STRATEGY">
 			<Text>[TOWRITE] Hunting Grounds strategy</Text>

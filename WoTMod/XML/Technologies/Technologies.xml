@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 6/8/2013 11:41:13 PM -->
 <GameData>
+	<Table name="Technology_GenericExtraAbilities">
+		<Column name="TechType" type="text" reference="Technologies(Type)"/>
+		<Column name="Tooltip" type="text" reference="Language_en_US(Tag)"/>
+	</Table>
+	
 	<Technologies>
 		<!-- Move old techs around -->
 		<Update>
