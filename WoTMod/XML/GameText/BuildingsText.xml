@@ -120,10 +120,25 @@
 			<Text>[TOWRITE] Hunting Grounds pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_HUNTING_GROUNDS_HELP">
-			<Text>Each source of [ICON_RES_DEER] Deer worked by this city produces +1 [ICON_FOOD] Food.</Text>
+			<Text>Each source of [ICON_RES_DEER] Deer and [ICON_RES_IVORY] Ivory worked by this city produces +1 [ICON_FOOD] Food.
+			[NEWLINE]Forests worked by this city produce +2 [ICON_FOOD] Food.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_HUNTING_GROUNDS_STRATEGY">
 			<Text>[TOWRITE] Hunting Grounds strategy</Text>
+		</Row>
+
+		<!-- Building: Clay Furnace -->
+		<Row Tag="TXT_KEY_BUILDING_CLAY_FURNACE_DESC">
+			<Text>Clay Furnace</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CLAY_FURNACE_CIV">
+			<Text>[TOWRITE] Clay Furnace pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CLAY_FURNACE_HELP">
+			<Text>[TOWRITE] Clay Furnace help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CLAY_FURNACE_STRATEGY">
+			<Text>[TOWRITE] Clay Furnace strategy</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

@@ -178,7 +178,6 @@
 			<Civilopedia>TXT_KEY_CIV5_ANTIQUITY_GLEEMAN_TEXT</Civilopedia>
 			<Strategy>TXT_KEY_UNIT_GLEEMAN_STRATEGY</Strategy>
 			<Help>TXT_KEY_UNIT_HELP_GLEEMAN</Help>
-			<GoodyHutUpgradeUnitClass>UNITCLASS_SPEARMAN</GoodyHutUpgradeUnitClass>
 			<AdvancedStartCost>10</AdvancedStartCost>
 			<UnitArtInfo>ART_DEF_UNIT__WARRIOR</UnitArtInfo>
 			<UnitFlagIconOffset>0</UnitFlagIconOffset>

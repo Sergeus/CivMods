@@ -32,6 +32,11 @@
 			<Description>TXT_KEY_BUILDINGCLASS_HUNTING_GROUNDS</Description>
 			<DefaultBuilding>BUILDING_HUNTING_GROUNDS</DefaultBuilding>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_CLAY_FURNACE</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_CLAY_FURNACE</Description>
+			<DefaultBuilding>BUILDING_CLAY_FURNACE</DefaultBuilding>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
@@ -45,6 +50,10 @@
 		</Update>
 		<Update>
 			<Where Type="BUILDING_SHRINE"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_TEMPLE_ARTEMIS"/>
 			<Set PrereqTech="TECH_FUTURE_TECH"/>
 		</Update>
 		
@@ -177,6 +186,29 @@
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<PortraitIndex>23</PortraitIndex>
 		</Row>
+
+		<Row>
+			<Type>BUILDING_CLAY_FURNACE</Type>
+			<BuildingClass>BUILDINGCLASS_CLAY_FURNACE</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_POTTERY</PrereqTech>
+			<Description>TXT_KEY_BUILDING_CLAY_FURNACE_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CLAY_FURNACE_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CLAY_FURNACE_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_CLAY_FURNACE_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<SpecialistType>SPECIALIST_ARTIST</SpecialistType>
+			<SpecialistCount>2</SpecialistCount>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
 	</Buildings>
 
 	<Building_YieldChanges>
@@ -199,6 +231,11 @@
 			<BuildingType>BUILDING_SHRINE_OF_LIGHT</BuildingType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_CLAY_FURNACE</BuildingType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
 		</Row>
 	</Building_YieldChanges>
 
@@ -240,4 +277,13 @@
 			<Yield>1</Yield>
 		</Row>
 	</Building_ResourceYieldModifiers>
+
+	<Building_FeatureYieldChanges>
+		<Row>
+			<BuildingType>BUILDING_HUNTING_GROUNDS</BuildingType>
+			<FeatureType>FEATURE_FOREST</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>2</Yield>
+		</Row>
+	</Building_FeatureYieldChanges>
 </GameData>

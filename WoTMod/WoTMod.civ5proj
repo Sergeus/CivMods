@@ -1567,7 +1567,7 @@
     </Content>
     <Content Include="UI\InGame\TechTree\TechButtonInclude.lua">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>False</ImportIntoVFS>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="UI\InGame\TechTree\TechTree.lua">
       <SubType>Lua</SubType>

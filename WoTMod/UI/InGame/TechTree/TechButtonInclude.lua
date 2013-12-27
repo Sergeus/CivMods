@@ -1,7 +1,3 @@
--- TechButtonInclude
--- Author: Stuart
--- DateCreated: 8/21/2013 9:44:58 PM
---------------------------------------------------------------
 -------------------------------------------------
 -- Include file that has handy stuff for the tech tree and other screens that need to show a tech button
 -------------------------------------------------

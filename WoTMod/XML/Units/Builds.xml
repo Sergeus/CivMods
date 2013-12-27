@@ -13,6 +13,10 @@
 			<Set PrereqTech="TECH_FISHING"/>
 		</Update>
 		<Update>
+			<Where Type="BUILD_FISHING_BOATS_NO_KILL"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
 			<Where Type="BUILD_REMOVE_FOREST"/>
 			<Set PrereqTech="TECH_STONE_TOOLS"/>
 		</Update>
