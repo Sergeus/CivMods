@@ -30,6 +30,11 @@
 	</BuildingClasses>
 
 	<Buildings>
+		<Update>
+			<Where Type="BUILDING_MONUMENT"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		
 		<Row>
 			<Type>BUILDING_INN</Type>
 			<BuildingClass>BUILDINGCLASS_INN</BuildingClass>
@@ -82,7 +87,7 @@
 			<GoldMaintenance>1</GoldMaintenance>
 			<PrereqTech>TECH_FORAGING</PrereqTech>
 			<Description>TXT_KEY_BUILDING_WISDOMS_COTTAGE_DESC</Description>
-			<Civilopedia>TXT_KEY_CIV5_BUILDING_WISDOMS_COTTAGE_CIV</Civilopedia>
+			<Civilopedia>TXT_KEY_BUILDING_WISDOMS_COTTAGE_CIV</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_WISDOMS_COTTAGE_STRATEGY</Strategy>
 			<Help>TXT_KEY_BUILDING_WISDOMS_COTTAGE_HELP</Help>
 			<ArtDefineTag>COLESSEUM</ArtDefineTag>
@@ -103,7 +108,7 @@
 			<GoldMaintenance>1</GoldMaintenance>
 			<PrereqTech>TECH_THE_PATTERN</PrereqTech>
 			<Description>TXT_KEY_BUILDING_SHRINE_OF_LIGHT_DESC</Description>
-			<Civilopedia>TXT_KEY_CIV5_BUILDING_SHRINE_OF_LIGHT_CIV</Civilopedia>
+			<Civilopedia>TXT_KEY_BUILDING_SHRINE_OF_LIGHT_CIV</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_SHRINE_OF_LIGHT_STRATEGY</Strategy>
 			<Help>TXT_KEY_BUILDING_SHRINE_OF_LIGHT_HELP</Help>
 			<ArtDefineTag>COLESSEUM</ArtDefineTag>
@@ -125,7 +130,7 @@
 			<GoldMaintenance>1</GoldMaintenance>
 			<PrereqTech>TECH_SAILING</PrereqTech>
 			<Description>TXT_KEY_BUILDING_PIER_DESC</Description>
-			<Civilopedia>TXT_KEY_CIV5_BUILDING_PIER_CIV</Civilopedia>
+			<Civilopedia>TXT_KEY_BUILDING_PIER_CIV</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_PIER_STRATEGY</Strategy>
 			<Help>TXT_KEY_BUILDING_PIER_HELP</Help>
 			<ArtDefineTag>COLESSEUM</ArtDefineTag>
