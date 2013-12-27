@@ -12,6 +12,10 @@
 			<Where Type="BUILD_FISHING_BOATS"/>
 			<Set PrereqTech="TECH_FISHING"/>
 		</Update>
+		<Update>
+			<Where Type="BUILD_REMOVE_FOREST"/>
+			<Set PrereqTech="TECH_STONE_TOOLS"/>
+		</Update>
 		
 		<Row>
 			<Type>BUILD_MILITARY_CAMP</Type>

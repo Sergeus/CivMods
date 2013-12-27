@@ -27,11 +27,24 @@
 			<Description>TXT_KEY_BUILDINGCLASS_PIER</Description>
 			<DefaultBuilding>BUILDING_PIER</DefaultBuilding>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_HUNTING_GROUNDS</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_HUNTING_GROUNDS</Description>
+			<DefaultBuilding>BUILDING_HUNTING_GROUNDS</DefaultBuilding>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
 		<Update>
 			<Where Type="BUILDING_MONUMENT"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_GRANARY"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_SHRINE"/>
 			<Set PrereqTech="TECH_FUTURE_TECH"/>
 		</Update>
 		
@@ -143,6 +156,27 @@
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<PortraitIndex>23</PortraitIndex>
 		</Row>
+
+		<Row>
+			<Type>BUILDING_HUNTING_GROUNDS</Type>
+			<BuildingClass>BUILDINGCLASS_HUNTING_GROUNDS</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>130</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_ARCHERY</PrereqTech>
+			<Description>TXT_KEY_BUILDING_HUNTING_GROUNDS_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_HUNTING_GROUNDS_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_HUNTING_GROUNDS_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_HUNTING_GROUNDS_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
 	</Buildings>
 
 	<Building_YieldChanges>
@@ -167,4 +201,25 @@
 			<Yield>1</Yield>
 		</Row>
 	</Building_YieldChanges>
+
+	<Building_ResourceYieldModifiers>
+		<Row>
+			<BuildingType>BUILDING_PIER</BuildingType>
+			<ResourceType>RESOURCE_FISH</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_HUNTING_GROUNDS</BuildingType>
+			<ResourceType>RESOURCE_DEER</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_HUNTING_GROUNDS</BuildingType>
+			<ResourceType>RESOURCE_IVORY</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+	</Building_ResourceYieldModifiers>
 </GameData>

@@ -110,5 +110,19 @@
 		<Row Tag="TXT_KEY_BUILDING_PIER_STRATEGY">
 			<Text>[TOWRITE] Pier strategy</Text>
 		</Row>
+
+		<!-- Building: Hunting Grounds -->
+		<Row Tag="TXT_KEY_BUILDING_HUNTING_GROUNDS_DESC">
+			<Text>Hunting Grounds</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_HUNTING_GROUNDS_CIV">
+			<Text>[TOWRITE] Hunting Grounds pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_HUNTING_GROUNDS_HELP">
+			<Text>[TOWRITE] Hunting Grounds help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_HUNTING_GROUNDS_STRATEGY">
+			<Text>[TOWRITE] Hunting Grounds strategy</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
