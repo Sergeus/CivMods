@@ -184,6 +184,35 @@
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
 			<PortraitIndex>0</PortraitIndex>
 		</Row>
+
+		<Row>
+			<Class>UNITCLASS_WILDER</Class>
+			<Type>UNIT_WILDER</Type>
+			<PrereqTech>TECH_WEAVING</PrereqTech>
+			<Combat>6</Combat>
+			<RangedCombat>14</RangedCombat>
+			<Cost>100</Cost>
+			<Moves>2</Moves>
+			<Range>2</Range>
+			<CombatClass>UNITCOMBAT_MELEE</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_WILDER</Description>
+			<Civilopedia>TXT_KEY_CIV5_ANTIQUITY_WILDER_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_WILDER_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_HELP_WILDER</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<ObsoleteTech>TECH_SISTERHOOD</ObsoleteTech>
+			<AdvancedStartCost>10</AdvancedStartCost>
+			<XPValueAttack>3</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<UnitArtInfo>ART_DEF_UNIT__WARRIOR</UnitArtInfo>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
+			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+		</Row>
 			
 		<Row>
 			<Class>UNITCLASS_LEADER</Class>
@@ -237,6 +266,10 @@
 		<Row>
 			<UnitType>UNIT_MADMAN</UnitType>
 			<OnePowerType>ONE_POWER_SAIDIN</OnePowerType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_WILDER</UnitType>
+			<OnePowerType>ONE_POWER_SAIDAR</OnePowerType>
 		</Row>
 	</Unit_OnePowerWielding>
 

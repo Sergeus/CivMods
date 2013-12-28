@@ -37,6 +37,21 @@
 			<Description>TXT_KEY_BUILDINGCLASS_CLAY_FURNACE</Description>
 			<DefaultBuilding>BUILDING_CLAY_FURNACE</DefaultBuilding>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_STATUE</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_STATUE</Description>
+			<DefaultBuilding>BUILDING_STATUE</DefaultBuilding>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_PARADE_SQUARE</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_PARADE_SQUARE</Description>
+			<DefaultBuilding>BUILDING_PARADE_SQUARE</DefaultBuilding>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_POWER_BUILDINGS</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_POWER_BUILDINGS</Description>
+			<DefaultBuilding>BUILDING_POWER_BUILDINGS</DefaultBuilding>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
@@ -50,10 +65,6 @@
 		</Update>
 		<Update>
 			<Where Type="BUILDING_SHRINE"/>
-			<Set PrereqTech="TECH_FUTURE_TECH"/>
-		</Update>
-		<Update>
-			<Where Type="BUILDING_TEMPLE_ARTEMIS"/>
 			<Set PrereqTech="TECH_FUTURE_TECH"/>
 		</Update>
 		
@@ -209,6 +220,69 @@
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<PortraitIndex>23</PortraitIndex>
 		</Row>
+
+		<Row>
+			<Type>BUILDING_STATUE</Type>
+			<BuildingClass>BUILDINGCLASS_STATUE</BuildingClass>
+			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra>
+			<Cost>40</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<Description>TXT_KEY_BUILDING_STATUE_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_STATUE_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_STATUE_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_STATUE_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
+
+		<Row>
+			<Type>BUILDING_PARADE_SQUARE</Type>
+			<BuildingClass>BUILDINGCLASS_PARADE_SQUARE</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_TACTICAL_FORMATIONS</PrereqTech>
+			<Description>TXT_KEY_BUILDING_PARADE_SQUARE_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_PARADE_SQUARE_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_PARADE_SQUARE_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_PARADE_SQUARE_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<Happiness>2</Happiness>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
+		
+		<Row>
+			<Type>BUILDING_POWER_BUILDINGS</Type>
+			<BuildingClass>BUILDINGCLASS_POWER_BUILDINGS</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_WEAVING</PrereqTech>
+			<Description>TXT_KEY_BUILDING_POWER_BUILDINGS_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_POWER_BUILDINGS_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_POWER_BUILDINGS_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_POWER_BUILDINGS_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
 	</Buildings>
 
 	<Building_YieldChanges>
@@ -234,6 +308,16 @@
 		</Row>
 		<Row>
 			<BuildingType>BUILDING_CLAY_FURNACE</BuildingType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_STATUE</BuildingType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_POWER_BUILDINGS</BuildingType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>2</Yield>
 		</Row>

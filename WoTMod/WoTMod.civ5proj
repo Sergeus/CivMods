@@ -604,6 +604,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>Art/Technologies/LegendOfTheHorn/TechLegendOfTheHornIconAtlases.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Terrain/Resources.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>

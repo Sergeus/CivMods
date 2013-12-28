@@ -521,6 +521,7 @@
 			  <GridX>5</GridX>
 			  <Quote>TXT_KEY_TECH_TRADING_POLICIES_QUOTE</Quote>
 			  <PortraitIndex>0</PortraitIndex>
+			  <InternationalTradeRoutesChange>2</InternationalTradeRoutesChange>
 			  <ScenarioTechButton>0</ScenarioTechButton>
 			  <IconAtlas>TECH_ATLAS_1</IconAtlas>
 			  <AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro>

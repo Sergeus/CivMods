@@ -33,6 +33,11 @@
 			<DefaultUnit>UNIT_GLEEMAN</DefaultUnit>
 		</Row>
 		<Row>
+			<Type>UNITCLASS_WILDER</Type>
+			<Description>TXT_KEY_UNIT_WILDER</Description>
+			<DefaultUnit>UNIT_WILDER</DefaultUnit>
+		</Row>
+		<Row>
 			<Type>UNITCLASS_LEADER</Type>
 			<Description>TXT_KEY_UNITCLASS_LEADER</Description>
 			<DefaultUnit>UNIT_LEADER</DefaultUnit>

@@ -100,6 +100,20 @@
 		<Row Tag="TXT_KEY_UNIT_GLEEMAN_STRATEGY">
 			<Text>[TOWRITE] Gleeman strategy</Text>
 		</Row>
+
+		<!-- Unit: Wilder -->
+		<Row Tag="TXT_KEY_UNIT_WILDER">
+			<Text>Wilder</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_WILDER">
+			<Text>[TOWRITE] Wilder help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ANTIQUITY_WILDER_TEXT">
+			<Text>[TOWRITE] Wilder pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_WILDER_STRATEGY">
+			<Text>[TOWRITE] Wilder strategy</Text>
+		</Row>
 		
 		<!-- Unit: Great Leader -->
 		<Row Tag="TXT_KEY_UNIT_GREAT_LEADER">

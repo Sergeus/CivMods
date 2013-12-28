@@ -140,5 +140,47 @@
 		<Row Tag="TXT_KEY_BUILDING_CLAY_FURNACE_STRATEGY">
 			<Text>[TOWRITE] Clay Furnace strategy</Text>
 		</Row>
+
+		<!-- Building: Statue -->
+		<Row Tag="TXT_KEY_BUILDING_STATUE_DESC">
+			<Text>Statue</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_STATUE_CIV">
+			<Text>[TOWRITE] Statue pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_STATUE_HELP">
+			<Text>[TOWRITE] Statue help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_STATUE_STRATEGY">
+			<Text>[TOWRITE] Statue strategy</Text>
+		</Row>
+
+		<!-- Building: Parade Square -->
+		<Row Tag="TXT_KEY_BUILDING_PARADE_SQUARE_DESC">
+			<Text>Parade Square</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PARADE_SQUARE_CIV">
+			<Text>[TOWRITE] Parade Square pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PARADE_SQUARE_HELP">
+			<Text>[TOWRITE] Parade Square help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PARADE_SQUARE_STRATEGY">
+			<Text>[TOWRITE] Parade Square strategy</Text>
+		</Row>
+
+		<!-- Building: Power-Wrought Buildings -->
+		<Row Tag="TXT_KEY_BUILDING_POWER_BUILDINGS_DESC">
+			<Text>Power-Wrought Buildings</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_POWER_BUILDINGS_CIV">
+			<Text>[TOWRITE] Power-Wrought Buildings pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_POWER_BUILDINGS_HELP">
+			<Text>[TOWRITE] Power-Wrought Buildings help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_POWER_BUILDINGS_STRATEGY">
+			<Text>[TOWRITE] Power-Wrought Buildings strategy</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

@@ -28,12 +28,16 @@
 			<Set PrereqTech="TECH_FUTURE_TECH"/>
 			<Where Type="BUILDING_GREAT_LIBRARY"/>
 		</Update>
+		<Update>
+			<Where Type="BUILDING_TEMPLE_ARTEMIS"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
 		
 		<Row>
 			<Type>BUILDING_NATRINS_BARROW</Type>
 			<BuildingClass>BUILDINGCLASS_NATRINS_BARROW</BuildingClass>
 			<Cost>185</Cost>
-			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+			<PrereqTech>TECH_BRONZE_SMITHING</PrereqTech>
 			<Description>TXT_KEY_BUILDING_NATRINS_BARROW</Description>
 			<Civilopedia>TXT_KEY_WONDER_NATRINS_BARROW_DESC</Civilopedia>
 			<Quote>TXT_KEY_WONDER_NATRINS_BARROW_QUOTE</Quote>

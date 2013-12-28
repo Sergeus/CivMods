@@ -6,6 +6,11 @@
 		http://forums.civfanatics.com/showthread.php?t=505676 -->
 
 	<Resources>
+		<Update>
+			<Where Type="RESOURCE_IRON" />
+			<Set TechReveal="TECH_IRON_SMITHING" TechCityTrade="TECH_IRON_SMITHING" />
+		</Update>
+		
 		<Row>
 			<Type>RESOURCE_CUENDILLAR</Type>
 			<TechReveal>TECH_CUENDILLAR</TechReveal>
