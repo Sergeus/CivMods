@@ -60,6 +60,7 @@
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_SECRET_KNOWLEDGE_PEDIA</PediaEntry>
+			<VisibilityChange>1</VisibilityChange>
 		</Row>
 	</UnitPromotions>
 </GameData>

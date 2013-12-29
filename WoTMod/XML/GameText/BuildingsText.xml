@@ -41,6 +41,20 @@
 			<Text>Units may not touch the True Source (affecting Saidar and Saidin) within 2 hexes of the city the Guardian is built in.</Text>
 		</Row>
 		
+		<!-- Wonder: Foregate -->
+		<Row Tag="TXT_KEY_BUILDING_FOREGATE">
+			<Text>Foregate</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_FOREGATE_PEDIA">
+			<Text>[TOWRITE] Foregate pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_FOREGATE_QUOTE">
+			<Text>[TOWRITE] foregate quote</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_FOREGATE_HELP">
+			<Text>The city that builds Foregate increases [ICON_CITIZEN] Population by 4 immediately.</Text>
+		</Row>
+		
 		<!-- Building: Inn -->
 		<Row Tag="TXT_KEY_BUILDING_INN">
 			<Text>Inn</Text>
@@ -181,6 +195,48 @@
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_POWER_BUILDINGS_STRATEGY">
 			<Text>[TOWRITE] Power-Wrought Buildings strategy</Text>
+		</Row>
+
+		<!-- Building: Palace Gardens -->
+		<Row Tag="TXT_KEY_BUILDING_PALACE_GARDENS_DESC">
+			<Text>Palace Gardens</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PALACE_GARDENS_CIV">
+			<Text>[TOWRITE] Palace Gardens pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PALACE_GARDENS_HELP">
+			<Text>[TOWRITE] Palace Gardens help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PALACE_GARDENS_STRATEGY">
+			<Text>[TOWRITE] Palace Gardens strategy</Text>
+		</Row>
+
+		<!-- Building: Mayoral Estate -->
+		<Row Tag="TXT_KEY_BUILDING_MAYOR_ESTATE_DESC">
+			<Text>Mayoral Estate</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MAYOR_ESTATE_CIV">
+			<Text>[TOWRITE] Mayoral Estate pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MAYOR_ESTATE_HELP">
+			<Text>[TOWRITE] Mayoral Estate help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MAYOR_ESTATE_STRATEGY">
+			<Text>[TOWRITE] Mayoral Estate strategy</Text>
+		</Row>
+
+		<!-- Building: Smithy -->
+		<Row Tag="TXT_KEY_BUILDING_SMITHY_DESC">
+			<Text>Smithy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SMITHY_CIV">
+			<Text>[TOWRITE] Smithy pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SMITHY_HELP">
+			<Text>[TOWRITE] Smithy help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SMITHY_STRATEGY">
+			<Text>[TOWRITE] Smithy strategy</Text>
 		</Row>
 	</Language_en_US>
 </GameData>

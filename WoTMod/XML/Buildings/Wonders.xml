@@ -20,6 +20,12 @@
 			<DefaultBuilding>BUILDING_GUARDIAN</DefaultBuilding>
 			<MaxGlobalInstances>1</MaxGlobalInstances>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_FOREGATE</Type>
+			<Description>TXT_KEY_BUILDING_FOREGATE</Description>
+			<DefaultBuilding>BUILDING_FOREGATE</DefaultBuilding>
+			<MaxGlobalInstances>1</MaxGlobalInstances>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
@@ -103,6 +109,29 @@
 			<WonderSplashImage>WonderConceptStonehedge.dds</WonderSplashImage>
 			<WonderSplashAudio>AS2D_WONDER_SPEECH_STONEHENGE_01</WonderSplashAudio>
 		</Row>
+		<Row>
+			<Type>BUILDING_FOREGATE</Type>
+			<BuildingClass>BUILDINGCLASS_FOREGATE</BuildingClass>
+			<Cost>185</Cost>
+			<PrereqTech>TECH_CONSTRUCTION</PrereqTech>
+			<Description>TXT_KEY_BUILDING_FOREGATE</Description>
+			<Civilopedia>TXT_KEY_WONDER_FOREGATE_PEDIA</Civilopedia>
+			<Quote>TXT_KEY_WONDER_FOREGATE_QUOTE</Quote>
+			<Help>TXT_KEY_WONDER_FOREGATE_HELP</Help>
+			<ArtDefineTag>STONEHENGE</ArtDefineTag>
+			<MaxStartEra>ERA_CLASSICAL</MaxStartEra>
+			<GreatPeopleRateChange>1</GreatPeopleRateChange>
+			<NukeImmune>true</NukeImmune>
+			<HurryCostModifier>-1</HurryCostModifier>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>100</ConquestProb>
+			<DisplayPosition>4</DisplayPosition>
+			<IconAtlas>BW_ATLAS_2</IconAtlas>
+			<PortraitIndex>2</PortraitIndex>
+			<WonderSplashImage>WonderConceptStonehedge.dds</WonderSplashImage>
+			<WonderSplashAudio>AS2D_WONDER_SPEECH_STONEHENGE_01</WonderSplashAudio>
+			<PopulationChange>4</PopulationChange>
+		</Row>
 	</Buildings>
 
 	<Building_YieldChanges>
@@ -119,6 +148,11 @@
 		<Row>
 			<BuildingType>BUILDING_GUARDIAN</BuildingType>
 			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>4</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_FOREGATE</BuildingType>
+			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>4</Yield>
 		</Row>
 	</Building_YieldChanges>

@@ -52,6 +52,21 @@
 			<Description>TXT_KEY_BUILDINGCLASS_POWER_BUILDINGS</Description>
 			<DefaultBuilding>BUILDING_POWER_BUILDINGS</DefaultBuilding>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_PALACE_GARDENS</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_PALACE_GARDENS</Description>
+			<DefaultBuilding>BUILDING_PALACE_GARDENS</DefaultBuilding>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_MAYOR_ESTATE</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_MAYOR_ESTATE</Description>
+			<DefaultBuilding>BUILDING_MAYOR_ESTATE</DefaultBuilding>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_SMITHY</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_SMITHY</Description>
+			<DefaultBuilding>BUILDING_SMITHY</DefaultBuilding>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
@@ -283,6 +298,72 @@
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<PortraitIndex>23</PortraitIndex>
 		</Row>
+
+		<Row>
+			<Type>BUILDING_PALACE_GARDENS</Type>
+			<BuildingClass>BUILDINGCLASS_PALACE_GARDENS</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_ROYAL_DECREE</PrereqTech>
+			<Description>TXT_KEY_BUILDING_PALACE_GARDENS_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_PALACE_GARDENS_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_PALACE_GARDENS_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_PALACE_GARDENS_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+			<SpecialistType>SPECIALIST_LEADER</SpecialistType>
+			<GreatPeopleRateChange>1</GreatPeopleRateChange>
+			<SpecialistCount>2</SpecialistCount>
+		</Row>
+		
+		<Row>
+			<Type>BUILDING_MAYOR_ESTATE</Type>
+			<BuildingClass>BUILDINGCLASS_MAYOR_ESTATE</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_FORAGING</PrereqTech>
+			<Description>TXT_KEY_BUILDING_MAYOR_ESTATE_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MAYOR_ESTATE_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MAYOR_ESTATE_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_MAYOR_ESTATE_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
+
+		<Row>
+			<Type>BUILDING_SMITHY</Type>
+			<BuildingClass>BUILDINGCLASS_SMITHY</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_IRON_SMITHING</PrereqTech>
+			<Description>TXT_KEY_BUILDING_SMITHY_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_SMITHY_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_SMITHY_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_SMITHY_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
 	</Buildings>
 
 	<Building_YieldChanges>
@@ -320,6 +401,11 @@
 			<BuildingType>BUILDING_POWER_BUILDINGS</BuildingType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SMITHY</BuildingType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
 		</Row>
 	</Building_YieldChanges>
 
@@ -359,6 +445,12 @@
 			<ResourceType>RESOURCE_SHEEP</ResourceType>
 			<YieldType>YIELD_FOOD</YieldType>
 			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SMITHY</BuildingType>
+			<ResourceType>RESOURCE_IRON</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>2</Yield>
 		</Row>
 	</Building_ResourceYieldModifiers>
 

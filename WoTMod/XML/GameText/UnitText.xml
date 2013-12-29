@@ -202,7 +202,7 @@
 			<Text>Secret Knowledge</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_SECRET_KNOWLEDGE_HELP">
-			<Text>[TOWRITE] secret knowledge help</Text>
+			<Text>Unit has +1 sight on land.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_SECRET_KNOWLEDGE_PEDIA">
 			<Text>[TOWRITE] secret knowledge pedia</Text>
