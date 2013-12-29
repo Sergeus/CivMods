@@ -204,6 +204,7 @@ CvBuildingEntry::CvBuildingEntry(void):
 	// ----------------------------------------------------------------
 	m_pabGovernorClassOrPrereqs(NULL),
 	m_piOnePowerBlockingRange(NULL),
+	m_iPopulationChange(0),
 
 	m_paThemingBonusInfo(NULL),
 	m_iNumThemingBonuses(0)
@@ -395,6 +396,11 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	m_bEndsWars = kResults.GetBool("EndsWars");
 	m_iReligionMajorityPressureModifier = kResults.GetInt("ReligionMajorityPressureModifier");
 	m_iUnitPurchaseCostModifier = kResults.GetInt("UnitPurchaseCostModifier");
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_iPopulationChange = kResults.GetInt("PopulationChange");
 
 	//References
 	const char* szTextVal;
@@ -2124,6 +2130,10 @@ int CvBuildingEntry::GetOnePowerBlockingRange(OnePowerTypes eOnePower) const
 	CvAssertMsg(eOnePower > -1, "Index out of bounds");
 	return m_piOnePowerBlockingRange[eOnePower];
 }
+int CvBuildingEntry::GetPopulationChange() const
+{
+	return m_iPopulationChange;
+}
 
 /// Modifier to resource yield
 int CvBuildingEntry::GetResourceYieldModifier(int i, int j) const
@@ -2753,6 +2763,15 @@ void CvCityBuildings::SetNumRealBuildingTimed(BuildingTypes eIndex, int iNewValu
 		if(buildingEntry->GetGoldMaintenance() != 0)
 		{
 			pPlayer->GetTreasury()->ChangeBaseBuildingGoldMaintenance(buildingEntry->GetGoldMaintenance() * iChangeNumRealBuilding);
+		}
+
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		// population change
+		if (buildingEntry->GetPopulationChange() != 0)
+		{
+			m_pCity->changePopulation(buildingEntry->GetPopulationChange() * iChangeNumRealBuilding);
 		}
 
 		//Achievement for Temples
