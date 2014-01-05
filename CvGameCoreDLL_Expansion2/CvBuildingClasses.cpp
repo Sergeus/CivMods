@@ -204,6 +204,7 @@ CvBuildingEntry::CvBuildingEntry(void):
 	// ----------------------------------------------------------------
 	m_pabGovernorClassOrPrereqs(NULL),
 	m_piOnePowerBlockingRange(NULL),
+	m_ppaiGovernorClassYieldChanges(NULL),
 	m_iPopulationChange(0),
 
 	m_paThemingBonusInfo(NULL),
@@ -252,6 +253,7 @@ CvBuildingEntry::~CvBuildingEntry(void)
 	// ----------------------------------------------------------------
 	SAFE_DELETE_ARRAY(m_pabGovernorClassOrPrereqs);
 	SAFE_DELETE_ARRAY(m_piOnePowerBlockingRange);
+	CvDatabaseUtility::SafeDelete2DArray(m_ppaiGovernorClassYieldChanges);
 
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiResourceYieldChange);
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiFeatureYieldChange);
@@ -699,6 +701,29 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 		pResults->Reset();
 
 		std::multimap<int, int>(m_FreePromotionsOnePowerWielding).swap(m_FreePromotionsOnePowerWielding);
+	}
+	
+	// Building_GovernorClassYieldChanges
+	{
+		kUtility.Initialize2DArray(m_ppaiGovernorClassYieldChanges, "GovernorClasses", "Yields");
+
+		std::string strKey("Building_GovernorClassYieldChanges");
+		Database::Results* pResults = kUtility.GetResults(strKey);
+		if (pResults == NULL)
+		{
+			pResults = kUtility.PrepareResults(strKey, "select GovernorClasses.ID as GovernorClassID, Yields.ID as YieldID, Yield from Building_GovernorClassYieldChanges inner join GovernorClasses on GovernorClasses.Type = GovernorClassType inner join Yields on Yields.Type = YieldType where BuildingType = ?");
+		}
+
+		pResults->Bind(1, szBuildingType);
+
+		while (pResults->Step())
+		{
+			const int GovernorClassID = pResults->GetInt(0);
+			const int YieldID = pResults->GetInt(1);
+			const int yield = pResults->GetInt(2);
+
+			m_ppaiTradeRouteYieldChanges[GovernorClassID][YieldID] = yield;
+		}
 	}
 
 	//ResourceYieldModifiers
@@ -2134,6 +2159,20 @@ int CvBuildingEntry::GetPopulationChange() const
 {
 	return m_iPopulationChange;
 }
+int CvBuildingEntry::GetGovernorClassYieldChange(int i, int j) const
+{
+	CvAssertMsg(i < GC.GetNumGovernorClassInfos(), "Index out of bounds");
+	CvAssertMsg(i > -1, "Index out of bounds");
+	CvAssertMsg(j < GC.GetNumYieldInfos(), "Index out of bounds");
+	CvAssertMsg(j > -1, "Index out of bounds");
+	return m_ppaiGovernorClassYieldChanges[i][j];
+}
+int* CvBuildingEntry::GetGovernorClassYieldChangeArray(int i) const
+{
+	CvAssertMsg(i < GC.GetNumGovernorClassInfos(), "Index out of bounds");
+	CvAssertMsg(i > -1, "Index out of bounds");
+	return m_ppaiGovernorClassYieldChanges[i];
+}
 
 /// Modifier to resource yield
 int CvBuildingEntry::GetResourceYieldModifier(int i, int j) const
@@ -2765,15 +2804,6 @@ void CvCityBuildings::SetNumRealBuildingTimed(BuildingTypes eIndex, int iNewValu
 			pPlayer->GetTreasury()->ChangeBaseBuildingGoldMaintenance(buildingEntry->GetGoldMaintenance() * iChangeNumRealBuilding);
 		}
 
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
-		// population change
-		if (buildingEntry->GetPopulationChange() != 0)
-		{
-			m_pCity->changePopulation(buildingEntry->GetPopulationChange() * iChangeNumRealBuilding);
-		}
-
 		//Achievement for Temples
 		const char* szBuildingTypeC = buildingEntry->GetType();
 		CvString szBuildingType = szBuildingTypeC;
@@ -2852,36 +2882,6 @@ void CvCityBuildings::SetNumRealBuildingTimed(BuildingTypes eIndex, int iNewValu
 			if(buildingEntry->GetResourceQuantityRequirement(iResourceLoop) > 0)
 			{
 				pPlayer->changeNumResourceUsed((ResourceTypes) iResourceLoop, iChangeNumRealBuilding * buildingEntry->GetResourceQuantityRequirement(iResourceLoop));
-			}
-		}
-
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
-		// Update the plots around this city if this building blocks channeling for any distance
-		for (int iOnePower = 0; iOnePower < GC.GetNumOnePowerInfos(); iOnePower++)
-		{
-			OnePowerTypes eOnePower = static_cast<OnePowerTypes>(iOnePower);
-			int iBlockRange = buildingEntry->GetOnePowerBlockingRange(eOnePower);
-			if (iBlockRange > -1)
-			{
-				int cityX = m_pCity->getX();
-				int cityY = m_pCity->getY();
-
-				m_pCity->plot()->ChangeCannotChannelHere(eOnePower, iChangeNumRealBuilding);
-
-				for (int iX = -1 * iBlockRange; iX < iBlockRange; iX++)
-				{
-					for (int iY = -1 * iBlockRange; iY < iBlockRange; iY++)
-					{
-						CvPlot* pPlot = plotXYWithRangeCheck(cityX, cityY, iX, iY, iBlockRange);
-
-						if (pPlot)
-						{
-							pPlot->ChangeCannotChannelHere(eOnePower, iChangeNumRealBuilding);
-						}
-					}
-				}
 			}
 		}
 

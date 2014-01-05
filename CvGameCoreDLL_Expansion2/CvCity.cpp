@@ -6269,6 +6269,41 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 			}
 		}
 
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		// Update the plots around this city if this building blocks channeling for any distance
+		for (int iOnePower = 0; iOnePower < GC.GetNumOnePowerInfos(); iOnePower++)
+		{
+			OnePowerTypes eOnePower = static_cast<OnePowerTypes>(iOnePower);
+			int iBlockRange = pBuildingInfo->GetOnePowerBlockingRange(eOnePower);
+			if (iBlockRange > -1)
+			{
+				int cityX = getX();
+				int cityY = getY();
+
+				plot()->ChangeCannotChannelHere(eOnePower, iChange);
+
+				for (int iX = -1 * iBlockRange; iX < iBlockRange; iX++)
+				{
+					for (int iY = -1 * iBlockRange; iY < iBlockRange; iY++)
+					{
+						CvPlot* pPlot = plotXYWithRangeCheck(cityX, cityY, iX, iY, iBlockRange);
+
+						if (pPlot)
+						{
+							pPlot->ChangeCannotChannelHere(eOnePower, iChange);
+						}
+					}
+				}
+			}
+		}
+		// population change
+		if (pBuildingInfo->GetPopulationChange() != 0)
+		{
+			changePopulation(pBuildingInfo->GetPopulationChange() * iChange);
+		}
+
 		// Resource loop
 		int iCulture, iFaith;
 		ResourceTypes eResource;
@@ -6391,6 +6426,15 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 			for(int iJ = 0; iJ < GC.getNumTerrainInfos(); iJ++)
 			{
 				ChangeTerrainExtraYield(((TerrainTypes)iJ), eYield, (GC.getBuildingInfo(eBuilding)->GetTerrainYieldChange(iJ, eYield) * iChange));
+			}
+
+			// ----------------------------------------------------------------
+			// WoTMod Addition
+			// ----------------------------------------------------------------
+			// governor yield changes
+			if (m_pCityGovernors->IsHasGovernor())
+			{
+				m_pCityGovernors->ChangeYieldChange(eYield, pBuildingInfo->GetGovernorClassYieldChange(m_pCityGovernors->GetGovernorClassType(), eYield));
 			}
 
 			if(pBuildingInfo->GetEnhancedYieldTech() != NO_TECH)
@@ -9713,7 +9757,9 @@ int CvCity::getBaseYieldRate(YieldTypes eIndex) const
 // ----------------------------------------------------------------
 int CvCity::GetBaseYieldRateFromGovernors(YieldTypes eYieldType) const
 {
-	return GetCityGovernors()->GetYieldChange(eYieldType);
+	CvAssertMsg(eYieldType > -1, "Index out of bounds");
+	CvAssertMsg(eYieldType < GC.GetNumYieldInfos(), "Index out of bounds");
+	return m_pCityGovernors->GetYieldChange(eYieldType);
 }
 bool CvCity::IsBuildingGovernorValid(BuildingTypes eBuilding, bool bTestVisible, CvString* toolTipSink) const
 {

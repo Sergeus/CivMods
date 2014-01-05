@@ -166,9 +166,18 @@ void WoTCityGovernors::Uninit()
 	SAFE_DELETE_ARRAY(m_aiYieldChange);
 }
 
-GovernorTypes WoTCityGovernors::GetGovernorType()
+GovernorTypes WoTCityGovernors::GetGovernorType() const
 {
 	return m_eGovernorType;
+}
+GovernorClassTypes WoTCityGovernors::GetGovernorClassType() const
+{
+	if (!IsHasGovernor())
+	{
+		return NO_GOVERNORCLASS;
+	}
+
+	return static_cast<GovernorClassTypes>(GC.GetGovernorInfo(GetGovernorType())->GetGovernorClassType());
 }
 void WoTCityGovernors::SetGovernorType(GovernorTypes eNewGovernorType)
 {
@@ -186,23 +195,49 @@ void WoTCityGovernors::SetGovernorType(GovernorTypes eNewGovernorType)
 
 			for (int i = 0; i < GC.GetNumYieldInfos(); i++)
 			{
-				m_aiYieldChange[i] = pInfo->GetYieldChange(i);
+				int iBase = 0;
+
+				iBase += pInfo->GetYieldChange(i);
+
+				// building changes
+				for (int j = 0; j < GC.getNumBuildingInfos(); j++)
+				{
+					BuildingTypes eBuilding = static_cast<BuildingTypes>(j);
+					if (m_pCity->GetCityBuildings()->GetNumActiveBuilding(eBuilding) > 0)
+					{
+						CvBuildingEntry* pBuildingInfo = GC.getBuildingInfo(eBuilding);
+						iBase += pBuildingInfo->GetGovernorClassYieldChange(m_eGovernorType, i);
+					}
+				}
+
+				m_aiYieldChange[i] = iBase;
 			}
 		}
 	}
 }
 
-int WoTCityGovernors::GetYieldChange(YieldTypes yield)
+int WoTCityGovernors::GetYieldChange(YieldTypes eYieldType) const
 {
-	return m_aiYieldChange[yield];
+	CvAssertMsg(eYieldType > -1, "Index out of bounds");
+	CvAssertMsg(eYieldType < GC.GetNumYieldInfos(), "Index out of bounds");
+	return m_aiYieldChange[eYieldType];
 }
 
 void WoTCityGovernors::SetYieldChange(YieldTypes eYieldType, int iYield)
 {
+	CvAssertMsg(eYieldType > -1, "Index out of bounds");
+	CvAssertMsg(eYieldType < GC.GetNumYieldInfos(), "Index out of bounds");
 	m_aiYieldChange[eYieldType] = iYield;
 }
 
-bool WoTCityGovernors::IsHasGovernor()
+void WoTCityGovernors::ChangeYieldChange(YieldTypes eYieldType, int iYield)
+{
+	CvAssertMsg(eYieldType > -1, "Index out of bounds");
+	CvAssertMsg(eYieldType < GC.GetNumYieldInfos(), "Index out of bounds");
+	SetYieldChange(eYieldType, GetYieldChange(eYieldType) + iYield);
+}
+
+bool WoTCityGovernors::IsHasGovernor() const
 {
 	return m_eGovernorType != NO_GOVERNOR;
 }

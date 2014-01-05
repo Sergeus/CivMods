@@ -308,6 +308,8 @@ public:
 	bool IsGovernorClassOrPrereq(GovernorClassTypes eGovernorClass) const;
 	int GetOnePowerBlockingRange(OnePowerTypes eOnePower) const;
 	int GetPopulationChange() const;
+	int GetGovernorClassYieldChange(int i, int j) const;
+	int* GetGovernorClassYieldChangeArray(int i) const;
 
 	CvThemingBonusInfo *GetThemingBonusInfo(int i) const;
 	int GetNumThemingBonuses() const {return m_iNumThemingBonuses;};
@@ -519,6 +521,7 @@ private:
 	bool* m_pabGovernorClassOrPrereqs;
 	int* m_piOnePowerBlockingRange;
 	int m_iPopulationChange;
+	int** m_ppaiGovernorClassYieldChanges;
 
 	CvThemingBonusInfo* m_paThemingBonusInfo;
 	int m_iNumThemingBonuses;
