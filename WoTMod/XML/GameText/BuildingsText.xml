@@ -205,7 +205,7 @@
 			<Text>[TOWRITE] Palace Gardens pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_PALACE_GARDENS_HELP">
-			<Text>[TOWRITE] Palace Gardens help</Text>
+			<Text>Monarch governors in this city produce +2 [ICON_GOLD] Gold and +2 [ICON_CULTURE] Culture.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_PALACE_GARDENS_STRATEGY">
 			<Text>[TOWRITE] Palace Gardens strategy</Text>
@@ -219,7 +219,7 @@
 			<Text>[TOWRITE] Mayoral Estate pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_MAYOR_ESTATE_HELP">
-			<Text>[TOWRITE] Mayoral Estate help</Text>
+			<Text>This city's governor produces +2 [ICON_CULTURE] Culture.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_MAYOR_ESTATE_STRATEGY">
 			<Text>[TOWRITE] Mayoral Estate strategy</Text>
@@ -233,7 +233,7 @@
 			<Text>[TOWRITE] Smithy pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_SMITHY_HELP">
-			<Text>[TOWRITE] Smithy help</Text>
+			<Text>Blacksmith governors in this city produce +10 [ICON_PRODUCTION] Production.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_SMITHY_STRATEGY">
 			<Text>[TOWRITE] Smithy strategy</Text>

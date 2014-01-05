@@ -42,5 +42,10 @@
 			<Description>TXT_KEY_UNITCLASS_LEADER</Description>
 			<DefaultUnit>UNIT_LEADER</DefaultUnit>
 		</Row>
+		<Row>
+			<Type>UNITCLASS_AXEMAN</Type>
+			<Description>TXT_KEY_UNIT_AXEMAN</Description>
+			<DefaultUnit>UNIT_AXEMAN</DefaultUnit>
+		</Row>
 	</UnitClasses>
 </GameData>
