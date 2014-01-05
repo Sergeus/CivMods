@@ -310,6 +310,7 @@ public:
 	int GetPopulationChange() const;
 	int GetGovernorClassYieldChange(int i, int j) const;
 	int* GetGovernorClassYieldChangeArray(int i) const;
+	int GetGovernorYieldChange(int i) const;
 
 	CvThemingBonusInfo *GetThemingBonusInfo(int i) const;
 	int GetNumThemingBonuses() const {return m_iNumThemingBonuses;};
@@ -522,6 +523,7 @@ private:
 	int* m_piOnePowerBlockingRange;
 	int m_iPopulationChange;
 	int** m_ppaiGovernorClassYieldChanges;
+	int* m_paiGovernorYieldChanges;
 
 	CvThemingBonusInfo* m_paThemingBonusInfo;
 	int m_iNumThemingBonuses;

@@ -206,6 +206,7 @@ void WoTCityGovernors::SetGovernorType(GovernorTypes eNewGovernorType)
 					if (m_pCity->GetCityBuildings()->GetNumActiveBuilding(eBuilding) > 0)
 					{
 						CvBuildingEntry* pBuildingInfo = GC.getBuildingInfo(eBuilding);
+						iBase += pBuildingInfo->GetGovernorYieldChange(i);
 						iBase += pBuildingInfo->GetGovernorClassYieldChange(m_eGovernorType, i);
 					}
 				}

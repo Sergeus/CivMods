@@ -529,6 +529,7 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	// ----------------------------------------------------------------
 	kUtility.PopulateArrayByExistence(m_pabGovernorClassOrPrereqs, "GovernorClasses", "Building_GovernorOrPrereqs", "GovernorClassType", "BuildingType", szBuildingType);
 	kUtility.PopulateArrayByValue(m_piOnePowerBlockingRange, "OnePowers", "Building_OnePowerBlocking", "OnePowerType", "BuildingType", szBuildingType, "Range", -1);
+	kUtility.SetYields(m_paiGovernorYieldChanges, "Building_GovernorYieldChanges", "BuildingType", szBuildingType);
 
 	//ResourceYieldChanges
 	{
@@ -2172,6 +2173,12 @@ int* CvBuildingEntry::GetGovernorClassYieldChangeArray(int i) const
 	CvAssertMsg(i < GC.GetNumGovernorClassInfos(), "Index out of bounds");
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_ppaiGovernorClassYieldChanges[i];
+}
+int CvBuildingEntry::GetGovernorYieldChange(int i) const
+{
+	CvAssertMsg(i < GC.GetNumYieldInfos(), "Index out of bounds");
+	CvAssertMsg(i > -1, "Index out of bounds");
+	return m_paiGovernorYieldChanges[i];
 }
 
 /// Modifier to resource yield

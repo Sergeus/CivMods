@@ -6434,6 +6434,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 			// governor yield changes
 			if (m_pCityGovernors->IsHasGovernor())
 			{
+				m_pCityGovernors->ChangeYieldChange(eYield, pBuildingInfo->GetGovernorYieldChange(eYield));
 				m_pCityGovernors->ChangeYieldChange(eYield, pBuildingInfo->GetGovernorClassYieldChange(m_pCityGovernors->GetGovernorClassType(), eYield));
 			}
 
