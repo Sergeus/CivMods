@@ -38,6 +38,22 @@
 			<Where Type="BUILDING_TEMPLE_ARTEMIS"/>
 			<Set PrereqTech="TECH_FUTURE_TECH"/>
 		</Update>
+		<Update>
+			<Where Type="BUILDING_TERRACOTTA_ARMY"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_STONEHENGE"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_PETRA"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_RED_FORT"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
 		
 		<Row>
 			<Type>BUILDING_NATRINS_BARROW</Type>

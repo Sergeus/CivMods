@@ -53,5 +53,13 @@
 		<Row Tag="TXT_KEY_CIV5_RESOURCE_ZEMAI_TEXT">
 			<Text>[TOWRITE] zemai pedia</Text>
 		</Row>
+		
+		<!-- Resource: Herbs -->
+		<Row Tag="TXT_KEY_RESOURCE_HERBS">
+			<Text>Herbs</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_RESOURCE_HERBS_TEXT">
+			<Text>[TOWRITE] herbs pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

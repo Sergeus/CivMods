@@ -67,6 +67,11 @@
 			<Description>TXT_KEY_BUILDINGCLASS_SMITHY</Description>
 			<DefaultBuilding>BUILDING_SMITHY</DefaultBuilding>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_MASONWORKS</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_MASONWORKS</Description>
+			<DefaultBuilding>BUILDING_MASONWORKS</DefaultBuilding>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
@@ -329,7 +334,7 @@
 			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
 			<Cost>70</Cost>
 			<GoldMaintenance>1</GoldMaintenance>
-			<PrereqTech>TECH_FORAGING</PrereqTech>
+			<PrereqTech>TECH_POTTERY</PrereqTech>
 			<Description>TXT_KEY_BUILDING_MAYOR_ESTATE_DESC</Description>
 			<Civilopedia>TXT_KEY_BUILDING_MAYOR_ESTATE_CIV</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_MAYOR_ESTATE_STRATEGY</Strategy>
@@ -342,6 +347,9 @@
 			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<PortraitIndex>23</PortraitIndex>
+			<SpecialistType>SPECIALIST_LEADER</SpecialistType>
+			<GreatPeopleRateChange>1</GreatPeopleRateChange>
+			<SpecialistCount>1</SpecialistCount>
 		</Row>
 
 		<Row>
@@ -355,6 +363,27 @@
 			<Civilopedia>TXT_KEY_BUILDING_SMITHY_CIV</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_SMITHY_STRATEGY</Strategy>
 			<Help>TXT_KEY_BUILDING_SMITHY_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
+
+		<Row>
+			<Type>BUILDING_MASONWORKS</Type>
+			<BuildingClass>BUILDINGCLASS_MASONWORKS</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_QUARRYING</PrereqTech>
+			<Description>TXT_KEY_BUILDING_MASONWORKS_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MASONWORKS_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MASONWORKS_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_MASONWORKS_HELP</Help>
 			<ArtDefineTag>COLESSEUM</ArtDefineTag>
 			<MinAreaSize>-1</MinAreaSize>
 			<ConquestProb>66</ConquestProb>
@@ -393,6 +422,11 @@
 			<Yield>2</Yield>
 		</Row>
 		<Row>
+			<BuildingType>BUILDING_MAYOR_ESTATE</BuildingType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
 			<BuildingType>BUILDING_STATUE</BuildingType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>2</Yield>
@@ -406,6 +440,11 @@
 			<BuildingType>BUILDING_SMITHY</BuildingType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_SMITHY</BuildingType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>2</Yield>
 		</Row>
 	</Building_YieldChanges>
 
@@ -449,6 +488,18 @@
 		<Row>
 			<BuildingType>BUILDING_SMITHY</BuildingType>
 			<ResourceType>RESOURCE_IRON</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MASONWORKS</BuildingType>
+			<ResourceType>RESOURCE_STONE</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MASONWORKS</BuildingType>
+			<ResourceType>RESOURCE_MARBLE</ResourceType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<Yield>2</Yield>
 		</Row>

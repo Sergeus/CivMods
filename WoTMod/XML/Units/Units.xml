@@ -2,6 +2,19 @@
 <!-- Created by ModBuddy on 4/24/2013 3:10:43 AM -->
 <GameData>
 	<Units>
+		<Update>
+			<Where Type="UNIT_HUN_BATTERING_RAM"/>
+			<Set PrereqTech="TECH_CONSTRUCTION" Class="UNITCLASS_BATTERING_RAM"/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_SPEARMAN"/>
+			<Set PrereqTech="TECH_BRONZE_SMITHING"/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_SWORDSMAN"/>
+			<Set PrereqTech="TECH_IRON_SMITHING"/>
+		</Update>
+		
 		<Row>
 			<Class>UNITCLASS_HORN_HUNTER</Class>
 			<Type>UNIT_HORN_HUNTER</Type>
@@ -238,7 +251,7 @@
 			<XPValueDefense>3</XPValueDefense>
 			<UnitArtInfo>ART_DEF_UNIT__WARRIOR</UnitArtInfo>
 			<UnitFlagIconOffset>0</UnitFlagIconOffset>
-			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
 			<PortraitIndex>0</PortraitIndex>
 		</Row>
 			

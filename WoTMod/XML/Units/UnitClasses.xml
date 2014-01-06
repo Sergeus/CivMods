@@ -47,5 +47,10 @@
 			<Description>TXT_KEY_UNIT_AXEMAN</Description>
 			<DefaultUnit>UNIT_AXEMAN</DefaultUnit>
 		</Row>
+		<Row>
+			<Type>UNITCLASS_BATTERING_RAM</Type>
+			<Description>TXT_KEY_UNIT_BATTERING_RAM</Description>
+			<DefaultUnit>UNIT_HUN_BATTERING_RAM</DefaultUnit>
+		</Row>
 	</UnitClasses>
 </GameData>
