@@ -135,7 +135,7 @@
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_HUNTING_GROUNDS_HELP">
 			<Text>Each source of [ICON_RES_DEER] Deer and [ICON_RES_IVORY] Ivory worked by this city produces +1 [ICON_FOOD] Food.
-			[NEWLINE]Forests worked by this city produce +2 [ICON_FOOD] Food.</Text>
+			[NEWLINE][NEWLINE]Forests worked by this city produce +2 [ICON_FOOD] Food.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_HUNTING_GROUNDS_STRATEGY">
 			<Text>[TOWRITE] Hunting Grounds strategy</Text>
@@ -251,6 +251,21 @@
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_MASONWORKS_STRATEGY">
 			<Text>[TOWRITE] Masonworks strategy</Text>
+		</Row>
+
+		<!-- Building: Assembly -->
+		<Row Tag="TXT_KEY_BUILDING_ASSEMBLY_DESC">
+			<Text>Assembly</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_ASSEMBLY_CIV">
+			<Text>[TOWRITE] Assembly pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_ASSEMBLY_HELP">
+			<Text>Land units trained in this city gain an additional 15 free experience.
+			[NEWLINE][NEWLINE]+15% [ICON_PRODUCTION] when training land units.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_ASSEMBLY_STRATEGY">
+			<Text>[TOWRITE] Assembly strategy</Text>
 		</Row>
 		
 		<!-- Projects -->

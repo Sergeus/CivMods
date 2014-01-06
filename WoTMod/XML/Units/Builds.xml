@@ -69,30 +69,17 @@
 	</Builds>
 	<BuildFeatures>
 		<Update>
-			<Where BuildType="BUILD_FARM" FeatureType="FEATURE_JUNGLE"/>
+			<Where FeatureType="FEATURE_JUNGLE"/>
 			<Set PrereqTech="TECH_MINING"/>
 		</Update>
 		<Update>
-			<Where BuildType="BUILD_FARM" FeatureType="FEATURE_FOREST"/>
+			<Where FeatureType="FEATURE_FOREST"/>
 			<Set PrereqTech="TECH_STONE_TOOLS"/>
 		</Update>
 		<Update>
-			<Where BuildType="BUILD_FARM" FeatureType="FEATURE_MARSH"/>
+			<Where FeatureType="FEATURE_MARSH"/>
 			<Set PrereqTech="TECH_QUARRYING"/>
 		</Update>
-		<Update>
-			<Where BuildType="BUILD_MINE" FeatureType="FEATURE_JUNGLE"/>
-			<Set PrereqTech="TECH_MINING"/>
-		</Update>
-		<Update>
-			<Where BuildType="BUILD_MINE" FeatureType="FEATURE_FOREST"/>
-			<Set PrereqTech="TECH_STONE_TOOLS"/>
-		</Update>
-		<Update>
-			<Where BuildType="BUILD_MINE" FeatureType="FEATURE_MARSH"/>
-			<Set PrereqTech="TECH_QUARRYING"/>
-		</Update>
-		<!-- TODO: update other builds -->
 		
 		<Row>
 			<BuildType>BUILD_MILITARY_CAMP</BuildType>

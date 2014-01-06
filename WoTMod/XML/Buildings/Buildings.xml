@@ -72,6 +72,11 @@
 			<Description>TXT_KEY_BUILDINGCLASS_MASONWORKS</Description>
 			<DefaultBuilding>BUILDING_MASONWORKS</DefaultBuilding>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_ASSEMBLY</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_ASSEMBLY</Description>
+			<DefaultBuilding>BUILDING_ASSEMBLY</DefaultBuilding>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
@@ -85,6 +90,10 @@
 		</Update>
 		<Update>
 			<Where Type="BUILDING_SHRINE"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_WATERMILL"/>
 			<Set PrereqTech="TECH_FUTURE_TECH"/>
 		</Update>
 		
@@ -393,6 +402,27 @@
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<PortraitIndex>23</PortraitIndex>
 		</Row>
+
+		<Row>
+			<Type>BUILDING_ASSEMBLY</Type>
+			<BuildingClass>BUILDINGCLASS_ASSEMBLY</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_BRONZE_SMITHING</PrereqTech>
+			<Description>TXT_KEY_BUILDING_ASSEMBLY_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_ASSEMBLY_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_ASSEMBLY_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_ASSEMBLY_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
 	</Buildings>
 
 	<Building_YieldChanges>
@@ -542,4 +572,20 @@
 			<Yield>2</Yield>
 		</Row>
 	</Building_GovernorClassYieldChanges>
+
+	<Building_DomainFreeExperiences>
+		<Row>
+			<BuildingType>BUILDING_ASSEMBLY</BuildingType>
+			<DomainType>DOMAIN_LAND</DomainType>
+			<Experience>15</Experience>
+		</Row>
+	</Building_DomainFreeExperiences>
+
+	<Building_DomainProductionModifiers>
+		<Row>
+			<BuildingType>BUILDING_ASSEMBLY</BuildingType>
+			<DomainType>DOMAIN_LAND</DomainType>
+			<Modifier>15</Modifier>
+		</Row>
+	</Building_DomainProductionModifiers>
 </GameData>

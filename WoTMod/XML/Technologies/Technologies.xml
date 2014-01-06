@@ -378,6 +378,7 @@
 			  <Era>ERA_CLASSICAL</Era>
 			  <FirstFreeUnitClass>0</FirstFreeUnitClass>
 			  <Trade>1</Trade>
+			  <AllowsEmbarking>true</AllowsEmbarking>
 			  <GoodyTech>1</GoodyTech>
 			  <GridX>4</GridX>
 			  <Quote>TXT_KEY_TECH_SEXTANT_QUOTE</Quote>
@@ -458,6 +459,7 @@
 			  <FirstFreeUnitClass>0</FirstFreeUnitClass>
 			  <Trade>1</Trade>
 			  <GoodyTech>1</GoodyTech>
+			  <BridgeBuilding>1</BridgeBuilding>
 			  <GridX>6</GridX>
 			  <GridY>8</GridY>
 			  <Quote>TXT_KEY_TECH_SIEGE_MECHANICS_QUOTE</Quote>

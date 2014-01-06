@@ -54,6 +54,10 @@
 			<Where Type="BUILDING_RED_FORT"/>
 			<Set PrereqTech="TECH_FUTURE_TECH"/>
 		</Update>
+		<Update>
+			<Where Type="BUILDING_CIRCUS_MAXIMUS"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
 		
 		<Row>
 			<Type>BUILDING_NATRINS_BARROW</Type>
