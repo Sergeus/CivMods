@@ -204,6 +204,7 @@ CvBuildingEntry::CvBuildingEntry(void):
 	// ----------------------------------------------------------------
 	m_pabGovernorClassOrPrereqs(NULL),
 	m_piOnePowerBlockingRange(NULL),
+	m_paiGovernorYieldChanges(NULL),
 	m_ppaiGovernorClassYieldChanges(NULL),
 	m_iPopulationChange(0),
 
@@ -253,6 +254,7 @@ CvBuildingEntry::~CvBuildingEntry(void)
 	// ----------------------------------------------------------------
 	SAFE_DELETE_ARRAY(m_pabGovernorClassOrPrereqs);
 	SAFE_DELETE_ARRAY(m_piOnePowerBlockingRange);
+	SAFE_DELETE_ARRAY(m_paiGovernorYieldChanges);
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiGovernorClassYieldChanges);
 
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiResourceYieldChange);
