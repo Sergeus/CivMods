@@ -780,4 +780,10 @@
 			<MinorCivTraitType>MINOR_TRAIT_WHITE_TOWER</MinorCivTraitType>
 		</Row>
 	</Technology_MeetAllCityStatesWithTrait>
+	<Technology_GenericExtraAbilities>
+		<Row>
+			<TechType>TECH_THE_ONE_POWER</TechType>
+			<Tooltip>TXT_KEY_ABILITY_MEET_ALL_WHITE_TOWER</Tooltip>
+		</Row>
+	</Technology_GenericExtraAbilities>
 </GameData>

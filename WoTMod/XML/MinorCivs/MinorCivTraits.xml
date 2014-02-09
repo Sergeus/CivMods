@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 2/9/2014 4:46:05 PM -->
 <GameData>
-  <!-- TODO: Insert table creation example here. -->
- 
-  <!-- TODO: Insert table data example here.-->
-  
-  <!-- Enter your Game Data here. -->
-  
+	<MinorCivTraits>
+		<Row>
+			<Type>MINOR_TRAIT_WHITE_TOWER</Type>
+			<Description>TXT_KEY_MINOR_TRAIT_WHITE_TOWER</Description>
+			<TraitIcon></TraitIcon>
+			<TraitTitleIcon></TraitTitleIcon>
+			<BackgroundImage>CityStateBackgroundTarValon.dds</BackgroundImage>
+		</Row>
+	</MinorCivTraits>
 </GameData>

@@ -702,5 +702,11 @@
 			<Where Tag="TXT_KEY_ERA_ANCIENT_STRATEGY"/>
 			<Set Text="[TOWRITE] after breaking strategy"/>
 		</Update>
+		
+		<!-- Generic Abilities -->
+		<!-- Meet Tar Valon -->
+		<Row Tag="TXT_KEY_ABILITY_MEET_ALL_WHITE_TOWER">
+			<Text>Reveals the White Tower on the map</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

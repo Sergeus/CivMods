@@ -584,6 +584,26 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 	-- SiegeMod Addition - End
 	------------------------------
 
+	------------------------------
+	-- WoTMod Addition
+	------------------------------
+	for row in GameInfo.Technology_GenericExtraAbilities(condition) do
+		local buttonName = "B" .. tostring(buttonNum)
+		local thisButton = thisTechButtonInstance[buttonName]
+		
+		if thisButton then
+			IconHookup(0, textureSize, "GENERIC_FUNC_ATLAS", thisButton)
+			thisButton:SetHide(false)
+
+			thisButton:SetToolTipString(Locale.ConvertTextKey(row.Tooltip))
+		end
+
+		buttonNum = buttonNum + 1
+	end
+	------------------------------
+	-- WoTMod Addition - End
+	------------------------------
+
 	for row in GameInfo.Technology_FreePromotions(condition) do
 		local promotion = GameInfo.UnitPromotions[row.PromotionType];
 		local buttonName = "B"..tostring(buttonNum);

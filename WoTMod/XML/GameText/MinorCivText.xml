@@ -3,6 +3,13 @@
 <GameData>
 	<Language_en_US>
 		<Row Tag="TXT_KEY_MINOR_TRAIT_WHITE_TOWER">
+			<Text>White Tower</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_CITYSTATE_WHITE_TOWER">
+			<Text>Tar Valon</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITYSTATE_WHITE_TOWER_ADJ">
 			<Text>Tar Valon</Text>
 		</Row>
 	</Language_en_US>
