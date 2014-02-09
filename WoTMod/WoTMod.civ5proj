@@ -614,6 +614,21 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Buildings/Projects.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/MinorCivs/MinorCivTraits.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/MinorCivs/MinorCivilizations.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/MinorCivText.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -655,6 +670,8 @@
     <Folder Include="Art\Leaders\Rhuarc" />
     <Folder Include="Art\Leaders\PedronNiall" />
     <Folder Include="Art\Governors" />
+    <Folder Include="Art\MinorCivs" />
+    <Folder Include="Art\MinorCivs\Traits" />
     <Folder Include="Art\Technologies" />
     <Folder Include="Art\Technologies\Fire" />
     <Folder Include="Art\Technologies\LegendOfTheHorn" />
@@ -702,6 +719,7 @@
     <Folder Include="XML\GameInfo" />
     <Folder Include="XML\Buildings" />
     <Folder Include="XML\Governors" />
+    <Folder Include="XML\MinorCivs" />
     <Folder Include="XML\Victories" />
     <Folder Include="XML\Technologies" />
     <Folder Include="XML\Shadowspawn" />
@@ -1092,6 +1110,10 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="Art\Leaders\Rhuarc\RhuarcIcon64.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\MinorCivs\Traits\CityStateBackgroundTarValon.dds">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
@@ -1703,6 +1725,10 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
+    <Content Include="XML\GameText\MinorCivText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="XML\GameText\NotificationText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1768,6 +1794,14 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Leaders\LeaderRhuarc.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\MinorCivs\MinorCivilizations.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\MinorCivs\MinorCivTraits.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

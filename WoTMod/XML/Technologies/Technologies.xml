@@ -5,6 +5,10 @@
 		<Column name="TechType" type="text" reference="Technologies(Type)"/>
 		<Column name="Tooltip" type="text" reference="Language_en_US(Tag)"/>
 	</Table>
+	<Table name="Technology_MeetAllCityStatesWithTrait">
+		<Column name="TechType" type="text" reference="Technologies(Type)"/>
+		<Column name="MinorCivTraitType" type="text" reference="MinorCivTraits(Type)"/>
+	</Table>
 	
 	<Technologies>
 		<!-- Move old techs around -->
@@ -769,4 +773,11 @@
 			  <AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>
 	</Technologies>
+
+	<Technology_MeetAllCityStatesWithTrait>
+		<Row>
+			<TechType>TECH_THE_ONE_POWER</TechType>
+			<MinorCivTraitType>MINOR_TRAIT_WHITE_TOWER</MinorCivTraitType>
+		</Row>
+	</Technology_MeetAllCityStatesWithTrait>
 </GameData>
