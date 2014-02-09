@@ -267,6 +267,21 @@
 		<Row Tag="TXT_KEY_BUILDING_ASSEMBLY_STRATEGY">
 			<Text>[TOWRITE] Assembly strategy</Text>
 		</Row>
+
+		<!-- Building: Dockyard -->
+		<Row Tag="TXT_KEY_BUILDING_DOCKYARD_DESC">
+			<Text>Dockyard</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_DOCKYARD_CIV">
+			<Text>[TOWRITE] Dockyard pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_DOCKYARD_HELP">
+			<Text>Forms a [ICON_CONNECTED] City Connection with the [ICON_STAR] Capital over water (if they're not already [ICON_CONNECTED] connected by land). +25% [ICON_PRODUCTION] when building naval units.
+			[NEWLINE][NEWLINE]City must be built on the coast.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_DOCKYARD_STRATEGY">
+			<Text>[TOWRITE] Dockyard strategy</Text>
+		</Row>
 		
 		<!-- Projects -->
 		<!-- Project: Cleanse Saidin -->

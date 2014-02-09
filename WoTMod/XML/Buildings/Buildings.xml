@@ -77,6 +77,11 @@
 			<Description>TXT_KEY_BUILDINGCLASS_ASSEMBLY</Description>
 			<DefaultBuilding>BUILDING_ASSEMBLY</DefaultBuilding>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_DOCKYARD</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_DOCKYARD</Description>
+			<DefaultBuilding>BUILDING_DOCKYARD</DefaultBuilding>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
@@ -94,6 +99,14 @@
 		</Update>
 		<Update>
 			<Where Type="BUILDING_WATERMILL"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_COLOSSEUM"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_HARBOR"/>
 			<Set PrereqTech="TECH_FUTURE_TECH"/>
 		</Update>
 		
@@ -423,6 +436,29 @@
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<PortraitIndex>23</PortraitIndex>
 		</Row>
+
+		<Row>
+			<Type>BUILDING_DOCKYARD</Type>
+			<BuildingClass>BUILDINGCLASS_DOCKYARD</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_HULL_CONSTRUCTION</PrereqTech>
+			<Description>TXT_KEY_BUILDING_DOCKYARD_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_DOCKYARD_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_DOCKYARD_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_DOCKYARD_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<Water>true</Water>
+			<AllowsWaterRoutes>true</AllowsWaterRoutes>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
 	</Buildings>
 
 	<Building_YieldChanges>
@@ -586,6 +622,11 @@
 			<BuildingType>BUILDING_ASSEMBLY</BuildingType>
 			<DomainType>DOMAIN_LAND</DomainType>
 			<Modifier>15</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_DOCKYARD</BuildingType>
+			<DomainType>DOMAIN_SEA</DomainType>
+			<Modifier>25</Modifier>
 		</Row>
 	</Building_DomainProductionModifiers>
 </GameData>
