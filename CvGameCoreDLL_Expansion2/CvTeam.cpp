@@ -6332,6 +6332,32 @@ void CvTeam::processTech(TechTypes eTech, int iChange)
 		}
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// meet all minor civs of a specific trait
+	for (int i = 0; i < GC.GetNumMinorCivTraitInfos(); i++)
+	{
+		MinorCivTraitTypes eTrait = static_cast<MinorCivTraitTypes>(i);
+		if (pTech->IsMeetsAllMinorCivsWithTrait(eTrait))
+		{
+			for (int j = 0; j < MAX_PLAYERS; j++)
+			{
+				PlayerTypes ePlayer = static_cast<PlayerTypes>(j);
+				CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+
+				if (kPlayer.isAlive() && kPlayer.isMinorCiv())
+				{
+					CvMinorCivAI* pMinor = kPlayer.GetMinorCivAI();
+					if (pMinor->GetTrait() == eTrait)
+					{
+						makeHasMet(kPlayer.getTeam(), false);
+					}
+				}
+			}
+		}
+	}
+
 	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 	if(pkScriptSystem)
 	{

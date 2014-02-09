@@ -2647,6 +2647,18 @@ WoTOnePowerInfo* CvGlobals::GetOnePowerInfo(OnePowerTypes eOnePower)
 {
 	return m_paOnePowerInfo[eOnePower];
 }
+int CvGlobals::GetNumMinorCivTraitInfos()
+{
+	return m_paMinorCivTraitInfo.size();
+}
+std::vector<CvMinorCivTraitInfo*>& CvGlobals::GetMinorCivTraitInfos()
+{
+	return m_paMinorCivTraitInfo;
+}
+CvMinorCivTraitInfo* CvGlobals::GetMinorCivTraitInfo(MinorCivTraitTypes eTrait)
+{
+	return m_paMinorCivTraitInfo[eTrait];
+}
 
 int& CvGlobals::getNumPlayableCivilizationInfos()
 {
@@ -5879,6 +5891,8 @@ void CvGlobals::deleteInfoArrays()
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	deleteInfoArray(m_paGovernorClassInfo);
+	deleteInfoArray(m_paOnePowerInfo);
+	deleteInfoArray(m_paMinorCivTraitInfo);
 }
 
 //

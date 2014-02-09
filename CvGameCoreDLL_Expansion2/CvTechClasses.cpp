@@ -39,6 +39,10 @@ CvTechEntry::CvTechEntry(void):
 	// ----------------------------------------------------------------
 	m_iForeignReligionSpreadModifier(0),
 	m_bStopsForeignReligions(false),
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pabMeetAllMinorCivsOfTrait(NULL),
 
 	m_iGridX(0),
 	m_iGridY(0),
@@ -85,6 +89,11 @@ CvTechEntry::~CvTechEntry(void)
 	SAFE_DELETE_ARRAY(m_piPrereqOrTechs);
 	SAFE_DELETE_ARRAY(m_piPrereqAndTechs);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE_ARRAY(m_pabMeetAllMinorCivsOfTrait);
 }
 
 bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
@@ -165,6 +174,11 @@ bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	kUtility.PopulateArrayByExistence(m_pabFreePromotion, "UnitPromotions", "Technology_FreePromotions", "PromotionType", "TechType", szTechType);
 	kUtility.SetFlavors(m_piFlavorValue, "Technology_Flavors", "TechType", szTechType);
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kUtility.PopulateArrayByExistence(m_pabMeetAllMinorCivsOfTrait, "MinorCivTraits", "Technology_MeetAllCityStatesWithTrait", "MinorCivTraitType", "TechType", szTechType);
+
 	const size_t TechnologiesCount = kUtility.MaxRows("Technologies");
 
 	//ORPrereqTechs
@@ -231,6 +245,13 @@ int CvTechEntry::GetPlayerReligionPressureAbroadModifier() const
 bool CvTechEntry::IsStopsForeignReligions() const
 {
 	return m_bStopsForeignReligions;
+}
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+bool CvTechEntry::IsMeetsAllMinorCivsWithTrait(MinorCivTraitTypes eTrait) const
+{
+	return m_pabMeetAllMinorCivsOfTrait[eTrait];
 }
 
 /// Additional weight to having AI purchase this

@@ -10022,6 +10022,21 @@ bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 	return true;
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+CvMinorCivTraitInfo::CvMinorCivTraitInfo()
+{
+
+}
+bool CvMinorCivTraitInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
+{
+	if(!CvBaseInfo::CacheResults(kResults, kUtility))
+		return false;
+
+	return true;
+}
+
 FDataStream& operator<<(FDataStream& saveTo, const MinorCivStatusTypes& readFrom)
 {
 	saveTo << static_cast<int>(readFrom);

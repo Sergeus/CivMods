@@ -135,6 +135,7 @@ class WoTGovernorClassInfo;
 class WoTGovernorEntry;
 class WoTGovernorXMLEntries;
 class WoTOnePowerInfo;
+class CvMinorCivTraitInfo;
 
 class CvDLLInterfaceIFaceBase;
 class ICvDLLDatabaseUtility1;
@@ -348,6 +349,10 @@ public:
 	int GetNumOnePowerInfos();
 	std::vector<WoTOnePowerInfo*>& GetOnePowerInfos();
 	WoTOnePowerInfo* GetOnePowerInfo(OnePowerTypes eOnePower);
+
+	int GetNumMinorCivTraitInfos();
+	std::vector<CvMinorCivTraitInfo*>& GetMinorCivTraitInfos();
+	CvMinorCivTraitInfo* GetMinorCivTraitInfo(MinorCivTraitTypes eTrait);
 
 	int& getNumPlayableCivilizationInfos();
 	int& getNumAIPlayableCivilizationInfos();
@@ -7626,6 +7631,7 @@ protected:
 	// ----------------------------------------------------------------
 	std::vector<WoTGovernorClassInfo*> m_paGovernorClassInfo;
 	std::vector<WoTOnePowerInfo*> m_paOnePowerInfo;
+	std::vector<CvMinorCivTraitInfo*> m_paMinorCivTraitInfo;
 	
 
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;

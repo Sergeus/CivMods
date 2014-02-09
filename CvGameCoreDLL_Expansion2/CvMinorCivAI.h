@@ -686,4 +686,15 @@ protected:
 	std::vector<CvString> m_vCityNames;
 };
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+class CvMinorCivTraitInfo : public CvBaseInfo
+{
+public:
+	CvMinorCivTraitInfo();
+
+	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
+};
+
 #endif //CIV5_MINOR_CIV_AI_H

@@ -57,6 +57,11 @@ public:
 	int GetPlayerReligionPressureAbroadModifier() const;
 	bool IsStopsForeignReligions() const;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool IsMeetsAllMinorCivsWithTrait(MinorCivTraitTypes eTrait) const;
+
 	int GetGridX() const;
 	int GetGridY() const;
 
@@ -162,6 +167,11 @@ private:
 	CvString m_wstrQuote;
 	CvString m_strSound;
 	CvString m_strSoundMP;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	bool* m_pabMeetAllMinorCivsOfTrait;
 
 	// Arrays
 	int* m_piDomainExtraMoves;
