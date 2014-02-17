@@ -9704,7 +9704,7 @@ void CvPlot::read(FDataStream& kStream)
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
-	for (uint i = 0; i < GC.GetNumOnePowerInfos(); i++)
+	for (short i = 0; i < GC.GetNumOnePowerInfos(); i++)
 		kStream >> m_iCannotChannelHere[i];
 
 	bool hasScriptData = false;
@@ -9870,7 +9870,7 @@ void CvPlot::write(FDataStream& kStream) const
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
-	for (uint i = 0; i < GC.GetNumOnePowerInfos(); i++)
+	for (short i = 0; i < GC.GetNumOnePowerInfos(); i++)
 		kStream << m_iCannotChannelHere[i];
 
 	// char * should have died in 1989...

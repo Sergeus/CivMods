@@ -1177,7 +1177,7 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	int m_iTurnDamage;
-	bool m_iHealBlockedCount;
+	int m_iHealBlockedCount;
 
 	const MissionQueueNode* HeadMissionQueueNode() const;
 	MissionQueueNode* HeadMissionQueueNode();

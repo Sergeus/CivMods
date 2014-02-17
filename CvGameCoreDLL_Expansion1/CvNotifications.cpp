@@ -593,7 +593,7 @@ bool CvNotifications::MayUserDismiss(int iLookupIndex)
 				// ----------------------------------------------------------------
 				// WoTMod Addition - Custom Notifications
 				// ----------------------------------------------------------------
-				if (m_aNotifications[iIndex].m_eNotificationType >= NotificationTypes::NOTIFICATION_WOT_CUSTOM)
+				if (m_aNotifications[iIndex].m_eNotificationType >= NOTIFICATION_WOT_CUSTOM)
 				{
 					ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 					if (pkScriptSystem)
@@ -1065,7 +1065,7 @@ void CvNotifications::Activate(Notification& notification)
 			{
 				auto_ptr<ICvPlot1> pDllPlot = GC.WrapPlotPointer(pPlot);
 
-				gDLL->getInterfaceIFace()->lookAt(pDllPlot.get(), CAMERALOOKAT_NORMAL);
+				GC.GetEngineUserInterface()->lookAt(pDllPlot.get(), CAMERALOOKAT_NORMAL);
 				gDLL->GameplayDoFX(pDllPlot.get());
 			}
 		}
