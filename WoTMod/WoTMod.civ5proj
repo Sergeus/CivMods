@@ -20,6 +20,9 @@
     <SupportsMac>true</SupportsMac>
     <AssemblyName>WoTMod</AssemblyName>
     <RootNamespace>WoTMod</RootNamespace>
+	<Civ5Path Condition=" '$(Civ5Path)' == '' ">$(CIV5_PATH)</Civ5Path>
+	<Civ5UserPath Condition=" '$(Civ5UserPath)' == '' ">$(CIV5_USER_PATH)</Civ5UserPath>
+	<SafeName Condition=" '$(SafeName)' == '' ">WoTMod - Civ5</SafeName>
     <ModReferences />
     <ModContent>
       <Content>
