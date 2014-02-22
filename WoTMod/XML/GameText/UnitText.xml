@@ -142,6 +142,20 @@
 		<Row Tag="TXT_KEY_UNIT_BLADEMASTER_STRATEGY">
 			<Text>[TOWRITE] Blademaster strategy</Text>
 		</Row>
+
+		<!-- Unit: Fireship -->
+		<Row Tag="TXT_KEY_UNIT_FIRESHIP">
+			<Text>Fireship</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_FIRESHIP">
+			<Text>[TOWRITE] Fireship help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ANTIQUITY_FIRESHIP_TEXT">
+			<Text>[TOWRITE] Fireship pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_FIRESHIP_STRATEGY">
+			<Text>[TOWRITE] Fireship strategy</Text>
+		</Row>
 		
 		<!-- Unit: Great Leader -->
 		<Row Tag="TXT_KEY_UNIT_GREAT_LEADER">

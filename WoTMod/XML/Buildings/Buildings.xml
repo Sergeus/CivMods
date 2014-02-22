@@ -82,6 +82,11 @@
 			<Description>TXT_KEY_BUILDINGCLASS_DOCKYARD</Description>
 			<DefaultBuilding>BUILDING_DOCKYARD</DefaultBuilding>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_GAMBLERS_DEN</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_GAMBLERS_DEN</Description>
+			<DefaultBuilding>BUILDING_GAMBLERS_DEN</DefaultBuilding>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
@@ -503,6 +508,27 @@
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<PortraitIndex>23</PortraitIndex>
 		</Row>
+
+		<Row>
+			<Type>BUILDING_GAMBLERS_DEN</Type>
+			<BuildingClass>BUILDINGCLASS_GAMBLERS_DEN</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_CURRENCY</PrereqTech>
+			<Description>TXT_KEY_BUILDING_GAMBLERS_DEN_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_GAMBLERS_DEN_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_GAMBLERS_DEN_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_GAMBLERS_DEN_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
 	</Buildings>
 
 	<Building_YieldChanges>
@@ -560,6 +586,11 @@
 			<BuildingType>BUILDING_MASONWORKS</BuildingType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_GAMBLERS_DEN</BuildingType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>2</Yield>
 		</Row>
 	</Building_YieldChanges>
 

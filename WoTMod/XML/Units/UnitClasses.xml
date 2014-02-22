@@ -2,6 +2,11 @@
 <!-- Created by ModBuddy on 4/24/2013 3:11:22 AM -->
 <GameData>
 	<UnitClasses>
+		<Update>
+			<Where Type="UNITCLASS_GALLEY"/>
+			<Set DefaultUnit="UNIT_GALLEY"/>
+		</Update>
+		
 		<Row>
 			<Type>UNITCLASS_HORN_HUNTER</Type>
 			<Description>TXT_KEY_UNIT_HORN_HUNTER</Description>
@@ -56,6 +61,11 @@
 			<Type>UNITCLASS_BLADEMASTER</Type>
 			<Description>TXT_KEY_UNIT_BLADEMASTER</Description>
 			<DefaultUnit>UNIT_BLADEMASTER</DefaultUnit>
+		</Row>
+		<Row>
+			<Type>UNITCLASS_FIRESHIP</Type>
+			<Description>TXT_KEY_UNIT_FIRESHIP</Description>
+			<DefaultUnit>UNIT_FIRESHIP</DefaultUnit>
 		</Row>
 	</UnitClasses>
 </GameData>

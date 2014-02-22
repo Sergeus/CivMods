@@ -120,7 +120,8 @@
 			<Text>[TOWRITE] Pier pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_PIER_HELP">
-			<Text>Each source of [ICON_RES_FISH] Fish worked by this City produces +2 [ICON_FOOD] Food.</Text>
+			<Text>Each source of [ICON_RES_FISH] Fish worked by this City produces +2 [ICON_FOOD] Food.
+				[NEWLINE][NEWLINE]City must be built on the coast.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_PIER_STRATEGY">
 			<Text>[TOWRITE] Pier strategy</Text>
@@ -281,6 +282,20 @@
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_DOCKYARD_STRATEGY">
 			<Text>[TOWRITE] Dockyard strategy</Text>
+		</Row>
+
+		<!-- Building: Gambler's Den -->
+		<Row Tag="TXT_KEY_BUILDING_GAMBLERS_DEN_DESC">
+			<Text>Gambler's Den</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_GAMBLERS_DEN_CIV">
+			<Text>[TOWRITE] Gambler's Den pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_GAMBLERS_DEN_HELP">
+			<Text>[TOWRITE] Gambler's Den help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_GAMBLERS_DEN_STRATEGY">
+			<Text>[TOWRITE] Gambler's Den strategy</Text>
 		</Row>
 		
 		<!-- Projects -->
