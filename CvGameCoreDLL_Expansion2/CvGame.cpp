@@ -690,6 +690,36 @@ void CvGame::InitPlayers()
 		iNumMinors = kWorldInfo.getDefaultMinorCivs();
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	// We're going to override one of the minor civs to Tar Valon (if one isn't already)
+	// and the diplomatic victory is enabled
+	bool bAlreadyPickedTarValon = false;
+	int iTarValonTrait = GC.getInfoTypeForString("MINOR_TRAIT_WHITE_TOWER");
+	for (iI = MAX_MAJOR_CIVS; iI < MAX_MAJOR_CIVS + iNumMinors; iI++)
+	{
+		PlayerTypes eMinor = static_cast<PlayerTypes>(iI);
+		CvMinorCivInfo* pMinorCivInfo = GC.getMinorCivInfo(CvPreGame::minorCivType(eMinor));
+
+		if (pMinorCivInfo->GetMinorCivTrait() == iTarValonTrait)
+		{
+			bAlreadyPickedTarValon = true;
+			CUSTOMLOG("Found Tar Valon as player %i.", iI);
+		}
+	}
+
+	int diploVictory = GC.getInfoTypeForString("VICTORY_DIPLOMATIC");
+	int tarValonMinorType = GC.getInfoTypeForString("MINOR_CIV_WHITE_TOWER");
+
+	if (!bAlreadyPickedTarValon && CvPreGame::isVictory(static_cast<VictoryTypes>(diploVictory)))
+	{
+		int tarValonCiv = getJonRandNum(iNumMinors, "Choosing which minor civ to override with Tar Valon") + MAX_MAJOR_CIVS;
+
+		CvPreGame::setMinorCivType(static_cast<PlayerTypes>(tarValonCiv), static_cast<MinorCivTypes>(tarValonMinorType));
+		CUSTOMLOG("Setting Tar Valon as minor civ with ID %i.", tarValonCiv);
+	}
+
 	PlayerTypes eMinorPlayer;
 
 	// Players
