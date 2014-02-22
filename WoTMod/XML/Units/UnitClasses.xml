@@ -52,5 +52,10 @@
 			<Description>TXT_KEY_UNIT_BATTERING_RAM</Description>
 			<DefaultUnit>UNIT_HUN_BATTERING_RAM</DefaultUnit>
 		</Row>
+		<Row>
+			<Type>UNITCLASS_BLADEMASTER</Type>
+			<Description>TXT_KEY_UNIT_BLADEMASTER</Description>
+			<DefaultUnit>UNIT_BLADEMASTER</DefaultUnit>
+		</Row>
 	</UnitClasses>
 </GameData>

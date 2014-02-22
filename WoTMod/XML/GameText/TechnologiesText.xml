@@ -708,5 +708,9 @@
 		<Row Tag="TXT_KEY_ABILITY_MEET_ALL_WHITE_TOWER">
 			<Text>Reveals the White Tower on the map</Text>
 		</Row>
+		<Update>
+			<Where Tag="TXT_KEY_ADDITIONAL_INTERNATIONAL_TRADE_ROUTE"/>
+			<Set Text="Allows establishing {1_NumNewRoutes} additional trade {1_NumNewRoutes: plural 1?route; other?routes;}."/>
+		</Update>
 	</Language_en_US>
 </GameData>

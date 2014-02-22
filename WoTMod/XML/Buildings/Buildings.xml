@@ -109,6 +109,50 @@
 			<Where Type="BUILDING_HARBOR"/>
 			<Set PrereqTech="TECH_FUTURE_TECH"/>
 		</Update>
+		<Update>
+			<Where Type="BUILDING_ARSENAL"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_MINT"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_MARKET"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_OBSERVATORY"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_SEAPORT"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_ARMORY"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_WORKSHOP"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_FORGE"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_STABLE"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_CARAVANSARY"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_FORGE"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
 		
 		<Row>
 			<Type>BUILDING_INN</Type>
@@ -511,6 +555,11 @@
 			<BuildingType>BUILDING_SMITHY</BuildingType>
 			<YieldType>YIELD_PRODUCTION</YieldType>
 			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MASONWORKS</BuildingType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
 		</Row>
 	</Building_YieldChanges>
 

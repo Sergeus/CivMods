@@ -49,7 +49,7 @@
 			<Where Type="TECH_WRITING" />
 		</Update>
 		<Update>
-			<Set Cost="105" AdvancedStartCost="0" Era="ERA_CLASSICAL" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" AllowsWorldCongress="0" GridX="3" GridY="1" ScenarioTechButton="0" />
+			<Set Cost="105" AdvancedStartCost="0" Era="ERA_CLASSICAL" FirstFreeUnitClass="0" EndsGame="0" AllowsEmbarking="0" AllowsDefensiveEmbarking="0" EmbarkedAllWaterPassage="0" AllowsBarbarianBoats="0" Repeat="0" Trade="1" Disable="0" GoodyTech="1" ExtraWaterSeeFrom="0" MapCentering="0" MapVisible="0" MapTrading="0" TechTrading="0" GoldTrading="0" AllowEmbassyTradingAllowed="0" OpenBordersTradingAllowed="0" DefensivePactTradingAllowed="0" ResearchAgreementTradingAllowed="0" TradeAgreementTradingAllowed="0" PermanentAllianceTradingAllowed="0" BridgeBuilding="0" WaterWork="0" TriggersArchaeologicalSites="0" InternationalTradeRoutesChange="1" AllowsWorldCongress="0" GridX="3" GridY="1" ScenarioTechButton="0" />
 			<Where Type="TECH_THE_WHEEL" />
 		</Update>
 		<Update>

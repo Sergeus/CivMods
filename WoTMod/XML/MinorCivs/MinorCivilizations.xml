@@ -15,5 +15,28 @@
 			<ArtStylePrefix>EUROPEAN </ArtStylePrefix>
 			<MinorCivTrait>MINOR_TRAIT_WHITE_TOWER</MinorCivTrait>
 		</Row>
+		<Row>
+			<Type>MINOR_CIV_STEDDING_SHANGTAI</Type>
+			<Description>TXT_KEY_CITYSTATE_STEDDING_SHANGTAI</Description>
+			<ShortDescription>TXT_KEY_CITYSTATE_STEDDING_SHANGTAI</ShortDescription>
+			<Adjective>TXT_KEY_CITYSTATE_STEDDING_SHANGTAI_ADJ</Adjective>
+			<Civilopedia>TXT_KEY_CIV5_STEDDING_SHANGTAI_TEXT</Civilopedia>
+			<DefaultPlayerColor>PLAYERCOLOR_MINOR_GRAY</DefaultPlayerColor>
+			<ArtDefineTag>ART_DEF_CIVILIZATION_MINOR</ArtDefineTag>
+			<ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
+			<ArtStyleSuffix>_EURO</ArtStyleSuffix>
+			<ArtStylePrefix>EUROPEAN </ArtStylePrefix>
+			<MinorCivTrait>MINOR_TRAIT_MARITIME</MinorCivTrait>
+		</Row>
 	</MinorCivilizations>
+	<MinorCivilization_OnePowerBlocking>
+		<Row>
+			<MinorCivType>MINOR_CIV_STEDDING_SHANGTAI</MinorCivType>
+			<OnePowerType>ONE_POWER_SAIDAR</OnePowerType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_STEDDING_SHANGTAI</MinorCivType>
+			<OnePowerType>ONE_POWER_SAIDIN</OnePowerType>
+		</Row>
+	</MinorCivilization_OnePowerBlocking>
 </GameData>

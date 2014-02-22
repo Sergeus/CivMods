@@ -276,7 +276,7 @@
 			<Text>[TOWRITE] Dockyard pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_DOCKYARD_HELP">
-			<Text>Forms a [ICON_CONNECTED] City Connection with the [ICON_STAR] Capital over water (if they're not already [ICON_CONNECTED] connected by land). +25% [ICON_PRODUCTION] when building naval units.
+			<Text>Forms a [ICON_CONNECTED] City Connection with the [ICON_CAPITAL] Capital over water (if they're not already [ICON_CONNECTED] connected by land). +25% [ICON_PRODUCTION] when building naval units.
 			[NEWLINE][NEWLINE]City must be built on the coast.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_DOCKYARD_STRATEGY">
