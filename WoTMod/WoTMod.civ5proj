@@ -632,6 +632,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/MinorCivText.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/WhiteTower/WhiteTowerAjahs.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -723,6 +728,7 @@
     <Folder Include="XML\Buildings" />
     <Folder Include="XML\Governors" />
     <Folder Include="XML\MinorCivs" />
+    <Folder Include="XML\WhiteTower" />
     <Folder Include="XML\Victories" />
     <Folder Include="XML\Technologies" />
     <Folder Include="XML\Shadowspawn" />
@@ -1917,6 +1923,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Victories\VictoriesEdits.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\WhiteTower\WhiteTowerAjahs.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

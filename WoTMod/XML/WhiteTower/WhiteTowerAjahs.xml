@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2/23/2014 5:17:17 PM -->
+<GameData>
+	<Table name="Ajahs">
+		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
+		<Column name="Type" type="text" unique="true" notnull="true"/>
+		<Column name="Description" type="text" reference="Language_en_US(Tag)"/>
+		<Column name="Civilopedia" type="text" reference="Language_en_US(Tag)"/>
+		<Column name="Strategy" type="text" reference="Language_en_US(Tag)"/>
+		<Column name="Help" type="text" reference="Language_en_US(Tag)"/>
+		<Column name="Color" type="text" reference="Colors(Type)"/>
+	</Table>
+
+	<Ajahs>
+		<Row>
+			<ID>0</ID>
+			<Type>WHITE_TOWER_BLUE_AJAH</Type>
+			<Description>TXT_KEY_WHITE_TOWER_BLUE_AJAH</Description>
+			<Civilopedia>TXT_KEY_WHITE_TOWER_BLUE_AJAH_PEDIA</Civilopedia>
+			<Strategy/>
+			<Help/>
+			<Color>COLOR_BLUE</Color>
+		</Row>
+		<Row>
+			<Type>WHITE_TOWER_RED_AJAH</Type>
+			<Description>TXT_KEY_WHITE_TOWER_RED_AJAH</Description>
+			<Civilopedia>TXT_KEY_WHITE_TOWER_RED_AJAH_PEDIA</Civilopedia>
+			<Strategy/>
+			<Help/>
+			<Color>COLOR_RED</Color>
+		</Row>
+	</Ajahs>
+</GameData>
