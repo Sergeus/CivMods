@@ -1607,7 +1607,10 @@ CvMinorCivAI::CvMinorCivAI() :
 //------------------------------------------------------------------------------
 CvMinorCivAI::~CvMinorCivAI(void)
 {
-	Uninit();
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE(m_pAjahs);
 }
 
 /// Initialize
@@ -1627,10 +1630,6 @@ void CvMinorCivAI::Init(CvPlayer* pPlayer)
 /// Deallocate memory created in initialize
 void CvMinorCivAI::Uninit()
 {
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	SAFE_DELETE(m_pAjahs);
 }
 
 /// Reset AIStrategy status array to all false

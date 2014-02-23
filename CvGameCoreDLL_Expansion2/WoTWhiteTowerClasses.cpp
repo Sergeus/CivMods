@@ -38,7 +38,8 @@ int WoTWhiteTowerAjahInfo::GetColorType() const
 
 WoTMinorCivAjahs::WoTMinorCivAjahs() :
 	m_eMajorityAjah(NO_AJAH),
-	m_piAjahInfluences(NULL)
+	m_piAjahInfluences(NULL),
+	m_pOwner(NULL)
 {
 
 }
