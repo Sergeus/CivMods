@@ -2659,6 +2659,18 @@ CvMinorCivTraitInfo* CvGlobals::GetMinorCivTraitInfo(MinorCivTraitTypes eTrait)
 {
 	return m_paMinorCivTraitInfo[eTrait];
 }
+int CvGlobals::GetNumMinorCivPlotInfos()
+{
+	return m_paMinorCivPlotInfo.size();
+}
+std::vector<WoTMinorCivPlotInfo*>& CvGlobals::GetMinorCivPlotInfos()
+{
+	return m_paMinorCivPlotInfo;
+}
+WoTMinorCivPlotInfo* CvGlobals::GetMinorCivPlotInfo(WoTMinorCivPlotTypes ePlotType)
+{
+	return m_paMinorCivPlotInfo[ePlotType];
+}
 
 int& CvGlobals::getNumPlayableCivilizationInfos()
 {

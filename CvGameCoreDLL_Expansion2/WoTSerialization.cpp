@@ -30,3 +30,18 @@ FDataStream& operator>>(FDataStream& kStream, OnePowerTypes& eOnePowerType)
 	eOnePowerType = static_cast<OnePowerTypes>(iOnePowerType);
 	return kStream;
 }
+
+FDataStream& operator<<(FDataStream& kStream, const WoTMinorCivPlotTypes& eMinorCivPlotType)
+{
+	kStream << static_cast<int>(eMinorCivPlotType);
+	return kStream;
+}
+
+FDataStream& operator>>(FDataStream& kStream, WoTMinorCivPlotTypes& eMinorCivPlotType)
+{
+	int iMinorCivPlotType;
+	kStream >> iMinorCivPlotType;
+
+	eMinorCivPlotType = static_cast<WoTMinorCivPlotTypes>(iMinorCivPlotType);
+	return kStream;
+}

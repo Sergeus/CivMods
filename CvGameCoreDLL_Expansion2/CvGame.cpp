@@ -374,7 +374,7 @@ void CvGame::init(HandicapTypes eHandicap)
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	// TODO: estimate last battle turn by speed here
-	int iLastBattleBeginTurn = 2;
+	int iLastBattleBeginTurn = 200;
 
 	if (GetLastBattleBeginTurn() == 0)
 	{

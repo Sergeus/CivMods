@@ -556,6 +556,7 @@ public:
 	// ----------------------------------------------------------------
 	bool IsOnePowerBlocking(OnePowerTypes eOnePower) const;
 	void SetOnePowerBlocking(OnePowerTypes eOnePowerTypes, bool bNewValue);
+	void DoTurnPlots();
 
 private:
 	CvPlayer* m_pPlayer;
@@ -600,6 +601,10 @@ private:
 	bool m_bDisableNotifications;
 };
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+class WoTMinorCivPlotInfo;
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
@@ -643,6 +648,8 @@ public:
 	// ----------------------------------------------------------------
 	bool IsOnePowerBlocking(OnePowerTypes eOnePower) const;
 	void SetOnePowerBlocking(OnePowerTypes eOnePower, bool bNewValue);
+	
+	bool IsMinorCivPlotAvailable(WoTMinorCivPlotTypes ePlotType) const;
 
 	// Deprecated Members
 	const char* getAdjectiveKeyWide() const;
@@ -666,6 +673,7 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	bool* m_pbOnePowerBlocking;
+	bool* m_pbPlots;
 
 	CvString m_strArtDefineTag;
 	CvString m_strArtStylePrefix;
@@ -695,6 +703,20 @@ public:
 	CvMinorCivTraitInfo();
 
 	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
+};
+
+class WoTMinorCivPlotInfo : public CvBaseInfo
+{
+public:
+	WoTMinorCivPlotInfo();
+	~WoTMinorCivPlotInfo();
+
+	WoTMinorCivPlotTypes GetMinorCivPlotType();
+
+	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
+
+private:
+	WoTMinorCivPlotTypes m_eMinorCivPlotType;
 };
 
 #endif //CIV5_MINOR_CIV_AI_H

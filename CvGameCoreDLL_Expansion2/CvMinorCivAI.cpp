@@ -1998,6 +1998,11 @@ void CvMinorCivAI::DoTurn()
 
 		DoTurnQuests();
 
+		// ----------------------------------------------------------------
+		// WoTMod Addition
+		// ----------------------------------------------------------------
+		DoTurnPlots();
+
 		DoUnitSpawnTurn();
 
 		DoIntrusion();
@@ -2817,6 +2822,22 @@ bool CvMinorCivAI::IsProxyWarActiveForMajor(PlayerTypes eMajor)
 	return false;
 }
 
+// ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+void CvMinorCivAI::DoTurnPlots()
+{
+	CvMinorCivInfo* pInfo = GC.getMinorCivInfo(GetMinorCivType()); 
+	for (int i = 0; i < GC.GetNumMinorCivPlotInfos(); i++)
+	{
+		WoTMinorCivPlotTypes ePlotType = static_cast<WoTMinorCivPlotTypes>(i);
+		if (pInfo->IsMinorCivPlotAvailable(ePlotType))
+		{
+			WoTMinorCivPlotInfo* pPlotInfo = GC.GetMinorCivPlotInfo(ePlotType);
+			CUSTOMLOG("Plot type %s is available to minor civ %s.", pPlotInfo->GetDescription(), pInfo->GetDescription());
+		}
+	}
+}
 
 // ******************************
 // ***** Quests *****
@@ -9955,6 +9976,12 @@ void CvMinorCivInfo::SetOnePowerBlocking(OnePowerTypes eOnePower, bool bNewValue
 	CvAssertMsg(eOnePower > -1, "Index out of bounds");
 	m_pbOnePowerBlocking[eOnePower] = bNewValue;
 }
+bool CvMinorCivInfo::IsMinorCivPlotAvailable(WoTMinorCivPlotTypes ePlotType) const
+{
+	CvAssertMsg(ePlotType < GC.GetNumMinorCivPlotInfos(), "index out of bounds");
+	CvAssertMsg(ePlotType > NO_MINOR_PLOT, "index out of bounds");
+	return m_pbPlots[ePlotType];
+}
 //------------------------------------------------------------------------------
 bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
 {
@@ -9993,6 +10020,7 @@ bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	kUtility.PopulateArrayByExistence(m_pbOnePowerBlocking, "OnePowers", "MinorCivilization_OnePowerBlocking", "OnePowerType", "MinorCivType", GetType());
+	kUtility.PopulateArrayByExistence(m_pbPlots, "MinorCivilizationPlots", "MinorCivilization_AvailablePlots", "MinorCivPlotType", "MinorCivType", GetType());
 
 	//Arrays
 	const char* szType = GetType();
@@ -10033,6 +10061,24 @@ bool CvMinorCivTraitInfo::CacheResults(Database::Results& kResults, CvDatabaseUt
 {
 	if(!CvBaseInfo::CacheResults(kResults, kUtility))
 		return false;
+
+	return true;
+}
+
+WoTMinorCivPlotInfo::WoTMinorCivPlotInfo()
+{
+
+}
+WoTMinorCivPlotInfo::~WoTMinorCivPlotInfo()
+{
+
+}
+bool WoTMinorCivPlotInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
+{
+	if(!CvBaseInfo::CacheResults(kResults, kUtility))
+		return false;
+
+	m_eMinorCivPlotType = static_cast<WoTMinorCivPlotTypes>(GC.getInfoTypeForString(GetType()));
 
 	return true;
 }

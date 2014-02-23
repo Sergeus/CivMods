@@ -1485,6 +1485,10 @@ enum OnePowerTypes
 {
 	NO_SOURCE = -1,
 };
+enum WoTMinorCivPlotTypes
+{
+	NO_MINOR_PLOT = -1,
+};
 
 enum PlayerVoteTypes			
 {
