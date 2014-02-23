@@ -45,3 +45,18 @@ FDataStream& operator>>(FDataStream& kStream, WoTMinorCivPlotTypes& eMinorCivPlo
 	eMinorCivPlotType = static_cast<WoTMinorCivPlotTypes>(iMinorCivPlotType);
 	return kStream;
 }
+
+FDataStream& operator<<(FDataStream& kStream, const AjahTypes& eAjah)
+{
+	kStream << static_cast<int>(eAjah);
+	return kStream;
+}
+
+FDataStream& operator>>(FDataStream& kStream, AjahTypes& eAjah)
+{
+	int iAjah;
+	kStream >> iAjah;
+
+	eAjah = static_cast<AjahTypes>(iAjah);
+	return kStream;
+}

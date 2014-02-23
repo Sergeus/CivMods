@@ -343,6 +343,7 @@ bool CvDllDatabaseUtility::PrefetchGameData()
 	PrefetchCollection(GC.GetOnePowerInfos(), "OnePowers");
 	PrefetchCollection(GC.GetMinorCivTraitInfos(), "MinorCivTraits");
 	PrefetchCollection(GC.GetMinorCivPlotInfos(), "MinorCivilizationPlots");
+	PrefetchCollection(GC.GetWhiteTowerAjahInfos(), "Ajahs");
 
 	//Technologies
 	PrefetchCollection(GC.getTechInfo(), "Technologies");

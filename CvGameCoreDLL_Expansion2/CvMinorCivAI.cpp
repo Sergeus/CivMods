@@ -1597,7 +1597,11 @@ FDataStream& operator<<(FDataStream& saveTo, const CvMinorCivQuest& readFrom)
 //======================================================================================================
 //					CvMinorCivAI
 //======================================================================================================
-CvMinorCivAI::CvMinorCivAI()
+CvMinorCivAI::CvMinorCivAI() :
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pAjahs(FNEW(WoTMinorCivAjahs, c_eCiv5GameplayDLL, 0))
 {
 }
 //------------------------------------------------------------------------------
@@ -1613,11 +1617,20 @@ void CvMinorCivAI::Init(CvPlayer* pPlayer)
 	m_minorCivType = CvPreGame::minorCivType(m_pPlayer->GetID());
 
 	Reset();
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pAjahs->Init(this);
 }
 
 /// Deallocate memory created in initialize
 void CvMinorCivAI::Uninit()
 {
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	SAFE_DELETE(m_pAjahs);
 }
 
 /// Reset AIStrategy status array to all false
@@ -1764,6 +1777,11 @@ void CvMinorCivAI::Read(FDataStream& kStream)
 
 	kStream >> m_abWaryOfTeam;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pAjahs->Read(kStream);
+
 	// List of quests given
 	ResetQuestList();
 
@@ -1835,6 +1853,11 @@ void CvMinorCivAI::Write(FDataStream& kStream) const
 	kStream << m_abPledgeToProtect;
 	kStream << m_abPermanentWar;
 	kStream << m_abWaryOfTeam; // Version 12
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_pAjahs->Write(kStream);
 
 	// List of quests given
 	CvAssertMsg(m_QuestsGiven.size() == MAX_MAJOR_CIVS, "Number of entries in minor's quest list does not match MAX_MAJOR_CIVS when writing to memory!");
@@ -2835,6 +2858,8 @@ void CvMinorCivAI::DoTurnPlots()
 		{
 			WoTMinorCivPlotInfo* pPlotInfo = GC.GetMinorCivPlotInfo(ePlotType);
 			CUSTOMLOG("Plot type %s is available to minor civ %s.", pPlotInfo->GetDescription(), pInfo->GetDescription());
+
+
 		}
 	}
 }
@@ -9826,6 +9851,10 @@ void CvMinorCivAI::SetOnePowerBlocking(OnePowerTypes eOnePower, bool bNewValue)
 		pInfo->SetOnePowerBlocking(eOnePower, bNewValue);
 	}
 }
+WoTMinorCivAjahs* CvMinorCivAI::GetAjahs()
+{
+	return m_pAjahs;
+}
 
 //======================================================================================================
 //					CvMinorCivInfo
@@ -9839,6 +9868,8 @@ CvMinorCivInfo::CvMinorCivInfo() :
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	, m_pbOnePowerBlocking(NULL)
+	, m_pbPlots(NULL)
+	, m_piAjahStartingInfluences(NULL)
 {
 }
 //------------------------------------------------------------------------------
@@ -9849,6 +9880,8 @@ CvMinorCivInfo::~CvMinorCivInfo()
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	SAFE_DELETE_ARRAY(m_pbOnePowerBlocking);
+	SAFE_DELETE_ARRAY(m_pbPlots);
+	SAFE_DELETE_ARRAY(m_piAjahStartingInfluences);
 }
 //------------------------------------------------------------------------------
 int CvMinorCivInfo::getDefaultPlayerColor() const
@@ -9982,6 +10015,12 @@ bool CvMinorCivInfo::IsMinorCivPlotAvailable(WoTMinorCivPlotTypes ePlotType) con
 	CvAssertMsg(ePlotType > NO_MINOR_PLOT, "index out of bounds");
 	return m_pbPlots[ePlotType];
 }
+int CvMinorCivInfo::GetAjahStartingInfluence(AjahTypes eAjah) const
+{
+	CvAssertMsg(eAjah < GC.GetNumWhiteTowerAjahInfos(), "Index out of bounds");
+	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
+	return m_piAjahStartingInfluences[eAjah];
+}
 //------------------------------------------------------------------------------
 bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
 {
@@ -10021,6 +10060,7 @@ bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 	// ----------------------------------------------------------------
 	kUtility.PopulateArrayByExistence(m_pbOnePowerBlocking, "OnePowers", "MinorCivilization_OnePowerBlocking", "OnePowerType", "MinorCivType", GetType());
 	kUtility.PopulateArrayByExistence(m_pbPlots, "MinorCivilizationPlots", "MinorCivilization_AvailablePlots", "MinorCivPlotType", "MinorCivType", GetType());
+	kUtility.PopulateArrayByValue(m_piAjahStartingInfluences, "Ajahs", "MinorCivilizations_AjahStartingInfluence", "AjahType", "MinorCivType", GetType(), "Influence");
 
 	//Arrays
 	const char* szType = GetType();

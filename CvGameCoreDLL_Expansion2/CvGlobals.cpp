@@ -2671,6 +2671,18 @@ WoTMinorCivPlotInfo* CvGlobals::GetMinorCivPlotInfo(WoTMinorCivPlotTypes ePlotTy
 {
 	return m_paMinorCivPlotInfo[ePlotType];
 }
+int CvGlobals::GetNumWhiteTowerAjahInfos()
+{
+	return m_paMinorCivPlotInfo.size();
+}
+std::vector<WoTWhiteTowerAjahInfo*>& CvGlobals::GetWhiteTowerAjahInfos()
+{
+	return m_paWhiteTowerAjahInfo;
+}
+WoTWhiteTowerAjahInfo* CvGlobals::GetWhiteTowerAjahInfo(AjahTypes eAjah)
+{
+	return m_paWhiteTowerAjahInfo[eAjah];
+}
 
 int& CvGlobals::getNumPlayableCivilizationInfos()
 {

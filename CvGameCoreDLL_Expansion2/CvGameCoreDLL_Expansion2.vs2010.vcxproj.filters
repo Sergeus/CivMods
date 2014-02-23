@@ -521,6 +521,9 @@
     <ClCompile Include="WoTSerialization.cpp">
       <Filter>WoTSources</Filter>
     </ClCompile>
+    <ClCompile Include="WoTWhiteTowerAjahClasses.cpp">
+      <Filter>WoTSources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="banned.h">
@@ -1058,6 +1061,9 @@
       <Filter>WoTHeaders</Filter>
     </ClInclude>
     <ClInclude Include="WoTSerialization.h">
+      <Filter>WoTHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="WoTWhiteTowerClasses.h">
       <Filter>WoTHeaders</Filter>
     </ClInclude>
   </ItemGroup>

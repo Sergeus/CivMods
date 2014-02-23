@@ -557,6 +557,7 @@ public:
 	bool IsOnePowerBlocking(OnePowerTypes eOnePower) const;
 	void SetOnePowerBlocking(OnePowerTypes eOnePowerTypes, bool bNewValue);
 	void DoTurnPlots();
+	WoTMinorCivAjahs* GetAjahs();
 
 private:
 	CvPlayer* m_pPlayer;
@@ -567,6 +568,11 @@ private:
 
 	int m_iTurnsSinceThreatenedByBarbarians;
 	int m_iGlobalQuestCountdown;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	WoTMinorCivAjahs* m_pAjahs;
 
 	bool m_abWarQuestAgainstMajor[MAX_MAJOR_CIVS];
 	int m_aaiNumEnemyUnitsLeftToKillByMajor[MAX_MAJOR_CIVS][MAX_MAJOR_CIVS];
@@ -651,6 +657,8 @@ public:
 	
 	bool IsMinorCivPlotAvailable(WoTMinorCivPlotTypes ePlotType) const;
 
+	int GetAjahStartingInfluence(AjahTypes eAjah) const;
+
 	// Deprecated Members
 	const char* getAdjectiveKeyWide() const;
 	const char* getShortDescriptionKeyWide() const;
@@ -674,6 +682,7 @@ protected:
 	// ----------------------------------------------------------------
 	bool* m_pbOnePowerBlocking;
 	bool* m_pbPlots;
+	int* m_piAjahStartingInfluences;
 
 	CvString m_strArtDefineTag;
 	CvString m_strArtStylePrefix;

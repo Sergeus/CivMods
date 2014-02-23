@@ -1489,6 +1489,10 @@ enum WoTMinorCivPlotTypes
 {
 	NO_MINOR_PLOT = -1,
 };
+enum AjahTypes
+{
+	NO_AJAH = -1,
+};
 
 enum PlayerVoteTypes			
 {

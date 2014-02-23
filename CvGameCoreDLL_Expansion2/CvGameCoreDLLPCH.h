@@ -162,6 +162,7 @@ typedef wchar_t          wchar;
 #include "WoTShadowspawn.h"
 #include "WoTSerialization.h"
 #include "WoTNotifications.h"
+#include "WoTWhiteTowerClasses.h"
 #include "CustomLog.h"
 
 using namespace fastdelegate;

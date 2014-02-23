@@ -137,6 +137,7 @@ class WoTGovernorXMLEntries;
 class WoTOnePowerInfo;
 class CvMinorCivTraitInfo;
 class WoTMinorCivPlotInfo;
+class WoTWhiteTowerAjahInfo;
 
 class CvDLLInterfaceIFaceBase;
 class ICvDLLDatabaseUtility1;
@@ -358,6 +359,10 @@ public:
 	int GetNumMinorCivPlotInfos();
 	std::vector<WoTMinorCivPlotInfo*>& GetMinorCivPlotInfos();
 	WoTMinorCivPlotInfo* GetMinorCivPlotInfo(WoTMinorCivPlotTypes ePlotType);
+
+	int GetNumWhiteTowerAjahInfos();
+	std::vector<WoTWhiteTowerAjahInfo*>& GetWhiteTowerAjahInfos();
+	WoTWhiteTowerAjahInfo* GetWhiteTowerAjahInfo(AjahTypes eAjah);
 
 	int& getNumPlayableCivilizationInfos();
 	int& getNumAIPlayableCivilizationInfos();
@@ -7638,7 +7643,7 @@ protected:
 	std::vector<WoTOnePowerInfo*> m_paOnePowerInfo;
 	std::vector<CvMinorCivTraitInfo*> m_paMinorCivTraitInfo;
 	std::vector<WoTMinorCivPlotInfo*> m_paMinorCivPlotInfo;
-	
+	std::vector<WoTWhiteTowerAjahInfo*> m_paWhiteTowerAjahInfo;
 
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;
 	CvCitySpecializationXMLEntries* m_pCitySpecializations;
