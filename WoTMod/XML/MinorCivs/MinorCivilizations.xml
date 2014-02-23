@@ -34,6 +34,16 @@
 			<MinorCivTrait>MINOR_TRAIT_MARITIME</MinorCivTrait>
 		</Row>
 	</MinorCivilizations>
+	<MinorCivilization_CityNames>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<CityName>TXT_KEY_CITYSTATE_WHITE_TOWER</CityName>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_STEDDING_SHANGTAI</MinorCivType>
+			<CityName>TXT_KEY_CITYSTATE_STEDDING_SHANGTAI</CityName>
+		</Row>
+	</MinorCivilization_CityNames>
 	<MinorCivilization_OnePowerBlocking>
 		<Row>
 			<MinorCivType>MINOR_CIV_STEDDING_SHANGTAI</MinorCivType>

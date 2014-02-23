@@ -72,5 +72,13 @@
 		<Row Tag="TXT_KEY_NO_ACTION_BUILDING_LOCAL_GOVERNOR">
 			<Text>[NEWLINE]A {1_GovernorDescription} governor will allow this building to be constructed.</Text>
 		</Row>
+		
+		<!-- Label on Ajahs Button in City State Popup for Tar Valon -->
+		<Row Tag="TXT_KEY_POP_CSTATE_AJAHS">
+			<Text>The Ajahs at {1_CityName}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_POP_CSTATE_AJAHS_HELP">
+			<Text>Displays the ever-changing influences the various ajahs exert upon the city and its policies.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

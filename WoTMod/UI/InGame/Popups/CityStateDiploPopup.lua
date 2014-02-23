@@ -538,6 +538,28 @@ function OnDisplay()
 		Controls.PeaceButton:SetHide(true);
 		Controls.WarButton:SetHide(true);
 	end
+
+	------------------------------
+	-- WoTMod Addition
+	------------------------------
+	-- Ajah button for Tar Valon city state
+	local minorCivTraitInfo = GameInfo.MinorCivTraits[GameInfo.MinorCivilizations[sMinorCivType].MinorCivTrait]
+	local strAjahLabel = Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_AJAHS", pPlayer:GetCapitalCity():GetName())
+	
+	if (minorCivTraitInfo.HostsAjahs == true) and not bWar then
+		Controls.AjahButton:SetHide(false)
+		Controls.AjahAnim:SetHide(false)
+	else
+		Controls.AjahButton:SetHide(true)
+		Controls.AjahAnim:SetHide(true)
+	end
+
+	Controls.AjahLabel:SetText(strAjahLabel)
+	Controls.AjahButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_POP_CSTATE_AJAHS_HELP"))
+
+	------------------------------
+	-- WoTMod Addition - End
+	------------------------------
 	
 	-- Buyout (Austria UA)
 	local iBuyoutCost = pPlayer:GetBuyoutCost(iActivePlayer);
@@ -574,6 +596,11 @@ function OnDisplay()
 	SetButtonSize(Controls.RevokePledgeLabel, Controls.RevokePledgeButton, Controls.RevokePledgeAnim, Controls.RevokePledgeButtonHL);
 	SetButtonSize(Controls.NoUnitSpawningLabel, Controls.NoUnitSpawningButton, Controls.NoUnitSpawningAnim, Controls.NoUnitSpawningButtonHL);
 	SetButtonSize(Controls.BuyoutLabel, Controls.BuyoutButton, Controls.BuyoutAnim, Controls.BuyoutButtonHL);
+
+	------------------------------
+	-- WoTMod Addition
+	------------------------------
+	SetButtonSize(Controls.AjahLabel, Controls.AjahButton, Controls.AjahAnim, Controls.AjahButtonHL)
 	
 	Controls.GiveStack:SetHide(true);
 	Controls.TakeStack:SetHide(true);
