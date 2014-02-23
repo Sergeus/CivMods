@@ -6666,6 +6666,21 @@ int CvLuaPlayer::lGetEndTurnBlockingNotificationID(lua_State* L)
 	return BasicLuaMethod(L, &CvPlayerAI::GetEndTurnBlockingNotificationID);
 }
 // ----------------------------------------------------------------
+// WoTMod Addition
+// ----------------------------------------------------------------
+int CvLuaPlayer::lGetAjahInfluencePercent(lua_State* L)
+{
+	CvPlayerAI* pkPlayer = GetInstance(L);
+
+	int iAjah = lua_tointeger(L, 2);
+
+	int iInfluencePercent = pkPlayer->GetMinorCivAI()->GetAjahs()->GetAjahInfluencePercent(static_cast<AjahTypes>(iAjah));
+
+	lua_pushinteger(L, iInfluencePercent);
+
+	return 1;
+}
+// ----------------------------------------------------------------
 // SiegeMod Addition
 // ----------------------------------------------------------------
 int CvLuaPlayer::lGetFaithPerTurnFromTradeRoutes(lua_State* L)

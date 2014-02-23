@@ -521,7 +521,7 @@
     <ClCompile Include="WoTSerialization.cpp">
       <Filter>WoTSources</Filter>
     </ClCompile>
-    <ClCompile Include="WoTWhiteTowerAjahClasses.cpp">
+    <ClCompile Include="WoTWhiteTowerClasses.cpp">
       <Filter>WoTSources</Filter>
     </ClCompile>
   </ItemGroup>
