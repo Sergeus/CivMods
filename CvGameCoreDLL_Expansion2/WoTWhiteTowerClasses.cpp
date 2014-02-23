@@ -100,3 +100,45 @@ void WoTMinorCivAjahs::Reset()
 		m_piAjahInfluences = 0;
 	}
 }
+
+AjahTypes WoTMinorCivAjahs::GetMajorityAjah() const
+{
+	return m_eMajorityAjah;
+}
+
+int WoTMinorCivAjahs::GetAjahInfluence(AjahTypes eAjah) const
+{
+	CvAssertMsg(eAjah < GC.GetNumWhiteTowerAjahInfos(), "Index out of bounds");
+	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
+	return m_piAjahInfluences[eAjah];
+}
+
+int WoTMinorCivAjahs::GetAjahInfluenceTimes100(AjahTypes eAjah) const
+{
+	return GetAjahInfluence(eAjah) * 100;
+}
+
+void WoTMinorCivAjahs::SetAjahInfluence(AjahTypes eAjah, int iNewInfluence)
+{
+	CvAssertMsg(eAjah < GC.GetNumWhiteTowerAjahInfos(), "Index out of bounds");
+	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
+	m_piAjahInfluences[eAjah] = iNewInfluence;
+}
+
+void WoTMinorCivAjahs::ChangeAjahInfluence(AjahTypes eAjah, int iChange)
+{
+	SetAjahInfluence(eAjah, GetAjahInfluence(eAjah) + iChange);
+}
+
+int WoTMinorCivAjahs::GetAjahInfluencePercent(AjahTypes eAjah) const
+{
+	int iAjahInfluence = GetAjahInfluenceTimes100(eAjah);
+	int iInfluenceTotal = 0;
+	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); i++)
+	{
+		AjahTypes eLoopAjah = static_cast<AjahTypes>(i);
+		iInfluenceTotal += max(0, GetAjahInfluenceTimes100(eLoopAjah));
+	}
+
+	return iAjahInfluence / iInfluenceTotal;
+}

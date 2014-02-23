@@ -43,13 +43,16 @@ public:
 	void Read(FDataStream& kStream);
 	void Write(FDataStream& kStream);
 
-	AjahTypes GetMajorityAjah();
+	AjahTypes GetMajorityAjah() const;
 
 	void UpdateMajorityAjah();
 
-	int GetAjahInfluence(AjahTypes eAjah);
+	int GetAjahInfluence(AjahTypes eAjah) const;
 	void SetAjahInfluence(AjahTypes eAjah, int iNewInfluence);
 	void ChangeAjahInfluence(AjahTypes eAjah, int iChange);
+
+	int GetAjahInfluenceTimes100(AjahTypes eAjah) const;
+	int GetAjahInfluencePercent(AjahTypes eAjah) const;
 
 private:
 	AjahTypes m_eMajorityAjah;
