@@ -654,6 +654,8 @@ public:
 	// ----------------------------------------------------------------
 	bool IsOnePowerBlocking(OnePowerTypes eOnePower) const;
 	void SetOnePowerBlocking(OnePowerTypes eOnePower, bool bNewValue);
+	bool IsAjahPermitted(AjahTypes eAjah) const;
+	void SetAjahPermitted(AjahTypes eAjah, bool bNewValue);
 	
 	bool IsMinorCivPlotAvailable(WoTMinorCivPlotTypes ePlotType) const;
 
@@ -683,6 +685,7 @@ protected:
 	bool* m_pbOnePowerBlocking;
 	bool* m_pbPlots;
 	int* m_piAjahStartingInfluences;
+	bool* m_pbAjahsPermitted;
 
 	CvString m_strArtDefineTag;
 	CvString m_strArtStylePrefix;

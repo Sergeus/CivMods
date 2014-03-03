@@ -614,6 +614,7 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	static int lGetAjahInfluencePercent(lua_State* L);
+	static int lIsAjahPermitted(lua_State* L);
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------

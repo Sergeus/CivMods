@@ -2673,7 +2673,7 @@ WoTMinorCivPlotInfo* CvGlobals::GetMinorCivPlotInfo(WoTMinorCivPlotTypes ePlotTy
 }
 int CvGlobals::GetNumWhiteTowerAjahInfos()
 {
-	return m_paMinorCivPlotInfo.size();
+	return m_paWhiteTowerAjahInfo.size();
 }
 std::vector<WoTWhiteTowerAjahInfo*>& CvGlobals::GetWhiteTowerAjahInfos()
 {

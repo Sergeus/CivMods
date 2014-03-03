@@ -629,6 +629,11 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(GetEndTurnBlockingNotificationID);
 	Method(HasReceivedNetTurnComplete);
 	Method(IsStrike);
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	Method(GetAjahInfluencePercent);
+	Method(IsAjahPermitted);
 
 	Method(GetID);
 	Method(GetHandicapType);
@@ -6677,6 +6682,18 @@ int CvLuaPlayer::lGetAjahInfluencePercent(lua_State* L)
 	int iInfluencePercent = pkPlayer->GetMinorCivAI()->GetAjahs()->GetAjahInfluencePercent(static_cast<AjahTypes>(iAjah));
 
 	lua_pushinteger(L, iInfluencePercent);
+
+	return 1;
+}
+int CvLuaPlayer::lIsAjahPermitted(lua_State* L)
+{
+	CvPlayerAI* pkPlayer = GetInstance(L);
+
+	int iAjah = lua_tointeger(L, 2);
+
+	bool bPermitted = pkPlayer->GetMinorCivAI()->GetAjahs()->IsAjahPermitted(static_cast<AjahTypes>(iAjah));
+
+	lua_pushboolean(L, bPermitted);
 
 	return 1;
 }

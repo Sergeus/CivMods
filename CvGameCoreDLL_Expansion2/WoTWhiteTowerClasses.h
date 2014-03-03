@@ -54,6 +54,9 @@ public:
 	int GetAjahInfluenceTimes100(AjahTypes eAjah) const;
 	int GetAjahInfluencePercent(AjahTypes eAjah) const;
 
+	bool IsAjahPermitted(AjahTypes eAjah) const;
+	void SetAjahPermitted(AjahTypes eAjah, bool bNewValue);
+
 private:
 	AjahTypes m_eMajorityAjah;
 

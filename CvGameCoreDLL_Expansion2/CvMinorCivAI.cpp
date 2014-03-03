@@ -9868,6 +9868,7 @@ CvMinorCivInfo::CvMinorCivInfo() :
 	// ----------------------------------------------------------------
 	, m_pbOnePowerBlocking(NULL)
 	, m_pbPlots(NULL)
+	, m_pbAjahsPermitted(NULL)
 	, m_piAjahStartingInfluences(NULL)
 {
 }
@@ -9880,6 +9881,7 @@ CvMinorCivInfo::~CvMinorCivInfo()
 	// ----------------------------------------------------------------
 	SAFE_DELETE_ARRAY(m_pbOnePowerBlocking);
 	SAFE_DELETE_ARRAY(m_pbPlots);
+	SAFE_DELETE_ARRAY(m_pbAjahsPermitted);
 	SAFE_DELETE_ARRAY(m_piAjahStartingInfluences);
 }
 //------------------------------------------------------------------------------
@@ -10020,6 +10022,18 @@ int CvMinorCivInfo::GetAjahStartingInfluence(AjahTypes eAjah) const
 	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
 	return m_piAjahStartingInfluences[eAjah];
 }
+bool CvMinorCivInfo::IsAjahPermitted(AjahTypes eAjah) const
+{
+	CvAssertMsg(eAjah < GC.GetNumWhiteTowerAjahInfos(), "Index out of bounds");
+	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
+	return m_pbAjahsPermitted[eAjah];
+}
+void CvMinorCivInfo::SetAjahPermitted(AjahTypes eAjah, bool bNewValue)
+{
+	CvAssertMsg(eAjah < GC.GetNumWhiteTowerAjahInfos(), "Index out of bounds");
+	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
+	m_pbAjahsPermitted[eAjah] = bNewValue;
+}
 //------------------------------------------------------------------------------
 bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
 {
@@ -10059,6 +10073,7 @@ bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 	// ----------------------------------------------------------------
 	kUtility.PopulateArrayByExistence(m_pbOnePowerBlocking, "OnePowers", "MinorCivilization_OnePowerBlocking", "OnePowerType", "MinorCivType", GetType());
 	kUtility.PopulateArrayByExistence(m_pbPlots, "MinorCivilizationPlots", "MinorCivilization_AvailablePlots", "MinorCivPlotType", "MinorCivType", GetType());
+	kUtility.PopulateArrayByExistence(m_pbAjahsPermitted, "Ajahs", "MinorCivilization_PermittedAjahs", "AjahType", "MinorCivType", GetType());
 	kUtility.PopulateArrayByValue(m_piAjahStartingInfluences, "Ajahs", "MinorCivilizations_AjahStartingInfluence", "AjahType", "MinorCivType", GetType(), "Influence");
 
 	//Arrays

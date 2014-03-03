@@ -83,13 +83,17 @@ void WoTMinorCivAjahs::Init(CvMinorCivAI* pOwner)
 
 	Reset();
 
-	CvMinorCivInfo* pOwnerInfo = GC.getMinorCivInfo(m_pOwner->GetMinorCivType());
-
-	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); i++)
+	if (m_pOwner->GetPlayer()->isMinorCiv())
 	{
-		AjahTypes eAjah = static_cast<AjahTypes>(i);
-		m_piAjahInfluences[i] = pOwnerInfo->GetAjahStartingInfluence(eAjah);
+		CvMinorCivInfo* pOwnerInfo = GC.getMinorCivInfo(m_pOwner->GetMinorCivType());
+
+		for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); i++)
+		{
+			AjahTypes eAjah = static_cast<AjahTypes>(i);
+			m_piAjahInfluences[i] = pOwnerInfo->GetAjahStartingInfluence(eAjah);
+		}
 	}
+	UpdateMajorityAjah();
 }
 
 void WoTMinorCivAjahs::Reset()
@@ -98,7 +102,7 @@ void WoTMinorCivAjahs::Reset()
 
 	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); i++)
 	{
-		m_piAjahInfluences = 0;
+		m_piAjahInfluences[i] = 0;
 	}
 }
 
@@ -138,7 +142,7 @@ int WoTMinorCivAjahs::GetAjahInfluencePercent(AjahTypes eAjah) const
 	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); i++)
 	{
 		AjahTypes eLoopAjah = static_cast<AjahTypes>(i);
-		iInfluenceTotal += max(0, GetAjahInfluenceTimes100(eLoopAjah));
+		iInfluenceTotal += max(0, GetAjahInfluence(eLoopAjah));
 	}
 
 	return iAjahInfluence / iInfluenceTotal;
@@ -163,4 +167,16 @@ void WoTMinorCivAjahs::UpdateMajorityAjah()
 
 	CvAssertMsg(eHighestAjah != NO_AJAH, "No Ajah has majority!");
 	m_eMajorityAjah = eHighestAjah;
+}
+
+bool WoTMinorCivAjahs::IsAjahPermitted(AjahTypes eAjah) const
+{
+	CvMinorCivInfo* pInfo = GC.getMinorCivInfo(m_pOwner->GetMinorCivType());
+	return pInfo->IsAjahPermitted(eAjah);
+}
+
+void WoTMinorCivAjahs::SetAjahPermitted(AjahTypes eAjah, bool bNewValue)
+{
+	CvMinorCivInfo* pInfo = GC.getMinorCivInfo(m_pOwner->GetMinorCivType());
+	pInfo->SetAjahPermitted(eAjah, bNewValue);
 }
