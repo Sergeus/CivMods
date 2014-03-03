@@ -646,6 +646,16 @@ Controls.QuestInfo:RegisterCallback( Mouse.eLClick, OnQuestInfoClicked );
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 
+------------------------------
+-- WoTMod Addition
+------------------------------
+-- White Tower status popup
+function OnWhiteTowerStatusClicked()
+	print("Clicked the button!")
+	UIManager:QueuePopup(Controls.WhiteTowerStatus, PopupPriority.eUtmost)
+end
+Controls.AjahButton:RegisterCallback( Mouse.eLClick, OnWhiteTowerStatusClicked)
+
 ----------------------------------------------------------------
 -- Pledge
 ----------------------------------------------------------------

@@ -85,6 +85,12 @@
         <Description>Tells the game when Governor missions can be performed</Description>
         <FileName>Lua/Governors/GovernorsMissionsSubscribers.lua</FileName>
       </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>White Tower Status screen</Name>
+        <Description>status screen for White Tower</Description>
+        <FileName>UI/InGame/Popups/WhiteTowerStatus.xml</FileName>
+      </Content>
     </ModContent>
     <ModActions>
       <Action>
@@ -1618,6 +1624,14 @@
     <Content Include="UI\InGame\Popups\LastBattleChoiceMenu.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\Popups\WhiteTowerStatus.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\Popups\WhiteTowerStatus.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="UI\InGame\TechTree\TechButtonInclude.lua">
       <SubType>Lua</SubType>

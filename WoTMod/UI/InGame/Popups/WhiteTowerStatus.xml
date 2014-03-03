@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/2/2014 7:31:22 PM -->
+<Context ColorSet="Beige_Black" Font="TwCenMT20" FontStyle="Shadow">
+	<Box Style="BGBlock" ID="BGBlock" />
+
+	<Grid Size="990,650" Anchor="C,C" Offset="0,20" Style="Grid9DetailFive140" ConsumeMouse="1" ID="BGLastBattle">
+
+		<!-- Upper Treatment -->
+		<Image Anchor="C,T" AnchorSide="I.O" Offset="0,-27" Size="256,64" Texture="Top512IconTrim.dds"  >
+			<Image Anchor="C,C" Offset="0,-10" Size="80,80" Texture="NotificationFrameBase.dds"  >
+				<Image ID="CivIconBG" Size="80.80" Anchor="C,C" Offset="0,0" TextureOffset="141,0" Texture="CivIconBGSizes.dds" />
+				<Image ID="CivIconShadow" Size="64.64" Anchor="C,C" Offset="1,1" Texture="CivSymbolAtlas64.dds" Color="Black.128"/>
+				<Image ID="CivIcon" Size="64,64" Offset="0,0"  Anchor="C,C" Texture="CivSymbolsColor512.dds" />
+			</Image>
+		</Image>
+
+		<!-- Side treatments -->
+		<Box Style="MenuLeftSideTreatment"/>
+		<Box Style="MenuRightSideTreatment"/>
+
+		<!-- Description box -->
+		<Grid Anchor="C,B" ID="WhiteTowerStatusMessageContainer"  Offset="0,100" Size="840,90" Padding="0" Style="Grid9FrameBlack" Hidden="0" >
+			<Label ID="WhiteTowerStatusLabel" String="TXT_KEY_WHITE_TOWER_STATUS" WrapWidth="800"  LeadingOffset="-4" Anchor="C,C" Offset="0,15" Font="TwCenMT20" ColorSet="Beige_Black_Alpha" />
+		</Grid>
+
+		<!-- Choice buttons -->
+		<Box Anchor="C,B" AnchorSide="I.I" Offset="0,54" Size="910,56" Color="255,255,255,0" >
+			<!-- Bottom Buttons -->
+			<Stack Anchor="C,B"  Offset="0,0" Padding="10" StackGrowth="Right">
+				<GridButton Size="275,36" ID="OkButton" Style="BaseButton" String="TXT_KEY_OKAY" />
+			</Stack>
+		</Box>
+	</Grid>
+</Context>

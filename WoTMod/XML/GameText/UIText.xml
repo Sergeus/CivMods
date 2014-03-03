@@ -80,5 +80,13 @@
 		<Row Tag="TXT_KEY_POP_CSTATE_AJAHS_HELP">
 			<Text>Displays the ever-changing influences the various ajahs exert upon the city and its policies.</Text>
 		</Row>
+
+		<!-- White Tower Status screen -->
+		<Row Tag="TXT_KEY_OKAY">
+			<Text>OK</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHITE_TOWER_STATUS">
+			<Text>The Tower welcomes you.</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
