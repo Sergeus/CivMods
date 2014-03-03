@@ -143,3 +143,24 @@ int WoTMinorCivAjahs::GetAjahInfluencePercent(AjahTypes eAjah) const
 
 	return iAjahInfluence / iInfluenceTotal;
 }
+
+void WoTMinorCivAjahs::UpdateMajorityAjah()
+{
+	int iHighestInfluence = 0;
+	AjahTypes eHighestAjah = NO_AJAH;
+	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); i++)
+	{
+		AjahTypes eAjah = static_cast<AjahTypes>(i);
+
+		// TODO: deal with ties
+		int iInfluence = GetAjahInfluence(eAjah);
+		if (iInfluence > iHighestInfluence)
+		{
+			iHighestInfluence = iInfluence;
+			eHighestAjah = eAjah;
+		}
+	}
+
+	CvAssertMsg(eHighestAjah != NO_AJAH, "No Ajah has majority!");
+	m_eMajorityAjah = eHighestAjah;
+}

@@ -611,10 +611,13 @@ protected:
 	// ----------------------------------------------------------------
 	static int lGetEndTurnBlockingNotificationID(lua_State* L);
 	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	static int lGetAjahInfluencePercent(lua_State* L);
+	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
 	static int lGetFaithPerTurnFromTradeRoutes(lua_State* L);
-	static int lGetAjahInfluencePercent(lua_State* L);
 
 	static int lIsStrike(lua_State* L);
 
