@@ -17,8 +17,8 @@
 			<Type>WHITE_TOWER_BLUE_AJAH</Type>
 			<Description>TXT_KEY_WHITE_TOWER_BLUE_AJAH</Description>
 			<Civilopedia>TXT_KEY_WHITE_TOWER_BLUE_AJAH_PEDIA</Civilopedia>
+			<Help>TXT_KEY_WHITE_TOWER_BLUE_AJAH_HELP</Help>
 			<Strategy/>
-			<Help/>
 			<Color>COLOR_BLUE</Color>
 		</Row>
 		<Row>
@@ -26,7 +26,7 @@
 			<Description>TXT_KEY_WHITE_TOWER_RED_AJAH</Description>
 			<Civilopedia>TXT_KEY_WHITE_TOWER_RED_AJAH_PEDIA</Civilopedia>
 			<Strategy/>
-			<Help/>
+			<Help>TXT_KEY_WHITE_TOWER_BLUE_AJAH_HELP</Help>
 			<Color>COLOR_RED</Color>
 		</Row>
 	</Ajahs>

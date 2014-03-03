@@ -2,9 +2,13 @@
 <!-- Created by ModBuddy on 2/9/2014 4:46:48 PM -->
 <GameData>
 	<Table name="MinorCivilizations_AjahStartingInfluence">
-		<Column name="MinorCivType" type="text" reference="MinorCivilizations(type)"/>
+		<Column name="MinorCivType" type="text" reference="MinorCivilizations(Type)"/>
 		<Column name="AjahType" type="text" reference="Ajahs(Type)"/>
 		<Column name="Influence" type="integer"/>
+	</Table>
+	<Table name="MinorCivilization_PermittedAjahs">
+		<Column name="MinorCivType" type="text" reference="MinorCivilizations(Type)"/>
+		<Column name="AjahType" type="text" reference="Ajahs(Type)"/>
 	</Table>
 	<MinorCivilizations>
 		<Row>
@@ -54,6 +58,16 @@
 			<OnePowerType>ONE_POWER_SAIDIN</OnePowerType>
 		</Row>
 	</MinorCivilization_OnePowerBlocking>
+	<MinorCivilization_PermittedAjahs>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_BLUE_AJAH</AjahType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_RED_AJAH</AjahType>
+		</Row>
+	</MinorCivilization_PermittedAjahs>
 	<MinorCivilizations_AjahStartingInfluence>
 		<Row>
 			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>

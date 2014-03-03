@@ -88,5 +88,20 @@
 		<Row Tag="TXT_KEY_WHITE_TOWER_STATUS">
 			<Text>The Tower welcomes you.</Text>
 		</Row>
+		
+		<!-- Ajahs -->
+		<Row Tag="TXT_KEY_WHITE_TOWER_BLUE_AJAH">
+			<Text>Blue</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHITE_TOWER_BLUE_AJAH_HELP">
+			<Text>[TOWRITE] Blue help</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_WHITE_TOWER_RED_AJAH">
+			<Text>Red</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHITE_TOWER_RED_AJAH_HELP">
+			<Text>[TOWRITE] Red help</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
