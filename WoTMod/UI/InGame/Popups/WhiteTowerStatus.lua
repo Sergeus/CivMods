@@ -37,21 +37,44 @@ ContextPtr:SetShowHideHandler(OnShowHide)
 
 function OnDisplay()
 	local pPlayer = Players[m_CityStateId]
-	
+
+	Controls.InfluenceStack:DestroyAllChildren()
+
 	for pAjah in GameInfo.Ajahs() do
+		print("Processing Ajah " .. pAjah.ID)
+
 		if (pPlayer:IsAjahPermitted(pAjah.ID)) then
 			local instance = {}
 			local sAjahName = Locale.ConvertTextKey(pAjah.Description)
 			local iAjahPercent = pPlayer:GetAjahInfluencePercent(pAjah.ID)
 			local sAjahPercent = iAjahPercent .. "%"
 
+			local colorInfo = GameInfo.Colors[pAjah.Color]
+
+			local ajahColor = { x = colorInfo.Red, y = colorInfo.Green, z = colorInfo.Blue, w = colorInfo.Alpha }
+
+			print ("Found color " .. colorInfo.Type .. " R:" .. colorInfo.Red .. " G:" .. colorInfo.Green .. " B:" .. colorInfo.Blue .. " A:" .. colorInfo.Alpha)
+
 			ContextPtr:BuildInstanceForControl("AjahInfluence", instance, Controls.InfluenceStack);
 
 			instance.AjahLabel:SetText(sAjahName)
 			instance.AjahPercent:SetText(sAjahPercent)
 			instance.InfluenceBar:SetPercent(iAjahPercent / 100)
+			instance.InfluenceBar:SetColor(ajahColor)
 
-			instance:SetToolTipString(Locale.ConvertTextKey(pAjah.Help))
+			instance.AjahStack:SetToolTipString(Locale.ConvertTextKey(pAjah.Help))
 		end
 	end
+
+	Controls.InfluenceStack:CalculateSize()
+end
+
+function GetColorInfo(colorType)
+	for pColor in GameInfo.Colors() do
+		if pColor.Type == colorType then
+			return pColor
+		end
+	end
+
+	return nil
 end

@@ -4,14 +4,14 @@
 	<Box Style="BGBlock" ID="BGBlock" />
 
 	<Instance Name="AjahInfluence">
-		<Stack ID="AjahStack" Anchor="C,B" Size="20,200" StackGrowth="Up">
-			<Label ID="AjahLabel" WrapWidth="20" Anchor="C,B" String="TXT_KEY_WHITE_TOWER_BLUE_AJAH" />
+		<Stack ID="AjahStack" Anchor="C,B" Size="20,200" StackGrowth="Top" Padding="12">
+			<Label ID="AjahLabel" Anchor="C,B" String="TXT_KEY_WHITE_TOWER_BLUE_AJAH" />
 			<Label ID="AjahPercent" Anchor="C,B" />
-			<Bar ID="InfluenceBar" Anchor="C,B" Offset="20,65" Size="10,150" Direction="Up" FGColor="Culture,255" BGColor="Culture,128"/>
+			<Bar ID="InfluenceBar" Anchor="C,B" Size="10,150" Direction="Up" FGColor="Culture,255" />
 		</Stack>
 	</Instance>
 
-	<Grid Size="990,650" Anchor="C,C" Offset="0,20" Style="Grid9DetailFive140" ConsumeMouse="1" ID="BGLastBattle">
+	<Grid Size="990,650" Anchor="C,C" Offset="0,20" Style="Grid9DetailFive140" ConsumeMouse="1" ID="BGWhiteTower">
 
 		<!-- Upper Treatment -->
 		<Image Anchor="C,T" AnchorSide="I.O" Offset="0,-27" Size="256,64" Texture="Top512IconTrim.dds"  >
@@ -26,9 +26,7 @@
 		<Box Style="MenuLeftSideTreatment"/>
 		<Box Style="MenuRightSideTreatment"/>
 
-		<Stack ID="InfluenceStack" Anchor="C,T" Offset="0,44" Size="972,572" StackGrowth="Right">
-
-		</Stack>
+		<Stack ID="InfluenceStack" Anchor="C,B" Size="972,572" StackGrowth="Right" Padding="50" />
 
 		<!-- Description box -->
 		<Grid Anchor="C,B" ID="WhiteTowerStatusMessageContainer"  Offset="0,100" Size="840,90" Padding="0" Style="Grid9FrameBlack" Hidden="0" >
