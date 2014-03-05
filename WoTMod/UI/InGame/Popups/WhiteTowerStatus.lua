@@ -68,13 +68,3 @@ function OnDisplay()
 
 	Controls.InfluenceStack:CalculateSize()
 end
-
-function GetColorInfo(colorType)
-	for pColor in GameInfo.Colors() do
-		if pColor.Type == colorType then
-			return pColor
-		end
-	end
-
-	return nil
-end
