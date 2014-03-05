@@ -7,7 +7,7 @@
 		<Stack ID="AjahStack" Anchor="C,B" Size="20,200" StackGrowth="Top" Padding="12">
 			<Label ID="AjahLabel" Anchor="C,B" String="TXT_KEY_WHITE_TOWER_BLUE_AJAH" />
 			<Label ID="AjahPercent" Anchor="C,B" />
-			<Bar ID="InfluenceBar" Anchor="C,B" Size="10,150" Direction="Up" FGColor="Culture,255" />
+			<Bar ID="InfluenceBar" Anchor="C,B" Size="30,150" Direction="Up" FGColor="Culture,255" />
 		</Stack>
 	</Instance>
 
