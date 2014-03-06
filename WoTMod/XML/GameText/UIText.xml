@@ -103,5 +103,40 @@
 		<Row Tag="TXT_KEY_WHITE_TOWER_RED_AJAH_HELP">
 			<Text>[TOWRITE] Red help</Text>
 		</Row>
+
+		<Row Tag="TXT_KEY_WHITE_TOWER_WHITE_AJAH">
+			<Text>White</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHITE_TOWER_WHITE_AJAH_HELP">
+			<Text>[TOWRITE] white help</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_WHITE_TOWER_GREEN_AJAH">
+			<Text>Green</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHITE_TOWER_GREEN_AJAH_HELP">
+			<Text>[TOWRITE] green help</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_WHITE_TOWER_GRAY_AJAH">
+			<Text>Gray</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHITE_TOWER_GRAY_AJAH_HELP">
+			<Text>[TOWRITE] gray help</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_WHITE_TOWER_YELLOW_AJAH">
+			<Text>Yellow</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHITE_TOWER_YELLOW_AJAH_HELP">
+			<Text>[TOWRITE] yellow help</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_WHITE_TOWER_BROWN_AJAH">
+			<Text>Brown</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHITE_TOWER_BROWN_AJAH_HELP">
+			<Text>[TOWRITE] brown help</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

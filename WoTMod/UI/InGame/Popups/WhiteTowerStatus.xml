@@ -4,17 +4,25 @@
 	<Box Style="BGBlock" ID="BGBlock" />
 
 	<Instance Name="AjahInfluence">
-		<Stack ID="AjahStack" Anchor="C,B" Size="20,200" StackGrowth="Top" Padding="12">
-			<Label ID="AjahLabel" Anchor="C,B" String="TXT_KEY_WHITE_TOWER_BLUE_AJAH" />
-			<Label ID="AjahPercent" Anchor="C,B" />
-			<Bar ID="InfluenceBar" Anchor="C,B" Size="30,150" Direction="Up" FGColor="Culture,255" />
-		</Stack>
+		<Container ID="AjahContainer" Anchor="C,B" Size="70,380" Offset="0,200">
+			<Grid Style="GridGlass16" Size="70,380">
+				<Stack ID="AjahStack" Anchor="C,B" StackGrowth="Bottom" Padding="12" Offset="0,10">
+					<Bar ID="InfluenceBar" Anchor="C,B" Size="30,300" Direction="Up" />
+					<Label ID="AjahPercent" Anchor="C,B" />
+					<Label ID="AjahLabel" Anchor="C,B" String="TXT_KEY_WHITE_TOWER_BLUE_AJAH" />
+				</Stack>
+			</Grid>
+			<Image Anchor="R,C" Texture="VerticalTrim.dds" Size="5,380"/>
+			<Image Anchor="L,C" Texture="VerticalTrim.dds" Size="5,380"/>
+			<Image Anchor="L,B" Texture="HorizontalTrim.dds" Size="70.5"/>
+			<Image Anchor="L,T" Texture="HorizontalTrim.dds" Size="70.5"/>
+		</Container>
 	</Instance>
 
-	<Grid Size="990,650" Anchor="C,C" Offset="0,20" Style="Grid9DetailFive140" ConsumeMouse="1" ID="BGWhiteTower">
+	<Grid Size="990,650" Anchor="C,C" Style="Grid9DetailFive140" ConsumeMouse="1" ID="BGWhiteTower">
 
 		<!-- Upper Treatment -->
-		<Image Anchor="C,T" AnchorSide="I.O" Offset="0,-27" Size="256,64" Texture="Top512IconTrim.dds"  >
+		<Image Anchor="C,T" AnchorSide="I.O" Offset="0,-15" Size="256,64" Texture="Top512IconTrim.dds"  >
 			<Image Anchor="C,C" Offset="0,-10" Size="80,80" Texture="NotificationFrameBase.dds"  >
 				<Image ID="CivIconBG" Size="80.80" Anchor="C,C" Offset="0,0" TextureOffset="141,0" Texture="CivIconBGSizes.dds" />
 				<Image ID="CivIconShadow" Size="64.64" Anchor="C,C" Offset="1,1" Texture="CivSymbolAtlas64.dds" Color="Black.128"/>
@@ -26,7 +34,8 @@
 		<Box Style="MenuLeftSideTreatment"/>
 		<Box Style="MenuRightSideTreatment"/>
 
-		<Stack ID="InfluenceStack" Anchor="C,B" Size="972,572" StackGrowth="Right" Padding="50" />
+		<!-- Dynamic stack of Ajah influences -->
+		<Stack ID="InfluenceStack" Anchor="C,B" StackGrowth="Right" Padding="50" />
 
 		<!-- Description box -->
 		<Grid Anchor="C,B" ID="WhiteTowerStatusMessageContainer"  Offset="0,100" Size="840,90" Padding="0" Style="Grid9FrameBlack" Hidden="0" >

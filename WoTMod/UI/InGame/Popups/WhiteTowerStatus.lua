@@ -43,8 +43,6 @@ function OnDisplay()
 	Controls.InfluenceStack:DestroyAllChildren()
 
 	for pAjah in GameInfo.Ajahs() do
-		print("Processing Ajah " .. pAjah.ID)
-
 		if (pPlayer:IsAjahPermitted(pAjah.ID)) then
 			local instance = {}
 			local sAjahName = Locale.ConvertTextKey(pAjah.Description)
@@ -60,9 +58,13 @@ function OnDisplay()
 			instance.InfluenceBar:SetPercent(iAjahPercent / 100)
 			instance.InfluenceBar:SetFGColor(Color(ajahColorInfo.Red, ajahColorInfo.Green, ajahColorInfo.Blue, ajahColorInfo.Alpha))
 
-			instance.AjahStack:SetToolTipString(Locale.ConvertTextKey(pAjah.Help))
+			instance.AjahContainer:SetToolTipString(Locale.ConvertTextKey(pAjah.Help))
+
+			instance.AjahStack:CalculateSize()
+			instance.AjahStack:ReprocessAnchoring()
 		end
 	end
 
 	Controls.InfluenceStack:CalculateSize()
+	Controls.InfluenceStack:ReprocessAnchoring()
 end

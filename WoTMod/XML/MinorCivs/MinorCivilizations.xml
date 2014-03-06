@@ -67,6 +67,26 @@
 			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
 			<AjahType>WHITE_TOWER_RED_AJAH</AjahType>
 		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_WHITE_AJAH</AjahType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_YELLOW_AJAH</AjahType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_BROWN_AJAH</AjahType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_GRAY_AJAH</AjahType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_GREEN_AJAH</AjahType>
+		</Row>
 	</MinorCivilization_PermittedAjahs>
 	<MinorCivilizations_AjahStartingInfluence>
 		<Row>
@@ -77,6 +97,31 @@
 		<Row>
 			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
 			<AjahType>WHITE_TOWER_RED_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_WHITE_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_YELLOW_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_BROWN_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_GRAY_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_GREEN_AJAH</AjahType>
 			<Influence>20</Influence>
 		</Row>
 	</MinorCivilizations_AjahStartingInfluence>

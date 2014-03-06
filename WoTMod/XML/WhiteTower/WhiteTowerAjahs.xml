@@ -3,11 +3,11 @@
 <GameData>
 	<Table name="Ajahs">
 		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
-		<Column name="Type" type="text" unique="true" notnull="true"/>
-		<Column name="Description" type="text" reference="Language_en_US(Tag)"/>
-		<Column name="Civilopedia" type="text" reference="Language_en_US(Tag)"/>
-		<Column name="Strategy" type="text" reference="Language_en_US(Tag)"/>
-		<Column name="Help" type="text" reference="Language_en_US(Tag)"/>
+		<Column name="Type" type="text" unique="true" notNULL="true"/>
+		<Column name="Description" type="text" default="NULL" reference="Language_en_US(Tag)"/>
+		<Column name="Civilopedia" type="text" default="NULL" reference="Language_en_US(Tag)"/>
+		<Column name="Strategy" type="text" default="NULL" reference="Language_en_US(Tag)"/>
+		<Column name="Help" type="text" default="NULL" reference="Language_en_US(Tag)"/>
 		<Column name="Color" type="text" reference="Colors(Type)"/>
 	</Table>
 
@@ -26,8 +26,48 @@
 			<Description>TXT_KEY_WHITE_TOWER_RED_AJAH</Description>
 			<Civilopedia>TXT_KEY_WHITE_TOWER_RED_AJAH_PEDIA</Civilopedia>
 			<Strategy/>
-			<Help>TXT_KEY_WHITE_TOWER_BLUE_AJAH_HELP</Help>
+			<Help>TXT_KEY_WHITE_TOWER_RED_AJAH_HELP</Help>
 			<Color>COLOR_RED</Color>
+		</Row>
+		<Row>
+			<Type>WHITE_TOWER_WHITE_AJAH</Type>
+			<Description>TXT_KEY_WHITE_TOWER_WHITE_AJAH</Description>
+			<Civilopedia>TXT_KEY_WHITE_TOWER_WHITE_AJAH_PEDIA</Civilopedia>
+			<Strategy/>
+			<Help>TXT_KEY_WHITE_TOWER_WHITE_AJAH_HELP</Help>
+			<Color>COLOR_WHITE</Color>
+		</Row>
+		<Row>
+			<Type>WHITE_TOWER_BROWN_AJAH</Type>
+			<Description>TXT_KEY_WHITE_TOWER_BROWN_AJAH</Description>
+			<Civilopedia>TXT_KEY_WHITE_TOWER_BROWN_AJAH_PEDIA</Civilopedia>
+			<Strategy/>
+			<Help>TXT_KEY_WHITE_TOWER_BROWN_AJAH_HELP</Help>
+			<Color>COLOR_BROWN</Color>
+		</Row>
+		<Row>
+			<Type>WHITE_TOWER_GREEN_AJAH</Type>
+			<Description>TXT_KEY_WHITE_TOWER_GREEN_AJAH</Description>
+			<Civilopedia>TXT_KEY_WHITE_TOWER_GREEN_AJAH_PEDIA</Civilopedia>
+			<Strategy/>
+			<Help>TXT_KEY_WHITE_TOWER_GREEN_AJAH_HELP</Help>
+			<Color>COLOR_GREEN</Color>
+		</Row>
+		<Row>
+			<Type>WHITE_TOWER_YELLOW_AJAH</Type>
+			<Description>TXT_KEY_WHITE_TOWER_YELLOW_AJAH</Description>
+			<Civilopedia>TXT_KEY_WHITE_TOWER_YELLOW_AJAH_PEDIA</Civilopedia>
+			<Strategy/>
+			<Help>TXT_KEY_WHITE_TOWER_YELLOW_AJAH_HELP</Help>
+			<Color>COLOR_YELLOW</Color>
+		</Row>
+		<Row>
+			<Type>WHITE_TOWER_GRAY_AJAH</Type>
+			<Description>TXT_KEY_WHITE_TOWER_GRAY_AJAH</Description>
+			<Civilopedia>TXT_KEY_WHITE_TOWER_GRAY_AJAH_PEDIA</Civilopedia>
+			<Strategy/>
+			<Help>TXT_KEY_WHITE_TOWER_GRAY_AJAH_HELP</Help>
+			<Color>COLOR_GREY</Color>
 		</Row>
 	</Ajahs>
 </GameData>
