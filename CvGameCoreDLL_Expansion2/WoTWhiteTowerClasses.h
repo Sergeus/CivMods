@@ -44,6 +44,8 @@ public:
 	void Write(FDataStream& kStream);
 
 	AjahTypes GetMajorityAjah() const;
+	AjahTypes GetAmyrlinAjah() const;
+	void SetAmyrlinAjah(AjahTypes eAjah);
 
 	void UpdateMajorityAjah();
 
@@ -59,6 +61,7 @@ public:
 
 private:
 	AjahTypes m_eMajorityAjah;
+	AjahTypes m_eAmyrlinAjah;
 
 	int* m_piAjahInfluences;
 

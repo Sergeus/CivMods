@@ -38,6 +38,7 @@ int WoTWhiteTowerAjahInfo::GetColorType() const
 
 WoTMinorCivAjahs::WoTMinorCivAjahs() :
 	m_eMajorityAjah(NO_AJAH),
+	m_eAmyrlinAjah(NO_AJAH),
 	m_piAjahInfluences(NULL),
 	m_pOwner(NULL)
 {
@@ -56,6 +57,8 @@ void WoTMinorCivAjahs::Write(FDataStream& kStream)
 
 	kStream << m_eMajorityAjah;
 
+	kStream << m_eAmyrlinAjah;
+
 	kStream << ArrayWrapper<int>(GC.GetNumWhiteTowerAjahInfos(), m_piAjahInfluences);
 }
 
@@ -66,6 +69,8 @@ void WoTMinorCivAjahs::Read(FDataStream& kStream)
 	kStream >> uiVersion;
 
 	kStream >> m_eMajorityAjah;
+
+	kStream >> m_eAmyrlinAjah;
 
 	kStream >> ArrayWrapper<int>(GC.GetNumWhiteTowerAjahInfos(), m_piAjahInfluences);
 }
@@ -109,6 +114,16 @@ void WoTMinorCivAjahs::Reset()
 AjahTypes WoTMinorCivAjahs::GetMajorityAjah() const
 {
 	return m_eMajorityAjah;
+}
+
+AjahTypes WoTMinorCivAjahs::GetAmyrlinAjah() const
+{
+	return m_eAmyrlinAjah;
+}
+
+void WoTMinorCivAjahs::SetAmyrlinAjah(AjahTypes eAjah)
+{
+	m_eAmyrlinAjah = eAjah;
 }
 
 int WoTMinorCivAjahs::GetAjahInfluence(AjahTypes eAjah) const

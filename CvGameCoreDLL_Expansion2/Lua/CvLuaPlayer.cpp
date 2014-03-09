@@ -634,6 +634,8 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	// ----------------------------------------------------------------
 	Method(GetAjahInfluencePercent);
 	Method(IsAjahPermitted);
+	Method(GetAmyrlinAjah);
+	Method(SetAmyrlinAjah);
 
 	Method(GetID);
 	Method(GetHandicapType);
@@ -6696,6 +6698,38 @@ int CvLuaPlayer::lIsAjahPermitted(lua_State* L)
 	lua_pushboolean(L, bPermitted);
 
 	return 1;
+}
+int CvLuaPlayer::lGetAmyrlinAjah(lua_State* L)
+{
+	CvPlayerAI* pkPlayer = GetInstance(L);
+
+	if (pkPlayer->isMinorCiv())
+	{
+		lua_pushinteger(L, pkPlayer->GetMinorCivAI()->GetAjahs()->GetAmyrlinAjah());
+		return 1;
+	}
+	else
+	{
+		lua_pushinteger(L, NO_AJAH);
+		return 1;
+	}
+}
+int CvLuaPlayer::lSetAmyrlinAjah(lua_State* L)
+{
+	CvPlayerAI* pkPlayer = GetInstance(L);
+
+	AjahTypes eAjah = static_cast<AjahTypes>(lua_tointeger(L, 2));
+
+	if (pkPlayer->isMinorCiv())
+	{
+		pkPlayer->GetMinorCivAI()->GetAjahs()->SetAmyrlinAjah(eAjah);
+		return 0;
+	}
+	else
+	{
+		CUSTOMLOG("Attempting to set Amyrlin Ajah to %i on non-minor civ %i.", eAjah, pkPlayer->GetID());
+		return 0;
+	}
 }
 // ----------------------------------------------------------------
 // SiegeMod Addition
