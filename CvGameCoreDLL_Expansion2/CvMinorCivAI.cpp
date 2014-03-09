@@ -9870,7 +9870,6 @@ CvMinorCivInfo::CvMinorCivInfo() :
 	, m_pbPlots(NULL)
 	, m_pbAjahsPermitted(NULL)
 	, m_piAjahStartingInfluences(NULL)
-	, m_bHostsAjahs(false)
 {
 }
 //------------------------------------------------------------------------------
