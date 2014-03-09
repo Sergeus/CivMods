@@ -4,9 +4,10 @@
 	<Box Style="BGBlock" ID="BGBlock" />
 
 	<Instance Name="AjahInfluence">
-		<Container ID="AjahContainer" Anchor="C,B" Size="70,380" Offset="0,200">
+		<Container ID="AjahContainer" Anchor="C,B" Size="70,380" Offset="0,156">
 			<Grid Style="GridGlass16" Size="70,380">
 				<Stack ID="AjahStack" Anchor="C,B" StackGrowth="Bottom" Padding="12" Offset="0,10">
+					<Image ID="AmyrlinSymbol" Anchor="C,C" Texture="AmyrlinIcon64.dds" Size="64,64" Offset="0,20" />
 					<Bar ID="InfluenceBar" Anchor="C,B" Size="30,300" Direction="Up" />
 					<Label ID="AjahPercent" Anchor="C,B" />
 					<Label ID="AjahLabel" Anchor="C,B" String="TXT_KEY_WHITE_TOWER_BLUE_AJAH" />
@@ -38,16 +39,10 @@
 		<Stack ID="InfluenceStack" Anchor="C,B" StackGrowth="Right" Padding="50" />
 
 		<!-- Description box -->
-		<Grid Anchor="C,B" ID="WhiteTowerStatusMessageContainer"  Offset="0,100" Size="840,90" Padding="0" Style="Grid9FrameBlack" Hidden="0" >
+		<Grid Anchor="C,B" ID="WhiteTowerStatusMessageContainer"  Offset="0,54" Size="840,90" Padding="0" Style="Grid9FrameBlack" Hidden="0" >
 			<Label ID="WhiteTowerStatusLabel" String="TXT_KEY_WHITE_TOWER_STATUS" WrapWidth="800"  LeadingOffset="-4" Anchor="C,C" Offset="0,15" Font="TwCenMT20" ColorSet="Beige_Black_Alpha" />
 		</Grid>
 
-		<!-- Choice buttons -->
-		<Box Anchor="C,B" AnchorSide="I.I" Offset="0,54" Size="910,56" Color="255,255,255,0" >
-			<!-- Bottom Buttons -->
-			<Stack Anchor="C,B"  Offset="0,0" Padding="10" StackGrowth="Right">
-				<GridButton Size="275,36" ID="OkButton" Style="BaseButton" String="TXT_KEY_OKAY" />
-			</Stack>
-		</Box>
+		<TextButton Offset="0,22" Anchor="C,B" String="TXT_KEY_CLOSE" Style="Font14or20" MouseOverStyle="SoftShadow" ConsumeMouse="1" ID="CloseButton" Hidden="0"/>
 	</Grid>
 </Context>

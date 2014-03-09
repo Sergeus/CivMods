@@ -25,10 +25,10 @@ LuaEvents.TarValonStatus.Add(InitTarValonStatus)
 
 ContextPtr:SetHide(true)
 
-function OnOkClicked()
+function OnCloseClicked()
 	UIManager:DequeuePopup(ContextPtr)
 end
-Controls.OkButton:RegisterCallback(Mouse.eLClick, OnOkClicked)
+Controls.CloseButton:RegisterCallback(Mouse.eLClick, OnCloseClicked)
 
 function OnShowHide(bIsHiding, bIsInit)
 	if not bIsHiding then
@@ -39,6 +39,7 @@ ContextPtr:SetShowHideHandler(OnShowHide)
 
 function OnDisplay()
 	local pPlayer = Players[m_CityStateId]
+	local amyrlinAjah = pPlayer:GetAmyrlinAjah()
 
 	Controls.InfluenceStack:DestroyAllChildren()
 
@@ -59,6 +60,12 @@ function OnDisplay()
 			instance.InfluenceBar:SetFGColor(Color(ajahColorInfo.Red, ajahColorInfo.Green, ajahColorInfo.Blue, ajahColorInfo.Alpha))
 
 			instance.AjahContainer:SetToolTipString(Locale.ConvertTextKey(pAjah.Help))
+
+			if (amyrlinAjah == pAjah.ID) then
+				instance.AmyrlinSymbol:SetHide(false)
+			else
+				instance.AmyrlinSymbol:SetHide(true)
+			end
 
 			instance.AjahStack:CalculateSize()
 			instance.AjahStack:ReprocessAnchoring()
