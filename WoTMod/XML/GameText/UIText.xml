@@ -88,6 +88,9 @@
 		<Row Tag="TXT_KEY_WHITE_TOWER_STATUS">
 			<Text>The Tower welcomes you.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_AMYRLIN_AJAH_SYMBOL">
+			<Text>This symbol represents the Ajah from which the current Amyrlin Seat was elevated.</Text>
+		</Row>
 		
 		<!-- Ajahs -->
 		<Row Tag="TXT_KEY_WHITE_TOWER_BLUE_AJAH">

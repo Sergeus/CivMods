@@ -9,6 +9,7 @@
 			<TraitTitleIcon></TraitTitleIcon>
 			<BackgroundImage>CityStateBackgroundTarValon.dds</BackgroundImage>
 			<HostsAjahs>true</HostsAjahs>
+			<NoCoups>true</NoCoups>
 		</Row>
 	</MinorCivTraits>
 </GameData>
