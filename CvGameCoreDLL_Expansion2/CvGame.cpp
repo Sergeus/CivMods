@@ -696,13 +696,12 @@ void CvGame::InitPlayers()
 	// We're going to override one of the minor civs to Tar Valon (if one isn't already)
 	// and the diplomatic victory is enabled
 	bool bAlreadyPickedTarValon = false;
-	int iTarValonTrait = GC.getInfoTypeForString("MINOR_TRAIT_WHITE_TOWER");
 	for (iI = MAX_MAJOR_CIVS; iI < MAX_MAJOR_CIVS + iNumMinors; iI++)
 	{
 		PlayerTypes eMinor = static_cast<PlayerTypes>(iI);
 		CvMinorCivInfo* pMinorCivInfo = GC.getMinorCivInfo(CvPreGame::minorCivType(eMinor));
 
-		if (pMinorCivInfo->GetMinorCivTrait() == iTarValonTrait)
+		if (GC.GetMinorCivTraitInfo(static_cast<MinorCivTraitTypes>(pMinorCivInfo->GetMinorCivTrait()))->IsHostsAjahs())
 		{
 			bAlreadyPickedTarValon = true;
 			CUSTOMLOG("Found Tar Valon as player %i.", iI);

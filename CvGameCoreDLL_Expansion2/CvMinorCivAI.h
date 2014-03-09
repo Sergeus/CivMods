@@ -714,7 +714,17 @@ class CvMinorCivTraitInfo : public CvBaseInfo
 public:
 	CvMinorCivTraitInfo();
 
+	bool IsHostsAjahs() const;
+	void SetHostsAjahs(bool bNewValue);
+	bool IsNoCoups() const;
+	void SetNoCoups(bool bNewValue);
+
 	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
+
+private:
+
+	bool m_bHostsAjahs;
+	bool m_bNoCoups;
 };
 
 class WoTMinorCivPlotInfo : public CvBaseInfo

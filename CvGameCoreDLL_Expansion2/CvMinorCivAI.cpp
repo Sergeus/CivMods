@@ -9870,6 +9870,7 @@ CvMinorCivInfo::CvMinorCivInfo() :
 	, m_pbPlots(NULL)
 	, m_pbAjahsPermitted(NULL)
 	, m_piAjahStartingInfluences(NULL)
+	, m_bHostsAjahs(false)
 {
 }
 //------------------------------------------------------------------------------
@@ -10108,6 +10109,8 @@ bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 // WoTMod Addition
 // ----------------------------------------------------------------
 CvMinorCivTraitInfo::CvMinorCivTraitInfo()
+	: m_bHostsAjahs(false)
+	, m_bNoCoups(false)
 {
 
 }
@@ -10116,7 +10119,26 @@ bool CvMinorCivTraitInfo::CacheResults(Database::Results& kResults, CvDatabaseUt
 	if(!CvBaseInfo::CacheResults(kResults, kUtility))
 		return false;
 
+	m_bHostsAjahs = kResults.GetBool("HostsAjahs");
+	m_bNoCoups = kResults.GetBool("NoCoups");
+
 	return true;
+}
+bool CvMinorCivTraitInfo::IsHostsAjahs() const
+{
+	return m_bHostsAjahs;
+}
+void CvMinorCivTraitInfo::SetHostsAjahs(bool bNewValue)
+{
+	m_bHostsAjahs = bNewValue;
+}
+bool CvMinorCivTraitInfo::IsNoCoups() const
+{
+	return m_bNoCoups;
+}
+void CvMinorCivTraitInfo::SetNoCoups(bool bNewValue)
+{
+	m_bNoCoups = bNewValue;
 }
 
 WoTMinorCivPlotInfo::WoTMinorCivPlotInfo()

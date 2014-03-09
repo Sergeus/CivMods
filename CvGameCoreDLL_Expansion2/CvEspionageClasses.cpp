@@ -1643,6 +1643,15 @@ bool CvPlayerEspionage::CanStageCoup(uint uiSpyIndex)
 		return false;
 	}
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	MinorCivTraitTypes eTrait = static_cast<MinorCivTraitTypes>(GC.getMinorCivInfo(GET_PLAYER(eCityOwner).GetMinorCivAI()->GetMinorCivType())->GetMinorCivTrait());
+	if (GC.GetMinorCivTraitInfo(eTrait)->IsNoCoups())
+	{
+		return false;
+	}
+
 	CvMinorCivAI* pMinorCivAI = GET_PLAYER(eCityOwner).GetMinorCivAI();
 	PlayerTypes eMinorCivAlly = pMinorCivAI->GetAlly();
 
