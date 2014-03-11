@@ -477,6 +477,7 @@ void CvLuaUnit::PushMethods(lua_State* L, int t)
 	Method(IsCanGovernCities);
 	Method(GetGovernorType);
 	Method(DoGovernCity);
+	Method(DoTrainAtTower);
 }
 //------------------------------------------------------------------------------
 const char* CvLuaUnit::GetTypeName()
@@ -4532,6 +4533,14 @@ int CvLuaUnit::lDoGovernCity(lua_State* L)
 	CvUnit* pkUnit = GetInstance(L);
 
 	pkUnit->DoGovernCity();
+
+	return 0;
+}
+int CvLuaUnit::lDoTrainAtTower(lua_State* L)
+{
+	CvUnit* pkUnit = GetInstance(L);
+
+	pkUnit->DoTrainAtTower();
 
 	return 0;
 }

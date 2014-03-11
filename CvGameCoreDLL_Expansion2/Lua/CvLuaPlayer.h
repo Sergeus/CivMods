@@ -617,6 +617,7 @@ protected:
 	static int lIsAjahPermitted(lua_State* L);
 	static int lGetAmyrlinAjah(lua_State* L);
 	static int lSetAmyrlinAjah(lua_State* L);
+	static int lIsHostsAjahs(lua_State* L);
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------

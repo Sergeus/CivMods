@@ -21538,6 +21538,23 @@ int CvUnit::GetHappiness() const
 	return iTotalHappiness;
 }
 
+void CvUnit::DoTrainAtTower()
+{
+	CvPlayerAI& kPlotOwner = GET_PLAYER(plot()->getOwner());
+	if (kPlotOwner.isMinorCiv()
+		&& kPlotOwner.GetMinorCivAI()->GetAjahs()->IsHostsAjahs())
+	{
+		kPlotOwner.GetMinorCivAI()->GetAjahs()->DoTraineeAdmitted(this);
+
+		kill(true);
+	}
+}
+
+int CvUnit::GetAjahInfluenceChange() const
+{
+	return 10;
+}
+
 //	--------------------------------------------------------------------------------
 DestructionNotification<UnitHandle>& CvUnit::getDestructionNotification()
 {

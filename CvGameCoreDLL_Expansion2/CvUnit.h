@@ -1264,6 +1264,8 @@ public:
 	bool IsChanneler() const;
 	bool IsOnePowerBlocked(const CvPlot* pFromPlot) const;
 	int GetHappiness() const;
+	void DoTrainAtTower();
+	int GetAjahInfluenceChange() const;
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------

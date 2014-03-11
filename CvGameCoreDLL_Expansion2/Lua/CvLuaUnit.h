@@ -486,6 +486,7 @@ protected:
 	static int lIsCanGovernCities(lua_State* L);
 	static int lGetGovernorType(lua_State* L);
 	static int lDoGovernCity(lua_State* L);
+	static int lDoTrainAtTower(lua_State* L);
 };
 
 

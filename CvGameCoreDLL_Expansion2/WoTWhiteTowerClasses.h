@@ -59,6 +59,11 @@ public:
 	bool IsAjahPermitted(AjahTypes eAjah) const;
 	void SetAjahPermitted(AjahTypes eAjah, bool bNewValue);
 
+	bool IsHostsAjahs() const;
+	void SetHostsAjahs(bool bNewValue);
+
+	void DoTraineeAdmitted(CvUnit* pUnit);
+
 private:
 	AjahTypes m_eMajorityAjah;
 	AjahTypes m_eAmyrlinAjah;

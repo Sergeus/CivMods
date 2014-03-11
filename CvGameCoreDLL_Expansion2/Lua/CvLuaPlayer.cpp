@@ -636,6 +636,7 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(IsAjahPermitted);
 	Method(GetAmyrlinAjah);
 	Method(SetAmyrlinAjah);
+	Method(IsHostsAjahs);
 
 	Method(GetID);
 	Method(GetHandicapType);
@@ -6729,6 +6730,21 @@ int CvLuaPlayer::lSetAmyrlinAjah(lua_State* L)
 	{
 		CUSTOMLOG("Attempting to set Amyrlin Ajah to %i on non-minor civ %i.", eAjah, pkPlayer->GetID());
 		return 0;
+	}
+}
+int CvLuaPlayer::lIsHostsAjahs(lua_State* L)
+{
+	CvPlayerAI* pkPlayer = GetInstance(L);
+
+	if (pkPlayer->isMinorCiv())
+	{
+		lua_pushboolean(L, pkPlayer->GetMinorCivAI()->GetAjahs()->IsHostsAjahs());
+		return 1;
+	}
+	else
+	{
+		lua_pushboolean(L, false);
+		return 1;
 	}
 }
 // ----------------------------------------------------------------

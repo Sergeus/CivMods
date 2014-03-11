@@ -195,3 +195,52 @@ void WoTMinorCivAjahs::SetAjahPermitted(AjahTypes eAjah, bool bNewValue)
 	CvMinorCivInfo* pInfo = GC.getMinorCivInfo(m_pOwner->GetMinorCivType());
 	pInfo->SetAjahPermitted(eAjah, bNewValue);
 }
+
+bool WoTMinorCivAjahs::IsHostsAjahs() const
+{
+	CvMinorCivTraitInfo* pInfo = GC.GetMinorCivTraitInfo(static_cast<MinorCivTraitTypes>(GC.getMinorCivInfo(m_pOwner->GetMinorCivType())->GetMinorCivTrait()));
+	return pInfo->IsHostsAjahs();
+}
+
+void WoTMinorCivAjahs::SetHostsAjahs(bool bNewValue)
+{
+	CvMinorCivTraitInfo* pInfo = GC.GetMinorCivTraitInfo(static_cast<MinorCivTraitTypes>(GC.getMinorCivInfo(m_pOwner->GetMinorCivType())->GetMinorCivTrait()));
+	pInfo->SetHostsAjahs(bNewValue);
+}
+
+void WoTMinorCivAjahs::DoTraineeAdmitted(CvUnit* pUnit)
+{
+	std::vector<AjahTypes> availableAjahs;
+	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); i++)
+	{
+		AjahTypes eAjah = static_cast<AjahTypes>(i);
+		if (IsAjahPermitted(eAjah))
+		{
+			availableAjahs.push_back(eAjah);
+		}
+	}
+
+	int ajahIndex = GC.getGame().getJonRandNum(availableAjahs.size(), "Choosing an Ajah to give influence to");
+	
+	int oldInfluencePercent = GetAjahInfluencePercent(availableAjahs[ajahIndex]);
+
+	ChangeAjahInfluence(availableAjahs[ajahIndex], pUnit->GetAjahInfluenceChange());
+
+	UpdateMajorityAjah();
+
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+	if (pkScriptSystem)
+	{
+		CvLuaArgsHandle args;
+
+		args->Push(pUnit->getOwner());
+		args->Push(pUnit->GetID());
+		args->Push(m_pOwner->GetPlayer()->GetID());
+		args->Push(availableAjahs[ajahIndex]);
+		args->Push(oldInfluencePercent);
+
+		bool bResult;
+		LuaSupport::CallHook(pkScriptSystem, "TowerTraineeChangedAjahInfluence", args.get(), bResult);
+	}
+}
