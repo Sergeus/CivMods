@@ -11,6 +11,10 @@ include("FLuaVector")
 
 local m_CityStateId
 
+local m_bFeedbackMode
+local m_eChangedAjah
+local m_iOldPercent
+
 -- Expectation that this event will be called before the popup is displayed to tell
 -- it what city state we're talking about (technical support for multiple competing
 -- Tar Valons for eventual Salidar scenario?)
@@ -18,6 +22,19 @@ function InitTarValonStatus(cityStateId)
 	m_CityStateId = cityStateId
 end
 LuaEvents.TarValonStatus.Add(InitTarValonStatus)
+
+function AjahInfluenceChanged(playerID, unitID, towerID, ajahID, iOldInfluence)
+	if (playerID == Game.GetActivePlayer()) then
+		m_CityStateId = towerID
+
+		m_bFeedbackMode = true
+		m_eChangedAjah = ajahID
+		m_iOldPercent = iOldInfluence
+
+		UIManager:QueuePopup(ContextPtr, PopupPriority.eUtmost)
+	end
+end
+GameEvents.TowerTraineeChangedAjahInfluence.Add(AjahInfluenceChanged)
 
 --------------------------------------------------------------
 -- Visibility Controls
@@ -56,7 +73,19 @@ function OnDisplay()
 
 			instance.AjahLabel:SetText(sAjahName)
 			instance.AjahPercent:SetText(sAjahPercent)
-			instance.InfluenceBar:SetPercent(iAjahPercent / 100)
+
+			if (m_bFeedbackMode and pAjah.ID == m_eChangedAjah) then
+				instance.BGInfluenceBar:SetFGColor(Color(ajahColorInfo.Red, ajahColorInfo.Green, ajahColorInfo.Blue, 0.5))
+				instance.BGInfluenceBar:SetHide(false)
+
+				instance.InfluenceBar:SetPercent(m_iOldPercent / 100)
+				instance.BGInfluenceBar:SetPercent(iAjahPercent / 100)
+
+				m_bFeedbackMode = false
+			else
+				instance.InfluenceBar:SetPercent(iAjahPercent / 100)
+			end
+			
 			instance.InfluenceBar:SetFGColor(Color(ajahColorInfo.Red, ajahColorInfo.Green, ajahColorInfo.Blue, ajahColorInfo.Alpha))
 
 			instance.AjahContainer:SetToolTipString(Locale.ConvertTextKey(pAjah.Help))

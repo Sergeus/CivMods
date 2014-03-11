@@ -87,9 +87,9 @@
       </Content>
       <Content>
         <Type>InGameUIAddin</Type>
-        <Name>White Tower Status screen</Name>
-        <Description>status screen for White Tower</Description>
-        <FileName>UI/InGame/Popups/WhiteTowerStatus.xml</FileName>
+        <Name>WhiteTower mission subscribers</Name>
+        <Description>Tells the game when these missions can be done and what they do</Description>
+        <FileName>Lua/WhiteTower/WhiteTowerMissionSubscribers.lua</FileName>
       </Content>
     </ModContent>
     <ModActions>
@@ -727,6 +727,7 @@
     <Folder Include="Lua\Blight" />
     <Folder Include="Lua\LastBattle" />
     <Folder Include="Lua\Governors" />
+    <Folder Include="Lua\WhiteTower" />
     <Folder Include="UI" />
     <Folder Include="UI\FrontEnd\GameSetup" />
     <Folder Include="UI\InGame" />
@@ -1594,6 +1595,10 @@
     <Content Include="Lua\PlotIterators.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\WhiteTower\WhiteTowerMissionSubscribers.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="UI\FrontEnd\GameSetup\AdvancedSetup.lua">
       <SubType>Lua</SubType>

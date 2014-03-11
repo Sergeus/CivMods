@@ -8,7 +8,10 @@
 			<Grid Style="GridGlass16" Size="70,380">
 				<Stack ID="AjahStack" Anchor="C,B" StackGrowth="Bottom" Padding="12" Offset="0,10">
 					<Image ID="AmyrlinSymbol" Anchor="C,C" Texture="AmyrlinIcon64.dds" Size="64,64" Offset="0,20" ToolTip="TXT_KEY_AMYRLIN_AJAH_SYMBOL" />
-					<Bar ID="InfluenceBar" Anchor="C,B" Size="30,300" Direction="Up" />
+					<Container Anchor="C,B" Size="30,300">
+						<Bar ID="BGInfluenceBar" Anchor="C,B" Size="30,300" Direction="Up" Hidden="1" />
+						<Bar ID="InfluenceBar" Anchor="C,B" Size="30,300" Direction="Up" />
+					</Container>
 					<Label ID="AjahPercent" Anchor="C,B" />
 					<Label ID="AjahLabel" Anchor="C,B" String="TXT_KEY_WHITE_TOWER_BLUE_AJAH" />
 				</Stack>

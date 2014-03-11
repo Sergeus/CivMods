@@ -62,5 +62,16 @@
 			<PediaEntry>TXT_KEY_PROMOTION_SECRET_KNOWLEDGE_PEDIA</PediaEntry>
 			<VisibilityChange>1</VisibilityChange>
 		</Row>
+		<Row>
+			<Type>PROMOTION_TOWER_TRAINEE</Type>
+			<Description>TXT_KEY_PROMOTION_TOWER_TRAINEE</Description>
+			<Help>TXT_KEY_PROMOTION_TOWER_TRAINEE_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<PortraitIndex>44</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_TOWER_TRAINEE_PEDIA_ENTRY</PediaEntry>
+		</Row>
 	</UnitPromotions>
 </GameData>

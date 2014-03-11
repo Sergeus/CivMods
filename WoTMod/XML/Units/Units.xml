@@ -407,6 +407,10 @@
 			<UnitType>UNIT_AES_SEDAI</UnitType>
 			<PromotionType>PROMOTION_ONLY_DEFENSIVE</PromotionType>
 		</Row>
+		<Row>
+			<UnitType>UNIT_WILDER</UnitType>
+			<PromotionType>PROMOTION_TOWER_TRAINEE</PromotionType>
+		</Row>
 	</Unit_FreePromotions>
 
 	<Unit_FreePromotionsUntilProjectCompleted>

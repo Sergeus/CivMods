@@ -68,6 +68,17 @@
 			<Text>This unit must be in a city owned by your civilization to be able to install itself as a governor.</Text>
 		</Row>
 		
+		<!-- Train at the Tower Mission -->
+		<Row Tag="TXT_KEY_MISSION_TRAIN_WHITE_TOWER">
+			<Text>Train at the Tower</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISSION_TRAIN_WHITE_TOWER_HELP">
+			<Text>[TOWRITE] train at white tower help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISSION_TRAIN_WHITE_TOWER_DISABLED_HELP">
+			<Text>[TOWRITE] train at white tower disabled help</Text>
+		</Row>
+		
 		<!-- Building cannot be built due to Governor OR Prereq -->
 		<Row Tag="TXT_KEY_NO_ACTION_BUILDING_LOCAL_GOVERNOR">
 			<Text>[NEWLINE]A {1_GovernorDescription} governor will allow this building to be constructed.</Text>
