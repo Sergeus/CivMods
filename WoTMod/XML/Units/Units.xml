@@ -320,7 +320,6 @@
 			<MilitaryProduction>true</MilitaryProduction>
 			<Pillage>true</Pillage>
 			<ObsoleteTech>TECH_METAL_CASTING</ObsoleteTech>
-
 			<AdvancedStartCost>10</AdvancedStartCost>
 			<XPValueAttack>3</XPValueAttack>
 			<XPValueDefense>3</XPValueDefense>
@@ -329,7 +328,6 @@
 			<IconAtlas>TECH_ATLAS_1</IconAtlas>
 			<PortraitIndex>0</PortraitIndex>
 		</Row>
-
 			
 		<Row>
 			<Class>UNITCLASS_LEADER</Class>
@@ -381,7 +379,36 @@
 			<XPValueDefense>3</XPValueDefense>
 			<UnitArtInfo>ART_DEF_UNIT_U_BYZANTIUM_DROMON</UnitArtInfo>
 			<UnitFlagIconOffset>0</UnitFlagIconOffset>
-			<IconAtlas>TECH_ATLAS_1</IconAtlas>
+			<IconAtlas>UNIT_ATLAS_2</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+		</Row>
+
+		<Row>
+			<Class>UNITCLASS_KINSWOMAN</Class>
+			<Type>UNIT_KINSWOMAN</Type>
+			<PrereqTech>TECH_SISTERHOOD</PrereqTech>
+			<Combat>5</Combat>
+			<RangedCombat>24</RangedCombat>
+			<Cost>300</Cost>
+			<Moves>2</Moves>
+			<Range>2</Range>
+			<CombatClass>UNITCOMBAT_RANGED</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_KINSWOMAN</Description>
+			<Civilopedia>TXT_KEY_CIV5_ANTIQUITY_KINSWOMAN_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_KINSWOMAN_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_HELP_KINSWOMAN</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<ObsoleteTech>TECH_METAL_CASTING</ObsoleteTech>
+			<AdvancedStartCost>10</AdvancedStartCost>
+			<XPValueAttack>3</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<UnitArtInfo>ART_DEF_UNIT__WARRIOR</UnitArtInfo>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
+			<IconAtlas>UNIT_ATLAS_2</IconAtlas>
 			<PortraitIndex>0</PortraitIndex>
 		</Row>
 	</Units>
@@ -411,6 +438,10 @@
 			<UnitType>UNIT_WILDER</UnitType>
 			<PromotionType>PROMOTION_TOWER_TRAINEE</PromotionType>
 		</Row>
+		<Row>
+			<UnitType>UNIT_KINSWOMAN</UnitType>
+			<PromotionType>PROMOTION_TOWER_TRAINEE</PromotionType>
+		</Row>
 	</Unit_FreePromotions>
 
 	<Unit_FreePromotionsUntilProjectCompleted>
@@ -428,6 +459,10 @@
 		</Row>
 		<Row>
 			<UnitType>UNIT_WILDER</UnitType>
+			<OnePowerType>ONE_POWER_SAIDAR</OnePowerType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_KINSWOMAN</UnitType>
 			<OnePowerType>ONE_POWER_SAIDAR</OnePowerType>
 		</Row>
 	</Unit_OnePowerWielding>

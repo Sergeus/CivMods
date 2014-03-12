@@ -67,5 +67,10 @@
 			<Description>TXT_KEY_UNIT_FIRESHIP</Description>
 			<DefaultUnit>UNIT_FIRESHIP</DefaultUnit>
 		</Row>
+		<Row>
+			<Type>UNITCLASS_KINSWOMAN</Type>
+			<Description>TXT_KEY_UNIT_KINSWOMAN</Description>
+			<DefaultUnit>UNIT_KINSWOMAN</DefaultUnit>
+		</Row>
 	</UnitClasses>
 </GameData>

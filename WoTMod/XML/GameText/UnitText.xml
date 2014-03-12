@@ -156,6 +156,20 @@
 		<Row Tag="TXT_KEY_UNIT_FIRESHIP_STRATEGY">
 			<Text>[TOWRITE] Fireship strategy</Text>
 		</Row>
+
+		<!-- Unit: Kinswoman -->
+		<Row Tag="TXT_KEY_UNIT_KINSWOMAN">
+			<Text>Kinswoman</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_KINSWOMAN">
+			<Text>[TOWRITE] Kinswoman help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ANTIQUITY_KINSWOMAN_TEXT">
+			<Text>[TOWRITE] Kinswoman pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_KINSWOMAN_STRATEGY">
+			<Text>[TOWRITE] Kinswoman strategy</Text>
+		</Row>
 		
 		<!-- Unit: Great Leader -->
 		<Row Tag="TXT_KEY_UNIT_GREAT_LEADER">

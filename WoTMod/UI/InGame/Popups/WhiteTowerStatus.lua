@@ -36,8 +36,19 @@ function AjahInfluenceChanged(playerID, unitID, towerID, ajahID, iOldInfluence)
 end
 GameEvents.TowerTraineeChangedAjahInfluence.Add(AjahInfluenceChanged)
 
+function AjahMajorityChangedNotificationActivated(playerID, notificationID, msg, summary, iX, iY, iGameData, iExtraData)
+	if notificationID ~= GameInfoTypes.NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED then
+		return
+	end
+
+	m_CityStateId = iGameData
+
+	UIManager:QueuePopup(ContextPtr, PopupPriority.eUtmost)
+end
+GameEvents.PlayerNotificationActivated.Add(AjahMajorityChangedNotificationActivated)
+
 --------------------------------------------------------------
--- Visibility Controls
+-- Visibility Management
 --------------------------------------------------------------
 
 ContextPtr:SetHide(true)

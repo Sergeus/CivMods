@@ -58,5 +58,13 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_YOUR_CITY_HAS_GAINED_GOVERNOR_SUMMARY">
 			<Text>Governor</Text>
 		</Row>
+		
+		<!-- Tower Majority Ajah Change Notification -->
+		<Row Tag="TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED">
+			<Text>The majority ajah at {1_CityName} has changed from the [COLOR_NEGATIVE_TEXT]{2_OldMajority}[ENDCOLOR] to the [COLOR_POSITIVE_TEXT]{3_NewMajority}[ENDCOLOR].</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED_SUMMARY">
+			<Text>Majority Ajah</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

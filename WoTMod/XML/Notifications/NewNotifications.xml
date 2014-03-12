@@ -49,5 +49,13 @@
 			<ExistingIconType>ICON_TYPE_GOVERNOR</ExistingIconType>
 			<AlwaysDismissable>true</AlwaysDismissable>
 		</Row>
+		<Row>
+			<Type>NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED</Type>
+			<Message>TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED</Message>
+			<Summary>TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED_SUMMARY</Summary>
+			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
+			<AlwaysDismissable>true</AlwaysDismissable>
+		</Row>
 	</Notifications>
 </GameData>
