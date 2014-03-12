@@ -3,6 +3,7 @@
 #include "WoTWhiteTowerClasses.h"
 #include "CvMinorCivAI.h"
 #include "WoTSerialization.h"
+#include "CvGameCoreUtils.h"
 
 //======================================================================================================
 //					WoTWhiteTowerAjahInfo
@@ -181,7 +182,43 @@ void WoTMinorCivAjahs::UpdateMajorityAjah()
 	}
 
 	CvAssertMsg(eHighestAjah != NO_AJAH, "No Ajah has majority!");
+
+	AjahTypes eOldMajority = m_eMajorityAjah;
 	m_eMajorityAjah = eHighestAjah;
+
+	if (eOldMajority != eHighestAjah)
+	{
+		WoTWhiteTowerAjahInfo* pOldInfo = GC.GetWhiteTowerAjahInfo(eOldMajority);
+		WoTWhiteTowerAjahInfo* pNewInfo = GC.GetWhiteTowerAjahInfo(eHighestAjah);
+	
+		CvCity* pCapital = m_pOwner->GetPlayer()->getCapitalCity();
+	
+		if (pCapital)
+		{
+			CvString capitalName = pCapital->getName();
+			int capitalX = pCapital->getX();
+			int capitalY = pCapital->getY();
+
+			for (int i = 0; i < MAX_MAJOR_CIVS; i++)
+			{
+				PlayerTypes ePlayer = static_cast<PlayerTypes>(i);
+
+				CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
+
+				if (kPlayer.isAlive() && GET_TEAM(kPlayer.getTeam()).isHasMet(m_pOwner->GetPlayer()->getTeam()))
+				{
+					CvString strMessage;
+					CvNotifications* pNotification = kPlayer.GetNotifications();
+					if(pNotification)
+					{
+						strMessage = GetLocalizedText("TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED", capitalName, pOldInfo->GetDescription(), pNewInfo->GetDescription());
+						Localization::String strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED_SUMMARY");
+						pNotification->Add(static_cast<NotificationTypes>(GC.getInfoTypeForString("NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED")), strMessage, strSummary.toUTF8(), capitalX, capitalY, pCapital->getOwner());
+					}
+				}
+			}
+		}
+	}
 }
 
 bool WoTMinorCivAjahs::IsAjahPermitted(AjahTypes eAjah) const
