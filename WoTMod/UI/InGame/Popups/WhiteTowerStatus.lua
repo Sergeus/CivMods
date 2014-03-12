@@ -36,8 +36,9 @@ function AjahInfluenceChanged(playerID, unitID, towerID, ajahID, iOldInfluence)
 end
 GameEvents.TowerTraineeChangedAjahInfluence.Add(AjahInfluenceChanged)
 
-function AjahMajorityChangedNotificationActivated(playerID, notificationID, msg, summary, iX, iY, iGameData, iExtraData)
-	if notificationID ~= GameInfoTypes.NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED then
+function TowerNotificationActivated(playerID, notificationID, msg, summary, iX, iY, iGameData, iExtraData)
+	if notificationID ~= GameInfoTypes.NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED
+			and notificationID ~= GameInfoTypes.NOTIFICATION_TOWER_AMYRLIN_ELECTED then
 		return
 	end
 
@@ -45,7 +46,7 @@ function AjahMajorityChangedNotificationActivated(playerID, notificationID, msg,
 
 	UIManager:QueuePopup(ContextPtr, PopupPriority.eUtmost)
 end
-GameEvents.PlayerNotificationActivated.Add(AjahMajorityChangedNotificationActivated)
+GameEvents.PlayerNotificationActivated.Add(TowerNotificationActivated)
 
 --------------------------------------------------------------
 -- Visibility Management

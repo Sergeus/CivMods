@@ -61,10 +61,18 @@
 		
 		<!-- Tower Majority Ajah Change Notification -->
 		<Row Tag="TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED">
-			<Text>The majority ajah at {1_CityName} has changed from the [COLOR_NEGATIVE_TEXT]{2_OldMajority}[ENDCOLOR] to the [COLOR_POSITIVE_TEXT]{3_NewMajority}[ENDCOLOR].</Text>
+			<Text>The majority ajah at {1_CityName} has changed from the [COLOR_NEGATIVE_TEXT]{2_OldMajority}[ENDCOLOR] to the [COLOR_POSITIVE_TEXT]{3_NewMajority}[ENDCOLOR] Ajah.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED_SUMMARY">
 			<Text>Majority Ajah</Text>
+		</Row>
+		
+		<!-- Tower New Amyrlin Elected Notification -->
+		<Row Tag="TXT_KEY_NOTIFICATION_TOWER_AMYRLIN_ELECTED">
+			<Text>A new Amyrlin has been raised at {1_CityName} from the {2_AjahName} Ajah.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_TOWER_AMYRLIN_ELECTED_SUMMARY">
+			<Text>New Amyrlin</Text>
 		</Row>
 	</Language_en_US>
 </GameData>
