@@ -154,14 +154,20 @@ void WoTMinorCivAjahs::ChangeAjahInfluence(AjahTypes eAjah, int iChange)
 int WoTMinorCivAjahs::GetAjahInfluencePercent(AjahTypes eAjah) const
 {
 	int iAjahInfluence = GetAjahInfluenceTimes100(eAjah);
+	int iInfluenceTotal = GetTotalInfluencePoints();
+
+	return iAjahInfluence / iInfluenceTotal;
+}
+
+int WoTMinorCivAjahs::GetTotalInfluencePoints() const
+{
 	int iInfluenceTotal = 0;
 	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); i++)
 	{
 		AjahTypes eLoopAjah = static_cast<AjahTypes>(i);
 		iInfluenceTotal += max(0, GetAjahInfluence(eLoopAjah));
 	}
-
-	return iAjahInfluence / iInfluenceTotal;
+	return iInfluenceTotal;
 }
 
 void WoTMinorCivAjahs::UpdateMajorityAjah()
@@ -279,5 +285,81 @@ void WoTMinorCivAjahs::DoTraineeAdmitted(CvUnit* pUnit)
 
 		bool bResult;
 		LuaSupport::CallHook(pkScriptSystem, "TowerTraineeChangedAjahInfluence", args.get(), bResult);
+	}
+}
+
+AjahTypes WoTMinorCivAjahs::ChooseWeightedAjah() const
+{
+	int totalPoints = GetTotalInfluencePoints();
+
+	int rand = GC.getGame().getJonRandNum(totalPoints, "Choosing Amyrlin");
+
+	for (int i = 0; i < totalPoints; i++)
+	{
+		AjahTypes eAjah = static_cast<AjahTypes>(i);
+
+		if (GetAjahInfluence(eAjah) > rand)
+		{
+			return eAjah;
+		}
+		rand -= max(0, GetAjahInfluence(eAjah));
+	}
+	CvAssertMsg(false, "Random selection of an Ajah should not fall out of the selection loop.");
+}
+
+void WoTMinorCivAjahs::DoChooseAmyrlin()
+{
+	AjahTypes eAjah = ChooseWeightedAjah();
+
+	SetAmyrlinAjah(eAjah);
+
+	WoTWhiteTowerAjahInfo* pNewInfo = GC.GetWhiteTowerAjahInfo(eAjah);
+	
+	CvCity* pCapital = m_pOwner->GetPlayer()->getCapitalCity();
+	
+	if (pCapital)
+	{
+		CvString capitalName = pCapital->getName();
+		int capitalX = pCapital->getX();
+		int capitalY = pCapital->getY();
+
+		for (int i = 0; i < MAX_MAJOR_CIVS; i++)
+		{
+			PlayerTypes ePlayer = static_cast<PlayerTypes>(i);
+
+			CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
+
+			if (kPlayer.isAlive() && GET_TEAM(kPlayer.getTeam()).isHasMet(m_pOwner->GetPlayer()->getTeam()))
+			{
+				CvString strMessage;
+				CvNotifications* pNotification = kPlayer.GetNotifications();
+				if(pNotification)
+				{
+					strMessage = GetLocalizedText("TXT_KEY_NOTIFICATION_TOWER_AMYRLIN_ELECTED", capitalName, pNewInfo->GetDescription());
+					Localization::String strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_TOWER_AMYRLIN_ELECTED_SUMMARY");
+					pNotification->Add(static_cast<NotificationTypes>(GC.getInfoTypeForString("NOTIFICATION_TOWER_AMYRLIN_ELECTED")), strMessage, strSummary.toUTF8(), capitalX, capitalY, pCapital->getOwner());
+				}
+			}
+		}
+	}
+
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+	if (pkScriptSystem)
+	{
+		CvLuaArgsHandle args;
+
+		args->Push(m_pOwner->GetPlayer()->GetID());
+
+		bool bResult;
+		LuaSupport::CallHook(pkScriptSystem, "TowerAmyrlinElected", args.get(), bResult); 
+	}
+}
+
+void WoTMinorCivAjahs::DoTurn()
+{
+	if (IsHostsAjahs() && GetAmyrlinAjah() == NO_AJAH)
+	{
+		DoChooseAmyrlin();
 	}
 }

@@ -63,8 +63,13 @@ public:
 	void SetHostsAjahs(bool bNewValue);
 
 	void DoTraineeAdmitted(CvUnit* pUnit);
+	void DoChooseAmyrlin();
+	void DoTurn();
 
 private:
+	int GetTotalInfluencePoints() const;
+	AjahTypes ChooseWeightedAjah() const;
+
 	AjahTypes m_eMajorityAjah;
 	AjahTypes m_eAmyrlinAjah;
 

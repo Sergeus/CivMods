@@ -2024,6 +2024,7 @@ void CvMinorCivAI::DoTurn()
 		// WoTMod Addition
 		// ----------------------------------------------------------------
 		DoTurnPlots();
+		GetAjahs()->DoTurn();
 
 		DoUnitSpawnTurn();
 
