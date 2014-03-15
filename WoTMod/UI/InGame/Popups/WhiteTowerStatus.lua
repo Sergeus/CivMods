@@ -38,7 +38,8 @@ GameEvents.TowerTraineeChangedAjahInfluence.Add(AjahInfluenceChanged)
 
 function TowerNotificationActivated(playerID, notificationID, msg, summary, iX, iY, iGameData, iExtraData)
 	if notificationID ~= GameInfoTypes.NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED
-			and notificationID ~= GameInfoTypes.NOTIFICATION_TOWER_AMYRLIN_ELECTED then
+		and notificationID ~= GameInfoTypes.NOTIFICATION_TOWER_AMYRLIN_ELECTED 
+	then
 		return
 	end
 
@@ -47,6 +48,17 @@ function TowerNotificationActivated(playerID, notificationID, msg, summary, iX, 
 	UIManager:QueuePopup(ContextPtr, PopupPriority.eUtmost)
 end
 GameEvents.PlayerNotificationActivated.Add(TowerNotificationActivated)
+
+function TowerPledgeNotificationActivated(playerID, notificationID, msg, summary, iX, iY, iGameData, iExtraData)
+	if notificationID ~= GameInfoTypes.NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT then
+		return
+	end
+
+	m_CityStateId = Players[iExtraData]:GetPublicSupportedTower()
+
+	UIManager:QueuePopup(ContextPtr, PopupPriority.eUtmost)
+end
+GameEvents.PlayerNotificationActivated.Add(TowerPledgeNotificationActivated)
 
 --------------------------------------------------------------
 -- Visibility Management

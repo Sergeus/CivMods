@@ -8,7 +8,9 @@
 		<Column name="Civilopedia" type="text" default="NULL" reference="Language_en_US(Tag)"/>
 		<Column name="Strategy" type="text" default="NULL" reference="Language_en_US(Tag)"/>
 		<Column name="Help" type="text" default="NULL" reference="Language_en_US(Tag)"/>
-		<Column name="Color" type="text" reference="Colors(Type)"/>
+		<Column name="Color" type="text" default="NULL" reference="Colors(Type)"/>
+		<Column name="IconAtlas" type="text" default="NULL" reference="IconTextureAtlases(Type)"/>
+		<Column name="IconIndex" type="integer" default="0"/> 
 	</Table>
 
 	<Ajahs>
@@ -20,6 +22,8 @@
 			<Help>TXT_KEY_WHITE_TOWER_BLUE_AJAH_HELP</Help>
 			<Strategy/>
 			<Color>COLOR_BLUE</Color>
+			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
 		</Row>
 		<Row>
 			<Type>WHITE_TOWER_RED_AJAH</Type>
@@ -28,6 +32,8 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_RED_AJAH_HELP</Help>
 			<Color>COLOR_RED</Color>
+			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
 		</Row>
 		<Row>
 			<Type>WHITE_TOWER_WHITE_AJAH</Type>
@@ -36,6 +42,8 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_WHITE_AJAH_HELP</Help>
 			<Color>COLOR_WHITE</Color>
+			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
 		</Row>
 		<Row>
 			<Type>WHITE_TOWER_BROWN_AJAH</Type>
@@ -44,6 +52,8 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_BROWN_AJAH_HELP</Help>
 			<Color>COLOR_BROWN</Color>
+			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
 		</Row>
 		<Row>
 			<Type>WHITE_TOWER_GREEN_AJAH</Type>
@@ -52,6 +62,8 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_GREEN_AJAH_HELP</Help>
 			<Color>COLOR_GREEN</Color>
+			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
 		</Row>
 		<Row>
 			<Type>WHITE_TOWER_YELLOW_AJAH</Type>
@@ -60,6 +72,8 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_YELLOW_AJAH_HELP</Help>
 			<Color>COLOR_YELLOW</Color>
+			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
 		</Row>
 		<Row>
 			<Type>WHITE_TOWER_GRAY_AJAH</Type>
@@ -68,6 +82,8 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_GRAY_AJAH_HELP</Help>
 			<Color>COLOR_GREY</Color>
+			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
 		</Row>
 	</Ajahs>
 </GameData>

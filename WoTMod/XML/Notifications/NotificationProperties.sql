@@ -32,7 +32,7 @@ CREATE TABLE Notifications
 	UsesRuntimeIndex boolean DEFAULT false,
 	ExistingIconTable text DEFAULT null,
 	ExistingIconTableAtlasColumn text DEFAULT 'IconAtlas',
-	ExistingIconTableIndexColumn text DEFAULT 'PortraitIndex',
+	ExistingIconTableIndexColumn text DEFAULT 'IconIndex',
 	DoubleCivIcon boolean DEFAULT false,
 	Civ1Anchor text DEFAULT "L,B",
 	Civ2Anchor text DEFAULT "R,T",

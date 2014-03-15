@@ -74,5 +74,13 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_TOWER_AMYRLIN_ELECTED_SUMMARY">
 			<Text>New Amyrlin</Text>
 		</Row>
+		
+		<!-- Player pledge support to an Ajah Notification -->
+		<Row Tag="TXT_KEY_NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT">
+			<Text>{1_LeaderName} has pledged support to the {2_AjahName} Ajah at {3_CityName}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT_SUMMARY">
+			<Text>Ajah Support</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
