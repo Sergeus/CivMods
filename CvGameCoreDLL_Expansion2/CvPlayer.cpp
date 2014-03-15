@@ -24973,7 +24973,7 @@ void CvPlayer::DoPledgeSupportForAjah(PlayerTypes eTowerPlayer, AjahTypes eAjah)
 				{
 					strMessage = GetLocalizedText("TXT_KEY_NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT", getName(), pAjahInfo->GetDescription(), kPlayer.getCapitalCity()->getName());
 					Localization::String strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT_SUMMARY");
-					pNotification->Add(static_cast<NotificationTypes>(GC.getInfoTypeForString("NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT")), strMessage, strSummary.toUTF8(), capitalX, capitalY, kPlayer.GetID(), GetID());
+					pNotification->Add(static_cast<NotificationTypes>(GC.getInfoTypeForString("NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT")), strMessage, strSummary.toUTF8(), capitalX, capitalY, pAjahInfo->GetID(), GetID());
 				}
 			}
 		}
