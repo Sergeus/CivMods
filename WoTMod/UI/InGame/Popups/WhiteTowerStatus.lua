@@ -4,6 +4,7 @@
 --------------------------------------------------------------
 
 include("FLuaVector")
+include("IconSupport")
 
 --------------------------------------------------------------
 -- Game Logic
@@ -82,6 +83,8 @@ function OnDisplay()
 	local pPlayer = Players[m_CityStateId]
 	local amyrlinAjah = pPlayer:GetAmyrlinAjah()
 
+	CivIconHookup( pPlayer:GetID(), 80, Controls.CivIcon, Controls.CivIconBG, Controls.CivIconShadow, false, true );
+
 	Controls.InfluenceStack:DestroyAllChildren()
 
 	for pAjah in GameInfo.Ajahs() do
@@ -97,6 +100,34 @@ function OnDisplay()
 
 			instance.AjahLabel:SetText(sAjahName)
 			instance.AjahPercent:SetText(sAjahPercent)
+
+			local activePlayer = Players[Game.GetActivePlayer()]
+			if (activePlayer:IsCanPledgeAjahSupport()) then
+				-- and then there was scope!
+				local onClick = function()
+					Controls.Yes:RegisterCallback(Mouse.eLClick,
+						function()
+							m_bFeedbackMode = true
+							m_eChangedAjah = pAjah.ID
+							m_iOldPercent = iAjahPercent
+							
+							activePlayer:DoPledgeSupportForAjah(m_CityStateId, pAjah.ID)
+							Controls.ChooseConfirm:SetHide(true)
+							OnDisplay()
+						end)
+
+					Controls.ConfirmText:LocalizeAndSetText("TXT_KEY_CONFIRM_PLEDGE_SUPPORT", 
+						pAjah.Description, pPlayer:GetCapitalCity():GetName())
+
+					Controls.ChooseConfirm:SetHide(false)
+				end
+
+				instance.AjahButton:RegisterCallback(Mouse.eLClick, onClick)
+			else
+				instance.AjahButton:SetDisabled(true)
+
+				instance.AjahButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_PLEDGE_SUPPORT_DISABLED"))
+			end
 
 			if (m_bFeedbackMode and pAjah.ID == m_eChangedAjah) then
 				instance.BGInfluenceBar:SetFGColor(Color(ajahColorInfo.Red, ajahColorInfo.Green, ajahColorInfo.Blue, 0.5))
@@ -128,3 +159,8 @@ function OnDisplay()
 	Controls.InfluenceStack:CalculateSize()
 	Controls.InfluenceStack:ReprocessAnchoring()
 end
+
+function OnNoClicked()
+	Controls.ChooseConfirm:SetHide(true)
+end
+Controls.No:RegisterCallback(Mouse.eLClick, OnNoClicked)
