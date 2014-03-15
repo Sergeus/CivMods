@@ -379,30 +379,10 @@ function OnNotificationAdded( Id, type, toolTip, strSummary, iGameValue, iExtraG
 				--end
 
 				-- Retrieve icon from existing icon types - useful since they reside in different atlases depending on the item selected
-				if (GameInfoTypes[notificationInfo.ExistingIconType] == GameInfoTypes.ICON_TYPE_UNIT) then
-					local unitInfo = GameInfo.Units[iGameValue]
-					index = unitInfo.PortraitIndex
-					atlas = unitInfo.IconAtlas
-				
-				elseif (GameInfoTypes[notificationInfo.ExistingIconType] == GameInfoTypes.ICON_TYPE_BUILDING) then
-					local buildingInfo = GameInfo.Buildings[iGameValue]
-					index = buildingInfo.PortraitIndex
-					atlas = buildingInfo.IconAtlas
-
-				elseif (GameInfoTypes[notificationInfo.ExistingIconType] == GameInfoTypes.ICON_TYPE_PROJECT) then
-					local projectInfo = GameInfo.Projects[iGameValue]
-					index = projectInfo.PortraitIndex
-					atlas = projectInfo.IconAtlas
-
-				elseif (GameInfoTypes[notificationInfo.ExistingIconType] == GameInfoTypes.ICON_TYPE_TECH) then
-					local techInfo = GameInfo.Technologies[iGameValue]
-					index = techInfo.PortraitIndex
-					atlas = techInfo.IconAtlas
-
-				elseif (GameInfoTypes[notificationInfo.ExistingIconType] == GameInfoTypes.ICON_TYPE_GOVERNOR) then
-					local governorInfo = GameInfo.Governors[iGameValue]
-					index = governorInfo.IconIndex
-					atlas = governorInfo.IconAtlas
+				if (notificationInfo.ExistingIconTable ~= nil) then
+					local info = GameInfo[notificationInfo.ExistingIconTable][iGameValue]
+					index = info[notificationInfo.ExistingIconTableIndexColumn]
+					atlas = info[notificationInfo.ExistingIconTableAtlasColumn]
 
 				elseif (notificationInfo.UsesRuntimeIndex == true) then
 					index = iGameValue

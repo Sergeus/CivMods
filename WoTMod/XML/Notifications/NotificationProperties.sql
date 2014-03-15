@@ -1,23 +1,3 @@
-CREATE TABLE NotificationIconTypes
-(
-	ID integer PRIMARY KEY AUTOINCREMENT,
-	Type text NOT null
-);
-
-INSERT INTO NotificationIconTypes (ID, Type)
-VALUES (0, 'ICON_TYPE_NONE');
-
-INSERT INTO NotificationIconTypes (Type)
-VALUES ('ICON_TYPE_UNIT'); 
-INSERT INTO NotificationIconTypes (Type)
-VALUES ('ICON_TYPE_BUILDING');
-INSERT INTO NotificationIconTypes (Type)
-VALUES ('ICON_TYPE_PROJECT');
-INSERT INTO NotificationIconTypes (Type)
-VALUES ('ICON_TYPE_TECH');
-INSERT INTO NotificationIconTypes (Type)
-VALUES ('ICON_TYPE_GOVERNOR');
-
 CREATE TABLE TempNotifications
 (
 	ID integer,
@@ -50,7 +30,9 @@ CREATE TABLE Notifications
 	ChecksKnown boolean DEFAULT false,
 	UnknownMessage text DEFAULT null REFERENCES Language_en_US(Tag),
 	UsesRuntimeIndex boolean DEFAULT false,
-	ExistingIconType text DEFAULT null REFERENCES NotificationIconTypes(Type),
+	ExistingIconTable text DEFAULT null,
+	ExistingIconTableAtlasColumn text DEFAULT 'IconAtlas',
+	ExistingIconTableIndexColumn text DEFAULT 'PortraitIndex',
 	DoubleCivIcon boolean DEFAULT false,
 	Civ1Anchor text DEFAULT "L,B",
 	Civ2Anchor text DEFAULT "R,T",
