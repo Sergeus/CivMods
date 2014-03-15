@@ -24965,7 +24965,8 @@ void CvPlayer::DoPledgeSupportForAjah(PlayerTypes eTowerPlayer, AjahTypes eAjah)
 
 			CvPlayerAI& kLoopPlayer = GET_PLAYER(ePlayer);
 
-			if (kLoopPlayer.isAlive() && GET_TEAM(kLoopPlayer.getTeam()).isHasMet(kPlayer.getTeam()))
+			if (kLoopPlayer.isAlive() && GET_TEAM(kLoopPlayer.getTeam()).isHasMet(kPlayer.getTeam())
+				&& kLoopPlayer.GetID() != GetID())
 			{
 				CvString strMessage;
 				CvNotifications* pNotification = kLoopPlayer.GetNotifications();
