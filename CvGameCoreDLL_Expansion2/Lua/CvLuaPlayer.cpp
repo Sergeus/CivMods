@@ -637,6 +637,7 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(GetAmyrlinAjah);
 	Method(SetAmyrlinAjah);
 	Method(IsHostsAjahs);
+	Method(DoPledgeSupportForAjah);
 
 	Method(GetID);
 	Method(GetHandicapType);
@@ -6746,6 +6747,24 @@ int CvLuaPlayer::lIsHostsAjahs(lua_State* L)
 		lua_pushboolean(L, false);
 		return 1;
 	}
+}
+int CvLuaPlayer::lDoPledgeSupportForAjah(lua_State* L)
+{
+	CvPlayerAI* pkPlayer = GetInstance(L);
+
+	PlayerTypes eTowerPlayer = static_cast<PlayerTypes>(lua_tointeger(L, 2));
+	AjahTypes eAjah = static_cast<AjahTypes>(lua_tointeger(L, 3));
+
+	pkPlayer->DoPledgeSupportForAjah(eTowerPlayer, eAjah);
+	return 0;
+}
+int CvLuaPlayer::lGetPublicSupportedTower(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlayerAI::GetPublicSupportedTower);
+}
+int CvLuaPlayer::lGetPublicSupportedAjah(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlayerAI::GetPublicSupportedAjah);
 }
 // ----------------------------------------------------------------
 // SiegeMod Addition

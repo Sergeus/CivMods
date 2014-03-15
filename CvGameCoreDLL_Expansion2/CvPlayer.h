@@ -1516,6 +1516,12 @@ public:
 	// ----------------------------------------------------------------
 	bool IsShadowspawn() const;
 	int GetHappinessFromUnits() const;
+	void DoPledgeSupportForAjah(PlayerTypes eTowerPlayer, AjahTypes eAjah);
+	int GetAjahPledgeInitialInfluenceChange() const;
+	int GetAjahSupportPassiveInfluenceChange() const;
+	int GetAjahSupportWithdrawnInfluenceChange() const;
+	PlayerTypes GetPublicSupportedTower() const;
+	AjahTypes GetPublicSupportedAjah() const;
 
 	bool hasTurnTimerExpired();
 
@@ -1805,6 +1811,11 @@ protected:
 	PlayerTypes m_eConqueror;
 	FAutoVariable<bool, CvPlayer> m_bHasAdoptedStateReligion;
 	FAutoVariable<bool, CvPlayer> m_bAlliesGreatPersonBiasApplied;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	FAutoVariable<std::pair<PlayerTypes, AjahTypes>, CvPlayer> m_ePublicSupportedAjah;
 
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCityYieldChange;
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCoastalCityYieldChange;

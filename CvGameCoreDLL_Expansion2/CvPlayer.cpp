@@ -332,6 +332,11 @@ CvPlayer::CvPlayer() :
 	, m_bAlliesGreatPersonBiasApplied("CvPlayer::m_bAlliesGreatPersonBiasApplied", m_syncArchive)
 	, m_eID("CvPlayer::m_eID", m_syncArchive)
 	, m_ePersonalityType("CvPlayer::m_ePersonalityType", m_syncArchive)
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	, m_ePublicSupportedAjah("CvPlayer::m_ePublicSupportedAjah", m_syncArchive) 
+
 	, m_aiCityYieldChange("CvPlayer::m_aiCityYieldChange", m_syncArchive)
 	, m_aiCoastalCityYieldChange("CvPlayer::m_aiCoastalCityYieldChange", m_syncArchive)
 	, m_aiCapitalYieldChange("CvPlayer::m_aiCapitalYieldChange", m_syncArchive)
@@ -994,6 +999,11 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall)
 
 	// tutorial info
 	m_bEverPoppedGoody = false;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	m_ePublicSupportedAjah.set(make_pair(NO_PLAYER, NO_AJAH));
 
 	m_aiCityYieldChange.clear();
 	m_aiCityYieldChange.resize(NUM_YIELD_TYPES, 0);
@@ -22142,6 +22152,12 @@ void CvPlayer::Read(FDataStream& kStream)
 	kStream >> m_bAlliesGreatPersonBiasApplied;
 	kStream >> m_eID;
 	kStream >> m_ePersonalityType;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream >> m_ePublicSupportedAjah;
+
 	kStream >> m_aiCityYieldChange;
 	kStream >> m_aiCoastalCityYieldChange;
 	kStream >> m_aiCapitalYieldChange;
@@ -22626,6 +22642,11 @@ void CvPlayer::Write(FDataStream& kStream) const
 
 	kStream << m_eID;
 	kStream << m_ePersonalityType;
+
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	kStream << m_ePublicSupportedAjah;
 
 	kStream << m_aiCityYieldChange;
 	kStream << m_aiCoastalCityYieldChange;
@@ -24912,6 +24933,83 @@ int CvPlayer::GetHappinessFromUnits() const
 	}
 
 	return iTotalHappiness;
+}
+void CvPlayer::DoPledgeSupportForAjah(PlayerTypes eTowerPlayer, AjahTypes eAjah)
+{
+	CvPlayerAI& kPlayer = GET_PLAYER(eTowerPlayer);
+
+	if (kPlayer.isMinorCiv() && eAjah > NO_AJAH)
+	{
+		WoTMinorCivAjahs* pAjahs = kPlayer.GetMinorCivAI()->GetAjahs();
+		if (GetPublicSupportedTower() != eTowerPlayer && GetPublicSupportedTower() != NO_PLAYER)
+		{
+			// TODO: undo old supported tower's influence (large scale)
+		}
+		else if (GetPublicSupportedAjah() != NO_AJAH && GetPublicSupportedAjah() != eAjah)
+		{
+			// influence penalty for the Ajah we're 'leaving'
+			pAjahs->ChangeAjahInfluence(GetPublicSupportedAjah(), GetAjahSupportWithdrawnInfluenceChange());
+		}
+		
+		pAjahs->ChangeAjahInfluence(eAjah, GetAjahPledgeInitialInfluenceChange());
+
+		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+		WoTWhiteTowerAjahInfo* pAjahInfo = GC.GetWhiteTowerAjahInfo(eAjah);
+		int capitalX = kPlayer.getCapitalCity()->getX();
+		int capitalY = kPlayer.getCapitalCity()->getY();
+
+		for (int i = 0; i < MAX_MAJOR_CIVS; i++)
+		{
+			PlayerTypes ePlayer = static_cast<PlayerTypes>(i);
+
+			CvPlayerAI& kLoopPlayer = GET_PLAYER(ePlayer);
+
+			if (kLoopPlayer.isAlive() && GET_TEAM(kLoopPlayer.getTeam()).isHasMet(kPlayer.getTeam()))
+			{
+				CvString strMessage;
+				CvNotifications* pNotification = kLoopPlayer.GetNotifications();
+				if(pNotification)
+				{
+					strMessage = GetLocalizedText("TXT_KEY_NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT", getName(), pAjahInfo->GetDescription(), kPlayer.getCapitalCity()->getName());
+					Localization::String strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT_SUMMARY");
+					pNotification->Add(static_cast<NotificationTypes>(GC.getInfoTypeForString("NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT")), strMessage, strSummary.toUTF8(), capitalX, capitalY, kPlayer.GetID(), GetID());
+				}
+			}
+		}
+
+		if (pkScriptSystem)
+		{
+			CvLuaArgsHandle args;
+
+			args->Push(GetID());
+			args->Push(eTowerPlayer);
+			args->Push(eAjah);
+
+			bool bResult;
+			LuaSupport::CallHook(pkScriptSystem, "PlayerPledgedSupportForAjah", args.get(), bResult);
+		}
+	}
+}
+int CvPlayer::GetAjahPledgeInitialInfluenceChange() const
+{
+	return 50;
+}
+int CvPlayer::GetAjahSupportPassiveInfluenceChange() const
+{
+	return 4;
+}
+int CvPlayer::GetAjahSupportWithdrawnInfluenceChange() const
+{
+	return -30;
+}
+PlayerTypes CvPlayer::GetPublicSupportedTower() const
+{
+	return m_ePublicSupportedAjah.get().first;
+}
+AjahTypes CvPlayer::GetPublicSupportedAjah() const
+{
+	return m_ePublicSupportedAjah.get().second;
 }
 
 //	---------------------------------------------------------------------------

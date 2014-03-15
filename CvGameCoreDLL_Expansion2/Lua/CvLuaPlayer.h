@@ -618,6 +618,9 @@ protected:
 	static int lGetAmyrlinAjah(lua_State* L);
 	static int lSetAmyrlinAjah(lua_State* L);
 	static int lIsHostsAjahs(lua_State* L);
+	static int lDoPledgeSupportForAjah(lua_State* L);
+	static int lGetPublicSupportedTower(lua_State* L);
+	static int lGetPublicSupportedAjah(lua_State* L);
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
