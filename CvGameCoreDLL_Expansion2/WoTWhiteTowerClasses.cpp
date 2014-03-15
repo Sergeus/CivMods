@@ -358,8 +358,22 @@ void WoTMinorCivAjahs::DoChooseAmyrlin()
 
 void WoTMinorCivAjahs::DoTurn()
 {
-	if (IsHostsAjahs() && GetAmyrlinAjah() == NO_AJAH)
+	if (IsHostsAjahs())
 	{
-		DoChooseAmyrlin();
+		if (GetAmyrlinAjah() == NO_AJAH)
+		{
+			DoChooseAmyrlin();
+		}
+
+		for (int i = 0; i < MAX_MAJOR_CIVS; i++)
+		{
+			PlayerTypes ePlayer = static_cast<PlayerTypes>(i);
+			CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
+
+			if (kPlayer.GetPublicSupportedAjah() != NO_AJAH)
+			{
+				ChangeAjahInfluence(kPlayer.GetPublicSupportedAjah(), kPlayer.GetAjahSupportPassiveInfluenceChange());
+			}
+		}
 	}
 }
