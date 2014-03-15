@@ -638,6 +638,8 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(SetAmyrlinAjah);
 	Method(IsHostsAjahs);
 	Method(DoPledgeSupportForAjah);
+	Method(GetTurnsSincePledgedAjahSupport);
+	Method(IsCanPledgeAjahSupport);
 
 	Method(GetID);
 	Method(GetHandicapType);
@@ -6765,6 +6767,14 @@ int CvLuaPlayer::lGetPublicSupportedTower(lua_State* L)
 int CvLuaPlayer::lGetPublicSupportedAjah(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlayerAI::GetPublicSupportedAjah);
+}
+int CvLuaPlayer::lGetTurnsSincePledgedAjahSupport(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlayerAI::GetTurnsSincePledgedAjahSupport);
+}
+int CvLuaPlayer::lIsCanPledgeAjahSupport(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlayerAI::IsCanPledgeAjahSupport);
 }
 // ----------------------------------------------------------------
 // SiegeMod Addition

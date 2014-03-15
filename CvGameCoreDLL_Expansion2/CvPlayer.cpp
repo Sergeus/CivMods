@@ -336,6 +336,7 @@ CvPlayer::CvPlayer() :
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	, m_ePublicSupportedAjah("CvPlayer::m_ePublicSupportedAjah", m_syncArchive) 
+	, m_iTurnsSincePledgedSupport("CvPlayer::m_iTurnsSincePledgedSupport", m_syncArchive)
 
 	, m_aiCityYieldChange("CvPlayer::m_aiCityYieldChange", m_syncArchive)
 	, m_aiCoastalCityYieldChange("CvPlayer::m_aiCoastalCityYieldChange", m_syncArchive)
@@ -1004,6 +1005,7 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall)
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	m_ePublicSupportedAjah.set(make_pair(NO_PLAYER, NO_AJAH));
+	m_iTurnsSincePledgedSupport = 1000; // large enough to start
 
 	m_aiCityYieldChange.clear();
 	m_aiCityYieldChange.resize(NUM_YIELD_TYPES, 0);
@@ -22157,6 +22159,7 @@ void CvPlayer::Read(FDataStream& kStream)
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	kStream >> m_ePublicSupportedAjah;
+	kStream >> m_iTurnsSincePledgedSupport;
 
 	kStream >> m_aiCityYieldChange;
 	kStream >> m_aiCoastalCityYieldChange;
@@ -22647,6 +22650,7 @@ void CvPlayer::Write(FDataStream& kStream) const
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	kStream << m_ePublicSupportedAjah;
+	kStream << m_iTurnsSincePledgedSupport;
 
 	kStream << m_aiCityYieldChange;
 	kStream << m_aiCoastalCityYieldChange;
@@ -24938,7 +24942,7 @@ void CvPlayer::DoPledgeSupportForAjah(PlayerTypes eTowerPlayer, AjahTypes eAjah)
 {
 	CvPlayerAI& kPlayer = GET_PLAYER(eTowerPlayer);
 
-	if (kPlayer.isMinorCiv() && eAjah > NO_AJAH)
+	if (kPlayer.isMinorCiv() && eAjah > NO_AJAH && IsCanPledgeAjahSupport())
 	{
 		WoTMinorCivAjahs* pAjahs = kPlayer.GetMinorCivAI()->GetAjahs();
 		if (GetPublicSupportedTower() != eTowerPlayer && GetPublicSupportedTower() != NO_PLAYER)
@@ -24952,6 +24956,8 @@ void CvPlayer::DoPledgeSupportForAjah(PlayerTypes eTowerPlayer, AjahTypes eAjah)
 		}
 		
 		pAjahs->ChangeAjahInfluence(eAjah, GetAjahPledgeInitialInfluenceChange());
+
+		m_iTurnsSincePledgedSupport = 0;
 
 		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 
@@ -25011,6 +25017,14 @@ PlayerTypes CvPlayer::GetPublicSupportedTower() const
 AjahTypes CvPlayer::GetPublicSupportedAjah() const
 {
 	return m_ePublicSupportedAjah.get().second;
+}
+int CvPlayer::GetTurnsSincePledgedAjahSupport() const
+{
+	return m_iTurnsSincePledgedSupport;
+}
+bool CvPlayer::IsCanPledgeAjahSupport() const
+{
+	return GetTurnsSincePledgedAjahSupport() > 20;
 }
 
 //	---------------------------------------------------------------------------

@@ -1522,6 +1522,8 @@ public:
 	int GetAjahSupportWithdrawnInfluenceChange() const;
 	PlayerTypes GetPublicSupportedTower() const;
 	AjahTypes GetPublicSupportedAjah() const;
+	int GetTurnsSincePledgedAjahSupport() const;
+	bool IsCanPledgeAjahSupport() const;
 
 	bool hasTurnTimerExpired();
 
@@ -1816,6 +1818,7 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	FAutoVariable<std::pair<PlayerTypes, AjahTypes>, CvPlayer> m_ePublicSupportedAjah;
+	FAutoVariable<int, CvPlayer> m_iTurnsSincePledgedSupport;
 
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCityYieldChange;
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCoastalCityYieldChange;

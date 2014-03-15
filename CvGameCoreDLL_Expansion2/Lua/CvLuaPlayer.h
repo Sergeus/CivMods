@@ -621,6 +621,8 @@ protected:
 	static int lDoPledgeSupportForAjah(lua_State* L);
 	static int lGetPublicSupportedTower(lua_State* L);
 	static int lGetPublicSupportedAjah(lua_State* L);
+	static int lGetTurnsSincePledgedAjahSupport(lua_State* L);
+	static int lIsCanPledgeAjahSupport(lua_State* L);
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------
