@@ -116,6 +116,9 @@
 		<Row Tag="TXT_KEY_PLEDGE_SUPPORT_TOOLTIP">
 			<Text>Publicly announce your support for this Ajah and its policies.</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PLEDGE_SUPPORT_DISABLED_ALREADY">
+			<Text>[COLOR_NEGATIVE_TEXT]You cannot pledge support for this Ajah because you are already supporting it![ENDCOLOR]</Text>
+		</Row>
 		
 		<!-- Ajahs -->
 		<Row Tag="TXT_KEY_WHITE_TOWER_BLUE_AJAH">
