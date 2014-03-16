@@ -166,5 +166,13 @@
 		<Row Tag="TXT_KEY_WHITE_TOWER_BROWN_AJAH_HELP">
 			<Text>[TOWRITE] brown help</Text>
 		</Row>
+		
+		<!-- DiploList Tower stuff -->
+		<Row Tag="TXT_KEY_TOWER_UNKNOWN">
+			<Text>Ajahs</Text>
+		</Row>
+		<Row Tag="TXT_KEY_TOWER_AT_CITY">
+			<Text>Ajahs at {1_CityName}</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

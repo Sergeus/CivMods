@@ -32,6 +32,16 @@ local DiploRequestOutgoing = Locale.ConvertTextKey( "TXT_KEY_DIPLO_REQUEST_OUTGO
 local AlwaysWarStr = Locale.ConvertTextKey( "TXT_KEY_ALWAYS_WAR_TT" );
 local DiploRequestInProgressStr = Locale.ConvertTextKey( "TXT_KEY_DIPLO_REQUEST_IN_PROGRESS" );
 
+------------------------------
+-- WoTMod Addition
+------------------------------
+local m_eTower
+for ePlayer,pPlayer in pairs(Players) do
+	if pPlayer:IsHostsAjahs() then
+		m_eTower = ePlayer
+	end
+end
+
 
 -----------------------------------------------------------------
 -- Adjust for resolution
@@ -127,10 +137,18 @@ Controls.DiplomaticOverviewButton:RegisterCallback( Mouse.eLClick, OnDiploOvervi
 
 -------------------------------------------------
 -------------------------------------------------
-function OnLeagueOverview()
-	Events.SerialEventGameMessagePopup( { Type = ButtonPopupTypes.BUTTONPOPUP_LEAGUE_OVERVIEW } );
+------------------------------
+-- WoTMod Addition
+------------------------------
+function OnTowerOverview()
+	if IsTowerValid() then
+		LuaEvents.TarValonStatus(m_eTower)
+		UIManager:QueuePopup(Controls.WhiteTowerStatus, PopupPriority.eUtmost)
+	else
+		print("Not ready yet")
+	end
 end
-Controls.LeagueOverviewButton:RegisterCallback( Mouse.eLClick, OnLeagueOverview );
+Controls.TowerOverviewButton:RegisterCallback( Mouse.eLClick, OnTowerOverview );
 
 
 -------------------------------------------------
@@ -192,6 +210,14 @@ function OnWarButton( ePlayer )
 	end	
 end
 
+------------------------------
+-- WoTMod Addition
+------------------------------
+function IsTowerValid()
+	return Players[m_eTower]:GetCapitalCity() ~= nil and
+		Teams[Players[Game.GetActivePlayer()]:GetTeam()]:IsHasMet(Players[m_eTower]:GetTeam())
+end
+
 
 -------------------------------------------------
 -- Update the list of other civs
@@ -200,6 +226,15 @@ function UpdateDisplay()
 	
 	if (ContextPtr:IsHidden()) then
 		return;
+	end
+
+	------------------------------
+	-- WoTMod Addition
+	------------------------------
+	if IsTowerValid() then
+		Controls.TowerOverviewButton:LocalizeAndSetText("TXT_KEY_TOWER_AT_CITY", Players[m_eTower]:GetCapitalCity():GetName())
+	else
+		Controls.TowerOverviewButton:LocalizeAndSetText("TXT_KEY_TOWER_UNKNOWN")
 	end
 	
 	local bScenario = PreGame.GetLoadWBScenario();
