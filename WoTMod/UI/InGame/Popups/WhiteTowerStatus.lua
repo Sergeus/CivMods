@@ -102,7 +102,11 @@ function OnDisplay()
 			instance.AjahPercent:SetText(sAjahPercent)
 
 			local activePlayer = Players[Game.GetActivePlayer()]
-			if (activePlayer:IsCanPledgeAjahSupport()) then
+			if (activePlayer:GetPublicSupportedTower() == m_CityStateId and activePlayer:GetPublicSupportedAjah() == pAjah.ID) then
+				instance.AjahButton:SetDisabled(true)
+
+				instance.AjahButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_PLEDGE_SUPPORT_DISABLED_ALREADY"))
+			elseif (activePlayer:IsCanPledgeAjahSupport()) then
 				-- and then there was scope!
 				local onClick = function()
 					Controls.Yes:RegisterCallback(Mouse.eLClick,
