@@ -24942,7 +24942,8 @@ void CvPlayer::DoPledgeSupportForAjah(PlayerTypes eTowerPlayer, AjahTypes eAjah)
 {
 	CvPlayerAI& kPlayer = GET_PLAYER(eTowerPlayer);
 
-	if (kPlayer.isMinorCiv() && eAjah > NO_AJAH && IsCanPledgeAjahSupport())
+	if (kPlayer.isMinorCiv() && eAjah > NO_AJAH && IsCanPledgeAjahSupport()
+		&& GetPublicSupportedAjah() != eAjah)
 	{
 		WoTMinorCivAjahs* pAjahs = kPlayer.GetMinorCivAI()->GetAjahs();
 		if (GetPublicSupportedTower() != eTowerPlayer && GetPublicSupportedTower() != NO_PLAYER)
