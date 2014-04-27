@@ -640,6 +640,7 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(DoPledgeSupportForAjah);
 	Method(GetTurnsSincePledgedAjahSupport);
 	Method(IsCanPledgeAjahSupport);
+	Method(GetPublicSupportedTower);
 
 	Method(GetID);
 	Method(GetHandicapType);
