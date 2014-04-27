@@ -14,7 +14,7 @@ local m_CityStateId
 
 local m_bFeedbackMode -- if true, we're displaying a change in influence, rather than just the current status
 local m_bChangedAjahs = {} -- table of bools, indexed by Ajah DB ID, indicating whether the corresponding Ajah has changed
-local m_iSolidPercent = {} -- table of ints, indexed by Ajah DB ID, indicating the lower percent to be rendered with a solid color
+local m_iOldPercent = {} -- table of ints, indexed by Ajah DB ID, indicating the lower percent to be rendered with a solid color
 
 -- Expectation that this event will be called before the popup is displayed to tell
 -- it what city state we're talking about (technical support for multiple competing
@@ -30,7 +30,7 @@ function AjahInfluenceChanged(playerID, unitID, towerID, ajahID, iSolidInfluence
 
 		m_bFeedbackMode = true
 		m_bChangedAjahs[ajahID] = true
-		m_iSolidPercent[ajahID] = iSolidInfluence
+		m_iOldPercent[ajahID] = iSolidInfluence
 
 		UIManager:QueuePopup(ContextPtr, PopupPriority.eUtmost)
 	end
@@ -113,7 +113,13 @@ function OnDisplay()
 						function()
 							m_bFeedbackMode = true
 							m_bChangedAjahs[pAjah.ID] = true
-							m_iSolidPercent[pAjah.ID] = iAjahPercent
+							m_iOldPercent[pAjah.ID] = iAjahPercent
+
+							local iNoLongerSupportedAjah = activePlayer:GetPublicSupportedAjah()
+							if (iNoLongerSupportedAjah ~= -1) then -- possibly need a better condition?
+								m_bChangedAjahs[iNoLongerSupportedAjah] = true
+								m_iOldPercent[iNoLongerSupportedAjah] = pPlayer:GetAjahInfluencePercent(iNoLongerSupportedAjah)
+							end
 							
 							activePlayer:DoPledgeSupportForAjah(m_CityStateId, pAjah.ID)
 							Controls.ChooseConfirm:SetHide(true)
@@ -137,10 +143,14 @@ function OnDisplay()
 				instance.BGInfluenceBar:SetFGColor(Color(ajahColorInfo.Red, ajahColorInfo.Green, ajahColorInfo.Blue, 0.5))
 				instance.BGInfluenceBar:SetHide(false)
 
-				instance.InfluenceBar:SetPercent(m_iSolidPercent[pAjah.ID] / 100)
-				instance.BGInfluenceBar:SetPercent(iAjahPercent / 100)
+				local solidPercent = math.min(m_iOldPercent[pAjah.ID] / 100, iAjahPercent / 100)
+				local transparentPercent = math.max(m_iOldPercent[pAjah.ID] / 100, iAjahPercent / 100)
+
+				instance.InfluenceBar:SetPercent(solidPercent)
+				instance.BGInfluenceBar:SetPercent(transparentPercent)
 
 				m_bFeedbackMode = false
+				m_bChangedAjahs[pAjah.ID] = false
 			else
 				instance.InfluenceBar:SetPercent(iAjahPercent / 100)
 			end
