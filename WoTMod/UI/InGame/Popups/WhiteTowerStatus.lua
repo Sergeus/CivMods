@@ -12,9 +12,9 @@ include("IconSupport")
 
 local m_CityStateId
 
-local m_bFeedbackMode
-local m_eChangedAjah
-local m_iOldPercent
+local m_bFeedbackMode -- if true, we're displaying a change in influence, rather than just the current status
+local m_bChangedAjahs = {} -- table of bools, indexed by Ajah DB ID, indicating whether the corresponding Ajah has changed
+local m_iSolidPercent = {} -- table of ints, indexed by Ajah DB ID, indicating the lower percent to be rendered with a solid color
 
 -- Expectation that this event will be called before the popup is displayed to tell
 -- it what city state we're talking about (technical support for multiple competing
@@ -24,13 +24,13 @@ function InitTarValonStatus(cityStateId)
 end
 LuaEvents.TarValonStatus.Add(InitTarValonStatus)
 
-function AjahInfluenceChanged(playerID, unitID, towerID, ajahID, iOldInfluence)
+function AjahInfluenceChanged(playerID, unitID, towerID, ajahID, iSolidInfluence)
 	if (playerID == Game.GetActivePlayer()) then
 		m_CityStateId = towerID
 
 		m_bFeedbackMode = true
-		m_eChangedAjah = ajahID
-		m_iOldPercent = iOldInfluence
+		m_bChangedAjahs[ajahID] = true
+		m_iSolidPercent[ajahID] = iSolidInfluence
 
 		UIManager:QueuePopup(ContextPtr, PopupPriority.eUtmost)
 	end
@@ -112,8 +112,8 @@ function OnDisplay()
 					Controls.Yes:RegisterCallback(Mouse.eLClick,
 						function()
 							m_bFeedbackMode = true
-							m_eChangedAjah = pAjah.ID
-							m_iOldPercent = iAjahPercent
+							m_bChangedAjahs[pAjah.ID] = true
+							m_iSolidPercent[pAjah.ID] = iAjahPercent
 							
 							activePlayer:DoPledgeSupportForAjah(m_CityStateId, pAjah.ID)
 							Controls.ChooseConfirm:SetHide(true)
@@ -133,11 +133,11 @@ function OnDisplay()
 				instance.AjahButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_PLEDGE_SUPPORT_DISABLED"))
 			end
 
-			if (m_bFeedbackMode and pAjah.ID == m_eChangedAjah) then
+			if (m_bFeedbackMode and m_bChangedAjahs[pAjah.ID]) then
 				instance.BGInfluenceBar:SetFGColor(Color(ajahColorInfo.Red, ajahColorInfo.Green, ajahColorInfo.Blue, 0.5))
 				instance.BGInfluenceBar:SetHide(false)
 
-				instance.InfluenceBar:SetPercent(m_iOldPercent / 100)
+				instance.InfluenceBar:SetPercent(m_iSolidPercent[pAjah.ID] / 100)
 				instance.BGInfluenceBar:SetPercent(iAjahPercent / 100)
 
 				m_bFeedbackMode = false
