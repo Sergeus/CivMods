@@ -24959,6 +24959,7 @@ void CvPlayer::DoPledgeSupportForAjah(PlayerTypes eTowerPlayer, AjahTypes eAjah)
 		pAjahs->ChangeAjahInfluence(eAjah, GetAjahPledgeInitialInfluenceChange());
 
 		m_iTurnsSincePledgedSupport = 0;
+		m_ePublicSupportedAjah.set(make_pair(eTowerPlayer, eAjah));
 
 		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 
