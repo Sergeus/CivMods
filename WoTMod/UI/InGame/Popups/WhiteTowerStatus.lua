@@ -102,10 +102,14 @@ function OnDisplay()
 			instance.AjahPercent:SetText(sAjahPercent)
 
 			local activePlayer = Players[Game.GetActivePlayer()]
-			if (activePlayer:GetPublicSupportedTower() == m_CityStateId and activePlayer:GetPublicSupportedAjah() == pAjah.ID) then
+			local activePlayerSupportedAjah = activePlayer:GetPublicSupportedAjah()
+			print("Supported Tower is " .. activePlayer:GetPublicSupportedTower() .. " and Ajah is " .. pAjah.ID)
+			if (activePlayer:GetPublicSupportedTower() == m_CityStateId and activePlayerSupportedAjah == pAjah.ID) then
 				instance.AjahButton:SetDisabled(true)
 
 				instance.AjahButton:SetToolTipString(Locale.ConvertTextKey("TXT_KEY_PLEDGE_SUPPORT_DISABLED_ALREADY"))
+
+				instance.AjahLabel:SetColor(Color(ajahColorInfo.Red, ajahColorInfo.Green, ajahColorInfo.Blue, ajahColorInfo.Alpha), 0)
 			elseif (activePlayer:IsCanPledgeAjahSupport()) then
 				-- and then there was scope!
 				local onClick = function()
@@ -115,10 +119,9 @@ function OnDisplay()
 							m_bChangedAjahs[pAjah.ID] = true
 							m_iOldPercent[pAjah.ID] = iAjahPercent
 
-							local iNoLongerSupportedAjah = activePlayer:GetPublicSupportedAjah()
-							if (iNoLongerSupportedAjah ~= -1) then -- possibly need a better condition?
-								m_bChangedAjahs[iNoLongerSupportedAjah] = true
-								m_iOldPercent[iNoLongerSupportedAjah] = pPlayer:GetAjahInfluencePercent(iNoLongerSupportedAjah)
+							if (activePlayerSupportedAjah ~= -1) then -- possibly need a better condition?
+								m_bChangedAjahs[activePlayerSupportedAjah] = true
+								m_iOldPercent[activePlayerSupportedAjah] = pPlayer:GetAjahInfluencePercent(activePlayerSupportedAjah)
 							end
 							
 							activePlayer:DoPledgeSupportForAjah(m_CityStateId, pAjah.ID)
@@ -153,6 +156,7 @@ function OnDisplay()
 				m_bChangedAjahs[pAjah.ID] = false
 			else
 				instance.InfluenceBar:SetPercent(iAjahPercent / 100)
+				-- TODO: set default text color
 			end
 			
 			instance.InfluenceBar:SetFGColor(Color(ajahColorInfo.Red, ajahColorInfo.Green, ajahColorInfo.Blue, ajahColorInfo.Alpha))
