@@ -7665,6 +7665,12 @@ bool CvMinorCivAI::CanMajorBuyout(PlayerTypes eMajor)
 	if(!GET_PLAYER(eMajor).IsAbleToAnnexCityStates())
 		return false;
 
+	// ----------------------------------------------------------------
+	// WoTMod Addition
+	// ----------------------------------------------------------------
+	if (IsNoBuyouts())
+		return false;
+
 	// Not at war?
 	if(GET_TEAM(GetPlayer()->getTeam()).isAtWar(GET_PLAYER(eMajor).getTeam()))
 		return false;
@@ -9855,6 +9861,14 @@ WoTMinorCivAjahs* CvMinorCivAI::GetAjahs()
 {
 	return m_pAjahs;
 }
+bool CvMinorCivAI::IsNoBuyouts() const
+{
+	return GC.GetMinorCivTraitInfo(static_cast<MinorCivTraitTypes>(GC.getMinorCivInfo(GetMinorCivType())->GetMinorCivTrait()))->IsNoBuyouts();
+}
+bool CvMinorCivAI::IsNoGoldGifts() const
+{
+	return GC.GetMinorCivTraitInfo(static_cast<MinorCivTraitTypes>(GC.getMinorCivInfo(GetMinorCivType())->GetMinorCivTrait()))->IsNoGoldGifts();
+}
 
 //======================================================================================================
 //					CvMinorCivInfo
@@ -10111,6 +10125,8 @@ bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 CvMinorCivTraitInfo::CvMinorCivTraitInfo()
 	: m_bHostsAjahs(false)
 	, m_bNoCoups(false)
+	, m_bNoBuyouts(false)
+	, m_bNoGoldGifts(false)
 {
 
 }
@@ -10121,6 +10137,8 @@ bool CvMinorCivTraitInfo::CacheResults(Database::Results& kResults, CvDatabaseUt
 
 	m_bHostsAjahs = kResults.GetBool("HostsAjahs");
 	m_bNoCoups = kResults.GetBool("NoCoups");
+	m_bNoBuyouts = kResults.GetBool("NoBuyouts");
+	m_bNoGoldGifts = kResults.GetBool("NoGoldGifts");
 
 	return true;
 }
@@ -10139,6 +10157,14 @@ bool CvMinorCivTraitInfo::IsNoCoups() const
 void CvMinorCivTraitInfo::SetNoCoups(bool bNewValue)
 {
 	m_bNoCoups = bNewValue;
+}
+bool CvMinorCivTraitInfo::IsNoBuyouts() const
+{
+	return m_bNoBuyouts;
+}
+bool CvMinorCivTraitInfo::IsNoGoldGifts() const
+{
+	return m_bNoGoldGifts;
 }
 
 WoTMinorCivPlotInfo::WoTMinorCivPlotInfo()

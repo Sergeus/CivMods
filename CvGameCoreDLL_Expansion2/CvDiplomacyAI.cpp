@@ -12105,175 +12105,181 @@ void CvDiplomacyAI::DoContactMinorCivs()
 				// If we're not protective or friendly, then don't bother with minor diplo
 				if(eApproach == MINOR_CIV_APPROACH_PROTECTIVE || eApproach == MINOR_CIV_APPROACH_FRIENDLY)
 				{
-					MinorGoldGiftInfo sGiftInfo;
-					sGiftInfo.eMinor = eMinor;
-					sGiftInfo.eMajorRival = NO_PLAYER;
-					sGiftInfo.bQuickBoost = false;
-					sGiftInfo.iGoldAmount = 0;
-
-					// if we are rich we are more likely to, conversely if we are poor...
-					iValue += min(max(0, m_pPlayer->calculateGoldRate() - 50),100);
-
-					pMinorInfo = GC.getMinorCivInfo(pMinorCivAI->GetMinorCivType());
-
-					// Diplo victory makes us more likely to spend gold
-					if(IsGoingForDiploVictory())
-						iValue += /*100*/ GC.getMC_GIFT_WEIGHT_DIPLO_VICTORY();
-					// double up if this is the home stretch
-					if(GC.getGame().IsUnitedNationsActive())
+					// ----------------------------------------------------------------
+					// WoTMod Addition
+					// ----------------------------------------------------------------
+					if (pMinorCivAI->IsNoGoldGifts())
 					{
-						iValue += /*100*/ GC.getMC_GIFT_WEIGHT_DIPLO_VICTORY();
-					}
-					// Going for Culture victory, focus on Cultural city states
-					else if(IsGoingForCultureVictory())
-					{
-						if(pMinorInfo->GetMinorCivTrait() == MINOR_CIV_TRAIT_CULTURED)
-							iValue += /*100*/ GC.getMC_GIFT_WEIGHT_CULTURE_VICTORY();
-					}
-					// Going for Conquest victory, focus on Militaristic city states
-					else if(IsGoingForWorldConquest())
-					{
-						if(pMinorInfo->GetMinorCivTrait() == MINOR_CIV_TRAIT_MILITARISTIC)
-							iValue += /*100*/ GC.getMC_GIFT_WEIGHT_CONQUEST_VICTORY();
-					}
+						MinorGoldGiftInfo sGiftInfo;
+						sGiftInfo.eMinor = eMinor;
+						sGiftInfo.eMajorRival = NO_PLAYER;
+						sGiftInfo.bQuickBoost = false;
+						sGiftInfo.iGoldAmount = 0;
 
-					//antonjs: todo: work extra gold quest INF potential into the friends/allies/passing logic as well
-					// Gold gift quest is active, so we would get more bang for our bucks
-					if(pMinorCivAI->IsActiveQuestForPlayer(eID, MINOR_CIV_QUEST_GIVE_GOLD))
-					{
-						iValue += 150; //antonjs: todo: constant/XML
-					}
+						// if we are rich we are more likely to, conversely if we are poor...
+						iValue += min(max(0, m_pPlayer->calculateGoldRate() - 50),100);
 
-					// Invest quest is active, so we would get more bang for our bucks
-					if(pMinorCivAI->IsActiveQuestForPlayer(eID, MINOR_CIV_QUEST_INVEST))
-					{
-						iValue += 100; //antonjs: todo: constant/XML
-					}
+						pMinorInfo = GC.getMinorCivInfo(pMinorCivAI->GetMinorCivType());
 
-					// having traits that give us bonuses also make us want to spend gold
-					if(m_pPlayer->GetPlayerTraits()->GetCityStateFriendshipModifier() > 0 || m_pPlayer->GetPlayerTraits()->GetCityStateBonusModifier())
-					{
-						iValue += /*100*/ GC.getMC_GIFT_WEIGHT_DIPLO_VICTORY();
-					}
-
-					// Nearly everyone likes to grow
-					if(pMinorInfo->GetMinorCivTrait() == MINOR_CIV_TRAIT_MARITIME && !GetPlayer()->IsEmpireUnhappy())
-					{
-						iValue += /*20*/ GC.getMC_GIFT_WEIGHT_MARITIME_GROWTH() * iGrowthFlavor * max(1, GetPlayer()->getNumCities() / 3);
-					}
-
-					// Slight negative weight towards militaristic
-					if(pMinorInfo->GetMinorCivTrait() == MINOR_CIV_TRAIT_MILITARISTIC && !IsGoingForWorldConquest())
-						iValue += /*-50*/ GC.getMC_GIFT_WEIGHT_MILITARISTIC();
-
-					// If they have a resource we don't have, add extra weight
-					int iResourcesWeLack = pMinorCivAI->GetNumResourcesMajorLacks(eID);
-					if(iResourcesWeLack > 0)
-						iValue += (iResourcesWeLack* /*80*/ GC.getMC_GIFT_WEIGHT_RESOURCE_WE_NEED());
-
-					// If we're protective this is worth more than if we're friendly
-					if(eApproach == MINOR_CIV_APPROACH_PROTECTIVE)
-						iValue += /*10*/ GC.getMC_GIFT_WEIGHT_PROTECTIVE();
-
-					// If the minor is hostile, then reduce the weighting
-					if(pMinorCivAI->GetPersonality() == MINOR_CIV_PERSONALITY_HOSTILE)
-						iValue += /*-20*/ GC.getMC_GIFT_WEIGHT_HOSTILE();
-
-					// The closer we are the better
-					if(GetPlayer()->GetProximityToPlayer(eMinor) == PLAYER_PROXIMITY_NEIGHBORS)
-						iValue += /*5*/ GC.getMC_GIFT_WEIGHT_NEIGHBORS();
-					else if(GetPlayer()->GetProximityToPlayer(eMinor) == PLAYER_PROXIMITY_CLOSE)
-						iValue += /*4*/ GC.getMC_GIFT_WEIGHT_CLOSE();
-					else if(GetPlayer()->GetProximityToPlayer(eMinor) == PLAYER_PROXIMITY_FAR)
-						iValue += /*3*/ GC.getMC_GIFT_WEIGHT_FAR();
-
-					iLargeGiftFriendship = pMinorCivAI->GetFriendshipFromGoldGift(eID, iLargeGift);
-					iMediumGiftFriendship = pMinorCivAI->GetFriendshipFromGoldGift(eID, iMediumGift);
-					iSmallGiftFriendship = pMinorCivAI->GetFriendshipFromGoldGift(eID, iSmallGift);
-
-					iFriendshipWithMinor = pMinorCivAI->GetEffectiveFriendshipWithMajor(eID);
-
-					// Loop through other players to see if we can pass them
-					for(iOtherMajorLoop = 0; iOtherMajorLoop < MAX_MAJOR_CIVS; iOtherMajorLoop++)
-					{
-						eOtherMajor = (PlayerTypes) iOtherMajorLoop;
-
-						// Player must be alive
-						if(!GET_PLAYER(eOtherMajor).isAlive())
-							continue;
-
-						iOtherPlayerFriendshipWithMinor = pMinorCivAI->GetEffectiveFriendshipWithMajor(eOtherMajor);
-
-						// Player must have friendship with this major
-						if(iOtherPlayerFriendshipWithMinor <= 0)
-							continue;
-
-						// They must have more friendship with this guy than us
-						if(iFriendshipWithMinor <= iOtherPlayerFriendshipWithMinor)
-							continue;
-
-						// Only care if we'll actually be Allies or better
-						bMediumGiftAllies = iFriendshipWithMinor + iMediumGiftFriendship >= pMinorCivAI->GetAlliesThreshold();
-						bSmallGiftAllies = iFriendshipWithMinor + iSmallGiftFriendship >= pMinorCivAI->GetAlliesThreshold();
-
-						// If we can pass them with a small gift, great
-						if(bSmallGiftAllies && iOtherPlayerFriendshipWithMinor - iFriendshipWithMinor < iSmallGiftFriendship)
+						// Diplo victory makes us more likely to spend gold
+						if(IsGoingForDiploVictory())
+							iValue += /*100*/ GC.getMC_GIFT_WEIGHT_DIPLO_VICTORY();
+						// double up if this is the home stretch
+						if(GC.getGame().IsUnitedNationsActive())
 						{
-							iValue += /*15*/ GC.getMC_SMALL_GIFT_WEIGHT_PASS_OTHER_PLAYER();
-							sGiftInfo.bQuickBoost = true;
-							sGiftInfo.eMajorRival = eOtherMajor;
+							iValue += /*100*/ GC.getMC_GIFT_WEIGHT_DIPLO_VICTORY();
 						}
-						// If a medium gift passes them up, that's good too
-						else if(bMediumGiftAllies && iOtherPlayerFriendshipWithMinor - iFriendshipWithMinor < iMediumGiftFriendship)
+						// Going for Culture victory, focus on Cultural city states
+						else if(IsGoingForCultureVictory())
 						{
-							iValue += /*10*/ GC.getMC_GIFT_WEIGHT_PASS_OTHER_PLAYER();
-							sGiftInfo.eMajorRival = eOtherMajor;
+							if(pMinorInfo->GetMinorCivTrait() == MINOR_CIV_TRAIT_CULTURED)
+								iValue += /*100*/ GC.getMC_GIFT_WEIGHT_CULTURE_VICTORY();
 						}
-						// We're behind and we can't catch up right now, so zero-out the value
-						else
-							iValue = 0;
-					}
-
-					// Are we already allies?
-					if(pMinorCivAI->IsAllies(eID))
-					{
-						// Are we close to losing our status?
-						if(pMinorCivAI->IsCloseToNotBeingAllies(eID))
+						// Going for Conquest victory, focus on Militaristic city states
+						else if(IsGoingForWorldConquest())
 						{
-							iValue += /*150*/ GC.getMC_GIFT_WEIGHT_ALMOST_NOT_ALLIES();
-							sGiftInfo.bQuickBoost = true;
+							if(pMinorInfo->GetMinorCivTrait() == MINOR_CIV_TRAIT_MILITARISTIC)
+								iValue += /*100*/ GC.getMC_GIFT_WEIGHT_CONQUEST_VICTORY();
 						}
-						// Not going to lose status, so not worth going after this guy
-						else
-							iValue = 0;
-					}
-					// Are we already Friends?
-					else if(pMinorCivAI->IsFriends(eID))
-					{
-						// Are we close to losing our status?
-						if(pMinorCivAI->IsCloseToNotBeingFriends(eID))
+
+						//antonjs: todo: work extra gold quest INF potential into the friends/allies/passing logic as well
+						// Gold gift quest is active, so we would get more bang for our bucks
+						if(pMinorCivAI->IsActiveQuestForPlayer(eID, MINOR_CIV_QUEST_GIVE_GOLD))
 						{
-							iValue += /*125*/ GC.getMC_GIFT_WEIGHT_ALMOST_NOT_FRIENDS();
-							sGiftInfo.bQuickBoost = true;
+							iValue += 150; //antonjs: todo: constant/XML
 						}
-						// Not going to lose status, so not worth going after this guy
-						else if(!IsGoingForDiploVictory() || !GC.getGame().IsUnitedNationsActive())
-							iValue = 0;
-					}
 
-					// Did we bully you recently?  If so, giving you gold now would be very odd.
-					if(pMinorCivAI->IsRecentlyBulliedByMajor(eID))
-					{
-						iValue -= 100; //antonjs: todo: constant/XML
-					}
+						// Invest quest is active, so we would get more bang for our bucks
+						if(pMinorCivAI->IsActiveQuestForPlayer(eID, MINOR_CIV_QUEST_INVEST))
+						{
+							iValue += 100; //antonjs: todo: constant/XML
+						}
 
-					//antonjs: consider: different behavior to CS that have been bullied by others, bullied by rival, etc.
+						// having traits that give us bonuses also make us want to spend gold
+						if(m_pPlayer->GetPlayerTraits()->GetCityStateFriendshipModifier() > 0 || m_pPlayer->GetPlayerTraits()->GetCityStateBonusModifier())
+						{
+							iValue += /*100*/ GC.getMC_GIFT_WEIGHT_DIPLO_VICTORY();
+						}
 
-					// Do we want it enough?
-					if(iValue > GC.getMC_GIFT_WEIGHT_THRESHOLD())
-					{
-						veMinorsToGiveGold.push_back(sGiftInfo, iValue);
-						bWantsToGiveGoldToThisMinor = true;
+						// Nearly everyone likes to grow
+						if(pMinorInfo->GetMinorCivTrait() == MINOR_CIV_TRAIT_MARITIME && !GetPlayer()->IsEmpireUnhappy())
+						{
+							iValue += /*20*/ GC.getMC_GIFT_WEIGHT_MARITIME_GROWTH() * iGrowthFlavor * max(1, GetPlayer()->getNumCities() / 3);
+						}
+
+						// Slight negative weight towards militaristic
+						if(pMinorInfo->GetMinorCivTrait() == MINOR_CIV_TRAIT_MILITARISTIC && !IsGoingForWorldConquest())
+							iValue += /*-50*/ GC.getMC_GIFT_WEIGHT_MILITARISTIC();
+
+						// If they have a resource we don't have, add extra weight
+						int iResourcesWeLack = pMinorCivAI->GetNumResourcesMajorLacks(eID);
+						if(iResourcesWeLack > 0)
+							iValue += (iResourcesWeLack* /*80*/ GC.getMC_GIFT_WEIGHT_RESOURCE_WE_NEED());
+
+						// If we're protective this is worth more than if we're friendly
+						if(eApproach == MINOR_CIV_APPROACH_PROTECTIVE)
+							iValue += /*10*/ GC.getMC_GIFT_WEIGHT_PROTECTIVE();
+
+						// If the minor is hostile, then reduce the weighting
+						if(pMinorCivAI->GetPersonality() == MINOR_CIV_PERSONALITY_HOSTILE)
+							iValue += /*-20*/ GC.getMC_GIFT_WEIGHT_HOSTILE();
+
+						// The closer we are the better
+						if(GetPlayer()->GetProximityToPlayer(eMinor) == PLAYER_PROXIMITY_NEIGHBORS)
+							iValue += /*5*/ GC.getMC_GIFT_WEIGHT_NEIGHBORS();
+						else if(GetPlayer()->GetProximityToPlayer(eMinor) == PLAYER_PROXIMITY_CLOSE)
+							iValue += /*4*/ GC.getMC_GIFT_WEIGHT_CLOSE();
+						else if(GetPlayer()->GetProximityToPlayer(eMinor) == PLAYER_PROXIMITY_FAR)
+							iValue += /*3*/ GC.getMC_GIFT_WEIGHT_FAR();
+
+						iLargeGiftFriendship = pMinorCivAI->GetFriendshipFromGoldGift(eID, iLargeGift);
+						iMediumGiftFriendship = pMinorCivAI->GetFriendshipFromGoldGift(eID, iMediumGift);
+						iSmallGiftFriendship = pMinorCivAI->GetFriendshipFromGoldGift(eID, iSmallGift);
+
+						iFriendshipWithMinor = pMinorCivAI->GetEffectiveFriendshipWithMajor(eID);
+
+						// Loop through other players to see if we can pass them
+						for(iOtherMajorLoop = 0; iOtherMajorLoop < MAX_MAJOR_CIVS; iOtherMajorLoop++)
+						{
+							eOtherMajor = (PlayerTypes) iOtherMajorLoop;
+
+							// Player must be alive
+							if(!GET_PLAYER(eOtherMajor).isAlive())
+								continue;
+
+							iOtherPlayerFriendshipWithMinor = pMinorCivAI->GetEffectiveFriendshipWithMajor(eOtherMajor);
+
+							// Player must have friendship with this major
+							if(iOtherPlayerFriendshipWithMinor <= 0)
+								continue;
+
+							// They must have more friendship with this guy than us
+							if(iFriendshipWithMinor <= iOtherPlayerFriendshipWithMinor)
+								continue;
+
+							// Only care if we'll actually be Allies or better
+							bMediumGiftAllies = iFriendshipWithMinor + iMediumGiftFriendship >= pMinorCivAI->GetAlliesThreshold();
+							bSmallGiftAllies = iFriendshipWithMinor + iSmallGiftFriendship >= pMinorCivAI->GetAlliesThreshold();
+
+							// If we can pass them with a small gift, great
+							if(bSmallGiftAllies && iOtherPlayerFriendshipWithMinor - iFriendshipWithMinor < iSmallGiftFriendship)
+							{
+								iValue += /*15*/ GC.getMC_SMALL_GIFT_WEIGHT_PASS_OTHER_PLAYER();
+								sGiftInfo.bQuickBoost = true;
+								sGiftInfo.eMajorRival = eOtherMajor;
+							}
+							// If a medium gift passes them up, that's good too
+							else if(bMediumGiftAllies && iOtherPlayerFriendshipWithMinor - iFriendshipWithMinor < iMediumGiftFriendship)
+							{
+								iValue += /*10*/ GC.getMC_GIFT_WEIGHT_PASS_OTHER_PLAYER();
+								sGiftInfo.eMajorRival = eOtherMajor;
+							}
+							// We're behind and we can't catch up right now, so zero-out the value
+							else
+								iValue = 0;
+						}
+
+						// Are we already allies?
+						if(pMinorCivAI->IsAllies(eID))
+						{
+							// Are we close to losing our status?
+							if(pMinorCivAI->IsCloseToNotBeingAllies(eID))
+							{
+								iValue += /*150*/ GC.getMC_GIFT_WEIGHT_ALMOST_NOT_ALLIES();
+								sGiftInfo.bQuickBoost = true;
+							}
+							// Not going to lose status, so not worth going after this guy
+							else
+								iValue = 0;
+						}
+						// Are we already Friends?
+						else if(pMinorCivAI->IsFriends(eID))
+						{
+							// Are we close to losing our status?
+							if(pMinorCivAI->IsCloseToNotBeingFriends(eID))
+							{
+								iValue += /*125*/ GC.getMC_GIFT_WEIGHT_ALMOST_NOT_FRIENDS();
+								sGiftInfo.bQuickBoost = true;
+							}
+							// Not going to lose status, so not worth going after this guy
+							else if(!IsGoingForDiploVictory() || !GC.getGame().IsUnitedNationsActive())
+								iValue = 0;
+						}
+
+						// Did we bully you recently?  If so, giving you gold now would be very odd.
+						if(pMinorCivAI->IsRecentlyBulliedByMajor(eID))
+						{
+							iValue -= 100; //antonjs: todo: constant/XML
+						}
+
+						//antonjs: consider: different behavior to CS that have been bullied by others, bullied by rival, etc.
+
+						// Do we want it enough?
+						if(iValue > GC.getMC_GIFT_WEIGHT_THRESHOLD())
+						{
+							veMinorsToGiveGold.push_back(sGiftInfo, iValue);
+							bWantsToGiveGoldToThisMinor = true;
+						}
 					}
 				}
 			}

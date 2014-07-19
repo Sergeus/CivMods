@@ -557,6 +557,8 @@ public:
 	bool IsOnePowerBlocking(OnePowerTypes eOnePower) const;
 	void SetOnePowerBlocking(OnePowerTypes eOnePowerTypes, bool bNewValue);
 	void DoTurnPlots();
+	bool IsNoBuyouts() const;
+	bool IsNoGoldGifts() const;
 	WoTMinorCivAjahs* GetAjahs();
 
 private:
@@ -718,6 +720,8 @@ public:
 	void SetHostsAjahs(bool bNewValue);
 	bool IsNoCoups() const;
 	void SetNoCoups(bool bNewValue);
+	bool IsNoBuyouts() const;
+	bool IsNoGoldGifts() const;
 
 	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
 
@@ -725,6 +729,8 @@ private:
 
 	bool m_bHostsAjahs;
 	bool m_bNoCoups;
+	bool m_bNoBuyouts;
+	bool m_bNoGoldGifts;
 };
 
 class WoTMinorCivPlotInfo : public CvBaseInfo
