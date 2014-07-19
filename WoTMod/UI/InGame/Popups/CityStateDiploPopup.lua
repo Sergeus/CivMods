@@ -807,45 +807,56 @@ function PopulateGiftChoices()
 	-- Small Gold
 	local iNumGoldPlayerHas = pActivePlayer:GetGold();
 	
-	iGold = iGoldGiftSmall;
-	iLowestGold = iGold;
-	iFriendshipAmount = pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold);
-	local buttonText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_GOLD_GIFT_AMOUNT", iGold, iFriendshipAmount);
-	if (iNumGoldPlayerHas < iGold) then
-		buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
-		Controls.SmallGiftAnim:SetHide(true);
+	-- WoTMod addition
+	if (pPlayer:IsMinorCivNoGoldGifts()) then
+		Controls.SmallGiftButton:SetHide(true)
+		Controls.MediumGiftButton:SetHide(true)
+		Controls.LargeGiftButton:SetHide(true)
 	else
-		Controls.SmallGiftAnim:SetHide(false);
-	end
-	Controls.SmallGift:SetText(buttonText);
-	SetButtonSize(Controls.SmallGift, Controls.SmallGiftButton, Controls.SmallGiftAnim, Controls.SmallGiftButtonHL);
+		Controls.SmallGiftButton:SetHide(false)
+		Controls.MediumGiftButton:SetHide(false)
+		Controls.LargeGiftButton:SetHide(false)
+
+		iGold = iGoldGiftSmall;
+		iLowestGold = iGold;
+		iFriendshipAmount = pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold);
+		local buttonText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_GOLD_GIFT_AMOUNT", iGold, iFriendshipAmount);
+		if (iNumGoldPlayerHas < iGold) then
+			buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
+			Controls.SmallGiftAnim:SetHide(true);
+		else
+			Controls.SmallGiftAnim:SetHide(false);
+		end
+		Controls.SmallGift:SetText(buttonText);
+		SetButtonSize(Controls.SmallGift, Controls.SmallGiftButton, Controls.SmallGiftAnim, Controls.SmallGiftButtonHL);
 	
-	-- Medium Gold
-	iGold = iGoldGiftMedium;
-	iFriendshipAmount = pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold);
-	local buttonText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_GOLD_GIFT_AMOUNT", iGold, iFriendshipAmount);
-	if (iNumGoldPlayerHas < iGold) then
-		buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
-		Controls.MediumGiftAnim:SetHide(true);
-	else
-		Controls.MediumGiftAnim:SetHide(false);
-	end
-	Controls.MediumGift:SetText(buttonText);
-	SetButtonSize(Controls.MediumGift, Controls.MediumGiftButton, Controls.MediumGiftAnim, Controls.MediumGiftButtonHL);
+		-- Medium Gold
+		iGold = iGoldGiftMedium;
+		iFriendshipAmount = pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold);
+		local buttonText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_GOLD_GIFT_AMOUNT", iGold, iFriendshipAmount);
+		if (iNumGoldPlayerHas < iGold) then
+			buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
+			Controls.MediumGiftAnim:SetHide(true);
+		else
+			Controls.MediumGiftAnim:SetHide(false);
+		end
+		Controls.MediumGift:SetText(buttonText);
+		SetButtonSize(Controls.MediumGift, Controls.MediumGiftButton, Controls.MediumGiftAnim, Controls.MediumGiftButtonHL);
 	
-	-- Large Gold
-	iGold = iGoldGiftLarge;
-	iFriendshipAmount = pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold);
-	local buttonText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_GOLD_GIFT_AMOUNT", iGold, iFriendshipAmount);
-	if (iNumGoldPlayerHas < iGold) then
-		buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
-		Controls.LargeGiftAnim:SetHide(true);
-	else
-		Controls.LargeGiftAnim:SetHide(false);
+		-- Large Gold
+		iGold = iGoldGiftLarge;
+		iFriendshipAmount = pPlayer:GetFriendshipFromGoldGift(iActivePlayer, iGold);
+		local buttonText = Locale.ConvertTextKey("TXT_KEY_POPUP_MINOR_GOLD_GIFT_AMOUNT", iGold, iFriendshipAmount);
+		if (iNumGoldPlayerHas < iGold) then
+			buttonText = "[COLOR_WARNING_TEXT]" .. buttonText .. "[ENDCOLOR]";
+			Controls.LargeGiftAnim:SetHide(true);
+		else
+			Controls.LargeGiftAnim:SetHide(false);
+		end
+		Controls.LargeGift:SetText(buttonText);
+		SetButtonSize(Controls.LargeGift, Controls.LargeGiftButton, Controls.LargeGiftAnim, Controls.LargeGiftButtonHL);
 	end
-	Controls.LargeGift:SetText(buttonText);
-	SetButtonSize(Controls.LargeGift, Controls.LargeGiftButton, Controls.LargeGiftAnim, Controls.LargeGiftButtonHL);
-	
+
 	-- Unit
 	local iInfluence = pPlayer:GetFriendshipFromUnitGift(iActivePlayer, false, true);
 	local iTravelTurns = GameDefines.MINOR_UNIT_GIFT_TRAVEL_TURNS;
