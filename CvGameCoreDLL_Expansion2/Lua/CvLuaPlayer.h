@@ -623,6 +623,7 @@ protected:
 	static int lGetPublicSupportedAjah(lua_State* L);
 	static int lGetTurnsSincePledgedAjahSupport(lua_State* L);
 	static int lIsCanPledgeAjahSupport(lua_State* L);
+	static int lIsMinorCivNoGoldGifts(lua_State* L);
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------

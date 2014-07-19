@@ -642,6 +642,7 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(IsCanPledgeAjahSupport);
 	Method(GetPublicSupportedTower);
 	Method(GetPublicSupportedAjah);
+	Method(IsMinorCivNoGoldGifts);
 
 	Method(GetID);
 	Method(GetHandicapType);
@@ -6777,6 +6778,20 @@ int CvLuaPlayer::lGetTurnsSincePledgedAjahSupport(lua_State* L)
 int CvLuaPlayer::lIsCanPledgeAjahSupport(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlayerAI::IsCanPledgeAjahSupport);
+}
+int CvLuaPlayer::lIsMinorCivNoGoldGifts(lua_State* L)
+{
+	CvPlayerAI* pkPlayer = GetInstance(L);
+
+	if (!pkPlayer->isMinorCiv())
+	{
+		lua_pushboolean(L, false);
+	}
+	else
+	{
+		lua_pushboolean(L, pkPlayer->GetMinorCivAI()->IsNoGoldGifts());
+	}
+	return 1;
 }
 // ----------------------------------------------------------------
 // SiegeMod Addition
