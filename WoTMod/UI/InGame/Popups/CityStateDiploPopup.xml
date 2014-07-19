@@ -316,5 +316,4 @@
 			</Stack>
 		</Grid>
 	</Box>
-	<LuaContext FileName="WhiteTowerStatus" ID="WhiteTowerStatus" Hidden="1"/>
 </Context>

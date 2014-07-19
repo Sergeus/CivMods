@@ -651,8 +651,7 @@ Controls.QuestInfo:RegisterCallback( Mouse.eLClick, OnQuestInfoClicked );
 ------------------------------
 -- White Tower status popup
 function OnWhiteTowerStatusClicked()
-	LuaEvents.TarValonStatus(g_iMinorCivID)
-	UIManager:QueuePopup(Controls.WhiteTowerStatus, PopupPriority.eUtmost)
+	LuaEvents.DisplayTarValonStatus(g_iMinorCivID)
 end
 Controls.AjahButton:RegisterCallback( Mouse.eLClick, OnWhiteTowerStatusClicked)
 

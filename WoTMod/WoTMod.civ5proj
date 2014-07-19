@@ -91,6 +91,12 @@
         <Description>Tells the game when these missions can be done and what they do</Description>
         <FileName>Lua/WhiteTower/WhiteTowerMissionSubscribers.lua</FileName>
       </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>White Tower status</Name>
+        <Description>Status screen for Ajahs</Description>
+        <FileName>UI/InGame/Popups/WhiteTowerStatus.lua</FileName>
+      </Content>
     </ModContent>
     <ModActions>
       <Action>
@@ -1654,11 +1660,11 @@
     </Content>
     <Content Include="UI\InGame\Popups\WhiteTowerStatus.lua">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="UI\InGame\Popups\WhiteTowerStatus.xml">
       <SubType>Lua</SubType>
-      <ImportIntoVFS>True</ImportIntoVFS>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="UI\InGame\TechTree\TechButtonInclude.lua">
       <SubType>Lua</SubType>
@@ -1673,6 +1679,14 @@
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
     <Content Include="UI\InGame\WorldView\ActionInfoPanel.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\WorldView\DiploCorner.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\WorldView\DiploCorner.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>

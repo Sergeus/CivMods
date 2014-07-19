@@ -142,10 +142,9 @@ Controls.DiplomaticOverviewButton:RegisterCallback( Mouse.eLClick, OnDiploOvervi
 ------------------------------
 function OnTowerOverview()
 	if IsTowerValid() then
-		LuaEvents.TarValonStatus(m_eTower)
-		UIManager:QueuePopup(Controls.WhiteTowerStatus, PopupPriority.eUtmost)
+		LuaEvents.DisplayTarValonStatus(m_eTower)
 	else
-		print("Not ready yet")
+		LuaEvents.DisplayTarValonStatus(-1)
 	end
 end
 Controls.TowerOverviewButton:RegisterCallback( Mouse.eLClick, OnTowerOverview );

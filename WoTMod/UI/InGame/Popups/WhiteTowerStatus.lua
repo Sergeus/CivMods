@@ -10,19 +10,20 @@ include("IconSupport")
 -- Game Logic
 --------------------------------------------------------------
 
-local m_CityStateId
+local m_CityStateId = -1
 
 local m_bFeedbackMode -- if true, we're displaying a change in influence, rather than just the current status
 local m_bChangedAjahs = {} -- table of bools, indexed by Ajah DB ID, indicating whether the corresponding Ajah has changed
 local m_iOldPercent = {} -- table of ints, indexed by Ajah DB ID, indicating the lower percent to be rendered with a solid color
 
--- Expectation that this event will be called before the popup is displayed to tell
--- it what city state we're talking about (technical support for multiple competing
+-- Calling this lua event brings up the Tower summary window, where the Tower
+-- is the parameter player ID (technical support for multiple competing
 -- Tar Valons for eventual Salidar scenario?)
 function InitTarValonStatus(cityStateId)
 	m_CityStateId = cityStateId
+	UIManager:QueuePopup(ContextPtr, PopupPriority.eUtmost)
 end
-LuaEvents.TarValonStatus.Add(InitTarValonStatus)
+LuaEvents.DisplayTarValonStatus.Add(InitTarValonStatus)
 
 function AjahInfluenceChanged(playerID, unitID, towerID, ajahID, iSolidInfluence)
 	if (playerID == Game.GetActivePlayer()) then
@@ -80,11 +81,22 @@ end
 ContextPtr:SetShowHideHandler(OnShowHide)
 
 function OnDisplay()
+	if (m_CityStateId ~= -1) then
+		DisplayAjahInfluences()
+	else
+		Controls.InfluenceStack:SetHide(true)
+		Controls.WhiteTowerStatusLabel:SetText(Locale.ConvertTextKey("TXT_KEY_NO_AJAH_HOST_MET"))
+	end
+end
+
+function DisplayAjahInfluences()
 	local pPlayer = Players[m_CityStateId]
 	local amyrlinAjah = pPlayer:GetAmyrlinAjah()
 
 	CivIconHookup( pPlayer:GetID(), 80, Controls.CivIcon, Controls.CivIconBG, Controls.CivIconShadow, false, true );
 
+	Controls.InfluenceStack:SetHide(false)
+	Controls.WhiteTowerStatusLabel:SetText(Locale.ConvertTextKey("TXT_KEY_WHITE_TOWER_STATUS"))
 	Controls.InfluenceStack:DestroyAllChildren()
 
 	for pAjah in GameInfo.Ajahs() do
@@ -182,3 +194,32 @@ function OnNoClicked()
 	Controls.ChooseConfirm:SetHide(true)
 end
 Controls.No:RegisterCallback(Mouse.eLClick, OnNoClicked)
+
+LuaEvents.AdditionalInformationDropdownGatherEntries.Add(function(entries)
+	local anyAjahs = false
+	for _, pPlayer in pairs(Players) do
+		if (pPlayer:IsHostsAjahs() and pPlayer:GetCapitalCity() ~= nil
+				and Teams[Players[Game.GetActivePlayer()]:GetTeam()]:IsHasMet(pPlayer:GetTeam())) then
+			anyAjahs = true
+			print("Adding met tower")
+			table.insert(entries, {
+				text = Locale.ConvertTextKey("TXT_KEY_TOWER_AT_CITY", pPlayer:GetCapitalCity():GetName()),
+				call = function() 
+					LuaEvents.DisplayTarValonStatus(pPlayer:GetID())
+				end
+			})
+		end
+	end
+
+	if (not anyAjahs) then
+		print("Adding unknown tower")
+		table.insert(entries, {
+			text = Locale.Lookup("TXT_KEY_TOWER_UNKNOWN"),
+			call = function() 
+				LuaEvents.DisplayTarValonStatus(-1)
+			end
+		})	
+	end
+end)
+
+LuaEvents.RequestRefreshAdditionalInformationDropdownEntries();

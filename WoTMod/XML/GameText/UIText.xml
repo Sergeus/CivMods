@@ -119,6 +119,9 @@
 		<Row Tag="TXT_KEY_PLEDGE_SUPPORT_DISABLED_ALREADY">
 			<Text>[COLOR_NEGATIVE_TEXT]You cannot pledge support for this Ajah because you are already supporting it![ENDCOLOR]</Text>
 		</Row>
+		<Row Tag="TXT_KEY_NO_AJAH_HOST_MET">
+			<Text>You have yet to meet a city that hosts Ajahs.</Text>
+		</Row>
 		
 		<!-- Ajahs -->
 		<Row Tag="TXT_KEY_WHITE_TOWER_BLUE_AJAH">
