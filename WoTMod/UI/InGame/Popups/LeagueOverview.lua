@@ -1693,22 +1693,3 @@ function OnConfirmNo( )
 	Controls.ChooseConfirm:SetHide(true);
 end
 Controls.ConfirmNo:RegisterCallback( Mouse.eLClick, OnConfirmNo );
-
------------------------------------------------------------------
--- Add Espionage Overview to Dropdown
------------------------------------------------------------------
-LuaEvents.AdditionalInformationDropdownGatherEntries.Add(function(entries)
-	if (not Game.IsOption("GAMEOPTION_NO_LEAGUES")) then
-		table.insert(entries, {
-			text = Locale.Lookup("TXT_KEY_LEAGUE_OVERVIEW"),
-			call = function() 
-				Events.SerialEventGameMessagePopup{ 
-					Type = ButtonPopupTypes.BUTTONPOPUP_LEAGUE_OVERVIEW,
-				};
-			end,
-		});
-	end
-end);
-
--- Just in case :)
-LuaEvents.RequestRefreshAdditionalInformationDropdownEntries();
