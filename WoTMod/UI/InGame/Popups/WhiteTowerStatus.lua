@@ -110,6 +110,11 @@ function DisplayAjahInfluences()
 
 			ContextPtr:BuildInstanceForControl("AjahInfluence", instance, Controls.InfluenceStack);
 
+			if (pAjah.ID == pPlayer:GetMajorityAjah()) then
+				print("Majority ajah found")
+				sAjahPercent = "[COLOR_ALT_HIGHLIGHT_TEXT]" .. sAjahPercent .. "[ENDCOLOR]"
+			end
+
 			instance.AjahLabel:SetText(sAjahName)
 			instance.AjahPercent:SetText(sAjahPercent)
 
@@ -201,7 +206,6 @@ LuaEvents.AdditionalInformationDropdownGatherEntries.Add(function(entries)
 		if (pPlayer:IsHostsAjahs() and pPlayer:GetCapitalCity() ~= nil
 				and Teams[Players[Game.GetActivePlayer()]:GetTeam()]:IsHasMet(pPlayer:GetTeam())) then
 			anyAjahs = true
-			print("Adding met tower")
 			table.insert(entries, {
 				text = Locale.ConvertTextKey("TXT_KEY_TOWER_AT_CITY", pPlayer:GetCapitalCity():GetName()),
 				call = function() 
@@ -212,7 +216,6 @@ LuaEvents.AdditionalInformationDropdownGatherEntries.Add(function(entries)
 	end
 
 	if (not anyAjahs) then
-		print("Adding unknown tower")
 		table.insert(entries, {
 			text = Locale.Lookup("TXT_KEY_TOWER_UNKNOWN"),
 			call = function() 
