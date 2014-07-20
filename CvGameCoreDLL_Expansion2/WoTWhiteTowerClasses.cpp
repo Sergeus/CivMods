@@ -221,7 +221,7 @@ void WoTMinorCivAjahs::UpdateMajorityAjah()
 					{
 						strMessage = GetLocalizedText("TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED", capitalName, pOldInfo->GetDescription(), pNewInfo->GetDescription());
 						Localization::String strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED_SUMMARY");
-						pNotification->Add(static_cast<NotificationTypes>(GC.getInfoTypeForString("NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED")), strMessage, strSummary.toUTF8(), capitalX, capitalY, pCapital->getOwner());
+						pNotification->Add(static_cast<NotificationTypes>(GC.getInfoTypeForString("NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED")), strMessage, strSummary.toUTF8(), capitalX, capitalY, eHighestAjah);
 					}
 				}
 			}
