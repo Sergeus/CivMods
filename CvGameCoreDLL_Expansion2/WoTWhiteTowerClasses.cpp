@@ -149,6 +149,8 @@ void WoTMinorCivAjahs::SetAjahInfluence(AjahTypes eAjah, int iNewInfluence)
 void WoTMinorCivAjahs::ChangeAjahInfluence(AjahTypes eAjah, int iChange)
 {
 	SetAjahInfluence(eAjah, GetAjahInfluence(eAjah) + iChange);
+
+	UpdateMajorityAjah();
 }
 
 int WoTMinorCivAjahs::GetAjahInfluencePercent(AjahTypes eAjah) const
@@ -268,8 +270,6 @@ void WoTMinorCivAjahs::DoTraineeAdmitted(CvUnit* pUnit)
 	int oldInfluencePercent = GetAjahInfluencePercent(availableAjahs[ajahIndex]);
 
 	ChangeAjahInfluence(availableAjahs[ajahIndex], pUnit->GetAjahInfluenceChange());
-
-	UpdateMajorityAjah();
 
 	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 

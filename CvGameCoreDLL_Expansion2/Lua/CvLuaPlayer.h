@@ -614,6 +614,7 @@ protected:
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	static int lGetAjahInfluencePercent(lua_State* L);
+	static int lGetMajorityAjah(lua_State* L);
 	static int lIsAjahPermitted(lua_State* L);
 	static int lGetAmyrlinAjah(lua_State* L);
 	static int lSetAmyrlinAjah(lua_State* L);

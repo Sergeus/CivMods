@@ -633,6 +633,7 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	Method(GetAjahInfluencePercent);
+	Method(GetMajorityAjah);
 	Method(IsAjahPermitted);
 	Method(GetAmyrlinAjah);
 	Method(SetAmyrlinAjah);
@@ -6691,6 +6692,16 @@ int CvLuaPlayer::lGetAjahInfluencePercent(lua_State* L)
 	int iInfluencePercent = pkPlayer->GetMinorCivAI()->GetAjahs()->GetAjahInfluencePercent(static_cast<AjahTypes>(iAjah));
 
 	lua_pushinteger(L, iInfluencePercent);
+
+	return 1;
+}
+int CvLuaPlayer::lGetMajorityAjah(lua_State* L)
+{
+	CvPlayerAI* pkPlayer = GetInstance(L);
+
+	AjahTypes eMajorityAjah = pkPlayer->GetMinorCivAI()->GetAjahs()->GetMajorityAjah();
+
+	lua_pushinteger(L, eMajorityAjah);
 
 	return 1;
 }
