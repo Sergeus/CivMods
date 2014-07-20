@@ -4,7 +4,7 @@
 	<Units>
 		<Update>
 			<Where Type="UNIT_HUN_BATTERING_RAM"/>
-			<Set PrereqTech="TECH_CONSTRUCTION" Class="UNITCLASS_BATTERING_RAM"/>
+			<Set PrereqTech="TECH_CONSTRUCTION" Class="UNITCLASS_BATTERING_RAM" Combat="14"/>
 		</Update>
 		<Update>
 			<Where Type="UNIT_SPEARMAN"/>
@@ -409,6 +409,37 @@
 			<UnitArtInfo>ART_DEF_UNIT__WARRIOR</UnitArtInfo>
 			<UnitFlagIconOffset>0</UnitFlagIconOffset>
 			<IconAtlas>UNIT_ATLAS_2</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+		</Row>
+
+
+		<Row>
+			<Class>UNITCLASS_BOWSWORD</Class>
+			<Type>UNIT_BOWSWORD</Type>
+			<PrereqTech>TECH_TACTICAL_FORMATIONS</PrereqTech>
+			<Combat>19</Combat>
+			<RangedCombat>19</RangedCombat>
+			<Cost>40</Cost>
+			<Moves>2</Moves>
+			<Range>2</Range>
+			<CombatClass>UNITCOMBAT_MELEE</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
+			<Description>TXT_KEY_UNIT_BOWSWORD</Description>
+			<Civilopedia>TXT_KEY_CIV5_ANTIQUITY_BOWSWORD_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_BOWSWORD_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_HELP_BOWSWORD</Help>
+			<MilitarySupport>true</MilitarySupport>
+			<MilitaryProduction>true</MilitaryProduction>
+			<Pillage>true</Pillage>
+			<ObsoleteTech>TECH_METAL_CASTING</ObsoleteTech>
+			<GoodyHutUpgradeUnitClass>UNITCLASS_SPEARMAN</GoodyHutUpgradeUnitClass>
+			<AdvancedStartCost>10</AdvancedStartCost>
+			<XPValueAttack>3</XPValueAttack>
+			<XPValueDefense>3</XPValueDefense>
+			<UnitArtInfo>ART_DEF_UNIT__WARRIOR</UnitArtInfo>
+			<UnitFlagIconOffset>0</UnitFlagIconOffset>
+			<IconAtlas>TECH_ATLAS_1</IconAtlas>
 			<PortraitIndex>0</PortraitIndex>
 		</Row>
 	</Units>

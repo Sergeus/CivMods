@@ -87,6 +87,21 @@
 			<Description>TXT_KEY_BUILDINGCLASS_GAMBLERS_DEN</Description>
 			<DefaultBuilding>BUILDING_GAMBLERS_DEN</DefaultBuilding>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_TRAVELING_GROUND</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_TRAVELING_GROUND</Description>
+			<DefaultBuilding>BUILDING_TRAVELING_GROUND</DefaultBuilding>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_GENERAL_QUARTERS</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_GENERAL_QUARTERS</Description>
+			<DefaultBuilding>BUILDING_GENERAL_QUARTERS</DefaultBuilding>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_MONEYLENDER</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_MONEYLENDER</Description>
+			<DefaultBuilding>BUILDING_MONEYLENDER</DefaultBuilding>
+		</Row>
 	</BuildingClasses>
 
 	<Buildings>
@@ -529,6 +544,69 @@
 			<IconAtlas>BW_ATLAS_1</IconAtlas>
 			<PortraitIndex>23</PortraitIndex>
 		</Row>
+
+		<Row>
+			<Type>BUILDING_TRAVELING_GROUND</Type>
+			<BuildingClass>BUILDINGCLASS_TRAVELING_GROUND</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_TRAVELING</PrereqTech>
+			<Description>TXT_KEY_BUILDING_TRAVELING_GROUND_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_TRAVELING_GROUND_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_TRAVELING_GROUND_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_TRAVELING_GROUND_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
+
+		<Row>
+			<Type>BUILDING_GENERAL_QUARTERS</Type>
+			<BuildingClass>BUILDINGCLASS_GENERAL_QUARTERS</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_CHAIN_OF_COMMAND</PrereqTech>
+			<Description>TXT_KEY_BUILDING_GENERAL_QUARTERS_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_GENERAL_QUARTERS_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_GENERAL_QUARTERS_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_GENERAL_QUARTERS_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
+
+		<Row>
+			<Type>BUILDING_MONEYLENDER</Type>
+			<BuildingClass>BUILDINGCLASS_MONEYLENDER</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>70</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_EXCHANGE_RATES</PrereqTech>
+			<Description>TXT_KEY_BUILDING_MONEYLENDER_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_MONEYLENDER_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MONEYLENDER_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_MONEYLENDER_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+		</Row>
 	</Buildings>
 
 	<Building_YieldChanges>
@@ -591,6 +669,11 @@
 			<BuildingType>BUILDING_GAMBLERS_DEN</BuildingType>
 			<YieldType>YIELD_GOLD</YieldType>
 			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MONEYLENDER</BuildingType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
 		</Row>
 	</Building_YieldChanges>
 
@@ -687,6 +770,12 @@
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>2</Yield>
 		</Row>
+		<Row>
+			<BuildingType>BUILDING_GENERAL_QUARTERS</BuildingType>
+			<GovernorClassType>GOVERNORCLASS_MARTIAL</GovernorClassType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>2</Yield>
+		</Row>
 	</Building_GovernorClassYieldChanges>
 
 	<Building_DomainFreeExperiences>
@@ -709,4 +798,47 @@
 			<Modifier>25</Modifier>
 		</Row>
 	</Building_DomainProductionModifiers>
+
+	<Building_UnitCombatProductionModifiers>
+		<Row>
+			<BuildingType>BUILDING_GENERAL_QUARTERS</BuildingType>
+			<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType>
+			<Modifier>50</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_GENERAL_QUARTERS</BuildingType>
+			<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType>
+			<Modifier>50</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_GENERAL_QUARTERS</BuildingType>
+			<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType>
+			<Modifier>50</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_GENERAL_QUARTERS</BuildingType>
+			<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+			<Modifier>50</Modifier>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_GENERAL_QUARTERS</BuildingType>
+			<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+			<Modifier>50</Modifier>
+		</Row>
+	</Building_UnitCombatProductionModifiers>
+
+	<Building_TradeRouteYieldChanges>
+		<Row>
+			<BuildingType>BUILDING_MONEYLENDER</BuildingType>
+			<DomainType>DOMAIN_SEA</DomainType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>4</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MONEYLENDER</BuildingType>
+			<DomainType>DOMAIN_LAND</DomainType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>4</Yield>
+		</Row>
+	</Building_TradeRouteYieldChanges>
 </GameData>

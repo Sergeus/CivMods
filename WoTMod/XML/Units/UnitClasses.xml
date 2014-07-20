@@ -72,5 +72,15 @@
 			<Description>TXT_KEY_UNIT_KINSWOMAN</Description>
 			<DefaultUnit>UNIT_KINSWOMAN</DefaultUnit>
 		</Row>
+		<Row>
+			<Type>UNITCLASS_BOWSWORD</Type>
+			<Description>TXT_KEY_UNIT_BOWSWORD</Description>
+			<DefaultUnit>UNIT_BOWSWORD</DefaultUnit>
+		</Row>
+		<Row>
+			<Type>UNITCLASS_BALLISTA</Type>
+			<Description>TXT_KEY_UNIT_ROMAN_BALLISTA</Description>
+			<DefaultUnit>UNIT_ROMAN_BALLISTA</DefaultUnit>
+		</Row>
 	</UnitClasses>
 </GameData>

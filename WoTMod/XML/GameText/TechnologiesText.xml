@@ -678,18 +678,18 @@
 			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Political Theory quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
 		</Row>
 
-		<!-- Technology: Moneylenders -->
-		<Row Tag="TXT_KEY_TECH_MONEYLENDERS_DESC">
-			<Text>Moneylenders</Text>
+		<!-- Technology: Exchange Rates -->
+		<Row Tag="TXT_KEY_TECH_EXCHANGE_RATES_DESC">
+			<Text>Exchange Rates</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_MONEYLENDERS_CIV">
-			<Text>[TOWRITE] Moneylenders pedia</Text>
+		<Row Tag="TXT_KEY_TECH_EXCHANGE_RATES_CIV">
+			<Text>[TOWRITE] Exchange Rates pedia</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_MONEYLENDERS_HELP">
-			<Text>[TOWRITE] Moneylenders help</Text>
+		<Row Tag="TXT_KEY_TECH_EXCHANGE_RATES_HELP">
+			<Text>[TOWRITE] Exchange Rates help</Text>
 		</Row>
-		<Row Tag="TXT_KEY_TECH_MONEYLENDERS_QUOTE">
-			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Moneylenders quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
+		<Row Tag="TXT_KEY_TECH_EXCHANGE_RATES_QUOTE">
+			<Text>[NEWLINE][TAB][TAB]"[TOWRITE] Exchange Rates quote"[NEWLINE][TAB][TAB]  - S3rgeus[NEWLINE][TAB]</Text>
 		</Row>
 
 		<!-- Eras -->

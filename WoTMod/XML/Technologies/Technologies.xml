@@ -733,10 +733,10 @@
 			  <AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader>
 		</Row>
 		<Row>
-			  <Type>TECH_MONEYLENDERS</Type>
-			  <Description>TXT_KEY_TECH_MONEYLENDERS_DESC</Description>
-			  <Civilopedia>TXT_KEY_TECH_MONEYLENDERS_CIV</Civilopedia>
-			  <Help>TXT_KEY_TECH_MONEYLENDERS_HELP</Help>
+			  <Type>TECH_EXCHANGE_RATES</Type>
+			  <Description>TXT_KEY_TECH_EXCHANGE_RATES_DESC</Description>
+			  <Civilopedia>TXT_KEY_TECH_EXCHANGE_RATES_CIV</Civilopedia>
+			  <Help>TXT_KEY_TECH_EXCHANGE_RATES_HELP</Help>
 			  <Cost>1150</Cost>
 			  <AdvancedStartCost>0</AdvancedStartCost>
 			  <Era>ERA_RENAISSANCE</Era>
@@ -745,7 +745,8 @@
 			  <GoodyTech>1</GoodyTech>
 			  <GridX>8</GridX>
 			  <GridY>1</GridY>
-			  <Quote>TXT_KEY_TECH_MONEYLENDERS_QUOTE</Quote>
+			  <Quote>TXT_KEY_TECH_EXCHANGE_RATES_QUOTE</Quote>
+			  <InternationalTradeRoutesChange>1</InternationalTradeRoutesChange>
 			  <PortraitIndex>0</PortraitIndex>
 			  <ScenarioTechButton>0</ScenarioTechButton>
 			  <IconAtlas>TECH_ATLAS_1</IconAtlas>

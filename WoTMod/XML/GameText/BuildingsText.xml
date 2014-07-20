@@ -54,6 +54,23 @@
 		<Row Tag="TXT_KEY_WONDER_FOREGATE_HELP">
 			<Text>The city that builds Foregate increases [ICON_CITIZEN] Population by 4 immediately.</Text>
 		</Row>
+
+		<!-- National Wonder: Harvest Festival -->
+		<Row Tag="TXT_KEY_BUILDING_HARVEST_FESTIVAL_DESC">
+			<Text>Harvest Festival</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_HARVEST_FESTIVAL_CIV">
+			<Text>[TOWRITE] Harvest Festival pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WONDER_HARVEST_FESTIVAL_QUOTE">
+			<Text>[TOWRITE] Harvest Festival quote</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_HARVEST_FESTIVAL_HELP">
+			<Text>Requires A Village Green in all cities.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_HARVEST_FESTIVAL_STRATEGY">
+			<Text>[TOWRITE] Harvest Festival strategy</Text>
+		</Row>
 		
 		<!-- Building: Inn -->
 		<Row Tag="TXT_KEY_BUILDING_INN">
@@ -296,6 +313,49 @@
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_GAMBLERS_DEN_STRATEGY">
 			<Text>[TOWRITE] Gambler's Den strategy</Text>
+		</Row>
+
+		<!-- Building: Traveling Ground -->
+		<Row Tag="TXT_KEY_BUILDING_TRAVELING_GROUND_DESC">
+			<Text>Traveling Ground</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_TRAVELING_GROUND_CIV">
+			<Text>[TOWRITE] Traveling Ground pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_TRAVELING_GROUND_HELP">
+			<Text>[TOWRITE] Traveling Ground help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_TRAVELING_GROUND_STRATEGY">
+			<Text>[TOWRITE] Traveling Ground strategy</Text>
+		</Row>
+
+		<!-- Building: General's Quarters -->
+		<Row Tag="TXT_KEY_BUILDING_GENERAL_QUARTERS_DESC">
+			<Text>General's Quarters</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_GENERAL_QUARTERS_CIV">
+			<Text>[TOWRITE] General's Quarters pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_GENERAL_QUARTERS_HELP">
+			<Text>Martial governors in this city produce +2 [ICON_PRODUCTION] Production.
+			[NEWLINE][NEWLINE]+50% [ICON_PRODUCTION] Production bonus when training land units.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_GENERAL_QUARTERS_STRATEGY">
+			<Text>[TOWRITE] General's Quarters strategy</Text>
+		</Row>
+
+		<!-- Building: Moneylender -->
+		<Row Tag="TXT_KEY_BUILDING_MONEYLENDER_DESC">
+			<Text>Moneylender</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MONEYLENDER_CIV">
+			<Text>[TOWRITE] Moneylender pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MONEYLENDER_HELP">
+			<Text>+4[ICON_GOLD] from international trade routes originating at this city.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MONEYLENDER_STRATEGY">
+			<Text>[TOWRITE] Moneylender strategy</Text>
 		</Row>
 		
 		<!-- Projects -->

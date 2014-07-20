@@ -400,7 +400,7 @@
 			<PrereqTech>TECH_GENTLING</PrereqTech>
 		</Row>
 		<Row>
-			<TechType>TECH_MONEYLENDERS</TechType>
+			<TechType>TECH_EXCHANGE_RATES</TechType>
 			<PrereqTech>TECH_CURRENCY</PrereqTech>
 		</Row>
 		<Row>

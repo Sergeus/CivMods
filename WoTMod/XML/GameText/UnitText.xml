@@ -170,6 +170,20 @@
 		<Row Tag="TXT_KEY_UNIT_KINSWOMAN_STRATEGY">
 			<Text>[TOWRITE] Kinswoman strategy</Text>
 		</Row>
+
+		<!-- Unit: Bowsword -->
+		<Row Tag="TXT_KEY_UNIT_BOWSWORD">
+			<Text>Bowsword</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_BOWSWORD">
+			<Text>[TOWRITE] Bowsword help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ANTIQUITY_BOWSWORD_TEXT">
+			<Text>[TOWRITE] Bowsword pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BOWSWORD_STRATEGY">
+			<Text>[TOWRITE] Bowsword strategy</Text>
+		</Row>
 		
 		<!-- Unit: Great Leader -->
 		<Row Tag="TXT_KEY_UNIT_GREAT_LEADER">
