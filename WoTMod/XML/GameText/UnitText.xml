@@ -184,6 +184,34 @@
 		<Row Tag="TXT_KEY_UNIT_BOWSWORD_STRATEGY">
 			<Text>[TOWRITE] Bowsword strategy</Text>
 		</Row>
+
+		<!-- Unit: Asha'Man -->
+		<Row Tag="TXT_KEY_UNIT_ASHAMAN">
+			<Text>Asha'Man</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_ASHAMAN">
+			<Text>[TOWRITE] Asha'Man help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ANTIQUITY_ASHAMAN_TEXT">
+			<Text>[TOWRITE] Asha'Man pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_ASHAMAN_STRATEGY">
+			<Text>[TOWRITE] Asha'Man strategy</Text>
+		</Row>
+
+		<!-- Unit: Outrider -->
+		<Row Tag="TXT_KEY_UNIT_OUTRIDER">
+			<Text>Outrider</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_OUTRIDER">
+			<Text>[TOWRITE] Outrider help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ANTIQUITY_OUTRIDER_TEXT">
+			<Text>[TOWRITE] Outrider pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_OUTRIDER_STRATEGY">
+			<Text>[TOWRITE] Outrider strategy</Text>
+		</Row>
 		
 		<!-- Unit: Great Leader -->
 		<Row Tag="TXT_KEY_UNIT_GREAT_LEADER">

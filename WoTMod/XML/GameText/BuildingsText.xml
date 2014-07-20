@@ -55,6 +55,20 @@
 			<Text>The city that builds Foregate increases [ICON_CITIZEN] Population by 4 immediately.</Text>
 		</Row>
 
+		<!-- Building: Black Tower -->
+		<Row Tag="TXT_KEY_BUILDING_BLACK_TOWER_DESC">
+			<Text>Black Tower</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_BLACK_TOWER_CIV">
+			<Text>[TOWRITE] Black Tower pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_BLACK_TOWER_HELP">
+			<Text>[TOWRITE] Black Tower help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_BLACK_TOWER_STRATEGY">
+			<Text>[TOWRITE] Black Tower strategy</Text>
+		</Row>
+
 		<!-- National Wonder: Harvest Festival -->
 		<Row Tag="TXT_KEY_BUILDING_HARVEST_FESTIVAL_DESC">
 			<Text>Harvest Festival</Text>

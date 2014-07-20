@@ -26,6 +26,12 @@
 			<DefaultBuilding>BUILDING_FOREGATE</DefaultBuilding>
 			<MaxGlobalInstances>1</MaxGlobalInstances>
 		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_BLACK_TOWER</Type>
+			<Description>TXT_KEY_BUILDINGCLASS_BLACK_TOWER</Description>
+			<DefaultBuilding>BUILDING_BLACK_TOWER</DefaultBuilding>
+			<MaxGlobalInstances>1</MaxGlobalInstances>
+		</Row>
 		<!-- National Wonders -->
 		<Row>
 			<Type>BUILDINGCLASS_HARVEST_FESTIVAL</Type>
@@ -158,6 +164,29 @@
 			<WonderSplashImage>WonderConceptStonehedge.dds</WonderSplashImage>
 			<WonderSplashAudio>AS2D_WONDER_SPEECH_STONEHENGE_01</WonderSplashAudio>
 			<PopulationChange>4</PopulationChange>
+		</Row>
+
+		<Row>
+			<Type>BUILDING_BLACK_TOWER</Type>
+			<BuildingClass>BUILDINGCLASS_BLACK_TOWER</BuildingClass>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<Cost>250</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_METALLURGY</PrereqTech>
+			<Description>TXT_KEY_BUILDING_BLACK_TOWER_DESC</Description>
+			<Civilopedia>TXT_KEY_BUILDING_BLACK_TOWER_CIV</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_BLACK_TOWER_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_BLACK_TOWER_HELP</Help>
+			<ArtDefineTag>COLESSEUM</ArtDefineTag>
+			<MinAreaSize>-1</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>2</DisplayPosition>
+			<ArtInfoCulturalVariation>true</ArtInfoCulturalVariation>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>23</PortraitIndex>
+			<WonderSplashImage>WonderConceptStonehedge.dds</WonderSplashImage>
+			<WonderSplashAudio>AS2D_WONDER_SPEECH_STONEHENGE_01</WonderSplashAudio>
 		</Row>
 
 		<Row>

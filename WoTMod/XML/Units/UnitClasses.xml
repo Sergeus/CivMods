@@ -82,5 +82,15 @@
 			<Description>TXT_KEY_UNIT_ROMAN_BALLISTA</Description>
 			<DefaultUnit>UNIT_ROMAN_BALLISTA</DefaultUnit>
 		</Row>
+		<Row>
+			<Type>UNITCLASS_ASHAMAN</Type>
+			<Description>TXT_KEY_UNIT_ASHAMAN</Description>
+			<DefaultUnit>UNIT_ASHAMAN</DefaultUnit>
+		</Row>
+		<Row>
+			<Type>UNITCLASS_OUTRIDER</Type>
+			<Description>TXT_KEY_UNIT_OUTRIDER</Description>
+			<DefaultUnit>UNIT_OUTRIDER</DefaultUnit>
+		</Row>
 	</UnitClasses>
 </GameData>
