@@ -1911,7 +1911,7 @@ void CvGlobals::uninit()
 	SAFE_DELETE(m_pTraits);
 	SAFE_DELETE(m_pReligions);
 	SAFE_DELETE(m_pBeliefs);
-#ifdef CUSTOM_NOTIFICATIONS
+#ifndef CUSTOM_NOTIFICATIONS
 	SAFE_DELETE(m_pNotifications);
 #endif // CUSTOM_NOTIFICATIONS
 
