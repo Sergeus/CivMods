@@ -3842,9 +3842,7 @@ bool CvUnit::canAirPatrol(const CvPlot* pPlot) const
 	return true;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Generic Mission Handling
-// ----------------------------------------------------------------
+#ifdef CUSTOM_MISSIONS
 bool CvUnit::CanHandleMission(int iMission, bool bTestVisible) const
 {
 	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
@@ -3889,6 +3887,7 @@ bool CvUnit::HandleMission(int iMission)
 
 	return false;
 }
+#endif // CUSTOM_MISSIONS
 
 //	--------------------------------------------------------------------------------
 bool CvUnit::IsRangeAttackIgnoreLOS() const
