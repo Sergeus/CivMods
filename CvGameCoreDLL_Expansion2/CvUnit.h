@@ -1240,11 +1240,10 @@ public:
 	void ChangeAdjacentEnemyDamage(int iChange);
 	void DoAdjacentEnemyDamage();
 	void DoSetupFaithIfReligious();
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Generic Mission Handling
-	// ----------------------------------------------------------------
+#ifdef CUSTOM_MISSIONS
 	bool CanHandleMission(int iMission, bool bTestVisible) const;
 	bool HandleMission(int iMission);
+#endif // CUSTOM_MISSIONS
 
 protected:
 	const MissionQueueNode* HeadMissionQueueNode() const;

@@ -14108,13 +14108,12 @@ int CvPlayer::GetEndTurnBlockingNotificationIndex(void) const
 	return m_iEndTurnBlockingNotificationIndex;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 int CvPlayer::GetEndTurnBlockingNotificationID() const
 {
 	return GetNotifications()->GetNotificationID(GetEndTurnBlockingNotificationIndex());
 }
+#endif // CUSTOM_NOTIFICATIONS
 
 //	---------------------------------------------------------------------------
 void CvPlayer::SetEndTurnBlocking(EndTurnBlockingTypes eBlockingType, int iNotificationIndex)

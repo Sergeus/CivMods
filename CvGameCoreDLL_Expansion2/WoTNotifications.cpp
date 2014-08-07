@@ -8,6 +8,7 @@
 #include "CvGlobals.h"
 #include "WoTNotifications.h"
 
+#ifdef CUSTOM_NOTIFICATIONS
 WoTNotificationInfo::WoTNotificationInfo()
 	: m_iID(-1),
 	m_iWelcomeness(0),
@@ -21,6 +22,7 @@ WoTNotificationInfo::WoTNotificationInfo()
 	m_bUrgent(false),
 	m_bExpiresAtTurnEnd(true),
 	m_bPlaysFXOnPlot(true),
+	m_bAlwaysDismissable(false),
 	m_strType(),
 	m_strMessage(),
 	m_strSummary(),
@@ -55,6 +57,7 @@ bool WoTNotificationInfo::CacheResults(Database::Results &kResults, CvDatabaseUt
 	m_bUrgent = kResults.GetBool("Urgent");
 	m_bExpiresAtTurnEnd = kResults.GetBool("ExpiresAtTurnEnd");
 	m_bPlaysFXOnPlot = kResults.GetBool("PlaysFXOnPlot");
+	m_bAlwaysDismissable = kResults.GetBool("AlwaysDismissable");
 
 	m_strType = kResults.GetText("Type");
 	m_strMessage = kResults.GetText("Message");
@@ -184,3 +187,9 @@ bool WoTNotificationInfo::IsPlaysFXOnPlot() const
 {
 	return m_bPlaysFXOnPlot;
 }
+
+bool WoTNotificationInfo::IsAlwaysDismissable() const
+{
+	return m_bAlwaysDismissable;
+}
+#endif // CUSTOM_NOTIFICATIONS

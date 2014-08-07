@@ -968,10 +968,10 @@ public:
 	EndTurnBlockingTypes GetEndTurnBlockingType(void) const;
 	int GetEndTurnBlockingNotificationIndex(void) const;
 	void SetEndTurnBlocking(EndTurnBlockingTypes eBlockingType, int iNotificationIndex);
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 	int GetEndTurnBlockingNotificationID() const;
+#endif // CUSTOM_NOTIFICATIONS
+	// SiegeMod
 	int GetFaithPerTurnFromTradeRoutes() const;
 
 	bool isTurnDone() const;

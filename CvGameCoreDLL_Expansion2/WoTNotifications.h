@@ -9,6 +9,7 @@
 #include "Database.h"
 #include <vector>
 
+#ifdef CUSTOM_NOTIFICATIONS
 class WoTNotificationInfo
 {
 public:
@@ -40,6 +41,7 @@ public:
 	bool IsDoubleCivIcon() const;
 	bool IsExpiresAtTurnEnd() const;
 	bool IsPlaysFXOnPlot() const;
+	bool IsAlwaysDismissable() const;
 
 	virtual bool CacheResults(Database::Results &kResults, CvDatabaseUtility& kUtility);
 
@@ -70,4 +72,6 @@ private:
 	bool m_bUrgent;
 	bool m_bExpiresAtTurnEnd;
 	bool m_bPlaysFXOnPlot;
+	bool m_bAlwaysDismissable;
 };
+#endif // CUSTOM_NOTIFICATIONS

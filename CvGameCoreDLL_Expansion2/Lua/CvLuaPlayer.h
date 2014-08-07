@@ -606,10 +606,9 @@ protected:
 
 	static int lGetEndTurnBlockingType(lua_State* L);
 	static int lGetEndTurnBlockingNotificationIndex(lua_State* L);
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 	static int lGetEndTurnBlockingNotificationID(lua_State* L);
+#endif // CUSTOM_NOTIFICATIONS
 	// ----------------------------------------------------------------
 	// SiegeMod Addition
 	// ----------------------------------------------------------------

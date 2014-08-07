@@ -124,10 +124,9 @@ class CvResolutionXMLEntries;
 class CvDeal;
 class CvNetMessageHandler;
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 class WoTNotificationInfo;
+#endif // CUSTOM_NOTIFICATIONS
 
 class CvDLLInterfaceIFaceBase;
 class ICvDLLDatabaseUtility1;
@@ -319,12 +318,11 @@ public:
 	std::vector<CvFeatureInfo*>& getFeatureInfo();
 	CvFeatureInfo* getFeatureInfo(FeatureTypes eFeatureNum);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 	int GetNumNotificationInfos();
 	std::vector<WoTNotificationInfo*>& GetNotificationInfo();
 	WoTNotificationInfo* GetNotificationInfo(int iNotificationID);
+#endif // CUSTOM_NOTIFICATIONS
 
 	int& getNumPlayableCivilizationInfos();
 	int& getNumAIPlayableCivilizationInfos();
@@ -7570,11 +7568,6 @@ protected:
 
 	std::vector<CvMultiUnitFormationInfo*> m_paMultiUnitFormationInfo;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	std::vector<WoTNotificationInfo*> m_pNotifications;
-
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;
 	CvCitySpecializationXMLEntries* m_pCitySpecializations;
 	CvTacticalMoveXMLEntries* m_pTacticalMoves;
@@ -7597,7 +7590,11 @@ protected:
 	CvLeagueProjectXMLEntries* m_pLeagueProjects;
 	CvLeagueProjectRewardXMLEntries* m_pLeagueProjectRewards;
 	CvResolutionXMLEntries* m_pResolutions;
-	//CvNotificationXMLEntries* m_pNotifications;
+#ifdef CUSTOM_NOTIFICATIONS
+	std::vector<WoTNotificationInfo*> m_pNotifications;
+#else
+	CvNotificationXMLEntries* m_pNotifications;
+#endif // CUSTOM_NOTIFICATIONS
 
 	//////////////////////////////////////////////////////////////////////////
 	// GLOBAL TYPES
