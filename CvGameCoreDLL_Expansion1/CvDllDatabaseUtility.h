@@ -16,10 +16,9 @@
 #include "CvGlobals.h"
 #include "ICvDLLDatabaseUtility.h"
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 #include "WoTNotifications.h"
+#endif
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //

@@ -388,19 +388,17 @@ int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMes
 	if(GC.getGame().isDebugMode())
 		return -1;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 	WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(eNotificationType);
+#endif // CUSTOM_NOTIFICATIONS
 
 	Notification newNotification;
 	newNotification.Clear();
 	newNotification.m_ePlayerID = m_ePlayer;
 	newNotification.m_eNotificationType = eNotificationType;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
+
 	if (strMessage != NULL)
 	{
 		newNotification.m_strMessage = strMessage;
@@ -418,6 +416,10 @@ int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMes
 	{
 		newNotification.m_strSummary = Localization::Lookup(pkInfo->GetSummary()).toUTF8();
 	}
+#else
+	newNotification.m_strMessage = strMessage;
+	newNotification.m_strSummary = strSummary;
+#endif // CUSTOM_NOTIFICATIONS
 
 	newNotification.m_iX = iX;
 	newNotification.m_iY = iY;
@@ -450,13 +452,13 @@ int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMes
 			GC.GetEngineUserInterface()->AddNotification(newNotification.m_iLookupIndex, newNotification.m_eNotificationType, newNotification.m_strMessage.c_str(), newNotification.m_strSummary.c_str(), newNotification.m_iGameDataIndex, newNotification.m_iExtraGameData, m_ePlayer, iX, iY);
 
 			// Don't show effect with production notification
-			// ----------------------------------------------------------------
-			// WoTMod Addition - Custom Notifications
-			// ----------------------------------------------------------------
 			if(eNotificationType != NOTIFICATION_PRODUCTION
+#ifdef CUSTOM_NOTIFICATIONS
 				// Play the animation if we have info and it says we should, or when we
 				// don't have info.
-				&& ((pkInfo && pkInfo->IsPlaysFXOnPlot()) || !pkInfo))
+				&& ((pkInfo && pkInfo->IsPlaysFXOnPlot()) || !pkInfo)
+#endif // CUSTOM_NOTIFICATIONS
+				)
 			{
 				CvPlot* pPlot = GC.getMap().plot(iX, iY);
 				if(pPlot != NULL)
@@ -590,9 +592,7 @@ bool CvNotifications::MayUserDismiss(int iLookupIndex)
 				}
 
 			default:
-				// ----------------------------------------------------------------
-				// WoTMod Addition - Custom Notifications
-				// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 				if (m_aNotifications[iIndex].m_eNotificationType >= NotificationTypes::NOTIFICATION_WOT_CUSTOM)
 				{
 					ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
@@ -613,6 +613,7 @@ bool CvNotifications::MayUserDismiss(int iLookupIndex)
 						}
 					}
 				}
+#endif // CUSTOM_NOTIFICATIONS
 
 
 				return true;
@@ -751,9 +752,7 @@ bool CvNotifications::GetEndTurnBlockedType(EndTurnBlockingTypes& eBlockingType,
 				break;
 
 			default:
-				// ----------------------------------------------------------------
-				// WoTMod Addition - Custom Notifications
-				// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 				WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(m_aNotifications[iIndex].m_eNotificationType);
 				if (pkInfo && pkInfo->IsBlocksEndTurn())
 				{
@@ -761,6 +760,7 @@ bool CvNotifications::GetEndTurnBlockedType(EndTurnBlockingTypes& eBlockingType,
 					iNotificationIndex = m_aNotifications[iIndex].m_iLookupIndex;
 					return true;
 				}
+#endif // CUSTOM_NOTIFICATIONS
 
 				// these notifications don't block, so don't return a blocking type
 				break;
@@ -805,10 +805,11 @@ CvString CvNotifications::GetNotificationSummary(int iZeroBasedIndex)
 int CvNotifications::GetNotificationID(int iZeroBasedIndex)  // ignores begin/end values
 {
 	int iRealIndex = (m_iNotificationsBeginIndex + iZeroBasedIndex) % m_aNotifications.size();
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 	return m_aNotifications[iRealIndex].m_eNotificationType;
+#else
+	return m_aNotifications[iRealIndex].m_iLookupIndex;
+#endif // CUSTOM_NOTIFICATIONS
 }
 
 int CvNotifications::GetNotificationTurn(int iZeroBasedIndex)
@@ -1053,13 +1054,12 @@ void CvNotifications::Activate(Notification& notification)
 
 	default:	// Default behavior is to move the camera to the X,Y passed in
 	{
-		// ----------------------------------------------------------------
-		// WoTMod Addition - Custom Notifications
-		// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 		WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(notification.m_eNotificationType);
 
 		if ((pkInfo && pkInfo->IsPlaysFXOnPlot()) || !pkInfo)
 		{
+#endif // CUSTOM_NOTIFICATIONS
 			CvPlot* pPlot = GC.getMap().plot(notification.m_iX, notification.m_iY);
 			if(pPlot)
 			{
@@ -1068,6 +1068,7 @@ void CvNotifications::Activate(Notification& notification)
 				gDLL->getInterfaceIFace()->lookAt(pDllPlot.get(), CAMERALOOKAT_NORMAL);
 				gDLL->GameplayDoFX(pDllPlot.get());
 			}
+#ifdef CUSTOM_NOTIFICATIONS
 		}
 
 		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
@@ -1088,6 +1089,7 @@ void CvNotifications::Activate(Notification& notification)
 			bool bResult;
 			LuaSupport::CallHook(pkScriptSystem, "PlayerNotificationActivated", args.get(), bResult);
 		}
+#endif // CUSTOM_NOTIFICATIONS
 	}
 	break;
 	}
@@ -1682,14 +1684,13 @@ bool CvNotifications::IsNotificationEndOfTurnExpired(int iIndex)
 		break;
 
 	default:
-		// ----------------------------------------------------------------
-		// WoTMod Addition - Custom Notifications
-		// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 		WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(m_aNotifications[iIndex].m_eNotificationType);
 		if (pkInfo != NULL)
 		{
 			return pkInfo->IsExpiresAtTurnEnd();
 		}
+#endif // CUSTOM_NOTIFICATIONS
 		return true;
 		break;
 	}
