@@ -1218,6 +1218,7 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 			return true;
 		}
 	}
+<<<<<<< HEAD
 	else if (iMission == CvTypes::getMISSION_CHANGE_ADMIRAL_PORT())
 	{
 		if (hUnit->canChangeAdmiralPort(pPlot))
@@ -1228,6 +1229,9 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 	// ----------------------------------------------------------------
 	// WoTMod Addition - Custom Generic Mission Handling
 	// ----------------------------------------------------------------
+=======
+#ifdef CUSTOM_MISSIONS
+>>>>>>> CustomMissionDLL
 	else
 	{
 		if (hUnit->CanHandleMission(iMission, bTestVisible))
@@ -1235,6 +1239,7 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 			return true;
 		}
 	}
+#endif // CUSTOM MISSIONS
 
 	return false;
 }
@@ -1689,9 +1694,7 @@ void CvUnitMission::StartMission(UnitHandle hUnit)
 					bAction = true;
 				}
 			}
-			// ----------------------------------------------------------------
-			// WoTMod Addition - Custom Generic Mission Handling
-			// ----------------------------------------------------------------
+#ifdef CUSTOM_MISSIONS
 			else
 			{
 				if (hUnit->HandleMission(pkQueueData->eMissionType))
@@ -1699,6 +1702,7 @@ void CvUnitMission::StartMission(UnitHandle hUnit)
 					bDelete = true;
 				}
 			}
+#endif // CUSTOM_MISSIONS
 		}
 	}
 
