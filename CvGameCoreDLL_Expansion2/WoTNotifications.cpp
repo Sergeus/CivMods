@@ -8,6 +8,7 @@
 #include "CvGlobals.h"
 #include "WoTNotifications.h"
 
+#ifdef CUSTOM_NOTIFICATIONS
 WoTNotificationInfo::WoTNotificationInfo()
 	: m_iID(-1),
 	m_iWelcomeness(0),
@@ -191,3 +192,4 @@ bool WoTNotificationInfo::IsAlwaysDismissable() const
 {
 	return m_bAlwaysDismissable;
 }
+#endif // CUSTOM_NOTIFICATIONS

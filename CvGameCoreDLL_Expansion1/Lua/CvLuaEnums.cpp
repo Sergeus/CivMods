@@ -438,22 +438,22 @@ int CvLuaEnums::pRegister(lua_State* L)
 	RegisterEnum(NOTIFICATION_LIBERATED_MAJOR_CITY);
 	RegisterEnum(NOTIFICATION_RESURRECTED_MAJOR_CIV);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 	RegisterEnum(NOTIFICATION_WOT_CUSTOM);
 
 	RegisterEnum(NUM_NOTIFICATION_TYPES);
-	//CvNotificationXMLEntries* pkNotifications = GC.GetNotificationEntries();
-	//if (pkNotifications)
-	//{
-	//	for (int i = 0; i < pkNotifications->GetNumNotifications(); ++i)
-	//	{
-	//		CvNotificationEntry* pkEntry = pkNotifications->GetEntry(i);		
-	//		if (pkEntry)
-	//			pRegisterEnum(L, pkEntry->GetTypeName(), FString::Hash(pkEntry->GetTypeName()));
-	//	}
-	//}
+#else
+	CvNotificationXMLEntries* pkNotifications = GC.GetNotificationEntries();
+	if (pkNotifications)
+	{
+		for (int i = 0; i < pkNotifications->GetNumNotifications(); ++i)
+		{
+			CvNotificationEntry* pkEntry = pkNotifications->GetEntry(i);		
+			if (pkEntry)
+				pRegisterEnum(L, pkEntry->GetTypeName(), FString::Hash(pkEntry->GetTypeName()));
+		}
+	}
+#endif // CUSTOM_NOTIFICATIONS
 	EnumEnd(L);
 
 	// ActivityTypes

@@ -765,10 +765,9 @@ enum NotificationTypes
 	NOTIFICATION_CITY_REVOLT_POSSIBLE					,
 	NOTIFICATION_CITY_REVOLT							,
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#ifdef CUSTOM_NOTIFICATIONS
 	NOTIFICATION_WOT_CUSTOM,
+#endif // CUSTOM_NOTIFICATIONS
 
 	NUM_NOTIFICATION_TYPES
 };

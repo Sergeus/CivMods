@@ -1218,7 +1218,6 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 			return true;
 		}
 	}
-<<<<<<< HEAD
 	else if (iMission == CvTypes::getMISSION_CHANGE_ADMIRAL_PORT())
 	{
 		if (hUnit->canChangeAdmiralPort(pPlot))
@@ -1226,12 +1225,7 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 			return true;
 		}
 	}
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Generic Mission Handling
-	// ----------------------------------------------------------------
-=======
 #ifdef CUSTOM_MISSIONS
->>>>>>> CustomMissionDLL
 	else
 	{
 		if (hUnit->CanHandleMission(iMission, bTestVisible))
