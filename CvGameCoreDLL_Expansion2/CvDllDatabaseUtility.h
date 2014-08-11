@@ -16,7 +16,7 @@
 #include "CvGlobals.h"
 #include "ICvDLLDatabaseUtility.h"
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 #include "WoTNotifications.h"
 #endif // CUSTOM_NOTIFICATIONS
 

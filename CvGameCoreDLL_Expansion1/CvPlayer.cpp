@@ -14108,7 +14108,7 @@ int CvPlayer::GetEndTurnBlockingNotificationIndex(void) const
 	return m_iEndTurnBlockingNotificationIndex;
 }
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 int CvPlayer::GetEndTurnBlockingNotificationID() const
 {
 	return GetNotifications()->GetNotificationID(GetEndTurnBlockingNotificationIndex());
