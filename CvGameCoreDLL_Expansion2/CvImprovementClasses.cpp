@@ -110,15 +110,14 @@ CvImprovementEntry::CvImprovementEntry(void):
 	m_bAllowsWalkWater(false),
 	m_bCreatedByGreatPerson(false),
 	m_bSpecificCivRequired(false),
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_bExplodesOnEnemyEnterHex(false),
 	m_bExplosionDestroyedAfter(false),
 	m_bExplosionPillagedAfter(false),
 	m_iExplosionDamageToThisHex(0),
 	m_iExplosionDamageToOuterHexes(0),
 	m_iExplosionDamageRange(-1),
+#endif // SIEGEMOD
 
 	m_eImprovementUsageType(IMPROVEMENTUSAGE_BASIC),
 	m_eRequiredCivilization(NO_CIVILIZATION),
@@ -245,9 +244,7 @@ bool CvImprovementEntry::CacheResults(Database::Results& kResults, CvDatabaseUti
 	m_iResourceExtractionMod = kResults.GetInt("ResourceExtractionMod");
 	m_iLuxuryCopiesSiphonedFromMinor = kResults.GetInt("LuxuryCopiesSiphonedFromMinor");
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_bExplodesOnEnemyEnterHex = kResults.GetBool("ExplodesOnEnemyEnterHex");
 	m_bExplosionDestroyedAfter = kResults.GetBool("ExplosionDestroyedAfter");
 	m_bExplosionPillagedAfter = kResults.GetBool("ExplosionPillagedAfter");
@@ -255,6 +252,7 @@ bool CvImprovementEntry::CacheResults(Database::Results& kResults, CvDatabaseUti
 	m_iExplosionDamageToThisHex = kResults.GetInt("ExplosionDamageToThisHex");
 	m_iExplosionDamageToOuterHexes = kResults.GetInt("ExplosionDamageToOuterHexes");
 	m_iExplosionDamageRange = kResults.GetInt("ExplosionDamageRange");
+#endif // SIEGEMOD
 
 	const char* szCivilizationType = kResults.GetText("CivilizationType");
 	m_eRequiredCivilization = (CivilizationTypes)GC.getInfoTypeForString(szCivilizationType, true);
@@ -494,9 +492,7 @@ bool CvImprovementEntry::CacheResults(Database::Results& kResults, CvDatabaseUti
 	return true;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 bool CvImprovementEntry::IsExplodesOnEnemyEnterHex() const
 {
 	return m_bExplodesOnEnemyEnterHex;
@@ -521,6 +517,7 @@ int CvImprovementEntry::GetExplosionDamageRange() const
 {
 	return m_iExplosionDamageRange;
 }
+#endif // SIEGEMOD
 
 /// The gold maintenance cost
 int CvImprovementEntry::GetGoldMaintenance() const

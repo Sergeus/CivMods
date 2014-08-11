@@ -292,9 +292,7 @@ public:
 	int GetBuildingClassYieldChange(int i, int j) const;
 	int GetBuildingClassHappiness(int i) const;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int GetTradeRouteYieldChange(int i, int j) const;
 	int* GetTradeRouteYieldChangeArray(int i) const;
 	int GetReligionMajorityPressureModifier() const;
@@ -302,6 +300,7 @@ public:
 	bool IsFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const;
 	bool IsGivesFreePromotions() const;
 	bool IsEndsWars() const;
+#endif // SIEGEMOD
 
 	CvThemingBonusInfo *GetThemingBonusInfo(int i) const;
 	int GetNumThemingBonuses() const {return m_iNumThemingBonuses;};
@@ -498,15 +497,14 @@ private:
 	int** m_ppiBuildingClassYieldChanges;
 	int* m_paiBuildingClassHappiness;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int** m_ppaiTradeRouteYieldChanges;
 	std::multimap<int, int> m_FreePromotionUnitCombats;
 	int m_iReligionMajorityPressureModifier;
 	bool m_bGivesFreePromotions;
 	bool m_bEndsWars;
 	int m_iUnitPurchaseCostModifier;
+#endif // SIEGEMOD
 
 	CvThemingBonusInfo* m_paThemingBonusInfo;
 	int m_iNumThemingBonuses;

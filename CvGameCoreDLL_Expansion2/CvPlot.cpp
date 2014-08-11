@@ -6847,9 +6847,7 @@ void CvPlot::changeRiverCrossingCount(int iChange)
 	CvAssert(getRiverCrossingCount() >= 0);
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 void CvPlot::DoImprovementExplosion()
 {
 	CvImprovementEntry* pInfo = GC.getImprovementInfo(getImprovementType());
@@ -6944,7 +6942,7 @@ void CvPlot::DoImprovementExplosion()
 		SetImprovementPillaged(true);
 	}
 }
-
+#endif // SIEGEMOD
 
 //	--------------------------------------------------------------------------------
 short* CvPlot::getYield()
@@ -7516,15 +7514,14 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay)
 			{
 				iYield += pWorkingCity->GetTerrainExtraYield(getTerrainType(), eYield);
 			}
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
+#if SIEGEMOD
 			// Extra yield from traits on this terrain
 			int iExtraYield = GET_PLAYER(ePlayer).GetPlayerTraits()->GetTerrainYieldChange(getTerrainType(), eYield);
 			if (iExtraYield > 0)
 			{
 				iYield += iExtraYield;
 			}
+#endif // SIEGEMOD
 		}
 
 		ResourceTypes eResource = getResourceType(GET_PLAYER(ePlayer).getTeam());

@@ -412,10 +412,12 @@ public:
 	void SetUprisingCounter(int iValue);
 	void ChangeUprisingCounter(int iChange);
 	void DoResetUprisingCounter(bool bFirstTime);
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+
+#if SIEGEMOD
 	void DoUprising(bool bCausedByTrait = false, PlayerTypes eCausePlayer = NO_PLAYER);
+#else
+	void DoUprising();
+#endif // SIEGEMOD
 
 	void DoUpdateCityRevolts();
 	int GetCityRevoltCounter() const;
@@ -971,8 +973,10 @@ public:
 #if CUSTOM_NOTIFICATIONS
 	int GetEndTurnBlockingNotificationID() const;
 #endif // CUSTOM_NOTIFICATIONS
-	// SiegeMod
+
+#if SIEGEMOD
 	int GetFaithPerTurnFromTradeRoutes() const;
+#endif // SIEGEMOD
 
 	bool isTurnDone() const;
 	bool isLocalPlayer() const;

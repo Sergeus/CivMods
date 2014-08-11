@@ -119,13 +119,12 @@ public:
 	int GetTradeReligionModifier() const;
 	int GetTradeBuildingModifier() const;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int GetExtraUnitsWhenTrained() const;
 	int GetReqTradeRoutesForPeace() const;
 	int GetReligionTakeoverTurns() const;
 	int GetWarRebellionInterval() const;
+#endif // SIEGEMOD
 
 	TechTypes GetFreeUnitPrereqTech() const;
 	ImprovementTypes GetCombatBonusImprovement() const;
@@ -152,15 +151,14 @@ public:
 	bool IsRiverTradeRoad() const;
 	bool IsAngerFreeIntrusionOfCityStates() const;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	bool IsTradeStopsWars() const;
 	bool IsPuppetsReligiousFollowers() const;
 	bool IsCannotBeDeclaredWarOn() const;
 	bool IsWarCausesRebels() const;
 	bool IsCanPurchaseReligiousUnits() const;
 	bool IsCannotFoundPantheon() const;
+#endif // SIEGEMOD
 
 	const char* getShortDescription() const;
 	void setShortDescription(const char* szVal);
@@ -184,10 +182,9 @@ public:
 	int GetUnimprovedFeatureYieldChanges(FeatureTypes eIndex1, YieldTypes eIndex2) const;
 	FreeResourceXCities GetFreeResourceXCities(ResourceTypes eResource) const;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int GetTerrainYieldChanges(TerrainTypes eTerrain, YieldTypes eYield) const;
+#endif // SIEGEMOD
 
 	bool IsFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const;
 	bool IsObsoleteByTech(TeamTypes eTeam);
@@ -266,13 +263,12 @@ protected:
 	int m_iTradeReligionModifier;
 	int m_iTradeBuildingModifier;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int m_iReqTradeRoutesForPeace;
 	int m_iReligionTakeOverTurns;
 	int m_iExtraUnitsWhenTrained;
 	int m_iWarRebellionInterval;
+#endif // SIEGEMOD
 
 	TechTypes m_eFreeUnitPrereqTech;
 	ImprovementTypes m_eCombatBonusImprovement;
@@ -299,15 +295,14 @@ protected:
 	bool m_bRiverTradeRoad;
 	bool m_bAngerFreeIntrusionOfCityStates;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	bool m_bTradeStopsWars;
 	bool m_bPuppetsReligiousFollowers;
 	bool m_bCannotBeDeclaredWarOn;
 	bool m_bWarCausesRebels;
 	bool m_bCanPurchaseReligiousUnits;
 	bool m_bCannotFoundPantheon;
+#endif // SIEGEMOD
 
 	CvString m_strShortDescription;
 
@@ -327,10 +322,9 @@ protected:
 	int** m_ppiSpecialistYieldChanges;
 	int** m_ppiUnimprovedFeatureYieldChanges;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int** m_ppiTerrainYieldChanges;
+#endif
 
 	std::multimap<int, int> m_FreePromotionUnitCombats;
 	std::vector<FreeResourceXCities> m_aFreeResourceXCities;
@@ -775,10 +769,9 @@ public:
 	int GetUnimprovedFeatureYieldChange(FeatureTypes eFeature, YieldTypes eYield) const;
 	FreeResourceXCities GetFreeResourceXCities(ResourceTypes eResource) const;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int GetTerrainYieldChange(TerrainTypes eTerrain, YieldTypes eYield) const;
+#endif // SIEGEMOD
 
 	bool HasFreePromotionUnitCombat(const int promotionID, const int unitCombatID) const;
 
@@ -808,9 +801,7 @@ public:
 
 	bool NoTrain(UnitClassTypes eUnitClassType);
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int GetExtraUnitsWhenTrained() const
 	{
 		return m_iExtraUnitsWhenTrained;
@@ -851,6 +842,7 @@ public:
 	{
 		return m_bCannotFoundPantheon;
 	}
+#endif // SIEGEMOD
 
 	// Maya calendar routines
 	bool IsUsingMayaCalendar() const;
@@ -942,13 +934,12 @@ private:
 	int m_iTradeBuildingModifier;
 	// Saved
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int m_iExtraUnitsWhenTrained;
 	int m_iReqTradeRoutesForPeace;
 	int m_iReligionTakeoverTurns;
 	int m_iWarRebellionInterval;
+#endif // SIEGEMOD
 
 	bool m_bFightWellDamaged;
 	bool m_bMoveFriendlyWoodsAsRoad;
@@ -970,15 +961,14 @@ private:
 	bool m_bRiverTradeRoad;
 	bool m_bAngerFreeIntrusionOfCityStates;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	bool m_bTradeStopsWars;
 	bool m_bPuppetsReligiousFollowers;
 	bool m_bCannotBeDeclaredWarOn;
 	bool m_bWarCausesRebels;
 	bool m_bCanPurchaseReligiousUnits;
 	bool m_bCannotFoundPantheon;
+#endif // SIEGEMOD
 
 	UnitTypes m_eCampGuardType;
 	unsigned int m_uiFreeUnitIndex;
@@ -1016,10 +1006,9 @@ private:
 	std::vector< Firaxis::Array<int, NUM_YIELD_TYPES > > m_ppaaiSpecialistYieldChange;
 	std::vector< Firaxis::Array<int, NUM_YIELD_TYPES > > m_ppaaiUnimprovedFeatureYieldChange;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	std::vector< Firaxis::Array<int, NUM_YIELD_TYPES > > m_ppaaiTerrainYieldChange;
+#endif // SIEGEMOD
 
 	std::vector<FreeResourceXCities> m_aFreeResourceXCities;
 };

@@ -280,10 +280,9 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(HasReligionInMostCities);
 	Method(DoesUnitPassFaithPurchaseCheck);
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	Method(GetFaithPerTurnFromTradeRoutes);
+#endif // SIEGEMOD
 
 	// Happiness
 
@@ -6664,13 +6663,13 @@ int CvLuaPlayer::lGetEndTurnBlockingNotificationID(lua_State* L)
 	return BasicLuaMethod(L, &CvPlayerAI::GetEndTurnBlockingNotificationID);
 }
 #endif // CUSTOM_NOTIFICATIONS
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+
+#if SIEGEMOD
 int CvLuaPlayer::lGetFaithPerTurnFromTradeRoutes(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlayerAI::GetFaithPerTurnFromTradeRoutes);
 }
+#endif // SIEGEMOD
 
 //------------------------------------------------------------------------------
 //bool isStrike();
@@ -8351,12 +8350,19 @@ int CvLuaPlayer::lDoForceDenounce(lua_State* L)
 	CvPlayerAI* pkPlayer = GetInstance(L);
 	PlayerTypes eOtherPlayer = (PlayerTypes) lua_tointeger(L, 2);
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	CvDeal* pDeal = GC.getGame().GetGameDeals()->GetTempDeal();
 
 	pkPlayer->GetDiplomacyAI()->DoSendStatementToPlayer(eOtherPlayer, DIPLO_STATEMENT_DENOUNCE, 0, pDeal);
+#else
+	pkPlayer->GetDiplomacyAI()->DoDenouncePlayer(eOtherPlayer);
+	// Show leader if active player is being denounced
+	if(GC.getGame().getActivePlayer() == eOtherPlayer)
+	{
+		const char* strText = pkPlayer->GetDiplomacyAI()->GetDiploStringForMessage(DIPLO_MESSAGE_REPEAT_NO);
+		gDLL->GameplayDiplomacyAILeaderMessage(pkPlayer->GetID(), DIPLO_UI_STATE_BLANK_DISCUSSION_MEAN_AI, strText, LEADERHEAD_ANIM_NEGATIVE);
+	}
+#endif // SIEGEMOD
 
 	return 1;
 }

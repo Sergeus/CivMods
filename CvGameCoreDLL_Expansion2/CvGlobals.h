@@ -7374,9 +7374,7 @@ public:
 		return m_fLEAGUE_PROJECT_REWARD_TIER_2_THRESHOLD;
 	}
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	inline int getTRADE_ROUTE_DURATION_TURNS()
 	{
 		return m_iTRADE_ROUTE_DURATION_TURNS;
@@ -7385,6 +7383,7 @@ public:
 	{
 		return m_iHURRY_GOLD_COST_PER_FAITH;
 	}
+#endif // SIEGEMOD
 
 	////////////// END DEFINES //////////////////
 
@@ -9168,11 +9167,10 @@ protected:
 	int m_iCOMBAT_CAPTURE_MAX_CHANCE;
 	int m_iCOMBAT_CAPTURE_RATIO_MULTIPLIER;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int m_iTRADE_ROUTE_DURATION_TURNS;
 	int m_iHURRY_GOLD_COST_PER_FAITH;
+#endif // SIEGEMOD
 
 	// -- floats --
 

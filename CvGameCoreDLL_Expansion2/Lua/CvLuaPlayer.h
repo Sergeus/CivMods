@@ -609,10 +609,10 @@ protected:
 #if CUSTOM_NOTIFICATIONS
 	static int lGetEndTurnBlockingNotificationID(lua_State* L);
 #endif // CUSTOM_NOTIFICATIONS
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+
+#if SIEGEMOD
 	static int lGetFaithPerTurnFromTradeRoutes(lua_State* L);
+#endif // SIEGEMOD
 
 	static int lIsStrike(lua_State* L);
 

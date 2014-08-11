@@ -83,13 +83,12 @@ CvTraitEntry::CvTraitEntry() :
 	m_iUniqueLuxuryCities(0),
 	m_iUniqueLuxuryQuantity(0),
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_iExtraUnitsWhenTrained(0),
 	m_iReqTradeRoutesForPeace(-1),
 	m_iReligionTakeOverTurns(-1),
 	m_iWarRebellionInterval(0),
+#endif // SIEGEMOD
 
 	m_eFreeUnitPrereqTech(NO_TECH),
 	m_eFreeBuilding(NO_BUILDING),
@@ -113,14 +112,13 @@ CvTraitEntry::CvTraitEntry() :
 	m_bTechFromCityConquer(false),
 	m_bUniqueLuxuryRequiresNewArea(false),
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_bTradeStopsWars(false),
 	m_bPuppetsReligiousFollowers(false),
 	m_bCannotBeDeclaredWarOn(false),
 	m_bWarCausesRebels(false),
 	m_bCannotFoundPantheon(false),
+#endif // SIEGEMOD
 
 	m_paiExtraYieldThreshold(NULL),
 	m_paiYieldChange(NULL),
@@ -663,9 +661,7 @@ bool CvTraitEntry::IsAngerFreeIntrusionOfCityStates() const
 	return m_bAngerFreeIntrusionOfCityStates;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 bool CvTraitEntry::IsPuppetsReligiousFollowers() const
 {
 	return m_bPuppetsReligiousFollowers;
@@ -706,6 +702,7 @@ int CvTraitEntry::GetWarRebellionInterval() const
 {
 	return m_iWarRebellionInterval;
 }
+#endif // SIEGEMOD
 
 /// Accessor:: Get brief text description
 const char* CvTraitEntry::getShortDescription() const
@@ -775,9 +772,7 @@ int CvTraitEntry::GetResourceQuantityModifier(int i) const
 	return m_piResourceQuantityModifiers ? m_piResourceQuantityModifiers[i] : -1;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 int CvTraitEntry::GetTerrainYieldChanges(TerrainTypes eTerrain, YieldTypes eYield) const
 {
 	CvAssertMsg(eIndex1 < GC.getNumTerrainInfos(), "Index out of bounds");
@@ -786,6 +781,7 @@ int CvTraitEntry::GetTerrainYieldChanges(TerrainTypes eTerrain, YieldTypes eYiel
 	CvAssertMsg(eIndex2 > -1, "Index out of bounds");
 	return m_ppiTerrainYieldChanges ? m_ppiTerrainYieldChanges[eTerrain][eYield] : 0;
 }
+#endif // SIEGEMOD
 
 /// Accessor:: Extra yield from an improvement
 int CvTraitEntry::GetImprovementYieldChanges(ImprovementTypes eIndex1, YieldTypes eIndex2) const
@@ -991,13 +987,12 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 	m_iTradeReligionModifier				= kResults.GetInt("TradeReligionModifier");
 	m_iTradeBuildingModifier				= kResults.GetInt("TradeBuildingModifier");
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_iReqTradeRoutesForPeace				= kResults.GetInt("ReqTradeRoutesForPeace");
 	m_iReligionTakeOverTurns				= kResults.GetInt("ReligionTakeoverTurns");
 	m_iExtraUnitsWhenTrained				= kResults.GetInt("ExtraUnitsWhenTrained");
 	m_iWarRebellionInterval					= kResults.GetInt("WarRebellionInterval");
+#endif // SIEGEMOD
 
 	const char* szTextVal = NULL;
 	szTextVal = kResults.GetText("FreeUnit");
@@ -1062,15 +1057,14 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 	m_bRiverTradeRoad = kResults.GetBool("RiverTradeRoad");
 	m_bAngerFreeIntrusionOfCityStates = kResults.GetBool("AngerFreeIntrusionOfCityStates");
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_bTradeStopsWars = kResults.GetBool("TradeStopsWars");
 	m_bPuppetsReligiousFollowers = kResults.GetBool("PuppetsReligiousFollowers");
 	m_bCannotBeDeclaredWarOn = kResults.GetBool("CannotBeDeclaredWarOn");
 	m_bWarCausesRebels = kResults.GetBool("WarCausesRebels");
 	m_bCanPurchaseReligiousUnits = kResults.GetBool("CanPurchaseReligiousUnits");
 	m_bCannotFoundPantheon = kResults.GetBool("CannotFoundPantheon");
+#endif // SIEGEMOD
 
 	//Arrays
 	const char* szTraitType = GetType();
@@ -1191,9 +1185,7 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 		pResults->Reset();
 	}
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	// TerrainYieldChanges
 	{
 		kUtility.Initialize2DArray(m_ppiTerrainYieldChanges, "Terrains", "Yields");
@@ -1217,6 +1209,7 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 			m_ppiTerrainYieldChanges[TerrainID][YieldID] = yield;
 		}
 	}
+#endif // SIEGEMOD
 
 	//ImprovementYieldChanges
 	{
@@ -1499,10 +1492,9 @@ void CvPlayerTraits::InitPlayerTraits()
 			m_iTradeReligionModifier += trait->GetTradeReligionModifier();
 			m_iTradeBuildingModifier += trait->GetTradeBuildingModifier();
 
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
+#if SIEGEMOD
 			m_iExtraUnitsWhenTrained += trait->GetExtraUnitsWhenTrained();
+#endif // SIEGEMOD
 
 			if(trait->IsFightWellDamaged())
 			{
@@ -1584,9 +1576,7 @@ void CvPlayerTraits::InitPlayerTraits()
 				m_bAngerFreeIntrusionOfCityStates = true;
 			}
 
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
+#if SIEGEMOD
 			if (trait->IsTradeStopsWars())
 			{
 				m_bTradeStopsWars = true;
@@ -1614,6 +1604,7 @@ void CvPlayerTraits::InitPlayerTraits()
 			{
 				m_bCannotFoundPantheon = true;
 			}
+#endif // SIEGEMOD
 
 			for(int iYield = 0; iYield < NUM_YIELD_TYPES; iYield++)
 			{
@@ -1639,9 +1630,7 @@ void CvPlayerTraits::InitPlayerTraits()
 					}
 				}
 
-				// ----------------------------------------------------------------
-				// SiegeMod Addition
-				// ----------------------------------------------------------------
+#if SIEGEMOD
 				for (int iTerrainLoop = 0; iTerrainLoop < GC.getNumTerrainInfos(); iTerrainLoop++)
 				{
 					int iChange = trait->GetTerrainYieldChanges((TerrainTypes)iTerrainLoop, (YieldTypes)iYield);
@@ -1652,6 +1641,7 @@ void CvPlayerTraits::InitPlayerTraits()
 						m_ppaaiTerrainYieldChange[iTerrainLoop] = yields;
 					}
 				}
+#endif // SIEGEMOD
 
 				for(int iImprovementLoop = 0; iImprovementLoop < GC.getNumImprovementInfos(); iImprovementLoop++)
 				{
@@ -1731,10 +1721,9 @@ void CvPlayerTraits::Uninit()
 	m_ppaaiSpecialistYieldChange.clear();
 	m_ppaaiUnimprovedFeatureYieldChange.clear();
 	m_aFreeResourceXCities.clear();
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_ppaaiTerrainYieldChange.clear();
+#endif // SIEGEMOD
 }
 
 /// Reset data members
@@ -1807,13 +1796,12 @@ void CvPlayerTraits::Reset()
 	m_iTradeReligionModifier = 0;
 	m_iTradeBuildingModifier = 0;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_iExtraUnitsWhenTrained = 0;
 	m_iReqTradeRoutesForPeace = -1;
 	m_iReligionTakeoverTurns = -1;
 	m_iWarRebellionInterval = -1;
+#endif // SIEGEMOD
 
 	m_bFightWellDamaged = false;
 	m_bMoveFriendlyWoodsAsRoad = false;
@@ -1835,22 +1823,20 @@ void CvPlayerTraits::Reset()
 	m_bRiverTradeRoad = false;
 	m_bAngerFreeIntrusionOfCityStates = false;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_bTradeStopsWars = false;
 	m_bPuppetsReligiousFollowers = false;
 	m_bCannotBeDeclaredWarOn = false;
 	m_bWarCausesRebels = false;
+#endif // SIEGEMOD
 
 	m_eCampGuardType = NO_UNIT;
 	m_eCombatBonusImprovement = NO_IMPROVEMENT;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_ppaaiTerrainYieldChange.clear();
 	m_ppaaiTerrainYieldChange.resize(GC.getNumTerrainInfos());
+#endif // SIEGEMOD
 
 	m_ppaaiImprovementYieldChange.clear();
 	m_ppaaiImprovementYieldChange.resize(GC.getNumImprovementInfos());
@@ -1887,13 +1873,12 @@ void CvPlayerTraits::Reset()
 		{
 			m_ppaaiUnimprovedFeatureYieldChange[iFeature] = yield;
 		}
-		// ----------------------------------------------------------------
-		// SiegeMod Addition
-		// ----------------------------------------------------------------
+#if SIEGEMOD
 		for (int iTerrain = 0; iTerrain < GC.getNumTerrainInfos(); iTerrain++)
 		{
 			m_ppaaiTerrainYieldChange[iTerrain] = yield;
 		}
+#endif // SIEGEMOD
 	}
 
 	for(int iTerrain = 0; iTerrain < GC.getNumTerrainInfos(); iTerrain++)
@@ -2036,9 +2021,7 @@ int CvPlayerTraits::GetMaintenanceModifierUnitCombat(const int unitCombatID) con
 	return m_paiMaintenanceModifierUnitCombat[unitCombatID];
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 int CvPlayerTraits::GetTerrainYieldChange(TerrainTypes eTerrain, YieldTypes eYield) const
 {
 	CvAssertMsg(eTerrain < GC.getNumTerrainInfos(),  "Invalid eTerrain parameter in call to CvPlayerTraits::GetTerrainYieldChange()");
@@ -2051,6 +2034,7 @@ int CvPlayerTraits::GetTerrainYieldChange(TerrainTypes eTerrain, YieldTypes eYie
 
 	return m_ppaaiTerrainYieldChange[(int)eTerrain][(int)eYield];
 }
+#endif // SIEGEMOD
 
 /// Extra yield from this improvement
 int CvPlayerTraits::GetImprovementYieldChange(ImprovementTypes eImprovement, YieldTypes eYield) const
@@ -2885,13 +2869,12 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 		m_iTradeBuildingModifier = 0;
 	}
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	kStream >> m_iExtraUnitsWhenTrained;
 	kStream >> m_iReqTradeRoutesForPeace;
 	kStream >> m_iReligionTakeoverTurns;
 	kStream >> m_iWarRebellionInterval;
+#endif // SIEGEMOD
 
 	kStream >> m_bFightWellDamaged;
 	kStream >> m_bMoveFriendlyWoodsAsRoad;
@@ -2918,15 +2901,14 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 
 	kStream >> m_bMayaCalendarBonuses;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	kStream >> m_bTradeStopsWars;
 	kStream >> m_bPuppetsReligiousFollowers;
 	kStream >> m_bCannotBeDeclaredWarOn;
 	kStream >> m_bWarCausesRebels;
 	kStream >> m_bCanPurchaseReligiousUnits;
 	kStream >> m_bCannotFoundPantheon;
+#endif // SIEGEMOD
 
 	kStream >> m_iBaktunPreviousTurn;
 
@@ -3064,10 +3046,9 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 
 	kStream >> m_ppaaiUnimprovedFeatureYieldChange;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	kStream >> m_ppaaiTerrainYieldChange;
+#endif // SIEGEMOD
 
 	if (uiVersion >= 11)
 	{
@@ -3163,13 +3144,12 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	kStream << m_iTradeReligionModifier;
 	kStream << m_iTradeBuildingModifier;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	kStream << m_iExtraUnitsWhenTrained;
 	kStream << m_iReqTradeRoutesForPeace;
 	kStream << m_iReligionTakeoverTurns;
 	kStream << m_iWarRebellionInterval;
+#endif // SIEGEMOD
 
 	kStream << m_bFightWellDamaged;
 	kStream << m_bMoveFriendlyWoodsAsRoad;
@@ -3186,15 +3166,14 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	kStream << m_bCrossesMountainsAfterGreatGeneral;
 	kStream << m_bMayaCalendarBonuses;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	kStream << m_bTradeStopsWars;
 	kStream << m_bPuppetsReligiousFollowers;
 	kStream << m_bCannotBeDeclaredWarOn;
 	kStream << m_bWarCausesRebels;
 	kStream << m_bCanPurchaseReligiousUnits;
 	kStream << m_bCannotFoundPantheon;
+#endif // SIEGEMOD
 
 	kStream << m_iBaktunPreviousTurn;
 
@@ -3254,10 +3233,9 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	kStream << m_ppaaiSpecialistYieldChange;
 	kStream << m_ppaaiUnimprovedFeatureYieldChange;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	kStream << m_ppaaiTerrainYieldChange;
+#endif // SIEGEMOD
 
 	kStream << (int)m_aUniqueLuxuryAreas.size();
 	for (unsigned int iI = 0; iI < m_aUniqueLuxuryAreas.size(); iI++)

@@ -34,11 +34,10 @@ CvTechEntry::CvTechEntry(void):
 	m_iInternationalTradeRoutesChange(0),
 	m_iInfluenceSpreadModifier(0),
 	m_iExtraVotesPerDiplomat(0),
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_iForeignReligionSpreadModifier(0),
 	m_bStopsForeignReligions(false),
+#endif // SIEGEMOD
 
 	m_iGridX(0),
 	m_iGridY(0),
@@ -134,12 +133,11 @@ bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	m_iGridX = kResults.GetInt("GridX");
 	m_iGridY = kResults.GetInt("GridY");
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_iForeignReligionSpreadModifier = kResults.GetInt("ForeignReligionSpreadModifier");
 	m_iPlayerReligionPressureAbroadModifier = kResults.GetInt("PlayerReligionPressureAbroadModifier");
 	m_bStopsForeignReligions = kResults.GetInt("StopsForeignReligions");
+#endif // SIEGEMOD
 
 	//References
 	const char* szTextVal = NULL;
@@ -217,9 +215,7 @@ bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	return true;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 int CvTechEntry::GetForeignReligionSpreadModifier() const
 {
 	return m_iForeignReligionSpreadModifier;
@@ -232,6 +228,7 @@ bool CvTechEntry::IsStopsForeignReligions() const
 {
 	return m_bStopsForeignReligions;
 }
+#endif // SIEGEMOD
 
 /// Additional weight to having AI purchase this
 int CvTechEntry::GetAIWeight() const

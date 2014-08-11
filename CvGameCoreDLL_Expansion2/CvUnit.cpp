@@ -261,10 +261,9 @@ CvUnit::CvUnit() :
 	, m_iTradeMissionInfluenceModifier(0)
 	, m_iTradeMissionGoldModifier(0)
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	, m_iAdjacentEnemyDamage(0)
+#endif // SIEGEMOD
 
 	, m_strName("")
 	, m_eGreatWork(NO_GREAT_WORK)
@@ -1659,13 +1658,12 @@ void CvUnit::doTurn()
 		}
 	}
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	if (GetAdjacentEnemyDamage() > 0)
 	{
 		DoAdjacentEnemyDamage();
 	}
+#endif // SIEGEMOD
 
 	// Only increase our Fortification level if we've actually been told to Fortify
 	if(IsFortifiedThisTurn())
@@ -4485,9 +4483,7 @@ int CvUnit::GetTradeMissionGoldModifier() const
 	return m_iTradeMissionGoldModifier;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 int CvUnit::GetAdjacentEnemyDamage() const
 {
 	return m_iAdjacentEnemyDamage;
@@ -4557,6 +4553,7 @@ void CvUnit::DoSetupFaithIfReligious()
 	GetReligionData()->SetSpreadsLeft(iReligionSpreads);
 	GetReligionData()->SetReligiousStrength(iReligiousStrength);
 }
+#endif // SIEGEMOD
 
 //	--------------------------------------------------------------------------------
 int CvUnit::GetNumGoodyHutsPopped() const
@@ -5910,9 +5907,7 @@ bool CvUnit::plunderTradeRoute()
 		return false;
 	}
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	// If we've got the unit ability which causes plundering trade routes to give us additional units, we should trigger that!
 	for (int i = 0; i < GC.getNumUnitClassInfos(); i++)
 	{
@@ -5928,6 +5923,7 @@ bool CvUnit::plunderTradeRoute()
 			}
 		}
 	}
+#endif // SIEGEMOD
 
 	// right now, plunder the first unit
 	pTrade->PlunderTradeRoute(aiTradeUnitsAtPlot[0]);
@@ -13402,9 +13398,7 @@ void CvUnit::setXY(int iX, int iY, bool bGroup, bool bUpdate, bool bShow, bool b
 	{
 		if(!bNoMove)
 		{
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
+#if SIEGEMOD
 			if (pNewPlot->getImprovementType() != NO_IMPROVEMENT)
 			{
 				CvImprovementEntry* pImprovementInfo = GC.getImprovementInfo(pNewPlot->getImprovementType());
@@ -13416,6 +13410,7 @@ void CvUnit::setXY(int iX, int iY, bool bGroup, bool bUpdate, bool bShow, bool b
 					pNewPlot->DoImprovementExplosion();
 				}
 			}
+#endif // SIEGEMOD
 
 			if(pNewPlot->isGoody(getTeam()))
 			{
@@ -17391,10 +17386,9 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		changeExperiencePercent(thisPromotion.GetExperiencePercent() * iChange);
 		changeCargoSpace(thisPromotion.GetCargoChange() * iChange);
 
-		// ----------------------------------------------------------------
-		// SiegeMod Addition
-		// ----------------------------------------------------------------
+#if SIEGEMOD
 		ChangeAdjacentEnemyDamage(thisPromotion.GetAdjacentEnemyDamage() * iChange);
+#endif // SIEGEMOD
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
 		{
@@ -17658,10 +17652,9 @@ void CvUnit::read(FDataStream& kStream)
 	kStream >> m_iTradeMissionInfluenceModifier;
 	kStream >> m_iTradeMissionGoldModifier;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	kStream >> m_iAdjacentEnemyDamage;
+#endif // SIEGEMOD
 
 	kStream >> m_iEnemyDamageChance;
 	kStream >> m_iNeutralDamageChance;
@@ -17825,10 +17818,9 @@ void CvUnit::write(FDataStream& kStream) const
 	kStream << m_iTradeMissionInfluenceModifier;
 	kStream << m_iTradeMissionGoldModifier;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	kStream << m_iAdjacentEnemyDamage;
+#endif // SIEGEMOD
 
 	kStream << m_iEnemyDamageChance;
 	kStream << m_iNeutralDamageChance;

@@ -50,12 +50,11 @@ public:
 	int GetInfluenceSpreadModifier() const;;
 	int GetExtraVotesPerDiplomat() const;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int GetForeignReligionSpreadModifier() const;
 	int GetPlayerReligionPressureAbroadModifier() const;
 	bool IsStopsForeignReligions() const;
+#endif // SIEGEMOD
 
 	int GetGridX() const;
 	int GetGridY() const;
@@ -122,12 +121,11 @@ private:
 	int m_iInfluenceSpreadModifier;
 	int m_iExtraVotesPerDiplomat;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int m_iForeignReligionSpreadModifier;
 	int m_iPlayerReligionPressureAbroadModifier;
 	bool m_bStopsForeignReligions;
+#endif // SIEGEMOD
 
 	int m_iGridX;
 	int m_iGridY;

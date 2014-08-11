@@ -96,10 +96,9 @@ CvPromotionEntry::CvPromotionEntry():
 	m_iTradeMissionInfluenceModifier(0),
 	m_iTradeMissionGoldModifier(0),
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_iAdjacentEnemyDamage(0),
+#endif // SIEGEMOD
 
 	m_bCannotBeChosen(false),
 	m_bLostWithUpgrade(false),
@@ -310,10 +309,9 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	m_iTradeMissionInfluenceModifier = kResults.GetInt("TradeMissionInfluenceModifier");
 	m_iTradeMissionGoldModifier = kResults.GetInt("TradeMissionGoldModifier");
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_iAdjacentEnemyDamage = kResults.GetInt("AdjacentEnemyDamage");
+#endif // SIEGEMOD
 
 	//References
 	const char* szLayerAnimationPath = kResults.GetText("LayerAnimationPath");
@@ -1163,13 +1161,12 @@ int CvPromotionEntry::GetTradeMissionGoldModifier() const
 	return m_iTradeMissionGoldModifier;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 int CvPromotionEntry::GetAdjacentEnemyDamage() const
 {
 	return m_iAdjacentEnemyDamage;
 }
+#endif // SIEGEMOD
 
 /// Accessor: Can this Promotion be earned through normal leveling?
 bool CvPromotionEntry::IsCannotBeChosen() const

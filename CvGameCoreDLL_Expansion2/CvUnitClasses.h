@@ -151,12 +151,10 @@ public:
 	bool GetBuildingClassRequireds(int i) const;
 	bool GetFreePromotions(int i) const;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int GetFreeUnitAfterSurvivingMeleeCombat(int i) const;
 	int GetFreeUnitWhenTradeRoutePlundered(int i) const;
-
+#endif // SIEGEMOD
 
 	// Derived fields (not in XML)
 	int GetCargoSpace() const;  // (from free promotions)
@@ -278,11 +276,10 @@ private:
 	int* m_piProductionModifierBuildings;
 	int* m_piYieldFromKills;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int* m_piFreeUnitAfterSurvivingMeleeCombat;
 	int* m_piFreeUnitWhenTradeRoutePlundered;
+#endif // SIEGEMOD
 
 	bool* m_pbUpgradeUnitClass;
 	bool* m_pbUnitAIType;
