@@ -3863,7 +3863,7 @@ bool CvUnit::canAirPatrol(const CvPlot* pPlot) const
 	return true;
 }
 
-#ifdef CUSTOM_MISSIONS
+#if CUSTOM_MISSIONS
 bool CvUnit::CanHandleMission(int iMission, bool bTestVisible) const
 {
 	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();

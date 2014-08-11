@@ -1240,7 +1240,7 @@ public:
 	void ChangeAdjacentEnemyDamage(int iChange);
 	void DoAdjacentEnemyDamage();
 	void DoSetupFaithIfReligious();
-#ifdef CUSTOM_MISSIONS
+#if CUSTOM_MISSIONS
 	bool CanHandleMission(int iMission, bool bTestVisible) const;
 	bool HandleMission(int iMission);
 #endif // CUSTOM_MISSIONS

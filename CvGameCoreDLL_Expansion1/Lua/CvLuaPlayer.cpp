@@ -540,7 +540,7 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 
 	Method(GetEndTurnBlockingType);
 	Method(GetEndTurnBlockingNotificationIndex);
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 	Method(GetEndTurnBlockingNotificationID);
 #endif // CUSTOM_NOTIFICATIONS
 	Method(HasReceivedNetTurnComplete);
@@ -4268,7 +4268,7 @@ int CvLuaPlayer::lGetEndTurnBlockingNotificationIndex(lua_State* L)
 	return BasicLuaMethod(L, &CvPlayerAI::GetEndTurnBlockingNotificationIndex);
 }
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 int CvLuaPlayer::lGetEndTurnBlockingNotificationID(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlayerAI::GetEndTurnBlockingNotificationID);

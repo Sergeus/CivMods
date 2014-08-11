@@ -7,7 +7,7 @@
 #include "CvGlobals.h"
 #include "WoTNotifications.h"
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 WoTNotificationInfo::WoTNotificationInfo()
 	: m_iID(-1),
 	m_iWelcomeness(0),

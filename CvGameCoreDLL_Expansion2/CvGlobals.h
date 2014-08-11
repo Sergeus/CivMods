@@ -124,7 +124,7 @@ class CvResolutionXMLEntries;
 class CvDeal;
 class CvNetMessageHandler;
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 class WoTNotificationInfo;
 #endif // CUSTOM_NOTIFICATIONS
 
@@ -318,7 +318,7 @@ public:
 	std::vector<CvFeatureInfo*>& getFeatureInfo();
 	CvFeatureInfo* getFeatureInfo(FeatureTypes eFeatureNum);
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 	int GetNumNotificationInfos();
 	std::vector<WoTNotificationInfo*>& GetNotificationInfo();
 	WoTNotificationInfo* GetNotificationInfo(int iNotificationID);
@@ -7590,7 +7590,7 @@ protected:
 	CvLeagueProjectXMLEntries* m_pLeagueProjects;
 	CvLeagueProjectRewardXMLEntries* m_pLeagueProjectRewards;
 	CvResolutionXMLEntries* m_pResolutions;
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 	std::vector<WoTNotificationInfo*> m_pNotifications;
 #else
 	CvNotificationXMLEntries* m_pNotifications;

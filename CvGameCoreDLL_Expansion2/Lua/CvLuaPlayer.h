@@ -606,7 +606,7 @@ protected:
 
 	static int lGetEndTurnBlockingType(lua_State* L);
 	static int lGetEndTurnBlockingNotificationIndex(lua_State* L);
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 	static int lGetEndTurnBlockingNotificationID(lua_State* L);
 #endif // CUSTOM_NOTIFICATIONS
 	// ----------------------------------------------------------------
