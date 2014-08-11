@@ -1154,7 +1154,7 @@ public:
 	std::string debugDump(const FAutoVariableBase&) const;
 	std::string stackTraceRemark(const FAutoVariableBase&) const;
 
-#ifdef CUSTOM_MISSIONS
+#if CUSTOM_MISSIONS
 	bool CanHandleMission(int iMission, bool bTestVisible) const;
 	bool HandleMission(int iMission);
 #endif // CUSTOM_MISSIONS

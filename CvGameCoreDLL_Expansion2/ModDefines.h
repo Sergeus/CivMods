@@ -1,0 +1,6 @@
+
+#ifdef CUSTOM_MISSIONS
+	#define CUSTOM_MISSIONS 1
+#else
+	#define CUSTOM_MISSIONS 0
+#endif // CUSTOM_MISSIONS

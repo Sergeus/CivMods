@@ -1211,7 +1211,7 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 			return true;
 		}
 	}
-#ifdef CUSTOM_MISSIONS
+#if CUSTOM_MISSIONS
 	else
 	{
 		if (hUnit->CanHandleMission(iMission, bTestVisible))
@@ -1655,7 +1655,7 @@ void CvUnitMission::StartMission(UnitHandle hUnit)
 					}
 				}
 			}
-#ifdef CUSTOM_MISSIONS
+#if CUSTOM_MISSIONS
 			else
 			{
 				if (hUnit->HandleMission(pkQueueData->eMissionType))

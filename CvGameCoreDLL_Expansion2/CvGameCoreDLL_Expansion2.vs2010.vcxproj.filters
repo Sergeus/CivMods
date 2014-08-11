@@ -15,6 +15,9 @@
     <Filter Include="Lua">
       <UniqueIdentifier>{42994bec-0f25-4200-ae4c-b7c751a5a152}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mods">
+      <UniqueIdentifier>{8a89c269-5255-4c66-9179-1876691b7393}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_precompile.cpp">
@@ -1008,6 +1011,9 @@
     </ClInclude>
     <ClInclude Include="Lua\CvLuaUnit.h">
       <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="ModDefines.h">
+      <Filter>Mods</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
