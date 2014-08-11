@@ -965,7 +965,7 @@ public:
 	EndTurnBlockingTypes GetEndTurnBlockingType(void) const;
 	int GetEndTurnBlockingNotificationIndex(void) const;
 	void SetEndTurnBlocking(EndTurnBlockingTypes eBlockingType, int iNotificationIndex);
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 	int GetEndTurnBlockingNotificationID() const;
 #endif // CUSTOM_NOTIFICATIONS
 

@@ -32,7 +32,7 @@
 #include "CvReplayInfo.h"
 #include "CvTypes.h"
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 #include "WoTNotifications.h"
 #endif // CUSTOM_NOTIFICATIONS
 
@@ -1853,7 +1853,7 @@ void CvGlobals::init()
 	m_pTraits = FNEW(CvTraitXMLEntries, c_eCiv5GameplayDLL, 0);
 	m_pReligions = FNEW(CvReligionXMLEntries, c_eCiv5GameplayDLL, 0);
 	m_pBeliefs = FNEW(CvBeliefXMLEntries, c_eCiv5GameplayDLL, 0);
-#ifndef CUSTOM_NOTIFICATIONS
+#if !CUSTOM_NOTIFICATIONS
 	m_pNotifications = FNEW(CvNotificationXMLEntries, c_eCiv5GameplayDLL, 0);
 #endif // CUSTOM_NOTIFICATIONS
 
@@ -1911,7 +1911,7 @@ void CvGlobals::uninit()
 	SAFE_DELETE(m_pTraits);
 	SAFE_DELETE(m_pReligions);
 	SAFE_DELETE(m_pBeliefs);
-#ifndef CUSTOM_NOTIFICATIONS
+#if !CUSTOM_NOTIFICATIONS
 	SAFE_DELETE(m_pNotifications);
 #endif // CUSTOM_NOTIFICATIONS
 
@@ -2415,7 +2415,7 @@ CvFeatureInfo* CvGlobals::getFeatureInfo(FeatureTypes eFeatureNum)
 		return NULL;
 }
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 int CvGlobals::GetNumNotificationInfos()
 {
 	return m_pNotifications.size();
@@ -3459,7 +3459,7 @@ void CvGlobals::LogMessage(const char* szMessage)
 	}
 }
 
-#ifndef CUSTOM_NOTIFICATIONS
+#if !CUSTOM_NOTIFICATIONS
 CvNotificationXMLEntries* CvGlobals::GetNotificationEntries()
 {
 	return m_pNotifications;

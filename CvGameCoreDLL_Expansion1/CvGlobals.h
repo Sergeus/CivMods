@@ -114,7 +114,7 @@ class CvBeliefXMLEntries;
 class CvDeal;
 class CvNetMessageHandler;
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 class WoTNotificationInfo;
 #endif // CUSTOM_NOTIFICATIONS
 
@@ -307,7 +307,7 @@ public:
 	std::vector<CvFeatureInfo*>& getFeatureInfo();
 	CvFeatureInfo* getFeatureInfo(FeatureTypes eFeatureNum);
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 	int GetNumNotificationInfos();
 	std::vector<WoTNotificationInfo*>& GetNotificationInfo();
 	WoTNotificationInfo* GetNotificationInfo(int iNotificationID);
@@ -517,7 +517,7 @@ public:
 	std::vector<CvSmallAwardInfo*>& getSmallAwardInfo();
 	_Ret_maybenull_ CvSmallAwardInfo* getSmallAwardInfo(SmallAwardTypes eSmallAwardNum);
 
-#ifndef CUSTOM_NOTIFICATIONS
+#if !CUSTOM_NOTIFICATIONS
 	CvNotificationXMLEntries* GetNotificationEntries();
 #endif // CUSTOM_NOTIFICATIONS
 
@@ -7095,7 +7095,7 @@ protected:
 
 	std::vector<CvMultiUnitFormationInfo*> m_paMultiUnitFormationInfo;
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 	std::vector<WoTNotificationInfo*> m_pNotifications;
 #endif // CUSTOM_NOTIFICATIONS
 
@@ -7116,7 +7116,7 @@ protected:
 	CvTraitXMLEntries* m_pTraits;
 	CvReligionXMLEntries* m_pReligions;
 	CvBeliefXMLEntries* m_pBeliefs;
-#ifndef CUSTOM_NOTIFICATIONS
+#if !CUSTOM_NOTIFICATIONS
 	CvNotificationXMLEntries* m_pNotifications;
 #endif // CUSTOM_NOTIFICATIONS
 

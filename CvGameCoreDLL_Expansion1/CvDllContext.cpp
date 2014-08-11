@@ -47,7 +47,7 @@
 #include "CvDllVictoryInfo.h"
 #include "CvDllWorldBuilderMapLoader.h"
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 #include "WoTNotifications.h"
 #endif // CUSTOM_NOTIFICATIONS
 
@@ -695,7 +695,7 @@ ICvScriptSystemUtility1* CvDllGameContext::GetScriptSystemUtility()
 //------------------------------------------------------------------------------
 const char* CvDllGameContext::GetNotificationType(int NotificationID) const
 {
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 	WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(NotificationID);
 	if(pkInfo != NULL)
 	{

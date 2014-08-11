@@ -388,7 +388,7 @@ int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMes
 	if(GC.getGame().isDebugMode())
 		return -1;
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 	WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(eNotificationType);
 #endif // CUSTOM_NOTIFICATIONS
 
@@ -397,7 +397,7 @@ int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMes
 	newNotification.m_ePlayerID = m_ePlayer;
 	newNotification.m_eNotificationType = eNotificationType;
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 
 	if (strMessage != NULL)
 	{
@@ -453,7 +453,7 @@ int CvNotifications::Add(NotificationTypes eNotificationType, const char* strMes
 
 			// Don't show effect with production notification
 			if(eNotificationType != NOTIFICATION_PRODUCTION
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 				// Play the animation if we have info and it says we should, or when we
 				// don't have info.
 				&& ((pkInfo && pkInfo->IsPlaysFXOnPlot()) || !pkInfo)
@@ -592,7 +592,7 @@ bool CvNotifications::MayUserDismiss(int iLookupIndex)
 				}
 
 			default:
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 				if (m_aNotifications[iIndex].m_eNotificationType >= NotificationTypes::NOTIFICATION_WOT_CUSTOM)
 				{
 					ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
@@ -752,7 +752,7 @@ bool CvNotifications::GetEndTurnBlockedType(EndTurnBlockingTypes& eBlockingType,
 				break;
 
 			default:
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 				WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(m_aNotifications[iIndex].m_eNotificationType);
 				if (pkInfo && pkInfo->IsBlocksEndTurn())
 				{
@@ -805,7 +805,7 @@ CvString CvNotifications::GetNotificationSummary(int iZeroBasedIndex)
 int CvNotifications::GetNotificationID(int iZeroBasedIndex)  // ignores begin/end values
 {
 	int iRealIndex = (m_iNotificationsBeginIndex + iZeroBasedIndex) % m_aNotifications.size();
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 	return m_aNotifications[iRealIndex].m_eNotificationType;
 #else
 	return m_aNotifications[iRealIndex].m_iLookupIndex;
@@ -1054,7 +1054,7 @@ void CvNotifications::Activate(Notification& notification)
 
 	default:	// Default behavior is to move the camera to the X,Y passed in
 	{
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 		WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(notification.m_eNotificationType);
 
 		if ((pkInfo && pkInfo->IsPlaysFXOnPlot()) || !pkInfo)
@@ -1068,7 +1068,7 @@ void CvNotifications::Activate(Notification& notification)
 				gDLL->getInterfaceIFace()->lookAt(pDllPlot.get(), CAMERALOOKAT_NORMAL);
 				gDLL->GameplayDoFX(pDllPlot.get());
 			}
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 		}
 
 		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
@@ -1684,7 +1684,7 @@ bool CvNotifications::IsNotificationEndOfTurnExpired(int iIndex)
 		break;
 
 	default:
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 		WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(m_aNotifications[iIndex].m_eNotificationType);
 		if (pkInfo != NULL)
 		{

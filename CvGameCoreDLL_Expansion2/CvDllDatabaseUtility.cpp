@@ -326,7 +326,7 @@ bool CvDllDatabaseUtility::PrefetchGameData()
 	//Misc
 	PrefetchCollection(GC.getRouteInfo(), "Routes");
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 	PrefetchCollection(GC.GetNotificationInfo(), "Notifications");
 #else
 	CvNotificationXMLEntries* pkNotificationEntries =  GC.GetNotificationEntries();

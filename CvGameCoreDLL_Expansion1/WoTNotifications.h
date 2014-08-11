@@ -9,7 +9,7 @@
 #include "Database.h"
 #include <vector>
 
-#ifdef CUSTOM_NOTIFICATIONS
+#if CUSTOM_NOTIFICATIONS
 class WoTNotificationInfo
 {
 public:
