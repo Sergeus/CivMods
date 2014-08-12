@@ -797,9 +797,7 @@ public:
 	int GetExtraHitPoints() const;
 	void ChangeExtraHitPoints(int iValue);
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int GetTurnsInfluencedByPuppetingReligion() const;
 	void ChangeTurnsInfluencedByPuppetingReligion(int iValue);
 	ReligionTypes GetReligionPuppeting() const;
@@ -808,6 +806,7 @@ public:
 
 	bool CanPurchaseReligiousTrait(UnitTypes eUnit, bool bTestPurchaseCost);
 	int GetGoldPurchaseCostFromFaith(UnitTypes eUnit);
+#endif // SIEGEMOD
 
 	int GetMaxHitPoints() const;
 	const FAutoArchive& getSyncArchive() const;
@@ -960,11 +959,10 @@ protected:
 	int m_iBaseHappinessFromBuildings;
 	int m_iUnmoddedHappinessFromBuildings;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int m_iTurnsInfluencedByPuppetingReligion;
 	ReligionTypes m_eReligionPuppeting;
+#endif // SIEGEMOD
 
 	bool m_bRouteToCapitalConnectedLastTurn;
 	bool m_bRouteToCapitalConnectedThisTurn;

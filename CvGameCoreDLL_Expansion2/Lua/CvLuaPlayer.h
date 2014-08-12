@@ -606,10 +606,14 @@ protected:
 
 	static int lGetEndTurnBlockingType(lua_State* L);
 	static int lGetEndTurnBlockingNotificationIndex(lua_State* L);
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 	static int lGetEndTurnBlockingNotificationID(lua_State* L);
+#endif // CUSTOM_NOTIFICATIONS
+
+#if SIEGEMOD
+	static int lGetFaithPerTurnFromTradeRoutes(lua_State* L);
+#endif // SIEGEMOD
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
@@ -625,10 +629,6 @@ protected:
 	static int lGetTurnsSincePledgedAjahSupport(lua_State* L);
 	static int lIsCanPledgeAjahSupport(lua_State* L);
 	static int lIsMinorCivNoGoldGifts(lua_State* L);
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
-	static int lGetFaithPerTurnFromTradeRoutes(lua_State* L);
 
 	static int lIsStrike(lua_State* L);
 

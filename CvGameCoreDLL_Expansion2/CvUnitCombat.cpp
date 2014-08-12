@@ -328,41 +328,42 @@ void CvUnitCombat::ResolveMeleeCombat(const CvCombatInfo& kCombatInfo, uint uiPa
 		kAttackerOwner.GetPlayerAchievements().AttackedUnitWithUnit(pkAttacker, pkDefender);
 
 
-		// ----------------------------------------------------------------
-		// SiegeMod Addition
-		// ----------------------------------------------------------------
-		// If the attacker died, then the defender might have the ability which causes them to generate a unit after melee combat
-		for (int i = 0; i < GC.getNumUnitClassInfos(); i++)
+#if SIEGEMOD
+		if (bDefenderDead != bAttackerDead)
 		{
-			if (!bDefenderDead && bAttackerDead)
+			for (int i = 0; i < GC.getNumUnitClassInfos(); i++)
 			{
-				int numBonus = GC.getUnitInfo(pkDefender->getUnitType())->GetFreeUnitAfterSurvivingMeleeCombat(i);
-				if (numBonus > 0)
+				if (!bDefenderDead && bAttackerDead)
 				{
-					CvPlayer& kOwner = GET_PLAYER(pkDefender->getOwner());
-					UnitTypes eUnit = (UnitTypes)kOwner.getCivilizationInfo().getCivilizationUnits(i);
-
-					for (int j = 0; j < numBonus; j++)
+					int numBonus = GC.getUnitInfo(pkDefender->getUnitType())->GetFreeUnitAfterSurvivingMeleeCombat(i);
+					if (numBonus > 0)
 					{
-						kOwner.initUnit(eUnit, pkDefender->getX(), pkDefender->getY());
+						CvPlayer& kOwner = GET_PLAYER(pkDefender->getOwner());
+						UnitTypes eUnit = (UnitTypes)kOwner.getCivilizationInfo().getCivilizationUnits(i);
+
+						for (int j = 0; j < numBonus; j++)
+						{
+							kOwner.initUnit(eUnit, pkDefender->getX(), pkDefender->getY());
+						}
 					}
 				}
-			}
-			if (!bAttackerDead && bDefenderDead)
-			{
-				int numBonus = GC.getUnitInfo(pkAttacker->getUnitType())->GetFreeUnitAfterSurvivingMeleeCombat(i);
-				if (numBonus > 0)
+				if (!bAttackerDead && bDefenderDead)
 				{
-					CvPlayer& kOwner = GET_PLAYER(pkAttacker->getOwner());
-					UnitTypes eUnit = (UnitTypes)kOwner.getCivilizationInfo().getCivilizationUnits(i);
-
-					for (int j = 0; j < numBonus; j++)
+					int numBonus = GC.getUnitInfo(pkAttacker->getUnitType())->GetFreeUnitAfterSurvivingMeleeCombat(i);
+					if (numBonus > 0)
 					{
-						kOwner.initUnit(eUnit, pkAttacker->getX(), pkAttacker->getY());
+						CvPlayer& kOwner = GET_PLAYER(pkAttacker->getOwner());
+						UnitTypes eUnit = (UnitTypes)kOwner.getCivilizationInfo().getCivilizationUnits(i);
+
+						for (int j = 0; j < numBonus; j++)
+						{
+							kOwner.initUnit(eUnit, pkAttacker->getX(), pkAttacker->getY());
+						}
 					}
 				}
 			}
 		}
+#endif // SIEGEMOD
 
 		// Attacker died
 		if(bAttackerDead)

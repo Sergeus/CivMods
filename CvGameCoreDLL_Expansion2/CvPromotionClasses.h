@@ -124,10 +124,9 @@ public:
 	int GetTradeMissionInfluenceModifier() const;
 	int GetTradeMissionGoldModifier() const;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int GetAdjacentEnemyDamage() const;
+#endif // SIEGEMOD
 
 	// ----------------------------------------------------------------
 	// WoTMod Addition
@@ -290,10 +289,9 @@ protected:
 	int m_iTradeMissionInfluenceModifier;
 	int m_iTradeMissionGoldModifier;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int m_iAdjacentEnemyDamage;
+#endif // SIEGEMOD
 
 	// ----------------------------------------------------------------
 	// WoTMod Addition

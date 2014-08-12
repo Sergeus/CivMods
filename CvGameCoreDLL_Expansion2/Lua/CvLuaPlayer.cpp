@@ -280,10 +280,9 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(HasReligionInMostCities);
 	Method(DoesUnitPassFaithPurchaseCheck);
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	Method(GetFaithPerTurnFromTradeRoutes);
+#endif // SIEGEMOD
 
 	// Happiness
 
@@ -623,10 +622,10 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 
 	Method(GetEndTurnBlockingType);
 	Method(GetEndTurnBlockingNotificationIndex);
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 	Method(GetEndTurnBlockingNotificationID);
+#endif // CUSTOM_NOTIFICATIONS
+
 	Method(HasReceivedNetTurnComplete);
 	Method(IsStrike);
 	// ----------------------------------------------------------------
@@ -6674,13 +6673,6 @@ int CvLuaPlayer::lGetEndTurnBlockingNotificationIndex(lua_State* L)
 }
 
 // ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
-int CvLuaPlayer::lGetEndTurnBlockingNotificationID(lua_State* L)
-{
-	return BasicLuaMethod(L, &CvPlayerAI::GetEndTurnBlockingNotificationID);
-}
-// ----------------------------------------------------------------
 // WoTMod Addition
 // ----------------------------------------------------------------
 int CvLuaPlayer::lGetAjahInfluencePercent(lua_State* L)
@@ -6804,13 +6796,20 @@ int CvLuaPlayer::lIsMinorCivNoGoldGifts(lua_State* L)
 	}
 	return 1;
 }
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+
+#if CUSTOM_NOTIFICATIONS
+int CvLuaPlayer::lGetEndTurnBlockingNotificationID(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlayerAI::GetEndTurnBlockingNotificationID);
+}
+#endif // CUSTOM_NOTIFICATIONS
+
+#if SIEGEMOD
 int CvLuaPlayer::lGetFaithPerTurnFromTradeRoutes(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlayerAI::GetFaithPerTurnFromTradeRoutes);
 }
+#endif // SIEGEMOD
 
 //------------------------------------------------------------------------------
 //bool isStrike();
@@ -8491,12 +8490,19 @@ int CvLuaPlayer::lDoForceDenounce(lua_State* L)
 	CvPlayerAI* pkPlayer = GetInstance(L);
 	PlayerTypes eOtherPlayer = (PlayerTypes) lua_tointeger(L, 2);
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	CvDeal* pDeal = GC.getGame().GetGameDeals()->GetTempDeal();
 
 	pkPlayer->GetDiplomacyAI()->DoSendStatementToPlayer(eOtherPlayer, DIPLO_STATEMENT_DENOUNCE, 0, pDeal);
+#else
+	pkPlayer->GetDiplomacyAI()->DoDenouncePlayer(eOtherPlayer);
+	// Show leader if active player is being denounced
+	if(GC.getGame().getActivePlayer() == eOtherPlayer)
+	{
+		const char* strText = pkPlayer->GetDiplomacyAI()->GetDiploStringForMessage(DIPLO_MESSAGE_REPEAT_NO);
+		gDLL->GameplayDiplomacyAILeaderMessage(pkPlayer->GetID(), DIPLO_UI_STATE_BLANK_DISCUSSION_MEAN_AI, strText, LEADERHEAD_ANIM_NEGATIVE);
+	}
+#endif // SIEGEMOD
 
 	return 1;
 }

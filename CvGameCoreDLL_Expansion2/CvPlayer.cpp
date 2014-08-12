@@ -3270,7 +3270,9 @@ CvUnit* CvPlayer::initUnit(UnitTypes eUnit, int iX, int iY, UnitAITypes eUnitAI,
 
 	m_kPlayerAchievements.AddUnit(pUnit);
 
+#if SIEGEMOD
 	pUnit->DoSetupFaithIfReligious();
+#endif // SIEGEMOD
 
 	return pUnit;
 }
@@ -10044,10 +10046,9 @@ int CvPlayer::GetTotalFaithPerTurn() const
 	// Faith per turn from Religion (Founder beliefs)
 	iFaithPerTurn += GetFaithPerTurnFromReligion();
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	iFaithPerTurn += GetFaithPerTurnFromTradeRoutes();
+#endif // SIEGEMOD
 
 	return iFaithPerTurn;
 }
@@ -10069,9 +10070,7 @@ int CvPlayer::GetFaithPerTurnFromCities() const
 	return iFaithPerTurn;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 int CvPlayer::GetFaithPerTurnFromTradeRoutes() const
 {
 	int iFaith = 0;
@@ -10091,6 +10090,7 @@ int CvPlayer::GetFaithPerTurnFromTradeRoutes() const
 
 	return iFaith;
 }
+#endif // SIEGEMOD
 
 //	--------------------------------------------------------------------------------
 /// Faith per turn from Minor Civs
@@ -10368,9 +10368,7 @@ void CvPlayer::DoUpdateUprisings()
 			DoResetUprisingCounter(/*bFirstTime*/ true);
 		}
 	}
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	if (!isBarbarian() && !isMinorCiv())
 	{
 		CvTeam& kTeam = GET_TEAM(getTeam());
@@ -10412,6 +10410,7 @@ void CvPlayer::DoUpdateUprisings()
 			}
 		}
 	}
+#endif // SIEGEMOD
 }
 
 //	--------------------------------------------------------------------------------
@@ -10464,10 +10463,11 @@ void CvPlayer::DoResetUprisingCounter(bool bFirstTime)
 
 //	--------------------------------------------------------------------------------
 // Fire off an uprising somewhere
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 void CvPlayer::DoUprising(bool bCausedByTrait, PlayerTypes eCausePlayer)
+#else
+void CvPlayer::DoUprising()
+#endif // SIEGEMOD
 {
 	// In hundreds
 	int iNumRebels = /*100*/ GC.getUPRISING_NUM_BASE();
@@ -10572,9 +10572,7 @@ void CvPlayer::DoUprising(bool bCausedByTrait, PlayerTypes eCausePlayer)
 			if(pNotifications)
 			{
 
-				// ----------------------------------------------------------------
-				// SiegeMod Addition
-				// ----------------------------------------------------------------
+#if SIEGEMOD
 				if (bCausedByTrait)
 				{
 					Localization::String strMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_ENEMY_INSURGENTS");
@@ -10587,20 +10585,26 @@ void CvPlayer::DoUprising(bool bCausedByTrait, PlayerTypes eCausePlayer)
 					Localization::String strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_REBELS_SUMMARY");
 					pNotifications->Add(NOTIFICATION_REBELS, strMessage.toUTF8(), strSummary.toUTF8(), pPlot->getX(), pPlot->getY(), eUnit, BARBARIAN_PLAYER);
 				}
+#else
+				Localization::String strMessage = Localization::Lookup("TXT_KEY_NOTIFICATION_REBELS");
+				Localization::String strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_REBELS_SUMMARY");
+				pNotifications->Add(NOTIFICATION_REBELS, strMessage.toUTF8(), strSummary.toUTF8(), pPlot->getX(), pPlot->getY(), eUnit, BARBARIAN_PLAYER);
+#endif // SIEGEMOD
 			}
 
 			// Init unit
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
+#if SIEGEMOD
 			if (bCausedByTrait)
 			{
 				GET_PLAYER(eCausePlayer).initUnit(eUnit, pPlot->getX(), pPlot->getY());
 			}
 			else
 			{
+#endif // SIEGEMOD
 				GET_PLAYER(BARBARIAN_PLAYER).initUnit(eUnit, pPlot->getX(), pPlot->getY());
+#if SIEGEMOD
 			}
+#endif // SIEGEMOD
 			iNumRebels--;	// Reduce the count since we just added the seed rebel
 
 			// Loop until all rebels are placed
@@ -10609,9 +10613,7 @@ void CvPlayer::DoUprising(bool bCausedByTrait, PlayerTypes eCausePlayer)
 				iNumRebels--;
 
 				// Init unit
-				// ----------------------------------------------------------------
-				// SiegeMod Addition
-				// ----------------------------------------------------------------
+#if SIEGEMOD
 				if (bCausedByTrait)
 				{
 					CvUnit* pUnit = GET_PLAYER(eCausePlayer).initUnit(eUnit, pPlot->getX(), pPlot->getY());
@@ -10621,6 +10623,7 @@ void CvPlayer::DoUprising(bool bCausedByTrait, PlayerTypes eCausePlayer)
 				}
 				else
 				{
+#endif // SIEGEMOD
 					CvUnit* pUnit = GET_PLAYER(BARBARIAN_PLAYER).initUnit(eUnit, pPlot->getX(), pPlot->getY());
 
 					CvAssert(pUnit);
@@ -10629,7 +10632,9 @@ void CvPlayer::DoUprising(bool bCausedByTrait, PlayerTypes eCausePlayer)
 						if (!pUnit->jumpToNearestValidPlotWithinRange(5))
 							pUnit->kill(false);		// Could not find a spot!
 					}
+#if SIEGEMOD
 				}
+#endif // SIEGEMOD
 			}
 			while(iNumRebels > 0);
 		}
@@ -16255,13 +16260,12 @@ int CvPlayer::GetEndTurnBlockingNotificationIndex(void) const
 	return m_iEndTurnBlockingNotificationIndex;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 int CvPlayer::GetEndTurnBlockingNotificationID() const
 {
 	return GetNotifications()->GetNotificationID(GetEndTurnBlockingNotificationIndex());
 }
+#endif // CUSTOM_NOTIFICATIONS
 
 //	---------------------------------------------------------------------------
 void CvPlayer::SetEndTurnBlocking(EndTurnBlockingTypes eBlockingType, int iNotificationIndex)

@@ -1166,11 +1166,11 @@ public:
 	int GetHealBlockedCount() const;
 	bool IsHealBlocked() const;
 	bool IsShadowspawn() const;
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Generic Mission Handling
-	// ----------------------------------------------------------------
+
+#if CUSTOM_MISSIONS
 	bool CanHandleMission(int iMission, bool bTestVisible) const;
 	bool HandleMission(int iMission);
+#endif // CUSTOM_MISSIONS
 
 protected:
 	// ----------------------------------------------------------------

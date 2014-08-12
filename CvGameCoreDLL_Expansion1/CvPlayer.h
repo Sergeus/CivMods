@@ -877,10 +877,9 @@ public:
 	EndTurnBlockingTypes GetEndTurnBlockingType(void) const;
 	int GetEndTurnBlockingNotificationIndex(void) const;
 	void SetEndTurnBlocking(EndTurnBlockingTypes eBlockingType, int iNotificationIndex);
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 	int GetEndTurnBlockingNotificationID() const;
+#endif // CUSTOM_NOTIFICATIONS
 
 	bool isTurnDone() const;
 	bool isLocalPlayer() const;

@@ -47,10 +47,9 @@
 #include "CvDllVictoryInfo.h"
 #include "CvDllWorldBuilderMapLoader.h"
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 #include "WoTNotifications.h"
+#endif // CUSTOM_NOTIFICATIONS
 
 CvDllGameContext* CvDllGameContext::s_pSingleton = NULL;
 HANDLE CvDllGameContext::s_hHeap = INVALID_HANDLE_VALUE;
@@ -702,17 +701,15 @@ ICvScriptSystemUtility1* CvDllGameContext::GetScriptSystemUtility()
 //------------------------------------------------------------------------------
 const char* CvDllGameContext::GetNotificationType(int NotificationID) const
 {
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	//CvNotificationXMLEntries* pkEntries = GC.GetNotificationEntries();
-	
+#if CUSTOM_NOTIFICATIONS
 	WoTNotificationInfo* pkInfo = GC.GetNotificationInfo(NotificationID);
 	if(pkInfo != NULL)
 	{
 		return pkInfo->GetType();
 	}
-
+#else
+	CvNotificationXMLEntries* pkEntries = GC.GetNotificationEntries();
+#endif // CUSTOM_NOTIFICATIONS
 	return NULL;
 }
 //------------------------------------------------------------------------------

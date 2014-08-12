@@ -593,14 +593,13 @@ CvGameReligions::FOUNDING_RESULT CvGameReligions::CanCreatePantheon(PlayerTypes 
 		return FOUNDING_NOT_ENOUGH_FAITH;
 	}
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	if (kPlayer.GetPlayerTraits()->IsCannotFoundPantheon())
 	{
 		// TODO: Implement a separate condition
 		return FOUNDING_NOT_ENOUGH_FAITH;
 	}
+#endif // SIEGEMOD
 
 	// Has a religion been enhanced yet (and total number of religions/pantheons is equal to number of religions allowed)?
 	ReligionList::const_iterator it;
@@ -2900,9 +2899,7 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 	int iPressure = 0;
 	iNumTradeRoutesInvolved = 0;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	CvPlayer& kOwner = GET_PLAYER(m_pCity->getOwner());
 	// Techs may stop pressure
 	if (kOwner.GetReligions()->GetReligionCreatedByPlayer() != eReligion)
@@ -2919,6 +2916,7 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 			}
 		}
 	}
+#endif // SIEGEMOD
 
 	// Loop through all the players
 	for(int iI = 0; iI < MAX_PLAYERS; iI++)
@@ -2957,10 +2955,7 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 		iPressure += iHolyCityPressure;
 	}
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
-
+#if SIEGEMOD
 	int iMod = 100;
 	if (kOwner.GetReligions()->GetReligionCreatedByPlayer() != eReligion)
 	{
@@ -3015,6 +3010,7 @@ int CvCityReligions::GetPressurePerTurn(ReligionTypes eReligion, int& iNumTradeR
 
 	iPressure *= (100 + iMod);
 	iPressure /= 100;
+#endif // SIEGEMOD
 
 	return iPressure;
 }
@@ -5047,11 +5043,12 @@ void CvReligionAI::DoFaithPurchases()
 void CvReligionAI::BuyMissionary(ReligionTypes eReligion)
 {
 	CvPlayer &kPlayer = GET_PLAYER(m_pPlayer->GetID());
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	UnitClassTypes eMissionaryClass = (UnitClassTypes)GC.getInfoTypeForString("UNITCLASS_MISSIONARY");
 	UnitTypes eMissionary = (UnitTypes)kPlayer.getCivilizationInfo().getCivilizationUnits(eMissionaryClass);
+#else
+	UnitTypes eMissionary = (UnitTypes)GC.getInfoTypeForString("UNIT_MISSIONARY");
+#endif // SIEGEMOD
 
 	CvCity *pCapital = kPlayer.getCapitalCity();
 	if (pCapital)
@@ -5873,11 +5870,12 @@ bool CvReligionAI::HaveNearbyConversionTarget(ReligionTypes eReligion, bool bCan
 	int iLoop;
 	bool bStartedOwnReligion;
 	TeamTypes eTeam = m_pPlayer->getTeam();
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	UnitClassTypes eMissionaryClass = (UnitClassTypes)GC.getInfoTypeForString("UNITCLASS_MISSIONARY");
 	UnitTypes eMissionary = (UnitTypes)m_pPlayer->getCivilizationInfo().getCivilizationUnits(eMissionaryClass);
+#else
+	UnitTypes eMissionary = (UnitTypes)GC.getInfoTypeForString("UNIT_MISSIONARY");
+#endif // SIEGEMOD
 
 	int iMissionaryMoves = GC.getUnitInfo(eMissionary)->GetMoves();
 

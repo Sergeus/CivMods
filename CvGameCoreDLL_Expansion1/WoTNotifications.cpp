@@ -2,12 +2,12 @@
 // WoTMod Addition - Custom Notifications
 // S3rgeus - 11/05/13
 // ----------------------------------------------------------------
-
 #include "CvGameCoreDLLPCH.h"
 #include "CvGameCoreUtils.h"
 #include "CvGlobals.h"
 #include "WoTNotifications.h"
 
+#if CUSTOM_NOTIFICATIONS
 WoTNotificationInfo::WoTNotificationInfo()
 	: m_iID(-1),
 	m_iWelcomeness(0),
@@ -184,3 +184,4 @@ bool WoTNotificationInfo::IsPlaysFXOnPlot() const
 {
 	return m_bPlaysFXOnPlot;
 }
+#endif // CUSTOM_NOTIFICATIONS

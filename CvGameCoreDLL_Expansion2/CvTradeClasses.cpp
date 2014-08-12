@@ -353,14 +353,19 @@ bool CvGameTrade::CreateTradeRoute(CvCity* pOriginCity, CvCity* pDestCity, Domai
 		iTurnsPerCircuit = ((m_aTradeConnections[iNewTradeRouteIndex].m_aPlotList.size() - 1) * 2) / iRouteSpeed;
 	}
 	
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int iTargetTurns = GC.getTRADE_ROUTE_DURATION_TURNS(); // how many turns do we want the cycle to consume
+#else
+	int iTargetTurns = 30;
+#endif // SIEGEMOD
 	int iCircuitsToComplete = 1; // how many circuits do we want this trade route to run to reach the target turns
 	if (iTurnsPerCircuit != 0)
 	{
-		iCircuitsToComplete = max(iTargetTurns / iTurnsPerCircuit, 1); // changed from 2
+#if SIEGEMOD
+		iCircuitsToComplete = max(iTargetTurns / iTurnsPerCircuit, 1);
+#else
+		iCircuitsToComplete = max(iTargetTurns / iTurnsPerCircuit, 2);
+#endif // SIEGEMOD
 	}
 
 	m_aTradeConnections[iNewTradeRouteIndex].m_iCircuitsCompleted = 0;
@@ -662,9 +667,7 @@ int CvGameTrade::CountNumPlayerConnectionsToPlayer (PlayerTypes eFirstPlayer, Pl
 	return iCount;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 int CvGameTrade::CountNumPlayerConnectionsFoundedByFirstPlayerToSecondPlayer(PlayerTypes eFirstPlayer, PlayerTypes eSecondPlayer)
 {
 	int iCount = 0;
@@ -686,6 +689,7 @@ int CvGameTrade::CountNumPlayerConnectionsFoundedByFirstPlayerToSecondPlayer(Pla
 
 	return iCount;
 }
+#endif // SIEGEMOD
 
 //	--------------------------------------------------------------------------------
 bool CvGameTrade::IsCityConnectedToCity (CvCity* pFirstCity, CvCity* pSecondCity)
@@ -1808,13 +1812,9 @@ int CvPlayerTrade::GetTradeConnectionBaseValueTimes100(const TradeConnection& kT
 	{
 		if (GC.getGame().GetGameTrade()->IsConnectionInternational(kTradeConnection))
 		{
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
-			CvCity* pCity = GC.getMap().plot(kTradeConnection.m_iOriginX, kTradeConnection.m_iOriginY)->getPlotCity();
-
 			int iResult = 0;
-
+#if SIEGEMOD
+			CvCity* pCity = GC.getMap().plot(kTradeConnection.m_iOriginX, kTradeConnection.m_iOriginY)->getPlotCity();
 			
 			if (kTradeConnection.m_eDomain != NO_DOMAIN && kTradeConnection.m_eDomain < NUM_DOMAIN_TYPES)
 			{
@@ -1829,6 +1829,7 @@ int CvPlayerTrade::GetTradeConnectionBaseValueTimes100(const TradeConnection& kT
 					}
 				}
 			}
+#endif // SIEGEMOD
 
 			if (eYield == YIELD_GOLD)
 			{
@@ -1874,20 +1875,19 @@ int CvPlayerTrade::GetTradeConnectionBaseValueTimes100(const TradeConnection& kT
 
 			return  iAdjustedTechDifference * 100;
 		}
-		// ----------------------------------------------------------------
-		// SiegeMod Addition
-		// ----------------------------------------------------------------
+#if SIEGEMOD
 		else if (eYield == YIELD_GOLD)
 		{
 			return 100;
 		}
+#endif // SIEGEMOD
 		else
 		{
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
-			// This used to return 100. For the life of me, I can't work out why that would ever be desired behavior.
+#if SIEGEMOD
 			return 0;
+#else 
+			return 100;
+#endif // SIEGEMOD
 		}
 	}
 
@@ -2337,10 +2337,9 @@ int CvPlayerTrade::GetTradeConnectionValueTimes100 (const TradeConnection& kTrad
 				}
 				break;
 			case YIELD_SCIENCE:
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
-				{ // SiegeMod only added this brace here
+#if SIEGEMOD
+				{
+#endif // SIEGEMOD
 					int iBaseValue = GetTradeConnectionBaseValueTimes100(kTradeConnection, eYield, bAsOriginPlayer);
 
 					iValue = iBaseValue;
@@ -2350,9 +2349,7 @@ int CvPlayerTrade::GetTradeConnectionValueTimes100 (const TradeConnection& kTrad
 					iValue *= iModifier;
 					iValue /= 100;
 					break;
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
+#if SIEGEMOD
 				}
 			default:
 				{
@@ -2366,6 +2363,7 @@ int CvPlayerTrade::GetTradeConnectionValueTimes100 (const TradeConnection& kTrad
 					iValue /= 100;
 					break;
 				}
+#endif // SIEGEMOD
 			}
 		}
 	}
@@ -2412,9 +2410,7 @@ int CvPlayerTrade::GetTradeConnectionValueTimes100 (const TradeConnection& kTrad
 						iValue /= 100;						
 					}
 					break;
-				// ----------------------------------------------------------------
-				// SiegeMod Addition
-				// ----------------------------------------------------------------
+#if SIEGEMOD
 				default:
 					{
 						int iBaseValue = GetTradeConnectionBaseValueTimes100(kTradeConnection, eYield, bAsOriginPlayer);
@@ -2427,6 +2423,7 @@ int CvPlayerTrade::GetTradeConnectionValueTimes100 (const TradeConnection& kTrad
 						iValue /= 100;
 						break;
 					}
+#endif // SIEGEMOD
 				}
 			}
 		}
@@ -3382,14 +3379,19 @@ int CvPlayerTrade::GetTradeRouteSpeed (DomainTypes eDomain)
 {
 	switch (eDomain)
 	{
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
 	case DOMAIN_SEA:
-		return 5; // changed from 4
+#if SIEGEMOD
+		return 5; 
+#else
+		return 4;
+#endif // SIEGEMOD
 		break;
 	case DOMAIN_LAND:
-		return 3; // changed from 2
+#if SIEGEMOD
+		return 3; 
+#else
+		return 2;
+#endif // SIEGEMOD
 		break;
 	}
 

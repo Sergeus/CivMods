@@ -32,10 +32,10 @@
 #include "CvReplayInfo.h"
 #include "CvTypes.h"
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 #include "WoTNotifications.h"
+#endif // CUSTOM_NOTIFICATIONS
+
 // ----------------------------------------------------------------
 // WoTMod Addition
 // ----------------------------------------------------------------
@@ -1988,10 +1988,9 @@ void CvGlobals::init()
 	m_pLeagueProjects = FNEW(CvLeagueProjectXMLEntries, c_eCiv5GameplayDLL, 0);
 	m_pLeagueProjectRewards = FNEW(CvLeagueProjectRewardXMLEntries, c_eCiv5GameplayDLL, 0);
 	m_pResolutions = FNEW(CvResolutionXMLEntries, c_eCiv5GameplayDLL, 0);
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	//m_pNotifications = FNEW(CvNotificationXMLEntries, c_eCiv5GameplayDLL, 0);
+#if !CUSTOM_NOTIFICATIONS
+	m_pNotifications = FNEW(CvNotificationXMLEntries, c_eCiv5GameplayDLL, 0);
+#endif // CUSTOM_NOTIFICATIONS
 
 	// ----------------------------------------------------------------
 	// WoTMod Addition
@@ -2059,10 +2058,11 @@ void CvGlobals::uninit()
 	SAFE_DELETE(m_pLeagueProjects);
 	SAFE_DELETE(m_pLeagueProjectRewards);
 	SAFE_DELETE(m_pResolutions);
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	//SAFE_DELETE(m_pNotifications);
+
+#if !CUSTOM_NOTIFICATIONS
+	SAFE_DELETE(m_pNotifications);
+#endif // CUSTOM_NOTIFICATIONS
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
@@ -2582,9 +2582,7 @@ CvFeatureInfo* CvGlobals::getFeatureInfo(FeatureTypes eFeatureNum)
 		return NULL;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 int CvGlobals::GetNumNotificationInfos()
 {
 	return m_pNotifications.size();
@@ -2604,6 +2602,8 @@ WoTNotificationInfo* CvGlobals::GetNotificationInfo(int iNotificationID)
 	else
 		return NULL;
 }
+#endif // CUSTOM_NOTIFICATIONS
+
 // ----------------------------------------------------------------
 // WoTMod Addition
 // ----------------------------------------------------------------
@@ -3824,13 +3824,12 @@ void CvGlobals::LogMessage(const char* szMessage)
 	}
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
-//CvNotificationXMLEntries* CvGlobals::GetNotificationEntries()
-//{
-//	return m_pNotifications;
-//}
+#if !CUSTOM_NOTIFICATIONS
+CvNotificationXMLEntries* CvGlobals::GetNotificationEntries()
+{
+	return m_pNotifications;
+}
+#endif // CUSTOM_NOTIFICATIONS
 
 CvString*& CvGlobals::getFootstepAudioTags()
 {
@@ -5561,11 +5560,10 @@ void CvGlobals::cacheGlobals()
 	m_iSHADOW_HANDICAP = getDefineINT("SHADOW_HANDICAP");
 	m_iSHADOW_LEADER = getDefineINT("SHADOW_LEADER");
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_iTRADE_ROUTE_DURATION_TURNS = getDefineINT("TRADE_ROUTE_DURATION_TURNS");
 	m_iHURRY_GOLD_COST_PER_FAITH = getDefineINT("HURRY_GOLD_COST_PER_FAITH");
+#endif // SIEGEMOD
 
 	// -- floats --
 

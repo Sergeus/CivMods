@@ -192,13 +192,13 @@ CvBuildingEntry::CvBuildingEntry(void):
 	m_ppiBuildingClassYieldChanges(NULL),
 	m_paiBuildingClassHappiness(NULL),
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_ppaiTradeRouteYieldChanges(NULL),
 	m_iReligionMajorityPressureModifier(0),
 	m_iUnitPurchaseCostModifier(0),
 	m_bEndsWars(false),
+#endif // SIEGEMOD
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
@@ -264,10 +264,9 @@ CvBuildingEntry::~CvBuildingEntry(void)
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiTerrainYieldChange);
 	CvDatabaseUtility::SafeDelete2DArray(m_ppiBuildingClassYieldChanges);
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiTradeRouteYieldChanges);
+#endif // SIEGEMOD
 }
 
 /// Read from XML file
@@ -394,12 +393,11 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	m_bArtInfoEraVariation = kResults.GetBool("ArtInfoEraVariation");
 	m_bArtInfoRandomVariation = kResults.GetBool("ArtInfoRandomVariation");
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_bEndsWars = kResults.GetBool("EndsWars");
 	m_iReligionMajorityPressureModifier = kResults.GetInt("ReligionMajorityPressureModifier");
 	m_iUnitPurchaseCostModifier = kResults.GetInt("UnitPurchaseCostModifier");
+#endif // SIEGEMOD
 
 	// ----------------------------------------------------------------
 	// WoTMod Addition
@@ -625,9 +623,7 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 		}
 	}
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	// TradeRouteYieldModifiers
 	{
 		kUtility.Initialize2DArray(m_ppaiTradeRouteYieldChanges, "Domains", "Yields");
@@ -676,6 +672,7 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 
 		std::multimap<int, int>(m_FreePromotionUnitCombats).swap(m_FreePromotionUnitCombats);
 	}
+#endif // SIEGEMOD
 
 	// ----------------------------------------------------------------
 	// WoTMod Addition
@@ -725,7 +722,7 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 			const int YieldID = pResults->GetInt(1);
 			const int yield = pResults->GetInt(2);
 
-			m_ppaiTradeRouteYieldChanges[GovernorClassID][YieldID] = yield;
+			m_ppaiGovernorClassYieldChanges[GovernorClassID][YieldID] = yield;
 		}
 	}
 
@@ -2074,9 +2071,7 @@ int* CvBuildingEntry::GetSpecialistYieldChangeArray(int i) const
 	return m_ppaiSpecialistYieldChange[i];
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 int CvBuildingEntry::GetTradeRouteYieldChange(int i, int j) const
 {
 	CvAssertMsg(i < NUM_DOMAIN_TYPES, "Index out of bounds");
@@ -2123,6 +2118,8 @@ bool CvBuildingEntry::IsEndsWars() const
 {
 	return m_bEndsWars;
 }
+#endif // SIEGEMOD
+
 // ----------------------------------------------------------------
 // WoTMod Addition
 // ----------------------------------------------------------------

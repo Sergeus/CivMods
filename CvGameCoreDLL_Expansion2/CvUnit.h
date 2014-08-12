@@ -1237,13 +1237,18 @@ public:
 	std::string debugDump(const FAutoVariableBase&) const;
 	std::string stackTraceRemark(const FAutoVariableBase&) const;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int GetAdjacentEnemyDamage() const;
 	void ChangeAdjacentEnemyDamage(int iChange);
 	void DoAdjacentEnemyDamage();
 	void DoSetupFaithIfReligious();
+#endif // SIEGEMOD
+
+#if CUSTOM_MISSIONS
+	bool CanHandleMission(int iMission, bool bTestVisible) const;
+	bool HandleMission(int iMission);
+#endif // CUSTOM_MISSIONS
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
@@ -1266,11 +1271,6 @@ public:
 	int GetHappiness() const;
 	void DoTrainAtTower();
 	int GetAjahInfluenceChange() const;
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Generic Mission Handling
-	// ----------------------------------------------------------------
-	bool CanHandleMission(int iMission, bool bTestVisible) const;
-	bool HandleMission(int iMission);
 
 protected:
 	const MissionQueueNode* HeadMissionQueueNode() const;
@@ -1285,10 +1285,10 @@ protected:
 	void QueueMoveForVisualization(CvPlot* pkPlot);
 	void PublishQueuedVisualizationMoves();
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int m_iAdjacentEnemyDamage;
+#endif // SIEGEMOD
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------

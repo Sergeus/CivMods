@@ -1108,9 +1108,7 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 			return true;
 		}
 	}
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Generic Mission Handling
-	// ----------------------------------------------------------------
+#if CUSTOM_MISSIONS
 	else
 	{
 		if (hUnit->CanHandleMission(iMission, bTestVisible))
@@ -1118,6 +1116,7 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 			return true;
 		}
 	}
+#endif // CUSTOM_MISSIONS
 
 	return false;
 }
@@ -1480,9 +1479,7 @@ void CvUnitMission::StartMission(UnitHandle hUnit)
 			{
 				bAction = true;
 			}
-			// ----------------------------------------------------------------
-			// WoTMod Addition - Custom Generic Mission Handling
-			// ----------------------------------------------------------------
+#if CUSTOM_MISSIONS
 			else if(pkQueueData->eMissionType <= CvTypes::getNUM_MISSION_TYPES())
 			{
 				if (hUnit->HandleMission(pkQueueData->eMissionType))
@@ -1490,6 +1487,7 @@ void CvUnitMission::StartMission(UnitHandle hUnit)
 					bDelete = true;
 				}
 			}
+#endif // CUSTOM_MISSIONS
 		}
 	}
 

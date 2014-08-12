@@ -326,15 +326,16 @@ bool CvDllDatabaseUtility::PrefetchGameData()
 	//Misc
 	PrefetchCollection(GC.getRouteInfo(), "Routes");
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	//CvNotificationXMLEntries* pkNotificationEntries =  GC.GetNotificationEntries();
-	//if(pkNotificationEntries != NULL)
-	//{
-	//	PrefetchCollection(pkNotificationEntries->GetNotificationEntries(), "Notifications");
-	//}
+#if CUSTOM_NOTIFICATIONS
 	PrefetchCollection(GC.GetNotificationInfo(), "Notifications");
+#else
+	CvNotificationXMLEntries* pkNotificationEntries =  GC.GetNotificationEntries();
+	if(pkNotificationEntries != NULL)
+	{
+		PrefetchCollection(pkNotificationEntries->GetNotificationEntries(), "Notifications");
+	}
+#endif // CUSTOM_NOTIFICATIONS
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------

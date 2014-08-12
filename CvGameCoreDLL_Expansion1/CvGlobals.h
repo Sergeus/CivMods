@@ -114,10 +114,9 @@ class CvBeliefXMLEntries;
 class CvDeal;
 class CvNetMessageHandler;
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 class WoTNotificationInfo;
+#endif // CUSTOM_NOTIFICATIONS
 
 class CvDLLInterfaceIFaceBase;
 class ICvDLLDatabaseUtility1;
@@ -308,12 +307,12 @@ public:
 	std::vector<CvFeatureInfo*>& getFeatureInfo();
 	CvFeatureInfo* getFeatureInfo(FeatureTypes eFeatureNum);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 	int GetNumNotificationInfos();
 	std::vector<WoTNotificationInfo*>& GetNotificationInfo();
 	WoTNotificationInfo* GetNotificationInfo(int iNotificationID);
+#endif // CUSTOM_NOTIFICATIONS
+
 
 	int& getNumPlayableCivilizationInfos();
 	int& getNumAIPlayableCivilizationInfos();
@@ -518,10 +517,9 @@ public:
 	std::vector<CvSmallAwardInfo*>& getSmallAwardInfo();
 	_Ret_maybenull_ CvSmallAwardInfo* getSmallAwardInfo(SmallAwardTypes eSmallAwardNum);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	//CvNotificationXMLEntries* GetNotificationEntries();
+#if !CUSTOM_NOTIFICATIONS
+	CvNotificationXMLEntries* GetNotificationEntries();
+#endif // CUSTOM_NOTIFICATIONS
 
 	//
 	// Global Types
@@ -7117,10 +7115,9 @@ protected:
 
 	std::vector<CvMultiUnitFormationInfo*> m_paMultiUnitFormationInfo;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 	std::vector<WoTNotificationInfo*> m_pNotifications;
+#endif // CUSTOM_NOTIFICATIONS
 
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;
 	CvCitySpecializationXMLEntries* m_pCitySpecializations;
@@ -7139,7 +7136,9 @@ protected:
 	CvTraitXMLEntries* m_pTraits;
 	CvReligionXMLEntries* m_pReligions;
 	CvBeliefXMLEntries* m_pBeliefs;
-	//CvNotificationXMLEntries* m_pNotifications;
+#if !CUSTOM_NOTIFICATIONS
+	CvNotificationXMLEntries* m_pNotifications;
+#endif // CUSTOM_NOTIFICATIONS
 
 	//////////////////////////////////////////////////////////////////////////
 	// GLOBAL TYPES

@@ -235,11 +235,11 @@ CvCity::CvCity() :
 	, m_iBaseHappinessFromBuildings(0)
 	, m_iUnmoddedHappinessFromBuildings(0)
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	, m_iTurnsInfluencedByPuppetingReligion(0)
 	, m_eReligionPuppeting(NO_RELIGION)
+#endif // SIEGEMOD
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
@@ -1633,9 +1633,7 @@ void CvCity::doTurn()
 			m_bRouteToCapitalConnectedLastTurn = m_bRouteToCapitalConnectedThisTurn;
 		}
 
-		// ----------------------------------------------------------------
-		// SiegeMod Addition
-		// ----------------------------------------------------------------
+#if SIEGEMOD
 		// Puppeting by religious conversion!
 		ReligionTypes eReligion = GetCityReligions()->GetReligiousMajority();
 		// If we're following a religion, we need to see if that religion is affected by the trait
@@ -1846,6 +1844,7 @@ void CvCity::doTurn()
 				}
 			}
 		}
+#endif // SIEGEMOD
 
 		// XXX
 #ifdef _DEBUG
@@ -4762,9 +4761,7 @@ int CvCity::GetPurchaseCost(UnitTypes eUnit)
 
 	int iCost = GetPurchaseCostFromProduction(getProductionNeeded(eUnit));
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	iCost += GetGoldPurchaseCostFromFaith(eUnit);
 
 
@@ -4777,6 +4774,7 @@ int CvCity::GetPurchaseCost(UnitTypes eUnit)
 			iModifier += GC.getBuildingInfo(eBuilding)->GetUnitPurchaseCostModifier();
 		}
 	}
+#endif // SIEGEMOD
 
 	iCost *= (100 + iModifier);
 	iCost /= 100;
@@ -4793,10 +4791,7 @@ int CvCity::GetPurchaseCost(UnitTypes eUnit)
 	return iCost;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
-
+#if SIEGEMOD
 int CvCity::GetGoldPurchaseCostFromFaith(UnitTypes eUnit)
 {
 	int iFaithCost = GetFaithPurchaseCost(eUnit, true);
@@ -4817,6 +4812,7 @@ int CvCity::GetGoldPurchaseCostFromFaith(UnitTypes eUnit)
 
 	return iCost;
 }
+#endif // SIEGEMOD
 
 //	--------------------------------------------------------------------------------
 int CvCity::GetFaithPurchaseCost(UnitTypes eUnit, bool bIncludeBeliefDiscounts)
@@ -11832,9 +11828,7 @@ void CvCity::pushOrder(OrderTypes eOrder, int iData1, int iData2, bool bSave, bo
 	DLLUI->SetSpecificCityInfoDirty(pCity.get(), CITY_UPDATE_TYPE_PRODUCTION);
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 int CvCity::GetTurnsInfluencedByPuppetingReligion() const
 {
 	return m_iTurnsInfluencedByPuppetingReligion;
@@ -11877,6 +11871,7 @@ void CvCity::AddFreePromotions(CvUnit* pUnit)
 		}
 	}
 }
+#endif // SIEGEMOD
 
 
 //	--------------------------------------------------------------------------------
@@ -11954,9 +11949,7 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 		if(bFinish)
 		{
 			int iResult = CreateUnit(eTrainUnit, eTrainAIUnit);
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
+#if SIEGEMOD
 			// Bonus units from the extra units trait!
 			int iExtraUnits = kOwner.GetPlayerTraits()->GetExtraUnitsWhenTrained();
 			if (iExtraUnits > 0)
@@ -11966,6 +11959,7 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 					kOwner.initUnit(eTrainUnit, getX(), getY());
 				}
 			}
+#endif // SIEGEMOD
 
 			if(iResult != FFreeList::INVALID_INDEX)
 			{
@@ -12063,9 +12057,7 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 
 				}
 
-				// ----------------------------------------------------------------
-				// SiegeMod Addition
-				// ----------------------------------------------------------------
+#if SIEGEMOD
 				if (pkBuildingInfo->IsEndsWars())
 				{
 					CvPlayer& kOwner = GET_PLAYER(getOwner());
@@ -12081,6 +12073,7 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 						}
 					}
 				}
+#endif // SIEGEMOD
 			}
 		}
 		break;
@@ -12426,7 +12419,9 @@ int CvCity::CreateUnit(UnitTypes eUnitType, UnitAITypes eAIType, bool bUseToSati
 
 	addProductionExperience(pUnit);
 
+#if SIEGEMOD
 	AddFreePromotions(pUnit);
+#endif // SIEGEMOD
 
 	CvPlot* pRallyPlot = getRallyPlot();
 	if(pRallyPlot != NULL)
@@ -12748,11 +12743,11 @@ bool CvCity::IsCanPurchase(bool bTestPurchaseCost, bool bTestTrainable, UnitType
 		// Unit
 		if(eUnitType != NO_UNIT)
 		{
-			// ----------------------------------------------------------------
-			// SiegeMod Addition
-			// ----------------------------------------------------------------
 			if(!canTrain(eUnitType, false, !bTestTrainable, false /*bIgnoreCost*/, true /*bWillPurchase*/)
-				&& !CanPurchaseReligiousTrait(eUnitType, bTestPurchaseCost))
+#if SIEGEMOD
+				&& !CanPurchaseReligiousTrait(eUnitType, bTestPurchaseCost)
+#endif // SIEGEMOD
+				)
 				return false;
 
 			iGoldCost = GetPurchaseCost(eUnitType);
@@ -12824,9 +12819,7 @@ bool CvCity::IsCanPurchase(bool bTestPurchaseCost, bool bTestTrainable, UnitType
 			if(pkUnitInfo)
 			{
 
-				// ----------------------------------------------------------------
-				// SiegeMod Addition
-				// ----------------------------------------------------------------
+#if SIEGEMOD
 				UnitClassTypes eUnitClass = (UnitClassTypes)pkUnitInfo->GetUnitClassType();
 				// Can't buy units that are overriden for us (or non-default units if they're not overriden for us)
 				if (GET_PLAYER(getOwner()).getCivilizationInfo().getCivilizationUnits(eUnitClass) != eUnitType)
@@ -12839,6 +12832,7 @@ bool CvCity::IsCanPurchase(bool bTestPurchaseCost, bool bTestTrainable, UnitType
 				{
 					return false;
 				}
+#endif // SIEGEMOD
 
 				if (pkUnitInfo->IsRequiresEnhancedReligion() && !(GC.getGame().GetGameReligions()->GetReligion(eReligion, NO_PLAYER)->m_bEnhanced))
 				{
@@ -12972,9 +12966,7 @@ bool CvCity::IsCanPurchase(bool bTestPurchaseCost, bool bTestTrainable, UnitType
 	return true;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 bool CvCity::CanPurchaseReligiousTrait(UnitTypes eUnit, bool bTestPurchaseCost)
 {
 	CvPlayer& kOwner = GET_PLAYER(getOwner());
@@ -13021,6 +13013,7 @@ bool CvCity::CanPurchaseReligiousTrait(UnitTypes eUnit, bool bTestPurchaseCost)
 
 	return true;
 }
+#endif // SIEGEMOD
 
 //	--------------------------------------------------------------------------------
 // purchase something at the city
@@ -14126,11 +14119,10 @@ void CvCity::read(FDataStream& kStream)
 	kStream >> m_iBaseHappinessFromBuildings;
 	kStream >> m_iUnmoddedHappinessFromBuildings;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	kStream >> m_iTurnsInfluencedByPuppetingReligion;
 	kStream >> m_eReligionPuppeting;
+#endif // SIEGEMOD
 
 	kStream >> m_bRouteToCapitalConnectedLastTurn;
 	kStream >> m_bRouteToCapitalConnectedThisTurn;
@@ -14387,11 +14379,10 @@ void CvCity::write(FDataStream& kStream) const
 	kStream << m_iBaseHappinessFromBuildings;
 	kStream << m_iUnmoddedHappinessFromBuildings;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	kStream << m_iTurnsInfluencedByPuppetingReligion;
 	kStream << m_eReligionPuppeting;
+#endif // SIEGEMOD
 
 	kStream << m_bRouteToCapitalConnectedLastTurn;
 	kStream << m_bRouteToCapitalConnectedThisTurn;

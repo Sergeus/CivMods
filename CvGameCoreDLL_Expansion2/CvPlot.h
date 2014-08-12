@@ -704,10 +704,9 @@ public:
 	void SetArtifactGreatWork(GreatWorkType eWork);
 	bool HasWrittenArtifact() const;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	void DoImprovementExplosion();
+#endif // SIEGEMOD
 
 protected:
 	class PlotBoolField

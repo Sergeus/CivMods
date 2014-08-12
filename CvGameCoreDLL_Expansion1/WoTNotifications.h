@@ -9,6 +9,7 @@
 #include "Database.h"
 #include <vector>
 
+#if CUSTOM_NOTIFICATIONS
 class WoTNotificationInfo
 {
 public:
@@ -71,3 +72,4 @@ private:
 	bool m_bExpiresAtTurnEnd;
 	bool m_bPlaysFXOnPlot;
 };
+#endif // CUSTOM_NOTIFICATIONS

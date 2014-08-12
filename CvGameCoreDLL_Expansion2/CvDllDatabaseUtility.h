@@ -16,15 +16,14 @@
 #include "CvGlobals.h"
 #include "ICvDLLDatabaseUtility.h"
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 #include "WoTNotifications.h"
+#endif // CUSTOM_NOTIFICATIONS
+
 // ----------------------------------------------------------------
 // WoTMod Addition
 // ----------------------------------------------------------------
 #include "WoTGovernorClasses.h"
-
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //

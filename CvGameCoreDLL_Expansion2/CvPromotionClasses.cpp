@@ -96,10 +96,10 @@ CvPromotionEntry::CvPromotionEntry():
 	m_iTradeMissionInfluenceModifier(0),
 	m_iTradeMissionGoldModifier(0),
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_iAdjacentEnemyDamage(0),
+#endif // SIEGEMOD
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
@@ -316,10 +316,9 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	m_iTradeMissionInfluenceModifier = kResults.GetInt("TradeMissionInfluenceModifier");
 	m_iTradeMissionGoldModifier = kResults.GetInt("TradeMissionGoldModifier");
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_iAdjacentEnemyDamage = kResults.GetInt("AdjacentEnemyDamage");
+#endif // SIEGEMOD
 
 	// ----------------------------------------------------------------
 	// WoTMod Addition
@@ -1176,13 +1175,13 @@ int CvPromotionEntry::GetTradeMissionGoldModifier() const
 	return m_iTradeMissionGoldModifier;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 int CvPromotionEntry::GetAdjacentEnemyDamage() const
 {
 	return m_iAdjacentEnemyDamage;
 }
+#endif // SIEGEMOD
+
 // ----------------------------------------------------------------
 // WoTMod Addition
 // ----------------------------------------------------------------

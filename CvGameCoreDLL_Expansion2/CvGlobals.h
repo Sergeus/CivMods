@@ -124,10 +124,10 @@ class CvResolutionXMLEntries;
 class CvDeal;
 class CvNetMessageHandler;
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 class WoTNotificationInfo;
+#endif // CUSTOM_NOTIFICATIONS
+
 // ----------------------------------------------------------------
 // WoTMod Addition
 // ----------------------------------------------------------------
@@ -329,12 +329,11 @@ public:
 	std::vector<CvFeatureInfo*>& getFeatureInfo();
 	CvFeatureInfo* getFeatureInfo(FeatureTypes eFeatureNum);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 	int GetNumNotificationInfos();
 	std::vector<WoTNotificationInfo*>& GetNotificationInfo();
 	WoTNotificationInfo* GetNotificationInfo(int iNotificationID);
+#endif // CUSTOM_NOTIFICATIONS
 
 	// ----------------------------------------------------------------
 	// WoTMod Addition
@@ -7418,9 +7417,7 @@ public:
 		return m_fLEAGUE_PROJECT_REWARD_TIER_2_THRESHOLD;
 	}
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	inline int getTRADE_ROUTE_DURATION_TURNS()
 	{
 		return m_iTRADE_ROUTE_DURATION_TURNS;
@@ -7429,6 +7426,7 @@ public:
 	{
 		return m_iHURRY_GOLD_COST_PER_FAITH;
 	}
+#endif // SIEGEMOD
 
 	// ----------------------------------------------------------------
 	// WoTMod Addition
@@ -7633,10 +7631,6 @@ protected:
 	std::vector<CvMultiUnitFormationInfo*> m_paMultiUnitFormationInfo;
 
 	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	std::vector<WoTNotificationInfo*> m_pNotifications;
-	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
 	std::vector<WoTGovernorClassInfo*> m_paGovernorClassInfo;
@@ -7667,7 +7661,13 @@ protected:
 	CvLeagueProjectXMLEntries* m_pLeagueProjects;
 	CvLeagueProjectRewardXMLEntries* m_pLeagueProjectRewards;
 	CvResolutionXMLEntries* m_pResolutions;
-	//CvNotificationXMLEntries* m_pNotifications;
+
+#if CUSTOM_NOTIFICATIONS
+	std::vector<WoTNotificationInfo*> m_pNotifications;
+#else
+	CvNotificationXMLEntries* m_pNotifications;
+#endif // CUSTOM_NOTIFICATIONS
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
@@ -9245,11 +9245,10 @@ protected:
 	int m_iCOMBAT_CAPTURE_MAX_CHANCE;
 	int m_iCOMBAT_CAPTURE_RATIO_MULTIPLIER;
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	int m_iTRADE_ROUTE_DURATION_TURNS;
 	int m_iHURRY_GOLD_COST_PER_FAITH;
+#endif // SIEGEMOD
 
 	// ----------------------------------------------------------------
 	// WoTMod Addition

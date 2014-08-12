@@ -114,11 +114,11 @@ CvUnitEntry::CvUnitEntry(void) :
 	m_paszMiddleArtDefineTags(NULL),
 	m_paszUnitNames(NULL),
 	m_paeGreatWorks(NULL),
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	m_piFreeUnitAfterSurvivingMeleeCombat(NULL),
 	m_piFreeUnitWhenTradeRoutePlundered(NULL),
+#endif // SIEGEMOD
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
@@ -155,11 +155,11 @@ CvUnitEntry::~CvUnitEntry(void)
 	SAFE_DELETE_ARRAY(m_paszUnitNames);
 	SAFE_DELETE_ARRAY(m_paeGreatWorks);
 	
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	SAFE_DELETE_ARRAY(m_piFreeUnitAfterSurvivingMeleeCombat);
 	SAFE_DELETE_ARRAY(m_piFreeUnitWhenTradeRoutePlundered);
+#endif // SIEGEMOD
+
 	// ----------------------------------------------------------------
 	// WoTMod Addition
 	// ----------------------------------------------------------------
@@ -327,11 +327,10 @@ bool CvUnitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	kUtility.PopulateArrayByExistence(m_pbOnePowerTypes, "OnePowers", "Unit_OnePowerWielding", "OnePowerType", "UnitType", szUnitType);
 	kUtility.PopulateArrayByValue(m_piFreePromotionsUntilProjectCompleted, "UnitPromotions", "Unit_FreePromotionsUntilProjectCompleted", "PromotionType", "UnitType", szUnitType, "ProjectType", -1);
 
-	// ----------------------------------------------------------------
-	// SiegeMod Addition
-	// ----------------------------------------------------------------
+#if SIEGEMOD
 	kUtility.PopulateArrayByValue(m_piFreeUnitAfterSurvivingMeleeCombat, "UnitClasses", "Unit_FreeUnitAfterSurvivingMeleeCombat", "UnitClassType", "UnitType", szUnitType, "NumberFree");
 	kUtility.PopulateArrayByValue(m_piFreeUnitWhenTradeRoutePlundered, "UnitClasses", "Unit_FreeUnitWhenTradeRoutePlundered", "UnitClassType", "UnitType", szUnitType, "NumberFree");
+#endif // SIEGEMOD
 
 
 	//TechTypes
@@ -1085,9 +1084,7 @@ bool CvUnitEntry::GetFreePromotions(int i) const
 	return m_pbFreePromotions ? m_pbFreePromotions[i] : false;
 }
 
-// ----------------------------------------------------------------
-// SiegeMod Addition
-// ----------------------------------------------------------------
+#if SIEGEMOD
 int CvUnitEntry::GetFreeUnitAfterSurvivingMeleeCombat(int i) const
 {
 	CvAssertMsg(i < GC.getNumUnitClassInfos(), "Index out of bounds");
@@ -1100,6 +1097,7 @@ int CvUnitEntry::GetFreeUnitWhenTradeRoutePlundered(int i) const
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_piFreeUnitWhenTradeRoutePlundered ? m_piFreeUnitWhenTradeRoutePlundered[i] : 0;
 }
+#endif // SIEGEMOD
 
 // ----------------------------------------------------------------
 // WoTMod Addition

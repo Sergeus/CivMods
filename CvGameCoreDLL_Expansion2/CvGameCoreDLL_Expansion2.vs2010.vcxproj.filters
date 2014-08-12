@@ -21,6 +21,9 @@
     <Filter Include="WoTSources">
       <UniqueIdentifier>{f31ea53b-1041-45d8-aaca-34bc95676f58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mods">
+      <UniqueIdentifier>{ff62273e-bf8a-4ef7-a730-fc10ea96fa98}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_precompile.cpp">
@@ -1065,6 +1068,9 @@
     </ClInclude>
     <ClInclude Include="WoTWhiteTowerClasses.h">
       <Filter>WoTHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ModDefines.h">
+      <Filter>Mods</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

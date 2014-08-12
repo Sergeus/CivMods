@@ -32,10 +32,9 @@
 #include "CvReplayInfo.h"
 #include "CvTypes.h"
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 #include "WoTNotifications.h"
+#endif // CUSTOM_NOTIFICATIONS
 
 #include "CvDllDatabaseUtility.h"
 #include "CvDllScriptSystemUtility.h"
@@ -1862,10 +1861,9 @@ void CvGlobals::init()
 	m_pTraits = FNEW(CvTraitXMLEntries, c_eCiv5GameplayDLL, 0);
 	m_pReligions = FNEW(CvReligionXMLEntries, c_eCiv5GameplayDLL, 0);
 	m_pBeliefs = FNEW(CvBeliefXMLEntries, c_eCiv5GameplayDLL, 0);
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	//m_pNotifications = FNEW(CvNotificationXMLEntries, c_eCiv5GameplayDLL, 0);
+#if !CUSTOM_NOTIFICATIONS
+	m_pNotifications = FNEW(CvNotificationXMLEntries, c_eCiv5GameplayDLL, 0);
+#endif // CUSTOM_NOTIFICATIONS
 
 	auto_ptr<ICvDLLDatabaseUtility1> pkLoader(getDatabaseLoadUtility());
 
@@ -1921,10 +1919,9 @@ void CvGlobals::uninit()
 	SAFE_DELETE(m_pTraits);
 	SAFE_DELETE(m_pReligions);
 	SAFE_DELETE(m_pBeliefs);
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Custom Notifications
-	// ----------------------------------------------------------------
-	//SAFE_DELETE(m_pNotifications);
+#if !CUSTOM_NOTIFICATIONS
+	SAFE_DELETE(m_pNotifications);
+#endif // CUSTOM_NOTIFICATIONS
 
 	SAFE_DELETE(m_pImprovements); // player uses the improvement count in deallocating.
 	SAFE_DELETE(m_pTechs);        // improvements uses tech to deallocate. arrghh!
@@ -2426,9 +2423,7 @@ CvFeatureInfo* CvGlobals::getFeatureInfo(FeatureTypes eFeatureNum)
 		return NULL;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
+#if CUSTOM_NOTIFICATIONS
 int CvGlobals::GetNumNotificationInfos()
 {
 	return m_pNotifications.size();
@@ -2448,6 +2443,7 @@ WoTNotificationInfo* CvGlobals::GetNotificationInfo(int iNotificationID)
 	else
 		return NULL;
 }
+#endif // CUSTOM_NOTIFICATIONS
 
 int& CvGlobals::getNumPlayableCivilizationInfos()
 {
@@ -3471,13 +3467,12 @@ void CvGlobals::LogMessage(const char* szMessage)
 	}
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition - Custom Notifications
-// ----------------------------------------------------------------
-//CvNotificationXMLEntries* CvGlobals::GetNotificationEntries()
-//{
-//	return m_pNotifications;
-//}
+#if !CUSTOM_NOTIFICATIONS
+CvNotificationXMLEntries* CvGlobals::GetNotificationEntries()
+{
+	return m_pNotifications;
+}
+#endif // CUSTOM_NOTIFICATIONS
 
 CvString*& CvGlobals::getFootstepAudioTags()
 {
