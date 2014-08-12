@@ -384,9 +384,7 @@ void CvLuaGame::RegisterMembers(lua_State* L)
 	Method(GetNumArchaeologySites);
 	Method(GetNumHiddenArchaeologySites);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	Method(DoShadowspawnSpawnUnit);
 	Method(DoStartLastBattle);
 	Method(IsLastBattle);
@@ -394,6 +392,7 @@ void CvLuaGame::RegisterMembers(lua_State* L)
 	Method(GetChosenLastBattleSide);
 	Method(GetLastBattleBeginTurn);
 	Method(SetLastBattleBeginTurn);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 
@@ -2516,9 +2515,7 @@ int CvLuaGame::lIsProcessingMessages(lua_State* L)
 	lua_pushboolean(L, gDLL->IsProcessingGameCoreMessages());
 	return 1;
 }
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvLuaGame::lDoShadowspawnSpawnUnit(lua_State* L)
 {
 	int iX = lua_tointeger(L, 1);
@@ -2582,6 +2579,7 @@ int CvLuaGame::lSetLastBattleBeginTurn(lua_State* L)
 	GC.getGame().SetLastBattleBeginTurn(iNewTurn);
 	return 0;
 }
+#endif // WOTMOD
 
 //------------------------------------------------------------------------------
 int CvLuaGame::lGetGreatWorkTooltip(lua_State* L)

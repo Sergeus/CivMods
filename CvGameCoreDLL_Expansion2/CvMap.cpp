@@ -209,9 +209,7 @@ FDataStream& operator>>(FDataStream& loadFrom, CvLandmass& writeTo)
 	return loadFrom;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 FDataStream& operator<<(FDataStream& saveTo, const HornOfValere& readFrom)
 {
 	readFrom.Write(saveTo);
@@ -223,6 +221,7 @@ FDataStream& operator>>(FDataStream& loadFrom, HornOfValere& writeTo)
 	writeTo.Read(loadFrom);
 	return loadFrom;
 }
+#endif // WOTMOD
 
 static uint sgCvMapInstanceCount = 0;
 //////////////////////////////////////////////////////////////////////////////
@@ -256,11 +255,10 @@ CvMap::CvMap()
 
 	m_iAIMapHints = 0;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pHornOfValere = NULL;
 	m_pCannotChannelHere = NULL;
+#endif // WOTMOD
 
 	reset(&defaultMapData);
 }
@@ -291,10 +289,9 @@ void CvMap::InitPlots()
 	m_pRevealedRouteType		= FNEW(short[REALLY_MAX_TEAMS*iNumPlots], c_eCiv5GameplayDLL, 0);
 	m_pNoSettling				= FNEW(bool[MAX_MAJOR_CIVS*iNumPlots], c_eCiv5GameplayDLL, 0);
 	m_pResourceForceReveal		= FNEW(bool[REALLY_MAX_TEAMS*iNumPlots], c_eCiv5GameplayDLL, 0);
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pCannotChannelHere		= FNEW(short[GC.GetNumOnePowerInfos()*iNumPlots], c_eCiv5GameplayDLL, 0);
+#endif // WOTMOD
 
 	memset(m_pYields, 0, NUM_YIELD_TYPES*iNumPlots*sizeof(short));
 	memset(m_pFoundValue, 0, REALLY_MAX_PLAYERS*iNumPlots*sizeof(int));
@@ -306,11 +303,9 @@ void CvMap::InitPlots()
 	memset(m_pRevealedRouteType, 0,REALLY_MAX_TEAMS*iNumPlots *sizeof(short));
 	memset(m_pNoSettling, 0,MAX_MAJOR_CIVS*iNumPlots *sizeof(bool));
 	memset(m_pResourceForceReveal, 0,REALLY_MAX_TEAMS*iNumPlots *sizeof(bool));
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	memset(m_pCannotChannelHere, 0, GC.GetNumOnePowerInfos() * iNumPlots * sizeof(short));
-
+#endif // WOTMOD
 
 	short* pYields					= m_pYields;
 	int*   pFoundValue				= m_pFoundValue;
@@ -321,10 +316,9 @@ void CvMap::InitPlots()
 	short* pRevealedRouteType		= m_pRevealedRouteType;
 	bool*  pNoSettling				= m_pNoSettling;
 	bool*  pResourceForceReveal		= m_pResourceForceReveal;
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	short* pCannotChannelHere		= m_pCannotChannelHere;
+#endif // WOTMOD
 
 	for(int i = 0; i < iNumPlots; i++)
 	{
@@ -340,11 +334,9 @@ void CvMap::InitPlots()
 
 		m_pMapPlots[i].m_abResourceForceReveal		= pResourceForceReveal;
 
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------		
+#if WOTMOD
 		m_pMapPlots[i].m_iCannotChannelHere			= pCannotChannelHere;
-
+#endif // WOTMOD
 
 		pYields					+= NUM_YIELD_TYPES;
 		pFoundValue				+= REALLY_MAX_PLAYERS;
@@ -355,11 +347,9 @@ void CvMap::InitPlots()
 		pRevealedRouteType		+= REALLY_MAX_TEAMS;
 		pNoSettling				+= MAX_MAJOR_CIVS;
 		pResourceForceReveal	+= REALLY_MAX_TEAMS;
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
+#if WOTMOD
 		pCannotChannelHere		+= GC.GetNumOnePowerInfos();
-
+#endif // WOTMOD
 	}
 
 	m_kPlotManager.Init(getGridWidth(), getGridHeight());
@@ -412,13 +402,12 @@ void CvMap::uninit()
 	SAFE_DELETE_ARRAY(m_paiNumResource);
 	SAFE_DELETE_ARRAY(m_paiNumResourceOnLand);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (m_pHornOfValere) 
 	{
 		SAFE_DELETE(m_pHornOfValere);
 	}
+#endif // WOTMOD
 
 	SAFE_DELETE_ARRAY(m_pMapPlots);
 
@@ -434,10 +423,9 @@ void CvMap::uninit()
 	SAFE_DELETE_ARRAY(m_pNoSettling);
 	SAFE_DELETE_ARRAY(m_pResourceForceReveal);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	SAFE_DELETE_ARRAY(m_pCannotChannelHere);
+#endif // WOTMOD
 
 	m_iGridWidth = 0;
 	m_iGridHeight = 0;
@@ -525,10 +513,9 @@ void CvMap::reset(CvMapInitData* pInitInfo)
 
 	m_vDeferredFogPlots.clear();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pHornOfValere = FNEW(HornOfValere, c_eCiv5GameplayDLL, 0);
+#endif // WOTMOD
 
 	gDLL->DoMapSetup(numPlots());
 }
@@ -624,13 +611,12 @@ void CvMap::doTurn()
 		plotByIndexUnchecked(iI)->doTurn();
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (m_bHasHornOfValere && m_pHornOfValere)
 	{
 		m_pHornOfValere->DoTurn();
 	}
+#endif // WOTMOD
 }
 
 
@@ -769,9 +755,7 @@ void CvMap::verifyUnitValidPlot()
 	}
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 bool CvMap::IsHasHornOfValere() const
 {
 	return m_bHasHornOfValere;
@@ -864,7 +848,7 @@ void CvMap::DoDropHornOfValere(CvUnit* pUnit)
 		m_pHornOfValere->DropHorn(pUnit);
 	}
 }
-
+#endif // WOTMOD
 
 //	--------------------------------------------------------------------------------
 CvPlot* CvMap::syncRandPlot(int iFlags, int iArea, int iMinUnitDistance, int iTimeout)
@@ -1564,11 +1548,10 @@ void CvMap::Read(FDataStream& kStream)
 	m_iAIMapHints = 0;
 	kStream >> m_iAIMapHints;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kStream >> m_bHasHornOfValere;
 	kStream >> *m_pHornOfValere;
+#endif // WOTMOD
 
 	setup();
 
@@ -1619,12 +1602,10 @@ void CvMap::Write(FDataStream& kStream) const
 
 	kStream << m_iAIMapHints;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kStream << m_bHasHornOfValere;
 	kStream << *m_pHornOfValere;
-
+#endif // WOTMOD
 }
 
 

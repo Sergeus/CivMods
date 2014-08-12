@@ -49,11 +49,10 @@
 #include "CvBarbarians.h"
 #include "CvGoodyHuts.h"
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 #include "WoTShadowspawn.h"
 #include "CustomLog.h"
+#endif // WOTMOD
 
 #include <sstream>
 
@@ -161,10 +160,9 @@ CvGame::~CvGame()
 	SAFE_DELETE_ARRAY(m_aiTeamRank);
 	SAFE_DELETE_ARRAY(m_aiTeamScore);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	SAFE_DELETE_ARRAY(m_aiLastBattleSideChoices);
+#endif // WOTMOD
 }
 
 //	--------------------------------------------------------------------------------
@@ -317,11 +315,10 @@ void CvGame::init(HandicapTypes eHandicap)
 
 	setStartTurn(getGameTurn());
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// before we do the victory stuff, let's be sure the PreGame victories setup is correct, right?
 	CvPreGame::cacheVictories();
+#endif // WOTMOD
 
 	iEstimateEndTurn = 0;
 
@@ -370,9 +367,7 @@ void CvGame::init(HandicapTypes eHandicap)
 		setEstimateEndTurn(getGameTurn() + getMaxTurns());
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// TODO: estimate last battle turn by speed here
 	int iLastBattleBeginTurn = 200;
 
@@ -406,6 +401,7 @@ void CvGame::init(HandicapTypes eHandicap)
 			SetLastBattleBeginTurn(lastBattleTurn);
 		}
 	}
+#endif // WOTMOD
 
 	setStartYear(GC.getSTART_YEAR());
 
@@ -556,10 +552,9 @@ bool CvGame::InitMap(CvGameInitialItemsOverrides& kGameInitialItemsOverrides)
 
 	CvBarbarians::MapInit(GC.getMap().numPlots());
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	WoTShadowspawn::Init();
+#endif // WOTMOD
 
 	// Run this for all maps because a map should never crash the game on
 	// load regardless of where that map came from.  (The map scripts are mod-able after all!!!)
@@ -636,10 +631,9 @@ void CvGame::InitPlayers()
 	CivilizationTypes eBarbCiv = (CivilizationTypes)GC.getBARBARIAN_CIVILIZATION();
 	CivilizationTypes eMinorCiv = (CivilizationTypes)GC.getMINOR_CIVILIZATION();
 	
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	CivilizationTypes eShadowCiv = (CivilizationTypes)GC.getSHADOW_CIVILIZATION();
+#endif // WOTMOD
 
 	CvCivilizationInfo* pBarbarianCivilizationInfo = GC.getCivilizationInfo(eBarbCiv);
 	int barbarianPlayerColor = pBarbarianCivilizationInfo->getDefaultPlayerColor();
@@ -690,9 +684,7 @@ void CvGame::InitPlayers()
 		iNumMinors = kWorldInfo.getDefaultMinorCivs();
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// We're going to override one of the minor civs to Tar Valon (if one isn't already)
 	// and the diplomatic victory is enabled
 	bool bAlreadyPickedTarValon = false;
@@ -718,6 +710,7 @@ void CvGame::InitPlayers()
 		CvPreGame::setMinorCivType(static_cast<PlayerTypes>(tarValonCiv), static_cast<MinorCivTypes>(tarValonMinorType));
 		CUSTOMLOG("Setting Tar Valon as minor civ with ID %i.", tarValonCiv);
 	}
+#endif // WOTMOD
 
 	PlayerTypes eMinorPlayer;
 
@@ -736,9 +729,7 @@ void CvGame::InitPlayers()
 			CvPreGame::setPlayerColor(BARBARIAN_PLAYER, ((PlayerColorTypes)barbarianPlayerColor));
 			CvPreGame::setMinorCiv(BARBARIAN_PLAYER, false);
 		}
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
+#if WOTMOD
 		// init shadowspawn slot
 		else if (iI == SHADOW_PLAYER)
 		{
@@ -753,6 +744,7 @@ void CvGame::InitPlayers()
 			CvPreGame::setPlayerColor(SHADOW_PLAYER, (PlayerColorTypes)pShadowInfo->getDefaultPlayerColor());
 			CvPreGame::setMinorCiv(SHADOW_PLAYER, false);
 		}
+#endif // WOTMOD
 		// Major Civs
 		else if(iI < MAX_MAJOR_CIVS)
 		{
@@ -812,11 +804,11 @@ void CvGame::setInitialItems(CvGameInitialItemsOverrides& kInitialItemOverrides)
 	{
 		CvPlayer& kPlayer = GET_PLAYER((PlayerTypes) iPlayerLoop);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
 		if(kPlayer.isAlive() && !kPlayer.isMinorCiv() && !kPlayer.isBarbarian()
-			&& !kPlayer.IsShadowspawn())
+#if WOTMOD
+			&& !kPlayer.IsShadowspawn()
+#endif // WOTMOD
+			)
 		{
 			kPlayer.GetFlavorManager()->AdjustWeightsForMap();
 		}
@@ -1028,10 +1020,9 @@ void CvGame::uninit()
 	CvGoodyHuts::Uninit();
 	CvBarbarians::Uninit();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	WoTShadowspawn::Uninit();
+#endif // WOTMOD
 
 	SAFE_DELETE_ARRAY(m_paiUnitCreatedCount);
 	SAFE_DELETE_ARRAY(m_paiUnitClassCreatedCount);
@@ -1337,15 +1328,14 @@ void CvGame::reset(HandicapTypes eHandicap, bool bConstructorCall)
 			}
 		}
 
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
+#if WOTMOD
 		CvAssertMsg(m_aiLastBattleSideChoices==NULL, "about to leak memory, CvGame::m_aiLastBattleSideChoices");
 		m_aiLastBattleSideChoices = FNEW(int[MAX_PLAYERS], c_eCiv5GameplayDLL, 0);
 		for (int iI = 0; iI < MAX_PLAYERS; iI++)
 		{
 			m_aiLastBattleSideChoices[iI] = NO_SIDE;
 		}
+#endif // WOTMOD
 
 		CvAssertMsg(m_pSettlerSiteEvaluator==NULL, "about to leak memory, CvGame::m_pSettlerSiteEvaluator");
 		m_pSettlerSiteEvaluator = FNEW(CvSiteEvaluatorForSettler, c_eCiv5GameplayDLL, 0);
@@ -1409,10 +1399,11 @@ void CvGame::initDiplomacy()
 		CvTeam& kTeamA = GET_TEAM(eTeamA);
 		kTeamA.meet(eTeamA, false);
 
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
-		if(kTeamA.isBarbarian() || kTeamA.IsShadowSpawn())
+		if(kTeamA.isBarbarian() 
+#if WOTMOD
+			|| kTeamA.IsShadowSpawn()
+#endif // WOTMOD
+			)
 		{
 			for(int iJ = 0; iJ < MAX_CIV_TEAMS; iJ++)
 			{
@@ -4563,9 +4554,7 @@ void CvGame::setMaxTurns(int iNewValue)
 	CvAssert(getMaxTurns() >= 0);
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvGame::GetLastBattleBeginTurn()
 {
 	return CvPreGame::GetLastBattleBeginTurn();
@@ -4574,6 +4563,7 @@ void CvGame::SetLastBattleBeginTurn(int iNewValue)
 {
 	CvPreGame::SetLastBattleBeginTurn(iNewValue);
 }
+#endif // WOTMOD
 
 //	--------------------------------------------------------------------------------
 void CvGame::changeMaxTurns(int iChange)
@@ -7637,10 +7627,9 @@ void CvGame::doTurn()
 
 	CvBarbarians::BeginTurn();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	WoTShadowspawn::BeginTurn();
+#endif // WOTMOD
 
 	doUpdateCacheOnTurn();
 
@@ -7666,10 +7655,9 @@ void CvGame::doTurn()
 
 	CvBarbarians::DoUnits();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	WoTShadowspawn::DoUnits();
+#endif // WOTMOD
 
 	GetGameReligions()->DoTurn();
 	GetGameTrade()->DoTurn();
@@ -7768,13 +7756,12 @@ void CvGame::doTurn()
 	// Victory stuff
 	testVictory();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (getGameTurn() == GetLastBattleBeginTurn())
 	{
 		DoStartLastBattle();
 	}
+#endif // WOTMOD
 
 	// Who's Winning
 	if(GET_PLAYER(getActivePlayer()).isAlive() && !IsStaticTutorialActive())
@@ -9467,11 +9454,10 @@ void CvGame::Read(FDataStream& kStream)
 	ArrayWrapper<int> wrapm_aiTeamScore(MAX_TEAMS, m_aiTeamScore);
 	kStream >> wrapm_aiTeamScore;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	ArrayWrapper<int> wrapm_aiLastBattleSideChoices(MAX_PLAYERS, m_aiLastBattleSideChoices);
 	kStream >> wrapm_aiLastBattleSideChoices;
+#endif // WOTMOD
 
 	UnitArrayHelpers::Read(kStream, m_paiUnitCreatedCount);
 	UnitClassArrayHelpers::Read(kStream, m_paiUnitClassCreatedCount);
@@ -9615,18 +9601,15 @@ void CvGame::ReadSupportingClassData(FDataStream& kStream)
 	CvBarbarians::Read(kStream, uiVersion);
 	CvGoodyHuts::Read(kStream, uiVersion);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	WoTShadowspawn::Read(kStream);
+#endif // WOTMOD
 }
 
 //	--------------------------------------------------------------------------------
 void CvGame::Write(FDataStream& kStream) const
 {
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// This is commented out because it causes an intermittent hang at game start
 	// due to deadlock between game core and Lua engine
 	// Need to find a better save point trigger.
@@ -9643,6 +9626,7 @@ void CvGame::Write(FDataStream& kStream) const
 
 	//	LuaSupport::CallHook(pkScriptsSystem, "GameSaving", args.get(), bResult);
 	//}
+#endif // WOTMOD
 
 	// Current version number
 	kStream << g_CurrentCvGameVersion;
@@ -9717,10 +9701,9 @@ void CvGame::Write(FDataStream& kStream) const
 	kStream << ArrayWrapper<int>(MAX_TEAMS, m_aiTeamRank);
 	kStream << ArrayWrapper<int>(MAX_TEAMS, m_aiTeamScore);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kStream << ArrayWrapper<int>(MAX_PLAYERS, m_aiLastBattleSideChoices);
+#endif // WOTMOD
 
 	UnitArrayHelpers::Write(kStream, m_paiUnitCreatedCount, GC.getNumUnitInfos());
 
@@ -9835,10 +9818,9 @@ void CvGame::WriteSupportingClassData(FDataStream& kStream)
 	CvBarbarians::Write(kStream);
 	CvGoodyHuts::Write(kStream);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	WoTShadowspawn::Write(kStream);
+#endif // WOTMOD
 }
 
 //	--------------------------------------------------------------------------------
@@ -10532,9 +10514,7 @@ int CvGame::GetResearchAgreementCost(PlayerTypes ePlayer1, PlayerTypes ePlayer2)
 	return iCost;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 void CvGame::DoStartLastBattle()
 {
 	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
@@ -10657,7 +10637,7 @@ void CvGame::DoCheckLastBattleSidesChosen()
 		startLastBattle();
 	}
 }
-
+#endif // WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// See if someone has won a conquest Victory
@@ -11949,13 +11929,12 @@ CombatPredictionTypes CvGame::GetCombatPrediction(const CvUnit* pAttackingUnit, 
 	return ePrediction;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 void CvGame::DoShadowSpawnUnit(int iX, int iY)
 {
 	WoTShadowspawn::SpawnShadowspawnUnit(GC.getMap().plot(iX, iY));
 }
+#endif // WOTMOD
 
 //------------------------------------------------------------
 //------------------------------------------------------------

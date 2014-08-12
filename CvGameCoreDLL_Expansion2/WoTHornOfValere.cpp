@@ -3,6 +3,7 @@
 #include "CvGameCoreDLLPCH.h"
 #include "CvGameCoreUtils.h"
 
+#if WOTMOD
 HornOfValere::HornOfValere(): m_bFound(false), m_bActive(false),
 	m_iTurnsSinceHornBlown(50000), // arbitrarily large but not enough to overflow
 	m_iOwnerPlayerID(-1), m_iOwnerUnitID(-1),
@@ -278,3 +279,4 @@ void HornOfValere::Write(FDataStream& kStream) const
 	kStream << m_bFound;
 	kStream << m_bActive;
 }
+#endif // WOTMOD

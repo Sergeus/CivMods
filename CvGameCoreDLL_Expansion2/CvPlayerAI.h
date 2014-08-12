@@ -62,10 +62,9 @@ public:
 
 	void AI_considerAnnex();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	void AI_chooseLastBattleSide();
+#endif // WOTMOD
 
 	int AI_plotTargetMissionAIs(CvPlot* pPlot, MissionAITypes eMissionAI, int iRange = 0);
 

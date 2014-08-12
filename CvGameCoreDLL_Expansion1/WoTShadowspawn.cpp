@@ -184,7 +184,11 @@ void WoTShadowspawn::DoUnits()
 
 void WoTShadowspawn::SpawnShadowspawnUnit(CvPlot* pPlot)
 {
+#if WOTMOD
 	CvPlayerAI& kShadowPlayer = GET_PLAYER(SHADOW_PLAYER);
+#else
+	CvPlayerAI& kShadowPlayer = GET_PLAYER(BARBARIAN_PLAYER);
+#endif // WOTMOD
 
 	UnitTypes eUnit = GetRandomShadowSpawnUnitType();
 
@@ -197,7 +201,11 @@ void WoTShadowspawn::SpawnShadowspawnUnit(CvPlot* pPlot)
 
 UnitTypes WoTShadowspawn::GetRandomShadowSpawnUnitType()
 {
+#if WOTMOD
 	CvPlayerAI& kShadowPlayer = GET_PLAYER(SHADOW_PLAYER);
+#else
+	CvPlayerAI& kShadowPlayer = GET_PLAYER(BARBARIAN_PLAYER);
+#endif // WOTMOD
 
 	CUSTOMLOG("Choosing random shadowspawn unit.");
 

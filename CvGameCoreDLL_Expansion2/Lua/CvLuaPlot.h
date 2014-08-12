@@ -276,11 +276,10 @@ protected:
 
 	static int lIsBuildRemovesFeature(lua_State* L);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition - Methods
-	// ----------------------------------------------------------------
+#if WOTMOD
 	static int lIsHasHornOfValere(lua_State* L);
 	static int lSetHasHornOfValere(lua_State* L);
+#endif // WOTMOD
 
 	static int lGetArchaeologyArtifactType(lua_State* L);
 	static int lGetArchaeologyArtifactEra(lua_State* L);

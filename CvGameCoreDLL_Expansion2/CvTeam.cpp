@@ -736,13 +736,12 @@ void CvTeam::doTurn()
 		DoBarbarianTech();
 	}
 	// NOT barbs
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	else if (IsShadowSpawn())
 	{
 		// TODO shadowspawn techs
 	}
+#endif // WOTMOD
 	else
 	{
 		// War counter
@@ -752,10 +751,11 @@ void CvTeam::doTurn()
 		{
 			eTeam = (TeamTypes) iTeamLoop;
 
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
-			if(!GET_TEAM(eTeam).isBarbarian() && !GET_TEAM(eTeam).IsShadowSpawn())
+			if(!GET_TEAM(eTeam).isBarbarian() 
+#if WOTMOD
+				&& !GET_TEAM(eTeam).IsShadowSpawn()
+#endif // WOTMOD
+				)
 			{
 				if(isAtWar(eTeam))
 					ChangeNumTurnsAtWar(eTeam, 1);
@@ -1116,10 +1116,11 @@ void CvTeam::DoDeclareWar(TeamTypes eTeam, bool bDefensivePact, bool bMinorAllyP
 	}
 
 	CvAssertMsg(eTeam != GetID(), "eTeam is not expected to be equal with GetID()");
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!isBarbarian() && !IsShadowSpawn())
+	if(!isBarbarian() 
+#if WOTMOD
+		&& !IsShadowSpawn()
+#endif // WOTMOD
+		)
 	{
 		// Since we declared war, all of OUR Defensive Pacts are nullified
 		cancelDefensivePacts();
@@ -1163,10 +1164,11 @@ void CvTeam::DoDeclareWar(TeamTypes eTeam, bool bDefensivePact, bool bMinorAllyP
 	}
 
 	// Cancel Trade Deals, RAs, diplomats
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!isBarbarian() && !IsShadowSpawn())
+	if(!isBarbarian() 
+#if WOTMOD
+		&& !IsShadowSpawn()
+#endif // WOTMOD
+		)
 	{
 		GC.getGame().GetGameDeals()->DoCancelDealsBetweenTeams(GetID(), eTeam);
 		CloseEmbassyAtTeam(eTeam);
@@ -1191,10 +1193,11 @@ void CvTeam::DoDeclareWar(TeamTypes eTeam, bool bDefensivePact, bool bMinorAllyP
 	meet(eTeam, false);
 
 	// Update the ATTACKED players' Diplo AI
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!isBarbarian() && !IsShadowSpawn())
+	if(!isBarbarian() 
+#if WOTMOD
+		&& !IsShadowSpawn()
+#endif // WOTMOD
+		)
 	{
 		for(iI = 0; iI < MAX_CIV_PLAYERS; iI++)
 		{
@@ -1228,11 +1231,11 @@ void CvTeam::DoDeclareWar(TeamTypes eTeam, bool bDefensivePact, bool bMinorAllyP
 	if(GC.getGame().isFinalInitialized())
 	{
 		// Message everyone about what happened
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
 		if(!isBarbarian() && !(GET_TEAM(eTeam).isBarbarian())
-			&& !IsShadowSpawn() && !(GET_TEAM(eTeam).IsShadowSpawn()))
+#if WOTMOD
+			&& !IsShadowSpawn() && !(GET_TEAM(eTeam).IsShadowSpawn())
+#endif // WOTMOD
+			)
 		{
 			{
 				PlayerTypes ePlayer;
@@ -1821,14 +1824,13 @@ TeamTypes CvTeam::GetTeamVotingForInDiplo() const
 		// Barbarians do not vote!
 		CvAssertMsg(false, "Barbarian team should not be voting for diplo victory. Please send Anton your save file and verison.");
 	}
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	else if (IsShadowSpawn())
 	{
 		// Shadowspawn don't vote either
 		CvAssertMsg(false, "Shadowspawn shouldn't be voting. Dunno who Anton is, so send your save to S3rgeus.");
 	}
+#endif // WOTMOD
 	else if(isMinorCiv())
 	{
 		// Minor civs vote for their favored nation (liberator or ally)
@@ -1923,11 +1925,11 @@ int CvTeam::GetProjectedVotesFromMinorAllies() const
 		{
 			TeamTypes eTeamLoop = (TeamTypes) iTeamLoop;
 			CvTeam* pTeamLoop = &GET_TEAM(eTeamLoop);
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
 			if (pTeamLoop->isAlive() && !pTeamLoop->isMinorCiv() && !pTeamLoop->isBarbarian()
-				&& !pTeamLoop->IsShadowSpawn())
+#if WOTMOD
+				&& !pTeamLoop->IsShadowSpawn()
+#endif // WOTMOD
+				)
 			{
 				// Minor civ team votes are definite things, given the situation doesn't change
 				if (GET_TEAM(eTeamLoop).GetTeamVotingForInDiplo() == GetID())
@@ -1956,11 +1958,11 @@ int CvTeam::GetProjectedVotesFromLiberatedMinors() const
 		{
 			TeamTypes eTeamLoop = (TeamTypes) iTeamLoop;
 			CvTeam* pTeamLoop = &GET_TEAM(eTeamLoop);
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
 			if (pTeamLoop->isAlive() && pTeamLoop->isMinorCiv() && !pTeamLoop->isBarbarian()
-				&& !pTeamLoop->IsShadowSpawn())
+#if WOTMOD
+				&& !pTeamLoop->IsShadowSpawn()
+#endif // WOTMOD
+				)
 			{
 				// Minor civ team votes are definite things, given the situation doesn't change
 				if (GET_TEAM(eTeamLoop).GetTeamVotingForInDiplo() == GetID())
@@ -1990,11 +1992,11 @@ int CvTeam::GetProjectedVotesFromCivs() const
 		{
 			TeamTypes eTeamLoop = (TeamTypes) iTeamLoop;
 			CvTeam* pTeamLoop = &GET_TEAM(eTeamLoop);
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
 			if (pTeamLoop->isAlive() && pTeamLoop->isMinorCiv() && !pTeamLoop->isBarbarian()
-				&& !pTeamLoop->IsShadowSpawn())
+#if WOTMOD
+				&& !pTeamLoop->IsShadowSpawn()
+#endif // WOTMOD
+				)
 			{
 				// Did they vote for us last time?
 				if (GC.getGame().GetPreviousVoteCast(eTeamLoop) == GetID())
@@ -2392,13 +2394,12 @@ bool CvTeam::isMinorCiv() const
 	return bValid;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 bool CvTeam::IsShadowSpawn() const
 {
 	return (m_eID == SHADOW_TEAM);
 }
+#endif // WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// The number of Minor Civs this player has declared war on
@@ -5729,10 +5730,10 @@ void CvTeam::setHasTech(TechTypes eIndex, bool bNewValue, PlayerTypes ePlayer, b
 
 			// espionage logic. Whenever someone gains a tech, reset the stealable techs for all other leaders
 			if(!GET_PLAYER(ePlayer).isMinorCiv() && !GET_PLAYER(ePlayer).isBarbarian()
-					// ----------------------------------------------------------------
-					// WoTMod Addition
-					// ----------------------------------------------------------------
-					&& !GET_PLAYER(ePlayer).IsShadowspawn())
+#if WOTMOD
+					&& !GET_PLAYER(ePlayer).IsShadowspawn()
+#endif // WOTMOD
+					)
 			{
 				CvPlayerEspionage* pEspionage = GET_PLAYER(ePlayer).GetEspionage();
 				if(pEspionage)
@@ -5959,13 +5960,12 @@ void CvTeam::testCircumnavigated()
 		return;
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (IsShadowSpawn())
 	{
 		return;
 	}
+#endif // WOTMOD
 
 	CvGame& kGame = GC.getGame();
 	if(!kGame.circumnavigationAvailable())
@@ -6331,9 +6331,7 @@ void CvTeam::processTech(TechTypes eTech, int iChange)
 		}
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// meet all minor civs of a specific trait
 	for (int i = 0; i < GC.GetNumMinorCivTraitInfos(); i++)
 	{
@@ -6356,6 +6354,7 @@ void CvTeam::processTech(TechTypes eTech, int iChange)
 			}
 		}
 	}
+#endif // WOTMOD
 
 	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 	if(pkScriptSystem)
@@ -6567,10 +6566,11 @@ void CvTeam::SetCurrentEra(EraTypes eNewValue)
 				Localization::String strSummary;
 
 				
-				// ----------------------------------------------------------------
-				// WoTMod Addition
-				// ----------------------------------------------------------------
-				if(!isBarbarian() && !IsShadowSpawn() && (eNewValue != GC.getGame().getStartEra())){
+				if(!isBarbarian() 
+#if WOTMOD
+					&& !IsShadowSpawn() 
+#endif // WOTMOD
+					&& (eNewValue != GC.getGame().getStartEra())){
 					//Era Popup
 					if (!GC.getGame().isNetworkMultiPlayer() && isHuman() && GetID() == GC.getGame().getActiveTeam()){
 						CvPopupInfo kPopupInfo(BUTTONPOPUP_NEW_ERA, eNewValue);
@@ -6665,11 +6665,11 @@ void CvTeam::SetCurrentEra(EraTypes eNewValue)
 				{
 					ePlayer = (PlayerTypes) iPlayerLoop;
 					CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
-					// ----------------------------------------------------------------
-					// WoTMod Addition
-					// ----------------------------------------------------------------
 					if(kPlayer.isAlive() && kPlayer.getTeam() == GetID() && !kPlayer.isMinorCiv() && !kPlayer.isBarbarian()
-						&& !kPlayer.IsShadowspawn())
+#if WOTMOD
+						&& !kPlayer.IsShadowspawn()
+#endif // WOTMOD
+						)
 					{
 						// provide the player with the extra spies according to their trait when they get their first spy
 						if (kPlayer.GetEspionage()->GetNumSpies() == 0)
@@ -6699,11 +6699,11 @@ void CvTeam::SetCurrentEra(EraTypes eNewValue)
 				{
 					ePlayer = (PlayerTypes) iPlayerLoop;
 					CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
-					// ----------------------------------------------------------------
-					// WoTMod Addition
-					// ----------------------------------------------------------------
 					if (kPlayer.isEverAlive() && !kPlayer.isBarbarian() && !kPlayer.isMinorCiv()
-						&& !kPlayer.IsShadowspawn())
+#if WOTMOD
+						&& !kPlayer.IsShadowspawn()
+#endif // WOTMOD
+						)
 					{
 						eTeam = kPlayer.getTeam();
 
@@ -6721,11 +6721,11 @@ void CvTeam::SetCurrentEra(EraTypes eNewValue)
 					{
 						ePlayer = (PlayerTypes) iPlayerLoop;
 						CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
-						// ----------------------------------------------------------------
-						// WoTMod Addition
-						// ----------------------------------------------------------------
 						if(!kPlayer.isAlive() || kPlayer.isBarbarian() || kPlayer.isMinorCiv()
-							|| kPlayer.IsShadowspawn())
+#if WOTMOD
+							|| kPlayer.IsShadowspawn()
+#endif // WOTMOD
+							)
 						{
 							continue;
 						}
@@ -6754,11 +6754,11 @@ void CvTeam::SetCurrentEra(EraTypes eNewValue)
 		{
 			ePlayer = (PlayerTypes) iPlayerLoop;
 			CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
 			if(GC.getGame().getActiveTeam() == GetID() && !isMinorCiv() && !isBarbarian()
-				&& !IsShadowSpawn())
+#if WOTMOD
+				&& !IsShadowSpawn()
+#endif // WOTMOD
+				)
 			{
 				int iNumFreePolicies = kPlayer.GetPlayerTraits()->GetFreeSocialPoliciesPerEra() > 0;
 				if (iNumFreePolicies > 0)

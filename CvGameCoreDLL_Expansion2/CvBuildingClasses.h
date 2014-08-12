@@ -301,9 +301,7 @@ public:
 	bool IsEndsWars() const;
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool IsFreePromotionOnePowerWielding(const int iPromotion, const OnePowerTypes eOnePower) const;
 	bool IsGovernorClassOrPrereq(GovernorClassTypes eGovernorClass) const;
 	int GetOnePowerBlockingRange(OnePowerTypes eOnePower) const;
@@ -311,6 +309,7 @@ public:
 	int GetGovernorClassYieldChange(int i, int j) const;
 	int* GetGovernorClassYieldChangeArray(int i) const;
 	int GetGovernorYieldChange(int i) const;
+#endif // WOTMOD
 
 	CvThemingBonusInfo *GetThemingBonusInfo(int i) const;
 	int GetNumThemingBonuses() const {return m_iNumThemingBonuses;};
@@ -515,15 +514,14 @@ private:
 	int m_iUnitPurchaseCostModifier;
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	std::multimap<int, int> m_FreePromotionsOnePowerWielding;
 	bool* m_pabGovernorClassOrPrereqs;
 	int* m_piOnePowerBlockingRange;
 	int m_iPopulationChange;
 	int** m_ppaiGovernorClassYieldChanges;
 	int* m_paiGovernorYieldChanges;
+#endif // WOTMOD
 
 	CvThemingBonusInfo* m_paThemingBonusInfo;
 	int m_iNumThemingBonuses;

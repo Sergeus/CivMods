@@ -1465,9 +1465,7 @@ enum VoteTypes
 	NO_VOTE = -1,
 };
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 enum LastBattleSideTypes
 {
 	NO_SIDE = -1,
@@ -1492,6 +1490,7 @@ enum AjahTypes
 {
 	NO_AJAH = -1,
 };
+#endif // WOTMOD
 
 enum PlayerVoteTypes			
 {

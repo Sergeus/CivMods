@@ -651,9 +651,7 @@ void CvGame::InitPlayers()
 			CvPreGame::setPlayerColor(BARBARIAN_PLAYER, ((PlayerColorTypes)barbarianPlayerColor));
 			CvPreGame::setMinorCiv(BARBARIAN_PLAYER, false);
 		}
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
+#if WOTMOD
 		// init shadowspawn slot
 		else if (iI == SHADOW_PLAYER)
 		{
@@ -668,6 +666,7 @@ void CvGame::InitPlayers()
 			CvPreGame::setPlayerColor(SHADOW_PLAYER, (PlayerColorTypes)pShadowInfo->getDefaultPlayerColor());
 			CvPreGame::setMinorCiv(SHADOW_PLAYER, false);
 		}
+#endif // WOTMOD
 		// Major Civs
 		else if(iI < MAX_MAJOR_CIVS)
 		{

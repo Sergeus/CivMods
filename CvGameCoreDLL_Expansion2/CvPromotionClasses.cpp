@@ -100,12 +100,11 @@ CvPromotionEntry::CvPromotionEntry():
 	m_iAdjacentEnemyDamage(0),
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_iTurnDamage(0),
 	m_iRangedAttackSelfDamageChance(0),
 	m_bBlocksHealing(false),
+#endif // WOTMOD
 
 	m_bCannotBeChosen(false),
 	m_bLostWithUpgrade(false),
@@ -320,12 +319,11 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	m_iAdjacentEnemyDamage = kResults.GetInt("AdjacentEnemyDamage");
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_iTurnDamage = kResults.GetInt("TurnDamage");
 	m_iRangedAttackSelfDamageChance = kResults.GetInt("RangedAttackSelfDamageChance");
 	m_bBlocksHealing = kResults.GetBool("BlocksHealing");
+#endif // WOTMOD
 
 	//References
 	const char* szLayerAnimationPath = kResults.GetText("LayerAnimationPath");
@@ -1182,9 +1180,7 @@ int CvPromotionEntry::GetAdjacentEnemyDamage() const
 }
 #endif // SIEGEMOD
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvPromotionEntry::GetTurnDamage() const
 {
 	return m_iTurnDamage;
@@ -1198,6 +1194,7 @@ bool CvPromotionEntry::IsBlocksHealing() const
 {
 	return m_bBlocksHealing;
 }
+#endif // WOTMOD
 
 /// Accessor: Can this Promotion be earned through normal leveling?
 bool CvPromotionEntry::IsCannotBeChosen() const

@@ -332,11 +332,10 @@ CvPlayer::CvPlayer() :
 	, m_bAlliesGreatPersonBiasApplied("CvPlayer::m_bAlliesGreatPersonBiasApplied", m_syncArchive)
 	, m_eID("CvPlayer::m_eID", m_syncArchive)
 	, m_ePersonalityType("CvPlayer::m_ePersonalityType", m_syncArchive)
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	, m_ePublicSupportedAjah("CvPlayer::m_ePublicSupportedAjah", m_syncArchive) 
 	, m_iTurnsSincePledgedSupport("CvPlayer::m_iTurnsSincePledgedSupport", m_syncArchive)
+#endif // WOTMOD
 
 	, m_aiCityYieldChange("CvPlayer::m_aiCityYieldChange", m_syncArchive)
 	, m_aiCoastalCityYieldChange("CvPlayer::m_aiCoastalCityYieldChange", m_syncArchive)
@@ -532,10 +531,11 @@ void CvPlayer::init(PlayerTypes eID)
 
 		if(GC.getGame().isOption(GAMEOPTION_RANDOM_PERSONALITIES))
 		{
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
-			if(!isBarbarian() && !isMinorCiv() && !IsShadowspawn())
+			if(!isBarbarian() && !isMinorCiv() 
+#if WOTMOD
+				&& !IsShadowspawn()
+#endif // WOTMOD
+				)
 			{
 				iBestValue = 0;
 				eBestPersonality = NO_LEADER;
@@ -1001,11 +1001,10 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall)
 	// tutorial info
 	m_bEverPoppedGoody = false;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_ePublicSupportedAjah.set(make_pair(NO_PLAYER, NO_AJAH));
 	m_iTurnsSincePledgedSupport = 1000; // large enough to start
+#endif // WOTMOD
 
 	m_aiCityYieldChange.clear();
 	m_aiCityYieldChange.resize(NUM_YIELD_TYPES, 0);
@@ -1170,11 +1169,11 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall)
 		if(p != NO_PLAYER)
 		{
 			SlotStatus s = CvPreGame::slotStatus(p);
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
 			if((s == SS_TAKEN || s == SS_COMPUTER) && !isBarbarian()
-				&& !IsShadowspawn())
+#if WOTMOD
+				&& !IsShadowspawn()
+#endif // WOTMOD
+				)
 			{
 				m_pFlavorManager->AddFlavorRecipient(m_pPlayerTechs);
 				m_pFlavorManager->AddFlavorRecipient(m_pPlayerPolicies);
@@ -4093,10 +4092,11 @@ void CvPlayer::doTurn()
 	bool bHasActiveDiploRequest = false;
 	if(isAlive())
 	{
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
-		if(!isBarbarian() && !IsShadowspawn())
+		if(!isBarbarian() 
+#if WOTMOD
+			&& !IsShadowspawn()
+#endif // WOTMOD
+			)
 		{
 			if(!isMinorCiv())
 			{
@@ -4159,10 +4159,11 @@ void CvPlayer::doTurnPostDiplomacy()
 			m_pDangerPlots->UpdateDanger();
 		}
 
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
-		if(!isBarbarian() && !IsShadowspawn())
+		if(!isBarbarian() 
+#if WOTMOD
+			&& !IsShadowspawn()
+#endif // WOTMOD
+			)
 		{
 			GetEconomicAI()->DoTurn();
 			GetMilitaryAI()->DoTurn();
@@ -6433,10 +6434,11 @@ void CvPlayer::doGoody(CvPlot* pPlot, CvUnit* pUnit)
 
 	CvAssertMsg(pPlot->isGoody(), "pPlot->isGoody is expected to be true");
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!isBarbarian() && !IsShadowspawn())
+	if(!isBarbarian() 
+#if WOTMOD
+		&& !IsShadowspawn()
+#endif // WOTMOD
+		)
 	{
 		m_bEverPoppedGoody = true;
 		pPlot->removeGoody();
@@ -6557,10 +6559,10 @@ bool CvPlayer::canFound(int iX, int iY, bool bTestVisible) const
 
 	// Has the AI agreed to not settle here?
 	if(!isMinorCiv() && !isBarbarian()
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-		&& !IsShadowspawn())
+#if WOTMOD
+		&& !IsShadowspawn()
+#endif // WOTMOD
+		)
 	{
 		if(pPlot->IsNoSettling(GetID()))
 			return false;
@@ -7313,13 +7315,12 @@ bool CvPlayer::canCreate(ProjectTypes eProject, bool bContinue, bool bTestVisibl
 		return false;
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (IsShadowspawn())
 	{
 		return false;
 	}
+#endif // WOTMOD
 
 	// If cost is -1 then that means it can't be built
 	if(pProjectInfo.GetProductionCost() == -1)
@@ -7675,10 +7676,11 @@ int CvPlayer::getProductionNeeded(UnitTypes eUnit) const
 	iProductionNeeded *= GC.getGame().getStartEraInfo().getTrainPercent();
 	iProductionNeeded /= 100;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() && !IsShadowspawn())
+	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() 
+#if WOTMOD
+		&& !IsShadowspawn()
+#endif // WOTMOD
+		)
 	{
 		if(isWorldUnitClass(eUnitClass))
 		{
@@ -7771,10 +7773,11 @@ int CvPlayer::getProductionNeeded(BuildingTypes eBuilding) const
 		}
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() && !IsShadowspawn())
+	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() 
+#if WOTMOD
+		&& !IsShadowspawn()
+#endif // WOTMOD
+		)
 	{
 		if(isWorldWonderClass(pkBuildingInfo->GetBuildingClassInfo()))
 		{
@@ -7817,10 +7820,11 @@ int CvPlayer::getProductionNeeded(ProjectTypes eProject) const
 	iProductionNeeded *= GC.getGame().getStartEraInfo().getCreatePercent();
 	iProductionNeeded /= 100;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() && !IsShadowspawn())
+	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() 
+#if WOTMOD
+		&& !IsShadowspawn()
+#endif // WOTMOD
+		)
 	{
 		if(isWorldProject(eProject))
 		{
@@ -10251,11 +10255,10 @@ void CvPlayer::DoUpdateHappiness()
 	// Increase from Leagues
 	m_iHappiness += GetHappinessFromLeagues();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// Change from units
 	m_iHappiness += GetHappinessFromUnits();
+#endif // WOTMOD
 
 	// Increase for each City connected to Capital with a Trade Route
 	DoUpdateCityConnectionHappiness();
@@ -12351,10 +12354,11 @@ void CvPlayer::DoProcessGoldenAge()
 	}
 
 	// Minors and Barbs can't get GAs
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!isMinorCiv() && !isBarbarian() && !IsShadowspawn())
+	if(!isMinorCiv() && !isBarbarian() 
+#if WOTMOD
+		&& !IsShadowspawn()
+#endif // WOTMOD
+		)
 	{
 		// Already in a GA - don't decrement counter while in Anarchy
 		if(getGoldenAgeTurns() > 0)
@@ -15373,10 +15377,11 @@ void CvPlayer::setCombatExperience(int iExperience)
 		m_iCombatExperience = iExperience;
 
 		// Enough XP for a Great General to appear?
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
-		if(!isBarbarian() && !IsShadowspawn())
+		if(!isBarbarian() 
+#if WOTMOD
+			&& !IsShadowspawn()
+#endif // WOTMOD
+			)
 		{
 			int iExperienceThreshold = greatGeneralThreshold();
 			if(m_iCombatExperience >= iExperienceThreshold && iExperienceThreshold > 0)
@@ -15770,10 +15775,11 @@ void CvPlayer::setAlive(bool bNewValue, bool bNotify)
 
 			gDLL->closeSlot(GetID());
 
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
-			if(bNotify && !isBarbarian() && !IsShadowspawn())
+			if(bNotify && !isBarbarian() 
+#if WOTMOD
+				&& !IsShadowspawn()
+#endif // WOTMOD
+				)
 			{
 				Localization::String strMessage = Localization::Lookup("TXT_KEY_MISC_CIV_DESTROYED");
 				strMessage << getCivilizationAdjectiveKey();
@@ -15821,10 +15827,11 @@ void CvPlayer::verifyAlive()
 
 		if(!bKill)
 		{
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
-			if(!isBarbarian() && !IsShadowspawn())
+			if(!isBarbarian() 
+#if WOTMOD
+				&& !IsShadowspawn()
+#endif // WOTMOD
+				)
 			{
 				if(getNumCities() == 0 && getAdvancedStartPoints() < 0)
 				{
@@ -15841,10 +15848,11 @@ void CvPlayer::verifyAlive()
 
 		if(!bKill)
 		{
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
-			if(!isBarbarian() && !IsShadowspawn())
+			if(!isBarbarian() 
+#if WOTMOD
+				&& !IsShadowspawn()
+#endif // WOTMOD
+				)
 			{
 				if(GC.getGame().getMaxCityElimination() > 0)
 				{
@@ -22159,11 +22167,10 @@ void CvPlayer::Read(FDataStream& kStream)
 	kStream >> m_eID;
 	kStream >> m_ePersonalityType;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kStream >> m_ePublicSupportedAjah;
 	kStream >> m_iTurnsSincePledgedSupport;
+#endif // WOTMOD
 
 	kStream >> m_aiCityYieldChange;
 	kStream >> m_aiCoastalCityYieldChange;
@@ -22294,11 +22301,11 @@ void CvPlayer::Read(FDataStream& kStream)
 	if(GetID() != NO_PLAYER)
 	{
 		SlotStatus s = CvPreGame::slotStatus(GetID());
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
 		if((s == SS_TAKEN || s == SS_COMPUTER) && !isBarbarian()
-			&& !IsShadowspawn())
+#if WOTMOD
+			&& !IsShadowspawn()
+#endif // WOTMOD
+			)
 		{
 			m_pFlavorManager->AddFlavorRecipient(m_pPlayerTechs,        false /*bPropogateFlavors*/);
 			m_pFlavorManager->AddFlavorRecipient(m_pPlayerPolicies,     false /*bPropogateFlavors*/);
@@ -22650,11 +22657,10 @@ void CvPlayer::Write(FDataStream& kStream) const
 	kStream << m_eID;
 	kStream << m_ePersonalityType;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kStream << m_ePublicSupportedAjah;
 	kStream << m_iTurnsSincePledgedSupport;
+#endif // WOTMOD
 
 	kStream << m_aiCityYieldChange;
 	kStream << m_aiCoastalCityYieldChange;
@@ -23217,10 +23223,11 @@ int CvPlayer::getGrowthThreshold(int iPopulation) const
 	iThreshold *= GC.getGame().getStartEraInfo().getGrowthPercent();
 	iThreshold /= 100;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() && !IsShadowspawn())
+	if(!isHuman() && !IsAITeammateOfHuman() && !isBarbarian() 
+#if WOTMOD
+		&& !IsShadowspawn()
+#endif // WOTMOD
+		)
 	{
 		iThreshold *= GC.getGame().getHandicapInfo().getAIGrowthPercent();
 		iThreshold /= 100;
@@ -24922,9 +24929,7 @@ void CvPlayer::GatherPerTurnReplayStats(int iGameTurn)
 	}
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 bool CvPlayer::IsShadowspawn() const
 {
 	return (GetID() == SHADOW_PLAYER);
@@ -25032,6 +25037,7 @@ bool CvPlayer::IsCanPledgeAjahSupport() const
 {
 	return GetTurnsSincePledgedAjahSupport() > 20;
 }
+#endif // WOTMOD
 
 //	---------------------------------------------------------------------------
 //	If the active player is in the end-turn processing phase, attempt to cancel that.

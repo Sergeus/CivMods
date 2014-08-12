@@ -269,11 +269,10 @@ void CvLuaPlot::PushMethods(lua_State* L, int t)
 	Method(GetCityPurchaseID);
 	Method(SetCityPurchaseID);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	Method(IsHasHornOfValere);
 	Method(SetHasHornOfValere);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 void CvLuaPlot::HandleMissingInstance(lua_State* L)
@@ -1760,7 +1759,7 @@ int CvLuaPlot::lIsBuildRemovesFeature(lua_State* L)
 	lua_pushboolean(L, bFeatureRemoved);
 	return 1;
 }
-
+#if WOTMOD
 int CvLuaPlot::lIsHasHornOfValere(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlot::IsHasHornOfValere);
@@ -1770,6 +1769,7 @@ int CvLuaPlot::lSetHasHornOfValere(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlot::SetHasHornOfValere);
 }
+#endif // WOTMOD
 
 //------------------------------------------------------------------------------
 int CvLuaPlot::lGetArchaeologyArtifactType(lua_State* L)

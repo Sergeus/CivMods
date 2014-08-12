@@ -8,6 +8,8 @@
 #include "CvPlot.h"
 #include "CvUnit.h"
 
+#if WOTMOD
+
 // Horn of Valere
 class HornOfValere
 {
@@ -65,3 +67,4 @@ protected:
 	bool m_bFound;
 	bool m_bActive;
 };
+#endif // WOTMOD

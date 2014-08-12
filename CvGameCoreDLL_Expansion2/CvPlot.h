@@ -382,13 +382,12 @@ public:
 
 	bool IsHomeFrontForPlayer(PlayerTypes ePlayer) const;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool IsHasHornOfValere() const;
 	void SetHasHornOfValere(bool bNewValue);
 	bool IsCannotChannelHere(OnePowerTypes eOnePower) const;
 	void ChangeCannotChannelHere(OnePowerTypes eOnePower, int iChange);
+#endif // WOTMOD
 
 	PlotTypes getPlotType() const
 	{
@@ -858,11 +857,10 @@ protected:
 	bool m_bIsAdjacentToLand:1;				// Cached value, do not serialize
 	bool m_bIsImpassable:1;					// Cached value, do not serialize
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool m_bHornOfValere:1;
 	short* m_iCannotChannelHere;
+#endif // WOTMOD
 
 	CvArchaeologyData m_kArchaeologyData;
 

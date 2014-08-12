@@ -87,10 +87,10 @@ bool                                       gameStarted();
 bool										 GetGameOption(const char* szOptionName, int& iValue);
 bool									     GetGameOption(GameOptionTypes eOption, int& iValue);
 const std::vector<CustomOption>&			 GetGameOptions();
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+
+#if WOTMOD
 int											 GetLastBattleBeginTurn();
+#endif // WOTMOD
 
 bool										 GetMapOption(const char* szOptionName, int& iValue);
 const std::vector<CustomOption>&			 GetMapOptions();
@@ -221,12 +221,12 @@ void                                       setGameUpdateTime(int updateTime);   
 void                                       setHandicap(PlayerTypes p, HandicapTypes h);
 void																			 setLastHumanHandicap(PlayerTypes p, HandicapTypes h);
 void                                       setInternetGame(bool isInternetGame);
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+
+#if WOTMOD
 void									   SetLastBattleBeginTurn(int iNewValue);
 int										   numVictories();
 void									   cacheVictories();
+#endif // WOTMOD
 
 void                                       setLeaderHead(PlayerTypes p, LeaderHeadTypes l);
 void                                       setLeaderName(PlayerTypes p, const CvString& n);

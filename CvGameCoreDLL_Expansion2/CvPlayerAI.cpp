@@ -31,10 +31,9 @@
 #include "cvStopWatch.h"
 #include "CvEconomicAI.h"
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 #include "CustomLog.h"
+#endif // WOTMOD
 
 // Include this after all other headers.
 #include "LintFree.h"
@@ -125,13 +124,12 @@ void CvPlayerAI::AI_doTurnPost()
 		return;
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (IsShadowspawn())
 	{
 		return;
 	}
+#endif // WOTMOD
 
 	for(int i = 0; i < GC.getNumVictoryInfos(); ++i)
 	{
@@ -535,9 +533,7 @@ void CvPlayerAI::AI_chooseResearch()
 	}
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 void CvPlayerAI::AI_chooseLastBattleSide()
 {
 	if (isBarbarian() || IsShadowspawn())
@@ -561,6 +557,7 @@ void CvPlayerAI::AI_chooseLastBattleSide()
 		GC.getGame().ChooseLastBattleSide(GetID(), (LastBattleSideTypes)GC.getInfoTypeForString("SIDE_SHADOW"));
 	}
 }
+#endif // WOTMOD
 
 // sort player numbers
 struct CityAndProduction

@@ -557,9 +557,7 @@ public:
 
 	CombatPredictionTypes GetCombatPrediction(const CvUnit* pAttackingUnit, const CvUnit* pDefendingUnit);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	void DoShadowSpawnUnit(int iX, int iY);
 	int GetLastBattleBeginTurn();
 	void SetLastBattleBeginTurn(int iNewValue);
@@ -567,6 +565,7 @@ public:
 	bool IsLastBattle();
 	void ChooseLastBattleSide(PlayerTypes ePlayer, LastBattleSideTypes eSide);
 	LastBattleSideTypes GetChosenLastBattleSide(PlayerTypes ePlayer);
+#endif // WOTMOD
 
 	void NetMessageStaticsReset();
 	void SetLastTurnAICivsProcessed();
@@ -693,10 +692,9 @@ protected:
 	int** m_apaiPlayerVote;
 	int** m_ppaaiTeamVictoryRank;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	int* m_aiLastBattleSideChoices;
+#endif // WOTMOD
 
 	Database::Results* m_pDiploResponseQuery;
 
@@ -785,11 +783,10 @@ protected:
 	void PopulateDigSite(CvPlot& kPlot, EraTypes eEra, GreatWorkArtifactClass eArtifact);
 	void SpawnArchaeologySitesHistorically();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	void DoCheckLastBattleSidesChosen();
 	void startLastBattle();
+#endif // WOTMOD
 };
 
 #endif

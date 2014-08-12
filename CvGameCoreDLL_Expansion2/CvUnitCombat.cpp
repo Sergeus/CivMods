@@ -392,14 +392,13 @@ void CvUnitCombat::ResolveMeleeCombat(const CvCombatInfo& kCombatInfo, uint uiPa
 		// Defender died
 		else if(bDefenderDead)
 		{
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
+#if WOTMOD
 			// If the defender had the Horn of Valere, the attacker claims it for themselves.
 			if (GC.getMap().IsHornBlower(pkDefender))
 			{
 				GC.getMap().DoTransferHornOfValere(pkAttacker);
 			}
+#endif // WOTMOD
 
 			kAttackerOwner.GetPlayerAchievements().KilledUnitWithUnit(pkAttacker, pkDefender);
 
@@ -2660,6 +2659,7 @@ CvUnitCombat::ATTACK_RESULT CvUnitCombat::AttackRanged(CvUnit& kAttacker, int iX
 
 	bool bDoImmediate = CvPreGame::quickCombat();
 
+#if WOTMOD
 	// attack may backfire
 	int backFireChance = kAttacker.GetRangedAttackSelfDamageChance();
 	if (backFireChance > 0)
@@ -2684,6 +2684,7 @@ CvUnitCombat::ATTACK_RESULT CvUnitCombat::AttackRanged(CvUnit& kAttacker, int iX
 			}
 		}
 	}
+#endif // WOTMOD
 	// Range-striking a Unit
 	if(!pPlot->isCity())
 	{

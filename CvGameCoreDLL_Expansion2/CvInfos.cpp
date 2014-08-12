@@ -1985,11 +1985,10 @@ CvCivilizationInfo::CvCivilizationInfo():
 	m_bCoastalCiv(NULL),
 	m_bPlaceFirst(NULL),
 	m_pbReligions(NULL)
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	, m_piCivilizationGovernors(NULL)
-{
+#endif // WOTMOD
+	{
 
 }
 //------------------------------------------------------------------------------
@@ -2005,10 +2004,9 @@ CvCivilizationInfo::~CvCivilizationInfo()
 	SAFE_DELETE_ARRAY(m_pbCivilizationDisableTechs);
 	SAFE_DELETE_ARRAY(m_pbReligions);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	SAFE_DELETE_ARRAY(m_piCivilizationGovernors);
+#endif // WOTMOD
 }
 
 //------------------------------------------------------------------------------------------------------
@@ -2038,9 +2036,7 @@ void CvCivilizationInfo::InitBuildingDefaults(int*& piDefaults, CvDatabaseUtilit
 	}
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 void CvCivilizationInfo::InitGovernorDefaults(int*& piDefaults, CvDatabaseUtility& kUtility)
 {
 	kUtility.InitializeArray(piDefaults, "GovernorClasses", -1);
@@ -2060,6 +2056,7 @@ void CvCivilizationInfo::InitGovernorDefaults(int*& piDefaults, CvDatabaseUtilit
 		piDefaults[idx] = governorID;
 	}
 }
+#endif // WOTMOD
 
 
 //------------------------------------------------------------------------------------------------------
@@ -2218,9 +2215,7 @@ bool CvCivilizationInfo::isCivilizationUnitOverridden(int i) const
 	return m_CivilizationUnitOverridden[i];
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvCivilizationInfo::GetCivilizationGovernors(int i) const
 {
 	return m_piCivilizationGovernors[i];
@@ -2229,6 +2224,7 @@ bool CvCivilizationInfo::IsCivilizationGovernorOverridden(int i) const
 {
 	return m_CivilizationGovernorOverridden[i];
 }
+#endif // WOTMOD
 
 //------------------------------------------------------------------------------
 int CvCivilizationInfo::getCivilizationFreeUnitsClass(int i) const
@@ -2300,10 +2296,9 @@ bool CvCivilizationInfo::CacheResults(Database::Results& kResults, CvDatabaseUti
 
 	const size_t maxUnitClasses = kUtility.MaxRows("UnitClasses");
 	const size_t maxBuildingClasses = kUtility.MaxRows("BuildingClasses");
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	const size_t maxGovernorClasses = kUtility.MaxRows("GovernorClasses");
+#endif // WOTMOD
 
 	const char* szTextVal = NULL;	//! temporary val
 
@@ -2462,9 +2457,7 @@ bool CvCivilizationInfo::CacheResults(Database::Results& kResults, CvDatabaseUti
 
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// Governor types
 	{
 		InitGovernorDefaults(m_piCivilizationGovernors, kUtility);
@@ -2493,6 +2486,7 @@ bool CvCivilizationInfo::CacheResults(Database::Results& kResults, CvDatabaseUti
 
 		pResults->Reset();
 	}
+#endif // WOTMOD
 
 	//FreeUnits
 	{
@@ -2676,13 +2670,12 @@ bool CvVictoryInfo::IsFindAllNaturalWonders() const
 {
 	return m_bFindAllNaturalWonders;
 }
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 bool CvVictoryInfo::IsLastBattle() const
 {
 	return m_bLastBattle;
 }
+#endif // WOTMOD
 //------------------------------------------------------------------------------
 const char* CvVictoryInfo::getMovie() const
 {
@@ -2708,10 +2701,9 @@ bool CvVictoryInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	m_bPermanent = kResults.GetBool("Permanent");
 	m_bReligionInAllCities = kResults.GetBool("ReligionInAllCities");
 	m_bFindAllNaturalWonders = kResults.GetBool("FindAllNaturalWonders");
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_bLastBattle = kResults.GetBool("LastBattle");
+#endif // WOTMOD
 
 	m_iPopulationPercentLead = kResults.GetInt("PopulationPercentLead");
 	m_iLandPercent = kResults.GetInt("LandPercent");
@@ -3744,12 +3736,11 @@ CvBuildInfo::CvBuildInfo() :
 	m_bRemoveRoute(false),
 	m_bWater(false),
 	m_bCanBeEmbarked(false),
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_iHappiness(0),
 	m_bOwnTerritoryMakesValid(false),
 	m_paiBuildExclusions(NULL),
+#endif // WOTMOD
 
 	m_paiFeatureTech(NULL),
 	m_paiFeatureTime(NULL),
@@ -3769,10 +3760,9 @@ CvBuildInfo::~CvBuildInfo()
 	SAFE_DELETE_ARRAY(m_paiTechTimeChange);
 	SAFE_DELETE_ARRAY(m_pabFeatureRemove);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	SAFE_DELETE_ARRAY(m_paiBuildExclusions);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 int CvBuildInfo::getTime() const
@@ -3844,9 +3834,7 @@ bool CvBuildInfo::IsCanBeEmbarked() const
 {
 	return m_bCanBeEmbarked;
 }
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvBuildInfo::GetHappiness() const
 {
 	return m_iHappiness;
@@ -3861,6 +3849,7 @@ int CvBuildInfo::GetBuildExclusiveRange(BuildTypes eBuild) const
 	CvAssertMsg(eBuild > -1, "Index out of bounds");
 	return m_paiBuildExclusions ? m_paiBuildExclusions[eBuild] : -1;
 }
+#endif // WOTMOD
 
 //------------------------------------------------------------------------------
 int CvBuildInfo::getFeatureTech(int i) const
@@ -3919,11 +3908,10 @@ bool CvBuildInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	m_bWater = kResults.GetBool("Water");
 	m_bCanBeEmbarked = kResults.GetBool("CanBeEmbarked");
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_iHappiness = kResults.GetInt("Happiness");
 	m_bOwnTerritoryMakesValid = kResults.GetBool("OwnTerritoryMakesValid");
+#endif // WOTMOD
 
 	const char* szPrereqTech = kResults.GetText("PrereqTech");
 	m_iTechPrereq = GC.getInfoTypeForString(szPrereqTech, true);
@@ -3974,10 +3962,9 @@ bool CvBuildInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	const char* szBuildType = GetType();
 	kUtility.PopulateArrayByValue(m_paiTechTimeChange, "Technologies", "Build_TechTimeChanges", "TechType", "BuildType", szBuildType, "TimeChange");
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kUtility.PopulateArrayByValue(m_paiBuildExclusions, "Builds", "Build_BuildActiveExclusive", "ExclusionBuildType", "BuildType", szBuildType, "Range", -1);
+#endif // WOTMOD
 
 	return true;
 }
@@ -6928,9 +6915,7 @@ bool CvVoteSourceInfo::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	return true;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 WoTOnePowerInfo::WoTOnePowerInfo()
 {
 
@@ -6945,3 +6930,4 @@ bool WoTOnePowerInfo::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 {
 	return CvBaseInfo::CacheResults(kResults, kUtility);
 }
+#endif // WOTMOD

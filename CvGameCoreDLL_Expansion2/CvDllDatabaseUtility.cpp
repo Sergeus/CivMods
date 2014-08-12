@@ -336,15 +336,14 @@ bool CvDllDatabaseUtility::PrefetchGameData()
 	}
 #endif // CUSTOM_NOTIFICATIONS
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	PrefetchCollection(GC.GetGovernorClassInfos(), "GovernorClasses");
 	PrefetchCollection(GC.GetGovernorInfos(), "Governors");
 	PrefetchCollection(GC.GetOnePowerInfos(), "OnePowers");
 	PrefetchCollection(GC.GetMinorCivTraitInfos(), "MinorCivTraits");
 	PrefetchCollection(GC.GetMinorCivPlotInfos(), "MinorCivilizationPlots");
 	PrefetchCollection(GC.GetWhiteTowerAjahInfos(), "Ajahs");
+#endif // WOTMOD
 
 	//Technologies
 	PrefetchCollection(GC.getTechInfo(), "Technologies");

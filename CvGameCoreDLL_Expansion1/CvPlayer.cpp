@@ -22860,7 +22860,12 @@ void CvPlayer::GatherPerTurnReplayStats(int iGameTurn)
 // ----------------------------------------------------------------
 bool CvPlayer::IsShadowspawn() const
 {
+#if WOTMOD
 	return (GetID() == SHADOW_PLAYER);
+#else
+	return false;
+#endif // WOTMOD
+	
 }
 //	---------------------------------------------------------------------------
 //	If the active player is in the end-turn processing phase, attempt to cancel that.

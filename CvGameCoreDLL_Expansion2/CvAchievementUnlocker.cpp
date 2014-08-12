@@ -82,10 +82,11 @@ void CvAchievementUnlocker::AlexanderConquest(PlayerTypes ePlayer)
 					//All known players must be dead and killed by us
 					if(GET_TEAM(pPlayer->getTeam()).isHasMet(GET_PLAYER(kGame.getActivePlayer()).getTeam()))
 					{
-						// ----------------------------------------------------------------
-						// WoTMod Addition
-						// ----------------------------------------------------------------
-						if(!pPlayer->isBarbarian() && !pPlayer->isMinorCiv() && !pPlayer->IsShadowspawn())
+						if(!pPlayer->isBarbarian() && !pPlayer->isMinorCiv() 
+#if WOTMOD
+							&& !pPlayer->IsShadowspawn()
+#endif // WOTMOD
+							)
 						{
 							if(pPlayer->isAlive() && pPlayer->GetID() != GET_PLAYER(kGame.getActivePlayer()).GetID())
 							{

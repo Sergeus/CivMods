@@ -6,6 +6,7 @@
 #include "WoTGovernorClasses.h"
 #include "WoTSerialization.h"
 
+#if WOTMOD
 //======================================================================================================
 //					WoTGovernorClassInfo
 //======================================================================================================
@@ -263,3 +264,4 @@ void WoTCityGovernors::Write(FDataStream& kStream)
 
 	kStream << ArrayWrapper<int>(GC.GetNumYieldInfos(), m_aiYieldChange);
 }
+#endif // WOTMOD

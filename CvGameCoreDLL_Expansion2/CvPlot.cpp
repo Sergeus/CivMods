@@ -237,10 +237,9 @@ void CvPlot::reset(int iX, int iY, bool bConstructorCall)
 	m_bIsAdjacentToLand = false;
 	m_bIsImpassable = false;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_bHornOfValere = false;
+#endif // WOTMOD
 
 	m_eOwner = NO_PLAYER;
 	m_ePlotType = PLOT_OCEAN;
@@ -315,13 +314,12 @@ void CvPlot::reset(int iX, int iY, bool bConstructorCall)
 		{
 			m_abNoSettling[iI] = false;
 		}
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
+#if WOTMOD
 		for (int iI = 0; iI < GC.GetNumOnePowerInfos(); ++iI)
 		{
 			m_iCannotChannelHere[iI] = 0;
 		}
+#endif // WOTMOD
 	}
 	for(int iI = 0; iI < REALLY_MAX_TEAMS; ++iI)
 	{
@@ -2194,14 +2192,13 @@ bool CvPlot::canBuild(BuildTypes eBuild, PlayerTypes ePlayer, bool bTestVisible,
 		}
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// own territory might make it valid
 	if (thisBuildInfo.IsOwnTerritoryMakesValid() && getOwner() == ePlayer)
 	{
 		bValid = true;
 	}
+#endif // WOTMOD
 
 	if(thisBuildInfo.IsRemoveRoute())
 	{
@@ -3373,13 +3370,12 @@ bool CvPlot::isGoody(TeamTypes eTeam) const
 		return false;
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (GET_TEAM(eTeam).IsShadowSpawn())
 	{
 		return false;
 	}
+#endif // WOTMOD
 
 	return ((getImprovementType() == NO_IMPROVEMENT) ? false : GC.getImprovementInfo(getImprovementType())->IsGoody());
 }
@@ -3398,13 +3394,12 @@ bool CvPlot::isRevealedGoody(TeamTypes eTeam) const
 		return false;
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (GET_TEAM(eTeam).IsShadowSpawn())
 	{
 		return false;
 	}
+#endif // WOTMOD
 
 	if(!isRevealed(eTeam))
 	{
@@ -3467,13 +3462,12 @@ bool CvPlot::IsFriendlyTerritory(PlayerTypes ePlayer) const
 		return false;
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (GET_PLAYER(ePlayer).IsShadowspawn())
 	{
 		return false;
 	}
+#endif // WOTMOD
 
 	TeamTypes eTeam = GET_PLAYER(ePlayer).getTeam();
 	TeamTypes ePlotOwner = getTeam();
@@ -4837,9 +4831,7 @@ void CvPlot::setOwner(PlayerTypes eNewValue, int iAcquiringCityID, bool bCheckUn
 					{
 						changeAdjacentSight(GET_PLAYER(pMinorCivAI->GetAlly()).getTeam(), GC.getPLOT_VISIBILITY_RANGE(), false, NO_INVISIBLE, NO_DIRECTION, false);
 					}
-					// ----------------------------------------------------------------
-					// WoTMod Addition
-					// ----------------------------------------------------------------
+#if WOTMOD
 					// if the old owner blocked one power usage, need to decrement 'cannot channel on this plot' for relevant sources
 					if (pMinorCivAI)
 					{
@@ -4852,6 +4844,7 @@ void CvPlot::setOwner(PlayerTypes eNewValue, int iAcquiringCityID, bool bCheckUn
 							}
 						}
 					}
+#endif // WOTMOD
 				}
 
 				if(area())
@@ -5018,9 +5011,7 @@ void CvPlot::setOwner(PlayerTypes eNewValue, int iAcquiringCityID, bool bCheckUn
 						changeAdjacentSight(GET_PLAYER(pMinorCivAI->GetAlly()).getTeam(), GC.getPLOT_VISIBILITY_RANGE(), true, NO_INVISIBLE, NO_DIRECTION, false);
 					}
 
-					// ----------------------------------------------------------------
-					// WoTMod Addition
-					// ----------------------------------------------------------------
+#if WOTMOD
 					// if the new owner blocks usages of certain One Power sources, need to increment 'cannot channel here' count
 					if (pMinorCivAI)
 					{
@@ -5033,6 +5024,7 @@ void CvPlot::setOwner(PlayerTypes eNewValue, int iAcquiringCityID, bool bCheckUn
 							}
 						}
 					}
+#endif // WOTMOD
 				}
 
 				if(area())
@@ -8240,10 +8232,11 @@ bool CvPlot::setRevealed(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly, Tea
 		}
 
 		// Natural Wonder
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
-		if(eTeam != BARBARIAN_TEAM && eTeam != SHADOW_TEAM)
+		if(eTeam != BARBARIAN_TEAM 
+#if WOTMOD
+			&& eTeam != SHADOW_TEAM
+#endif // WOTMOD
+			)
 		{
 			if(getFeatureType() != NO_FEATURE)
 			{
@@ -8295,10 +8288,11 @@ bool CvPlot::setRevealed(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly, Tea
 					int iFinderGold = 0;
 					bool bFirstFinder = false;
 					CvTeam& kTeam = GET_TEAM(eTeam);
-					// ----------------------------------------------------------------
-					// WoTMod Addition
-					// ----------------------------------------------------------------
-					if(!kTeam.isMinorCiv() && !kTeam.isBarbarian() && !kTeam.isObserver() && !kTeam.IsShadowSpawn())
+					if(!kTeam.isMinorCiv() && !kTeam.isBarbarian() && !kTeam.isObserver() 
+#if WOTMOD
+						&& !kTeam.IsShadowSpawn()
+#endif // WOTMOD
+						)
 					{
 						if(getNumMajorCivsRevealed() == 0)
 						{
@@ -9576,11 +9570,10 @@ void CvPlot::read(FDataStream& kStream)
 	kStream >> bitPackWorkaround;
 	m_bImprovedByGiftFromMajor = bitPackWorkaround;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kStream >> bitPackWorkaround;
 	m_bHornOfValere = bitPackWorkaround;
+#endif // WOTMOD
 
 	kStream >> m_eOwner;
 	kStream >> m_ePlotType;
@@ -9698,11 +9691,10 @@ void CvPlot::read(FDataStream& kStream)
 	for(uint i = 0; i < MAX_MAJOR_CIVS; i++)
 		kStream >> m_abNoSettling[i];
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	for (short i = 0; i < GC.GetNumOnePowerInfos(); i++)
 		kStream >> m_iCannotChannelHere[i];
+#endif // WOTMOD
 
 	bool hasScriptData = false;
 	kStream >> hasScriptData;
@@ -9789,10 +9781,9 @@ void CvPlot::write(FDataStream& kStream) const
 	kStream << m_bResourceLinkedCityActive;
 	kStream << m_bImprovedByGiftFromMajor;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kStream << m_bHornOfValere;
+#endif // WOTMOD
 	// m_bPlotLayoutDirty not saved
 	// m_bLayoutStateWorked not saved
 
@@ -9864,11 +9855,10 @@ void CvPlot::write(FDataStream& kStream) const
 	for(uint i = 0; i < MAX_MAJOR_CIVS; i++)
 		kStream << m_abNoSettling[i];
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	for (short i = 0; i < GC.GetNumOnePowerInfos(); i++)
 		kStream << m_iCannotChannelHere[i];
+#endif // WOTMOD
 
 	// char * should have died in 1989...
 	bool hasScriptData = (m_szScriptData != NULL);
@@ -10687,9 +10677,7 @@ bool CvPlot::MustPayMaintenanceHere(PlayerTypes ePlayer) const
 	return true;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 void CvPlot::SetHasHornOfValere(bool bNewValue)
 {
 	m_bHornOfValere = bNewValue;
@@ -10709,6 +10697,7 @@ bool CvPlot::IsCannotChannelHere(OnePowerTypes eOnePower) const
 {
 	return m_iCannotChannelHere[eOnePower] > 0;
 }
+#endif // WOTMOD
 
 //	---------------------------------------------------------------------------
 void CvPlot::AddArchaeologicalRecord(GreatWorkArtifactClass eType, PlayerTypes ePlayer1, PlayerTypes ePlayer2)

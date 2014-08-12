@@ -265,13 +265,12 @@ CvUnit::CvUnit() :
 	, m_iAdjacentEnemyDamage(0)
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	//, m_iTurnDamage("CvUnit::m_iTurnDamage", m_syncArchive, 0)
 	, m_iTurnDamage(0)
 	, m_iRangedAttackSelfDamageChance(0)
 	, m_iHealBlockedCount(0)
+#endif // WOTMOD
 
 	, m_strName("")
 	, m_eGreatWork(NO_GREAT_WORK)
@@ -492,9 +491,7 @@ void CvUnit::initWithNameOffset(int iID, UnitTypes eUnit, int iNameOffset, UnitA
 			if(!GC.getPromotionInfo(ePromotion)->IsHoveringUnit())	// Hovering units handled above
 				setHasPromotion(ePromotion, true);
 		}
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
+#if WOTMOD
 		// we also have promotions that are free until a certain project is completed (by anyone)
 		else if (getUnitInfo().GetFreePromotionsUntilProjectCompleted(iI) > NO_PROJECT)
 		{
@@ -507,6 +504,7 @@ void CvUnit::initWithNameOffset(int iID, UnitTypes eUnit, int iNameOffset, UnitA
 				setHasPromotion(ePromotion, true);
 			}
 		}
+#endif // WOTMOD
 	}
 
 	const UnitCombatTypes unitCombatType = getUnitCombatType();
@@ -700,10 +698,11 @@ void CvUnit::initWithNameOffset(int iID, UnitTypes eUnit, int iNameOffset, UnitA
 	kPlayer.UpdateUnitProductionMaintenanceMod();
 
 	// Minor Civ quest
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!kPlayer.isMinorCiv() && !isBarbarian() && !kPlayer.IsShadowspawn())
+	if(!kPlayer.isMinorCiv() && !isBarbarian() 
+#if WOTMOD
+		&& !kPlayer.IsShadowspawn()
+#endif // WOTMOD
+		)
 	{
 		PlayerTypes eMinor;
 		for(int iMinorCivLoop = MAX_MAJOR_CIVS; iMinorCivLoop < MAX_CIV_PLAYERS; iMinorCivLoop++)
@@ -1281,10 +1280,11 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer /*= NO_PLAYER*/)
 	// If a player killed this Unit...
 	if(ePlayer != NO_PLAYER)
 	{
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
-		if(!isBarbarian() && !GET_PLAYER(ePlayer).isBarbarian() && !IsShadowspawn() && !GET_PLAYER(ePlayer).IsShadowspawn())
+		if(!isBarbarian() && !GET_PLAYER(ePlayer).isBarbarian() 
+#if WOTMOD
+			&& !IsShadowspawn() && !GET_PLAYER(ePlayer).IsShadowspawn()
+#endif // WOTMOD
+			)
 		{
 			// Notify Diplo AI that damage has been done
 			// Best unit that can be built now is given value of 100
@@ -1326,15 +1326,14 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer /*= NO_PLAYER*/)
 		return;
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// If we've gotten this far and this unit is still a Hornblower, we should 
 	// drop the Horn of Valere
 	if (GC.getMap().IsHornBlower(this))
 	{
 		GC.getMap().DoDropHornOfValere(this);
 	}
+#endif // WOTMOD
 
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
@@ -1704,10 +1703,9 @@ void CvUnit::doTurn()
 	}
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	DoTurnDamage();
+#endif // WOTMOD
 
 	// Only increase our Fortification level if we've actually been told to Fortify
 	if(IsFortifiedThisTurn())
@@ -2832,11 +2830,10 @@ bool CvUnit::IsAngerFreeUnit() const
 	if(GET_PLAYER(getOwner()).isBarbarian())
 		return true;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (GET_PLAYER(getOwner()).IsShadowspawn())
 		return true;
+#endif // WOTMOD
 
 	return false;
 }
@@ -4835,13 +4832,12 @@ bool CvUnit::canHeal(const CvPlot* pPlot, bool bTestVisible) const
 		return false;
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (IsHealBlocked())
 	{
 		return false;
 	}
+#endif // WOTMOD
 
 	// JON - This should change when one-unit-per-plot city stuff is handled better
 	// Unit Healing in cities
@@ -5110,10 +5106,11 @@ int CvUnit::healTurns(const CvPlot* pPlot) const
 void CvUnit::doHeal()
 {
 	VALIDATE_OBJECT
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!isBarbarian() && !IsHealBlocked())
+	if(!isBarbarian() 
+#if WOTMOD
+		&& !IsHealBlocked()
+#endif // WOTMOD
+		)
 	{
 		changeDamage(-(healRate(plot())));
 	}
@@ -8655,9 +8652,7 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible,
 
 	if(!bTestVisible)
 	{
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
+#if WOTMOD
 		// check for exclusions of nearby active builds
 		for (int i = 0; i < GC.getNumBuildInfos(); i++)
 		{
@@ -8690,6 +8685,7 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible,
 				}
 			}
 		}
+#endif // WOTMOD
 
 		// check for any other units working in this plot
 		pPlot = plot();
@@ -9323,10 +9319,11 @@ int CvUnit::upgradePrice(UnitTypes eUnit) const
 		iPrice = int(iPrice * fMultiplier);
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!isHuman() && !kPlayer.IsAITeammateOfHuman() && !isBarbarian() && !IsShadowspawn())
+	if(!isHuman() && !kPlayer.IsAITeammateOfHuman() && !isBarbarian() 
+#if WOTMOD
+		&& !IsShadowspawn()
+#endif // WOTMOD
+		)
 	{
 		iPrice *= GC.getGame().getHandicapInfo().getAIUnitUpgradePercent();
 		iPrice /= 100;
@@ -9788,10 +9785,11 @@ int CvUnit::workRate(bool bMax, BuildTypes /*eBuild*/) const
 	iRate *= std::max(0, (kPlayer.getWorkerSpeedModifier() + kPlayer.GetPlayerTraits()->GetWorkerSpeedModifier() + 100));
 	iRate /= 100;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!kPlayer.isHuman() && !kPlayer.IsAITeammateOfHuman() && !kPlayer.isBarbarian() && !kPlayer.IsShadowspawn())
+	if(!kPlayer.isHuman() && !kPlayer.IsAITeammateOfHuman() && !kPlayer.isBarbarian() 
+#if WOTMOD
+		&& !kPlayer.IsShadowspawn()
+#endif // WOTMOD
+		)
 	{
 		iRate *= std::max(0, (GC.getGame().getHandicapInfo().getAIWorkRateModifier() + 100));
 		iRate /= 100;
@@ -10023,11 +10021,10 @@ int CvUnit::GetStrategicResourceCombatPenalty() const
 	if(isBarbarian())
 		return iPenalty;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (IsShadowspawn())
 		return 0;
+#endif // WOTMOD
 
 	CvPlayerAI& kPlayer = GET_PLAYER(getOwner());
 
@@ -10093,13 +10090,15 @@ void CvUnit::SetBaseCombatStrength(int iCombat)
 }
 
 //	--------------------------------------------------------------------------------
+#if WOTMOD
 int CvUnit::GetBaseCombatStrength(bool bIgnoreEmbarked, const CvPlot* pFromPlot) const
+#else
+int CvUnit::GetBaseCombatStrength(bool bIgnoreEmbarked) const
+#endif // WOTMOD
 {
 	VALIDATE_OBJECT
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// channeling units are sometimes disabled by the attacking plot
 	if (!pFromPlot && IsOnePowerBlocked(plot()))
 	{
@@ -10109,6 +10108,7 @@ int CvUnit::GetBaseCombatStrength(bool bIgnoreEmbarked, const CvPlot* pFromPlot)
 	{
 		return 0;
 	}
+#endif // WOTMOD
 
 	if(m_bEmbarked && !bIgnoreEmbarked)
 	{
@@ -10393,10 +10393,11 @@ int CvUnit::GetMaxAttackStrength(const CvPlot* pFromPlot, const CvPlot* pToPlot,
 	if(isEmbarked() && !bIsEmbarkedAttackingLand)
 		return GetEmbarkedUnitDefense();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if(GetBaseCombatStrength(bIsEmbarkedAttackingLand, pFromPlot) == 0)
+#else
+	if(GetBaseCombatStrength(bIsEmbarkedAttackingLand) == 0)
+#endif // WOTMOD
 		return 0;
 
 	int iCombat;
@@ -10553,10 +10554,11 @@ int CvUnit::GetMaxAttackStrength(const CvPlot* pFromPlot, const CvPlot* pToPlot,
 	if(iModifier < -90)
 		iModifier = -90;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	iCombat = GetBaseCombatStrength(bIsEmbarkedAttackingLand, pFromPlot) * (iModifier + 100);
+#else
+	iCombat = GetBaseCombatStrength(bIsEmbarkedAttackingLand) * (iModifier + 100);
+#endif // WOTMOD
 
 	return std::max(1, iCombat);
 }
@@ -10572,10 +10574,11 @@ int CvUnit::GetMaxDefenseStrength(const CvPlot* pInPlot, const CvUnit* pAttacker
 		return GetEmbarkedUnitDefense();;
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if(GetBaseCombatStrength(false, pInPlot) == 0)
+#else
+	if(GetBaseCombatStrength(false) == 0)
+#endif // WOTMOD
 		return 0;
 
 	int iCombat;
@@ -10674,10 +10677,11 @@ int CvUnit::GetMaxDefenseStrength(const CvPlot* pInPlot, const CvUnit* pAttacker
 	if(iModifier < -90)
 		iModifier = -90;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	iCombat = GetBaseCombatStrength(false, pInPlot) * (iModifier + 100);
+#else
+	iCombat = GetBaseCombatStrength(false) * (iModifier + 100);
+#endif // WOTMOD
 
 	// Boats do more damage VS one another
 	if(pAttacker != NULL)
@@ -10740,14 +10744,13 @@ int CvUnit::GetBaseRangedCombatStrength() const
 {
 	VALIDATE_OBJECT
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// channeling units are sometimes disabled by the attacking plot
 	if (IsOnePowerBlocked(plot()))
 	{
 		return 0;
 	}
+#endif // WOTMOD
 
 	return m_pUnitInfo->GetRangedCombat();
 }
@@ -17535,12 +17538,11 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		ChangeAdjacentEnemyDamage(thisPromotion.GetAdjacentEnemyDamage() * iChange);
 #endif // SIEGEMOD
 
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
+#if WOTMOD
 		ChangeTurnDamage(thisPromotion.GetTurnDamage() * iChange);
 		ChangeRangedAttackSelfDamageChance(thisPromotion.GetRangedAttackSelfDamageChance() * iChange);
 		ChangeHealBlocked(thisPromotion.IsBlocksHealing() ? iChange : 0);
+#endif // WOTMOD
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
 		{
@@ -17808,11 +17810,10 @@ void CvUnit::read(FDataStream& kStream)
 	kStream >> m_iAdjacentEnemyDamage;
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kStream >> m_iTurnDamage;
 	kStream >> m_iHealBlockedCount;
+#endif // WOTMOD
 
 	kStream >> m_iEnemyDamageChance;
 	kStream >> m_iNeutralDamageChance;
@@ -17980,11 +17981,10 @@ void CvUnit::write(FDataStream& kStream) const
 	kStream << m_iAdjacentEnemyDamage;
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kStream << m_iTurnDamage;
 	kStream << m_iHealBlockedCount;
+#endif // WOTMOD
 
 	kStream << m_iEnemyDamageChance;
 	kStream << m_iNeutralDamageChance;
@@ -21298,9 +21298,7 @@ std::string CvUnit::stackTraceRemark(const FAutoVariableBase& var) const
 	return result;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 bool CvUnit::CanDiscoverHornOfValere() const
 {
 	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
@@ -21547,6 +21545,7 @@ int CvUnit::GetAjahInfluenceChange() const
 {
 	return 10;
 }
+#endif // WOTMOD
 
 //	--------------------------------------------------------------------------------
 DestructionNotification<UnitHandle>& CvUnit::getDestructionNotification()

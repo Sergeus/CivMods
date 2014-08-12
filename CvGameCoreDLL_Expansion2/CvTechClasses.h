@@ -56,10 +56,9 @@ public:
 	bool IsStopsForeignReligions() const;
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool IsMeetsAllMinorCivsWithTrait(MinorCivTraitTypes eTrait) const;
+#endif // WOTMOD
 
 	int GetGridX() const;
 	int GetGridY() const;
@@ -166,10 +165,9 @@ private:
 	CvString m_strSound;
 	CvString m_strSoundMP;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool* m_pabMeetAllMinorCivsOfTrait;
+#endif // WOTMOD
 
 	// Arrays
 	int* m_piDomainExtraMoves;

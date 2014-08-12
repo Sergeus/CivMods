@@ -1,6 +1,7 @@
 #include "CvGameCoreDLLPCH.h"
 #include "WoTSerialization.h"
 
+#if WOTMOD
 FDataStream& operator<<(FDataStream& kStream, const GovernorTypes& egovernorType)
 {
 	kStream << static_cast<int>(egovernorType);
@@ -60,3 +61,4 @@ FDataStream& operator>>(FDataStream& kStream, AjahTypes& eAjah)
 	eAjah = static_cast<AjahTypes>(iAjah);
 	return kStream;
 }
+#endif // WOTMOD

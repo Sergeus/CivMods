@@ -128,9 +128,7 @@ class CvNetMessageHandler;
 class WoTNotificationInfo;
 #endif // CUSTOM_NOTIFICATIONS
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 class WoTGovernorClassInfo;
 class WoTGovernorEntry;
 class WoTGovernorXMLEntries;
@@ -138,6 +136,7 @@ class WoTOnePowerInfo;
 class CvMinorCivTraitInfo;
 class WoTMinorCivPlotInfo;
 class WoTWhiteTowerAjahInfo;
+#endif // WOTMOD
 
 class CvDLLInterfaceIFaceBase;
 class ICvDLLDatabaseUtility1;
@@ -335,9 +334,7 @@ public:
 	WoTNotificationInfo* GetNotificationInfo(int iNotificationID);
 #endif // CUSTOM_NOTIFICATIONS
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	int GetNumGovernorClassInfos();
 	std::vector<WoTGovernorClassInfo*>& GetGovernorClassInfos();
 	WoTGovernorClassInfo* GetGovernorClassInfo(GovernorClassTypes eGovernorClass);
@@ -362,6 +359,7 @@ public:
 	int GetNumWhiteTowerAjahInfos();
 	std::vector<WoTWhiteTowerAjahInfo*>& GetWhiteTowerAjahInfos();
 	WoTWhiteTowerAjahInfo* GetWhiteTowerAjahInfo(AjahTypes eAjah);
+#endif // WOTMOD
 
 	int& getNumPlayableCivilizationInfos();
 	int& getNumAIPlayableCivilizationInfos();
@@ -410,10 +408,9 @@ public:
 	std::vector<CvPlayerOptionInfo*>& getPlayerOptionInfo();
 	_Ret_maybenull_ CvPlayerOptionInfo* getPlayerOptionInfo(PlayerOptionTypes ePlayerOptionNum);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	int GetNumYieldInfos();
+#endif // WOTMOD
 	std::vector<CvYieldInfo*>& getYieldInfo();
 	_Ret_maybenull_ CvYieldInfo* getYieldInfo(YieldTypes eYieldNum);
 
@@ -7428,9 +7425,7 @@ public:
 	}
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	inline int getPROMOTION_HORN_HERO_DECAY()
 	{
 		return m_iPROMOTION_HORN_HERO_DECAY;
@@ -7447,6 +7442,7 @@ public:
 	{
 		return m_iSHADOW_LEADER;
 	}
+#endif // WOTMOD
 
 	////////////// END DEFINES //////////////////
 
@@ -7630,14 +7626,13 @@ protected:
 
 	std::vector<CvMultiUnitFormationInfo*> m_paMultiUnitFormationInfo;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	std::vector<WoTGovernorClassInfo*> m_paGovernorClassInfo;
 	std::vector<WoTOnePowerInfo*> m_paOnePowerInfo;
 	std::vector<CvMinorCivTraitInfo*> m_paMinorCivTraitInfo;
 	std::vector<WoTMinorCivPlotInfo*> m_paMinorCivPlotInfo;
 	std::vector<WoTWhiteTowerAjahInfo*> m_paWhiteTowerAjahInfo;
+#endif // WOTMOD
 
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;
 	CvCitySpecializationXMLEntries* m_pCitySpecializations;
@@ -7668,10 +7663,9 @@ protected:
 	CvNotificationXMLEntries* m_pNotifications;
 #endif // CUSTOM_NOTIFICATIONS
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	WoTGovernorXMLEntries* m_pGovernors;
+#endif // WOTMOD
 
 	//////////////////////////////////////////////////////////////////////////
 	// GLOBAL TYPES
@@ -9250,13 +9244,12 @@ protected:
 	int m_iHURRY_GOLD_COST_PER_FAITH;
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	int m_iPROMOTION_HORN_HERO_DECAY;
 	int m_iSHADOW_CIVILIZATION;
 	int m_iSHADOW_HANDICAP;
 	int m_iSHADOW_LEADER;
+#endif // WOTMOD
 
 	// -- floats --
 

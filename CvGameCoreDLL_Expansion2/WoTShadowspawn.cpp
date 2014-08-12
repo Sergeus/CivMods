@@ -11,6 +11,7 @@
 #include "Database.h"
 #include "CustomLog.h"
 
+#if WOTMOD
 int WoTShadowspawn::m_iSpawnDelay = -1;
 int WoTShadowspawn::m_iSpawnRate = -1;
 int WoTShadowspawn::m_iSpawnVariance = -1;
@@ -320,3 +321,4 @@ void WoTShadowspawn::CacheShadowspawnUnitClasses()
 		}
 	}
 }
+#endif // WOTMOD

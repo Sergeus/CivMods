@@ -618,11 +618,10 @@ public:
 	int getCivilizationFreeUnitsClass(int i) const;
 	int getCivilizationFreeUnitsDefaultUnitAI(int i) const;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	int GetCivilizationGovernors(int i) const;
 	bool IsCivilizationGovernorOverridden(int i) const;
+#endif // WOTMOD
 
 	bool isLeaders(int i) const;
 	bool isCivilizationFreeBuildingClass(int i) const;
@@ -646,10 +645,9 @@ protected:
 	// allocate and initialize the civilization's default units
 	void InitUnitDefaults(int*& piDefaults, CvDatabaseUtility& kUtility);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	void InitGovernorDefaults(int*& piDefaults, CvDatabaseUtility& kUtility);
+#endif // WOTMOD
 
 	int m_iDefaultPlayerColor;
 	int m_iArtStyleType;
@@ -672,10 +670,9 @@ protected:
 	int* m_piCivilizationFreeUnitsClass;
 	int* m_piCivilizationFreeUnitsDefaultUnitAI;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	int* m_piCivilizationGovernors;
+#endif // WOTMOD
 
 	bool* m_pbLeaders;
 	bool* m_pbCivilizationFreeBuildingClass;
@@ -690,10 +687,9 @@ protected:
 
 	std::vector<bool> m_CivilizationBuildingOverridden;
 	std::vector<bool> m_CivilizationUnitOverridden;
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	std::vector<bool> m_CivilizationGovernorOverridden;
+#endif // WOTMOD
 
 private:
 	CvCivilizationInfo(const CvCivilizationInfo&);
@@ -726,10 +722,9 @@ public:
 	bool isPermanent() const;
 	bool IsReligionInAllCities() const;
 	bool IsFindAllNaturalWonders() const;
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool IsLastBattle() const;
+#endif // WOTMOD
 
 	const char* getMovie() const;
 
@@ -756,10 +751,9 @@ protected:
 	bool m_bPermanent;
 	bool m_bReligionInAllCities;
 	bool m_bFindAllNaturalWonders;
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool m_bLastBattle;
+#endif // WOTMOD
 
 	CvString m_strMovie;
 
@@ -1131,12 +1125,11 @@ public:
 	int getFeatureCost(int i) const;
 	int getTechTimeChange(int i) const;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	int GetHappiness() const;
 	bool IsOwnTerritoryMakesValid() const;
 	int GetBuildExclusiveRange(BuildTypes eBuild) const;
+#endif // WOTMOD
 
 	bool isFeatureRemove(int i) const;
 
@@ -1152,12 +1145,11 @@ protected:
 	int m_iEntityEvent;
 	int m_iMissionType;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	int m_iHappiness;
 	bool m_bOwnTerritoryMakesValid;
 	int* m_paiBuildExclusions;
+#endif // WOTMOD
 
 	bool m_bKill;
 	bool m_bRepair;
@@ -2301,9 +2293,7 @@ private:
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 typedef CvBaseInfo CvDomainInfo;
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  class : WoTOnePowerInfo
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2315,5 +2305,6 @@ public:
 
 	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
 };
+#endif // WOTMOD
 
 #endif

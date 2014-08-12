@@ -119,12 +119,11 @@ CvUnitEntry::CvUnitEntry(void) :
 	m_piFreeUnitWhenTradeRoutePlundered(NULL),
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pbGovernorClasses(NULL),
 	m_pbOnePowerTypes(NULL),
 	m_piFreePromotionsUntilProjectCompleted(NULL),
+#endif // WOTMOD
 
 	m_bUnitArtInfoEraVariation(false),
 	m_bUnitArtInfoCulturalVariation(false),
@@ -160,12 +159,11 @@ CvUnitEntry::~CvUnitEntry(void)
 	SAFE_DELETE_ARRAY(m_piFreeUnitWhenTradeRoutePlundered);
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	SAFE_DELETE_ARRAY(m_pbGovernorClasses);
 	SAFE_DELETE_ARRAY(m_pbOnePowerTypes);
 	SAFE_DELETE_ARRAY(m_piFreePromotionsUntilProjectCompleted);
+#endif // WOTMOD
 }
 
 bool CvUnitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
@@ -320,12 +318,11 @@ bool CvUnitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	kUtility.PopulateArrayByExistence(m_pbBuildings, "Buildings", "Unit_Buildings", "BuildingType", "UnitType", szUnitType);
 	kUtility.PopulateArrayByExistence(m_pbBuildingClassRequireds, "BuildingClasses", "Unit_BuildingClassRequireds", "BuildingClassType", "UnitType", szUnitType);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kUtility.PopulateArrayByExistence(m_pbGovernorClasses, "GovernorClasses", "Unit_GovernorClasses", "GovernorClassType", "UnitType", szUnitType);
 	kUtility.PopulateArrayByExistence(m_pbOnePowerTypes, "OnePowers", "Unit_OnePowerWielding", "OnePowerType", "UnitType", szUnitType);
 	kUtility.PopulateArrayByValue(m_piFreePromotionsUntilProjectCompleted, "UnitPromotions", "Unit_FreePromotionsUntilProjectCompleted", "PromotionType", "UnitType", szUnitType, "ProjectType", -1);
+#endif // WOTMOD
 
 #if SIEGEMOD
 	kUtility.PopulateArrayByValue(m_piFreeUnitAfterSurvivingMeleeCombat, "UnitClasses", "Unit_FreeUnitAfterSurvivingMeleeCombat", "UnitClassType", "UnitType", szUnitType, "NumberFree");
@@ -1099,9 +1096,7 @@ int CvUnitEntry::GetFreeUnitWhenTradeRoutePlundered(int i) const
 }
 #endif // SIEGEMOD
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 bool CvUnitEntry::IsGovernorClass(int i) const
 {
 	CvAssertMsg(i < GC.GetNumGovernorClassInfos(), "Index out of bounds");
@@ -1120,6 +1115,7 @@ int CvUnitEntry::GetFreePromotionsUntilProjectCompleted(int i) const
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_piFreePromotionsUntilProjectCompleted ? m_piFreePromotionsUntilProjectCompleted[i] : -1;
 }
+#endif // WOTMOD
 
 /// Project required to train this unit?
 int CvUnitEntry::GetProjectPrereq() const

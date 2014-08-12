@@ -2335,12 +2335,13 @@ bool CvTeam::isMinorCiv() const
 	return bValid;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
 bool CvTeam::IsShadowSpawn() const
 {
+#if WOTMOD
 	return (m_eID == SHADOW_TEAM);
+#else
+	return false;
+#endif // WOTMOD
 }
 
 //	--------------------------------------------------------------------------------

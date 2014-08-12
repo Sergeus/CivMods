@@ -9,6 +9,7 @@
 #include "CvInfos.h"
 #include "Database.h"
 
+#if WOTMOD
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  class : WoTWhiteTowerAjahInfo
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -77,3 +78,4 @@ private:
 
 	CvMinorCivAI* m_pOwner;
 };
+#endif // WOTMOD

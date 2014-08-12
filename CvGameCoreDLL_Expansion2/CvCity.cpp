@@ -42,10 +42,9 @@
 #include "cvStopWatch.h"
 #include "CvCityManager.h"
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 #include "WoTGovernorClasses.h"
+#endif // WOTMOD
 
 // include after all other headers
 #include "LintFree.h"
@@ -240,10 +239,9 @@ CvCity::CvCity() :
 	, m_eReligionPuppeting(NO_RELIGION)
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	, m_pCityGovernors(FNEW(WoTCityGovernors, c_eCiv5GameplayDLL, 0))
+#endif // WOTMOD
 
 	, m_bRouteToCapitalConnectedLastTurn(false)
 	, m_bRouteToCapitalConnectedThisTurn(false)
@@ -647,10 +645,9 @@ void CvCity::uninit()
 	m_pEmphases->Uninit();
 	m_pCityEspionage->Uninit();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pCityGovernors->Uninit();
+#endif // WOTMOD
 
 	m_orderQueue.clear();
 }
@@ -877,10 +874,9 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 			m_paiUnitProductionTime.setAt(iI, 0);
 		}
 
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
+#if WOTMOD
 		m_pCityGovernors->Init(GC.GetGameGovernors(), this);
+#endif // WOTMOD
 
 		CvAssertMsg((0 < iNumSpecialistInfos),  "GC.getNumSpecialistInfos() is not greater than zero but an array is being allocated in CvCity::reset");
 		m_paiSpecialistCount.clear();
@@ -1002,13 +998,12 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	}
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 WoTCityGovernors* CvCity::GetCityGovernors() const
 {
 	return m_pCityGovernors;
 }
+#endif // WOTMOD
 
 
 //////////////////////////////////////
@@ -2731,14 +2726,13 @@ bool CvCity::canConstruct(BuildingTypes eBuilding, bool bContinue, bool bTestVis
 		return false;
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// Governor requirements met?
 	if (!IsBuildingGovernorValid(eBuilding, bTestVisible, toolTipSink))
 	{
 		return false;
 	}
+#endif // WOTMOD
 
 	// Holy city requirement
 	if (pkBuildingInfo->IsRequiresHolyCity() && !GetCityReligions()->IsHolyCityAnyReligion())
@@ -6265,9 +6259,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 			}
 		}
 
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
+#if WOTMOD
 		// Update the plots around this city if this building blocks channeling for any distance
 		for (int iOnePower = 0; iOnePower < GC.GetNumOnePowerInfos(); iOnePower++)
 		{
@@ -6299,6 +6291,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 		{
 			changePopulation(pBuildingInfo->GetPopulationChange() * iChange);
 		}
+#endif // WOTMOD
 
 		// Resource loop
 		int iCulture, iFaith;
@@ -6424,15 +6417,14 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 				ChangeTerrainExtraYield(((TerrainTypes)iJ), eYield, (GC.getBuildingInfo(eBuilding)->GetTerrainYieldChange(iJ, eYield) * iChange));
 			}
 
-			// ----------------------------------------------------------------
-			// WoTMod Addition
-			// ----------------------------------------------------------------
+#if WOTMOD
 			// governor yield changes
 			if (m_pCityGovernors->IsHasGovernor())
 			{
 				m_pCityGovernors->ChangeYieldChange(eYield, pBuildingInfo->GetGovernorYieldChange(eYield));
 				m_pCityGovernors->ChangeYieldChange(eYield, pBuildingInfo->GetGovernorClassYieldChange(m_pCityGovernors->GetGovernorClassType(), eYield));
 			}
+#endif // WOTMOD
 
 			if(pBuildingInfo->GetEnhancedYieldTech() != NO_TECH)
 			{
@@ -7867,26 +7859,23 @@ int CvCity::GetBaseJONSCulturePerTurn() const
 	VALIDATE_OBJECT
 
 	int iCulturePerTurn = 0;
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	//iCulturePerTurn += GetJONSCulturePerTurnFromBuildings();
+#if !WOTMOD
+	iCulturePerTurn += GetJONSCulturePerTurnFromBuildings();
+#endif // !WOTMOD
 	iCulturePerTurn += GetJONSCulturePerTurnFromPolicies();
 	iCulturePerTurn += GetJONSCulturePerTurnFromSpecialists();
 	iCulturePerTurn += GetJONSCulturePerTurnFromGreatWorks();
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	//iCulturePerTurn += GetBaseYieldRateFromTerrain(YIELD_CULTURE);
+#if !WOTMOD
+	iCulturePerTurn += GetBaseYieldRateFromTerrain(YIELD_CULTURE);
+#endif // WOTMOD
 	iCulturePerTurn += GetJONSCulturePerTurnFromTraits();
 	iCulturePerTurn += GetJONSCulturePerTurnFromReligion();
 	iCulturePerTurn += GetJONSCulturePerTurnFromLeagues();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// because this is how it should work
 	iCulturePerTurn += getBaseYieldRate(YIELD_CULTURE);
+#endif // WOTMOD
 
 	return iCulturePerTurn;
 }
@@ -8000,10 +7989,9 @@ int CvCity::GetFaithPerTurn() const
 	iFaith += GetFaithPerTurnFromTraits();
 	iFaith += GetFaithPerTurnFromReligion();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	iFaith += GetCityGovernors()->GetYieldChange(YIELD_FAITH);
+#endif // WOTMOD
 
 	// Puppet?
 	int iModifier = 0;
@@ -9741,17 +9729,14 @@ int CvCity::getBaseYieldRate(YieldTypes eIndex) const
 	iValue += GetBaseYieldRateFromMisc(eIndex);
 	iValue += GetBaseYieldRateFromReligion(eIndex);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	iValue += GetBaseYieldRateFromGovernors(eIndex);
+#endif // WOTMOD
 
 	return iValue;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvCity::GetBaseYieldRateFromGovernors(YieldTypes eYieldType) const
 {
 	CvAssertMsg(eYieldType > -1, "Index out of bounds");
@@ -9802,6 +9787,7 @@ bool CvCity::IsBuildingGovernorValid(BuildingTypes eBuilding, bool bTestVisible,
 
 	return bTestVisible;
 }
+#endif // WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Base yield rate from Terrain
@@ -11855,9 +11841,7 @@ void CvCity::AddFreePromotions(CvUnit* pUnit)
 					pUnit->setHasPromotion(ePromotion, true);
 				}
 
-				// ----------------------------------------------------------------
-				// WoTMod Addition
-				// ----------------------------------------------------------------
+#if WOTMOD
 				// we also have buildings that give free promotions to units wielding specific sources of magic!
 				for (int iOnePower = 0; iOnePower < GC.GetNumOnePowerInfos(); iOnePower++)
 				{
@@ -11867,6 +11851,7 @@ void CvCity::AddFreePromotions(CvUnit* pUnit)
 						pUnit->setHasPromotion(ePromotion, true);
 					}
 				}
+#endif // WOTMOD
 			}
 		}
 	}
@@ -14141,10 +14126,9 @@ void CvCity::read(FDataStream& kStream)
 
 	kStream >> *m_pCityEspionage;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pCityGovernors->Read(kStream);
+#endif // WOTMOD
 
 	if (uiVersion >= 3)
 	{
@@ -14395,10 +14379,9 @@ void CvCity::write(FDataStream& kStream) const
 	m_pEmphases->Write(kStream);
 	kStream << *m_pCityEspionage;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pCityGovernors->Write(kStream);
+#endif // WOTMOD
 
 	kStream << m_iExtraHitPoints;
 }

@@ -471,13 +471,12 @@ void CvLuaUnit::PushMethods(lua_State* L, int t)
 
 	Method(IsRangedSupportFire);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	Method(IsCanGovernCities);
 	Method(GetGovernorType);
 	Method(DoGovernCity);
 	Method(DoTrainAtTower);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 const char* CvLuaUnit::GetTypeName()
@@ -4509,9 +4508,7 @@ int CvLuaUnit::lIsRangedSupportFire(lua_State* L)
 	return 1;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvLuaUnit::lIsCanGovernCities(lua_State* L)
 {
 	CvUnit* pkUnit = GetInstance(L);
@@ -4544,3 +4541,4 @@ int CvLuaUnit::lDoTrainAtTower(lua_State* L)
 
 	return 0;
 }
+#endif // WOTMOD

@@ -36,10 +36,9 @@
 #include "WoTNotifications.h"
 #endif // CUSTOM_NOTIFICATIONS
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 #include "WoTGovernorClasses.h"
+#endif // WOTMOD
 
 #include "CvDllDatabaseUtility.h"
 #include "CvDllScriptSystemUtility.h"
@@ -1621,13 +1620,12 @@ CvGlobals::CvGlobals() :
 	m_iINTERNATIONAL_TRADE_EXCLUSIVE_CONNECTION(200),
 	m_iINTERNATIONAL_TRADE_CITY_GPT_DIVISOR(20),
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_iPROMOTION_HORN_HERO_DECAY(-1),
 	m_iSHADOW_CIVILIZATION(37),
 	m_iSHADOW_HANDICAP(1),
 	m_iSHADOW_LEADER(-1),
+#endif // WOTMOD
 
 // -- floats --
 
@@ -1826,10 +1824,9 @@ CvGlobals::CvGlobals() :
 	m_pLeagueProjectRewards(NULL),
 	m_pResolutions(NULL),
 	m_pGameDatabase(NULL)
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	, m_pGovernors(NULL)
+#endif // WOTMOD
 {
 }
 
@@ -1992,10 +1989,9 @@ void CvGlobals::init()
 	m_pNotifications = FNEW(CvNotificationXMLEntries, c_eCiv5GameplayDLL, 0);
 #endif // CUSTOM_NOTIFICATIONS
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pGovernors = FNEW(WoTGovernorXMLEntries, c_eCiv5GameplayDLL, 0);
+#endif // WOTMOD
 
 	auto_ptr<ICvDLLDatabaseUtility1> pkLoader(getDatabaseLoadUtility());
 
@@ -2063,10 +2059,9 @@ void CvGlobals::uninit()
 	SAFE_DELETE(m_pNotifications);
 #endif // CUSTOM_NOTIFICATIONS
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	SAFE_DELETE(m_pGovernors);
+#endif // WOTMOD
 
 	SAFE_DELETE(m_pImprovements); // player uses the improvement count in deallocating.
 	SAFE_DELETE(m_pTechs);        // improvements uses tech to deallocate. arrghh!
@@ -2604,9 +2599,7 @@ WoTNotificationInfo* CvGlobals::GetNotificationInfo(int iNotificationID)
 }
 #endif // CUSTOM_NOTIFICATIONS
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvGlobals::GetNumGovernorClassInfos()
 {
 	return m_paGovernorClassInfo.size();
@@ -2683,6 +2676,7 @@ WoTWhiteTowerAjahInfo* CvGlobals::GetWhiteTowerAjahInfo(AjahTypes eAjah)
 {
 	return m_paWhiteTowerAjahInfo[eAjah];
 }
+#endif // WOTMOD
 
 int& CvGlobals::getNumPlayableCivilizationInfos()
 {
@@ -2955,13 +2949,12 @@ CvYieldInfo* CvGlobals::getYieldInfo(YieldTypes eYieldNum)
 		return NULL;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvGlobals::GetNumYieldInfos()
 {
 	return m_paYieldInfo.size();
 }
+#endif // WOTMOD
 
 int CvGlobals::getNumRouteInfos()
 {
@@ -5552,13 +5545,12 @@ void CvGlobals::cacheGlobals()
 	m_iAI_OPERATIONAL_MAX_RECRUIT_TURNS_DEFAULT = getDefineINT("AI_OPERATIONAL_MAX_RECRUIT_TURNS_DEFAULT");
 	m_iAI_OPERATIONAL_MAX_RECRUIT_TURNS_ENEMY_TERRITORY = getDefineINT("AI_OPERATIONAL_MAX_RECRUIT_TURNS_ENEMY_TERRITORY");
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_iPROMOTION_HORN_HERO_DECAY = getDefineINT("PROMOTION_HORN_HERO_DECAY");
 	m_iSHADOW_CIVILIZATION = getDefineINT("SHADOW_CIVILIZATION");
 	m_iSHADOW_HANDICAP = getDefineINT("SHADOW_HANDICAP");
 	m_iSHADOW_LEADER = getDefineINT("SHADOW_LEADER");
+#endif // WOTMOD
 
 #if SIEGEMOD
 	m_iTRADE_ROUTE_DURATION_TURNS = getDefineINT("TRADE_ROUTE_DURATION_TURNS");
@@ -5909,12 +5901,11 @@ void CvGlobals::deleteInfoArrays()
 
 	deleteInfoArray(m_paEntityEventInfo);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	deleteInfoArray(m_paGovernorClassInfo);
 	deleteInfoArray(m_paOnePowerInfo);
 	deleteInfoArray(m_paMinorCivTraitInfo);
+#endif // WOTMOD
 }
 
 //

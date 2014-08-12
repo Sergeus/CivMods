@@ -5,6 +5,7 @@
 #include "WoTSerialization.h"
 #include "CvGameCoreUtils.h"
 
+#if WOTMOD
 //======================================================================================================
 //					WoTWhiteTowerAjahInfo
 //======================================================================================================
@@ -377,3 +378,4 @@ void WoTMinorCivAjahs::DoTurn()
 		}
 	}
 }
+#endif // WOTMOD

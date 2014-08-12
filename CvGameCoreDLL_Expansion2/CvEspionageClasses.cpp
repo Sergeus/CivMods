@@ -1643,14 +1643,13 @@ bool CvPlayerEspionage::CanStageCoup(uint uiSpyIndex)
 		return false;
 	}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	MinorCivTraitTypes eTrait = static_cast<MinorCivTraitTypes>(GC.getMinorCivInfo(GET_PLAYER(eCityOwner).GetMinorCivAI()->GetMinorCivType())->GetMinorCivTrait());
 	if (GC.GetMinorCivTraitInfo(eTrait)->IsNoCoups())
 	{
 		return false;
 	}
+#endif // WOTMOD
 
 	CvMinorCivAI* pMinorCivAI = GET_PLAYER(eCityOwner).GetMinorCivAI();
 	PlayerTypes eMinorCivAlly = pMinorCivAI->GetAlly();
@@ -4167,11 +4166,11 @@ struct PlayerAndTechTurnEval
 void CvEspionageAI::DoTurn()
 {
 	// no humans, minor civs, or barbarians allowed!
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
 	if(m_pPlayer->isHuman() || m_pPlayer->isMinorCiv() || m_pPlayer->isBarbarian()
-		|| m_pPlayer->IsShadowspawn())
+#if WOTMOD
+		|| m_pPlayer->IsShadowspawn()
+#endif // WOTMOD
+		)
 	{
 		return;
 	}

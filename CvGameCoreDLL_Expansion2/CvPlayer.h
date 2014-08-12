@@ -1515,9 +1515,7 @@ public:
 
 	CvPlayerAchievements& GetPlayerAchievements(){return m_kPlayerAchievements;}
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool IsShadowspawn() const;
 	int GetHappinessFromUnits() const;
 	void DoPledgeSupportForAjah(PlayerTypes eTowerPlayer, AjahTypes eAjah);
@@ -1528,6 +1526,7 @@ public:
 	AjahTypes GetPublicSupportedAjah() const;
 	int GetTurnsSincePledgedAjahSupport() const;
 	bool IsCanPledgeAjahSupport() const;
+#endif // WOTMOD
 
 	bool hasTurnTimerExpired();
 
@@ -1818,11 +1817,10 @@ protected:
 	FAutoVariable<bool, CvPlayer> m_bHasAdoptedStateReligion;
 	FAutoVariable<bool, CvPlayer> m_bAlliesGreatPersonBiasApplied;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	FAutoVariable<std::pair<PlayerTypes, AjahTypes>, CvPlayer> m_ePublicSupportedAjah;
 	FAutoVariable<int, CvPlayer> m_iTurnsSincePledgedSupport;
+#endif // WOTMOD
 
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCityYieldChange;
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCoastalCityYieldChange;

@@ -454,11 +454,11 @@ public:
 	int GetUnhappinessCombatPenalty() const;
 
 	void SetBaseCombatStrength(int iCombat);
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	// int GetBaseCombatStrength(bool bIgnoreEmbarked = false) const;
+#if WOTMOD
 	int GetBaseCombatStrength(bool bIgnoreEmbarked = false, const CvPlot* pFromPlot = NULL) const;
+#else
+	int GetBaseCombatStrength(bool bIgnoreEmbarked = false) const;
+#endif // WOTMOD
 	int GetBaseCombatStrengthConsideringDamage() const;
 
 	int GetGenericMaxStrengthModifier(const CvUnit* pOtherUnit, const CvPlot* pBattlePlot, bool bIgnoreUnitAdjacency) const;
@@ -1249,9 +1249,7 @@ public:
 	bool HandleMission(int iMission);
 #endif // CUSTOM_MISSIONS
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool CanDiscoverHornOfValere() const;
 	int GetTurnDamage() const;
 	void ChangeTurnDamage(int iValue);
@@ -1271,6 +1269,7 @@ public:
 	int GetHappiness() const;
 	void DoTrainAtTower();
 	int GetAjahInfluenceChange() const;
+#endif // WOTMOD
 
 protected:
 	const MissionQueueNode* HeadMissionQueueNode() const;
@@ -1289,12 +1288,11 @@ protected:
 	int m_iAdjacentEnemyDamage;
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	int m_iTurnDamage;
 	int m_iRangedAttackSelfDamageChance;
 	int m_iHealBlockedCount;
+#endif // WOTMOD
 
 	typedef enum Flags
 	{

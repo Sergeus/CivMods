@@ -72,10 +72,9 @@ const MissionTypes getMISSION_GIVE_POLICIES();
 const MissionTypes getMISSION_ONE_SHOT_TOURISM();
 const MissionTypes getMISSION_CHANGE_ADMIRAL_PORT();
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 const MissionTypes getMISSION_BLOW_HORN_OF_VALERE();
+#endif // WOTMOD
 
 const unsigned int getNUM_MISSION_TYPES();
 

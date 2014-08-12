@@ -551,15 +551,14 @@ public:
 	bool IsDisableNotifications() const;
 	void SetDisableNotifications(bool bDisableNotifications);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool IsOnePowerBlocking(OnePowerTypes eOnePower) const;
 	void SetOnePowerBlocking(OnePowerTypes eOnePowerTypes, bool bNewValue);
 	void DoTurnPlots();
 	bool IsNoBuyouts() const;
 	bool IsNoGoldGifts() const;
 	WoTMinorCivAjahs* GetAjahs();
+#endif // WOTMOD
 
 private:
 	CvPlayer* m_pPlayer;
@@ -571,10 +570,9 @@ private:
 	int m_iTurnsSinceThreatenedByBarbarians;
 	int m_iGlobalQuestCountdown;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	WoTMinorCivAjahs* m_pAjahs;
+#endif // WOTMOD
 
 	bool m_abWarQuestAgainstMajor[MAX_MAJOR_CIVS];
 	int m_aaiNumEnemyUnitsLeftToKillByMajor[MAX_MAJOR_CIVS][MAX_MAJOR_CIVS];
@@ -609,10 +607,9 @@ private:
 	bool m_bDisableNotifications;
 };
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 class WoTMinorCivPlotInfo;
+#endif // WOTMOD
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
@@ -651,17 +648,16 @@ public:
 
 	int GetMinorCivTrait() const;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool IsOnePowerBlocking(OnePowerTypes eOnePower) const;
 	void SetOnePowerBlocking(OnePowerTypes eOnePower, bool bNewValue);
 	bool IsAjahPermitted(AjahTypes eAjah) const;
 	void SetAjahPermitted(AjahTypes eAjah, bool bNewValue);
-	
+
 	bool IsMinorCivPlotAvailable(WoTMinorCivPlotTypes ePlotType) const;
 
 	int GetAjahStartingInfluence(AjahTypes eAjah) const;
+#endif // WOTMOD
 
 	// Deprecated Members
 	const char* getAdjectiveKeyWide() const;
@@ -681,13 +677,12 @@ protected:
 
 	bool m_bAIPlayable;
 	bool m_bPlayable;
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool* m_pbOnePowerBlocking;
 	bool* m_pbPlots;
 	int* m_piAjahStartingInfluences;
 	bool* m_pbAjahsPermitted;
+#endif // WOTMOD
 
 	CvString m_strArtDefineTag;
 	CvString m_strArtStylePrefix;
@@ -708,9 +703,7 @@ protected:
 	std::vector<CvString> m_vCityNames;
 };
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 class CvMinorCivTraitInfo : public CvBaseInfo
 {
 public:
@@ -746,5 +739,6 @@ public:
 private:
 	WoTMinorCivPlotTypes m_eMinorCivPlotType;
 };
+#endif // WOTMOD
 
 #endif //CIV5_MINOR_CIV_AI_H

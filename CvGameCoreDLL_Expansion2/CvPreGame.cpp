@@ -240,7 +240,11 @@ PREGAMEVAR(bool,                               s_dummyvalue,	          false);
 PREGAMEVAR(std::vector<bool>,                  s_multiplayerOptions,     NUM_MPOPTION_TYPES);
 PREGAMEVAR(std::vector<int>,                   s_netIDs,                 MAX_PLAYERS);
 PREGAMEVAR(std::vector<CvString>,              s_nicknames,              MAX_PLAYERS);
+#if WOTMOD
 PREGAMEVAR(int,                                s_numVictoryInfos,        numVictories());
+#else
+PREGAMEVAR(int,                                s_numVictoryInfos,        5);
+#endif // WOTMOD
 PREGAMEVAR(int,                                s_pitBossTurnTime,        0);
 PREGAMEVAR(std::vector<bool>,                  s_playableCivs,           MAX_PLAYERS);
 PREGAMEVAR(std::vector<PlayerColorTypes>,      s_playerColors,           MAX_PLAYERS);
@@ -275,11 +279,9 @@ PREGAMEVARDEFAULT(std::string,                        s_versionString);
 PREGAMEVAR(std::vector<bool>,                  s_turnNotifySteamInvite,        MAX_PLAYERS);
 PREGAMEVAR(std::vector<bool>,                  s_turnNotifyEmail,							MAX_PLAYERS);
 PREGAMEVAR(std::vector<CvString>,              s_turnNotifyEmailAddress,    MAX_PLAYERS);
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 PREGAMEVAR(int,									s_lastBattleBeginTurn,	0);
-
+#endif // WOTMOD
 
 typedef std::map<uint, uint> HashToOptionMap;
 
@@ -314,9 +316,7 @@ GameStartTypes	s_gameStartType;
 
 StorageLocation	s_loadFileStorage;
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int numVictories()
 {
 	// querying the database to count victory infos, like Firaxis should have done?
@@ -352,6 +352,7 @@ void cacheVictories()
 		}
 	}
 }
+#endif // WOTMOD
 
 //	-----------------------------------------------------------------------
 //	Bind a leader head key to the leader head using the current leader head ID
@@ -1100,9 +1101,7 @@ bool SetGameOptions(const std::vector<CustomOption>& gameOptions)
 	return true;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int GetLastBattleBeginTurn()
 {
 	return s_lastBattleBeginTurn;
@@ -1111,6 +1110,7 @@ void SetLastBattleBeginTurn(int iNewValue)
 {
 	s_lastBattleBeginTurn = iNewValue;
 }
+#endif // WOTMOD
 
 GameSpeedTypes gameSpeed()
 {
@@ -1452,7 +1452,11 @@ void loadFromIni(FIGameIniParser& iniParser)
 	if(szHolder != "EMPTY")
 	{
 		StringToBools(szHolder, &iNumBools, &pbBools);
+#if WOTMOD
 		iNumBools = std::min(iNumBools, numVictories());
+#else
+		iNumBools = std::min(iNumBools, 5);
+#endif // WOTMOD
 		int i;
 		std::vector<bool> tempVBool;
 		for(i = 0; i < iNumBools; i++)
@@ -1941,7 +1945,9 @@ void readArchive(FDataStream& loadFrom, bool bReadVersion)
 		loadFrom >> s_turnNotifyEmailAddress;
 	}
 
+#if WOTMOD
 	loadFrom >> s_lastBattleBeginTurn;
+#endif // WOTMOD
 
 	// Rebuild the hash lookup to the options
 	s_GameOptionsHash.clear();
@@ -1989,7 +1995,11 @@ void resetGame()
 	s_calendar  = (CalendarTypes)0;//GC.getSTANDARD_CALENDAR();	// NO_ option?
 
 	// Data-defined victory conditions
+#if WOTMOD
 	s_numVictoryInfos = numVictories();
+#else
+	s_numVictoryInfos = 5;
+#endif // WOTMOD
 	s_victories.clear();
 	if(s_numVictoryInfos > 0)
 	{
@@ -2066,7 +2076,11 @@ void ResetGameOptions()
 	SyncGameOptionsWithEnumList();
 
 	// victory conditions
+#if WOTMOD
 	s_numVictoryInfos = numVictories();
+#else
+	s_numVictoryInfos = 5;
+#endif // WOTMOD
 	s_victories.clear();
 	if(s_numVictoryInfos > 0)
 	{
@@ -3299,10 +3313,9 @@ void writeArchive(FDataStream& saveTo)
 	saveTo << s_turnNotifyEmail;
 	saveTo << s_turnNotifyEmailAddress;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	saveTo << s_lastBattleBeginTurn;
+#endif // WOTMOD
 }
 
 void write(FDataStream& saveTo)

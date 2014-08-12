@@ -199,14 +199,13 @@ CvBuildingEntry::CvBuildingEntry(void):
 	m_bEndsWars(false),
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pabGovernorClassOrPrereqs(NULL),
 	m_piOnePowerBlockingRange(NULL),
 	m_paiGovernorYieldChanges(NULL),
 	m_ppaiGovernorClassYieldChanges(NULL),
 	m_iPopulationChange(0),
+#endif // WOTMOD
 
 	m_paThemingBonusInfo(NULL),
 	m_iNumThemingBonuses(0)
@@ -249,13 +248,12 @@ CvBuildingEntry::~CvBuildingEntry(void)
 	SAFE_DELETE_ARRAY(m_paiBuildingClassHappiness);
 	SAFE_DELETE_ARRAY(m_paThemingBonusInfo);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	SAFE_DELETE_ARRAY(m_pabGovernorClassOrPrereqs);
 	SAFE_DELETE_ARRAY(m_piOnePowerBlockingRange);
 	SAFE_DELETE_ARRAY(m_paiGovernorYieldChanges);
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiGovernorClassYieldChanges);
+#endif // WOTMOD
 
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiResourceYieldChange);
 	CvDatabaseUtility::SafeDelete2DArray(m_ppaiFeatureYieldChange);
@@ -399,10 +397,9 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	m_iUnitPurchaseCostModifier = kResults.GetInt("UnitPurchaseCostModifier");
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_iPopulationChange = kResults.GetInt("PopulationChange");
+#endif // WOTMOD
 
 	//References
 	const char* szTextVal;
@@ -524,12 +521,11 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	kUtility.PopulateArrayByExistence(m_piLocalResourceAnds, "Resources", "Building_LocalResourceAnds", "ResourceType", "BuildingType", szBuildingType);
 	kUtility.PopulateArrayByExistence(m_piLocalResourceOrs, "Resources", "Building_LocalResourceOrs", "ResourceType", "BuildingType", szBuildingType);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kUtility.PopulateArrayByExistence(m_pabGovernorClassOrPrereqs, "GovernorClasses", "Building_GovernorOrPrereqs", "GovernorClassType", "BuildingType", szBuildingType);
 	kUtility.PopulateArrayByValue(m_piOnePowerBlockingRange, "OnePowers", "Building_OnePowerBlocking", "OnePowerType", "BuildingType", szBuildingType, "Range", -1);
 	kUtility.SetYields(m_paiGovernorYieldChanges, "Building_GovernorYieldChanges", "BuildingType", szBuildingType);
+#endif // WOTMOD
 
 	//ResourceYieldChanges
 	{
@@ -674,9 +670,7 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	}
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	// m_FreePromotionsOnePowerWielding
 	{
 		std::string sqlKey = "Building_FreePromotionOnePowerWielding";
@@ -725,6 +719,7 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 			m_ppaiGovernorClassYieldChanges[GovernorClassID][YieldID] = yield;
 		}
 	}
+#endif // WOTMOD
 
 	//ResourceYieldModifiers
 	{
@@ -2120,9 +2115,7 @@ bool CvBuildingEntry::IsEndsWars() const
 }
 #endif // SIEGEMOD
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 bool CvBuildingEntry::IsFreePromotionOnePowerWielding(const int iPromotion, const OnePowerTypes eOnePower) const
 {
 	std::multimap<int, int>::const_iterator it = m_FreePromotionsOnePowerWielding.find(iPromotion);
@@ -2179,6 +2172,7 @@ int CvBuildingEntry::GetGovernorYieldChange(int i) const
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_paiGovernorYieldChanges[i];
 }
+#endif // WOTMOD
 
 /// Modifier to resource yield
 int CvBuildingEntry::GetResourceYieldModifier(int i, int j) const

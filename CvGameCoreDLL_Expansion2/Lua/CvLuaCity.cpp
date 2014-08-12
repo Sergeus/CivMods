@@ -473,14 +473,13 @@ void CvLuaCity::PushMethods(lua_State* L, int t)
 
 	Method(GetReligionCityRangeStrikeModifier);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	Method(IsHasGovernor);
 	Method(GetGovernorType);
 	Method(SetGovernorType);
 	Method(GetGovernorYieldChange);
 	Method(SetGovernorYieldChange);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 void CvLuaCity::HandleMissingInstance(lua_State* L)
@@ -3939,9 +3938,7 @@ int CvLuaCity::lGetReligionCityRangeStrikeModifier(lua_State* L)
 	return 1;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvLuaCity::lIsHasGovernor(lua_State* L)
 {
 	CvCity* pkCity = GetInstance(L);
@@ -3990,3 +3987,4 @@ int CvLuaCity::lSetGovernorYieldChange(lua_State* L)
 
 	return 0;
 }
+#endif // WOTMOD

@@ -380,9 +380,7 @@ protected:
 	static int lGetNumArchaeologySites(lua_State *L);
 	static int lGetNumHiddenArchaeologySites(lua_State *L);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	static int lDoShadowspawnSpawnUnit(lua_State* L);
 	static int lDoStartLastBattle(lua_State* L);
 	static int lIsLastBattle(lua_State* L);
@@ -390,6 +388,7 @@ protected:
 	static int lGetChosenLastBattleSide(lua_State* L);
 	static int lGetLastBattleBeginTurn(lua_State* L);
 	static int lSetLastBattleBeginTurn(lua_State* L);
+#endif // WOTMOD
 };
 
 #endif //CVLUAGAME_H

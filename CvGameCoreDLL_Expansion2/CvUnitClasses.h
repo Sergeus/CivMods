@@ -156,12 +156,11 @@ public:
 	int GetFreeUnitWhenTradeRoutePlundered(int i) const;
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool IsGovernorClass(int i) const;
 	bool IsUsesOnePowerSource(int i) const;
 	int GetFreePromotionsUntilProjectCompleted(int i) const;
+#endif // WOTMOD
 
 	// Derived fields (not in XML)
 	int GetCargoSpace() const;  // (from free promotions)
@@ -288,12 +287,11 @@ private:
 	int* m_piFreeUnitWhenTradeRoutePlundered;
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool* m_pbGovernorClasses;
 	bool* m_pbOnePowerTypes;
 	int* m_piFreePromotionsUntilProjectCompleted;
+#endif // WOTMOD
 
 	bool* m_pbUpgradeUnitClass;
 	bool* m_pbUnitAIType;

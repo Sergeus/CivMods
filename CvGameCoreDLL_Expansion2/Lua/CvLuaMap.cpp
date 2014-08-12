@@ -74,15 +74,14 @@ void CvLuaMap::RegisterMembers(lua_State* L)
 	Method(ChangeAIMapHint);
 	Method(GetAIMapHint);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	Method(IsHasHornOfValere);
 	Method(SetHasHornOfValere);
 	Method(PlaceHornOfValere);
 	Method(GetTurnsSinceHornBlown);
 	Method(SetTurnsSinceHornBlown);
 	Method(GetHornOfValereDiscoveryDistance);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 int CvLuaMap::lAreas(lua_State* L)
@@ -450,9 +449,7 @@ int CvLuaMap::lGetAIMapHint(lua_State* L)
 	lua_pushinteger(L, GC.getMap().GetAIMapHint());
 	return 1;
 }
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvLuaMap::lIsHasHornOfValere(lua_State* L)
 {
 	lua_pushboolean(L, GC.getMap().IsHasHornOfValere());
@@ -501,3 +498,4 @@ int CvLuaMap::lGetHornOfValereDiscoveryDistance(lua_State* L)
 
 	return 1;
 }
+#endif // WOTMOD

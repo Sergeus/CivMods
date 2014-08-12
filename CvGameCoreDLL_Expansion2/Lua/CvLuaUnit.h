@@ -480,13 +480,12 @@ protected:
 
 	static int lIsRangedSupportFire(lua_State* L);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	static int lIsCanGovernCities(lua_State* L);
 	static int lGetGovernorType(lua_State* L);
 	static int lDoGovernCity(lua_State* L);
 	static int lDoTrainAtTower(lua_State* L);
+#endif // WOTMOD
 };
 
 

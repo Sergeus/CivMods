@@ -3,9 +3,7 @@
 
 #pragma once
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 FDataStream & operator>>(FDataStream&, GovernorTypes&);
 FDataStream & operator<<(FDataStream&, const GovernorTypes&);
 FDataStream & operator>>(FDataStream&, OnePowerTypes&);
@@ -14,3 +12,4 @@ FDataStream & operator>>(FDataStream&, WoTMinorCivPlotTypes&);
 FDataStream & operator<<(FDataStream&, const WoTMinorCivPlotTypes&);
 FDataStream & operator>>(FDataStream&, AjahTypes&);
 FDataStream & operator<<(FDataStream&, const AjahTypes&);
+#endif // WOTMOD

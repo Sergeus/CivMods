@@ -9427,10 +9427,11 @@ void CvDiplomacyAI::DoPlayerDeclaredWarOnSomeone(PlayerTypes ePlayer, TeamTypes 
 	CvAssertMsg(eOtherTeam <= MAX_CIV_TEAMS, "DIPLOMACY_AI: Invalid Team Index.  Please send Jon this with your last 5 autosaves and what changelist # you're playing.");
 
 	// Disregard barbarians
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(GET_TEAM(eOtherTeam).isBarbarian() || GET_TEAM(eOtherTeam).IsShadowSpawn())
+	if(GET_TEAM(eOtherTeam).isBarbarian()
+#if WOTMOD
+		|| GET_TEAM(eOtherTeam).IsShadowSpawn()
+#endif // WOTMOD
+		)
 		return;
 
 	CvAssertMsg(eOtherTeam < MAX_CIV_TEAMS, "DIPLOMACY_AI: Invalid Team Index.  Please send Jon this with your last 5 autosaves and what changelist # you're playing.");
@@ -12105,11 +12106,10 @@ void CvDiplomacyAI::DoContactMinorCivs()
 				// If we're not protective or friendly, then don't bother with minor diplo
 				if(eApproach == MINOR_CIV_APPROACH_PROTECTIVE || eApproach == MINOR_CIV_APPROACH_FRIENDLY)
 				{
-					// ----------------------------------------------------------------
-					// WoTMod Addition
-					// ----------------------------------------------------------------
-					if (pMinorCivAI->IsNoGoldGifts())
+#if WOTMOD
+					if (!pMinorCivAI->IsNoGoldGifts())
 					{
+#endif // WOTMOD
 						MinorGoldGiftInfo sGiftInfo;
 						sGiftInfo.eMinor = eMinor;
 						sGiftInfo.eMajorRival = NO_PLAYER;
@@ -12280,7 +12280,9 @@ void CvDiplomacyAI::DoContactMinorCivs()
 							veMinorsToGiveGold.push_back(sGiftInfo, iValue);
 							bWantsToGiveGoldToThisMinor = true;
 						}
+#if WOTMOD
 					}
+#endif // WOTMOD
 				}
 			}
 

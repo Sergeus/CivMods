@@ -614,9 +614,7 @@ protected:
 	static int lGetFaithPerTurnFromTradeRoutes(lua_State* L);
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	static int lGetAjahInfluencePercent(lua_State* L);
 	static int lGetMajorityAjah(lua_State* L);
 	static int lIsAjahPermitted(lua_State* L);
@@ -629,6 +627,7 @@ protected:
 	static int lGetTurnsSincePledgedAjahSupport(lua_State* L);
 	static int lIsCanPledgeAjahSupport(lua_State* L);
 	static int lIsMinorCivNoGoldGifts(lua_State* L);
+#endif // WOTMOD
 
 	static int lIsStrike(lua_State* L);
 

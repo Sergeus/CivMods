@@ -628,9 +628,8 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 
 	Method(HasReceivedNetTurnComplete);
 	Method(IsStrike);
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+
+#if WOTMOD
 	Method(GetAjahInfluencePercent);
 	Method(GetMajorityAjah);
 	Method(IsAjahPermitted);
@@ -643,6 +642,7 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(GetPublicSupportedTower);
 	Method(GetPublicSupportedAjah);
 	Method(IsMinorCivNoGoldGifts);
+#endif // WOTMOD
 
 	Method(GetID);
 	Method(GetHandicapType);
@@ -6672,9 +6672,7 @@ int CvLuaPlayer::lGetEndTurnBlockingNotificationIndex(lua_State* L)
 	return BasicLuaMethod(L, &CvPlayerAI::GetEndTurnBlockingNotificationIndex);
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 int CvLuaPlayer::lGetAjahInfluencePercent(lua_State* L)
 {
 	CvPlayerAI* pkPlayer = GetInstance(L);
@@ -6796,6 +6794,7 @@ int CvLuaPlayer::lIsMinorCivNoGoldGifts(lua_State* L)
 	}
 	return 1;
 }
+#endif // WOTMOD
 
 #if CUSTOM_NOTIFICATIONS
 int CvLuaPlayer::lGetEndTurnBlockingNotificationID(lua_State* L)

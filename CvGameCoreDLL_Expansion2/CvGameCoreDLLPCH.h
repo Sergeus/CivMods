@@ -156,16 +156,18 @@ typedef wchar_t          wchar;
 #include "CvAdvisorCounsel.h"
 #include "CvAdvisorRecommender.h"
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 #include "WoTGovernorClasses.h"
 #include "WoTHornOfValere.h"
 #include "WoTShadowspawn.h"
 #include "WoTSerialization.h"
 #include "WoTNotifications.h"
 #include "WoTWhiteTowerClasses.h"
+#endif // WOTMOD
+
+#if CUSTOM_NOTIFICATIONS
 #include "CustomLog.h"
+#endif // CUSTOM_NOTIFICATIONS
 
 using namespace fastdelegate;
 

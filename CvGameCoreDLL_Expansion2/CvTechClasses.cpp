@@ -39,10 +39,9 @@ CvTechEntry::CvTechEntry(void):
 	m_bStopsForeignReligions(false),
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pabMeetAllMinorCivsOfTrait(NULL),
+#endif // WOTMOD
 
 	m_iGridX(0),
 	m_iGridY(0),
@@ -90,10 +89,9 @@ CvTechEntry::~CvTechEntry(void)
 	SAFE_DELETE_ARRAY(m_piPrereqAndTechs);
 	SAFE_DELETE_ARRAY(m_pabFreePromotion);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	SAFE_DELETE_ARRAY(m_pabMeetAllMinorCivsOfTrait);
+#endif // WOTMOD
 }
 
 bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
@@ -173,10 +171,9 @@ bool CvTechEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	kUtility.PopulateArrayByExistence(m_pabFreePromotion, "UnitPromotions", "Technology_FreePromotions", "PromotionType", "TechType", szTechType);
 	kUtility.SetFlavors(m_piFlavorValue, "Technology_Flavors", "TechType", szTechType);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kUtility.PopulateArrayByExistence(m_pabMeetAllMinorCivsOfTrait, "MinorCivTraits", "Technology_MeetAllCityStatesWithTrait", "MinorCivTraitType", "TechType", szTechType);
+#endif // WOTMOD
 
 	const size_t TechnologiesCount = kUtility.MaxRows("Technologies");
 
@@ -245,13 +242,12 @@ bool CvTechEntry::IsStopsForeignReligions() const
 }
 #endif // SIEGEMOD
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 bool CvTechEntry::IsMeetsAllMinorCivsWithTrait(MinorCivTraitTypes eTrait) const
 {
 	return m_pabMeetAllMinorCivsOfTrait[eTrait];
 }
+#endif // WOTMOD
 
 /// Additional weight to having AI purchase this
 int CvTechEntry::GetAIWeight() const
@@ -720,10 +716,11 @@ void CvPlayerTechs::Reset()
 	}
 
 	// Tweak tech priorities to recognize unique properties of this civ
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	if(!m_pPlayer->isMinorCiv() && !m_pPlayer->isBarbarian() && !m_pPlayer->IsShadowspawn() && m_pPlayer->getCivilizationType() != NO_CIVILIZATION)
+	if(!m_pPlayer->isMinorCiv() && !m_pPlayer->isBarbarian() 
+#if WOTMOD
+		&& !m_pPlayer->IsShadowspawn() 
+#endif // WOTMOD
+		&& m_pPlayer->getCivilizationType() != NO_CIVILIZATION)
 	{
 		CvCivilizationInfo* pkInfo = GC.getCivilizationInfo(m_pPlayer->getCivilizationType());
 		if(pkInfo)
@@ -1336,10 +1333,10 @@ void CvPlayerTechs::CheckForTechAchievement() const
 							for(iJ = 0; iJ < MAX_MAJOR_CIVS; iJ++)
 							{
 								if(!GET_PLAYER((PlayerTypes)iJ).isBarbarian() && !GET_PLAYER((PlayerTypes)iJ).isMinorCiv()
-									// ----------------------------------------------------------------
-									// WoTMod Addition
-									// ----------------------------------------------------------------
-									&& !GET_PLAYER((PlayerTypes)iJ).IsShadowspawn())
+#if WOTMOD
+									&& !GET_PLAYER((PlayerTypes)iJ).IsShadowspawn()
+#endif // WOTMOD
+									)
 								{
 									if(GET_TEAM(GET_PLAYER((PlayerTypes)iJ).getTeam()).GetTeamTechs()->HasTech(eTech))
 									{

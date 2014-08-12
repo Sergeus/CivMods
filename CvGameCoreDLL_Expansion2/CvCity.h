@@ -36,10 +36,9 @@ class CvCityReligions;
 class CvCityEspionage;
 class CvCityCulture;
 class CvPlayer;
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 class WoTCityGovernors;
+#endif // WOTMOD
 
 class CvCity
 {
@@ -761,12 +760,11 @@ public:
 	CvCityEspionage* GetCityEspionage() const;
 	CvCityCulture* GetCityCulture() const;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	WoTCityGovernors* GetCityGovernors() const;
 	int GetBaseYieldRateFromGovernors(YieldTypes eYieldType) const;
 	bool IsBuildingGovernorValid(BuildingTypes eBuilding, bool bTestVisible, CvString* toolTipSink) const;
+#endif // WOTMOD
 
 	void read(FDataStream& kStream);
 	void write(FDataStream& kStream) const;
@@ -985,10 +983,9 @@ protected:
 	CvCityEspionage* m_pCityEspionage;
 	CvCityCulture* m_pCityCulture;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	WoTCityGovernors* m_pCityGovernors;
+#endif // WOTMOD
 
 	mutable int m_bombardCheckTurn;
 

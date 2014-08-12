@@ -26,10 +26,10 @@
 #include "CvInfos.h"
 #include "CvPlotManager.h"
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 #include "WoTHornOfValere.h"
+#endif // WOTMOD
+
 #include "FAutoVariable.h"
 
 // a simplified version of CvArea for use primarily with the continent generation system
@@ -75,12 +75,10 @@ protected:
 
 FDataStream& operator<<(FDataStream&, const CvLandmass&);
 FDataStream& operator>>(FDataStream&, CvLandmass&);
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 FDataStream& operator<<(FDataStream&, const HornOfValere&);
 FDataStream& operator>>(FDataStream&, HornOfValere&);
-
+#endif // WOTMOD
 
 class CvAStar;
 
@@ -142,9 +140,7 @@ public:
 
 	void verifyUnitValidPlot();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool IsHasHornOfValere() const;
 	void SetHasHornOfValere(bool bNewValue);
 	void PlaceHornOfValere(int iX, int iY);
@@ -154,6 +150,7 @@ public:
 	void DoTransferHornOfValere(CvUnit* pNewOwner);
 	void DoDropHornOfValere(CvUnit* pUnit);
 	int GetHornOfValereDiscoveryDistance() const;
+#endif // WOTMOD
 
 	CvPlot* syncRandPlot(int iFlags = 0, int iArea = -1, int iMinUnitDistance = -1, int iTimeout = 100);
 
@@ -356,10 +353,9 @@ protected:
 	short* m_pRevealedRouteType;
 	bool*  m_pNoSettling;
 	bool* m_pResourceForceReveal;
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	short* m_pCannotChannelHere;
+#endif // WOTMOD
 
 	FFreeListTrashArray<CvArea> m_areas;
 	FFreeListTrashArray<CvLandmass> m_landmasses;
@@ -368,11 +364,10 @@ protected:
 
 	CvPlotManager	m_kPlotManager;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	bool m_bHasHornOfValere;
 	HornOfValere* m_pHornOfValere;
+#endif // WOTMOD
 };
 
 #endif

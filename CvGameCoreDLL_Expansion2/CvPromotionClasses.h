@@ -128,12 +128,11 @@ public:
 	int GetAdjacentEnemyDamage() const;
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	int GetTurnDamage() const;
 	int GetRangedAttackSelfDamageChance() const;
 	bool IsBlocksHealing() const;
+#endif // WOTMOD
 
 	bool IsCannotBeChosen() const;
 	bool IsLostWithUpgrade() const;
@@ -293,12 +292,11 @@ protected:
 	int m_iAdjacentEnemyDamage;
 #endif // SIEGEMOD
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	int m_iTurnDamage;
 	int m_iRangedAttackSelfDamageChance;
 	bool m_bBlocksHealing;
+#endif // WOTMOD
 
 	bool m_bCannotBeChosen;
 	bool m_bLostWithUpgrade;

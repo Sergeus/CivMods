@@ -9,6 +9,7 @@
 #include "CvInfos.h"
 #include "Database.h"
 
+#if WOTMOD
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  class : WoTGovernorClassInfo
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -114,3 +115,4 @@ private:
 	WoTGovernorXMLEntries* m_pGovernors;
 	CvCity* m_pCity;
 };
+#endif // WOTMOD

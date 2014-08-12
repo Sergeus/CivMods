@@ -5,6 +5,7 @@
 
 #pragma once
 
+#if WOTMOD
 class WoTShadowspawn
 {
 public:
@@ -50,3 +51,4 @@ private:
 
 	//static UnitTypes GetRandomShadowspawnUnitType(CvArea
 };
+#endif // WOTMOD

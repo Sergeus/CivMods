@@ -7629,10 +7629,11 @@ bool CvPlot::setRevealed(TeamTypes eTeam, bool bNewValue, bool bTerrainOnly, Tea
 		}
 
 		// Natural Wonder
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
-		if(eTeam != BARBARIAN_TEAM && eTeam != SHADOW_TEAM)
+		if(eTeam != BARBARIAN_TEAM 
+#if WOTMOD
+			&& eTeam != SHADOW_TEAM
+#endif // WOTMOD
+			)
 		{
 			if(getFeatureType() != NO_FEATURE)
 			{

@@ -1597,20 +1597,18 @@ FDataStream& operator<<(FDataStream& saveTo, const CvMinorCivQuest& readFrom)
 //======================================================================================================
 //					CvMinorCivAI
 //======================================================================================================
-CvMinorCivAI::CvMinorCivAI() :
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
-	m_pAjahs(FNEW(WoTMinorCivAjahs, c_eCiv5GameplayDLL, 0))
+CvMinorCivAI::CvMinorCivAI()
+#if WOTMOD
+	: m_pAjahs(FNEW(WoTMinorCivAjahs, c_eCiv5GameplayDLL, 0))
+#endif // WOTMOD
 {
 }
 //------------------------------------------------------------------------------
 CvMinorCivAI::~CvMinorCivAI(void)
 {
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	SAFE_DELETE(m_pAjahs);
+#endif // WOTMOD
 }
 
 /// Initialize
@@ -1621,10 +1619,9 @@ void CvMinorCivAI::Init(CvPlayer* pPlayer)
 
 	Reset();
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pAjahs->Init(this);
+#endif // WOTMOD
 }
 
 /// Deallocate memory created in initialize
@@ -1776,10 +1773,9 @@ void CvMinorCivAI::Read(FDataStream& kStream)
 
 	kStream >> m_abWaryOfTeam;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pAjahs->Read(kStream);
+#endif // WOTMOD
 
 	// List of quests given
 	ResetQuestList();
@@ -1853,10 +1849,9 @@ void CvMinorCivAI::Write(FDataStream& kStream) const
 	kStream << m_abPermanentWar;
 	kStream << m_abWaryOfTeam; // Version 12
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	m_pAjahs->Write(kStream);
+#endif // WOTMOD
 
 	// List of quests given
 	CvAssertMsg(m_QuestsGiven.size() == MAX_MAJOR_CIVS, "Number of entries in minor's quest list does not match MAX_MAJOR_CIVS when writing to memory!");
@@ -2020,11 +2015,10 @@ void CvMinorCivAI::DoTurn()
 
 		DoTurnQuests();
 
-		// ----------------------------------------------------------------
-		// WoTMod Addition
-		// ----------------------------------------------------------------
+#if WOTMOD
 		DoTurnPlots();
 		GetAjahs()->DoTurn();
+#endif // WOTMOD
 
 		DoUnitSpawnTurn();
 
@@ -2845,9 +2839,7 @@ bool CvMinorCivAI::IsProxyWarActiveForMajor(PlayerTypes eMajor)
 	return false;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 void CvMinorCivAI::DoTurnPlots()
 {
 	CvMinorCivInfo* pInfo = GC.getMinorCivInfo(GetMinorCivType()); 
@@ -2863,6 +2855,7 @@ void CvMinorCivAI::DoTurnPlots()
 		}
 	}
 }
+#endif // WOTMOD
 
 // ******************************
 // ***** Quests *****
@@ -7665,11 +7658,10 @@ bool CvMinorCivAI::CanMajorBuyout(PlayerTypes eMajor)
 	if(!GET_PLAYER(eMajor).IsAbleToAnnexCityStates())
 		return false;
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	if (IsNoBuyouts())
 		return false;
+#endif // WOTMOD
 
 	// Not at war?
 	if(GET_TEAM(GetPlayer()->getTeam()).isAtWar(GET_PLAYER(eMajor).getTeam()))
@@ -9837,9 +9829,7 @@ void CvMinorCivAI::SetDisableNotifications(bool bDisableNotifications)
 	}
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 bool CvMinorCivAI::IsOnePowerBlocking(OnePowerTypes eOnePower) const
 {
 	CvMinorCivInfo* pInfo = GC.getMinorCivInfo(GetMinorCivType());
@@ -9869,6 +9859,7 @@ bool CvMinorCivAI::IsNoGoldGifts() const
 {
 	return GC.GetMinorCivTraitInfo(static_cast<MinorCivTraitTypes>(GC.getMinorCivInfo(GetMinorCivType())->GetMinorCivTrait()))->IsNoGoldGifts();
 }
+#endif // WOTMOD
 
 //======================================================================================================
 //					CvMinorCivInfo
@@ -9878,26 +9869,24 @@ CvMinorCivInfo::CvMinorCivInfo() :
 	m_iArtStyleType(NO_ARTSTYLE),
 	m_iMinorCivTrait(NO_MINOR_CIV_TRAIT_TYPE),
 	m_piFlavorValue(NULL)
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	, m_pbOnePowerBlocking(NULL)
 	, m_pbPlots(NULL)
 	, m_pbAjahsPermitted(NULL)
 	, m_piAjahStartingInfluences(NULL)
+#endif // WOTMOD
 {
 }
 //------------------------------------------------------------------------------
 CvMinorCivInfo::~CvMinorCivInfo()
 {
 	SAFE_DELETE_ARRAY(m_piFlavorValue);
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	SAFE_DELETE_ARRAY(m_pbOnePowerBlocking);
 	SAFE_DELETE_ARRAY(m_pbPlots);
 	SAFE_DELETE_ARRAY(m_pbAjahsPermitted);
 	SAFE_DELETE_ARRAY(m_piAjahStartingInfluences);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 int CvMinorCivInfo::getDefaultPlayerColor() const
@@ -10010,9 +9999,7 @@ void CvMinorCivInfo::setArtStyleSuffix(const char* szVal)
 {
 	m_strArtStyleSuffix = szVal;
 }
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 bool CvMinorCivInfo::IsOnePowerBlocking(OnePowerTypes eOnePower) const
 {
 	CvAssertMsg(eOnePower < GC.GetNumOnePowerInfos(), "Index out of bounds");
@@ -10049,6 +10036,7 @@ void CvMinorCivInfo::SetAjahPermitted(AjahTypes eAjah, bool bNewValue)
 	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
 	m_pbAjahsPermitted[eAjah] = bNewValue;
 }
+#endif // WOTMOD
 //------------------------------------------------------------------------------
 bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
 {
@@ -10083,13 +10071,12 @@ bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 	szTextVal = kResults.GetText("MinorCivTrait");
 	m_iMinorCivTrait = GC.getInfoTypeForString(szTextVal, true);
 
-	// ----------------------------------------------------------------
-	// WoTMod Addition
-	// ----------------------------------------------------------------
+#if WOTMOD
 	kUtility.PopulateArrayByExistence(m_pbOnePowerBlocking, "OnePowers", "MinorCivilization_OnePowerBlocking", "OnePowerType", "MinorCivType", GetType());
 	kUtility.PopulateArrayByExistence(m_pbPlots, "MinorCivilizationPlots", "MinorCivilization_AvailablePlots", "MinorCivPlotType", "MinorCivType", GetType());
 	kUtility.PopulateArrayByExistence(m_pbAjahsPermitted, "Ajahs", "MinorCivilization_PermittedAjahs", "AjahType", "MinorCivType", GetType());
 	kUtility.PopulateArrayByValue(m_piAjahStartingInfluences, "Ajahs", "MinorCivilizations_AjahStartingInfluence", "AjahType", "MinorCivType", GetType(), "Influence");
+#endif // WOTMOD
 
 	//Arrays
 	const char* szType = GetType();
@@ -10119,9 +10106,7 @@ bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 	return true;
 }
 
-// ----------------------------------------------------------------
-// WoTMod Addition
-// ----------------------------------------------------------------
+#if WOTMOD
 CvMinorCivTraitInfo::CvMinorCivTraitInfo()
 	: m_bHostsAjahs(false)
 	, m_bNoCoups(false)
@@ -10184,6 +10169,7 @@ bool WoTMinorCivPlotInfo::CacheResults(Database::Results& kResults, CvDatabaseUt
 
 	return true;
 }
+#endif // WOTMOD
 
 FDataStream& operator<<(FDataStream& saveTo, const MinorCivStatusTypes& readFrom)
 {
