@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/19/2013 10:59:33 PM -->
+<GameData>
+	<Language_en_US>
+		<Row>
+			<Tag>TXT_KEY_TECH_CLOCKWORKS_DESC</Tag>
+			<Text>Clockworks</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CLOCKWORKS_CIV</Tag>
+			<Text>[TOWRITE] clockworks pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CLOCKWORKS_HELP</Tag>
+			<Text>Allows you to construct the [COLOR_POSITIVE_TEXT]Clockwork Magnolia[ENDCOLOR], a powerful wonder that provides [ICON_GOLD] gold bonuses to trade routes and ends all wars you are involved in. Also allows you to establish an additional 2 trade routes.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CLOCKWORKS_QUOTE</Tag>
+			<Text>Would that all things could be reliable as clockwork.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_DESC</Tag>
+			<Text>Mercantilism</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_CIV</Tag>
+			<Text>[TOWRITE] merchant freedom pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_HELP</Tag>
+			<Text>Allows you to construct [COLOR_POSITIVE_TEXT]Mercenary Holdfasts[ENDCOLOR], which reduce the purchase cost of units. Also allows you to establish an additional 2 trade routes.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_MERCHANT_FREEDOM_QUOTE</Tag>
+			<Text>It is a delicate balance between law and trade. A balance struck by gold.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CONSECRATED_MARKETS_DESC</Tag>
+			<Text>Consecration</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CONSECRATED_MARKETS_CIV</Tag>
+			<Text>[TOWRITE] consecrated markets pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CONSECRATED_MARKETS_HELP</Tag>
+			<Text>Reduces the pressure exerted by foreign religions and allows you to establish an additional trade route.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_CONSECRATED_MARKETS_QUOTE</Tag>
+			<Text>On this holiest ground we pay homage to all held sacrosanct.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_NAVAL_FORMATIONS_DESC</Tag>
+			<Text>Naval Formations</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_NAVAL_FORMATIONS_CIV</Tag>
+			<Text>[TOWRITE] naval formations pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_NAVAL_FORMATIONS_HELP</Tag>
+			<Text>Unlocks powerful naval units and buildings essential to training and maintaining a large navy.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_NAVAL_FORMATIONS_QUOTE</Tag>
+			<Text>Before this, we called a single ship a formation.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_DESC</Tag>
+			<Text>Grand Inquisition</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_CIV</Tag>
+			<Text>[TOWRITE] grand inquisition pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_HELP</Tag>
+			<Text>Allows the construction of [COLOR_POSITIVE_TEXT]Inquisition Chapterhouses[ENDCOLOR], which provide [ICON_PEACE] faith and increase the pressure exerted by majority religions. Also allows the purchasing of [COLOR_POSITIVE_TEXT]Inquisitors[ENDCOLOR] with faith.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_GRAND_INQUISITION_QUOTE</Tag>
+			<Text>Confessions are best signed in blood.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_DESC</Tag>
+			<Text>Theorical Studies</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_CIV</Tag>
+			<Text>[TOWRITE] theorical inspiration pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_HELP</Tag>
+			<Text>Allows you to construct [COLOR_POSITIVE_TEXT]Theors' Academies[ENDCOLOR], boosting a city's [ICON_RESEARCH] science output, and giving bonus [ICON_PEACE] faith and [ICON_RESEARCH] science in cities where trade routes originate. Also boosts the range of naval trade routes.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_THEORICAL_INSPIRATION_QUOTE</Tag>
+			<Text>That which is beyond our capacity to study is yet an opportunity to learn.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_BLACK_POWDER_DESC</Tag>
+			<Text>Black Powder</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_BLACK_POWDER_CIV</Tag>
+			<Text>[TOWRITE] black powder pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_BLACK_POWDER_HELP</Tag>
+			<Text>Allows workers to construct [COLOR_POSITIVE_TEXT]Powder Keg Traps[ENDCOLOR], powerful defensive improvements that explode and damage invading military units.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_BLACK_POWDER_QUOTE</Tag>
+			<Text>And Svestans claim there is no such thing as magic.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_DESC</Tag>
+			<Text>Transcendence</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_CIV</Tag>
+			<Text>[TOWRITE] transcendence pedia</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_HELP</Tag>
+			<Text>Removes the effects of foreign religious pressure from your cities, as well as increasing the pressure your religion exerts abroad.</Text>
+		</Row>
+		<Row>
+			<Tag>TXT_KEY_TECH_TRANSCENDENCE_QUOTE</Tag>
+			<Text>I am nothing. I am everything.</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_RELIGION_SPREAD_CHANGED_BY_TECH">
+			<Text>Foreign religions exert {1_ForeignReligionModifier}% {2_MoreOrLess} pressure in your cities.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_FOREIGN_RELIGIONS_STOPPED_BY_TECH">
+			<Text>Foreign religions exert no pressure in cities you own.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PLAYER_RELIGION_SPREADS_FASTER_BECAUSE_TECH">
+			<Text>Your religion exerts {1_Modifier}% {2_MoreOrLess} pressure in foreign cities.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COMPARATIVE_DESCRIPTOR_MORE">
+			<Text>more</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COMPARATIVE_DESCRIPTOR_LESS">
+			<Text>less</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COMPARATIVE_DESCRIPTOR_FASTER">
+			<Text>faster</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COMPARATIVE_DESCRIPTOR_SLOWER">
+			<Text>slower</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

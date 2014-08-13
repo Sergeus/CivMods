@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/25/2013 8:04:08 PM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_TP_FAITH_FROM_TRADE_ROUTES">
+			<Text>+{1_AmountFaith}[ICON_PEACE] per turn from trade routes</Text>
+		</Row>
+		<Row Tag="TXT_KEY_VICTORY_MERCANTILE_">
+			<Text>Economic</Text>
+		</Row>
+		<Row Tag="TXT_KEY_VICTORY_MERCANTILE_BANG">
+			<Text>Economic Victory!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_VICTORY_FLAVOR_MERCANTILE">
+			<Text>Argast takes his gold and turns his sights elsewhere. You have leveraged your vast wealth to redirect his wrath upon your enemies, ensuring your safety, at least for now.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PASSIVE_DAMAGE_BY_OTHER_UNIT">
+			<Text>Your {1_UnitName} ({2_Damage} damage) was raided by {3_UnitName: plural 2?; other?{3_UnitName: gender *:an?an; *:a?a; } ;}enemy {3_UnitName}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DAMAGE_BY_EXPLODING_IMPROVEMENT_NEARBY">
+			<Text>Your {1_UnitName} ({2_Damage} damage) was injured by a nearby exploding {3_ImprovementName}.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DAMAGE_BY_EXPLODING_IMPROVEMENT">
+			<Text>Your {1_UnitName} ({2_Damage} damage) was caught in the blast from an exploding {3_ImprovementName}.</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/18/2013 6:15:48 PM -->
+<GameData>
+	<Units>
+		<Update>
+			<Where Type="UNIT_SETTLER"/>
+			<Set PrereqTech="TECH_FUTURE_TECH"/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_INQUISITOR"/>
+			<Set PrereqTech="TECH_GRAND_INQUISITION"/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_FRIGATE"/>
+			<Set PrereqTech="TECH_NAVAL_FORMATIONS" ObsoleteTech="" Combat="18" RangedCombat="20"/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_GALLEASS"/>
+			<Set PrereqTech="" RangedCombat="13" ObsoleteTech=""/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_SPEARMAN"/>
+			<Set PrereqTech="" Combat="17" ObsoleteTech=""/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_CATAPULT"/>
+			<Set PrereqTech="" Combat="13" RangedCombat="15" ObsoleteTech=""/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_CARGO_SHIP"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_CARAVAN"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="UNIT_WORK_BOAT"/>
+			<Set PrereqTech=""/>
+		</Update>
+	</Units>
+	<Unit_FreePromotions>
+		<Delete UnitType="UNIT_GALLEASS" PromotionType="PROMOTION_OCEAN_IMPASSABLE"/>
+		<Row>
+			<UnitType>UNIT_GALLEASS</UnitType>
+			<PromotionType>PROMOTION_STEAM_POWERED</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_FRIGATE</UnitType>
+			<PromotionType>PROMOTION_RIVAL_TERRITORY</PromotionType>
+		</Row>
+	</Unit_FreePromotions>
+</GameData>

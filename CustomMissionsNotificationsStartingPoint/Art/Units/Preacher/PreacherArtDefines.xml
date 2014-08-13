@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/5/2013 12:54:55 PM -->
+<GameData>
+	<ArtDefine_UnitInfos>
+		<Row>
+			<Type>ART_DEF_UNIT_PREACHER</Type>
+			<DamageStates>1</DamageStates>
+			<Formation>EarlyGreatArtist</Formation>
+		</Row>
+	</ArtDefine_UnitInfos>
+	<ArtDefine_UnitInfoMemberInfos>
+		<Row>
+			<UnitInfoType>ART_DEF_UNIT_PREACHER</UnitInfoType>
+			<UnitMemberInfoType>ART_DEF_UNIT_MEMBER_PREACHER</UnitMemberInfoType>
+			<NumMembers>1</NumMembers>
+		</Row>
+		<Row>
+			<UnitInfoType>ART_DEF_UNIT_PREACHER</UnitInfoType>
+			<UnitMemberInfoType>ART_DEF_UNIT_MEMBER_PREACHER_01</UnitMemberInfoType>
+			<NumMembers>1</NumMembers>
+		</Row>
+		<Row>
+			<UnitInfoType>ART_DEF_UNIT_PREACHER</UnitInfoType>
+			<UnitMemberInfoType>ART_DEF_UNIT_MEMBER_PREACHER_02</UnitMemberInfoType>
+			<NumMembers>1</NumMembers>
+		</Row>
+	</ArtDefine_UnitInfoMemberInfos>
+	<ArtDefine_UnitMemberInfos>
+		<Row>
+			<Type>ART_DEF_UNIT_MEMBER_PREACHER</Type>
+			<Scale>0.119999997317791</Scale>
+			<Model>Preacher.fxsxml</Model>
+			<MaterialTypeTag>CLOTH</MaterialTypeTag>
+			<MaterialTypeSoundOverrideTag>FLESH</MaterialTypeSoundOverrideTag>
+		</Row>
+		<Row>
+			<Type>ART_DEF_UNIT_MEMBER_PREACHER_01</Type>
+			<Scale>0.119999997317791</Scale>
+			<Model>Preacher_01.fxsxml</Model>
+			<MaterialTypeTag>CLOTH</MaterialTypeTag>
+			<MaterialTypeSoundOverrideTag>FLESH</MaterialTypeSoundOverrideTag>
+		</Row>
+		<Row>
+			<Type>ART_DEF_UNIT_MEMBER_PREACHER_02</Type>
+			<Scale>0.119999997317791</Scale>
+			<Model>Preacher_02.fxsxml</Model>
+			<MaterialTypeTag>CLOTH</MaterialTypeTag>
+			<MaterialTypeSoundOverrideTag>FLESH</MaterialTypeSoundOverrideTag>
+		</Row>
+	</ArtDefine_UnitMemberInfos>
+	<ArtDefine_UnitMemberCombats>
+		<Row>
+			<UnitMemberType>ART_DEF_UNIT_MEMBER_PREACHER</UnitMemberType>
+			<EnableActions>Idle Death BombardDefend Run</EnableActions>
+			<HasRefaceAfterCombat>1</HasRefaceAfterCombat>
+		</Row>
+		<Row>
+			<UnitMemberType>ART_DEF_UNIT_MEMBER_PREACHER_01</UnitMemberType>
+			<EnableActions>Idle Death BombardDefend Run</EnableActions>
+			<HasRefaceAfterCombat>1</HasRefaceAfterCombat>
+		</Row>
+		<Row>
+			<UnitMemberType>ART_DEF_UNIT_MEMBER_PREACHER_02</UnitMemberType>
+			<EnableActions>Idle Death BombardDefend Run</EnableActions>
+			<HasRefaceAfterCombat>1</HasRefaceAfterCombat>
+		</Row>
+	</ArtDefine_UnitMemberCombats>
+	<ArtDefine_StrategicView>
+		<Row>
+			<StrategicViewType>ART_DEF_UNIT_PREACHER</StrategicViewType>
+			<TileType>Unit</TileType>
+			<Asset>SV_Missionary.dds</Asset>
+		</Row>
+	</ArtDefine_StrategicView>
+</GameData>

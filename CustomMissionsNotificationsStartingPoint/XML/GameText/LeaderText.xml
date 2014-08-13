@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/10/2013 11:55:04 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Leader: Argast, of the Argastinian Empire -->
+		<Row Tag="TXT_KEY_LEADER_ARGAST">
+			<Text>Argast</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_ARGAST_PEDIA">
+			<Text>[TOWRITE] Argast pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ARGAST">
+			<Text>[TOWRITE] Argast pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ARGAST_LIVED">
+			<Text>Unknown</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ARGAST_NAME">
+			<Text>Argast the Conqueror</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ARGAST_SUBTITLE">
+			<Text>Emperor of the Argastinian Territories</Text>
+		</Row>
+		
+		<!-- Leader: Ocirrus, of the Cyats -->
+		<Row Tag="TXT_KEY_LEADER_OCIRRUS">
+			<Text>Ocirrus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_OCIRRUS_PEDIA">
+			<Text>[TOWRITE] Ocirrus pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_OCIRRUS">
+			<Text>[TOWRITE] Ocirrus pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_OCIRRUS_LIVED">
+			<Text>Unknown</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_OCIRRUS_NAME">
+			<Text>Ocirrus Allustrous</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_OCIRRUS_SUBTITLE">
+			<Text>Prophet of the Cirran Orthodoxy</Text>
+		</Row>
+		
+		<!-- Leader: Tvet Carolinus, of Svesta -->
+		<Row Tag="TXT_KEY_LEADER_TVET">
+			<Text>Tvet</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_TVET_PEDIA">
+			<Text>[TOWRITE] Tvet pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_TVET">
+			<Text>[TOWRITE] Tvet pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_TVET_LIVED">
+			<Text>Unknown</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_TVET_NAME">
+			<Text>Tvet Carolinus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_TVET_SUBTITLE">
+			<Text>High Consul of Svesta</Text>
+		</Row>
+		
+		<!-- Leader: Imsharad Yugal, of the Numydian Federation -->
+		<Row Tag="TXT_KEY_LEADER_IMSHARAD">
+			<Text>Imsharad</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_IMSHARAD_PEDIA">
+			<Text>[TOWRITE] Imsharad pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_IMSHARAD">
+			<Text>[TOWRITE] Imsharad pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_IMSHARAD_LIVED">
+			<Text>Unknown</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_IMSHARAD_NAME">
+			<Text>Imsharad Yughal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_IMSHARAD_SUBTITLE">
+			<Text>Ambassador of the Numydian Federation</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

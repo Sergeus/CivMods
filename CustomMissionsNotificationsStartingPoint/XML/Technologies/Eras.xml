@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/21/2013 9:33:47 PM -->
+<GameData>
+	<Eras>
+		<Update>
+			<Where Type="ERA_ANCIENT"/>
+			<Set CityBombardEffectTag="CITY_BOMBARD_MID"/>
+		</Update>
+	</Eras>
+</GameData>

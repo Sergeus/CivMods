@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/24/2013 6:02:21 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>NAVAL_FORMATIONS_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>NavalFormationsIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NAVAL_FORMATIONS_ATLAS</Atlas>
+			<IconSize>214</IconSize>
+			<Filename>NavalFormationsIcon214.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NAVAL_FORMATIONS_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>NavalFormationsIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NAVAL_FORMATIONS_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>NavalFormationsIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NAVAL_FORMATIONS_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>NavalFormationsIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>NAVAL_FORMATIONS_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>NavalFormationsIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

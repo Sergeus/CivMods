@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/30/2013 8:39:55 PM -->
+<GameData>
+	<Table name="SiegeModConstants">
+		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
+		<Column name="Type" type="text" notnull="true" unique="true"/>
+		<Column name="Value" type="integer"/>
+	</Table>
+	<SiegeModConstants>
+		<Row>
+			<ID>0</ID>
+			<Type>SIEGEMOD_ARGAST_DENOUNCE_PLAYER_NOT_AT_WAR</Type>
+			<Value>5</Value>
+		</Row>
+		<Row>
+			<Type>SIEGEMOD_NUMYDIA_DENOUNCE_ARGAST_NOT_AT_WAR_TURN</Type>
+			<Value>7</Value>
+		</Row>
+		<Row>
+			<Type>SIEGEMOD_NUMYDIA_EXPANSION_TURN</Type>
+			<Value>17</Value>
+		</Row>
+		<Row>
+			<Type>SIEGEMOD_NUMYDIA_EXPANSION_VARIANCE</Type>
+			<Value>2</Value>
+		</Row>
+		<Row>
+			<Type>SIEGEMOD_CYATS_EXPANSION_MINIMUM</Type>
+			<Value>22</Value>
+		</Row>
+		<Row>
+			<Type>SIEGEMOD_CYATS_EXPANSION_INTERVAL</Type>
+			<Value>9</Value>
+		</Row>
+		<Row>
+			<Type>SIEGEMOD_CYATS_EXPANSION_VARIANCE</Type>
+			<Value>4</Value>
+		</Row>
+	</SiegeModConstants>
+</GameData>

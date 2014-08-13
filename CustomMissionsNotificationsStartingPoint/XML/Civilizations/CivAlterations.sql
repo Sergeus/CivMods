@@ -1,0 +1,1 @@
+ALTER TABLE Civilizations ADD SiegeMod boolean DEFAULT false;

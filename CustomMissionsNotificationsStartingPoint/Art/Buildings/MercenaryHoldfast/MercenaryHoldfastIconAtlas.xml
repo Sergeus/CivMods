@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/24/2013 9:32:54 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>MERCENARY_HOLDFAST_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>MercenaryHoldfastIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MERCENARY_HOLDFAST_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>MercenaryHoldfastIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MERCENARY_HOLDFAST_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>MercenaryHoldfastIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MERCENARY_HOLDFAST_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>MercenaryHoldfastIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

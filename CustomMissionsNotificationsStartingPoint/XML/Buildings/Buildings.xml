@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/17/2013 6:12:50 PM -->
+<GameData>
+	<BuildingClasses>
+		<Row>
+			<Type>BUILDINGCLASS_PIER</Type>
+			<DefaultBuilding>BUILDING_PIER</DefaultBuilding>
+			<Description>TXT_KEY_BUILDING_PIER</Description>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_INQUISITION_CHAPTER</Type>
+			<DefaultBuilding>BUILDING_INQUISITION_CHAPTER</DefaultBuilding>
+			<Description>TXT_KEY_BUILDING_INQUISITION_CHAPTER</Description>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_MERCENARY_HOLDFAST</Type>
+			<DefaultBuilding>BUILDING_MERCENARY_HOLDFAST</DefaultBuilding>
+			<Description>TXT_KEY_BUILDING_MERCENARY_HOLDFAST</Description>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_THEORS_ACADEMY</Type>
+			<DefaultBuilding>BUILDING_THEORS_ACADEMY</DefaultBuilding>
+			<Description>TXT_KEY_BUILDING_THEORS_ACADEMY</Description>
+		</Row>
+		<Row>
+			<Type>BUILDINGCLASS_CLOCKWORK_MAGNOLIA</Type>
+			<DefaultBuilding>BUILDING_CLOCKWORK_MAGNOLIA</DefaultBuilding>
+			<Description>TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA</Description>
+			<MaxGlobalInstances>1</MaxGlobalInstances>
+		</Row>
+	</BuildingClasses>
+	<Buildings>
+		<!-- Base Game Updates -->
+		<Update>
+			<Where Type="BUILDING_BARRACKS"/>
+			<Set PrereqTech="" Cost="90"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_AQUEDUCT"/>
+			<Set PrereqTech="" Cost="110"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_MARKET"/>
+			<Set PrereqTech="" Cost="140"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_LIGHTHOUSE"/>
+			<Set PrereqTech="" Cost="130"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_CASTLE"/>
+			<Set PrereqTech="" Cost="160"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_COURTHOUSE"/>
+			<Set PrereqTech="" Cost="200"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_FORGE"/>
+			<Set PrereqTech="" Cost="150"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_LIBRARY"/>
+			<Set PrereqTech="" Cost="110"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_GARDEN"/>
+			<Set PrereqTech="" Cost="140"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_GRANARY"/>
+			<Set PrereqTech="" Cost="110"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_STABLE"/>
+			<Set PrereqTech="" Cost="130"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_MINT"/>
+			<Set PrereqTech="" Cost="170"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_SHRINE"/>
+			<Set PrereqTech="" Cost="90"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_TEMPLE"/>
+			<Set PrereqTech="" Cost="140"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_STONE_WORKS"/>
+			<Set PrereqTech="" Cost="120"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_WATER_MILL"/>
+			<Set PrereqTech="" Cost="140"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_WORKSHOP"/>
+			<Set PrereqTech="" Cost="210"/>
+		</Update>
+		<Update>
+			<Where Type="BUILDING_HARBOR"/>
+			<Set PrereqTech="TECH_NAVAL_FORMATIONS" Cost="270"/>
+		</Update>
+		
+		<!-- Building: Pier -->
+		<Row>
+			<Type>BUILDING_PIER</Type>
+			<BuildingClass>BUILDINGCLASS_PIER</BuildingClass>
+			<Cost>90</Cost>
+			<GoldMaintenance>2</GoldMaintenance>
+			<Help>TXT_KEY_BUILDING_PIER_HELP</Help>
+			<Description>TXT_KEY_BUILDING_PIER</Description>
+			<Civilopedia>TXT_KEY_BUILDING_PIER_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_PIER_STRATEGY</Strategy>
+			<ArtDefineTag>HARBOR</ArtDefineTag>
+			<Water>true</Water>
+			<MinAreaSize>10</MinAreaSize>
+			<ConquestProb>66</ConquestProb>
+			<HurryCostModifier>25</HurryCostModifier>
+			<ArtInfoEraVariation>true</ArtInfoEraVariation>
+			<DisplayPosition>16</DisplayPosition>
+			<AllowsWaterRoutes>true</AllowsWaterRoutes>
+			<TradeRouteSeaDistanceModifier>30</TradeRouteSeaDistanceModifier>
+			<TradeRouteSeaGoldBonus>70</TradeRouteSeaGoldBonus>
+			<IconAtlas>BW_ATLAS_1</IconAtlas>
+			<PortraitIndex>26</PortraitIndex>
+		</Row>
+		
+		<!-- Building: Inquisition Chapter -->
+		<Row>
+			<Type>BUILDING_INQUISITION_CHAPTER</Type>
+			<BuildingClass>BUILDINGCLASS_INQUISITION_CHAPTER</BuildingClass>
+			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra>
+			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
+			<Cost>310</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_GRAND_INQUISITION</PrereqTech>
+			<Help>TXT_KEY_BUILDING_INQUISITION_CHAPTER_HELP</Help>
+			<Description>TXT_KEY_BUILDING_INQUISITION_CHAPTER</Description>
+			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_INQUISITION_CHAPTER_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_INQUISITION_CHAPTER_STRATEGY</Strategy>
+			<ArtDefineTag>TEMPLE</ArtDefineTag>
+			<ConquestProb>5</ConquestProb>
+			<MinAreaSize>-1</MinAreaSize>
+			<HurryCostModifier>25</HurryCostModifier>
+			<IconAtlas>INQUISITION_CHAPTER_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+			<ReligionMajorityPressureModifier>50</ReligionMajorityPressureModifier>
+		</Row>
+		
+		<!-- Building: Mercenary Holdfast -->
+		<Row>
+			<Type>BUILDING_MERCENARY_HOLDFAST</Type>
+			<BuildingClass>BUILDINGCLASS_MERCENARY_HOLDFAST</BuildingClass>
+			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra>
+			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra>
+			<Cost>280</Cost>
+			<GoldMaintenance>1</GoldMaintenance>
+			<PrereqTech>TECH_MERCHANT_FREEDOM</PrereqTech>
+			<Help>TXT_KEY_BUILDING_MERCENARY_HOLDFAST_HELP</Help>
+			<Description>TXT_KEY_BUILDING_MERCENARY_HOLDFAST</Description>
+			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_MERCENARY_HOLDFAST_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MERCENARY_HOLDFAST_STRATEGY</Strategy>
+			<ArtDefineTag>TEMPLE</ArtDefineTag>
+			<ConquestProb>5</ConquestProb>
+			<MinAreaSize>-1</MinAreaSize>
+			<HurryCostModifier>25</HurryCostModifier>
+			<IconAtlas>MERCENARY_HOLDFAST_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+			<UnitPurchaseCostModifier>-50</UnitPurchaseCostModifier>
+		</Row>
+		
+		<!-- Building: Clockworks Wonder -->
+		<Row>
+			<Type>BUILDING_CLOCKWORK_MAGNOLIA</Type>
+			<BuildingClass>BUILDINGCLASS_CLOCKWORK_MAGNOLIA</BuildingClass>
+			<Cost>600</Cost>
+			<GoldMaintenance>3</GoldMaintenance>
+			<Help>TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA_HELP</Help>
+			<Description>TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA</Description>
+			<Civilopedia>TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA_STRATEGY</Strategy>
+			<ArtDefineTag>HARBOR</ArtDefineTag>
+			<MinAreaSize>10</MinAreaSize>
+			<PrereqTech>TECH_CLOCKWORKS</PrereqTech>
+			<ConquestProb>100</ConquestProb>
+			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<SpecialistCount>3</SpecialistCount>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>16</DisplayPosition>
+			<TradeRouteSeaDistanceModifier>50</TradeRouteSeaDistanceModifier>
+			<TradeRouteSeaGoldBonus>70</TradeRouteSeaGoldBonus>
+			<IconAtlas>CLOCKWORK_MAGNOLIA_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+			<WonderSplashImage>WonderConceptSydneyOperaHouse.dds</WonderSplashImage>
+			<WonderSplashAudio>AS2D_WONDER_SPEECH_SYDNEY_OPERA_HOUSE</WonderSplashAudio>
+			<EndsWars>true</EndsWars>
+		</Row>
+		
+		<!-- Building: Theors' Academy -->
+		<Row>
+			<Type>BUILDING_THEORS_ACADEMY</Type>
+			<BuildingClass>BUILDINGCLASS_THEORS_ACADEMY</BuildingClass>
+			<Cost>320</Cost>
+			<GoldMaintenance>2</GoldMaintenance>
+			<Help>TXT_KEY_BUILDING_THEORS_ACADEMY_HELP</Help>
+			<Description>TXT_KEY_BUILDING_THEORS_ACADEMY</Description>
+			<Civilopedia>TXT_KEY_BUILDING_THEORS_ACADEMY_PEDIA</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_THEORS_ACADEMY_STRATEGY</Strategy>
+			<ArtDefineTag>ART_DEF_BUILDING_UNIVERSITY</ArtDefineTag>
+			<MinAreaSize>10</MinAreaSize>
+			<PrereqTech>TECH_THEORICAL_INSPIRATION</PrereqTech>
+			<ConquestProb>100</ConquestProb>
+			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType>
+			<SpecialistCount>2</SpecialistCount>
+			<HurryCostModifier>25</HurryCostModifier>
+			<DisplayPosition>16</DisplayPosition>
+			<IconAtlas>THEORS_ACADEMY_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+		</Row>
+	</Buildings>
+	<Building_YieldChanges>
+		<Row>
+			<BuildingType>BUILDING_INQUISITION_CHAPTER</BuildingType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>2</Yield>
+		</Row>
+	</Building_YieldChanges>
+	<Building_TradeRouteYieldChanges>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
+			<DomainType>DOMAIN_SEA</DomainType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
+			<DomainType>DOMAIN_SEA</DomainType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+	</Building_TradeRouteYieldChanges>
+	<Building_YieldModifiers>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>50</Yield>
+		</Row>
+	</Building_YieldModifiers>
+	<Building_Flavors>
+		<Row>
+			<BuildingType>BUILDING_PIER</BuildingType>
+			<FlavorType>FLAVOR_WATER_CONNECTION</FlavorType>
+			<Flavor>7</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_PIER</BuildingType>
+			<FlavorType>FLAVOR_INFRASTRUCTURE</FlavorType>
+			<Flavor>5</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_PIER</BuildingType>
+			<FlavorType>FLAVOR_NAVAL_GROWTH</FlavorType>
+			<Flavor>3</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_INQUISITION_CHAPTER</BuildingType>
+			<FlavorType>FLAVOR_RELIGION</FlavorType>
+			<Flavor>8</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MERCENARY_HOLDFAST</BuildingType>
+			<FlavorType>FLAVOR_GOLD</FlavorType>
+			<Flavor>1</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MERCENARY_HOLDFAST</BuildingType>
+			<FlavorType>FLAVOR_MILITARY_TRAINING</FlavorType>
+			<Flavor>3</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MERCENARY_HOLDFAST</BuildingType>
+			<FlavorType>FLAVOR_CITY_DEFENSE</FlavorType>
+			<Flavor>1</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_CLOCKWORK_MAGNOLIA</BuildingType>
+			<FlavorType>FLAVOR_WONDER</FlavorType>
+			<Flavor>9</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_CLOCKWORK_MAGNOLIA</BuildingType>
+			<FlavorType>FLAVOR_DEFENSE</FlavorType>
+			<Flavor>9</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_CLOCKWORK_MAGNOLIA</BuildingType>
+			<FlavorType>FLAVOR_GOLD</FlavorType>
+			<Flavor>6</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
+			<FlavorType>FLAVOR_SCIENCE</FlavorType>
+			<Flavor>7</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
+			<FlavorType>FLAVOR_RELIGION</FlavorType>
+			<Flavor>3</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_THEORS_ACADEMY</BuildingType>
+			<FlavorType>FLAVOR_I_TRADE_ORIGIN</FlavorType>
+			<Flavor>8</Flavor>
+		</Row>
+	</Building_Flavors>
+</GameData>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/24/2013 5:36:39 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>MERCANTILISM_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>MercantilismIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MERCANTILISM_ATLAS</Atlas>
+			<IconSize>214</IconSize>
+			<Filename>MercantilismIcon214.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MERCANTILISM_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>MercantilismIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MERCANTILISM_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>MercantilismIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MERCANTILISM_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>MercantilismIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MERCANTILISM_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>MercantilismIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

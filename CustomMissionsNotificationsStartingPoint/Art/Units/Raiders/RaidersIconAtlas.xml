@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/26/2013 9:53:08 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>RAIDERS_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>RaidersIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>RAIDERS_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>RaidersIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>RAIDERS_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>RaidersIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>RAIDERS_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>RaidersIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>RAIDERS_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>RaidersIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		
+		<Row>
+			<Atlas>RAIDERS_FLAG_ATLAS</Atlas>
+			<IconSize>32</IconSize>
+			<Filename>RaidersFlag32.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

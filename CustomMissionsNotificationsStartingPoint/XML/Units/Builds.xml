@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/22/2013 8:40:08 PM -->
+<GameData>
+	<Builds>
+		<Update>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILD_RAILROAD"/>
+			<Set PrereqTech="TECH_RAILROAD"/>
+		</Update>
+
+		<Row>
+			<Type>BUILD_POWDER_KEG</Type>
+			<Time>700</Time>
+			<ImprovementType>IMPROVEMENT_POWDER_KEG_TRAP</ImprovementType>
+			<Description>TXT_KEY_BUILD_POWDER_KEG_TRAP</Description>
+			<PrereqTech>TECH_BLACK_POWDER</PrereqTech>
+			<EntityEvent>ENTITY_EVENT_SHOVEL</EntityEvent>
+			<HotKey>KB_I</HotKey>
+			<OrderPriority>97</OrderPriority>
+			<IconIndex>0</IconIndex>
+			<IconAtlas>POWDER_KEG_ACTION_ATLAS</IconAtlas>
+		</Row>
+	</Builds>
+	<BuildFeatures>
+		<Row>
+			<BuildType>BUILD_POWDER_KEG</BuildType>
+			<FeatureType>FEATURE_JUNGLE</FeatureType>
+			<Time>700</Time>
+			<Remove>true</Remove>
+		</Row>
+		<Row>
+			<BuildType>BUILD_POWDER_KEG</BuildType>
+			<FeatureType>FEATURE_FOREST</FeatureType>
+			<Time>400</Time>
+			<Remove>true</Remove>
+		</Row>
+		<Row>
+			<BuildType>BUILD_POWDER_KEG</BuildType>
+			<FeatureType>FEATURE_MARSH</FeatureType>
+			<Time>600</Time>
+			<Remove>false</Remove>
+		</Row>
+	</BuildFeatures>
+	<Unit_Builds>
+		<Row>
+			<UnitType>UNIT_WORKER</UnitType>
+			<BuildType>BUILD_POWDER_KEG</BuildType>
+		</Row>
+	</Unit_Builds>
+</GameData>

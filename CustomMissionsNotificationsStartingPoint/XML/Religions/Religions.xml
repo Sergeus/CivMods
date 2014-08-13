@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/25/2013 9:27:14 PM -->
+<GameData>
+	<Religions>
+		<Row>
+			<Type>RELIGION_CIRRAN_ORTHODOXY</Type>
+			<Description>TXT_KEY_RELIGION_CIRRAN_ORTHODOXY</Description>
+			<Civilopedia>TXT_KEY_RELIGION_CIRRAN_ORTHODOXY_PEDIA</Civilopedia>
+			<IconAtlas>CIRRAN_ORTHODOXY_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+			<IconString>[ICON_RELIGION_CIRRAN_ORTHODOXY]</IconString>
+		</Row>
+		<Row>
+			<Type>RELIGION_KLONOA</Type>
+			<Description>TXT_KEY_RELIGION_KLONOA</Description>
+			<Civilopedia>TXT_KEY_RELIGION_KLONOA_PEDIA</Civilopedia>
+			<IconAtlas>KLONOA_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+			<IconString>[ICON_RELIGION_KLONOA]</IconString>
+		</Row>
+		<Row>
+			<Type>RELIGION_ADVARN</Type>
+			<Description>TXT_KEY_RELIGION_ADVARN</Description>
+			<Civilopedia>TXT_KEY_RELIGION_ADVARN_PEDIA</Civilopedia>
+			<IconAtlas>ADVARN_ATLAS</IconAtlas>
+			<PortraitIndex>0</PortraitIndex>
+			<IconString>[ICON_RELIGION_ADVARN]</IconString>
+		</Row>
+	</Religions>
+</GameData>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/17/2013 6:16:23 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Building: Pier -->
+		<Row Tag="TXT_KEY_BUILDING_PIER">
+			<Text>Pier</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PIER_HELP">
+			<Text>[TOWRITE] pier help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PIER_STRATEGY">
+			<Text>[TOWRITE] pier strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_PIER_PEDIA">
+			<Text>[TOWRITE] pier pedia</Text>
+		</Row>
+		
+		<!-- Building: Fortified Quay -->
+		<Row Tag="TXT_KEY_BUILDING_FORTIFIED_QUAY">
+			<Text>Fortified Quay</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_FORTIFIED_QUAY_HELP">
+			<Text>+2[ICON_FOOD] per international sea trade route originating at this city.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_FORTIFIED_QUAY_STRATEGY">
+			<Text>Ideal for keeping food supplies for growth in a well connected coastal city under siege by land.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_FORTIFIED_QUAY_PEDIA">
+			<Text>[TOWRITE] fortified quay pedia</Text>
+		</Row>
+		
+		<!-- Building: Slave Market -->
+		<Row Tag="TXT_KEY_BUILDING_SLAVE_MARKET">
+			<Text>Slave Market</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SLAVE_MARKET_HELP">
+			<Text>Units trained in this city take half normal time, but suffer from a 15%[ICON_STRENGTH] penalty.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_SLAVE_MARKET_STRATEGY">
+			<Text>This building is deadly in combination with the Argastinian unique ability. Bonus units created by the ability do not suffer the combat penalty, but are still produced more often. The weakened units can be used as fodder to weaken the enemy before an even stronger force sweeps through to finish them off.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BUILDINGS_SLAVE_MARKET_TEXT">
+			<Text>[TOWRITE] slave market pedia</Text>
+		</Row>
+		
+		<!-- Building: Inquisition Chapter -->
+		<Row Tag="TXT_KEY_BUILDING_INQUISITION_CHAPTER">
+			<Text>Inquisition Chapterhouse</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_INQUISITION_CHAPTER_HELP">
+			<Text>This city's majority religion exerts +50% pressure in this city.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_INQUISITION_CHAPTER_STRATEGY">
+			<Text>[TOWRITE] inquisition chapter strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BUILDINGS_INQUISITION_CHAPTER_TEXT">
+			<Text>[TOWRITE] inquisition chapter pedia</Text>
+		</Row>
+		
+		<!-- Building: Mercenary Holdfast -->
+		<Row Tag="TXT_KEY_BUILDING_MERCENARY_HOLDFAST">
+			<Text>Mercenary Holdfast</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MERCENARY_HOLDFAST_HELP">
+			<Text>Units cost 50% less [ICON_GOLD] to purchase.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MERCENARY_HOLDFAST_STRATEGY">
+			<Text>[TOWRITE] mercenary holdfast strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BUILDINGS_MERCENARY_HOLDFAST_TEXT">
+			<Text>[TOWRITE] mercenary holdfast pedia</Text>
+		</Row>
+		
+		<!-- Building: Theors Academy -->
+		<Row Tag="TXT_KEY_BUILDING_THEORS_ACADEMY">
+			<Text>Theors' Academy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_THEORS_ACADEMY_HELP">
+			<Text>+50%[ICON_RESEARCH] in this city[NEWLINE]+2[ICON_RESEARCH] per international trade route[NEWLINE]+1[ICON_PEACE] per international trade route</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_THEORS_ACADEMY_STRATEGY">
+			<Text>[TOWRITE] theors' academy strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_THEORS_ACADEMY_PEDIA">
+			<Text>[TOWRITE] theors' academy pedia</Text>
+		</Row>
+		
+		<!-- Wonder: Clockwork Magnolia -->
+		<Row Tag="TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA">
+			<Text>Clockwork Magnolia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA_HELP">
+			<Text>All wars you are a part of are ended.[NEWLINE]+50% maximum distance for sea trade routes.[NEWLINE]+70% [ICON_GOLD] from sea trade routes.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA_STRATEGY">
+			<Text>[TOWRITE] clockwork magnolia strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_CLOCKWORK_MAGNOLIA_PEDIA">
+			<Text>[TOWRITE] clockwork magnolia pedia</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

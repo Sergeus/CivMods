@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/24/2013 3:56:48 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>FORTIFIED_QUAY_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>FortifiedQuayIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>FORTIFIED_QUAY_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>FortifiedQuayIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>FORTIFIED_QUAY_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>FortifiedQuayIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>FORTIFIED_QUAY_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>FortifiedQuayIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

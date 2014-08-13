@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/10/2013 10:59:57 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Civilization: Svesta -->
+		<Row Tag="TXT_KEY_CIV_SVESTA_SHORT_DESC">
+			<Text>Svesta</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_SVESTA_DESC">
+			<Text>Svestan Republic</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_SVESTA_ADJECTIVE">
+			<Text>Svestan</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_SVESTA_PEDIA_TAG">
+			<Text>[TOWRITE] Svestan pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_SVESTA_TEXT">
+			<Text>
+				Svesta has been a trading hub, defined by commerce for most of its history. It is ideally situated on the Svestan peninsula to trade with both island and continental cities. It boasts a well developed navy to defend its countless cargo ships as they sail the Klonoan sea. But that changed with the coming of Argast the Conquerer. Now Argastinium stretches across the continent, and Svesta stands alone on the mainland against him. All that keeps the dogs of war at bay are Svesta's lucrative trade routes; Argast is reluctant to destroy them, and the goods his newly conquered people favor, in a costly siege.
+				[NEWLINE][NEWLINE]Meanwhile the Numydian Federation, formerly a group of independent island city states, have banded together in the hopes of staving off Argast's conquest. But now their attempts to coerce Svesta into their league have collapsed into a war that has ravaged both civilizations' navies, with no end in sight.
+				[NEWLINE][NEWLINE]But Argastinium is not unassailable. The Cyats, an eclectic civilization of religious fanatics, have arrived from the east. Their foreign religion brings strange and powerful boons to those who follow it, capable of uprooting cities in rebellion and turning them to the Cyat cause. Already Argast has declared war on the Cyats in an attempt to stamp out their religious fervor, but has been as yet unsuccessful.
+				[NEWLINE][NEWLINE]Can you balance the necessities for trade, army, navy, and religion? Can you stand against Argast the Conqueror and live to tell the tale?
+			</Text>
+		</Row>
+		
+		<!-- Civilization: Argastinian Empire -->
+		<Row Tag="TXT_KEY_CIV_ARGAST_EMPIRE_SHORT_DESC">
+			<Text>Argastinium</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_ARGAST_EMPIRE_DESC">
+			<Text>Argastinian Empire</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_ARGAST_EMPIRE_ADJECTIVE">
+			<Text>Argastinian</Text>
+			<Gender>neuter:an</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ARGAST_EMPIRE_PEDIA_TAG">
+			<Text>[TOWRITE] Argast Empire pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_ARGAST_EMPIRE_TEXT">
+			<Text>[TOWRITE] Argast Empire DoM</Text>
+		</Row>
+		
+		<!-- Civilization: Numydian Federation -->
+		<Row Tag="TXT_KEY_CIV_NEMYDIAN_FEDERATION_SHORT_DESC">
+			<Text>Numydia</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_NEMYDIAN_FEDERATION_DESC">
+			<Text>Numydian Federation</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_NEMYDIAN_FEDERATION_ADJECTIVE">
+			<Text>Numydian</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_NEMYDIAN_FEDERATION_PEDIA_TAG">
+			<Text>[TOWRITE] Numydian Federation pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_DAWN_NEMYDIAN_FEDERATION_TEXT">
+			<Text>[TOWRITE] Numydian Federation DoM</Text>
+		</Row>
+		
+		<!-- Civilization: The Cyats -->
+		<Row Tag="TXT_KEY_CIV_CYATS_SHORT_DESC">
+			<Text>The Cyats</Text>
+			<Plurality>2</Plurality>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_CYATS_DESC">
+			<Text>Cyat Theocracy</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV_CYATS_ADJECTIVE">
+			<Text>Cyat</Text>
+			<Gender>neuter:a</Gender>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_CYATS_PEDIA_TAG">
+			<Text>[TOWRITE] Cyats pedia tag</Text>
+		</Row>
+		
+		<!-- Svestan City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_SVESTA">
+			<Text>Svesta</Text>
+		</Row>
+		
+		<!-- Argastinian City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_ARGASTIN">
+			<Text>Argastin</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SUPORSTUS">
+			<Text>Suporstus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_KRADE">
+			<Text>Krade</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SAMTEK">
+			<Text>Samtek</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_HIA">
+			<Text>Hia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGASIUM">
+			<Text>Argasium</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGASTUS">
+			<Text>Argastus</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGAN">
+			<Text>Argan</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_JUSLIK">
+			<Text>Juslik</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PRESHETS">
+			<Text>Preshets</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SUMAN">
+			<Text>Suman</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_HYRONIUM">
+			<Text>Hyronium</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SARLAN">
+			<Text>Sarlan</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_PASHNIS">
+			<Text>Pashnis</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_KAVRAT">
+			<Text>Kavrat</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SUPAL">
+			<Text>Supal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGASIA">
+			<Text>Argasia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGAN_SUM">
+			<Text>Argam Sum</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGAN_CHIN">
+			<Text>Argan Chin</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ARGAN_HOST">
+			<Text>Argan Host</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_INGSET">
+			<Text>Ingset</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_LOCHTIN">
+			<Text>Lochtin</Text>
+		</Row>
+		
+		<!-- Numydian City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_NUMYD">
+			<Text>Numyd</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ENASH">
+			<Text>Enash</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SUKREET">
+			<Text>Sukreet</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_KHARVAL">
+			<Text>Kharval</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_SESHET">
+			<Text>Seshet</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_INTEP">
+			<Text>Intep</Text>
+		</Row>
+		
+		<!-- Cyat City Names -->
+		<Row Tag="TXT_KEY_CITY_NAME_CYRA">
+			<Text>Cyra</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_OSACHE">
+			<Text>Osache</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_BYREEN">
+			<Text>Byreen</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_OSHAN">
+			<Text>Oshan</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_INESH">
+			<Text>Inesh</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_KOSHUN">
+			<Text>Koshun</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_TREERYN">
+			<Text>Treeryn</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITY_NAME_ALSACHE">
+			<Text>Alsache</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/11/2013 12:06:30 AM -->
+<GameData>
+	<Traits>
+		<Row>
+			<Type>TRAIT_ALL_ENCOMPASSING</Type>
+			<Description>TXT_KEY_TRAIT_ALL_ENCOMPASSING</Description>
+			<ShortDescription>TXT_KEY_TRAIT_ALL_ENCOMPASSING_SHORT</ShortDescription>
+			<ExtraUnitsWhenTrained>1</ExtraUnitsWhenTrained>
+			<CannotFoundPantheon>true</CannotFoundPantheon>
+		</Row>
+	</Traits>
+	<Trait_FreePromotionUnitCombats>
+		<Row>
+			<TraitType>TRAIT_ALL_ENCOMPASSING</TraitType>
+			<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+			<PromotionType>PROMOTION_INDIRECT_FIRE</PromotionType>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ALL_ENCOMPASSING</TraitType>
+			<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType>
+			<PromotionType>PROMOTION_RANGE_TWO</PromotionType>
+		</Row>
+	</Trait_FreePromotionUnitCombats>
+</GameData>

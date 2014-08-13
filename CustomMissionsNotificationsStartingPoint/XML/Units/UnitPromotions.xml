@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/11/2013 12:10:32 AM -->
+<GameData>
+	<UnitPromotions>
+		<Row>
+			<Type>PROMOTION_RANGE_TWO</Type>
+			<Description>TXT_KEY_PROMOTION_RANGE_TWO</Description>
+			<Help>TXT_KEY_PROMOTION_RANGE_TWO_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<OrderPriority>7</OrderPriority>
+			<RangeChange>2</RangeChange>
+			<PortraitIndex>34</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_RANGED</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_RANGE_TWO</PediaEntry>
+		</Row>
+		<Row>
+			<Type>PROMOTION_ADJACENT_ENEMY_DAMAGE_10</Type>
+			<Description>TXT_KEY_PROMOTION_ADJACENT_ENEMY_DAMAGE_10</Description>
+			<Help>TXT_KEY_PROMOTION_ADJACENT_ENEMY_DAMAGE_10_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<OrderPriority>7</OrderPriority>
+			<RangeChange>2</RangeChange>
+			<PortraitIndex>34</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_RANGED</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_ADJACENT_ENEMY_DAMAGE_10</PediaEntry>
+			<AdjacentEnemyDamage>10</AdjacentEnemyDamage>
+		</Row>
+		<Row>
+			<Type>PROMOTION_LOW_MORALE</Type>
+			<Description>TXT_KEY_PROMOTION_LOW_MORALE</Description>
+			<Help>TXT_KEY_PROMOTION_LOW_MORALE_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<PortraitIndex>57</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_WOLFPACK_1</PediaEntry>
+			<AttackMod>-15</AttackMod>
+			<DefenseMod>-15</DefenseMod>
+		</Row>
+	</UnitPromotions>
+</GameData>

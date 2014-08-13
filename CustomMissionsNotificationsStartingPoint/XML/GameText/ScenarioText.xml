@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+  <Language_en_US>
+    <Row Tag="TXT_KEY_SCENARIO_TITLE">
+      <Text>SiegeMod</Text>
+    </Row>
+    <Row Tag="TXT_KEY_SCENARIO_DESC">
+      <Text>Survive a brutal siege against foes that outnumber you four to one. Defend your capital city from foreign religions and claim victory in a naval war over your rivals.</Text>
+    </Row>
+    <Row Tag="TXT_KEY_SCENARIO_BRIEFING_TEXT">
+      <Text>Svesta is the last city standing unconquered by the Argastinian Empire and their former trading allies have turned against them in a failed ploy to leverage Svesta's weakness for their gain.
+	  [NEWLINE][NEWLINE] Take control of Svesta in this pivotal moment of its history. Use your mercantile expertise to fend off war with Argastinium. Use your naval superiority to fend off your former allies, the Numydian Federation.
+      [NEWLINE][NEWLINE] While you and Numydia squabble, Argast waits north of your borders. But there is another danger from the east that draws his attention. The Cyats, an eclectic civilization of religious fanatics, have arrived on the world stage. Their foreign religion brings strange and powerful boons to those who follow it. Argastinium is already at war with them, trying unsuccessfully to stamp their fervor out. You must prevent Svesta from falling under the sway of their heathen religion and revolting to join the Cyat cause.</Text>
+    </Row>
+    <Row Tag="TXT_KEY_SCENARIO_RANDOM_MAP">
+      <Text>Random Traders Map</Text>
+    </Row>
+    <Row Tag="TXT_KEY_SCENARIO_FIXED_MAP">
+      <Text>SiegeMod Map</Text>
+    </Row>
+    <Row Tag="TXT_KEY_SCENARIO_VICTORY_PROGRESS">
+      <Text>You need {1_GoldDifference} more [ICON_GOLD] to permanently purchase your independence from Argastinium.</Text>
+    </Row>
+
+    <!-- Common last man standing text - shouldn't need changing -->
+    <Row Tag="TXT_KEY_SCENARIO_TURNS_REMAINING">
+      <Text>There are {1_TurnsRemaining} turns remaining.</Text>
+    </Row>
+    <Row Tag="TXT_KEY_SCENARIO_TURNS_AND_OPPONENTS_REMAINING">
+      <Text>There are {1_TurnsRemaining} turns remaining,[NEWLINE]and {2_Opponents} other civilizations still in play.</Text>
+    </Row>
+
+    <!-- Text used for buttons - shouldn't need changing -->
+    <Row Tag="TXT_KEY_SCENARIO_BRIEFING">
+      <Text>Briefing</Text>
+    </Row>
+    <Row Tag="TXT_KEY_SCENARIO_SELECT_MAP">
+      <Text>Select Map</Text>
+    </Row>
+  </Language_en_US>
+</GameData>

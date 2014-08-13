@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/11/2013 12:50:17 AM -->
+<GameData>
+	<Traits>
+		<Row>
+			<Type>TRAIT_MERCANTILE_PEDAGOGY</Type>
+			<Description>TXT_KEY_TRAIT_MERCANTILE_PEDAGOGY</Description>
+			<ShortDescription>TXT_KEY_TRAIT_MERCANTILE_PEDAGOGY_SHORT</ShortDescription>
+			<TradeStopsWars>true</TradeStopsWars>
+			<ReqTradeRoutesForPeace>4</ReqTradeRoutesForPeace>
+			<CanPurchaseReligiousUnits>true</CanPurchaseReligiousUnits>
+		</Row>
+	</Traits>
+	<Trait_YieldChangesPerTradePartner>
+		<Row>
+			<TraitType>TRAIT_MERCANTILE_PEDAGOGY</TraitType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>10</Yield>
+		</Row>
+	</Trait_YieldChangesPerTradePartner>
+</GameData>
