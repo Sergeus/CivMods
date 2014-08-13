@@ -1,4 +1,15 @@
+# Mod files
 *.civ5suo
 [bB]uild/*
 [pP]ackages/*
 *.dll
+
+# DLL Source
+BuildTemp/*
+Build/*
+BuildOutput/*
+*.opensdf
+*.sdf
+*.suo
+*.aps
+ipch/*
