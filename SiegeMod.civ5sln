@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # ModBuddy Solution File, Format Version 11.00
-Project("{F5FC21B5-7CC2-458A-ABBA-992F515BBA20}") = "SiegeMod", "CustomMissionsNotificationsStartingPoint\SiegeMod.civ5proj", "{A8C644EE-5B59-4D92-A34B-BCFBA5EAA0D8}"
+Project("{F5FC21B5-7CC2-458A-ABBA-992F515BBA20}") = "SiegeMod", "SiegeMod\SiegeMod.civ5proj", "{A8C644EE-5B59-4D92-A34B-BCFBA5EAA0D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
