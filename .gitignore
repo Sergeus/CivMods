@@ -6,9 +6,9 @@
 
 
 # DLL Source
-BuildTemp/*
-Build/*
-BuildOutput/*
+*/BuildTemp/*
+*/Build/*
+*/BuildOutput/*
 *.opensdf
 *.sdf
 *.suo
