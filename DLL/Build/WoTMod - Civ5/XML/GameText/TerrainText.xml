@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 6/7/2013 10:14:25 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Improvements -->
+		<!-- Improvement: Military Camp -->
+		<Row Tag="TXT_KEY_IMPROVEMENT_MILITARY_CAMP">
+			<Text>Military Camp</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_IMPROVEMENTS_MILITARY_CAMP_TEXT">
+			<Text>[TOWRITE] military camp pedia</Text>
+		</Row>
+		
+		<!-- Features -->
+		<!-- Feature: Blight -->
+		<Row Tag="TXT_KEY_FEATURE_BLIGHT">
+			<Text>Blight</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_FEATURES_BLIGHT_PEDIA">
+			<Text>[TOWRITE] Blight pedia entry</Text>
+		</Row>
+
+		<!-- Resources -->
+		<!-- Altering existing text -->
+		<Update>
+			<Where Tag="TXT_KEY_RESOURCE_ALUMINUM"/>
+			<Set Text="Alum"/>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CIV5_RESOURCE_ALUMINUM_TEXT"/>
+			<Set Text="[TOWRITE] alum pedia"/>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_RESOURCE_ALUMINUM_HELP"/>
+			<Set Text="[TOWRITE] alum help"/>
+		</Update>
+		
+		<!-- Resource: Cuendillar -->
+		<Row Tag="TXT_KEY_RESOURCE_CUENDILLAR">
+			<Text>Cuendillar</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOURCE_CUENDILLAR_PEDIA">
+			<Text>[TOWRITE] cuendillar pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_RESOURCE_CUENDILLAR_HELP">
+			<Text>[TOWRITE] cuendillar help</Text>
+		</Row>
+		
+		<!-- Resource: Zemai -->
+		<Row Tag="TXT_KEY_RESOURCE_ZEMAI">
+			<Text>Zemai</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_RESOURCE_ZEMAI_TEXT">
+			<Text>[TOWRITE] zemai pedia</Text>
+		</Row>
+		
+		<!-- Resource: Herbs -->
+		<Row Tag="TXT_KEY_RESOURCE_HERBS">
+			<Text>Herbs</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_RESOURCE_HERBS_TEXT">
+			<Text>[TOWRITE] herbs pedia</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

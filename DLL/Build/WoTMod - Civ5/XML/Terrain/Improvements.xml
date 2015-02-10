@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 6/5/2013 11:24:02 PM -->
+<GameData>
+	<Improvements>
+		<Row>
+			<Type>IMPROVEMENT_MILITARY_CAMP</Type>
+			<Description>TXT_KEY_IMPROVEMENT_MILITARY_CAMP</Description>
+			<Civilopedia>TXT_KEY_CIV5_IMPROVEMENTS_MILITARY_CAMP_TEXT</Civilopedia>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_CITADEL</ArtDefineTag>
+			<InAdjacentFriendly>true</InAdjacentFriendly>
+			<CultureBombRadius>1</CultureBombRadius>
+			<PillageGold>30</PillageGold>
+			<PortraitIndex>19</PortraitIndex>
+			<IconAtlas>TERRAIN_ATLAS</IconAtlas>
+		</Row>
+	</Improvements>
+</GameData>

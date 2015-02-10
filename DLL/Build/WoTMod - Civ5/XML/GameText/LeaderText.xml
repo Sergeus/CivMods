@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/22/2013 11:24:04 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Leader: Mattin Stepaneos, of Illian-->
+		<Row Tag="TXT_KEY_LEADER_STEPANEOS">
+			<Text>Mattin Stepaneos</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_STEPANEOS_PEDIA">
+			<Text>[TOWRITE] Stepaneos pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_STEPANEOS">
+			<Text>[TOWRITE] Stepaneos pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_STEPANEOS_LIVED">
+			<Text>[TOWRITE] dates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_STEPANEOS_NAME">
+			<Text>Mattin Stepaneos den Balgar</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_STEPANEOS_SUBTITLE">
+			<Text>King of Illian</Text>
+		</Row>
+		
+		<!-- Leader: Laman Damodred, of Cairhien -->
+		<Row Tag="TXT_KEY_LEADER_LAMAN">
+			<Text>Laman Damodred</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_LAMAN_PEDIA">
+			<Text>[TOWRITE] Laman Damodred pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_LAMAN">
+			<Text>[TOWRITE] Laman Damodred pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_LAMAN_LIVED">
+			<Text>[TOWRITE] - 978 NE</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_LAMAN_NAME">
+			<Text>Laman Damodred</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_LAMAN_SUBTITLE">
+			<Text>King of Cairhien</Text>
+		</Row>
+		
+		<!-- Leader: Elayne Trakand, of Andor -->
+		<Row Tag="TXT_KEY_LEADER_ELAYNE">
+			<Text>Elayne Trakand</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_ELAYNE_PEDIA">
+			<Text>[TOWRITE] Elayne pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ELAYNE">
+			<Text>[TOWRITE] Elayne pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ELAYNE_LIVED">
+			<Text>[TOWRITE] dates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ELAYNE_NAME">
+			<Text>Elayne Trakand</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_ELAYNE_SUBTITLE">
+			<Text>Queen of Andor</Text>
+		</Row>
+		
+		<!-- Leader: Fortuona Paendrag, of Seanchan -->
+		<Row Tag="TXT_KEY_LEADER_FORTUONA">
+			<Text>Fortuona Paendrag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_FORTUONA_PEDIA">
+			<Text>[TOWRITE] Fortuona pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_FORTUONA">
+			<Text>[TOWRITE] Fortuona pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_FORTUONA_LIVED">
+			<Text>[TOWRITE] dates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_FORTUONA_NAME">
+			<Text>Fortuona Athaem Devi Paendrag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_FORTUONA_SUBTITLE">
+			<Text>Empress of Seanchan</Text>
+		</Row>
+		
+		<!-- Leader: Pedron Niall, of Amadicia -->
+		<Row Tag="TXT_KEY_LEADER_NIALL">
+			<Text>Pedron Niall</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_NIALL_PEDIA">
+			<Text>[TOWRITE] Pedron Niall pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_NIALL">
+			<Text>[TOWRITE] Pedron Niall pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_NIALL_LIVED">
+			<Text>[TOWRITE] - 1000 NE</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_NIALL_NAME">
+			<Text>Pedron Niall</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_NIALL_SUBTITLE">
+			<Text>Lord Captain Commander of the Children of the Light</Text>
+		</Row>
+		
+		<!-- Leader: Aemon al Thorin, of Manetheren -->
+		<Row Tag="TXT_KEY_LEADER_AEMON">
+			<Text>Aemon al Thorin</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_AEMON_PEDIA">
+			<Text>[TOWRITE] Aemon al Thorin pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_AEMON">
+			<Text>[TOWRITE] Aemon al Thorin pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_AEMON_LIVED">
+			<Text>[TOWRITE] dates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_AEMON_NAME">
+			<Text>Aemon al Caar al Thorin</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_AEMON_SUBTITLE">
+			<Text>King of Manetheren</Text>
+		</Row>
+		
+		<!-- Leader: Rhuarc, of the Aiel -->
+		<Row Tag="TXT_KEY_LEADER_RHUARC">
+			<Text>Rhuarc</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_RHUARC_PEDIA">
+			<Text>[TOWRITE] Rhuarc pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_RHUARC">
+			<Text>[TOWRITE] Rhuarc pedia tag</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_RHUARC_LIVED">
+			<Text>[TOWRITE] dates</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_RHUARC_NAME">
+			<Text>Rhuarc</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_LEADERS_RHUARC_SUBTITLE">
+			<Text>Clan Chief of the Taardad Aiel</Text>
+		</Row>
+		
+		<!-- Leader: Dark One, of the Shadowspawn -->
+		<Row Tag="TXT_KEY_LEADER_DARK_ONE">
+			<Text>The Dark One</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_DARK_ONE_PEDIA">
+			<Text>[TOWRITE] Dark One pedia</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

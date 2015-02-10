@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/20/2013 3:46:32 PM -->
+<GameData>
+	<GameOptions>
+		<Row>
+			<Type>GAMEOPTION_NO_SHADOWSPAWN</Type>
+			<Description>TXT_KEY_GAMEOPTION_NO_SHADOWSPAWN</Description>
+			<Help>TXT_KEY_GAMEOPTION_NO_SHADOWSPAWN_HELP</Help>
+		</Row>
+	</GameOptions>
+</GameData>

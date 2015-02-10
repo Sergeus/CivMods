@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/23/2013 10:45:48 PM -->
+<GameData>
+	<PostDefines>
+		<Row Name="SHADOW_HANDICAP">
+			<Key>HANDICAP_CHIEFTAIN</Key>
+			<Table>HandicapInfos</Table>
+		</Row>
+		<Row Name="SHADOW_CIVILIZATION">
+			<Key>CIVILIZATION_SHADOWSPAWN</Key>
+			<Table>Civilizations</Table>
+		</Row>
+		<Row Name="SHADOW_LEADER">
+			<Key>LEADER_DARK_ONE</Key>
+			<Table>Leaders</Table>
+		</Row>
+	</PostDefines>
+</GameData>

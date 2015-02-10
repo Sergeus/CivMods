@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2/9/2014 4:53:49 PM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_MINOR_TRAIT_WHITE_TOWER">
+			<Text>White Tower</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_CITYSTATE_WHITE_TOWER">
+			<Text>Tar Valon</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITYSTATE_WHITE_TOWER_ADJ">
+			<Text>Tar Valon</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_WHITE_TOWER_TEXT">
+			<Text>[TOWRITE] White Tower pedia</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_CITYSTATE_STEDDING_SHANGTAI">
+			<Text>Stedding Shangtai</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CITYSTATE_STEDDING_SHANGTAI_ADJ">
+			<Text>Ogier</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_STEDDING_SHANGTAI_TEXT">
+			<Text>[TOWRITE] Stedding Shangtai pedia</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

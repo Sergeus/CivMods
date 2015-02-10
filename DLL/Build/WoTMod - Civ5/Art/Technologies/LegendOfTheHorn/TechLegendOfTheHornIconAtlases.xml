@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 12/8/2013 2:56:03 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>LEGEND_OF_THE_HORN_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>LegendOfTheHornIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>LEGEND_OF_THE_HORN_ATLAS</Atlas>
+			<IconSize>214</IconSize>
+			<Filename>LegendOfTheHornIcon214.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>LEGEND_OF_THE_HORN_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>LegendOfTheHornIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>LEGEND_OF_THE_HORN_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>LegendOfTheHornIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>LEGEND_OF_THE_HORN_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>LegendOfTheHornIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>LEGEND_OF_THE_HORN_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>LegendOfTheHornIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

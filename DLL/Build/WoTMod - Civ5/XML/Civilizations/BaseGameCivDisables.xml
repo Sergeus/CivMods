@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 6/8/2013 11:22:10 PM -->
+<GameData>
+	<Civilizations>
+		<Update>
+			<Set AIPlayable="false" Playable="false"/>
+		</Update>
+	</Civilizations>
+</GameData>

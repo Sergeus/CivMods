@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/5/2013 10:29:05 PM -->
+<GameData>
+	<Features>
+		<Row>
+			<Type>FEATURE_BLIGHT</Type>
+			<Description>TXT_KEY_FEATURE_BLIGHT</Description>
+			<Civilopedia>TXT_KEY_CIV5_FEATURES_BLIGHT_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_FEATURE_BLIGHT</ArtDefineTag>
+			<StartingLocationWeight>-10</StartingLocationWeight>
+			<Movement>3</Movement>
+			<Defense>-15</Defense>
+			<InfluenceCost>1</InfluenceCost>
+			<RequiresFlatlands>true</RequiresFlatlands>
+			<WorldSoundscapeAudioScript>ASSS_AMBIENCE_SWAMP</WorldSoundscapeAudioScript>
+			<EffectTypeTag>MUD</EffectTypeTag>
+			<PortraitIndex>8</PortraitIndex>
+			<IconAtlas>TERRAIN_ATLAS</IconAtlas>
+		</Row>
+	</Features>
+</GameData>

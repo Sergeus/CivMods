@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 4/25/2013 4:13:50 AM -->
+<GameData>
+	<Missions>
+		<Row>
+			<Type>MISSION_BLOW_HORN_OF_VALERE</Type>
+			<Description>TXT_KEY_MISSION_BLOW_HORN_OF_VALERE</Description>
+			<Help>TXT_KEY_MISSION_BLOW_HORN_OF_VALERE_HELP</Help>
+			<DisabledHelp>TXT_KEY_MISSION_BLOW_HORN_OF_VALERE_DISABLED_HELP</DisabledHelp>
+			<EntityEventType>ENTITY_EVENT_GREAT_EVENT</EntityEventType>
+			<Time>20</Time>
+			<Target>0</Target>
+			<Build>0</Build>
+			<Sound>0</Sound>
+			<HotKey/>
+			<AltDown>0</AltDown>
+			<ShiftDown>0</ShiftDown>
+			<CtrlDown>0</CtrlDown>
+			<HotKeyPriority>0</HotKeyPriority>
+			<HotKeyAlt/>
+			<AltDownAlt>0</AltDownAlt>
+			<ShiftDownAlt>0</ShiftDownAlt>
+			<CtrlDownAlt>0</CtrlDownAlt>
+			<HotKeyPriorityAlt>0</HotKeyPriorityAlt>
+			<OrderPriority>199</OrderPriority>
+			<Visible>1</Visible>
+			<IconIndex>1</IconIndex>
+			<IconAtlas>UNIT_ACTION_ATLAS_RELIGION</IconAtlas>
+		</Row>
+		<Row>
+			<Type>MISSION_CREATE_GOVERNOR</Type>
+			<Description>TXT_KEY_MISSION_CREATE_GOVERNOR</Description>
+			<Help>TXT_KEY_MISSION_CREATE_GOVERNOR_HELP</Help>
+			<DisabledHelp>TXT_KEY_MISSION_CREATE_GOVERNOR_DISABLED_HELP</DisabledHelp>
+			<EntityEventType>ENTITY_EVENT_GREAT_EVENT</EntityEventType>
+			<OrderPriority>199</OrderPriority>
+			<Visible>1</Visible>
+			<IconIndex>0</IconIndex>
+			<IconAtlas>CREATE_GOVERNOR_ACTION_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>MISSION_TRAIN_WHITE_TOWER</Type>
+			<Description>TXT_KEY_MISSION_TRAIN_WHITE_TOWER</Description>
+			<Help>TXT_KEY_MISSION_TRAIN_WHITE_TOWER_HELP</Help>
+			<DisabledHelp>TXT_KEY_MISSION_TRAIN_WHITE_TOWER_DISABLED_HELP</DisabledHelp>
+			<EntityEventType>ENTITY_EVENT_GREAT_EVENT</EntityEventType>
+			<OrderPriority>199</OrderPriority>
+			<Visible>1</Visible>
+			<IconIndex>0</IconIndex>
+			<IconAtlas>CREATE_GOVERNOR_ACTION_ATLAS</IconAtlas>
+		</Row>
+	</Missions>
+</GameData>
