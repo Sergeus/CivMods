@@ -1167,6 +1167,17 @@ void CvTeam::DoDeclareWar(TeamTypes eTeam, bool bDefensivePact, bool bMinorAllyP
 	setAtWar(eTeam, true);
 	GET_TEAM(eTeam).setAtWar(GetID(), true);
 
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+	if (pkScriptSystem)
+	{
+		CvLuaArgsHandle args;
+		args->Push(GetID());
+		args->Push(eTeam);
+
+		bool bResult;
+		LuaSupport::CallHook(pkScriptSystem, "DeclareWar", args.get(), bResult);
+	}
+
 	// One shot things
 	DoNowAtWarOrPeace(eTeam, true);
 	GET_TEAM(eTeam).DoNowAtWarOrPeace(GetID(), true);
@@ -1469,6 +1480,17 @@ void CvTeam::DoMakePeace(TeamTypes eTeam, bool bBumpUnits, bool bSuppressNotific
 	{
 		setAtWar(eTeam, false);
 		GET_TEAM(eTeam).setAtWar(GetID(), false);
+
+		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+		if (pkScriptSystem)
+		{
+			CvLuaArgsHandle args;
+			args->Push(GetID());
+			args->Push(eTeam);
+
+			bool bResult;
+			LuaSupport::CallHook(pkScriptSystem, "MakePeace", args.get(), bResult);
+		}
 
 		// One shot things
 		DoNowAtWarOrPeace(eTeam, false);
@@ -6005,6 +6027,16 @@ void CvTeam::testCircumnavigated()
 						strBuffer = GetLocalizedText("TXT_KEY_MISC_UNKNOWN_CIRC_GLOBE");
 					}
 					DLLUI->AddMessage(0, ((PlayerTypes)iI), false, GC.getEVENT_MESSAGE_TIME(), strBuffer);
+
+					ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+					if (pkScriptSystem)
+					{
+						CvLuaArgsHandle args;
+						args->Push(eTeamID);
+
+						bool bResult = false;
+						LuaSupport::CallHook(pkScriptSystem, "CircumnavigatedGlobe", args.get(), bResult);
+					}
 				}
 			}
 		}
@@ -6697,6 +6729,17 @@ void CvTeam::SetCurrentEra(EraTypes eNewValue)
 		if(GetID() == GC.getGame().getActiveTeam())
 		{
 			DLLUI->setDirty(Soundtrack_DIRTY_BIT, true);
+		}
+
+		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+		if(pkScriptSystem)
+		{
+			CvLuaArgsHandle args;
+			args->Push(GetID());
+			args->Push(GetCurrentEra());
+			
+			bool bResult = false;
+			LuaSupport::CallHook(pkScriptSystem, "TeamSetEra", args.get(), bResult);
 		}
 	}
 }

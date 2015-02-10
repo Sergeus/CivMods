@@ -7672,6 +7672,21 @@ void CvCity::DoJONSCultureLevelIncrease()
 			pLog->Msg(strBaseString);
 		}
 		DoAcquirePlot(pPlotToAcquire->getX(), pPlotToAcquire->getY());
+
+		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+		if (pkScriptSystem) 
+		{
+			CvLuaArgsHandle args;
+			args->Push(getOwner());
+			args->Push(GetID());
+			args->Push(pPlotToAcquire->getX());
+			args->Push(pPlotToAcquire->getY());
+			args->Push(false); // bGold
+			args->Push(true); // bFaith/bCulture
+
+			bool bResult;
+			LuaSupport::CallHook(pkScriptSystem, "CityBoughtPlot", args.get(), bResult);
+		}
 	}
 }
 
@@ -10997,6 +11012,24 @@ void CvCity::GetBuyablePlotList(std::vector<int>& aiPlotList)
 					continue;
 				}
 
+				ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+				if (pkScriptSystem) 
+				{
+					CvLuaArgsHandle args;
+					args->Push(getOwner());
+					args->Push(GetID());
+					args->Push(pLoopPlot->getX());
+					args->Push(pLoopPlot->getY());
+
+					bool bResult = false;
+					if (LuaSupport::CallTestAll(pkScriptSystem, "CityCanAcquirePlot", args.get(), bResult))
+					{
+						if (bResult == false) {
+							continue;
+						}
+					}
+				}
+
 				// we can use the faster, but slightly inaccurate pathfinder here - after all we are using a rand in the equation
 				int iInfluenceCost = thisMap.calculateInfluenceDistance(pThisPlot, pLoopPlot, iMaxRange, false) * iPLOT_INFLUENCE_DISTANCE_MULTIPLIER;
 
@@ -11266,6 +11299,21 @@ void CvCity::BuyPlot(int iPlotX, int iPlotY)
 		pLog->Msg(strBaseString);
 	}
 	DoAcquirePlot(iPlotX, iPlotY);
+
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+	if (pkScriptSystem) 
+	{
+		CvLuaArgsHandle args;
+		args->Push(getOwner());
+		args->Push(GetID());
+		args->Push(plot()->getX());
+		args->Push(plot()->getY());
+		args->Push(true); // bGold
+		args->Push(false); // bFaith/bCulture
+
+		bool bResult;
+		LuaSupport::CallHook(pkScriptSystem, "CityBoughtPlot", args.get(), bResult);
+	}
 
 	//Achievement test for purchasing 1000 tiles
 	if(thisPlayer.isHuman() && !GC.getGame().isGameMultiPlayer())
@@ -11795,6 +11843,20 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 
 			if(iResult != FFreeList::INVALID_INDEX)
 			{
+				ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+				if (pkScriptSystem) 
+				{
+					CvLuaArgsHandle args;
+					args->Push(getOwner());
+					args->Push(GetID());
+					args->Push(GET_PLAYER(getOwner()).getUnit(iResult)->GetID()); // This is probably just iResult
+					args->Push(false); // bGold
+					args->Push(false); // bFaith/bCulture
+
+					bool bResult;
+					LuaSupport::CallHook(pkScriptSystem, "CityTrained", args.get(), bResult);
+				}
+
 				iProductionNeeded = getProductionNeeded(eTrainUnit) * 100;
 
 				// max overflow is the value of the item produced (to eliminate prebuild exploits)
@@ -11847,6 +11909,20 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 				bool bResult = CreateBuilding(eConstructBuilding);
 				DEBUG_VARIABLE(bResult);
 				CvAssertMsg(bResult, "CreateBuilding failed");
+
+				ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+				if (pkScriptSystem) 
+				{
+					CvLuaArgsHandle args;
+					args->Push(getOwner());
+					args->Push(GetID());
+					args->Push(eConstructBuilding);
+					args->Push(false); // bGold
+					args->Push(false); // bFaith/bCulture
+
+					bool bScriptResult;
+					LuaSupport::CallHook(pkScriptSystem, "CityConstructed", args.get(), bScriptResult);
+				}
 
 				iProductionNeeded = getProductionNeeded(eConstructBuilding) * 100;
 				// max overflow is the value of the item produced (to eliminate prebuild exploits)
@@ -11923,6 +11999,20 @@ void CvCity::popOrder(int iNum, bool bFinish, bool bChoose)
 			bool bResult = CreateProject(eCreateProject);
 			DEBUG_VARIABLE(bResult);
 			CvAssertMsg(bResult, "Failed to create project");
+
+			ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+			if (pkScriptSystem) 
+			{
+				CvLuaArgsHandle args;
+				args->Push(getOwner());
+				args->Push(GetID());
+				args->Push(eCreateProject);
+				args->Push(false); // bGold
+				args->Push(false); // bFaith/bCulture
+
+				bool bScriptResult;
+				LuaSupport::CallHook(pkScriptSystem, "CityCreated", args.get(), bScriptResult);
+			}
 
 			iProductionNeeded = getProductionNeeded(eCreateProject) * 100;
 			// max overflow is the value of the item produced (to eliminate prebuild exploits)
@@ -12763,7 +12853,7 @@ bool CvCity::IsCanPurchase(bool bTestPurchaseCost, bool bTestTrainable, UnitType
 
 					if(pkBuildingInfo->IsBuildingClassNeededInCity(iI))
 					{
-						CvCivilizationInfo& thisCivInfo = *GC.getCivilizationInfo(getCivilizationType());
+						CvCivilizationInfo& thisCivInfo = getCivilizationInfo();
 						ePrereqBuilding = ((BuildingTypes)(thisCivInfo.getCivilizationBuildings(iI)));
 
 						if(ePrereqBuilding != NO_BUILDING)
@@ -12904,11 +12994,40 @@ void CvCity::Purchase(UnitTypes eUnitType, BuildingTypes eBuildingType, ProjectT
 				{
 					pUnit->setMoves(0);
 				}
+
+				ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+				if (pkScriptSystem) 
+				{
+					CvLuaArgsHandle args;
+					args->Push(getOwner());
+					args->Push(GetID());
+					args->Push(pUnit->GetID());
+					args->Push(true); // bGold
+					args->Push(false); // bFaith/bCulture
+
+					bool bScriptResult;
+					LuaSupport::CallHook(pkScriptSystem, "CityTrained", args.get(), bScriptResult);
+				}
 			}
 		}
 		else if(eBuildingType >= 0)
 		{
 			bResult = CreateBuilding(eBuildingType);
+
+			ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+			if (pkScriptSystem) 
+			{
+				CvLuaArgsHandle args;
+				args->Push(getOwner());
+				args->Push(GetID());
+				args->Push(eBuildingType);
+				args->Push(true); // bGold
+				args->Push(false); // bFaith/bCulture
+
+				bool bScriptResult;
+				LuaSupport::CallHook(pkScriptSystem, "CityConstructed", args.get(), bScriptResult);
+			}
+
 			CleanUpQueue(); // cleans out items from the queue that may be invalidated by the recent construction
 			CvAssertMsg(bResult, "Unable to create building");
 		}
@@ -12916,6 +13035,20 @@ void CvCity::Purchase(UnitTypes eUnitType, BuildingTypes eBuildingType, ProjectT
 		{
 			bResult = CreateProject(eProjectType);
 			CvAssertMsg(bResult, "Unable to create project");
+
+			ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+			if (pkScriptSystem) 
+			{
+				CvLuaArgsHandle args;
+				args->Push(getOwner());
+				args->Push(GetID());
+				args->Push(eProjectType);
+				args->Push(true); // bGold
+				args->Push(false); // bFaith/bCulture
+
+				bool bScriptResult;
+				LuaSupport::CallHook(pkScriptSystem, "CityCreated", args.get(), bScriptResult);
+			}
 		}
 	}
 	break;
@@ -12943,6 +13076,20 @@ void CvCity::Purchase(UnitTypes eUnitType, BuildingTypes eBuildingType, ProjectT
 
 			CvUnit* pUnit = kPlayer.getUnit(iResult);
 			pUnit->setMoves(0);
+
+			ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+			if (pkScriptSystem) 
+			{
+				CvLuaArgsHandle args;
+				args->Push(getOwner());
+				args->Push(GetID());
+				args->Push(pUnit->GetID());
+				args->Push(false); // bGold
+				args->Push(true); // bFaith/bCulture
+
+				bool bResult;
+				LuaSupport::CallHook(pkScriptSystem, "CityTrained", args.get(), bResult);
+			}
 
 			// Prophets are always of the religion the player founded
 			ReligionTypes eReligion;
@@ -13041,6 +13188,20 @@ void CvCity::Purchase(UnitTypes eUnitType, BuildingTypes eBuildingType, ProjectT
 			bResult = CreateBuilding(eBuildingType);
 			CleanUpQueue(); // cleans out items from the queue that may be invalidated by the recent construction
 			CvAssertMsg(bResult, "Unable to create building");
+
+			ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+			if (pkScriptSystem)
+			{
+				CvLuaArgsHandle args;
+				args->Push(getOwner());
+				args->Push(GetID());
+				args->Push(eBuildingType);
+				args->Push(false); // bGold
+				args->Push(true); // bFaith/bCulture
+
+				bool bScriptResult;
+				LuaSupport::CallHook(pkScriptSystem, "CityConstructed", args.get(), bScriptResult);
+			}
 
 			kPlayer.ChangeFaith(-iFaithCost);
 
