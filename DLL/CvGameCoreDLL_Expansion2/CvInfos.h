@@ -2096,6 +2096,7 @@ public:
 	int getTradeRouteFoodBonusTimes100() const;
 	int getTradeRouteProductionBonusTimes100() const;
 	int getLeaguePercent() const;
+	int getWarmongerPercent() const;
 
 	const char* GetCityBombardEffectTag() const;
 	uint GetCityBombardEffectTagHash() const;
@@ -2150,6 +2151,7 @@ protected:
 	int m_iTradeRouteFoodBonusTimes100;
 	int m_iTradeRouteProductionBonusTimes100;
 	int m_iLeaguePercent;
+	int m_iWarmongerPercent;
 
 	CvString m_strCityBombardEffectTag;
 	CvString m_strAudioUnitVictoryScript;

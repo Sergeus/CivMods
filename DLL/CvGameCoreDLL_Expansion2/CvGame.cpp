@@ -574,15 +574,15 @@ bool CvGame::InitMap(CvGameInitialItemsOverrides& kGameInitialItemsOverrides)
 			if (eTeam != NO_TEAM)
 			{
 				const int iNumInvisibleInfos = NUM_INVISIBLE_TYPES;
-				for(iI = 0; iI < GC.getMap().numPlots(); iI++)
+				for(int plotID = 0; plotID < GC.getMap().numPlots(); plotID++)
 				{
-					CvPlot* pLoopPlot = GC.getMap().plotByIndexUnchecked(iI);
+					CvPlot* pLoopPlot = GC.getMap().plotByIndexUnchecked(plotID);
 
-					pLoopPlot->changeVisibilityCount(eTeam, pLoopPlot->getVisibilityCount(eTeam) + 1, NO_INVISIBLE, true, false);
+					pLoopPlot->changeVisibilityCount(eTeam, 1, NO_INVISIBLE, true, false);
 
 					for(int iJ = 0; iJ < iNumInvisibleInfos; iJ++)
 					{
-						pLoopPlot->changeInvisibleVisibilityCount(eTeam, ((InvisibleTypes)iJ), pLoopPlot->getInvisibleVisibilityCount(eTeam, ((InvisibleTypes)iJ)) + 1);
+						pLoopPlot->changeInvisibleVisibilityCount(eTeam, ((InvisibleTypes)iJ), 1);
 					}
 
 					pLoopPlot->setRevealed(eTeam, true, false);
@@ -1724,7 +1724,7 @@ void CvGame::CheckPlayerTurnDeactivate()
 										for(int iJ = (kPlayer.GetID() + 1); iJ < MAX_PLAYERS; iJ++)
 										{
 											CvPlayer& kNextPlayer = GET_PLAYER((PlayerTypes)iJ);
-											if(kNextPlayer.isAlive() && !kPlayer.isSimultaneousTurns())
+											if(kNextPlayer.isAlive() && !kNextPlayer.isSimultaneousTurns())
 											{//the player is alive and also running sequential turns.  they're up!
 												if(isPbem() && kNextPlayer.isHuman())
 												{
@@ -5157,6 +5157,19 @@ bool CvGame::circumnavigationAvailable() const
 /// Message from UI to gameplay about something that should happen with regards to diplomacy
 void CvGame::DoFromUIDiploEvent(FromUIDiploEventTypes eEvent, PlayerTypes eAIPlayer, int iArg1, int iArg2)
 {
+	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+	if(pkScriptSystem)
+	{
+		CvLuaArgsHandle args;
+		args->Push(eEvent);
+		args->Push(eAIPlayer);
+		args->Push(iArg1);
+		args->Push(iArg2);
+
+		bool bResult;
+		LuaSupport::CallHook(pkScriptSystem, "UiDiploEvent", args.get(), bResult);
+	}
+
 	gDLL->sendFromUIDiploEvent(eAIPlayer, eEvent, iArg1, iArg2);
 }
 
@@ -5942,7 +5955,7 @@ void CvGame::setWinner(TeamTypes eNewWinner, VictoryTypes eNewVictory)
 				if(!GC.getGame().isGameMultiPlayer() && kWinningTeamLeader.isHuman() && kWinningTeamLeader.isLocalPlayer())
 				{
 					const bool bUsingDLC1Scenario = gDLL->IsModActivated(CIV5_DLC_01_SCENARIO_MODID);
-					const bool bUsingDLC2Scenario = gDLL->IsModActivated(CIV5_DLC_02_SCENARIO_MODID);
+					const bool bUsingDLC2Scenario = gDLL->IsModActivated(CIV5_DLC_02_SCENARIO_MODID) || gDLL->IsModActivated(CIV5_COMPLETE_SCENARIO1_MODID);
 					const bool bUsingDLC3Scenario = gDLL->IsModActivated(CIV5_DLC_03_SCENARIO_MODID);
 					const bool bUsingDLC4Scenario = gDLL->IsModActivated(CIV5_DLC_04_SCENARIO_MODID);
 					const bool bUsingDLC5Scenario = gDLL->IsModActivated(CIV5_DLC_05_SCENARIO_MODID);
@@ -8226,7 +8239,7 @@ void CvGame::updateMoves()
 
 
 	int currentTurn = getGameTurn();
-	bool activatePlayers = m_lastTurnAICivsProcessed != currentTurn;
+	bool activatePlayers = playersToProcess.empty() && m_lastTurnAICivsProcessed != currentTurn;
 	// If no AI with an active turn, check humans.
 	if(playersToProcess.empty())
 	{
