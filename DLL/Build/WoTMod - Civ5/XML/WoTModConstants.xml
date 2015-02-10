@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 4/24/2013 9:24:02 PM -->
+<GameData>
+  <!-- TODO: Insert table creation example here. -->
+	<Table name="WoTModConstants">
+		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
+		<Column name="Type" type="text" notnull="true" unique="true"/>
+		<Column name="Value" type="integer"/>
+	</Table>
+ 
+  <!-- TODO: Insert table data example here.-->
+
+	<WoTModConstants>
+		<Row>
+			<Type>HORN_OF_VALERE_DISCOVERY_RANGE</Type>
+			<Value>1</Value>
+		</Row>
+		<Row>
+			<Type>HORN_OF_VALERE_COOLDOWN</Type>
+			<Value>2</Value>
+		</Row>
+		<Row>
+			<Type>HORN_OF_VALERE_NUMBER_HEROES</Type>
+			<Value>4</Value>
+		</Row>
+		<Row>
+			<Type>SHADOWSPAWN_MINIMUM_SPAWN_DELAY</Type>
+			<Value>0</Value>
+		</Row>
+		<Row>
+			<Type>SHADOWSPAWN_SPAWN_RATE</Type>
+			<Value>5</Value>
+		</Row>
+		<Row>
+			<Type>SHADOWSPAWN_SPAWN_VARIANCE</Type>
+			<Value>30</Value>
+		</Row>
+	</WoTModConstants>
+  
+  <!-- Enter your Game Data here. -->
+  
+</GameData>

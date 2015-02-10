@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/30/2013 7:43:47 PM -->
+<GameData>
+	<Table name="OnePowers">
+		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
+		<Column name="Type" type="text" notnull="true" unique="true"/>
+		<Column name="Description" type="text" reference="Language_en_US(Tag)"/>
+	</Table>
+	<OnePowers>
+		<Row>
+			<ID>0</ID>
+			<Type>ONE_POWER_SAIDAR</Type>
+			<Description>TXT_KEY_ONE_POWER_SAIDAR</Description>
+		</Row>
+		<Row>
+			<Type>ONE_POWER_SAIDIN</Type>
+			<Description>TXT_KEY_ONE_POWER_SAIDIN</Description>
+		</Row>
+		<Row>
+			<Type>ONE_POWER_TRUE_POWER</Type>
+			<Description>TXT_KEY_TRUE_POWER</Description>
+		</Row>
+	</OnePowers>
+</GameData>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/16/2013 8:51:52 PM -->
+<GameData>
+	<Victories>
+		<Update>
+			<Where Type="VICTORY_SPACE_RACE"/>
+			<Set FlavorText="TXT_KEY_VICTORY_FLAVOR_TECHNOLOGY"/>
+		</Update>
+		<Update>
+			<Where Type="VICTORY_TIME"/>
+			<Set FlavorText="TXT_KEY_VICTORY_FLAVOR_TIME"/>
+		</Update>
+		<Update>
+			<Where Type="VICTORY_DIPLOMATIC"/>
+			<Set FlavorText="TXT_KEY_VICTORY_FLAVOR_DIPLOMACY"/>
+		</Update>
+		<Update>
+			<Where Type="VICTORY_CULTURAL"/>
+			<Set FlavorText="TXT_KEY_VICTORY_FLAVOR_CULTURE"/>
+		</Update>
+		<Update>
+			<Where Type="VICTORY_DOMINATION"/>
+			<Set FlavorText="TXT_KEY_VICTORY_FLAVOR_DOMINATION"/>
+		</Update>
+		<Row>
+			<Type>VICTORY_TUTORIAL1</Type>
+			<Tutorial>true</Tutorial>
+			<FlavorText>TXT_KEY_TUTORIAL_1_COMPLETE</FlavorText>
+		</Row>
+		<Row>
+			<Type>VICTORY_TUTORIAL2</Type>
+			<Tutorial>true</Tutorial>
+			<FlavorText>TXT_KEY_TUTORIAL_2_COMPLETE</FlavorText>
+		</Row>
+		<Row>
+			<Type>VICTORY_TUTORIAL3</Type>
+			<Tutorial>true</Tutorial>
+			<FlavorText>TXT_KEY_TUTORIAL_3_COMPLETE</FlavorText>
+		</Row>
+		<Row>
+			<Type>VICTORY_TUTORIAL4</Type>
+			<Tutorial>true</Tutorial>
+			<FlavorText>TXT_KEY_TUTORIAL_4_COMPLETE</FlavorText>
+		</Row>
+		<Row>
+			<Type>VICTORY_TUTORIAL5</Type>
+			<Tutorial>true</Tutorial>
+			<FlavorText>TXT_KEY_TUTORIAL_5_COMPLETE</FlavorText>
+		</Row>
+		<Row>
+			<Type>VICTORY_LAST_BATTLE</Type>
+			<Description>TXT_KEY_VICTORY_LAST_BATTLE</Description>
+			<VictoryStatement>TXT_KEY_VICTORY_LAST_BATTLE_BANG</VictoryStatement>
+			<VictoryBackground>Victory_Domination.dds</VictoryBackground>
+			<Civilopedia>TXT_KEY_VICTORY_LAST_BATTLE_PEDIA</Civilopedia>
+			<WinsGame>true</WinsGame>
+			<Audio>AS2D_VICTORY_SPEECH_ALTERNATE_CONQUEST_VICTORY</Audio>
+			<FlavorText>TXT_KEY_VICTORY_FLAVOR_LAST_BATTLE</FlavorText>
+			<LastBattle>true</LastBattle>
+		</Row>
+	</Victories>
+</GameData>

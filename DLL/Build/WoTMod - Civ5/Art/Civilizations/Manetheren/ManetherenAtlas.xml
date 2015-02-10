@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 6/5/2013 9:58:58 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<!-- Civilization: Amadicia -->
+		<Row>
+			<Atlas>MANETHEREN_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>ManetherenIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MANETHEREN_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>ManetherenIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MANETHEREN_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>ManetherenIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MANETHEREN_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>ManetherenIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MANETHEREN_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>ManetherenIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>MANETHEREN_ATLAS</Atlas>
+			<IconSize>32</IconSize>
+			<Filename>ManetherenIcon32.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

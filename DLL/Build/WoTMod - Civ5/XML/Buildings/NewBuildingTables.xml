@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/17/2013 11:07:00 PM -->
+<GameData>
+	<Table name="Building_TradeRouteYieldChanges">
+		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
+		<Column name="DomainType" type="text" reference="Domains(Type)"/>
+		<Column name="YieldType" type="text" reference="Yields(Type)"/>
+		<Column name="Yield" type="integer"/>
+	</Table>
+	<Table name="Building_FreePromotionUnitCombats">
+		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
+		<Column name="UnitCombatType" type="text" reference="UnitCombatInfos(Type)"/>
+		<Column name="PromotionType" type="text" reference="UnitPromotions(Type)"/>
+	</Table>
+	<Table name="Building_GovernorOrPrereqs">
+		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
+		<Column name="GovernorClassType" type="text" reference="GovernorClasses(Type)"/>
+	</Table>
+	<Table name="Building_FreePromotionOnePowerWielding">
+		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
+		<Column name="OnePowerType" type="text" reference="OnePowers(Type)"/>
+		<Column name="PromotionType" type="text" reference="UnitPromotions(Type)"/>
+	</Table>
+	<Table name="Building_OnePowerBlocking">
+		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
+		<Column name="OnePowerType" type="text" reference="OnePowers(Type)"/>
+		<Column name="Range" type="integer" default="-1"/>
+	</Table>
+	<Table name="Building_GovernorYieldChanges">
+		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
+		<Column name="YieldType" type="text" reference="Yields(Type)"/>
+		<Column name="Yield" type="integer"/>
+	</Table>
+	<Table name="Building_GovernorClassYieldChanges">
+		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
+		<Column name="GovernorClassType" type="text" reference="GovernorClasses(Type)"/>
+		<Column name="YieldType" type="text" reference="Yields(Type)"/>
+		<Column name="Yield" type="integer"/>
+	</Table>
+</GameData>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 6/5/2013 9:05:12 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<!-- Leader: Pedron Niall, of Amadicia -->
+		<Row>
+			<Atlas>LEADER_PEDRON_NIALL_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>PedronNiallIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>LEADER_PEDRON_NIALL_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>PedronNiallIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>LEADER_PEDRON_NIALL_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>PedronNiallIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

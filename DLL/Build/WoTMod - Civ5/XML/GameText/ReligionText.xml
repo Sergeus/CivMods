@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by S3rgeus on 2/10/2015 7:32:52 PM -->
+<GameData>
+	<Language_en_US>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_ORAL_TRADITION_SHORT" />
+			<Set Text="Keepers of History" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_GODDESS_LOVE_SHORT" />
+			<Set Text="Bustling Community" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_STONE_CIRCLES_SHORT" />
+			<Set Text="Mountain Folk" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_GODDESS_STRATEGY_SHORT" />
+			<Set Text="Stalwart Protectors" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_RELIGIOUS_SETTLEMENTS_SHORT" />
+			<Set Text="Border Settlers" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_ANCESTOR_WORSHIP_SHORT" />
+			<Set Text="Devoted to Prophecy" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_DANCE_AURORA_SHORT" />
+			<Set Text="Hardy Folk" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_DESERT_FOLKLORE_SHORT" />
+			<Set Text="Water Seekers" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_EARTH_MOTHER_SHORT" />
+			<Set Text="Craftsmen" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_FAITH_HEALERS_SHORT" />
+			<Set Text="Herbal Healers" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_FERTILITY_RITES_SHORT" />
+			<Set Text="Thriving Populace" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_GOD_CRAFTSMEN_SHORT" />
+			<Set Text="Honored Smiths" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_OPEN_SKY_SHORT" />
+			<Set Text="Shepherds" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_GOD_SEA_SHORT" />
+			<Set Text="Fishermen" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_GOD_WAR_SHORT" />
+			<Set Text="Soldier Community" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_GOD_FESTIVALS_SHORT" />
+			<Set Text="Festive Society" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_GODDESS_HUNT_SHORT" />
+			<Set Text="Hunter Society" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_GOD_KING_SHORT" />
+			<Set Text="Loyal Bannermen" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_MESSENGER_GODS_SHORT" />
+			<Set Text="Traveling Scholars" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_MONUMENT_GODS_SHORT" />
+			<Set Text="Friends of the Ogier" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_ONE_WITH_NATURE_SHORT" />
+			<Set Text="Children of Dragonmount" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_FORMAL_LITURGY_SHORT" />
+			<Set Text="Merchant Elite" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_SACRED_PATH_SHORT" />
+			<Set Text="Woodland Folk" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_SACRED_WATERS_SHORT" />
+			<Set Text="River Traders" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_SUN_GOD_SHORT" />
+			<Set Text="Masters of Harvest" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BELIEF_TEARS_OF_GODS" />
+			<Set Text="Artisans" />
+		</Update>
+	</Language_en_US>
+</GameData>

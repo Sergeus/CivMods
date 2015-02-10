@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 4/24/2013 9:32:38 PM -->
+<GameData>
+  <!-- TODO: Insert table creation example here. -->
+ 
+  <!-- TODO: Insert table data example here.-->
+  
+  <!-- Enter your Game Data here. -->
+
+	<UnitCombatInfos>
+		<Row>
+			<Type>UNITCOMBAT_HORN_HERO</Type>
+			<Description>TXT_KEY_UNITCOMBAT_HORN_HERO</Description>
+		</Row>
+	</UnitCombatInfos>
+  
+</GameData>

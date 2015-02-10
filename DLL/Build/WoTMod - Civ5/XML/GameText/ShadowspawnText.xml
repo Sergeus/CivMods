@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/26/2013 4:57:53 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Unit: Darkhound -->
+		<Row Tag="TXT_KEY_UNIT_DARKHOUND">
+			<Text>Darkhound</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DARKHOUND_PEDIA">
+			<Text>[TOWRITE] Darkhound pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DARKHOUND_STRATEGY">
+			<Text>[TOWRITE] Darkhound strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DARKHOUND_HELP">
+			<Text>[TOWRITE] Darkhound help</Text>
+		</Row>
+		
+		<!-- Unit: Trolloc -->
+		<Row Tag="TXT_KEY_UNIT_TROLLOC">
+			<Text>Trolloc</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_TROLLOC_PEDIA">
+			<Text>[TOWRITE] trolloc pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_TROLLOC_STRATEGY">
+			<Text>[TOWRITE] trolloc strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_TROLLOC_HELP">
+			<Text>[TOWRITE] trolloc help</Text>
+		</Row>
+		
+		<!-- Unit: Draghkar -->
+		<Row Tag="TXT_KEY_UNIT_DRAGHKAR">
+			<Text>Draghkar</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DRAGHKAR_PEDIA">
+			<Text>[TOWRITE] draghkar pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DRAGHKAR_STRATEGY">
+			<Text>[TOWRITE] draghkar strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_DRAGHKAR_HELP">
+			<Text>[TOWRITE] draghkar help</Text>
+		</Row>
+		
+		<!-- Unit: Myrddraal -->
+		<Row Tag="TXT_KEY_UNIT_MYRDDRAAL">
+			<Text>Myrddraal</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_MYRDDRAAL_PEDIA">
+			<Text>[TOWRITE] myrddraal pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_MYRDDRAAL_STRATEGY">
+			<Text>[TOWRITE] myrddraal strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_MYRDDRAAL_HELP">
+			<Text>[TOWRITE] myrddraal help</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/19/2013 3:20:15 PM -->
+<GameData>
+	<Notifications>
+		<Row>
+			<Type>NOTIFICATION_HORN_OF_VALERE_DISCOVERED</Type>
+			<Message>TXT_KEY_HORN_DISCOVERED</Message>
+			<Summary>TXT_KEY_HORN_DISCOVERED_SUMMARY</Summary>
+			<ExistingIconTable>Units</ExistingIconTable>
+			<ExistingIconTableIndexColumn>PortraitIndex</ExistingIconTableIndexColumn>
+			<AlwaysDismissable>true</AlwaysDismissable>
+		</Row>
+		<Row>
+			<Type>NOTIFICATION_HORN_OF_VALERE_BLOWN</Type>
+			<Message>TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_KNOWN_UNIT</Message>
+			<Summary>TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_SUMMARY</Summary>
+			<MiniCivIcon>true</MiniCivIcon>
+			<ChecksKnown>true</ChecksKnown>
+			<UnknownMessage>TXT_KEY_NOTIFICATION_HORN_OF_VALERE_BLOWN_UNKNOWN_OWNER</UnknownMessage>
+			<AlwaysDismissable>true</AlwaysDismissable>
+		</Row>
+
+		<Row>
+			<Type>NOTIFICATION_OTHER_CIV_JOINED_LIGHT</Type>
+			<Message>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT</Message>
+			<Summary>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT_SUMMARY</Summary>
+			<IconAtlas>NOTIFICATION_CHOOSE_LIGHT_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
+			<MiniCivIcon>true</MiniCivIcon>
+			<ChecksKnown>true</ChecksKnown>
+			<UnknownMessage>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_LIGHT_UNKNOWN</UnknownMessage>
+			<AlwaysDismissable>true</AlwaysDismissable>
+		</Row>
+		<Row>
+			<Type>NOTIFICATION_OTHER_CIV_JOINED_SHADOW</Type>
+			<Message>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW</Message>
+			<Summary>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW_SUMMARY</Summary>
+			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
+			<IconIndex>0</IconIndex>
+			<MiniCivIcon>true</MiniCivIcon>
+			<ChecksKnown>true</ChecksKnown>
+			<UnknownMessage>TXT_KEY_NOTIFICATION_OTHER_CIV_JOINED_SHADOW_UNKNOWN</UnknownMessage>
+			<AlwaysDismissable>true</AlwaysDismissable>
+		</Row>
+
+		<Row>
+			<Type>NOTIFICATION_YOUR_CITY_HAS_GAINED_GOVERNOR</Type>
+			<Message>TXT_KEY_NOTIFICATION_YOUR_CITY_HAS_GAINED_GOVERNOR</Message>
+			<Summary>TXT_KEY_NOTIFICATION_YOUR_CITY_HAS_GAINED_GOVERNOR_SUMMARY</Summary>
+			<ExistingIconTable>Governors</ExistingIconTable>
+			<AlwaysDismissable>true</AlwaysDismissable>
+		</Row>
+		
+		<Row>
+			<Type>NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED</Type>
+			<Message>TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED</Message>
+			<Summary>TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED_SUMMARY</Summary>
+			<ExistingIconTable>Ajahs</ExistingIconTable>
+			<AlwaysDismissable>true</AlwaysDismissable>
+		</Row>
+		<Row>
+			<Type>NOTIFICATION_TOWER_AMYRLIN_ELECTED</Type>
+			<Message>TXT_KEY_NOTIFICATION_TOWER_AMYRLIN_ELECTED</Message>
+			<Summary>TXT_KEY_NOTIFICATION_TOWER_AMYRLIN_ELECTED_SUMMARY</Summary>
+			<ExistingIconTable>Ajahs</ExistingIconTable>
+			<AlwaysDismissable>true</AlwaysDismissable>
+		</Row>
+		<Row>
+			<Type>NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT</Type>
+			<Message>TXT_KEY_NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT</Message>
+			<Summary>TXT_KEY_NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT_SUMMARY</Summary>
+			<ExistingIconTable>Ajahs</ExistingIconTable>
+			<MiniCivIcon>true</MiniCivIcon>
+			<AlwaysDismissable>true</AlwaysDismissable>
+		</Row>
+	</Notifications>
+</GameData>

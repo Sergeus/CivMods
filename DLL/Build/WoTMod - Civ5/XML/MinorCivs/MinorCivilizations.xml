@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2/9/2014 4:46:48 PM -->
+<GameData>
+	<Table name="MinorCivilizations_AjahStartingInfluence">
+		<Column name="MinorCivType" type="text" reference="MinorCivilizations(Type)"/>
+		<Column name="AjahType" type="text" reference="Ajahs(Type)"/>
+		<Column name="Influence" type="integer"/>
+	</Table>
+	<Table name="MinorCivilization_PermittedAjahs">
+		<Column name="MinorCivType" type="text" reference="MinorCivilizations(Type)"/>
+		<Column name="AjahType" type="text" reference="Ajahs(Type)"/>
+	</Table>
+	<MinorCivilizations>
+		<Row>
+			<Type>MINOR_CIV_WHITE_TOWER</Type>
+			<Description>TXT_KEY_CITYSTATE_WHITE_TOWER</Description>
+			<ShortDescription>TXT_KEY_CITYSTATE_WHITE_TOWER</ShortDescription>
+			<Adjective>TXT_KEY_CITYSTATE_WHITE_TOWER_ADJ</Adjective>
+			<Civilopedia>TXT_KEY_CIV5_WHITE_TOWER_TEXT</Civilopedia>
+			<DefaultPlayerColor>PLAYERCOLOR_MINOR_GRAY</DefaultPlayerColor>
+			<ArtDefineTag>ART_DEF_CIVILIZATION_MINOR</ArtDefineTag>
+			<ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
+			<ArtStyleSuffix>_EURO</ArtStyleSuffix>
+			<ArtStylePrefix>EUROPEAN </ArtStylePrefix>
+			<MinorCivTrait>MINOR_TRAIT_WHITE_TOWER</MinorCivTrait>
+		</Row>
+		<Row>
+			<Type>MINOR_CIV_STEDDING_SHANGTAI</Type>
+			<Description>TXT_KEY_CITYSTATE_STEDDING_SHANGTAI</Description>
+			<ShortDescription>TXT_KEY_CITYSTATE_STEDDING_SHANGTAI</ShortDescription>
+			<Adjective>TXT_KEY_CITYSTATE_STEDDING_SHANGTAI_ADJ</Adjective>
+			<Civilopedia>TXT_KEY_CIV5_STEDDING_SHANGTAI_TEXT</Civilopedia>
+			<DefaultPlayerColor>PLAYERCOLOR_MINOR_GRAY</DefaultPlayerColor>
+			<ArtDefineTag>ART_DEF_CIVILIZATION_MINOR</ArtDefineTag>
+			<ArtStyleType>ARTSTYLE_EUROPEAN</ArtStyleType>
+			<ArtStyleSuffix>_EURO</ArtStyleSuffix>
+			<ArtStylePrefix>EUROPEAN </ArtStylePrefix>
+			<MinorCivTrait>MINOR_TRAIT_MARITIME</MinorCivTrait>
+		</Row>
+	</MinorCivilizations>
+	<MinorCivilization_CityNames>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<CityName>TXT_KEY_CITYSTATE_WHITE_TOWER</CityName>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_STEDDING_SHANGTAI</MinorCivType>
+			<CityName>TXT_KEY_CITYSTATE_STEDDING_SHANGTAI</CityName>
+		</Row>
+	</MinorCivilization_CityNames>
+	<MinorCivilization_OnePowerBlocking>
+		<Row>
+			<MinorCivType>MINOR_CIV_STEDDING_SHANGTAI</MinorCivType>
+			<OnePowerType>ONE_POWER_SAIDAR</OnePowerType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_STEDDING_SHANGTAI</MinorCivType>
+			<OnePowerType>ONE_POWER_SAIDIN</OnePowerType>
+		</Row>
+	</MinorCivilization_OnePowerBlocking>
+	<MinorCivilization_PermittedAjahs>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_BLUE_AJAH</AjahType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_RED_AJAH</AjahType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_WHITE_AJAH</AjahType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_YELLOW_AJAH</AjahType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_BROWN_AJAH</AjahType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_GRAY_AJAH</AjahType>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_GREEN_AJAH</AjahType>
+		</Row>
+	</MinorCivilization_PermittedAjahs>
+	<MinorCivilizations_AjahStartingInfluence>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_BLUE_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_RED_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_WHITE_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_YELLOW_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_BROWN_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_GRAY_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+		<Row>
+			<MinorCivType>MINOR_CIV_WHITE_TOWER</MinorCivType>
+			<AjahType>WHITE_TOWER_GREEN_AJAH</AjahType>
+			<Influence>20</Influence>
+		</Row>
+	</MinorCivilizations_AjahStartingInfluence>
+</GameData>

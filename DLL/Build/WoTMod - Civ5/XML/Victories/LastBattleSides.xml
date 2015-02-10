@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/17/2013 10:10:01 PM -->
+<GameData>
+	<Table name="LastBattleSides">
+		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
+		<Column name="Type" type="text" notnull="true" unique="true"/>
+		<Column name="Description" type="text" notnull="true" reference="Language_en_US(Tag)" />
+	</Table>
+
+	<LastBattleSides>
+		<Row>
+			<ID>0</ID>
+			<Type>SIDE_LIGHT</Type>
+			<Description>TXT_KEY_SIDE_LIGHT</Description>
+		</Row>
+		<Row>
+			<Type>SIDE_SHADOW</Type>
+			<Description>TXT_KEY_SIDE_SHADOW</Description>
+		</Row>
+	</LastBattleSides>
+</GameData>

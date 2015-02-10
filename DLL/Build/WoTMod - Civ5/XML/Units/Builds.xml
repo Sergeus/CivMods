@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 4/25/2013 4:08:52 AM -->
+<GameData>
+	<Table name="Build_BuildActiveExclusive">
+		<Column name="BuildType" type="text" reference="Builds(Type)"/>
+		<Column name="ExclusionBuildType" type="text" reference="Builds(Type)"/>
+		<Column name="Range" type="integer"/>
+	</Table>
+	
+	<Builds>
+		<Update>
+			<Where Type="BUILD_FISHING_BOATS"/>
+			<Set PrereqTech="TECH_FISHING"/>
+		</Update>
+		<Update>
+			<Where Type="BUILD_FISHING_BOATS_NO_KILL"/>
+			<Set PrereqTech=""/>
+		</Update>
+		<Update>
+			<Where Type="BUILD_REMOVE_FOREST"/>
+			<Set PrereqTech="TECH_STONE_TOOLS"/>
+		</Update>
+		<Update>
+			<Where Type="BUILD_QUARRY"/>
+			<Set PrereqTech="TECH_QUARRYING"/>
+		</Update>
+		<Update>
+			<Where Type="BUILD_CAMP"/>
+			<Set PrereqTech="TECH_ARCHERY"/>
+		</Update>
+		<Update>
+			<Where Type="BUILD_PLANTATION"/>
+			<Set PrereqTech="TECH_THATCH"/>
+		</Update>
+		<Update>
+			<Where Type="BUILD_REMOVE_JUNGLE"/>
+			<Set PrereqTech="TECH_MINING"/>
+		</Update>
+		<Update>
+			<Where Type="BUILD_REMOVE_MARSH"/>
+			<Set PrereqTech="TECH_QUARRYING"/>
+		</Update>
+		
+		<Row>
+			<Type>BUILD_MILITARY_CAMP</Type>
+			<ImprovementType>IMPROVEMENT_MILITARY_CAMP</ImprovementType>
+			<Description>TXT_KEY_BUILD_MILITARY_CAMP</Description>
+			<Help>TXT_KEY_BUILD_MILITARY_CAMP_HELP</Help>
+			<Recommendation>TXT_KEY_BUILD_MILITARY_CAMP_REC</Recommendation>
+			<Kill>1</Kill>
+			<EntityEvent>ENTITY_EVENT_MINE</EntityEvent>
+			<OrderPriority>96</OrderPriority>
+			<IconIndex>51</IconIndex>
+			<IconAtlas>UNIT_ACTION_ATLAS</IconAtlas>
+		</Row>
+		<Row>
+			<Type>BUILD_PERFORM_SHOW</Type>
+			<Description>TXT_KEY_BUILD_PERFORM_SHOW</Description>
+			<Help>TXT_KEY_BUILD_PERFORM_SHOW_HELP</Help>
+			<DisabledHelp>TXT_KEY_MISSION_PERFORM_SHOW_DISABLED_HELP</DisabledHelp>
+			<Recommendation>TXT_KEY_BUILD_PERFORM_SHOW_REC</Recommendation>
+			<EntityEvent>ENTITY_EVENT_MINE</EntityEvent>
+			<OrderPriority>96</OrderPriority>
+			<IconIndex>51</IconIndex>
+			<IconAtlas>UNIT_ACTION_ATLAS</IconAtlas>
+			<Happiness>2</Happiness>
+			<OwnTerritoryMakesValid>true</OwnTerritoryMakesValid>
+		</Row>
+	</Builds>
+	<BuildFeatures>
+		<Update>
+			<Where FeatureType="FEATURE_JUNGLE"/>
+			<Set PrereqTech="TECH_MINING"/>
+		</Update>
+		<Update>
+			<Where FeatureType="FEATURE_FOREST"/>
+			<Set PrereqTech="TECH_STONE_TOOLS"/>
+		</Update>
+		<Update>
+			<Where FeatureType="FEATURE_MARSH"/>
+			<Set PrereqTech="TECH_QUARRYING"/>
+		</Update>
+		
+		<Row>
+			<BuildType>BUILD_MILITARY_CAMP</BuildType>
+			<FeatureType>FEATURE_JUNGLE</FeatureType>
+			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+			<Remove>true</Remove>
+		</Row>
+		<Row>
+			<BuildType>BUILD_MILITARY_CAMP</BuildType>
+			<FeatureType>FEATURE_FOREST</FeatureType>
+			<PrereqTech>TECH_MINING</PrereqTech>
+			<Production>20</Production>
+			<Remove>true</Remove>
+		</Row>
+		<Row>
+			<BuildType>BUILD_MILITARY_CAMP</BuildType>
+			<FeatureType>FEATURE_MARSH</FeatureType>
+			<PrereqTech>TECH_MASONRY</PrereqTech>
+			<Remove>true</Remove>
+		</Row>
+	</BuildFeatures>
+	<Build_BuildActiveExclusive>
+		<Row>
+			<BuildType>BUILD_PERFORM_SHOW</BuildType>
+			<ExclusionBuildType>BUILD_PERFORM_SHOW</ExclusionBuildType>
+			<Range>4</Range>
+		</Row>
+	</Build_BuildActiveExclusive>
+</GameData>
