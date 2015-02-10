@@ -659,6 +659,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameInfo/Colors.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/ReligionText.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -752,6 +757,7 @@
     <Folder Include="XML\Buildings" />
     <Folder Include="XML\Governors" />
     <Folder Include="XML\MinorCivs" />
+    <Folder Include="XML\Religion" />
     <Folder Include="XML\WhiteTower" />
     <Folder Include="XML\Victories" />
     <Folder Include="XML\Technologies" />
@@ -1811,6 +1817,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\GameText\NotificationText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\GameText\ReligionText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
