@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2/13/2015 7:56:45 PM -->
+<GameData>
+	<Language_en_US>
+		<Update>
+			<Where Tag="TXT_KEY_CITYSTATE_MARITIME_HEADING3_TITLE" />
+			<Set Text="Bountiful" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_FOOD_MARITIME_HEADING3_TITLE" />
+			<Set Text="Bountiful City-States" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_MINOR_TRAIT_MARITIME" />
+			<Set Text="Bountiful City-States" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_GREETING_MARITIME" />
+			<Set>
+				<Text>We are a [COLOR_POSITIVE_TEXT]Bountiful[ENDCOLOR] people and we can help accelerate your civilization's [ICON_FOOD] [COLOR_POSITIVE_TEXT]Growth[ENDCOLOR].</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_MARITIME_TT" />
+			<Set>
+				<Text>A befriended [COLOR_POSITIVE_TEXT]Bountiful[ENDCOLOR] City-State will boost the [ICON_FOOD] Food of your [ICON_CAPITAL] Capital when Friends, and all of your cities when Allies.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_NOTIFICATION_MINOR_NOW_FRIENDS_MARITIME" />
+			<Set>
+				<Text>As a [COLOR_POSITIVE_TEXT]Bountiful[ENDCOLOR] City-State, they will export Food to your empire (+{1_NumCapitalFood}[ICON_FOOD]in [ICON_CAPITAL] Capital, +{2_NumCitiesFood}[ICON_FOOD]in all other Cities).</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_NOTIFICATION_MINOR_NOW_ALLIES_MARITIME" />
+			<Set>
+				<Text>As a [COLOR_POSITIVE_TEXT]Bountiful[ENDCOLOR] City-State, they now make large Food exports to your empire (additional +{1_NumCapitalFood}[ICON_FOOD]in [ICON_CAPITAL] Capital, +{2_NumCitiesFood}[ICON_FOOD]in all other Cities).</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_MARITIME_ADJECTIVE" />
+			<Set Text="Bountiful" />
+		</Update>
+	</Language_en_US>
+</GameData>
