@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Created by ModBuddy on 2/13/2015 7:56:45 PM -->
+<!-- Created by S3rgeus on 2/13/2015 7:56:45 PM -->
 <GameData>
 	<Language_en_US>
 		<Update>
@@ -107,6 +107,38 @@
 		<Update>
 			<Where Tag="TXT_KEY_CITY_STATE_MILITARISTIC_ADJECTIVE" />
 			<Set Text="Borderlander" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_RELIGIOUS_ADJECTIVE" />
+			<Set Text="Enlightened" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_MINOR_TRAIT_RELIGIOUS" />
+			<Set Text="Enlightened" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_GREETING_RELIGIOUS" />
+			<Set>
+				<Text>We are an [COLOR_POSITIVE_TEXT]Enlightened[ENDCOLOR] people and we can help nurture your religious traditions.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_RELIGIOUS_TT" />
+			<Set>
+				<Text>A befriended [COLOR_POSITIVE_TEXT]Enlightened[ENDCOLOR] City-State will increase your [ICON_PEACE] Faith, allowing you to empower your religion with new beliefs and units.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_NOTIFICATION_MINOR_NOW_FRIENDS_RELIGIOUS" />
+			<Set>
+				<Text>As an [COLOR_POSITIVE_TEXT]Enlightened[ENDCOLOR] City-State, they share their knowledge of rituals with you! (+{1_NumFaith} [ICON_PEACE] Faith per turn)</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_NOTIFICATION_MINOR_NOW_ALLIES_RELIGIOUS" />
+			<Set>
+				<Text>As an [COLOR_POSITIVE_TEXT]Enlightened[ENDCOLOR] City-State, they give you their most treasured religious relics! (+{1_NumFaith} [ICON_PEACE] Faith per turn)</Text>
+			</Set>
 		</Update>
 	</Language_en_US>
 </GameData>
