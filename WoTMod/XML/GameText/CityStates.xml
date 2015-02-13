@@ -140,5 +140,47 @@
 				<Text>As an [COLOR_POSITIVE_TEXT]Enlightened[ENDCOLOR] City-State, they give you their most treasured religious relics! (+{1_NumFaith} [ICON_PEACE] Faith per turn)</Text>
 			</Set>
 		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CONCEPT_CITY_STATE_MERCANTILE_TOPIC" />
+			<Set Text="Prosperous" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_RESOURCE_JEWELRY_HELP" />
+			<Set>
+				<Text>Jewelry is only available through a Prosperous City-State.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_RESOURCE_PORCELAIN_HELP" />
+			<Set>
+				<Text>Porcelain is only available through a Prosperous City-State.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_MINOR_TRAIT_MERCANTILE" />
+			<Set Text="Prosperous City-States" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_GREETING_MERCANTILE" />
+			<Set>
+				<Text>We are a [COLOR_POSITIVE_TEXT]Prosperous[ENDCOLOR] people and we have many luxuries that can make your citizens happy.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_MERCANTILE_TT" />
+			<Set>
+				<Text>A befriended [COLOR_POSITIVE_TEXT]Prosperous[ENDCOLOR] City-State will provide extra [ICON_HAPPINESS_1] Happiness in your empire, and manufactures special luxury resources which cannot be acquired any other way.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_NOTIFICATION_MINOR_NOW_FRIENDS_MERCANTILE" />
+			<Set>
+				<Text>As a [COLOR_POSITIVE_TEXT]Prosperous[ENDCOLOR] City-State, their markets offer exotic goods to your people! (+{1_NumHappiness} [ICON_HAPPINESS_1] Happiness)</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_MERCANTILE_ADJECTIVE" />
+			<Set Text="Prosperous" />
+		</Update>
 	</Language_en_US>
 </GameData>
