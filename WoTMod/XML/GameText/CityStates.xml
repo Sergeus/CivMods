@@ -182,5 +182,41 @@
 			<Where Tag="TXT_KEY_CITY_STATE_MERCANTILE_ADJECTIVE" />
 			<Set Text="Prosperous" />
 		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITYSTATE_CULTURED_HEADING3_TITLE" />
+			<Set Text="Chronicled" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_MINOR_TRAIT_CULTURED" />
+			<Set Text="Chronicled City-States" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_GREETING_CULTURED" />
+			<Set>
+				<Text>We are a [COLOR_POSITIVE_TEXT]Chronicled[ENDCOLOR] people and we can help improve your [ICON_CULTURE] [COLOR_POSITIVE_TEXT]Culture[ENDCOLOR].</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_CULTURED_TT" />
+			<Set>
+				<Text>A befriended [COLOR_POSITIVE_TEXT]Chronicled[ENDCOLOR] City-State will provide you gifts of [ICON_CULTURE] Culture, allowing you to obtain Social Policies more quickly.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_CULTURED_ADJECTIVE" />
+			<Set Text="Chronicled" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_NOTIFICATION_MINOR_NOW_ALLIES_CULTURE" />
+			<Set>
+				<Text>As a [COLOR_POSITIVE_TEXT]Chronicled[ENDCOLOR] City-State, they give you their finest cultural artifacts! (+{1_NumCulture} [ICON_CULTURE] Culture per turn)</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_NOTIFICATION_MINOR_NOW_FRIENDS_CULTURE" />
+			<Set>
+				<Text>As a [COLOR_POSITIVE_TEXT]Chronicled[ENDCOLOR] City-State, they give you rare works of art! (+{1_NumCulture} [ICON_CULTURE] Culture per turn)</Text>
+			</Set>
+		</Update>
 	</Language_en_US>
 </GameData>
