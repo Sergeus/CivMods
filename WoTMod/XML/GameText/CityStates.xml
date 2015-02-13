@@ -42,5 +42,71 @@
 			<Where Tag="TXT_KEY_CITY_STATE_MARITIME_ADJECTIVE" />
 			<Set Text="Bountiful" />
 		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_MILITARISTIC_TT" />
+			<Set>
+				<Text>A befriended [COLOR_POSITIVE_TEXT]Borderlander[ENDCOLOR] City-State will provide you occasional gifts of advanced military units.[NEWLINE][NEWLINE]They know the secrets of the [COLOR_POSITIVE_TEXT]{@1_UniqueUnitName}[ENDCOLOR].  If you are their Ally and have researched {@2_PrereqTech}, they will provide that unit as their gift.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_MILITARISTIC_NO_UU_TT" />
+			<Set>
+				<Text>A befriended [COLOR_POSITIVE_TEXT]Borderlander[ENDCOLOR] City-State will provide you occasional gifts of advanced military units.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_NOTIFICATION_MINOR_NOW_ALLIES_MILITARISTIC" />
+			<Set>
+				<Text>As a [COLOR_POSITIVE_TEXT]Borderlander[ENDCOLOR] City-State, they will regularly give you military Units. Sometimes they will give you Unique Units that you normally would not have access to.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITYSTATE_MILITARISTIC_HEADING3_TITLE" />
+			<Set Text="Borderlander" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_MINOR_TRAIT_MILITARISTIC" />
+			<Set Text="Borderlander City-States" />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_GREETING_MILITARISTIC" />
+			<Set>
+				<Text>We are of the [COLOR_POSITIVE_TEXT]Borderlander[ENDCOLOR] people and we can increase the strength of your [COLOR_POSITIVE_TEXT]Army[ENDCOLOR].</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_POP_CSTATE_STOP_UNITS_TT" />
+			<Set>
+				<Text>Clicking this will tell the Borderlander City State to either stop or resume gifting Units to you.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_MILITARISTIC_TT" />
+			<Set>
+				<Text>A befriended [COLOR_POSITIVE_TEXT]Borderlander[ENDCOLOR] City-State will provide you occasional gifts of advanced military units. They will also make requests that are more militaristic in nature (e.g. destroying a Barbarian Encampment, or capturing a neighboring City-State).</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_NOTIFICATION_MINOR_NOW_FRIENDS_MILITARISTIC" />
+			<Set>
+				<Text>As a [COLOR_POSITIVE_TEXT]Borderlander[ENDCOLOR] City-State, they will occasionally give you military Units.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_NOTIFICATION_MINOR_NOW_ALLIES_MILITARISTIC" />
+			<Set>
+				<Text>As a [COLOR_POSITIVE_TEXT]Militaristic[ENDCOLOR] City-State, they will regularly give you military Units.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_POLICY_UNITED_FRONT_HELP" />
+			<Set>
+				<Text>[COLOR_POSITIVE_TEXT]United Front[ENDCOLOR][NEWLINE]Borderlander city states grant units twice as often when you are at war with a common foe.</Text>
+			</Set>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_CITY_STATE_MILITARISTIC_ADJECTIVE" />
+			<Set Text="Borderlander" />
+		</Update>
 	</Language_en_US>
 </GameData>
