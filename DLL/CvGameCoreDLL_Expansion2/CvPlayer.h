@@ -1533,6 +1533,7 @@ public:
 	void ChangeTotalAlignmentYield(AlignmentTypes eAlignment, int iChange);
 	int GetAlignmentLeaning(AlignmentTypes eAlignment) const;
 	void DoAlignmentTurn();
+	int GetAlignmentYieldModifier(YieldTypes eYield) const;
 #endif // WOTMOD
 
 	bool hasTurnTimerExpired();

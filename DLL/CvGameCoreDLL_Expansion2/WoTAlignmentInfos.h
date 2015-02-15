@@ -23,11 +23,13 @@ public:
 
 	bool IsOpposing(AlignmentTypes eOtherAlignment) const;
 	YieldTypes GetYield() const;
+	int GetAlignmentLeaningYieldPercentage(YieldTypes eYield) const;
 
 private:
 	YieldTypes m_eYield;
 
 	bool* m_pbAlignmentOpposing;
+	int* m_piAlignmentLeaningYieldPercentage;
 };
 
 #endif // WOTMOD

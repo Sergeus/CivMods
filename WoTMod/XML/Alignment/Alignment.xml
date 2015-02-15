@@ -16,6 +16,12 @@
 		<Column name="Description" type="text" notnull="true" reference="Language_en_US(Tag)" />
 		<Column name="Threshold" type="integer" />
 	</Table>
+	<Table name="Alignment_YieldModifiers">
+		<Column name="AlignmentType" type="text" notnull="true" reference="Alignments(Type)" />
+		<Column name="YieldType" type="text" notnull="true" reference="Yields(Type)" />
+		<!-- AlignmentYieldPercentage is a % of the player's Alignment leaning. The value of this, will be used as the modifier of the yield in this table row. See later in this file for example. -->
+		<Column name="AlignmentYieldPercentage" type="integer" />
+	</Table>
 	<Alignments>
 		<Row>
 			<ID>0</ID>
@@ -71,4 +77,17 @@
 			<Threshold>200</Threshold>
 		</Row>
 	</Alignment_DescriptionThresholds>
+	<Alignment_YieldModifiers>
+		<!-- Light players produce a % more Faith equal to 5% of their Light leaning. (If they lean 200 points to Light, they produce 10% more Faith.) -->
+		<Row>
+			<AlignmentType>ALIGNMENT_LIGHT</AlignmentType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<AlignmentYieldPercentage>5</AlignmentYieldPercentage>
+		</Row>
+		<Row>
+			<AlignmentType>ALIGNMENT_SHADOW</AlignmentType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<AlignmentYieldPercentage>-5</AlignmentYieldPercentage>
+		</Row>
+	</Alignment_YieldModifiers>
 </GameData>

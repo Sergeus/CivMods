@@ -10133,6 +10133,13 @@ int CvPlayer::GetTotalFaithPerTurn() const
 	iFaithPerTurn += GetFaithPerTurnFromTradeRoutes();
 #endif // SIEGEMOD
 
+#if WOTMOD
+	int iAlignmentModifier = GetAlignmentYieldModifier(YIELD_FAITH);
+
+	iFaithPerTurn += iFaithPerTurn * iAlignmentModifier / 100;
+
+#endif // WOTMOD
+
 	return iFaithPerTurn;
 }
 
@@ -25196,6 +25203,17 @@ void CvPlayer::DoAlignmentTurn()
 
 		ChangeTotalAlignmentYield(eAlignment, iYieldPerTurn);
 	}
+}
+int CvPlayer::GetAlignmentYieldModifier(YieldTypes eYield) const
+{
+	AlignmentTypes eAlignment = GetMajorityAlignment();
+	WoTAlignmentInfo* pInfo = GC.GetAlignmentInfo(eAlignment);
+
+	int leaning = GetAlignmentLeaning(eAlignment);
+
+	int modifier = leaning * pInfo->GetAlignmentLeaningYieldPercentage(eYield) / 100;
+
+	return modifier;
 }
 #endif // WOTMOD
 
