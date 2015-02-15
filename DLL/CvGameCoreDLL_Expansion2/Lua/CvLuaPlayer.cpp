@@ -642,6 +642,10 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(GetPublicSupportedTower);
 	Method(GetPublicSupportedAjah);
 	Method(IsMinorCivNoGoldGifts);
+
+	Method(GetMajorityAlignment);
+	Method(GetTotalAlignmentYield);
+	Method(GetAlignmentLeaning);
 #endif // WOTMOD
 
 	Method(GetID);
@@ -6792,6 +6796,26 @@ int CvLuaPlayer::lIsMinorCivNoGoldGifts(lua_State* L)
 	{
 		lua_pushboolean(L, pkPlayer->GetMinorCivAI()->IsNoGoldGifts());
 	}
+	return 1;
+}
+int CvLuaPlayer::lGetMajorityAlignment(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlayerAI::GetMajorityAlignment);
+}
+int CvLuaPlayer::lGetTotalAlignmentYield(lua_State* L)
+{
+	CvPlayerAI* pkPlayer = GetInstance(L);
+	AlignmentTypes eAlignment = static_cast<AlignmentTypes>(lua_tointeger(L, 2));
+
+	lua_pushinteger(L, pkPlayer->GetTotalAlignmentYield(eAlignment));
+	return 1;
+}
+int CvLuaPlayer::lGetAlignmentLeaning(lua_State* L)
+{
+	CvPlayerAI* pkPlayer = GetInstance(L);
+	AlignmentTypes eAlignment = static_cast<AlignmentTypes>(lua_tointeger(L, 2));
+
+	lua_pushinteger(L, pkPlayer->GetAlignmentLeaning(eAlignment));
 	return 1;
 }
 #endif // WOTMOD

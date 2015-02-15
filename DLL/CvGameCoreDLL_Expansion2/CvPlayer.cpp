@@ -1005,6 +1005,9 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall)
 #if WOTMOD
 	m_ePublicSupportedAjah.set(make_pair(NO_PLAYER, NO_AJAH));
 	m_iTurnsSincePledgedSupport = 1000; // large enough to start
+
+	m_aiTotalAlignmentYields.clear();
+	m_aiTotalAlignmentYields.resize(GC.GetNumAlignmentInfos(), 0);
 #endif // WOTMOD
 
 	m_aiCityYieldChange.clear();
