@@ -4216,6 +4216,13 @@ void CvPlayer::doTurnPostDiplomacy()
 	// Gold
 	GetTreasury()->DoGold();
 
+#if WOTMOD
+	// Alignment changes
+
+	DoAlignmentTurn();
+
+#endif // WOTMOD
+
 	// Culture
 
 	// Prevent exploits in turn timed MP games - no accumulation of culture if player hasn't picked yet
@@ -25166,6 +25173,26 @@ int CvPlayer::GetAlignmentLeaning(AlignmentTypes eAlignment) const
 	}
 
 	return rawTotalYield - rawOpposingYield;
+}
+void CvPlayer::DoAlignmentTurn()
+{
+	for (int i = 0; i < GC.GetNumAlignmentInfos(); ++i)
+	{
+		AlignmentTypes eAlignment = static_cast<AlignmentTypes>(i);
+		WoTAlignmentInfo* pInfo = GC.GetAlignmentInfo(eAlignment);
+
+		YieldTypes eYield = pInfo->GetYield();
+		int iYieldPerTurn = 0;
+		CvCity* pLoopCity;
+
+		int iLoop;
+		for (pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+		{
+			iYieldPerTurn += pLoopCity->getBaseYieldRate(eYield);
+		}
+
+		ChangeTotalAlignmentYield(eAlignment, iYieldPerTurn);
+	}
 }
 #endif // WOTMOD
 

@@ -35,6 +35,10 @@ bool WoTAlignmentInfo::IsOpposing(AlignmentTypes eOtherAlignment) const
 {
 	return m_pbAlignmentOpposing[eOtherAlignment];
 }
+YieldTypes WoTAlignmentInfo::GetYield() const
+{
+	return m_eYield;
+}
 
 #endif // WOTMOD
 
