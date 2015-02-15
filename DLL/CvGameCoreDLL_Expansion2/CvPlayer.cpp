@@ -335,6 +335,7 @@ CvPlayer::CvPlayer() :
 #if WOTMOD
 	, m_ePublicSupportedAjah("CvPlayer::m_ePublicSupportedAjah", m_syncArchive) 
 	, m_iTurnsSincePledgedSupport("CvPlayer::m_iTurnsSincePledgedSupport", m_syncArchive)
+	, m_aiTotalAlignmentYields("CvPlayer::m_aiTotalAlignmentYields", m_syncArchive)
 #endif // WOTMOD
 
 	, m_aiCityYieldChange("CvPlayer::m_aiCityYieldChange", m_syncArchive)
@@ -25118,6 +25119,53 @@ int CvPlayer::GetTurnsSincePledgedAjahSupport() const
 bool CvPlayer::IsCanPledgeAjahSupport() const
 {
 	return GetTurnsSincePledgedAjahSupport() > 20;
+}
+AlignmentTypes CvPlayer::GetMajorityAlignment() const
+{
+	AlignmentTypes eHighest = NO_ALIGNMENT;
+	int highestYield = -1;
+	for (int i = 0; i < GC.GetNumAlignmentInfos(); ++i)
+	{
+		AlignmentTypes eAlignment = static_cast<AlignmentTypes>(i);
+		int yield = GetTotalAlignmentYield(eAlignment);
+		if (yield > highestYield)
+		{
+			eHighest = eAlignment;
+			highestYield = yield;
+		}
+	}
+
+	CvAssertMsg(eHighest != NO_ALIGNMENT, "Unable to calculate majority alignment");
+	return eHighest;
+}
+int CvPlayer::GetTotalAlignmentYield(AlignmentTypes eAlignment) const
+{
+	return m_aiTotalAlignmentYields[eAlignment];
+}
+void CvPlayer::SetTotalAlignmentYield(AlignmentTypes eAlignment, int iNewValue)
+{
+	m_aiTotalAlignmentYields.setAt(eAlignment, iNewValue);
+}
+void CvPlayer::ChangeTotalAlignmentYield(AlignmentTypes eAlignment, int iChange)
+{
+	m_aiTotalAlignmentYields.setAt(eAlignment, GetTotalAlignmentYield(eAlignment) + iChange);
+}
+int CvPlayer::GetAlignmentLeaning(AlignmentTypes eAlignment) const
+{
+	WoTAlignmentInfo* pInfo = GC.GetAlignmentInfo(eAlignment);
+	int rawTotalYield = GetTotalAlignmentYield(eAlignment);
+
+	int rawOpposingYield = 0;
+	for (int i = 0; i < GC.GetNumAlignmentInfos(); ++i)
+	{
+		AlignmentTypes eOtherAlignment = static_cast<AlignmentTypes>(i);
+		if (pInfo->IsOpposing(eOtherAlignment))
+		{
+			rawOpposingYield += GetTotalAlignmentYield(eOtherAlignment);
+		}
+	}
+
+	return rawTotalYield - rawOpposingYield;
 }
 #endif // WOTMOD
 

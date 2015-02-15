@@ -1526,6 +1526,12 @@ public:
 	AjahTypes GetPublicSupportedAjah() const;
 	int GetTurnsSincePledgedAjahSupport() const;
 	bool IsCanPledgeAjahSupport() const;
+
+	AlignmentTypes GetMajorityAlignment() const;
+	int GetTotalAlignmentYield(AlignmentTypes eAlignment) const;
+	void SetTotalAlignmentYield(AlignmentTypes eAlignment, int iNewValue);
+	void ChangeTotalAlignmentYield(AlignmentTypes eAlignment, int iChange);
+	int GetAlignmentLeaning(AlignmentTypes eAlignment) const;
 #endif // WOTMOD
 
 	bool hasTurnTimerExpired();
@@ -1820,6 +1826,7 @@ protected:
 #if WOTMOD
 	FAutoVariable<std::pair<PlayerTypes, AjahTypes>, CvPlayer> m_ePublicSupportedAjah;
 	FAutoVariable<int, CvPlayer> m_iTurnsSincePledgedSupport;
+	FAutoVariable<std::vector<int>, CvPlayer> m_aiTotalAlignmentYields;
 #endif // WOTMOD
 
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCityYieldChange;

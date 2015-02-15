@@ -21,6 +21,8 @@ public:
 
 	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
 
+	bool IsOpposing(AlignmentTypes eOtherAlignment) const;
+
 private:
 	YieldTypes m_eYield;
 

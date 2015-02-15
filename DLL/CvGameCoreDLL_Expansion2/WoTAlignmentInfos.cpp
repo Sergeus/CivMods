@@ -31,5 +31,10 @@ bool WoTAlignmentInfo::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	kUtility.PopulateArrayByExistence(m_pbAlignmentOpposing, "Alignments", "Alignment_Oppositions", "OpposingType", "AlignmentType", szAlignmentType);
 }
 
+bool WoTAlignmentInfo::IsOpposing(AlignmentTypes eOtherAlignment) const
+{
+	return m_pbAlignmentOpposing[eOtherAlignment];
+}
+
 #endif // WOTMOD
 
