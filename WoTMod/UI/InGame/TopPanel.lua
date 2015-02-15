@@ -178,6 +178,26 @@ function UpdateData()
 				strFaithStr = "[ICON_PEACE]" .. strFaithStr;
 			end
 			Controls.FaithString:SetText(strFaithStr);
+
+			-- WoTMod Addition
+			-- Update Alignment
+			local alignmentId = pPlayer:GetMajorityAlignment()
+			local alignment = GameInfo.Alignments[alignmentId]
+			-- TODO switch off UI if Last Battle victory disabled
+			local leaning = pPlayer:GetAlignmentLeaning(alignmentId)
+			local leaningString 
+			for row in GameInfo.Alignment_DescriptionThresholds() do
+				if (row.AlignmentType == alignment.Type) then
+					if (row.Threshold > leaning) then
+						break -- Assumes the DB rows are in ascending order
+					end
+					leaningString = Locale.ConvertTextKey(row.Description)
+				end
+			end
+
+			local alignmentStr = Locale.ConvertTextKey(alignment.Description) .. " | " .. leaningString
+			Controls.AlignmentString:SetText(alignmentStr)
+			-- WoTMod Addition End
 	
 			-----------------------------
 			-- Update Resources

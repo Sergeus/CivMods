@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2/15/2015 4:56:54 PM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_ALIGNMENT_LIGHT">
+			<Text>Light</Text>
+		</Row>
+		<Row Tag="TXT_KEY_ALIGNMENT_SHADOW">
+			<Text>Shadow</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LIGHT_EXTENT_0">
+			<Text>Servant</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LIGHT_EXTENT_1">
+			<Text>Believer</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LIGHT_EXTENT_2">
+			<Text>Holy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SHADOW_EXTENT_0">
+			<Text>Servant</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SHADOW_EXTENT_1">
+			<Text>Corrupted</Text>
+		</Row>
+		<Row Tag="TXT_KEY_SHADOW_EXTENT_2">
+			<Text>Villainous</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

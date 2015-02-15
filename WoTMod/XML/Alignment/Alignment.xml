@@ -13,7 +13,7 @@
 	</Table>
 	<Table name="Alignment_DescriptionThresholds">
 		<Column name="AlignmentType" type="text" notnull="true" reference="Alignments(Type)" />
-		<Column name="AlignmentDescription" type="text" notnull="true" reference="Language_en_US(Tag)" />
+		<Column name="Description" type="text" notnull="true" reference="Language_en_US(Tag)" />
 		<Column name="Threshold" type="integer" />
 	</Table>
 	<Alignments>
@@ -39,4 +39,36 @@
 			<OpposingType>ALIGNMENT_LIGHT</OpposingType>
 		</Row>
 	</Alignment_Oppositions>
+	<Alignment_DescriptionThresholds>
+		<Row>
+			<AlignmentType>ALIGNMENT_LIGHT</AlignmentType>
+			<Description>TXT_KEY_LIGHT_EXTENT_0</Description>
+			<Threshold>0</Threshold>
+		</Row>
+		<Row>
+			<AlignmentType>ALIGNMENT_LIGHT</AlignmentType>
+			<Description>TXT_KEY_LIGHT_EXTENT_1</Description>
+			<Threshold>100</Threshold>
+		</Row>
+		<Row>
+			<AlignmentType>ALIGNMENT_LIGHT</AlignmentType>
+			<Description>TXT_KEY_LIGHT_EXTENT_2</Description>
+			<Threshold>200</Threshold>
+		</Row>
+		<Row>
+			<AlignmentType>ALIGNMENT_SHADOW</AlignmentType>
+			<Description>TXT_KEY_SHADOW_EXTENT_0</Description>
+			<Threshold>1</Threshold>
+		</Row>
+		<Row>
+			<AlignmentType>ALIGNMENT_SHADOW</AlignmentType>
+			<Description>TXT_KEY_SHADOW_EXTENT_1</Description>
+			<Threshold>100</Threshold>
+		</Row>
+		<Row>
+			<AlignmentType>ALIGNMENT_SHADOW</AlignmentType>
+			<Description>TXT_KEY_SHADOW_EXTENT_2</Description>
+			<Threshold>200</Threshold>
+		</Row>
+	</Alignment_DescriptionThresholds>
 </GameData>
