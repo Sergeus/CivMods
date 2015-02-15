@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2/15/2015 10:15:22 PM -->
+<GameData>
+	<Eras>
+		<Update>
+			<Where Type="ERA_ANCIENT" />
+			<Set Type="ERA_AFTER_BREAKING" />
+		</Update>
+	</Eras>
+	<Era_CitySoundscapes>
+		<Update>
+			<Where EraType="ERA_ANCIENT" />
+			<Set EraType="ERA_AFTER_BREAKING" />
+		</Update>
+	</Era_CitySoundscapes>
+	<Era_Soundtracks>
+		<Update>
+			<Where EraType="ERA_ANCIENT" />
+			<Set EraType="ERA_AFTER_BREAKING" />
+		</Update>
+	</Era_Soundtracks>
+	<PostDefines>
+		<Update>
+			<Where Key="ERA_ANCIENT" />
+			<Set Key="ERA_AFTER_BREAKING" />
+		</Update>
+	</PostDefines>
+	<Technologies>
+		<Update>
+			<Where Era="ERA_ANCIENT" />
+			<Set Era="ERA_AFTER_BREAKING" />
+		</Update>
+	</Technologies>
+	<GreatWorks>
+		<Update>
+			<Where EraType="ERA_ANCIENT" />
+			<Set EraType="ERA_AFTER_BREAKING" />
+		</Update>
+	</GreatWorks>
+	<Belief_EraFaithUnitPurchase>
+		<Update>
+			<Where EraType="ERA_ANCIENT" />
+			<Set EraType="ERA_AFTER_BREAKING" />
+		</Update>
+	</Belief_EraFaithUnitPurchase>
+</GameData>

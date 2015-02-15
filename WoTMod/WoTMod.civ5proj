@@ -684,6 +684,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/AlignmentText.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Eras/Eras.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -778,6 +783,7 @@
     <Folder Include="XML\Governors" />
     <Folder Include="XML\MinorCivs" />
     <Folder Include="XML\Alignment" />
+    <Folder Include="XML\Eras" />
     <Folder Include="XML\Religion" />
     <Folder Include="XML\WhiteTower" />
     <Folder Include="XML\Victories" />
@@ -1802,6 +1808,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Defines.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Eras\Eras.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
