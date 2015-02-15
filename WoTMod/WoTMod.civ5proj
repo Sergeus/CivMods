@@ -669,6 +669,16 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/GameText/CityStates.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Alignment/Alignment.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Alignment/Yields.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -762,6 +772,7 @@
     <Folder Include="XML\Buildings" />
     <Folder Include="XML\Governors" />
     <Folder Include="XML\MinorCivs" />
+    <Folder Include="XML\Alignment" />
     <Folder Include="XML\Religion" />
     <Folder Include="XML\WhiteTower" />
     <Folder Include="XML\Victories" />
@@ -1708,6 +1719,14 @@
     <Content Include="UI\InGame\WorldView\NotificationPanel.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Alignment\Alignment.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Alignment\Yields.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Buildings\BuildingEdits.sql">
       <SubType>Lua</SubType>

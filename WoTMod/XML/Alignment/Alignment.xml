@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2/15/2015 12:13:56 PM -->
+<GameData>
+	<Table name="Alignments">
+		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
+		<Column name="Type" type="text" notnull="true" unique="true"/>
+		<Column name="Description" type="text" notnull="true" reference="Language_en_US(Tag)" />
+		<Column name="Yield" type="text" notnull="true" reference="Yields(Type)" />
+	</Table>
+	<Table name="Alignments_Oppositions">
+		<Column name="AlignmentType" type="text" notnull="true" reference="Alignments(Type)" />
+		<Column name="OpposingType" type="text" notnull="true" reference="Alignments(Type)" />
+	</Table>
+	<Table name="Alignment_DescriptionThresholds">
+		<Column name="AlignmentType" type="text" notnull="true" reference="Alignments(Type)" />
+		<Column name="AlignmentDescription" type="text" notnull="true" reference="Language_en_US(Tag)" />
+		<Column name="Threshold" type="integer" />
+	</Table>
+	<Alignments>
+		<Row>
+			<ID>0</ID>
+			<Type>ALIGNMENT_LIGHT</Type>
+			<Description>TXT_KEY_ALIGNMENT_LIGHT</Description>
+			<Yield>YIELD_LIGHT</Yield>
+		</Row>
+		<Row>
+			<Type>ALIGNMENT_SHADOW</Type>
+			<Description>TXT_KEY_ALIGNMENT_SHADOW</Description>
+			<Yield>YIELD_SHADOW</Yield>
+		</Row>
+	</Alignments>
+	<Alignments_Oppositions>
+		<Row>
+			<AlignmentType>ALIGNMENT_LIGHT</AlignmentType>
+			<OpposingType>ALIGNMENT_SHADOW</OpposingType>
+		</Row>
+		<Row>
+			<AlignmentType>ALIGNMENT_SHADOW</AlignmentType>
+			<OpposingType>ALIGNMENT_LIGHT</OpposingType>
+		</Row>
+	</Alignments_Oppositions>
+</GameData>

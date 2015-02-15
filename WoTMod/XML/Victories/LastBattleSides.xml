@@ -17,5 +17,9 @@
 			<Type>SIDE_SHADOW</Type>
 			<Description>TXT_KEY_SIDE_SHADOW</Description>
 		</Row>
+		<Row>
+			<Type>SIDE_NEUTRAL</Type>
+			<Description>TXT_KEY_SIDE_NEUTRAL</Description>
+		</Row>
 	</LastBattleSides>
 </GameData>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2/15/2015 12:14:59 PM -->
+<GameData>
+	<Yields>
+		<Row>
+			<Type>YIELD_LIGHT</Type>
+			<Description>TXT_KEY_YIELD_LIGHT</Description>
+			<IconString>[ICON_LIGHT]</IconString>
+		</Row>
+		<Row>
+			<Type>YIELD_SHADOW</Type>
+			<Description>TXT_KEY_YIELD_SHADOW</Description>
+			<IconString>[ICON_SHADOW]</IconString>
+		</Row>
+	</Yields>
+</GameData>
