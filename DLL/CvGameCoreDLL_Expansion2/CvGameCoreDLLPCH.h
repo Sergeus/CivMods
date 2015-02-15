@@ -163,6 +163,7 @@ typedef wchar_t          wchar;
 #include "WoTSerialization.h"
 #include "WoTNotifications.h"
 #include "WoTWhiteTowerClasses.h"
+#include "WoTAlignmentInfos.h"
 #endif // WOTMOD
 
 #if CUSTOM_NOTIFICATIONS

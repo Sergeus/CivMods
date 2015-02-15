@@ -136,6 +136,7 @@ class WoTOnePowerInfo;
 class CvMinorCivTraitInfo;
 class WoTMinorCivPlotInfo;
 class WoTWhiteTowerAjahInfo;
+class WoTAlignmentInfo;
 #endif // WOTMOD
 
 class CvDLLInterfaceIFaceBase;
@@ -359,6 +360,10 @@ public:
 	int GetNumWhiteTowerAjahInfos();
 	std::vector<WoTWhiteTowerAjahInfo*>& GetWhiteTowerAjahInfos();
 	WoTWhiteTowerAjahInfo* GetWhiteTowerAjahInfo(AjahTypes eAjah);
+
+	int GetNumAlignmentInfos();
+	std::vector<WoTAlignmentInfo*>& GetAlignmentInfos();
+	WoTAlignmentInfo* GetAlignmentInfo(AlignmentTypes eAlignment);
 #endif // WOTMOD
 
 	int& getNumPlayableCivilizationInfos();
@@ -7636,6 +7641,7 @@ protected:
 	std::vector<CvMinorCivTraitInfo*> m_paMinorCivTraitInfo;
 	std::vector<WoTMinorCivPlotInfo*> m_paMinorCivPlotInfo;
 	std::vector<WoTWhiteTowerAjahInfo*> m_paWhiteTowerAjahInfo;
+	std::vector<WoTAlignmentInfo*> m_paAlignmentInfo;
 #endif // WOTMOD
 
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;

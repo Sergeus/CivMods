@@ -343,6 +343,7 @@ bool CvDllDatabaseUtility::PrefetchGameData()
 	PrefetchCollection(GC.GetMinorCivTraitInfos(), "MinorCivTraits");
 	PrefetchCollection(GC.GetMinorCivPlotInfos(), "MinorCivilizationPlots");
 	PrefetchCollection(GC.GetWhiteTowerAjahInfos(), "Ajahs");
+	PrefetchCollection(GC.GetAlignmentInfos(), "Alignments");
 #endif // WOTMOD
 
 	//Technologies

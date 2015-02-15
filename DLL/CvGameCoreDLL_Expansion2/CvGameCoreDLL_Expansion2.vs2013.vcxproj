@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="CvCityManager.cpp" />
     <ClCompile Include="CvTargeting.cpp" />
+    <ClCompile Include="WoTAlignmentInfos.cpp" />
     <ClCompile Include="WoTGovernorClasses.cpp" />
     <ClCompile Include="WoTHornOfValere.cpp" />
     <ClCompile Include="WoTNotifications.cpp" />
@@ -493,6 +494,7 @@
     <ClInclude Include="Lua\CvLuaTeam.h" />
     <ClInclude Include="Lua\CvLuaTeamTech.h" />
     <ClInclude Include="Lua\CvLuaUnit.h" />
+    <ClInclude Include="WoTAlignmentInfos.h" />
     <ClInclude Include="WoTGovernorClasses.h" />
     <ClInclude Include="WoTHornOfValere.h" />
     <ClInclude Include="WoTNotifications.h" />

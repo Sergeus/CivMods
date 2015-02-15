@@ -38,6 +38,7 @@
 
 #if WOTMOD
 #include "WoTGovernorClasses.h"
+#include "WoTAlignmentInfos.h"
 #endif // WOTMOD
 
 #include "CvDllDatabaseUtility.h"
@@ -2676,6 +2677,18 @@ std::vector<WoTWhiteTowerAjahInfo*>& CvGlobals::GetWhiteTowerAjahInfos()
 WoTWhiteTowerAjahInfo* CvGlobals::GetWhiteTowerAjahInfo(AjahTypes eAjah)
 {
 	return m_paWhiteTowerAjahInfo[eAjah];
+}
+int CvGlobals::GetNumAlignmentInfos()
+{
+	return m_paAlignmentInfo.size();
+}
+std::vector<WoTAlignmentInfo*>& CvGlobals::GetAlignmentInfos()
+{
+	return m_paAlignmentInfo;
+}
+WoTAlignmentInfo* CvGlobals::GetAlignmentInfo(AlignmentTypes eAlignment)
+{
+	return m_paAlignmentInfo[eAlignment];
 }
 #endif // WOTMOD
 

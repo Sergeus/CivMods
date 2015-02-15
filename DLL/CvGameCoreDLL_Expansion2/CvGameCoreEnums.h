@@ -19,6 +19,11 @@ enum YieldTypes
     YIELD_CULTURE,
     YIELD_FAITH,
 
+#if WOTMOD
+	YIELD_LIGHT,
+	YIELD_SHADOW,
+#endif
+
     NUM_YIELD_TYPES
 };
 
