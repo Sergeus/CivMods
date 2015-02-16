@@ -2622,25 +2622,49 @@ int CvLuaPlayer::lChangeFaith(lua_State* L)
 //int GetTotalFaithPerTurn();
 int CvLuaPlayer::lGetTotalFaithPerTurn(lua_State* L)
 {
+#if WOTMOD
+	CvPlayerAI* pkPlayer = GetInstance(L);
+	lua_pushinteger(L, pkPlayer->GetYieldRate(YIELD_FAITH));
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetTotalFaithPerTurn);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 //int GetFaithPerTurnFromCities();
 int CvLuaPlayer::lGetFaithPerTurnFromCities(lua_State* L)
 {
+#if WOTMOD
+	CvPlayerAI* pPlayer = GetInstance(L);
+	lua_pushinteger(L, pPlayer->GetYieldRateFromCities(YIELD_FAITH));
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetFaithPerTurnFromCities);
+#endif
 }
 //------------------------------------------------------------------------------
 //int GetFaithPerTurnFromMinorCivs();
 int CvLuaPlayer::lGetFaithPerTurnFromMinorCivs(lua_State* L)
 {
+#if WOTMOD
+	CvPlayerAI* pPlayer = GetInstance(L);
+	lua_pushinteger(L, pPlayer->GetYieldRateFromMinorCivs(YIELD_FAITH));
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetFaithPerTurnFromMinorCivs);
+#endif
 }
 //------------------------------------------------------------------------------
 //int GetFaithPerTurnFromReligion();
 int CvLuaPlayer::lGetFaithPerTurnFromReligion(lua_State* L)
 {
+#if WOTMOD
+	CvPlayerAI* pPlayer = GetInstance(L);
+	lua_pushinteger(L, pPlayer->GetYieldRateFromReligion(YIELD_FAITH));
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetFaithPerTurnFromReligion);
+#endif
 }
 //------------------------------------------------------------------------------
 //bool HasCreatedPantheon();

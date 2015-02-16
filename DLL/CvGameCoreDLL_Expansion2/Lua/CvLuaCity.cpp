@@ -2244,37 +2244,74 @@ int CvLuaCity::lGetThemingTooltip(lua_State* L)
 //int GetFaithPerTurn() const;
 int CvLuaCity::lGetFaithPerTurn(lua_State* L)
 {
+#if WOTMOD
+	CvCity* pCity = GetInstance(L);
+	lua_pushinteger(L, pCity->getYieldRate(YIELD_FAITH, false));
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvCity::GetFaithPerTurn);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 //int GetFaithPerTurnFromBuildings() const;
 int CvLuaCity::lGetFaithPerTurnFromBuildings(lua_State* L)
 {
+#if WOTMOD
+	CvCity* pkCity = GetInstance(L);
+	lua_pushinteger(L, pkCity->GetBaseYieldRateFromBuildings(YIELD_FAITH));
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvCity::GetFaithPerTurnFromBuildings);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 //int GetFaithPerTurnFromPolicies() const;
 int CvLuaCity::lGetFaithPerTurnFromPolicies(lua_State* L)
 {
+#if WOTMOD
+	CvCity* pCity = GetInstance(L);
+	lua_pushinteger(L, pCity->GetBaseYieldRateFromPolicies(YIELD_FAITH));
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvCity::GetFaithPerTurnFromPolicies);
+#endif
 }
 //------------------------------------------------------------------------------
 //int GetFaithPerTurnFromTraits() const;
 int CvLuaCity::lGetFaithPerTurnFromTraits(lua_State* L)
 {
+#if WOTMOD
+	CvCity* pCity = GetInstance(L);
+	lua_pushinteger(L, pCity->GetYieldRateFromTraits(YIELD_FAITH));
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvCity::GetFaithPerTurnFromTraits);
+#endif
 }
 //------------------------------------------------------------------------------
 //int GetFaithPerTurnFromReligion() const;
 int CvLuaCity::lGetFaithPerTurnFromReligion(lua_State* L)
 {
+#if WOTMOD
+	CvCity* pCity = GetInstance(L);
+	lua_pushinteger(L, pCity->GetBaseYieldRateFromReligion(YIELD_FAITH));
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvCity::GetFaithPerTurnFromReligion);
+#endif
 }
 //------------------------------------------------------------------------------
 //void ChangeFaithPerTurnFromReligion(int iChange);
 int CvLuaCity::lChangeFaithPerTurnFromReligion(lua_State* L)
 {
+#if WOTMOD
+	CvCity* pCity = GetInstance(L);
+	int iChange = lua_tointeger(L, 2);
+	pCity->ChangeBaseYieldRateFromReligion(YIELD_FAITH, iChange);
+	return 0;
+#else
 	return BasicLuaMethod(L, &CvCity::ChangeFaithPerTurnFromReligion);
+#endif
 }
 //------------------------------------------------------------------------------
 //int IsReligionInCity() const;

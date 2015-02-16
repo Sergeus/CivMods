@@ -384,11 +384,19 @@ public:
 	void DoTechFromCityConquer(CvCity* pConqueredCity);
 
 	// Faith
+#if WOTMOD
+	int GetYieldRate(YieldTypes eYield) const;
+	int GetYieldRateFromCities(YieldTypes eYield) const;
+	int GetYieldRateFromMinorCivs(YieldTypes eYield) const;
+	int GetYieldRateFromReligion(YieldTypes eYield) const;
+#else
 	int GetTotalFaithPerTurn() const;
 	int GetFaithPerTurnFromCities() const;
 	int GetFaithPerTurnFromMinorCivs() const;
 	int GetFaithPerTurnFromMinor(PlayerTypes eMinor) const;
 	int GetFaithPerTurnFromReligion() const;
+#endif // WOTMOD
+
 	int GetFaith() const;
 	void SetFaith(int iNewValue);
 	void ChangeFaith(int iChange);

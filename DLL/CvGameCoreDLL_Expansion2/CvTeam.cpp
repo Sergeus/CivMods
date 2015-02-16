@@ -4736,10 +4736,12 @@ void CvTeam::enhanceBuilding(BuildingTypes eIndex, int iChange)
 								{
 									pLoopCity->ChangeJONSCulturePerTurnFromBuildings(thisBuildingEntry->GetTechEnhancedYieldChange(k) * iChange);
 								}
+#if !WOTMOD
 								else if((YieldTypes)k == YIELD_FAITH)
 								{
 									pLoopCity->ChangeFaithPerTurnFromBuildings(thisBuildingEntry->GetTechEnhancedYieldChange(k) * iChange);
 								}
+#endif // !WOTMOD
 								else
 								{
 									pLoopCity->ChangeBaseYieldRateFromBuildings(((YieldTypes)k), thisBuildingEntry->GetTechEnhancedYieldChange(k) * iChange);

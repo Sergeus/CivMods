@@ -373,7 +373,14 @@ public:
 
 	// END Culture
 
+#if WOTMOD
+	int GetBaseYieldRateFromPolicies(YieldTypes eYield) const;
+	void SetBaseYieldRateFromPolicies(YieldTypes eYield, int iNewValue);
+	void ChangeBaseYieldRateFromPolicies(YieldTypes eYield, int iChange);
+	int GetYieldRateFromTraits(YieldTypes eYield) const;
+#else
 	int GetFaithPerTurn() const;
+
 	int GetFaithPerTurnFromBuildings() const;
 	void ChangeFaithPerTurnFromBuildings(int iChange);
 
@@ -384,6 +391,8 @@ public:
 
 	int GetFaithPerTurnFromReligion() const;
 	void ChangeFaithPerTurnFromReligion(int iChange);
+#endif // WOTMOD
+
 
 	int getNumWorldWonders() const;
 	void changeNumWorldWonders(int iChange);
@@ -849,9 +858,13 @@ protected:
 	FAutoVariable<int, CvCity> m_iJONSCulturePerTurnFromPolicies;
 	FAutoVariable<int, CvCity> m_iJONSCulturePerTurnFromSpecialists;
 	FAutoVariable<int, CvCity> m_iJONSCulturePerTurnFromReligion;
+#if WOTMOD
+	FAutoVariable<std::vector<int>, CvCity> m_aiBaseYieldRateFromPolicies;
+#else
 	int m_iFaithPerTurnFromBuildings;
 	int m_iFaithPerTurnFromPolicies;
 	int m_iFaithPerTurnFromReligion;
+#endif // !WOTMOD
 	FAutoVariable<int, CvCity> m_iCultureRateModifier;
 	FAutoVariable<int, CvCity> m_iNumWorldWonders;
 	FAutoVariable<int, CvCity> m_iNumTeamWonders;

@@ -2623,7 +2623,11 @@ bool CityStrategyAIHelpers::IsTestCityStrategy_FirstFaithBuilding(CvCity* pCity)
 
 	int iReligionFlavor = kPlayer.GetFlavorManager()->GetPersonalityIndividualFlavor(eFlavor);
 
+#if WOTMOD
+	if (pCity->GetBaseYieldRateFromBuildings(YIELD_FAITH) > 0)
+#else
 	if(pCity->GetFaithPerTurnFromBuildings() > 0)
+#endif // WOTMOD
 	{
 		return false;
 	}

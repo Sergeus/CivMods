@@ -381,7 +381,11 @@ void CvGameReligions::DoPlayerTurn(CvPlayer& kPlayer)
 	bool bCouldAtStartAffordFaithPurchase = kPlayer.GetReligions()->CanAffordFaithPurchase();
 	const PlayerTypes ePlayer = kPlayer.GetID();
 
+#if WOTMOD
+	int iFaithPerTurn = kPlayer.GetYieldRate(YIELD_FAITH);
+#else
 	int iFaithPerTurn = kPlayer.GetTotalFaithPerTurn();
+#endif // WOTMOD
 	if(iFaithPerTurn > 0)
 	{
 		kPlayer.ChangeFaith(iFaithPerTurn);

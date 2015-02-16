@@ -1319,7 +1319,11 @@ void CvEconomicAI::LogMonitor(void)
 			AppendToLog(strHeader, strLog, "Culture", m_pPlayer->GetTotalJONSCulturePerTurn());
 			break;
 		case YIELD_FAITH:
+#if WOTMOD
+			AppendToLog(strHeader, strLog, "Faith", m_pPlayer->GetYieldRate(static_cast<YieldTypes>(ui)));
+#else
 			AppendToLog(strHeader, strLog, "Faith", m_pPlayer->GetTotalFaithPerTurn());
+#endif // WOTMOD
 			break;
 		}
 	}

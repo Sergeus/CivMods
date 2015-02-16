@@ -137,9 +137,13 @@ CvCity::CvCity() :
 	, m_iJONSCulturePerTurnFromPolicies("CvCity::m_iJONSCulturePerTurnFromPolicies", m_syncArchive)
 	, m_iJONSCulturePerTurnFromSpecialists("CvCity::m_iJONSCulturePerTurnFromSpecialists", m_syncArchive)
 	, m_iJONSCulturePerTurnFromReligion("CvCity::m_iJONSCulturePerTurnFromReligion", m_syncArchive)
+#if WOTMOD
+	, m_aiBaseYieldRateFromPolicies("CvCity::m_aiBaseYieldRateFromPolicies", m_syncArchive)
+#else
 	, m_iFaithPerTurnFromBuildings(0)
 	, m_iFaithPerTurnFromPolicies(0)
 	, m_iFaithPerTurnFromReligion(0)
+#endif // WOTMOD
 	, m_iCultureRateModifier("CvCity::m_iCultureRateModifier", m_syncArchive)
 	, m_iNumWorldWonders("CvCity::m_iNumWorldWonders", m_syncArchive)
 	, m_iNumTeamWonders("CvCity::m_iNumTeamWonders", m_syncArchive)
@@ -685,9 +689,11 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iJONSCulturePerTurnFromPolicies = 0;
 	m_iJONSCulturePerTurnFromSpecialists = 0;
 	m_iJONSCulturePerTurnFromReligion = 0;
+#if !WOTMOD
 	m_iFaithPerTurnFromBuildings = 0;
 	m_iFaithPerTurnFromPolicies = 0;
 	m_iFaithPerTurnFromReligion = 0;
+#endif // !WOTMOD
 	m_iCultureRateModifier = 0;
 	m_iNumWorldWonders = 0;
 	m_iNumTeamWonders = 0;
@@ -751,6 +757,10 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_eOriginalOwner = eOwner;
 	m_ePlayersReligion = NO_PLAYER;
 
+
+#if WOTMOD
+	m_aiBaseYieldRateFromPolicies.resize(GC.GetNumYieldInfos(), 0);
+#endif // WOTMOD
 
 	m_aiSeaPlotYield.resize(NUM_YIELD_TYPES);
 	m_aiRiverPlotYield.resize(NUM_YIELD_TYPES);
@@ -3243,8 +3253,12 @@ void CvCity::ChangeNumResourceLocal(ResourceTypes eResource, int iChange)
 					// Does eBuilding give faith with eResource?
 					int iFaith = pkBuildingInfo->GetResourceFaithChange(eResource);
 
-					if(iFaith != 0)
+					if (iFaith != 0)
+#if WOTMOD
+						ChangeBaseYieldRateFromBuildings(YIELD_FAITH, iFaith * iChange);
+#else
 						ChangeFaithPerTurnFromBuildings(iFaith * iChange);
+#endif // WOTMOD
 				}
 			}
 		}
@@ -6219,8 +6233,10 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 		changePlotCultureCostModifier(pBuildingInfo->GetPlotCultureCostModifier() * iChange);
 		changePlotBuyCostModifier(pBuildingInfo->GetPlotBuyCostModifier() * iChange);
 
+#if !WOTMOD
 		int iBuildingFaith = pBuildingInfo->GetYieldChange(YIELD_FAITH);
 		ChangeFaithPerTurnFromBuildings(iBuildingFaith * iChange);
+#endif // !WOTMOD
 		m_pCityReligions->ChangeReligiousPressureModifier(pBuildingInfo->GetReligiousPressureModifier() * iChange);
 
 		PolicyTypes ePolicy;
@@ -6231,7 +6247,11 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 			if(owningPlayer.GetPlayerPolicies()->HasPolicy(ePolicy) && !owningPlayer.GetPlayerPolicies()->IsPolicyBlocked(ePolicy))
 			{
 				ChangeJONSCulturePerTurnFromPolicies(GC.getPolicyInfo(ePolicy)->GetBuildingClassCultureChange(eBuildingClass) * iChange);
+#if WOTMOD
+				ChangeBaseYieldRateFromPolicies(YIELD_FAITH, GC.getPolicyInfo(ePolicy)->GetBuildingClassYieldChanges(eBuildingClass, YIELD_FAITH) * iChange);
+#else
 				ChangeFaithPerTurnFromPolicies(GC.getPolicyInfo(ePolicy)->GetBuildingClassYieldChanges(eBuildingClass, YIELD_FAITH) * iChange);
+#endif
 			}
 		}
 
@@ -6323,7 +6343,11 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 
 				if(iFaith != 0)
 				{
+#if WOTMOD
+					ChangeBaseYieldRateFromBuildings(YIELD_FAITH, iFaith * m_paiNumResourcesLocal[eResource]);
+#else
 					ChangeFaithPerTurnFromBuildings(iFaith * m_paiNumResourcesLocal[eResource]);
+#endif // WOTMOD
 				}
 			}
 		}
@@ -6434,10 +6458,12 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 					{
 						ChangeJONSCulturePerTurnFromBuildings(pBuildingInfo->GetTechEnhancedYieldChange(eYield) * iChange);
 					}
+#if !WOTMOD
 					else if(eYield == YIELD_FAITH)
 					{
 						ChangeFaithPerTurnFromBuildings(pBuildingInfo->GetTechEnhancedYieldChange(eYield) * iChange);
 					}
+#endif // !WOTMOD
 					else
 					{
 						ChangeBaseYieldRateFromBuildings(eYield, pBuildingInfo->GetTechEnhancedYieldChange(eYield) * iChange);
@@ -6452,10 +6478,12 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 				{
 					ChangeJONSCulturePerTurnFromBuildings(iBuildingClassBonus * iChange);
 				}
+#if !WOTMOD
 				else if(eYield == YIELD_FAITH)
 				{
 					ChangeFaithPerTurnFromBuildings(iBuildingClassBonus * iChange);
 				}
+#endif // !WOTMOD
 				else
 				{
 					ChangeBaseYieldRateFromBuildings(eYield, iBuildingClassBonus * iChange);
@@ -6573,7 +6601,9 @@ void CvCity::UpdateReligion(ReligionTypes eNewMajority)
 
 	// Reset city level yields
 	m_iJONSCulturePerTurnFromReligion = 0;
+#if !WOTMOD
 	m_iFaithPerTurnFromReligion = 0;
+#endif // !WOTMOD
 	for(int iYield = 0; iYield <= YIELD_SCIENCE; iYield++)
 	{
 		m_aiBaseYieldRateFromReligion[iYield] = 0;
@@ -6589,9 +6619,11 @@ void CvCity::UpdateReligion(ReligionTypes eNewMajority)
 				case YIELD_CULTURE:
 					ChangeJONSCulturePerTurnFromReligion((GetCityReligions()->GetNumReligionsWithFollowers() * iYieldPerReligion) / 100);
 					break;
+#if !WOTMOD
 				case YIELD_FAITH:
 					ChangeFaithPerTurnFromReligion((GetCityReligions()->GetNumReligionsWithFollowers() * iYieldPerReligion) / 100);
 					break;
+#endif
 				default:
 					ChangeBaseYieldRateFromReligion((YieldTypes)iYield, (GetCityReligions()->GetNumReligionsWithFollowers() * iYieldPerReligion) / 100);
 					break;
@@ -6617,9 +6649,11 @@ void CvCity::UpdateReligion(ReligionTypes eNewMajority)
 				case YIELD_CULTURE:
 					ChangeJONSCulturePerTurnFromReligion(iReligionYieldChange);
 					break;
+#if !WOTMOD
 				case YIELD_FAITH:
 					ChangeFaithPerTurnFromReligion(iReligionYieldChange);
 					break;
+#endif // !WOTMOD
 				default:
 					ChangeBaseYieldRateFromReligion((YieldTypes)iYield, iReligionYieldChange);
 					break;
@@ -6639,9 +6673,11 @@ void CvCity::UpdateReligion(ReligionTypes eNewMajority)
 					case YIELD_CULTURE:
 						ChangeJONSCulturePerTurnFromReligion(iReligionChange);
 						break;
+#if !WOTMOD
 					case YIELD_FAITH:
 						ChangeFaithPerTurnFromReligion(iReligionChange);
 						break;
+#endif // !WOTMOD
 					default:
 						ChangeBaseYieldRateFromReligion((YieldTypes)iYield, iReligionChange);
 						break;
@@ -6655,9 +6691,11 @@ void CvCity::UpdateReligion(ReligionTypes eNewMajority)
 					case YIELD_CULTURE:
 						ChangeJONSCulturePerTurnFromReligion(pReligion->m_Beliefs.GetYieldChangeAnySpecialist((YieldTypes)iYield));
 						break;
+#if !WOTMOD
 					case YIELD_FAITH:
 						ChangeFaithPerTurnFromReligion(pReligion->m_Beliefs.GetYieldChangeAnySpecialist((YieldTypes)iYield));
 						break;
+#endif // !WOTMOD
 					default:
 						ChangeBaseYieldRateFromReligion((YieldTypes)iYield, pReligion->m_Beliefs.GetYieldChangeAnySpecialist((YieldTypes)iYield));
 						break;
@@ -6694,9 +6732,11 @@ void CvCity::UpdateReligion(ReligionTypes eNewMajority)
 							case YIELD_CULTURE:
 								ChangeJONSCulturePerTurnFromReligion(iYieldFromBuilding);
 								break;
+#if !WOTMOD
 							case YIELD_FAITH:
 								ChangeFaithPerTurnFromReligion(iYieldFromBuilding);
 								break;
+#endif // !WOTMOD
 							default:
 								ChangeBaseYieldRateFromReligion((YieldTypes)iYield, iYieldFromBuilding);
 								break;
@@ -7882,7 +7922,7 @@ int CvCity::GetBaseJONSCulturePerTurn() const
 	iCulturePerTurn += GetJONSCulturePerTurnFromGreatWorks();
 #if !WOTMOD
 	iCulturePerTurn += GetBaseYieldRateFromTerrain(YIELD_CULTURE);
-#endif // WOTMOD
+#endif // !WOTMOD
 	iCulturePerTurn += GetJONSCulturePerTurnFromTraits();
 	iCulturePerTurn += GetJONSCulturePerTurnFromReligion();
 	iCulturePerTurn += GetJONSCulturePerTurnFromLeagues();
@@ -7987,6 +8027,7 @@ int CvCity::GetJONSCulturePerTurnFromLeagues() const
 	return iValue;
 }
 
+#if !WOTMOD
 //	--------------------------------------------------------------------------------
 int CvCity::GetFaithPerTurn() const
 {
@@ -8004,10 +8045,6 @@ int CvCity::GetFaithPerTurn() const
 	iFaith += GetFaithPerTurnFromTraits();
 	iFaith += GetFaithPerTurnFromReligion();
 
-#if WOTMOD
-	iFaith += GetCityGovernors()->GetYieldChange(YIELD_FAITH);
-#endif // WOTMOD
-
 	// Puppet?
 	int iModifier = 0;
 	if(IsPuppet())
@@ -8019,14 +8056,28 @@ int CvCity::GetFaithPerTurn() const
 
 	return iFaith;
 }
+#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
+#if WOTMOD
+int CvCity::GetBaseYieldRateFromPolicies(YieldTypes eYield) const
+{
+	return m_aiBaseYieldRateFromPolicies[eYield];
+}
+void CvCity::SetBaseYieldRateFromPolicies(YieldTypes eYield, int iNewValue)
+{
+	m_aiBaseYieldRateFromPolicies.setAt(eYield, iNewValue);
+}
+void CvCity::ChangeBaseYieldRateFromPolicies(YieldTypes eYield, int iChange)
+{
+	m_aiBaseYieldRateFromPolicies.setAt(eYield, iChange + GetBaseYieldRateFromPolicies(eYield));
+}
+#else
 int CvCity::GetFaithPerTurnFromBuildings() const
 {
 	VALIDATE_OBJECT
 	return m_iFaithPerTurnFromBuildings;
 }
-
 //	--------------------------------------------------------------------------------
 void CvCity::ChangeFaithPerTurnFromBuildings(int iChange)
 {
@@ -8053,12 +8104,21 @@ void CvCity::ChangeFaithPerTurnFromPolicies(int iChange)
 		m_iFaithPerTurnFromPolicies = (m_iFaithPerTurnFromPolicies + iChange);
 	}
 }
+#endif // WOTMOD
 
 //	--------------------------------------------------------------------------------
+#if WOTMOD
+int CvCity::GetYieldRateFromTraits(YieldTypes eYield) const
+{
+	if (eYield != YIELD_FAITH)
+	{
+		return 0;
+	}
+#else
 int CvCity::GetFaithPerTurnFromTraits() const
 {
+#endif
 	VALIDATE_OBJECT
-
 	int iRtnValue = 0;
 
 	if(GET_PLAYER(m_eOwner).GetPlayerTraits()->IsFaithFromUnimprovedForest())
@@ -8092,6 +8152,7 @@ int CvCity::GetFaithPerTurnFromTraits() const
 	return iRtnValue;
 }
 
+#if !WOTMOD
 //	--------------------------------------------------------------------------------
 int CvCity::GetFaithPerTurnFromReligion() const
 {
@@ -8108,6 +8169,7 @@ void CvCity::ChangeFaithPerTurnFromReligion(int iChange)
 		m_iFaithPerTurnFromReligion = (m_iFaithPerTurnFromReligion + iChange);
 	}
 }
+#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 int CvCity::getCultureRateModifier() const
@@ -9642,6 +9704,13 @@ int CvCity::getBaseYieldRateModifier(YieldTypes eIndex, int iExtra, CvString* to
 			iModifier += iTempMod;
 			if(iTempMod != 0 && toolTipSink)
 				GC.getGame().BuildProdModHelpText(toolTipSink, "TXT_KEY_PRODMOD_PUPPET", iTempMod);
+#if WOTMOD
+		case YIELD_FAITH:
+			iTempMod = GC.getPUPPET_FAITH_MODIFIER();
+			iModifier += iTempMod;
+			if (iTempMod != 0 && toolTipSink)
+				GC.getGame().BuildProdModHelpText(toolTipSink, "TXT_KEY_PRODMOD_PUPPET", iTempMod);
+#endif // WOTMOD
 		}
 	}
 
@@ -9737,6 +9806,13 @@ int CvCity::getBaseYieldRate(YieldTypes eIndex) const
 	CvAssertMsg(eIndex >= 0, "eIndex expected to be >= 0");
 	CvAssertMsg(eIndex < NUM_YIELD_TYPES, "eIndex expected to be < NUM_YIELD_TYPES");
 
+#if WOTMOD
+	if (eIndex == YIELD_FAITH && (IsResistance() || IsRazing()))
+	{
+		return 0;
+	}
+#endif
+
 	int iValue = 0;
 	iValue += GetBaseYieldRateFromTerrain(eIndex);
 	iValue += GetBaseYieldRateFromBuildings(eIndex);
@@ -9745,6 +9821,7 @@ int CvCity::getBaseYieldRate(YieldTypes eIndex) const
 	iValue += GetBaseYieldRateFromReligion(eIndex);
 
 #if WOTMOD
+	iValue += GetYieldRateFromTraits(eIndex);
 	iValue += GetBaseYieldRateFromGovernors(eIndex);
 #endif // WOTMOD
 
@@ -13990,11 +14067,12 @@ void CvCity::read(FDataStream& kStream)
 	kStream >> m_iJONSCulturePerTurnFromPolicies;
 	kStream >> m_iJONSCulturePerTurnFromSpecialists;
 	kStream >> m_iJONSCulturePerTurnFromReligion;
+#if !WOTMOD
 	kStream >> m_iFaithPerTurnFromBuildings;
-
 	kStream >> m_iFaithPerTurnFromPolicies;
-
 	kStream >> m_iFaithPerTurnFromReligion;
+#endif // !WOTMOD
+
 
 	kStream >> m_iCultureRateModifier;
 	kStream >> m_iNumWorldWonders;
@@ -14348,9 +14426,11 @@ void CvCity::write(FDataStream& kStream) const
 	kStream << m_iJONSCulturePerTurnFromPolicies;
 	kStream << m_iJONSCulturePerTurnFromSpecialists;
 	kStream << m_iJONSCulturePerTurnFromReligion;
+#if !WOTMOD
 	kStream << m_iFaithPerTurnFromBuildings;
 	kStream << m_iFaithPerTurnFromPolicies;
 	kStream << m_iFaithPerTurnFromReligion;
+#endif // !WOTMOD
 	kStream << m_iCultureRateModifier;
 	kStream << m_iNumWorldWonders;
 	kStream << m_iNumTeamWonders;
