@@ -30,6 +30,8 @@ bool WoTAlignmentInfo::CacheResults(Database::Results& kResults, CvDatabaseUtili
 
 	kUtility.PopulateArrayByExistence(m_pbAlignmentOpposing, "Alignments", "Alignment_Oppositions", "OpposingType", "AlignmentType", szAlignmentType);
 	kUtility.PopulateArrayByValue(m_piAlignmentLeaningYieldPercentage, "Yields", "Alignment_YieldModifiers", "YieldType", "AlignmentType", szAlignmentType, "AlignmentYieldPercentage");
+
+	return true;
 }
 
 bool WoTAlignmentInfo::IsOpposing(AlignmentTypes eOtherAlignment) const
