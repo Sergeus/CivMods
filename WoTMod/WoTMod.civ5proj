@@ -689,6 +689,11 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Eras/Eras.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/LastBattle/LastBattleEvents.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -784,6 +789,7 @@
     <Folder Include="XML\MinorCivs" />
     <Folder Include="XML\Alignment" />
     <Folder Include="XML\Eras" />
+    <Folder Include="XML\LastBattle" />
     <Folder Include="XML\Religion" />
     <Folder Include="XML\WhiteTower" />
     <Folder Include="XML\Victories" />
@@ -1904,6 +1910,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\HornOfValere\HornHeroes.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\LastBattle\LastBattleEvents.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

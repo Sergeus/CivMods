@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2/15/2015 11:25:30 PM -->
+<GameData>
+	<Table name="WoTEvents">
+		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
+		<Column name="Type" type="text" notnull="true" unique="true"/>
+		<Column name="Description" type="text" notnull="true" reference="Language_en_US(Tag)" />
+		<Column name="WorldEraTrigger" type="text" notnull="true" reference="Eras(Type)" />
+		<Column name="AssociatedVictory" type="text" notnull="true" reference="Victories(Type)" />
+		<Column name="TrollocWars" type="boolean" default="false" />
+		<Column name="HighKing" type="boolean" default="false" />
+		<Column name="LastBattle" type="boolean" default="false" />
+	</Table>
+	<WoTEvents>
+		<Row>
+			<ID>0</ID>
+			<Type>WOT_EVENT_TROLLOC_WARS</Type>
+			<Description>TXT_KEY_WOT_EVENT_TROLLOC_WARS</Description>
+			<WorldEraTrigger>ERA_MEDIEVAL</WorldEraTrigger>
+			<AssociatedVictory>VICTORY_LAST_BATTLE</AssociatedVictory>
+			<TrollocWars>true</TrollocWars>
+		</Row>
+		<Row>
+			<Type>WOT_EVENT_HIGH_KING</Type>
+			<Description>TXT_KEY_WOT_EVENT_HIGH_KING</Description>
+			<WorldEraTrigger>ERA_INDUSTRIAL</WorldEraTrigger>
+			<AssociatedVictory>VICTORY_DIPLOMATIC</AssociatedVictory>
+			<HighKing>true</HighKing>
+		</Row>
+		<Row>
+			<Type>WOT_EVENT_LAST_BATTLE</Type>
+			<Description>TXT_KEY_WOT_EVENT_LAST_BATTLE</Description>
+			<WorldEraTrigger>ERA_FUTURE</WorldEraTrigger>
+			<AssociatedVictory>VICTORY_LAST_BATTLE</AssociatedVictory>
+			<LastBattle>true</LastBattle>
+		</Row>
+	</WoTEvents>
+</GameData>
