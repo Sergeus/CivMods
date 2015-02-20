@@ -631,6 +631,7 @@ protected:
 	static int lGetMajorityAlignment(lua_State* L);
 	static int lGetTotalAlignmentYield(lua_State* L);
 	static int lGetAlignmentLeaning(lua_State* L);
+	static int lGetYieldRate(lua_State* L);
 #endif // WOTMOD
 
 	static int lIsStrike(lua_State* L);

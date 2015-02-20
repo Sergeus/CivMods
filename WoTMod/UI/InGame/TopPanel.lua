@@ -1113,39 +1113,14 @@ function FaithTipHandler( control )
 		strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_FAITH_ACCUMULATED", pPlayer:GetFaith());
 		strText = strText .. "[NEWLINE]";
 	
-		-- Faith from Cities
-		local iFaithFromCities = pPlayer:GetFaithPerTurnFromCities();
-		if (iFaithFromCities ~= 0) then
-			strText = strText .. "[NEWLINE]";
-			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_FAITH_FROM_CITIES", iFaithFromCities);
-		end
-	
-		-- Faith from Minor Civs
-		local iFaithFromMinorCivs = pPlayer:GetFaithPerTurnFromMinorCivs();
-		if (iFaithFromMinorCivs ~= 0) then
-			strText = strText .. "[NEWLINE]";
-			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_FAITH_FROM_MINORS", iFaithFromMinorCivs);
-		end
+		--WoTMod Begin
+		local faithPerTurn, tooltipBreakdown = pPlayer:GetYieldRate(GameInfoTypes.YIELD_FAITH);
+		strText = strText .. tooltipBreakdown;
 
-		-- Faith from Religion
-		local iFaithFromReligion = pPlayer:GetFaithPerTurnFromReligion();
-		if (iFaithFromReligion ~= 0) then
+		if (faithPerTurn ~= 0) then
 			strText = strText .. "[NEWLINE]";
-			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_FAITH_FROM_RELIGION", iFaithFromReligion);
-		end
-
-		------------------------------
-		-- SiegeMod Addition
-		------------------------------
-		local iFaithFromTradeRoutes = pPlayer:GetFaithPerTurnFromTradeRoutes()
-		if (iFaithFromTradeRoutes ~= 0) then
-			strText = strText .. "[NEWLINE]"
-			strText = strText .. Locale.ConvertTextKey("TXT_KEY_TP_FAITH_FROM_TRADE_ROUTES", iFaithFromTradeRoutes)
-		end
-		
-		if (iFaithFromCities ~= 0 or iFaithFromMinorCivs ~= 0 or iFaithFromReligion ~= 0 or iFaithFromTradeRoutes ~= 0) then
-			strText = strText .. "[NEWLINE]";
-		end
+		end		
+		--WoTMod end
 	
 		strText = strText .. "[NEWLINE]";
 

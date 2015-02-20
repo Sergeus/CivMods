@@ -646,6 +646,8 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(GetMajorityAlignment);
 	Method(GetTotalAlignmentYield);
 	Method(GetAlignmentLeaning);
+
+	Method(GetYieldRate);
 #endif // WOTMOD
 
 	Method(GetID);
@@ -6841,6 +6843,16 @@ int CvLuaPlayer::lGetAlignmentLeaning(lua_State* L)
 
 	lua_pushinteger(L, pkPlayer->GetAlignmentLeaning(eAlignment));
 	return 1;
+}
+int CvLuaPlayer::lGetYieldRate(lua_State* L)
+{
+	CvPlayerAI* pPlayer = GetInstance(L);
+	YieldTypes eYield = static_cast<YieldTypes>(lua_tointeger(L, 2));
+	CvString tooltip;
+	int iYieldRate = pPlayer->GetYieldRate(eYield, &tooltip);
+	lua_pushinteger(L, iYieldRate);
+	lua_pushstring(L, tooltip.c_str());
+	return 2;
 }
 #endif // WOTMOD
 

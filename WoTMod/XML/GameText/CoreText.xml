@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2/20/2015 9:51:33 PM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_YIELD_FROM_SOURCE">
+			<Text>[NEWLINE][ICON_BULLET]{1_YieldAmount: number "[COLOR_POSITIVE_TEXT]+#;[COLOR_NEGATIVE_TEXT]-#"}[ENDCOLOR] produced by {2_Source}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_YIELD_MODIFIER_FROM_SOURCE">
+			<Text>[NEWLINE][ICON_BULLET]{1_YieldModifier: number "[COLOR_POSITIVE_TEXT]+#;[COLOR_NEGATIVE_TEXT]-#"}%[ENDCOLOR] due to {2_Source}</Text>
+		</Row>
+		<Row Tag="TXT_KEY_YIELD_SOURCE_CITIES">
+			<Text>cities</Text>
+		</Row>
+		<Row Tag="TXT_KEY_YIELD_SOURCE_RELIGION">
+			<Text>religion</Text>
+		</Row>
+		<Row Tag="TXT_KEY_YIELD_SOURCE_MINORCIVS">
+			<Text>city-states</Text>
+		</Row>
+		<Row Tag="TXT_KEY_YIELD_MODIFIER_SOURCE_ALIGNMENT">
+			<Text>your alignment</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

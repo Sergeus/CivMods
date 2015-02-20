@@ -385,10 +385,11 @@ public:
 
 	// Faith
 #if WOTMOD
-	int GetYieldRate(YieldTypes eYield) const;
-	int GetYieldRateFromCities(YieldTypes eYield) const;
-	int GetYieldRateFromMinorCivs(YieldTypes eYield) const;
-	int GetYieldRateFromReligion(YieldTypes eYield) const;
+	int GetYieldRate(YieldTypes eYield, CvString* tooltipSink = NULL) const;
+	int GetYieldRateFromCities(YieldTypes eYield, CvString* tooltipSink = NULL) const;
+	int GetYieldRateFromMinorCivs(YieldTypes eYield, CvString* tooltipSink = NULL) const;
+	int GetYieldRateFromReligion(YieldTypes eYield, CvString* tooltipSink = NULL) const;
+	int GetBaseYieldRateModifier(YieldTypes eYield, CvString* tooltipSink = NULL) const;
 #else
 	int GetTotalFaithPerTurn() const;
 	int GetFaithPerTurnFromCities() const;

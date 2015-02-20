@@ -10115,7 +10115,7 @@ void CvPlayer::DoTechFromCityConquer(CvCity* pConqueredCity)
 //	--------------------------------------------------------------------------------
 /// Total faith per turn
 #if WOTMOD
-int CvPlayer::GetYieldRate(YieldTypes eYield) const
+int CvPlayer::GetYieldRate(YieldTypes eYield, CvString* tooltipSink) const
 {
 	if (eYield == YIELD_FAITH && IsAnarchy())
 	{
@@ -10124,13 +10124,15 @@ int CvPlayer::GetYieldRate(YieldTypes eYield) const
 
 	int iYieldRate = 0;
 
-	iYieldRate += GetYieldRateFromCities(eYield);
-	iYieldRate += GetYieldRateFromMinorCivs(eYield);
-	iYieldRate += GetYieldRateFromReligion(eYield);
+	iYieldRate += GetYieldRateFromCities(eYield, tooltipSink);
+	iYieldRate += GetYieldRateFromMinorCivs(eYield, tooltipSink);
+	iYieldRate += GetYieldRateFromReligion(eYield, tooltipSink);
+
+	iYieldRate += iYieldRate * GetBaseYieldRateModifier(eYield, tooltipSink) / 100;
 
 	return iYieldRate;
 }
-int CvPlayer::GetYieldRateFromCities(YieldTypes eYield) const
+int CvPlayer::GetYieldRateFromCities(YieldTypes eYield, CvString* tooltipSink) const
 {
 	int iYieldRate = 0;
 
@@ -10142,9 +10144,11 @@ int CvPlayer::GetYieldRateFromCities(YieldTypes eYield) const
 		iYieldRate += pLoopCity->getYieldRate(eYield, false);
 	}
 
+	GC.getGame().BuildProdModHelpText(tooltipSink, "TXT_KEY_YIELD_FROM_SOURCE", iYieldRate, "TXT_KEY_YIELD_SOURCE_CITIES");
+
 	return iYieldRate;
 }
-int CvPlayer::GetYieldRateFromMinorCivs(YieldTypes eYield) const
+int CvPlayer::GetYieldRateFromMinorCivs(YieldTypes eYield, CvString* tooltipSink) const
 {
 	int iYieldRate = 0;
 
@@ -10161,9 +10165,11 @@ int CvPlayer::GetYieldRateFromMinorCivs(YieldTypes eYield) const
 		}
 	}
 
+	GC.getGame().BuildProdModHelpText(tooltipSink, "TXT_KEY_YIELD_FROM_SOURCE", iYieldRate, "TXT_KEY_YIELD_SOURCE_MINORCIVS");
+
 	return iYieldRate;
 }
-int CvPlayer::GetYieldRateFromReligion(YieldTypes eYield) const
+int CvPlayer::GetYieldRateFromReligion(YieldTypes eYield, CvString* tooltipSink) const
 {
 	int iYieldRate = 0;
 
@@ -10195,7 +10201,22 @@ int CvPlayer::GetYieldRateFromReligion(YieldTypes eYield) const
 		}
 	}
 
+	GC.getGame().BuildProdModHelpText(tooltipSink, "TXT_KEY_YIELD_FROM_SOURCE", iYieldRate, "TXT_KEY_YIELD_SOURCE_RELIGION");
+
 	return iYieldRate;
+}
+int CvPlayer::GetBaseYieldRateModifier(YieldTypes eYield, CvString* tooltipSink) const
+{
+	// TODO unify with CvPlayer::getYieldRateModifier
+	int iModifier = 0;
+
+	int iTempMod = 0;
+
+	iTempMod = GetAlignmentYieldModifier(eYield);
+	iModifier += iTempMod;
+	GC.getGame().BuildProdModHelpText(tooltipSink, "TXT_KEY_YIELD_MODIFIER_FROM_SOURCE", iTempMod, "TXT_KEY_YIELD_MODIFIER_SOURCE_ALIGNMENT");
+
+	return iModifier;
 }
 #else
 int CvPlayer::GetTotalFaithPerTurn() const
