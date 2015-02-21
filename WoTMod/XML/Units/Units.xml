@@ -88,11 +88,10 @@
 
 		<Row>
 			<Class>UNITCLASS_AES_SEDAI</Class>
-			<Type>UNIT_AES_SEDAI</Type>
-			<PrereqTech>TECH_SISTERHOOD</PrereqTech>
+			<Type>UNIT_BLUE_SISTER</Type>
 			<Combat>15</Combat>
 			<RangedCombat>45</RangedCombat>
-			<Cost>25</Cost>
+			<Cost>-1</Cost>
 			<Moves>2</Moves>
 			<Range>2</Range>
 			<CombatClass>UNITCOMBAT_SIEGE</CombatClass>

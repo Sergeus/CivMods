@@ -9,6 +9,7 @@
 		<Column name="Strategy" type="text" default="NULL" reference="Language_en_US(Tag)"/>
 		<Column name="Help" type="text" default="NULL" reference="Language_en_US(Tag)"/>
 		<Column name="Color" type="text" default="NULL" reference="Colors(Type)"/>
+		<Column name="SisterUnitType" type="text" default="NULL" reference="Units(Type)" />
 		<Column name="IconAtlas" type="text" default="NULL" reference="IconTextureAtlases(Type)"/>
 		<Column name="IconIndex" type="integer" default="0"/> 
 	</Table>
@@ -21,6 +22,7 @@
 			<Help>TXT_KEY_WHITE_TOWER_BLUE_AJAH_HELP</Help>
 			<Strategy/>
 			<Color>COLOR_BLUE</Color>
+			<SisterUnitType>UNIT_BLUE_SISTER</SisterUnitType>
 			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
 			<IconIndex>0</IconIndex>
 		</Row>
