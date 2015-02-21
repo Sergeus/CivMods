@@ -33,6 +33,7 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_RED_AJAH_HELP</Help>
 			<Color>COLOR_RED</Color>
+			<SisterUnitType>UNIT_BLUE_SISTER</SisterUnitType>
 			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
 			<IconIndex>0</IconIndex>
 		</Row>
@@ -43,6 +44,7 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_WHITE_AJAH_HELP</Help>
 			<Color>COLOR_WHITE</Color>
+			<SisterUnitType>UNIT_BLUE_SISTER</SisterUnitType>
 			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
 			<IconIndex>0</IconIndex>
 		</Row>
@@ -53,6 +55,7 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_BROWN_AJAH_HELP</Help>
 			<Color>COLOR_BROWN</Color>
+			<SisterUnitType>UNIT_BLUE_SISTER</SisterUnitType>
 			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
 			<IconIndex>0</IconIndex>
 		</Row>
@@ -63,6 +66,7 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_GREEN_AJAH_HELP</Help>
 			<Color>COLOR_GREEN</Color>
+			<SisterUnitType>UNIT_BLUE_SISTER</SisterUnitType>
 			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
 			<IconIndex>0</IconIndex>
 		</Row>
@@ -73,6 +77,7 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_YELLOW_AJAH_HELP</Help>
 			<Color>COLOR_YELLOW</Color>
+			<SisterUnitType>UNIT_BLUE_SISTER</SisterUnitType>
 			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
 			<IconIndex>0</IconIndex>
 		</Row>
@@ -83,6 +88,7 @@
 			<Strategy/>
 			<Help>TXT_KEY_WHITE_TOWER_GRAY_AJAH_HELP</Help>
 			<Color>COLOR_GREY</Color>
+			<SisterUnitType>UNIT_BLUE_SISTER</SisterUnitType>
 			<IconAtlas>NOTIFICATION_CHOOSE_SHADOW_ATLAS</IconAtlas>
 			<IconIndex>0</IconIndex>
 		</Row>

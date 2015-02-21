@@ -26,12 +26,45 @@ bool WoTWhiteTowerAjahInfo::CacheResults(Database::Results& kResults, CvDatabase
 
 	const char* szTextVal = kResults.GetText("Color");
 	m_iDefaultColor = GC.getInfoTypeForString(szTextVal, true);
+	m_eSisterUnit = static_cast<UnitTypes>(GC.getInfoTypeForString(kResults.GetText("SisterUnitType")));
+
+	const char* szAjahType = GetType();
+
+	// Promotion Influence Tier Bonuses
+	{
+		m_aeTierPromotions.resize(kUtility.MaxRows("AjahInfluenceTiers"));
+		std::string strKey("Ajah_InfluencePromotionBonus");
+		Database::Results* pResults = kUtility.GetResults(strKey);
+		if (pResults == NULL)
+		{
+			pResults = kUtility.PrepareResults(strKey, "select AjahInfluenceTiers.ID, UnitPromotions.ID from Ajah_InfluencePromotionBonus inner join AjahInfluenceTiers on AjahInfluenceTiers.Type = TierType inner join UnitPromotions on UnitPromotions.Type = PromotionType where AjahType = ?");
+		}
+		pResults->Bind(1, szAjahType);
+
+		while (pResults->Step())
+		{
+			AjahInfluenceTierTypes eTier = static_cast<AjahInfluenceTierTypes>(pResults->GetInt(0));
+			PromotionTypes ePromotion = static_cast<PromotionTypes>(pResults->GetInt(1));
+
+			m_aeTierPromotions[eTier].push_back(ePromotion);
+		}
+	}
 
 	return true;
 }
 int WoTWhiteTowerAjahInfo::GetColorType() const
 {
 	return m_iDefaultColor;
+}
+
+UnitTypes WoTWhiteTowerAjahInfo::GetSisterUnitType() const
+{
+	return m_eSisterUnit;
+}
+
+const std::vector<PromotionTypes>& WoTWhiteTowerAjahInfo::GetTierPromotionBonuses(AjahInfluenceTierTypes eTier) const
+{
+	return m_aeTierPromotions[eTier];
 }
 
 //======================================================================================================
@@ -95,6 +128,10 @@ void WoTMinorCivAjahs::Write(FDataStream& kStream)
 	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); ++i)
 	{
 		kStream << m_piAjahInfluences[i];
+		for (int j = 0; j < MAX_MAJOR_CIVS; ++j)
+		{
+			kStream << m_abHasAjahTierBonus[i][j];
+		}
 	}
 }
 
@@ -111,6 +148,10 @@ void WoTMinorCivAjahs::Read(FDataStream& kStream)
 	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); ++i)
 	{
 		kStream >> m_piAjahInfluences[i];
+		for (int j = 0; j < MAX_MAJOR_CIVS; ++j)
+		{
+			kStream >> m_abHasAjahTierBonus[i][j];
+		}
 	}
 }
 
@@ -123,10 +164,16 @@ void WoTMinorCivAjahs::Init(CvMinorCivAI* pOwner)
 	m_pOwner = pOwner;
 
 	m_piAjahInfluences.resize(GC.GetNumWhiteTowerAjahInfos());
+	m_abHasAjahTierBonus.resize(GC.GetNumWhiteTowerAjahInfos());
 
 	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); ++i)
 	{
-		m_piAjahInfluences[i].resize(GC.getGame().countCivPlayersEverAlive(), 0);
+		m_piAjahInfluences[i].resize(MAX_MAJOR_CIVS, 0);
+		m_abHasAjahTierBonus[i].resize(MAX_MAJOR_CIVS);
+		for (int j = 0; j < MAX_MAJOR_CIVS; ++j)
+		{
+			m_abHasAjahTierBonus[i][j].resize(GC.GetNumAjahInfluenceTierInfos(), false);
+		}
 	}
 
 	m_eMajorityAjah = NO_AJAH;
@@ -153,7 +200,7 @@ int WoTMinorCivAjahs::GetAjahInfluence(AjahTypes eAjah) const
 	CvAssertMsg(eAjah < GC.GetNumWhiteTowerAjahInfos(), "Index out of bounds");
 	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
 	int iInfluence = 0;
-	for (int i = 0; i < GC.getGame().countCivPlayersEverAlive(); ++i)
+	for (int i = 0; i < MAX_MAJOR_CIVS; ++i)
 	{
 		iInfluence += m_piAjahInfluences[eAjah][i];
 	}
@@ -174,20 +221,47 @@ void WoTMinorCivAjahs::SetAjahInfluence(AjahTypes eAjah, PlayerTypes ePlayer, in
 {
 	CvAssertMsg(eAjah < GC.GetNumWhiteTowerAjahInfos(), "Index out of bounds");
 	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
-	m_piAjahInfluences[eAjah][ePlayer] = iNewInfluence;
+	m_piAjahInfluences[eAjah][ePlayer] = std::max(iNewInfluence, 0);
+
+	UpdateMajorityAjah();
+
+	DoUpdateAjahBonuses(eAjah);
 }
 
 void WoTMinorCivAjahs::ChangeAjahInfluence(AjahTypes eAjah, PlayerTypes ePlayer, int iChange)
 {
-	SetAjahInfluence(eAjah, ePlayer, std::max(GetAjahInfluence(eAjah, ePlayer) + iChange, 0));
+	SetAjahInfluence(eAjah, ePlayer, GetAjahInfluence(eAjah, ePlayer) + iChange);
+}
 
-	UpdateMajorityAjah();
+bool WoTMinorCivAjahs::HasInfluenceTier(PlayerTypes ePlayer, AjahTypes eAjah, AjahInfluenceTierTypes eTier) const
+{
+	WoTWhiteTowerInfluenceTierInfo* pInfo = GC.GetAjahInfluenceTierInfo(eTier);
+	int playerInfluence = GetAjahInfluence(eAjah, ePlayer);
+	if (playerInfluence < pInfo->GetInfluenceThreshold())
+	{
+		return false;
+	}
+
+	int numPlayersWithMoreInfluence = 0;
+	for (int i = 0; i < MAX_MAJOR_CIVS; ++i)
+	{
+		if (GetAjahInfluence(eAjah, static_cast<PlayerTypes>(i)) > playerInfluence)
+		{
+			numPlayersWithMoreInfluence++;
+		}
+	}
+	return numPlayersWithMoreInfluence < pInfo->GetMaxPlayers();
 }
 
 int WoTMinorCivAjahs::GetAjahInfluencePercent(AjahTypes eAjah) const
 {
 	int iAjahInfluence = GetAjahInfluenceTimes100(eAjah);
 	int iInfluenceTotal = GetTotalInfluencePoints();
+
+	if (iInfluenceTotal == 0)
+	{
+		return 0;
+	}
 
 	return iAjahInfluence / iInfluenceTotal;
 }
@@ -201,6 +275,60 @@ int WoTMinorCivAjahs::GetTotalInfluencePoints() const
 		iInfluenceTotal += max(0, GetAjahInfluence(eLoopAjah));
 	}
 	return iInfluenceTotal;
+}
+
+void WoTMinorCivAjahs::DoUpdateAjahBonuses(AjahTypes eAjah)
+{
+	for (int i = 0; i < MAX_MAJOR_CIVS; ++i)
+	{
+		PlayerTypes ePlayer = static_cast<PlayerTypes>(i);
+		CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
+		if (kPlayer.isAlive())
+		{
+			for (int j = 0; j < GC.GetNumAjahInfluenceTierInfos(); ++j)
+			{
+				AjahInfluenceTierTypes eTier = static_cast<AjahInfluenceTierTypes>(j);
+				bool bPlayerHasTier = HasInfluenceTier(ePlayer, eAjah, eTier);
+
+				if (bPlayerHasTier != HasBeenGivenInfluenceTierBonus(ePlayer, eAjah, eTier))
+				{
+					SetHasTierBonus(ePlayer, eAjah, eTier, bPlayerHasTier);
+				}
+			}
+		}
+	}
+}
+
+bool WoTMinorCivAjahs::HasBeenGivenInfluenceTierBonus(PlayerTypes ePlayer, AjahTypes eAjah, AjahInfluenceTierTypes eTier) const
+{
+	return m_abHasAjahTierBonus[eAjah][ePlayer][eTier];
+}
+
+void WoTMinorCivAjahs::SetHasTierBonus(PlayerTypes ePlayer, AjahTypes eAjah, AjahInfluenceTierTypes eTier, bool bNewValue)
+{
+	m_abHasAjahTierBonus[eAjah][ePlayer][eTier] = bNewValue;
+
+	WoTWhiteTowerAjahInfo* pInfo = GC.GetWhiteTowerAjahInfo(eAjah);
+
+	const std::vector<PromotionTypes>& promotions = pInfo->GetTierPromotionBonuses(eTier);
+	UnitTypes eSisterUnit = pInfo->GetSisterUnitType();
+	CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
+
+	if (promotions.size() > 0)
+	{
+		CvUnit* pUnit;
+		int iLoop;
+		for (pUnit = kPlayer.firstUnit(&iLoop); pUnit != NULL; pUnit = kPlayer.nextUnit(&iLoop))
+		{
+			if (pUnit->getUnitType() == eSisterUnit)
+			{
+				for (std::vector<PromotionTypes>::const_iterator it = promotions.begin(); it != promotions.end(); ++it)
+				{
+					pUnit->setHasPromotion(*it, bNewValue);
+				}
+			}
+		}
+	}
 }
 
 void WoTMinorCivAjahs::UpdateMajorityAjah()
@@ -220,44 +348,7 @@ void WoTMinorCivAjahs::UpdateMajorityAjah()
 		}
 	}
 
-	CvAssertMsg(eHighestAjah != NO_AJAH, "No Ajah has majority!");
-
-	AjahTypes eOldMajority = m_eMajorityAjah;
 	m_eMajorityAjah = eHighestAjah;
-
-	if (eOldMajority != eHighestAjah)
-	{
-		WoTWhiteTowerAjahInfo* pOldInfo = GC.GetWhiteTowerAjahInfo(eOldMajority);
-		WoTWhiteTowerAjahInfo* pNewInfo = GC.GetWhiteTowerAjahInfo(eHighestAjah);
-	
-		CvCity* pCapital = m_pOwner->GetPlayer()->getCapitalCity();
-	
-		if (pCapital)
-		{
-			CvString capitalName = pCapital->getName();
-			int capitalX = pCapital->getX();
-			int capitalY = pCapital->getY();
-
-			for (int i = 0; i < MAX_MAJOR_CIVS; i++)
-			{
-				PlayerTypes ePlayer = static_cast<PlayerTypes>(i);
-
-				CvPlayerAI& kPlayer = GET_PLAYER(ePlayer);
-
-				if (kPlayer.isAlive() && GET_TEAM(kPlayer.getTeam()).isHasMet(m_pOwner->GetPlayer()->getTeam()))
-				{
-					CvString strMessage;
-					CvNotifications* pNotification = kPlayer.GetNotifications();
-					if(pNotification)
-					{
-						strMessage = GetLocalizedText("TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED", capitalName, pOldInfo->GetDescription(), pNewInfo->GetDescription());
-						Localization::String strSummary = Localization::Lookup("TXT_KEY_NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED_SUMMARY");
-						pNotification->Add(static_cast<NotificationTypes>(GC.getInfoTypeForString("NOTIFICATION_TOWER_MAJORITY_AJAH_HAS_CHANGED")), strMessage, strSummary.toUTF8(), capitalX, capitalY, eHighestAjah);
-					}
-				}
-			}
-		}
-	}
 }
 
 bool WoTMinorCivAjahs::IsAjahPermitted(AjahTypes eAjah) const

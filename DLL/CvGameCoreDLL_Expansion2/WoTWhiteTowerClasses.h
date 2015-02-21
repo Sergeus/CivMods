@@ -20,11 +20,15 @@ public:
 	~WoTWhiteTowerAjahInfo();
 
 	int GetColorType() const;
+	UnitTypes GetSisterUnitType() const;
+	const std::vector<PromotionTypes>& GetTierPromotionBonuses(AjahInfluenceTierTypes eTier) const;
 
 	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
 
 private:
 	int m_iDefaultColor;
+	UnitTypes m_eSisterUnit;
+	std::vector<std::vector<PromotionTypes>> m_aeTierPromotions;
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -73,6 +77,8 @@ public:
 	void SetAjahInfluence(AjahTypes eAjah, PlayerTypes ePlayer, int iNewInfluence);
 	void ChangeAjahInfluence(AjahTypes eAjah, PlayerTypes ePlayer, int iChange);
 
+	bool HasInfluenceTier(PlayerTypes ePlayer, AjahTypes eAjah, AjahInfluenceTierTypes eTier) const;
+
 	int GetAjahInfluenceTimes100(AjahTypes eAjah) const;
 	int GetAjahInfluencePercent(AjahTypes eAjah) const;
 
@@ -89,11 +95,15 @@ public:
 private:
 	int GetTotalInfluencePoints() const;
 	AjahTypes ChooseWeightedAjah() const;
+	void DoUpdateAjahBonuses(AjahTypes eAjah);
+	void SetHasTierBonus(PlayerTypes ePlayer, AjahTypes eAjah, AjahInfluenceTierTypes eTier, bool bNewValue);
+	bool HasBeenGivenInfluenceTierBonus(PlayerTypes ePlayer, AjahTypes eAjah, AjahInfluenceTierTypes eTier) const;
 
 	AjahTypes m_eMajorityAjah;
 	AjahTypes m_eAmyrlinAjah;
 
 	std::vector<std::vector<int>> m_piAjahInfluences;
+	std::vector<std::vector<std::vector<bool>>> m_abHasAjahTierBonus;
 
 	CvMinorCivAI* m_pOwner;
 };

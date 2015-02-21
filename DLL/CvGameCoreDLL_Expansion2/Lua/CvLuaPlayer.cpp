@@ -631,6 +631,8 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 
 #if WOTMOD
 	Method(GetAjahInfluencePercent);
+	Method(GetAjahInfluence);
+	Method(SetAjahInfluence);
 	Method(GetMajorityAjah);
 	Method(IsAjahPermitted);
 	Method(GetAmyrlinAjah);
@@ -6714,6 +6716,27 @@ int CvLuaPlayer::lGetAjahInfluencePercent(lua_State* L)
 	lua_pushinteger(L, iInfluencePercent);
 
 	return 1;
+}
+int CvLuaPlayer::lGetAjahInfluence(lua_State* L)
+{
+	CvPlayerAI* pTower = GetInstance(L);
+	AjahTypes eAjah = static_cast<AjahTypes>(lua_tointeger(L, 2));
+	PlayerTypes ePlayerAskedAbout = static_cast<PlayerTypes>(lua_tointeger(L, 3));
+
+	int iInfluence = pTower->GetMinorCivAI()->GetAjahs()->GetAjahInfluence(eAjah, ePlayerAskedAbout);
+	
+	lua_pushinteger(L, iInfluence);
+	return 1;
+}
+int CvLuaPlayer::lSetAjahInfluence(lua_State* L)
+{
+	CvPlayerAI* pTower = GetInstance(L);
+	AjahTypes eAjah = static_cast<AjahTypes>(lua_tointeger(L, 2));
+	PlayerTypes ePlayerInfluenceSet = static_cast<PlayerTypes>(lua_tointeger(L, 3));
+	int iNewInfluence = lua_tointeger(L, 4);
+
+	pTower->GetMinorCivAI()->GetAjahs()->SetAjahInfluence(eAjah, ePlayerInfluenceSet, iNewInfluence);
+	return 0;
 }
 int CvLuaPlayer::lGetMajorityAjah(lua_State* L)
 {
