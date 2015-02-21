@@ -92,7 +92,10 @@ void WoTMinorCivAjahs::Write(FDataStream& kStream)
 
 	kStream << m_eAmyrlinAjah;
 
-	kStream << ArrayWrapper<int>(GC.GetNumWhiteTowerAjahInfos(), m_piAjahInfluences);
+	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); ++i)
+	{
+		kStream << m_piAjahInfluences[i];
+	}
 }
 
 void WoTMinorCivAjahs::Read(FDataStream& kStream)
@@ -105,43 +108,29 @@ void WoTMinorCivAjahs::Read(FDataStream& kStream)
 
 	kStream >> m_eAmyrlinAjah;
 
-	kStream >> ArrayWrapper<int>(GC.GetNumWhiteTowerAjahInfos(), m_piAjahInfluences);
+	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); ++i)
+	{
+		kStream >> m_piAjahInfluences[i];
+	}
 }
 
 void WoTMinorCivAjahs::Uninit()
 {
-	SAFE_DELETE_ARRAY(m_piAjahInfluences);
 }
 
 void WoTMinorCivAjahs::Init(CvMinorCivAI* pOwner)
 {
 	m_pOwner = pOwner;
 
-	m_piAjahInfluences = FNEW(int[GC.GetNumWhiteTowerAjahInfos()], c_eCiv5GameplayDLL, 0);
+	m_piAjahInfluences.resize(GC.GetNumWhiteTowerAjahInfos());
 
-	Reset();
-
-	if (m_pOwner->GetPlayer()->isMinorCiv())
+	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); ++i)
 	{
-		CvMinorCivInfo* pOwnerInfo = GC.getMinorCivInfo(m_pOwner->GetMinorCivType());
-
-		for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); i++)
-		{
-			AjahTypes eAjah = static_cast<AjahTypes>(i);
-			m_piAjahInfluences[i] = pOwnerInfo->GetAjahStartingInfluence(eAjah);
-		}
+		m_piAjahInfluences[i].resize(GC.getGame().countCivPlayersEverAlive(), 0);
 	}
-	UpdateMajorityAjah();
-}
 
-void WoTMinorCivAjahs::Reset()
-{
 	m_eMajorityAjah = NO_AJAH;
-
-	for (int i = 0; i < GC.GetNumWhiteTowerAjahInfos(); i++)
-	{
-		m_piAjahInfluences[i] = 0;
-	}
+	UpdateMajorityAjah();
 }
 
 AjahTypes WoTMinorCivAjahs::GetMajorityAjah() const
@@ -163,7 +152,17 @@ int WoTMinorCivAjahs::GetAjahInfluence(AjahTypes eAjah) const
 {
 	CvAssertMsg(eAjah < GC.GetNumWhiteTowerAjahInfos(), "Index out of bounds");
 	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
-	return m_piAjahInfluences[eAjah];
+	int iInfluence = 0;
+	for (int i = 0; i < GC.getGame().countCivPlayersEverAlive(); ++i)
+	{
+		iInfluence += m_piAjahInfluences[eAjah][i];
+	}
+	return iInfluence;
+}
+
+int WoTMinorCivAjahs::GetAjahInfluence(AjahTypes eAjah, PlayerTypes ePlayer) const
+{
+	return m_piAjahInfluences[eAjah][ePlayer];
 }
 
 int WoTMinorCivAjahs::GetAjahInfluenceTimes100(AjahTypes eAjah) const
@@ -171,16 +170,16 @@ int WoTMinorCivAjahs::GetAjahInfluenceTimes100(AjahTypes eAjah) const
 	return GetAjahInfluence(eAjah) * 100;
 }
 
-void WoTMinorCivAjahs::SetAjahInfluence(AjahTypes eAjah, int iNewInfluence)
+void WoTMinorCivAjahs::SetAjahInfluence(AjahTypes eAjah, PlayerTypes ePlayer, int iNewInfluence)
 {
 	CvAssertMsg(eAjah < GC.GetNumWhiteTowerAjahInfos(), "Index out of bounds");
 	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
-	m_piAjahInfluences[eAjah] = iNewInfluence;
+	m_piAjahInfluences[eAjah][ePlayer] = iNewInfluence;
 }
 
-void WoTMinorCivAjahs::ChangeAjahInfluence(AjahTypes eAjah, int iChange)
+void WoTMinorCivAjahs::ChangeAjahInfluence(AjahTypes eAjah, PlayerTypes ePlayer, int iChange)
 {
-	SetAjahInfluence(eAjah, GetAjahInfluence(eAjah) + iChange);
+	SetAjahInfluence(eAjah, ePlayer, std::max(GetAjahInfluence(eAjah, ePlayer) + iChange, 0));
 
 	UpdateMajorityAjah();
 }
@@ -301,7 +300,7 @@ void WoTMinorCivAjahs::DoTraineeAdmitted(CvUnit* pUnit)
 	
 	int oldInfluencePercent = GetAjahInfluencePercent(availableAjahs[ajahIndex]);
 
-	ChangeAjahInfluence(availableAjahs[ajahIndex], pUnit->GetAjahInfluenceChange());
+	ChangeAjahInfluence(availableAjahs[ajahIndex], pUnit->getOwner(), pUnit->GetAjahInfluenceChange());
 
 	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 
@@ -404,7 +403,7 @@ void WoTMinorCivAjahs::DoTurn()
 
 			if (kPlayer.GetPublicSupportedAjah() != NO_AJAH)
 			{
-				ChangeAjahInfluence(kPlayer.GetPublicSupportedAjah(), kPlayer.GetAjahSupportPassiveInfluenceChange());
+				ChangeAjahInfluence(kPlayer.GetPublicSupportedAjah(), ePlayer, kPlayer.GetAjahSupportPassiveInfluenceChange());
 			}
 		}
 	}

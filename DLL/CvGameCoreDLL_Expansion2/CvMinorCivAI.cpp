@@ -9930,7 +9930,6 @@ CvMinorCivInfo::CvMinorCivInfo() :
 	, m_pbOnePowerBlocking(NULL)
 	, m_pbPlots(NULL)
 	, m_pbAjahsPermitted(NULL)
-	, m_piAjahStartingInfluences(NULL)
 #endif // WOTMOD
 {
 }
@@ -9942,7 +9941,6 @@ CvMinorCivInfo::~CvMinorCivInfo()
 	SAFE_DELETE_ARRAY(m_pbOnePowerBlocking);
 	SAFE_DELETE_ARRAY(m_pbPlots);
 	SAFE_DELETE_ARRAY(m_pbAjahsPermitted);
-	SAFE_DELETE_ARRAY(m_piAjahStartingInfluences);
 #endif // WOTMOD
 }
 //------------------------------------------------------------------------------
@@ -10075,12 +10073,6 @@ bool CvMinorCivInfo::IsMinorCivPlotAvailable(WoTMinorCivPlotTypes ePlotType) con
 	CvAssertMsg(ePlotType > NO_MINOR_PLOT, "index out of bounds");
 	return m_pbPlots[ePlotType];
 }
-int CvMinorCivInfo::GetAjahStartingInfluence(AjahTypes eAjah) const
-{
-	CvAssertMsg(eAjah < GC.GetNumWhiteTowerAjahInfos(), "Index out of bounds");
-	CvAssertMsg(eAjah > NO_AJAH, "Index out of bounds");
-	return m_piAjahStartingInfluences[eAjah];
-}
 bool CvMinorCivInfo::IsAjahPermitted(AjahTypes eAjah) const
 {
 	CvAssertMsg(eAjah < GC.GetNumWhiteTowerAjahInfos(), "Index out of bounds");
@@ -10132,7 +10124,6 @@ bool CvMinorCivInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 	kUtility.PopulateArrayByExistence(m_pbOnePowerBlocking, "OnePowers", "MinorCivilization_OnePowerBlocking", "OnePowerType", "MinorCivType", GetType());
 	kUtility.PopulateArrayByExistence(m_pbPlots, "MinorCivilizationPlots", "MinorCivilization_AvailablePlots", "MinorCivPlotType", "MinorCivType", GetType());
 	kUtility.PopulateArrayByExistence(m_pbAjahsPermitted, "Ajahs", "MinorCivilization_PermittedAjahs", "AjahType", "MinorCivType", GetType());
-	kUtility.PopulateArrayByValue(m_piAjahStartingInfluences, "Ajahs", "MinorCivilizations_AjahStartingInfluence", "AjahType", "MinorCivType", GetType(), "Influence");
 #endif // WOTMOD
 
 	//Arrays

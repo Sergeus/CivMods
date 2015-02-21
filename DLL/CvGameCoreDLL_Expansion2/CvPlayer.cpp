@@ -25168,10 +25168,10 @@ void CvPlayer::DoPledgeSupportForAjah(PlayerTypes eTowerPlayer, AjahTypes eAjah)
 		else if (GetPublicSupportedAjah() != NO_AJAH && GetPublicSupportedAjah() != eAjah)
 		{
 			// influence penalty for the Ajah we're 'leaving'
-			pAjahs->ChangeAjahInfluence(GetPublicSupportedAjah(), GetAjahSupportWithdrawnInfluenceChange());
+			pAjahs->ChangeAjahInfluence(GetPublicSupportedAjah(), GetID(), GetAjahSupportWithdrawnInfluenceChange());
 		}
 		
-		pAjahs->ChangeAjahInfluence(eAjah, GetAjahPledgeInitialInfluenceChange());
+		pAjahs->ChangeAjahInfluence(eAjah, GetID(), GetAjahPledgeInitialInfluenceChange());
 
 		m_iTurnsSincePledgedSupport = 0;
 		m_ePublicSupportedAjah.set(make_pair(eTowerPlayer, eAjah));

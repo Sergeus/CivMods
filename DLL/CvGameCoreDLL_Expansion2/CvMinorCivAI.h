@@ -655,8 +655,6 @@ public:
 	void SetAjahPermitted(AjahTypes eAjah, bool bNewValue);
 
 	bool IsMinorCivPlotAvailable(WoTMinorCivPlotTypes ePlotType) const;
-
-	int GetAjahStartingInfluence(AjahTypes eAjah) const;
 #endif // WOTMOD
 
 	// Deprecated Members
@@ -680,7 +678,6 @@ protected:
 #if WOTMOD
 	bool* m_pbOnePowerBlocking;
 	bool* m_pbPlots;
-	int* m_piAjahStartingInfluences;
 	bool* m_pbAjahsPermitted;
 #endif // WOTMOD
 

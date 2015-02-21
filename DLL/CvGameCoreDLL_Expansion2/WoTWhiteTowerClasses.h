@@ -59,8 +59,6 @@ public:
 	void Init(CvMinorCivAI* pOwner);
 	void Uninit();
 
-	void Reset();
-
 	void Read(FDataStream& kStream);
 	void Write(FDataStream& kStream);
 
@@ -71,8 +69,9 @@ public:
 	void UpdateMajorityAjah();
 
 	int GetAjahInfluence(AjahTypes eAjah) const;
-	void SetAjahInfluence(AjahTypes eAjah, int iNewInfluence);
-	void ChangeAjahInfluence(AjahTypes eAjah, int iChange);
+	int GetAjahInfluence(AjahTypes eAjah, PlayerTypes ePlayer) const;
+	void SetAjahInfluence(AjahTypes eAjah, PlayerTypes ePlayer, int iNewInfluence);
+	void ChangeAjahInfluence(AjahTypes eAjah, PlayerTypes ePlayer, int iChange);
 
 	int GetAjahInfluenceTimes100(AjahTypes eAjah) const;
 	int GetAjahInfluencePercent(AjahTypes eAjah) const;
@@ -94,7 +93,7 @@ private:
 	AjahTypes m_eMajorityAjah;
 	AjahTypes m_eAmyrlinAjah;
 
-	int* m_piAjahInfluences;
+	std::vector<std::vector<int>> m_piAjahInfluences;
 
 	CvMinorCivAI* m_pOwner;
 };
