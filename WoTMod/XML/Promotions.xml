@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by ModBuddy on 4/23/2013 3:19:42 AM -->
 <GameData>
+	<Table name="Promotions_NearbyGovernorYieldBonus">
+		<Column name="PromotionType" type="text" notnull="true" reference="UnitPromotions(Type)" />
+		<Column name="YieldType" type="text" notnull="true" reference="Yields(Type)" />
+		<Column name="Yield" type="integer" default="0" />
+		<Column name="Range" type="integer" default="3" />
+	</Table>
 	<UnitPromotions>
 		<Row>
 			<Type>PROMOTION_HORN_HUNTER</Type>
@@ -73,5 +79,24 @@
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_TOWER_TRAINEE_PEDIA_ENTRY</PediaEntry>
 		</Row>
+		<!-- Ajah bonuses promotions -->
+		<Row>
+			<Type>PROMOTION_NEARBY_GOVERNORS_FAITH</Type>
+			<Description>TXT_KEY_PROMOTION_NEARBY_GOVERNORS_FAITH</Description>
+			<Help>TXT_KEY_PROMOTION_NEARBY_GOVERNORS_FAITH_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<PortraitIndex>44</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_NEARBY_GOVERNORS_FAITH_PEDIA_ENTRY</PediaEntry>
+		</Row>
 	</UnitPromotions>
+	<Promotions_NearbyGovernorYieldBonus>
+		<Row>
+			<PromotionType>PROMOTION_NEARBY_GOVERNORS_FAITH</PromotionType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>2</Yield>
+		</Row>
+	</Promotions_NearbyGovernorYieldBonus>
 </GameData>

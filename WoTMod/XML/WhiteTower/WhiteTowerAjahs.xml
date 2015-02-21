@@ -12,7 +12,6 @@
 		<Column name="IconAtlas" type="text" default="NULL" reference="IconTextureAtlases(Type)"/>
 		<Column name="IconIndex" type="integer" default="0"/> 
 	</Table>
-
 	<Ajahs>
 		<Row>
 			<ID>0</ID>

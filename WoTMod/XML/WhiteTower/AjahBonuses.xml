@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 2/21/2015 1:47:00 PM -->
+<GameData>
+	<Table name="AjahInfluenceTiers">
+		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
+		<Column name="Type" type="text" unique="true" notNULL="true"/>
+		<Column name="Threshold" type="integer" />
+		<Column name="MaxSimultaneousPlayers" type="integer" />
+	</Table>
+	<Table name="Ajah_InfluencePromotionBonus">
+		<Column name="AjahType" type="text" notnull="true" reference="Ajahs(Type)" />
+		<Column name="TierType" type="text" notnull="true" reference="AjahInfluenceTiers(Type)" />
+		<Column name="PromotionType" type="text" notnull="true" reference="UnitPromotions(Type)" />
+	</Table>
+	<AjahInfluenceTiers>
+		<Row>
+			<ID>0</ID>
+			<Type>AJAH_INFLUENCE_TIER_ONE</Type>
+			<Threshold>40</Threshold>
+			<MaxSimultaneousPlayers>10</MaxSimultaneousPlayers>
+		</Row>
+		<Row>
+			<Type>AJAH_INFLUENCE_TIER_TWO</Type>
+			<Threshold>80</Threshold>
+			<MaxSimultaneousPlayers>5</MaxSimultaneousPlayers>
+		</Row>
+		<Row>
+			<Type>AJAH_INFLUENCE_TIER_THREE</Type>
+			<Threshold>120</Threshold>
+			<MaxSimultaneousPlayers>1</MaxSimultaneousPlayers>
+		</Row>
+	</AjahInfluenceTiers>
+	<Ajah_InfluencePromotionBonus>
+		<Row>
+			<AjahType>WHITE_TOWER_BLUE_AJAH</AjahType>
+			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
+			<PromotionType>PROMOTION_NEARBY_GOVERNORS_FAITH</PromotionType>
+		</Row>
+	</Ajah_InfluencePromotionBonus>
+</GameData>
