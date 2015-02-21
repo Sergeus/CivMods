@@ -1490,6 +1490,10 @@ enum AjahTypes
 {
 	NO_AJAH = -1,
 };
+enum AjahInfluenceTierTypes
+{
+	NO_TIER = -1,
+};
 enum AlignmentTypes
 {
 	NO_ALIGNMENT = -1,

@@ -2690,6 +2690,18 @@ WoTAlignmentInfo* CvGlobals::GetAlignmentInfo(AlignmentTypes eAlignment)
 {
 	return m_paAlignmentInfo[eAlignment];
 }
+int CvGlobals::GetNumAjahInfluenceTierInfos()
+{
+	return m_paAjahInfluenceTierInfo.size();
+}
+std::vector<WoTWhiteTowerInfluenceTierInfo*>& CvGlobals::GetAjahInfluenceTierInfos()
+{
+	return m_paAjahInfluenceTierInfo;
+}
+WoTWhiteTowerInfluenceTierInfo* CvGlobals::GetAjahInfluenceTierInfo(AjahInfluenceTierTypes eInfluenceTier)
+{
+	return m_paAjahInfluenceTierInfo[eInfluenceTier];
+}
 #endif // WOTMOD
 
 int& CvGlobals::getNumPlayableCivilizationInfos()

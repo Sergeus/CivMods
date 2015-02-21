@@ -35,6 +35,37 @@ int WoTWhiteTowerAjahInfo::GetColorType() const
 }
 
 //======================================================================================================
+//					WoTWhiteTowerInfluenceTierInfo
+//======================================================================================================
+
+WoTWhiteTowerInfluenceTierInfo::WoTWhiteTowerInfluenceTierInfo()
+	: m_iInfluenceThreshold(0)
+	, m_iMaxPlayers(0)
+{
+}
+WoTWhiteTowerInfluenceTierInfo::~WoTWhiteTowerInfluenceTierInfo()
+{
+}
+bool WoTWhiteTowerInfluenceTierInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility)
+{
+	if (!CvBaseInfo::CacheResults(kResults, kUtility))
+		return false;
+
+	m_iInfluenceThreshold = kResults.GetInt("Threshold");
+	m_iMaxPlayers = kResults.GetInt("MaxSimultaneousPlayers");
+
+	return true;
+}
+int WoTWhiteTowerInfluenceTierInfo::GetInfluenceThreshold() const
+{
+	return m_iInfluenceThreshold;
+}
+int WoTWhiteTowerInfluenceTierInfo::GetMaxPlayers() const
+{
+	return m_iMaxPlayers;
+}
+
+//======================================================================================================
 //					WoTMinorCivAjahs
 //======================================================================================================
 

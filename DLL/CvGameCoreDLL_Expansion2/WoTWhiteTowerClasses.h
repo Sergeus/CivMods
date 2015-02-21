@@ -28,6 +28,26 @@ private:
 };
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//  class : WoTWhiteTowerInfluenceTierInfo
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+class WoTWhiteTowerInfluenceTierInfo : public CvBaseInfo
+{
+public:
+	WoTWhiteTowerInfluenceTierInfo();
+	~WoTWhiteTowerInfluenceTierInfo();
+
+	int GetInfluenceThreshold() const;
+	int GetMaxPlayers() const;
+
+	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
+
+private:
+	int m_iInfluenceThreshold;
+	int m_iMaxPlayers;
+};
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  class : WoTMinorCivAjahs
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 class WoTMinorCivAjahs
