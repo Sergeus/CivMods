@@ -132,6 +132,7 @@ public:
 	int GetTurnDamage() const;
 	int GetRangedAttackSelfDamageChance() const;
 	bool IsBlocksHealing() const;
+	int GetNearbyGovernorYieldChange(YieldTypes eYield) const;
 #endif // WOTMOD
 
 	bool IsCannotBeChosen() const;
@@ -296,6 +297,7 @@ protected:
 	int m_iTurnDamage;
 	int m_iRangedAttackSelfDamageChance;
 	bool m_bBlocksHealing;
+	std::vector<int> m_aiNearbyGovernorYieldChange;
 #endif // WOTMOD
 
 	bool m_bCannotBeChosen;

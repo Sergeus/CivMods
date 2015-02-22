@@ -72,6 +72,16 @@ void InitializeArray(T*& pArray, const char* szTableName, T default = (T)0);
 							  int iDefaultValue = 0,
 							  int iMinArraySize = 0);
 
+#if WOTMOD
+	bool PopulateVectorByValue(std::vector<int>& pVector, const char* szTypeTableName,
+								const char* szDataTableName,
+								const char* szTypeColumn,
+								const char* szFilterColumn,
+								const char* szFilterValue,
+								const char* szValueColumn,
+								int iDefaultValue = 0);
+#endif // WOTMOD
+
 
 	//------------------------------------------------------------------------------
 	// Tables in Civ5 commonly have a Flavors array.

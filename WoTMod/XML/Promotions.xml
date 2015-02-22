@@ -5,7 +5,6 @@
 		<Column name="PromotionType" type="text" notnull="true" reference="UnitPromotions(Type)" />
 		<Column name="YieldType" type="text" notnull="true" reference="Yields(Type)" />
 		<Column name="Yield" type="integer" default="0" />
-		<Column name="Range" type="integer" default="3" />
 	</Table>
 	<UnitPromotions>
 		<Row>

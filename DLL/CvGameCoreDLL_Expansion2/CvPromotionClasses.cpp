@@ -103,7 +103,7 @@ CvPromotionEntry::CvPromotionEntry():
 #if WOTMOD
 	m_iTurnDamage(0),
 	m_iRangedAttackSelfDamageChance(0),
-	m_bBlocksHealing(false),
+	m_bBlocksHealing(false), 
 #endif // WOTMOD
 
 	m_bCannotBeChosen(false),
@@ -378,6 +378,10 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	const int iNumUnitTypes = kUtility.MaxRows("Units");
 
 	const char* szPromotionType = GetType();
+
+#if WOTMOD
+	kUtility.PopulateVectorByValue(m_aiNearbyGovernorYieldChange, "Yields", "Promotions_NearbyGovernorYieldBonus", "YieldType", "PromotionType", szPromotionType, "Yield");
+#endif // WOTMOD
 
 	//UnitPromotions_Terrains
 	{
@@ -1193,6 +1197,10 @@ int CvPromotionEntry::GetRangedAttackSelfDamageChance() const
 bool CvPromotionEntry::IsBlocksHealing() const
 {
 	return m_bBlocksHealing;
+}
+int CvPromotionEntry::GetNearbyGovernorYieldChange(YieldTypes eYield) const
+{
+	return m_aiNearbyGovernorYieldChange[eYield];
 }
 #endif // WOTMOD
 

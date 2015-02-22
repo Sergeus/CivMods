@@ -270,6 +270,7 @@ CvUnit::CvUnit() :
 	, m_iTurnDamage(0)
 	, m_iRangedAttackSelfDamageChance(0)
 	, m_iHealBlockedCount(0)
+	, m_aiNearbyGovernorYieldChange("CvUnit::m_aiNearbyGovernorYieldChange", m_syncArchive)
 #endif // WOTMOD
 
 	, m_strName("")
@@ -951,6 +952,10 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	if(!bConstructorCall)
 	{
 		m_Promotions.Reset();
+
+#if WOTMOD
+		m_aiNearbyGovernorYieldChange.resize(GC.GetNumYieldInfos());
+#endif // WOTMOD
 
 		CvAssertMsg((0 < GC.getNumTerrainInfos()), "GC.getNumTerrainInfos() is not greater than zero but a float array is being allocated in CvUnit::reset");
 		m_terrainDoubleMoveCount.clear();
@@ -13432,6 +13437,10 @@ void CvUnit::setXY(int iX, int iY, bool bGroup, bool bUpdate, bool bShow, bool b
 
 			pOldCity = pOldPlot->getPlotCity();
 		}
+
+#if WOTMOD
+		DoUpdateNearbyGovernorYieldChange(pOldPlot, true);
+#endif // WOTMOD
 	}
 
 	if(pNewPlot != NULL)
@@ -13794,6 +13803,10 @@ void CvUnit::setXY(int iX, int iY, bool bGroup, bool bUpdate, bool bShow, bool b
 				}
 			}
 #endif // SIEGEMOD
+			
+#if WOTMOD
+			DoUpdateNearbyGovernorYieldChange(pNewPlot, false);
+#endif // WOTMOD
 
 			if(pNewPlot->isGoody(getTeam()))
 			{
@@ -17806,6 +17819,13 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		ChangeTurnDamage(thisPromotion.GetTurnDamage() * iChange);
 		ChangeRangedAttackSelfDamageChance(thisPromotion.GetRangedAttackSelfDamageChance() * iChange);
 		ChangeHealBlocked(thisPromotion.IsBlocksHealing() ? iChange : 0);
+
+		for (iI = 0; iI < GC.GetNumYieldInfos(); ++iI)
+		{
+			YieldTypes eYield = static_cast<YieldTypes>(iI);
+			ChangeNearbyGovernorYieldChange(eYield, thisPromotion.GetNearbyGovernorYieldChange(eYield) * iChange);
+		}
+		DoUpdateNearbyGovernorYieldChange(plot(), iChange < 0);
 #endif // WOTMOD
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
@@ -21809,6 +21829,44 @@ void CvUnit::DoTrainAtTower()
 int CvUnit::GetAjahInfluenceChange() const
 {
 	return 10;
+}
+
+int CvUnit::GetNearbyGovernorYieldChange(YieldTypes eYield) const
+{
+	return m_aiNearbyGovernorYieldChange[eYield];
+}
+void CvUnit::SetNearbyGovernorYieldChange(YieldTypes eYield, int iNewValue)
+{
+	m_aiNearbyGovernorYieldChange.setAt(eYield, iNewValue);
+}
+void CvUnit::ChangeNearbyGovernorYieldChange(YieldTypes eYield, int iChange)
+{
+	SetNearbyGovernorYieldChange(eYield, GetNearbyGovernorYieldChange(eYield) + iChange);
+}
+
+void CvUnit::DoUpdateNearbyGovernorYieldChange(CvPlot* pRootPlot, bool bRemove)
+{
+	// this is not particularly efficient
+	for (int i = 0; i < GC.GetNumYieldInfos(); ++i)
+	{
+		YieldTypes eYield = static_cast<YieldTypes>(i);
+		int iYieldChange = GetNearbyGovernorYieldChange(eYield);
+		if (iYieldChange != 0)
+		{
+			for (int iX = -1 * 3; iX < 3; iX++)
+			{
+				for (int iY = -1 * 3; iY < 3; iY++)
+				{
+					CvPlot* pPlot = plotXYWithRangeCheck(pRootPlot->getX(), pRootPlot->getY(), iX, iY, 3);
+					if (pPlot && pPlot->isCity())
+					{
+						CvCity* pCity = pPlot->getPlotCity();
+						pCity->GetCityGovernors()->ChangeYieldChange(eYield, bRemove ? -1 * iYieldChange : iYieldChange);
+					}
+				}
+			}
+		}
+	}
 }
 #endif // WOTMOD
 

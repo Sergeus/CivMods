@@ -1270,6 +1270,11 @@ public:
 	int GetHappiness() const;
 	void DoTrainAtTower();
 	int GetAjahInfluenceChange() const;
+
+	int GetNearbyGovernorYieldChange(YieldTypes eYield) const;
+	void SetNearbyGovernorYieldChange(YieldTypes eYield, int iNewValue);
+	void ChangeNearbyGovernorYieldChange(YieldTypes eYield, int iChangePair);
+	void DoUpdateNearbyGovernorYieldChange(CvPlot* pPlot, bool bRemove);
 #endif // WOTMOD
 
 protected:
@@ -1309,6 +1314,10 @@ protected:
 	FAutoVariable<int, CvUnit> m_iX;
 	FAutoVariable<int, CvUnit> m_iY;
 	FAutoVariable<int, CvUnit> m_iID;
+
+#if WOTMOD
+	FAutoVariable<std::vector<int>, CvUnit> m_aiNearbyGovernorYieldChange;
+#endif // WOTMOD
 
 	FAutoVariable<int, CvUnit> m_iHotKeyNumber;
 	FAutoVariable<int, CvUnit> m_iDeployFromOperationTurn;

@@ -222,7 +222,14 @@ int WoTCityGovernors::GetYieldChange(YieldTypes eYieldType) const
 {
 	CvAssertMsg(eYieldType > -1, "Index out of bounds");
 	CvAssertMsg(eYieldType < GC.GetNumYieldInfos(), "Index out of bounds");
-	return m_aiYieldChange[eYieldType];
+	if (IsHasGovernor())
+	{
+		return m_aiYieldChange[eYieldType];
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 void WoTCityGovernors::SetYieldChange(YieldTypes eYieldType, int iYield)
