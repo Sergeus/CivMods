@@ -17820,12 +17820,18 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		ChangeRangedAttackSelfDamageChance(thisPromotion.GetRangedAttackSelfDamageChance() * iChange);
 		ChangeHealBlocked(thisPromotion.IsBlocksHealing() ? iChange : 0);
 
+		bool bNearbyGovernorYieldChange = false;
 		for (iI = 0; iI < GC.GetNumYieldInfos(); ++iI)
 		{
 			YieldTypes eYield = static_cast<YieldTypes>(iI);
-			ChangeNearbyGovernorYieldChange(eYield, thisPromotion.GetNearbyGovernorYieldChange(eYield) * iChange);
+			int iYieldChange = thisPromotion.GetNearbyGovernorYieldChange(eYield);
+			bNearbyGovernorYieldChange |= (iYieldChange != 0);
+			ChangeNearbyGovernorYieldChange(eYield, iYieldChange * iChange);
 		}
-		DoUpdateNearbyGovernorYieldChange(plot(), iChange < 0);
+		if (bNearbyGovernorYieldChange)
+		{
+			DoUpdateNearbyGovernorYieldChange(plot(), iChange < 0);
+		}
 #endif // WOTMOD
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
