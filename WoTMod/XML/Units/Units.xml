@@ -520,16 +520,20 @@
 			<PromotionType>PROMOTION_ONLY_DEFENSIVE</PromotionType>
 		</Row>
 		<Row>
-			<UnitType>UNIT_AES_SEDAI</UnitType>
-			<PromotionType>PROMOTION_ONLY_DEFENSIVE</PromotionType>
-		</Row>
-		<Row>
 			<UnitType>UNIT_WILDER</UnitType>
 			<PromotionType>PROMOTION_TOWER_TRAINEE</PromotionType>
 		</Row>
 		<Row>
 			<UnitType>UNIT_KINSWOMAN</UnitType>
 			<PromotionType>PROMOTION_TOWER_TRAINEE</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_BLUE_SISTER</UnitType>
+			<PromotionType>PROMOTION_NEARBY_GOVERNORS_FAITH</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_WHITE_SISTER</UnitType>
+			<PromotionType>PROMOTION_NEARBY_GOVERNORS_SCIENCE</PromotionType>
 		</Row>
 	</Unit_FreePromotions>
 

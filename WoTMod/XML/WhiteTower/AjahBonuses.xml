@@ -34,7 +34,7 @@
 		<Row>
 			<AjahType>WHITE_TOWER_BLUE_AJAH</AjahType>
 			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
-			<PromotionType>PROMOTION_NEARBY_GOVERNORS_FAITH</PromotionType>
+			<PromotionType>PROMOTION_SIGHT_ADD_TWO</PromotionType>
 		</Row>
 		<Row>
 			<AjahType>WHITE_TOWER_WHITE_AJAH</AjahType>

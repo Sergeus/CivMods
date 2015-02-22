@@ -78,7 +78,6 @@
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_TOWER_TRAINEE_PEDIA_ENTRY</PediaEntry>
 		</Row>
-		<!-- Ajah bonuses promotions -->
 		<Row>
 			<Type>PROMOTION_NEARBY_GOVERNORS_FAITH</Type>
 			<Description>TXT_KEY_PROMOTION_NEARBY_GOVERNORS_FAITH</Description>
@@ -100,6 +99,19 @@
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_NEARBY_GOVERNORS_SCIENCE_PEDIA_ENTRY</PediaEntry>
+		</Row>
+		<!-- Ajah bonuses promotions -->
+		<Row>
+			<Type>PROMOTION_SIGHT_ADD_TWO</Type>
+			<Description>TXT_KEY_PROMOTION_SIGHT_ADD_TWO</Description>
+			<Help>TXT_KEY_PROMOTION_SIGHT_ADD_TWO_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<PortraitIndex>44</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<VisibilityChange>2</VisibilityChange>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_SIGHT_ADD_TWO_PEDIA_ENTRY</PediaEntry>
 		</Row>
 	</UnitPromotions>
 	<Promotions_NearbyGovernorYieldBonus>
