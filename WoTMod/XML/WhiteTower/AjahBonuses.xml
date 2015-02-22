@@ -36,5 +36,10 @@
 			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
 			<PromotionType>PROMOTION_NEARBY_GOVERNORS_FAITH</PromotionType>
 		</Row>
+		<Row>
+			<AjahType>WHITE_TOWER_WHITE_AJAH</AjahType>
+			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
+			<PromotionType>PROMOTION_NEARBY_GOVERNORS_SCIENCE</PromotionType>
+		</Row>
 	</Ajah_InfluencePromotionBonus>
 </GameData>
