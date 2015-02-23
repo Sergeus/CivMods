@@ -20,5 +20,23 @@
 		<Row Tag="TXT_KEY_PROMOTION_NEARBY_GOVERNORS_SCIENCE_PEDIA_ENTRY">
 			<Text>[TOWRITE] science governors promotion pedia</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SIGHT_ADD_TWO">
+			<Text>[TOWRITE]Boosted Sight</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SIGHT_ADD_TWO_HELP">
+			<Text>This unit has +2 sight</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SIGHT_ADD_TWO_PEDIA_ENTRY">
+			<Text>[TOWRITE] promotion +2 sight pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_COMBAT_BONUS_RESEARCH">
+			<Text>[TOWRITE]Combat bonus research</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_COMBAT_BONUS_RESEARCH_HELP">
+			<Text>This unit gets [COLOR_POSITIVE_TEXT]+30%[ENDCOLOR] [ICON_STRENGTH] and [COLOR_POSITIVE_TEXT]+30%[ENDCOLOR] [ICON_RANGE_STRENGTH] for 5 turns after you research a new technology</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_COMBAT_BONUS_RESEARCH_PEDIA_ENTRY">
+			<Text>[TOWRITE] promotion combat research bonus pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

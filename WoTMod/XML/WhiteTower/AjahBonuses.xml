@@ -39,7 +39,7 @@
 		<Row>
 			<AjahType>WHITE_TOWER_WHITE_AJAH</AjahType>
 			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
-			<PromotionType>PROMOTION_NEARBY_GOVERNORS_SCIENCE</PromotionType>
+			<PromotionType>PROMOTION_COMBAT_BONUS_RESEARCH</PromotionType>
 		</Row>
 	</Ajah_InfluencePromotionBonus>
 </GameData>

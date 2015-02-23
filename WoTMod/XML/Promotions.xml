@@ -113,6 +113,17 @@
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_SIGHT_ADD_TWO_PEDIA_ENTRY</PediaEntry>
 		</Row>
+		<Row>
+			<Type>PROMOTION_COMBAT_BONUS_RESEARCH</Type>
+			<Description>TXT_KEY_PROMOTION_COMBAT_BONUS_RESEARCH</Description>
+			<Help>TXT_KEY_PROMOTION_COMBAT_BONUS_RESEARCH_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<PortraitIndex>44</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_COMBAT_BONUS_RESEARCH_PEDIA_ENTRY</PediaEntry>
+		</Row>
 	</UnitPromotions>
 	<Promotions_NearbyGovernorYieldBonus>
 		<Row>
