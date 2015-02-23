@@ -529,11 +529,11 @@
 		</Row>
 		<Row>
 			<UnitType>UNIT_BLUE_SISTER</UnitType>
-			<PromotionType>PROMOTION_NEARBY_GOVERNORS_FAITH</PromotionType>
+			<PromotionType>PROMOTION_BLUE_AJAH_TIER_ZERO</PromotionType>
 		</Row>
 		<Row>
 			<UnitType>UNIT_WHITE_SISTER</UnitType>
-			<PromotionType>PROMOTION_NEARBY_GOVERNORS_SCIENCE</PromotionType>
+			<PromotionType>PROMOTION_WHITE_AJAH_TIER_ZERO</PromotionType>
 		</Row>
 	</Unit_FreePromotions>
 

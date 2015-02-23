@@ -2,22 +2,22 @@
 <!-- Created by ModBuddy on 2/22/2015 10:49:47 PM -->
 <GameData>
 	<Language_en_US>
-		<Row Tag="TXT_KEY_PROMOTION_NEARBY_GOVERNORS_FAITH">
+		<Row Tag="TXT_KEY_PROMOTION_BLUE_AJAH_TIER_ZERO">
 			<Text>[TOWRITE]Faithful Governors</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_NEARBY_GOVERNORS_FAITH_HELP">
+		<Row Tag="TXT_KEY_PROMOTION_BLUE_AJAH_TIER_ZERO_HELP">
 			<Text>Governors within 3 hexes of this unit produce [COLOR_POSITIVE_TEXT]+2 [ICON_PEACE][ENDCOLOR] Faith per turn</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_NEARBY_GOVERNORS_FAITH_PEDIA_ENTRY">
+		<Row Tag="TXT_KEY_PROMOTION_BLUE_AJAH_TIER_ZERO_PEDIA_ENTRY">
 			<Text>[TOWRITE] faith governors promotion pedia</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_NEARBY_GOVERNORS_SCIENCE">
+		<Row Tag="TXT_KEY_PROMOTION_WHITE_AJAH_TIER_ZERO">
 			<Text>[TOWRITE]Scientific Governors</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_NEARBY_GOVERNORS_SCIENCE_HELP">
+		<Row Tag="TXT_KEY_PROMOTION_WHITE_AJAH_TIER_ZERO_HELP">
 			<Text>Governors within 3 hexes of this unit produce [COLOR_POSITIVE_TEXT]+2 [ICON_RESEARCH][ENDCOLOR] Science per turn</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_NEARBY_GOVERNORS_SCIENCE_PEDIA_ENTRY">
+		<Row Tag="TXT_KEY_PROMOTION_WHITE_AJAH_TIER_ZERO_PEDIA_ENTRY">
 			<Text>[TOWRITE] science governors promotion pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_BLUE_AJAH_TIER_ONE">

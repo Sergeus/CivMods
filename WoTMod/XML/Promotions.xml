@@ -89,26 +89,26 @@
 			<PediaEntry>TXT_KEY_PROMOTION_TOWER_TRAINEE_PEDIA_ENTRY</PediaEntry>
 		</Row>
 		<Row>
-			<Type>PROMOTION_NEARBY_GOVERNORS_FAITH</Type>
-			<Description>TXT_KEY_PROMOTION_NEARBY_GOVERNORS_FAITH</Description>
-			<Help>TXT_KEY_PROMOTION_NEARBY_GOVERNORS_FAITH_HELP</Help>
+			<Type>PROMOTION_BLUE_AJAH_TIER_ZERO</Type>
+			<Description>TXT_KEY_PROMOTION_BLUE_AJAH_TIER_ZERO</Description>
+			<Help>TXT_KEY_PROMOTION_BLUE_AJAH_TIER_ZERO_HELP</Help>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<CannotBeChosen>true</CannotBeChosen>
 			<PortraitIndex>44</PortraitIndex>
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
-			<PediaEntry>TXT_KEY_PROMOTION_NEARBY_GOVERNORS_FAITH_PEDIA_ENTRY</PediaEntry>
+			<PediaEntry>TXT_KEY_PROMOTION_BLUE_AJAH_TIER_ZERO_PEDIA_ENTRY</PediaEntry>
 		</Row>
 		<Row>
-			<Type>PROMOTION_NEARBY_GOVERNORS_SCIENCE</Type>
-			<Description>TXT_KEY_PROMOTION_NEARBY_GOVERNORS_SCIENCE</Description>
-			<Help>TXT_KEY_PROMOTION_NEARBY_GOVERNORS_SCIENCE_HELP</Help>
+			<Type>PROMOTION_WHITE_AJAH_TIER_ZERO</Type>
+			<Description>TXT_KEY_PROMOTION_WHITE_AJAH_TIER_ZERO</Description>
+			<Help>TXT_KEY_PROMOTION_WHITE_AJAH_TIER_ZERO_HELP</Help>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<CannotBeChosen>true</CannotBeChosen>
 			<PortraitIndex>44</PortraitIndex>
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
-			<PediaEntry>TXT_KEY_PROMOTION_NEARBY_GOVERNORS_SCIENCE_PEDIA_ENTRY</PediaEntry>
+			<PediaEntry>TXT_KEY_PROMOTION_WHITE_AJAH_TIER_ZERO_PEDIA_ENTRY</PediaEntry>
 		</Row>
 		<!-- Ajah bonuses promotions -->
 		<Row>
@@ -201,12 +201,12 @@
 	</UnitPromotions>
 	<Promotions_NearbyGovernorYieldBonus>
 		<Row>
-			<PromotionType>PROMOTION_NEARBY_GOVERNORS_FAITH</PromotionType>
+			<PromotionType>PROMOTION_BLUE_AJAH_TIER_ZERO</PromotionType>
 			<YieldType>YIELD_FAITH</YieldType>
 			<Yield>2</Yield>
 		</Row>
 		<Row>
-			<PromotionType>PROMOTION_NEARBY_GOVERNORS_SCIENCE</PromotionType>
+			<PromotionType>PROMOTION_WHITE_AJAH_TIER_ZERO</PromotionType>
 			<YieldType>YIELD_SCIENCE</YieldType>
 			<Yield>2</Yield>
 		</Row>
