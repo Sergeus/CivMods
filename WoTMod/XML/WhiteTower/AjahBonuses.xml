@@ -34,12 +34,12 @@
 		<Row>
 			<AjahType>WHITE_TOWER_BLUE_AJAH</AjahType>
 			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
-			<PromotionType>PROMOTION_SIGHT_ADD_TWO</PromotionType>
+			<PromotionType>PROMOTION_BLUE_AJAH_TIER_ONE</PromotionType>
 		</Row>
 		<Row>
 			<AjahType>WHITE_TOWER_RED_AJAH</AjahType>
 			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
-			<PromotionType>PROMOTION_RANGED_DEFENSE_FIFTEEN</PromotionType>
+			<PromotionType>PROMOTION_RED_AJAH_TIER_ONE</PromotionType>
 		</Row>
 		<Row>
 			<AjahType>WHITE_TOWER_GREEN_AJAH</AjahType>
@@ -49,7 +49,7 @@
 		<Row>
 			<AjahType>WHITE_TOWER_WHITE_AJAH</AjahType>
 			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
-			<PromotionType>PROMOTION_COMBAT_BONUS_RESEARCH</PromotionType>
+			<PromotionType>PROMOTION_WHITE_AJAH_TIER_ONE</PromotionType>
 		</Row>
 		<Row>
 			<AjahType>WHITE_TOWER_GRAY_AJAH</AjahType>

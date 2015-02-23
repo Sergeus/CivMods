@@ -20,34 +20,34 @@
 		<Row Tag="TXT_KEY_PROMOTION_NEARBY_GOVERNORS_SCIENCE_PEDIA_ENTRY">
 			<Text>[TOWRITE] science governors promotion pedia</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_SIGHT_ADD_TWO">
+		<Row Tag="TXT_KEY_PROMOTION_BLUE_AJAH_TIER_ONE">
 			<Text>[TOWRITE]Boosted Sight</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_SIGHT_ADD_TWO_HELP">
+		<Row Tag="TXT_KEY_PROMOTION_BLUE_AJAH_TIER_ONE_HELP">
 			<Text>This unit has +2 sight</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_SIGHT_ADD_TWO_PEDIA_ENTRY">
+		<Row Tag="TXT_KEY_PROMOTION_BLUE_AJAH_TIER_ONE_PEDIA_ENTRY">
 			<Text>[TOWRITE] promotion +2 sight pedia</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_COMBAT_BONUS_RESEARCH">
+		<Row Tag="TXT_KEY_PROMOTION_WHITE_AJAH_TIER_ONE">
 			<Text>[TOWRITE]Combat bonus research</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_COMBAT_BONUS_RESEARCH_HELP">
+		<Row Tag="TXT_KEY_PROMOTION_WHITE_AJAH_TIER_ONE_HELP">
 			<Text>[COLOR_POSITIVE_TEXT]+30%[ENDCOLOR] [ICON_STRENGTH] Combat Strength and [COLOR_POSITIVE_TEXT]+30%[ENDCOLOR] [ICON_RANGE_STRENGTH] Ranged Strength for 5 turns after you research a new technology</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_COMBAT_BONUS_RESEARCH_PEDIA_ENTRY">
+		<Row Tag="TXT_KEY_PROMOTION_WHITE_AJAH_TIER_ONE_PEDIA_ENTRY">
 			<Text>[TOWRITE] promotion combat research bonus pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_EUPANEL_ON_RESEARCH_COMBAT_BONUS">
 			<Text>Bonus from Research</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_RANGED_DEFENSE_FIFTEEN">
+		<Row Tag="TXT_KEY_PROMOTION_RED_AJAH_TIER_ONE">
 			<Text>[TOWRITE] ranged defense</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_RANGED_DEFENSE_FIFTEEN_HELP">
+		<Row Tag="TXT_KEY_PROMOTION_RED_AJAH_TIER_ONE_HELP">
 			<Text>[COLOR_POSITIVE_TEXT]+15%[ENDCOLOR] Defense against all [ICON_RANGE_STRENGTH] Ranged Attacks</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMOTION_RANGED_DEFENSE_FIFTEEN_PEDIA_ENTRY">
+		<Row Tag="TXT_KEY_PROMOTION_RED_AJAH_TIER_ONE_PEDIA_ENTRY">
 			<Text>[TOWRITE] ranged defense fifteen pedia</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_GREEN_AJAH_TIER_ONE">
