@@ -59,5 +59,14 @@
 		<Row Tag="TXT_KEY_PROMOTION_GREEN_AJAH_TIER_ONE_PEDIA_ENTRY">
 			<Text>[TOWRITE] green ajah tier one ability pedia</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_GRAY_AJAH_TIER_ONE">
+			<Text>[TOWRITE] gray Ajah tier one ability</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_GRAY_AJAH_TIER_ONE_HELP">
+			<Text>[COLOR_POSITIVE_TEXT]+2[ENDCOLOR] Movement [ICON_MOVES]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_GRAY_AJAH_TIER_ONE_PEDIA_ENTRY">
+			<Text>[TOWRITE] gray Ajah tier one ability pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
