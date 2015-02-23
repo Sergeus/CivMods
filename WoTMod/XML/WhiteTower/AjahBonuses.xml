@@ -57,6 +57,11 @@
 			<PromotionType>PROMOTION_WHITE_AJAH_TIER_ONE</PromotionType>
 		</Row>
 		<Row>
+			<AjahType>WHITE_TOWER_BROWN_AJAH</AjahType>
+			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
+			<PromotionType>PROMOTION_BROWN_AJAH_TIER_ONE</PromotionType>
+		</Row>
+		<Row>
 			<AjahType>WHITE_TOWER_GRAY_AJAH</AjahType>
 			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
 			<PromotionType>PROMOTION_GRAY_AJAH_TIER_ONE</PromotionType>

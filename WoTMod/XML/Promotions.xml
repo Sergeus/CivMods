@@ -180,12 +180,24 @@
 			<Help>TXT_KEY_PROMOTION_YELLOW_AJAH_TIER_ONE_HELP</Help>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<CannotBeChosen>true</CannotBeChosen>
-			<MovesChange>2</MovesChange>
+			<AdjacentTileHealChange>5</AdjacentTileHealChange>
 			<PortraitIndex>44</PortraitIndex>
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_YELLOW_AJAH_TIER_ONE_PEDIA_ENTRY</PediaEntry>
-		</Row>		
+		</Row>
+		<Row>
+			<Type>PROMOTION_BROWN_AJAH_TIER_ONE</Type>
+			<Description>TXT_KEY_PROMOTION_BROWN_AJAH_TIER_ONE</Description>
+			<Help>TXT_KEY_PROMOTION_BROWN_AJAH_TIER_ONE_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<ExperiencePercent>10</ExperiencePercent>
+			<PortraitIndex>44</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_BROWN_AJAH_TIER_ONE_PEDIA_ENTRY</PediaEntry>
+		</Row>
 	</UnitPromotions>
 	<Promotions_NearbyGovernorYieldBonus>
 		<Row>
