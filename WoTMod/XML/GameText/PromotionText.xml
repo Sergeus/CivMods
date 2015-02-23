@@ -41,5 +41,14 @@
 		<Row Tag="TXT_KEY_EUPANEL_ON_RESEARCH_COMBAT_BONUS">
 			<Text>Bonus from Research</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_RANGED_DEFENSE_FIFTEEN">
+			<Text>[TOWRITE] ranged defense</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_RANGED_DEFENSE_FIFTEEN_HELP">
+			<Text>+15% [COLOR_POSITIVE_TEXT]Defense[ENDCOLOR] against all [COLOR_POSITIVE_TEXT]Ranged Attacks[ENDCOLOR]</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_RANGED_DEFENSE_FIFTEEN_PEDIA_ENTRY">
+			<Text>[TOWRITE] ranged defense fifteen pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
