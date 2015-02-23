@@ -149,6 +149,19 @@
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_RANGED_DEFENSE_FIFTEEN_PEDIA_ENTRY</PediaEntry>
 		</Row>
+		<Row>
+			<Type>PROMOTION_GREEN_AJAH_TIER_ONE</Type>
+			<Description>TXT_KEY_PROMOTION_GREEN_AJAH_TIER_ONE</Description>
+			<Help>TXT_KEY_PROMOTION_GREEN_AJAH_TIER_ONE_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<RangedAttackModifier>15</RangedAttackModifier>
+			<AttackMod>AttackMod</AttackMod>
+			<PortraitIndex>44</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_GREEN_AJAH_TIER_ONE_PEDIA_ENTRY</PediaEntry>
+		</Row>
 	</UnitPromotions>
 	<Promotions_NearbyGovernorYieldBonus>
 		<Row>

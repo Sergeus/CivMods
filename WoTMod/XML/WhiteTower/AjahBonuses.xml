@@ -42,6 +42,11 @@
 			<PromotionType>PROMOTION_RANGED_DEFENSE_FIFTEEN</PromotionType>
 		</Row>
 		<Row>
+			<AjahType>WHITE_TOWER_GREEN_AJAH</AjahType>
+			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
+			<PromotionType>PROMOTION_GREEN_AJAH_TIER_ONE</PromotionType>
+		</Row>
+		<Row>
 			<AjahType>WHITE_TOWER_WHITE_AJAH</AjahType>
 			<TierType>AJAH_INFLUENCE_TIER_ONE</TierType>
 			<PromotionType>PROMOTION_COMBAT_BONUS_RESEARCH</PromotionType>
