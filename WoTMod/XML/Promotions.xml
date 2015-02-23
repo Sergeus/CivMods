@@ -6,6 +6,16 @@
 		<Column name="YieldType" type="text" notnull="true" reference="Yields(Type)" />
 		<Column name="Yield" type="integer" default="0" />
 	</Table>
+	<Table name="Promotions_OnResearchCombatModifier">
+		<Column name="PromotionType" type="text" notnull="true" reference="UnitPromotions(Type)" />
+		<Column name="CombatModifier" type="integer" default="0" />
+		<Column name="Duration" type="integer" default="5" />
+	</Table>
+	<Table name="Promotion_OnResearchRangedCombatModifier">
+		<Column name="PromotionType" type="text" notnull="true" reference="UnitPromotions(Type)" />
+		<Column name="RangedCombatModifier" type="integer" default="0" />
+		<Column name="Duration" type="integer" default="5" />
+	</Table>
 	<UnitPromotions>
 		<Row>
 			<Type>PROMOTION_HORN_HUNTER</Type>
@@ -119,6 +129,9 @@
 			<Help>TXT_KEY_PROMOTION_COMBAT_BONUS_RESEARCH_HELP</Help>
 			<Sound>AS2D_IF_LEVELUP</Sound>
 			<CannotBeChosen>true</CannotBeChosen>
+			<OnResearchCombatModifier>30</OnResearchCombatModifier>
+			<OnResearchRangedCombatModifier>30</OnResearchRangedCombatModifier>
+			<OnResearchModifiersDuration>5</OnResearchModifiersDuration>
 			<PortraitIndex>44</PortraitIndex>
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>

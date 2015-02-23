@@ -1863,8 +1863,15 @@ void CvTeamTechs::SetHasTech(TechTypes eIndex, bool bNewValue)
 	{
 		m_pabHasTech[eIndex] = bNewValue;
 
-		if(bNewValue)
+		if (bNewValue)
+#if WOTMOD
+		{
+#endif // WOTMOD
 			SetLastTechAcquired(eIndex);
+#if WOTMOD
+			SetTurnsSinceLastTech(0);
+		}
+#endif // WOTMOD
 
 		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 		if(pkScriptSystem)
@@ -1913,6 +1920,21 @@ void CvTeamTechs::SetLastTechAcquired(TechTypes eTech)
 
 	m_eLastTechAcquired = eTech;
 }
+
+#if WOTMOD
+int CvTeamTechs::GetTurnsSinceLastTech() const
+{
+	return m_iTurnsSinceLastTechAcquired;
+}
+void CvTeamTechs::SetTurnsSinceLastTech(int iNewValue)
+{
+	m_iTurnsSinceLastTechAcquired = iNewValue;
+}
+void CvTeamTechs::ChangeTurnsSinceLastTech(int iChange)
+{
+	SetTurnsSinceLastTech(GetTurnsSinceLastTech() + iChange);
+}
+#endif // WOTMOD
 
 /// How many total Techs does this team have?
 int CvTeamTechs::GetNumTechsKnown() const

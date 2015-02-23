@@ -131,6 +131,9 @@ public:
 #if WOTMOD
 	int GetTurnDamage() const;
 	int GetRangedAttackSelfDamageChance() const;
+	int GetOnResearchCombatModifier() const;
+	int GetOnResearchRangedCombatModifier() const;
+	int GetOnResearchModifiersDuration() const;
 	bool IsBlocksHealing() const;
 	int GetNearbyGovernorYieldChange(YieldTypes eYield) const;
 #endif // WOTMOD
@@ -296,6 +299,9 @@ protected:
 #if WOTMOD
 	int m_iTurnDamage;
 	int m_iRangedAttackSelfDamageChance;
+	int m_iOnResearchCombatModifier;
+	int m_iOnResearchRangedCombatModifier;
+	int m_iOnResearchModifiersDuration;
 	bool m_bBlocksHealing;
 	std::vector<int> m_aiNearbyGovernorYieldChange;
 #endif // WOTMOD

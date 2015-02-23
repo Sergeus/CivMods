@@ -103,6 +103,9 @@ CvPromotionEntry::CvPromotionEntry():
 #if WOTMOD
 	m_iTurnDamage(0),
 	m_iRangedAttackSelfDamageChance(0),
+	m_iOnResearchCombatModifier(0),
+	m_iOnResearchRangedCombatModifier(0),
+	m_iOnResearchModifiersDuration(0),
 	m_bBlocksHealing(false), 
 #endif // WOTMOD
 
@@ -322,6 +325,9 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 #if WOTMOD
 	m_iTurnDamage = kResults.GetInt("TurnDamage");
 	m_iRangedAttackSelfDamageChance = kResults.GetInt("RangedAttackSelfDamageChance");
+	m_iOnResearchCombatModifier = kResults.GetInt("OnResearchCombatModifier");
+	m_iOnResearchRangedCombatModifier = kResults.GetInt("OnResearchRangedCombatModifier");
+	m_iOnResearchModifiersDuration = kResults.GetInt("OnResearchModifiersDuration");
 	m_bBlocksHealing = kResults.GetBool("BlocksHealing");
 #endif // WOTMOD
 
@@ -1201,6 +1207,18 @@ bool CvPromotionEntry::IsBlocksHealing() const
 int CvPromotionEntry::GetNearbyGovernorYieldChange(YieldTypes eYield) const
 {
 	return m_aiNearbyGovernorYieldChange[eYield];
+}
+int CvPromotionEntry::GetOnResearchCombatModifier() const
+{
+	return m_iOnResearchCombatModifier;
+}
+int CvPromotionEntry::GetOnResearchRangedCombatModifier() const
+{
+	return m_iOnResearchRangedCombatModifier;
+}
+int CvPromotionEntry::GetOnResearchModifiersDuration() const
+{
+	return m_iOnResearchModifiersDuration;
 }
 #endif // WOTMOD
 

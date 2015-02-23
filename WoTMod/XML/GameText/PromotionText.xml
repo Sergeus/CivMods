@@ -38,5 +38,8 @@
 		<Row Tag="TXT_KEY_PROMOTION_COMBAT_BONUS_RESEARCH_PEDIA_ENTRY">
 			<Text>[TOWRITE] promotion combat research bonus pedia</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_ON_RESEARCH_COMBAT_BONUS">
+			<Text>Bonus from Research</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

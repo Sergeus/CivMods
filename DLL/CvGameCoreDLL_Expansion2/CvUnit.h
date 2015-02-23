@@ -462,6 +462,7 @@ public:
 	int GetBaseCombatStrengthConsideringDamage() const;
 
 	int GetGenericMaxStrengthModifier(const CvUnit* pOtherUnit, const CvPlot* pBattlePlot, bool bIgnoreUnitAdjacency) const;
+
 	int GetMaxAttackStrength(const CvPlot* pFromPlot, const CvPlot* pToPlot, const CvUnit* pDefender) const;
 	int GetMaxDefenseStrength(const CvPlot* pInPlot, const CvUnit* pAttacker, bool bFromRangedAttack = false) const;
 	int GetEmbarkedUnitDefense() const;
@@ -1275,6 +1276,11 @@ public:
 	void SetNearbyGovernorYieldChange(YieldTypes eYield, int iNewValue);
 	void ChangeNearbyGovernorYieldChange(YieldTypes eYield, int iChangePair);
 	void DoUpdateNearbyGovernorYieldChange(CvPlot* pPlot, bool bRemove);
+
+	int GetOnResearchCombatModifier() const;
+	int GetOnResearchRangedCombatModifier() const;
+	void ChangeOnResearchCombatModifier(int iModifier, int iRange, bool bRemove);
+	void ChangeOnResearchRangedCombatModifier(int iModifier, int iRange, bool bRemove);
 #endif // WOTMOD
 
 protected:
@@ -1317,6 +1323,8 @@ protected:
 
 #if WOTMOD
 	FAutoVariable<std::vector<int>, CvUnit> m_aiNearbyGovernorYieldChange;
+	FAutoVariable<std::vector<std::pair<int, int>>, CvUnit> m_aiOnResearchCombatModifiers;
+	FAutoVariable<std::vector<std::pair<int, int>>, CvUnit> m_aiOnResearchRangedCombatModifiers;
 #endif // WOTMOD
 
 	FAutoVariable<int, CvUnit> m_iHotKeyNumber;

@@ -271,6 +271,8 @@ CvUnit::CvUnit() :
 	, m_iRangedAttackSelfDamageChance(0)
 	, m_iHealBlockedCount(0)
 	, m_aiNearbyGovernorYieldChange("CvUnit::m_aiNearbyGovernorYieldChange", m_syncArchive)
+	, m_aiOnResearchCombatModifiers("CvUnit::m_aiOnResearchCombatModifiers", m_syncArchive)
+	, m_aiOnResearchRangedCombatModifiers("CvUnit::m_aiOnResearchRangedCombatModifiers", m_syncArchive)
 #endif // WOTMOD
 
 	, m_strName("")
@@ -10649,6 +10651,10 @@ int CvUnit::GetMaxAttackStrength(const CvPlot* pFromPlot, const CvPlot* pToPlot,
 	iTempModifier = getAttackModifier();
 	iModifier += iTempModifier;
 
+#if WOTMOD
+	iModifier += GetOnResearchCombatModifier();
+#endif // WOTMOD
+
 	// Kamikaze attack
 	if(getKamikazePercent() != 0)
 	{
@@ -11019,6 +11025,10 @@ int CvUnit::GetMaxRangedCombatStrength(const CvUnit* pOtherUnit, const CvCity* p
 
 	// Extra combat percent
 	iModifier = getExtraCombatPercent();
+
+#if WOTMOD
+	iModifier += GetOnResearchRangedCombatModifier();
+#endif // WOTMOD
 
 	// Kamikaze attack
 	if(getKamikazePercent() != 0)
@@ -17832,6 +17842,9 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		{
 			DoUpdateNearbyGovernorYieldChange(plot(), iChange < 0);
 		}
+
+		ChangeOnResearchCombatModifier(thisPromotion.GetOnResearchCombatModifier(), thisPromotion.GetOnResearchModifiersDuration(), iChange < 0);
+		ChangeOnResearchRangedCombatModifier(thisPromotion.GetOnResearchRangedCombatModifier(), thisPromotion.GetOnResearchModifiersDuration(), iChange < 0);
 #endif // WOTMOD
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
@@ -21871,6 +21884,81 @@ void CvUnit::DoUpdateNearbyGovernorYieldChange(CvPlot* pRootPlot, bool bRemove)
 					}
 				}
 			}
+		}
+	}
+}
+
+int CvUnit::GetOnResearchCombatModifier() const
+{
+	int iModifier = 0;
+	int iTurnsSinceTech = GET_TEAM(getTeam()).GetTeamTechs()->GetTurnsSinceLastTech();
+
+	for (int i = 0; i < m_aiOnResearchCombatModifiers.size(); ++i)
+	{
+		if (m_aiOnResearchCombatModifiers[i].second >= iTurnsSinceTech)
+		{
+			iModifier += m_aiOnResearchCombatModifiers[i].first;
+		}
+	}
+
+	return iModifier;
+}
+
+int CvUnit::GetOnResearchRangedCombatModifier() const
+{
+	int iModifier = 0;
+	int iTurnsSinceTech = GET_TEAM(getTeam()).GetTeamTechs()->GetTurnsSinceLastTech();
+
+	for (int i = 0; i < m_aiOnResearchRangedCombatModifiers.size(); ++i)
+	{
+		if (m_aiOnResearchRangedCombatModifiers[i].second >= iTurnsSinceTech)
+		{
+			iModifier += m_aiOnResearchRangedCombatModifiers[i].first;
+		}
+	}
+
+	return iModifier;
+}
+
+void CvUnit::ChangeOnResearchCombatModifier(int iModifier, int iDuration, bool bRemove)
+{
+	if (bRemove)
+	{
+		for (int i = 0; i < m_aiOnResearchCombatModifiers.size(); ++i)
+		{
+			if (m_aiOnResearchCombatModifiers[i].first == iModifier && m_aiOnResearchCombatModifiers[i].second == iDuration)
+			{
+				m_aiOnResearchCombatModifiers.erase(i);
+				break;
+			}
+		}
+	}
+	else
+	{
+		if (iModifier != 0 && iDuration > 0)
+		{
+			m_aiOnResearchCombatModifiers.push_back(make_pair(iModifier, iDuration));
+		}
+	}
+}
+void CvUnit::ChangeOnResearchRangedCombatModifier(int iModifier, int iDuration, bool bRemove)
+{
+	if (bRemove)
+	{
+		for (int i = 0; i < m_aiOnResearchRangedCombatModifiers.size(); ++i)
+		{
+			if (m_aiOnResearchRangedCombatModifiers[i].first == iModifier && m_aiOnResearchRangedCombatModifiers[i].second == iDuration)
+			{
+				m_aiOnResearchRangedCombatModifiers.erase(i);
+				break;
+			}
+		}
+	}
+	else
+	{
+		if (iModifier != 0 && iDuration > 0)
+		{
+			m_aiOnResearchRangedCombatModifiers.push_back(make_pair(iModifier, iDuration));
 		}
 	}
 }

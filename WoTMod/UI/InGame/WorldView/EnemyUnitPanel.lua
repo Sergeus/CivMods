@@ -508,6 +508,19 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 						end
 					end
 				end
+
+				-- WoTMod Begin
+				-- What in all hells is this file? Why would you do this to people?
+
+				-- Combat bonus after researching a technology
+				local onResearchCombatModifier = pMyUnit:GetOnResearchCombatModifier()
+				if (onResearchCombatModifier ~= 0) then
+					iModifier = onResearchCombatModifier
+					controlTable = g_MyCombatDataIM:GetInstance();
+					controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_ON_RESEARCH_COMBAT_BONUS")
+					controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true))
+				end
+				-- WoTMod End
 				
 			else
 				iModifier = pMyUnit:GetRangedAttackModifier();
@@ -516,6 +529,19 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 					controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_RANGED_ATTACK_MODIFIER" );
 					controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
 				end
+
+				-- WoTMod Begin
+				-- What in all hells is this file? Why would you do this to people?
+
+				-- Combat bonus after researching a technology
+				local onResearchCombatModifier = pMyUnit:GetOnResearchRangedCombatModifier()
+				if (onResearchCombatModifier ~= 0) then
+					iModifier = onResearchCombatModifier
+					controlTable = g_MyCombatDataIM:GetInstance();
+					controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_ON_RESEARCH_COMBAT_BONUS")
+					controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true))
+				end
+				-- WoTMod End
 			end
 			
 			-- Great General bonus
@@ -854,6 +880,19 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 						end
 					end
 				end
+
+				-- WoTMod Begin
+				-- What in all hells is this file? Why would you do this to people?
+
+				-- Combat bonus after researching a technology
+				local onResearchCombatModifier = pMyUnit:GetOnResearchCombatModifier()
+				if (onResearchCombatModifier ~= 0) then
+					iModifier = onResearchCombatModifier
+					controlTable = g_MyCombatDataIM:GetInstance();
+					controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_ON_RESEARCH_COMBAT_BONUS")
+					controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true))
+				end
+				-- WoTMod End
 				
 			end
 			
@@ -1165,6 +1204,19 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 					controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_RANGED_ATTACK_MODIFIER" );
 					controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
 				end
+
+				-- WoTMod Begin
+				-- What in all hells is this file? Why would you do this to people?
+
+				-- Combat bonus after researching a technology
+				local onResearchCombatModifier = pMyUnit:GetOnResearchRangedCombatModifier()
+				if (onResearchCombatModifier ~= 0) then
+					iModifier = onResearchCombatModifier
+					controlTable = g_MyCombatDataIM:GetInstance();
+					controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_ON_RESEARCH_COMBAT_BONUS")
+					controlTable.Value:SetText(GetFormattedText(strText, iModifier, true, true))
+				end
+				-- WoTMod End
 			end
 			
 			if (pToPlot:IsRoughGround()) then
@@ -1382,6 +1434,18 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 						controlTable.Text:LocalizeAndSetText(  "TXT_KEY_EUPANEL_FLANKING_BONUS" );
 						controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
 					end
+					-- WoTMod Begin
+					-- What in all hells is this file? Why would you do this to people?
+
+					-- Combat bonus after researching a technology
+					local onResearchCombatModifier = pTheirUnit:GetOnResearchCombatModifier()
+					if (onResearchCombatModifier ~= 0) then
+						iModifier = onResearchCombatModifier
+						controlTable = g_MyCombatDataIM:GetInstance();
+						controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_ON_RESEARCH_COMBAT_BONUS")
+						controlTable.Value:SetText(GetFormattedText(strText, iModifier, false, true))
+					end
+					-- WoTMod End
 				end
 				
 				-- ExtraCombatPercent

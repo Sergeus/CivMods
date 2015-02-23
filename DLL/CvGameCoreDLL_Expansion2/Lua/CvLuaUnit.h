@@ -485,6 +485,8 @@ protected:
 	static int lGetGovernorType(lua_State* L);
 	static int lDoGovernCity(lua_State* L);
 	static int lDoTrainAtTower(lua_State* L);
+	static int lGetOnResearchCombatModifier(lua_State* L);
+	static int lGetOnResearchRangedCombatModifier(lua_State* L);
 #endif // WOTMOD
 };
 

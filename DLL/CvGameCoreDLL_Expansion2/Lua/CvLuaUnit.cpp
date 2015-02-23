@@ -476,6 +476,8 @@ void CvLuaUnit::PushMethods(lua_State* L, int t)
 	Method(GetGovernorType);
 	Method(DoGovernCity);
 	Method(DoTrainAtTower);
+	Method(GetOnResearchCombatModifier);
+	Method(GetOnResearchRangedCombatModifier);
 #endif // WOTMOD
 }
 //------------------------------------------------------------------------------
@@ -4542,5 +4544,13 @@ int CvLuaUnit::lDoTrainAtTower(lua_State* L)
 	pkUnit->DoTrainAtTower();
 
 	return 0;
+}
+int CvLuaUnit::lGetOnResearchCombatModifier(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvUnit::GetOnResearchCombatModifier);
+}
+int CvLuaUnit::lGetOnResearchRangedCombatModifier(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvUnit::GetOnResearchRangedCombatModifier);
 }
 #endif // WOTMOD

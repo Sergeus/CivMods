@@ -305,6 +305,12 @@ public:
 	TechTypes GetLastTechAcquired() const;
 	void SetLastTechAcquired(TechTypes eTech);
 
+#if WOTMOD
+	int GetTurnsSinceLastTech() const;
+	void SetTurnsSinceLastTech(int iNewValue);
+	void ChangeTurnsSinceLastTech(int iChange);
+#endif // WOTMOD
+
 	int GetNumTechsKnown() const;
 	bool HasResearchedAllTechs() const;
 
@@ -327,6 +333,9 @@ private:
 	int GetMaxResearchOverflow(TechTypes eTech, PlayerTypes ePlayer) const;
 
 	TechTypes m_eLastTechAcquired;
+#if WOTMOD
+	int m_iTurnsSinceLastTechAcquired;
+#endif // WOTMOD
 
 	bool* m_pabHasTech;
 	bool* m_pabNoTradeTech;

@@ -774,6 +774,10 @@ void CvTeam::doTurn()
 		DoMinorCivTech();
 	}
 
+#if WOTMOD
+	GetTeamTechs()->ChangeTurnsSinceLastTech(1);
+#endif // WOTMOD
+
 	for(iI = 0; iI < GC.getNumTechInfos(); iI++)
 	{
 		GetTeamTechs()->SetNoTradeTech(((TechTypes)iI), false);
