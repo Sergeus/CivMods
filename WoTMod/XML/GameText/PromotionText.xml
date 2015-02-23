@@ -68,5 +68,14 @@
 		<Row Tag="TXT_KEY_PROMOTION_GRAY_AJAH_TIER_ONE_PEDIA_ENTRY">
 			<Text>[TOWRITE] gray Ajah tier one ability pedia</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_YELLOW_AJAH_TIER_ONE">
+			<Text>[TOWRITE] yellow ajah tier one ability</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_YELLOW_AJAH_TIER_ONE_HELP">
+			<Text>All units in adjacent tiles [COLOR_POSITIVE_TEXT]Heal 5 Additional HP[ENDCOLOR] per turn</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_YELLOW_AJAH_TIER_ONE_PEDIA_ENTRY">
+			<Text>[TOWRITE] yellow Ajah tier one ability pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
