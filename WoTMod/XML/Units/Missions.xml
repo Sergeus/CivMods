@@ -56,9 +56,9 @@
 		</Row>
 		<Row>
 			<Type>MISSION_BOND_WARDER</Type>
-			<Description>TXT_KEY_MISSION_TRAIN_WHITE_TOWER</Description>
-			<Help>TXT_KEY_MISSION_TRAIN_WHITE_TOWER_HELP</Help>
-			<DisabledHelp>TXT_KEY_MISSION_TRAIN_WHITE_TOWER_DISABLED_HELP</DisabledHelp>
+			<Description>TXT_KEY_MISSION_BOND_WARDER</Description>
+			<Help>TXT_KEY_MISSION_BOND_WARDER_HELP</Help>
+			<DisabledHelp>TXT_KEY_MISSION_BOND_WARDER_DISABLED_HELP</DisabledHelp>
 			<EntityEventType>ENTITY_EVENT_GREAT_EVENT</EntityEventType>
 			<OrderPriority>199</OrderPriority>
 			<Visible>1</Visible>

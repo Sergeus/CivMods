@@ -103,7 +103,6 @@
 			<Help>TXT_KEY_UNIT_AES_SEDAI_HELP</Help>
 			<MilitarySupport>true</MilitarySupport>
 			<MilitaryProduction>true</MilitaryProduction>
-			<BondsWarders>true</BondsWarders>
 			<Pillage>true</Pillage>
 			<XPValueAttack>3</XPValueAttack>
 			<XPValueDefense>3</XPValueDefense>

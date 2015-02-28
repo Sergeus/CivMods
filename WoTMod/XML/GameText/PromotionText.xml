@@ -86,5 +86,14 @@
 		<Row Tag="TXT_KEY_PROMOTION_BROWN_AJAH_TIER_ONE_PEDIA_ENTRY">
 			<Text>[TOWRITE] brown ajah tier one ability pedia</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_BONDS_WARDERS">
+			<Text>[TOWRITE] Bonds warders</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_BONDS_WARDERS_HELP">
+			<Text>May bond another combat unit, causing it to become a Warder</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_BONDS_WARDERS_PEDIA_ENTRY">
+			<Text>[TOWRITE] bonds warders promotion pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

@@ -79,6 +79,17 @@
 			<Text>[TOWRITE] train at white tower disabled help</Text>
 		</Row>
 		
+		<!-- Bond a warder -->
+		<Row Tag="TXT_KEY_MISSION_BOND_WARDER">
+			<Text>Bond Warder</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISSION_BOND_WARDER_HELP">
+			<Text>Bond another unit for it to become a Warder</Text>
+		</Row>
+		<Row Tag="TXT_KEY_MISSION_BOND_WARDER_DISABLED_HELP">
+			<Text>A Sister may only have {1_WarderLimit} {1_WarderLimit: plural 1?Warder; other?Warders;} at a time</Text>
+		</Row>
+		
 		<!-- Building cannot be built due to Governor OR Prereq -->
 		<Row Tag="TXT_KEY_NO_ACTION_BUILDING_LOCAL_GOVERNOR">
 			<Text>[NEWLINE]A {1_GovernorDescription} governor will allow this building to be constructed.</Text>
