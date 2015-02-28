@@ -31,6 +31,20 @@
 			<Text>[TOWRITE] Aes Sedai help</Text>
 		</Row>
 
+		<!-- Unit: Warder -->
+		<Row Tag="TXT_KEY_UNIT_WARDER">
+			<Text>Warder</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_WARDER">
+			<Text>[TOWRITE] Warder help</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ANTIQUITY_WARDER_TEXT">
+			<Text>[TOWRITE] Warder pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_WARDER_STRATEGY">
+			<Text>[TOWRITE] Warder strategy</Text>
+		</Row>
+
 		<!-- Unit: Hunter of the Horn -->
 		<Row Tag="TXT_KEY_UNIT_HORN_HUNTER">
 			<Text>Hunter of the Horn</Text>

@@ -23,6 +23,11 @@
 			<DefaultUnit>UNIT_AES_SEDAI</DefaultUnit>
 		</Row>
 		<Row>
+			<Type>UNITCLASS_WARDER</Type>
+			<Description>TXT_KEY_UNIT_WARDER</Description>
+			<DefaultUnit>UNIT_WARDER</DefaultUnit>
+		</Row>
+		<Row>
 			<Type>UNITCLASS_SLINGER</Type>
 			<Description>TXT_KEY_UNITCLASS_SLINGER</Description>
 			<DefaultUnit>UNIT_SLINGER</DefaultUnit>
