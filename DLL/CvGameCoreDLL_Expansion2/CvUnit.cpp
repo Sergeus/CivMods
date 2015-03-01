@@ -3919,7 +3919,6 @@ bool CvUnit::CanHandleMission(MissionTypes eMission, int iData1, int iData2, CvP
 
 			args->Push(getOwner());
 			args->Push(GetID());
-			args->Push(eMission);
 			args->Push(bTestVisible);
 
 			bool bResult;
@@ -3958,7 +3957,6 @@ bool CvUnit::HandleMission(MissionTypes eMission)
 
 			args->Push(getOwner());
 			args->Push(GetID());
-			args->Push(eMission);
 
 			bool bResult;
 			if (LuaSupport::CallHook(pkScriptSystem, luaEventName, args.get(), bResult))
