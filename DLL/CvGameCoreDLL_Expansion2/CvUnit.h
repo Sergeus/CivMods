@@ -1305,6 +1305,10 @@ protected:
 	int m_iTurnDamage;
 	int m_iRangedAttackSelfDamageChance;
 	int m_iHealBlockedCount;
+
+	int GetBondsWardersCount() const;
+	void ChangeBondsWardersCount(int iChange);
+	bool IsBondsWarders(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const;
 #endif // WOTMOD
 
 #if CUSTOM_MISSIONS
@@ -1331,6 +1335,7 @@ protected:
 	FAutoVariable<std::vector<int>, CvUnit> m_aiNearbyGovernorYieldChange;
 	FAutoVariable<std::vector<std::pair<int, int>>, CvUnit> m_aiOnResearchCombatModifiers;
 	FAutoVariable<std::vector<std::pair<int, int>>, CvUnit> m_aiOnResearchRangedCombatModifiers;
+	FAutoVariable<int, CvUnit> m_iBondsWardersCount;
 #endif // WOTMOD
 
 	FAutoVariable<int, CvUnit> m_iHotKeyNumber;

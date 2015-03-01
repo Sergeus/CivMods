@@ -107,6 +107,7 @@ CvPromotionEntry::CvPromotionEntry():
 	m_iOnResearchRangedCombatModifier(0),
 	m_iOnResearchModifiersDuration(0),
 	m_bBlocksHealing(false), 
+	m_bBondsWarders(false),
 #endif // WOTMOD
 
 	m_bCannotBeChosen(false),
@@ -329,6 +330,7 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	m_iOnResearchRangedCombatModifier = kResults.GetInt("OnResearchRangedCombatModifier");
 	m_iOnResearchModifiersDuration = kResults.GetInt("OnResearchModifiersDuration");
 	m_bBlocksHealing = kResults.GetBool("BlocksHealing");
+	m_bBondsWarders = kResults.GetBool("BondsWarders");
 #endif // WOTMOD
 
 	//References
@@ -1219,6 +1221,10 @@ int CvPromotionEntry::GetOnResearchRangedCombatModifier() const
 int CvPromotionEntry::GetOnResearchModifiersDuration() const
 {
 	return m_iOnResearchModifiersDuration;
+}
+bool CvPromotionEntry::IsBondsWarders() const
+{
+	return m_bBondsWarders;
 }
 #endif // WOTMOD
 

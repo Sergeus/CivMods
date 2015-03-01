@@ -209,6 +209,7 @@
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
 			<PediaType>PEDIA_ATTRIBUTES</PediaType>
 			<PediaEntry>TXT_KEY_PROMOTION_BONDS_WARDERS_PEDIA_ENTRY</PediaEntry>
+			<BondsWarders>true</BondsWarders>
 		</Row>
 	</UnitPromotions>
 	<Promotions_NearbyGovernorYieldBonus>

@@ -4,10 +4,6 @@
 --------------------------------------------------------------
 
 function CanTrainAtTower(playerID, unitID, missionID, bTestVisible)
-	if (missionID ~= GameInfoTypes.MISSION_TRAIN_WHITE_TOWER) then
-		return false
-	end
-
 	local pPlayer = Players[playerID]
 	local pUnit = pPlayer:GetUnitByID(unitID)
 
@@ -24,7 +20,7 @@ function CanTrainAtTower(playerID, unitID, missionID, bTestVisible)
 
 	return false
 end
-GameEvents.UnitCanHandleMission.Add(CanTrainAtTower)
+GameEvents.CanTrainWhiteTower.Add(CanTrainAtTower)
 
 function UnitTrainingAtTower(playerID, unitID, missionID)
 	if (missionID ~= GameInfoTypes.MISSION_TRAIN_WHITE_TOWER) then
@@ -38,16 +34,5 @@ function UnitTrainingAtTower(playerID, unitID, missionID)
 	return true
 end
 GameEvents.UnitHandlingMission.Add(UnitTrainingAtTower)
-
-function CanBondWarders(playerID, unitID, missionID, bTestVisible)
-	if (missionID ~= GameInfoTypes.MISSION_TRAIN_WHITE_TOWER) then
-		return false
-	end
-
-	local pUnit = Players[playerID]:GetUnitByID(unitID)
-
-	return pUnit:IsHasPromotion(GameInfoTypes.PROMOTION_BONDS_WARDERS)
-end
-GameEvents.UnitCanHandleMission.Add(CanTrainAtTower)
 
 print("White Tower missions")

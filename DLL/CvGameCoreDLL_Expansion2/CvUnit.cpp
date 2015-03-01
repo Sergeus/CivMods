@@ -273,6 +273,7 @@ CvUnit::CvUnit() :
 	, m_aiNearbyGovernorYieldChange("CvUnit::m_aiNearbyGovernorYieldChange", m_syncArchive)
 	, m_aiOnResearchCombatModifiers("CvUnit::m_aiOnResearchCombatModifiers", m_syncArchive)
 	, m_aiOnResearchRangedCombatModifiers("CvUnit::m_aiOnResearchRangedCombatModifiers", m_syncArchive)
+	, m_iBondsWardersCount("CvUnit::m_iBondsWardersCount", m_syncArchive)
 #endif // WOTMOD
 
 	, m_strName("")
@@ -955,6 +956,10 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_CanHandleMission.resize(GC.GetNumMissionInfos());
 	m_HandleMission.resize(GC.GetNumMissionInfos());
 #endif // CUSTOM_MISSIONS
+
+#if WOTMOD
+	m_CanHandleMission[GC.getInfoTypeForString("MISSION_BOND_WARDER")] = &CvUnit::IsBondsWarders;
+#endif // WOTMOD
 
 	if(!bConstructorCall)
 	{
@@ -3986,7 +3991,7 @@ bool CvUnit::CanHandleMission(MissionTypes eMission, int iData1, int iData2, CvP
 	else
 	{
 		bool(CvUnit::*func)(int, int, CvPlot*, bool) const = m_CanHandleMission[eMission];
-		
+
 		if (func)
 		{
 			return (this->*func)(iData1, iData2, pPlot, bTestVisible);
@@ -4024,7 +4029,7 @@ bool CvUnit::HandleMission(MissionTypes eMission)
 	else
 	{
 		bool(CvUnit::*func)() = m_HandleMission[eMission];
-		
+
 		if (func)
 		{
 			return (this->*func)();
@@ -17882,6 +17887,8 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 
 		ChangeOnResearchCombatModifier(thisPromotion.GetOnResearchCombatModifier(), thisPromotion.GetOnResearchModifiersDuration(), iChange < 0);
 		ChangeOnResearchRangedCombatModifier(thisPromotion.GetOnResearchRangedCombatModifier(), thisPromotion.GetOnResearchModifiersDuration(), iChange < 0);
+
+		ChangeBondsWardersCount(thisPromotion.IsBondsWarders() ? iChange : 0);
 #endif // WOTMOD
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
@@ -21998,6 +22005,19 @@ void CvUnit::ChangeOnResearchRangedCombatModifier(int iModifier, int iDuration, 
 			m_aiOnResearchRangedCombatModifiers.push_back(make_pair(iModifier, iDuration));
 		}
 	}
+}
+
+int CvUnit::GetBondsWardersCount() const
+{
+	return m_iBondsWardersCount;
+}
+void CvUnit::ChangeBondsWardersCount(int iChange)
+{
+	m_iBondsWardersCount = m_iBondsWardersCount + iChange;
+}
+bool CvUnit::IsBondsWarders(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const
+{
+	return GetBondsWardersCount() > 0;
 }
 #endif // WOTMOD
 

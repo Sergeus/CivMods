@@ -4,11 +4,6 @@
 --------------------------------------------------------------
 
 function CanBlowHornOfValere(playerID, unitID, iMission, bTestVisible)
-
-	if (iMission ~= GameInfoTypes.MISSION_BLOW_HORN_OF_VALERE) then
-		return false
-	end
-
 	pPlayer = Players[playerID]
 	pUnit = pPlayer:GetUnitByID(unitID)
 
@@ -28,4 +23,4 @@ function CanBlowHornOfValere(playerID, unitID, iMission, bTestVisible)
 	print("This guy can blow the Horn, no problem.")
 	return true
 end
-GameEvents.UnitCanHandleMission.Add(CanBlowHornOfValere)
+GameEvents.CanBlowHornOfValere.Add(CanBlowHornOfValere)
