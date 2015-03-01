@@ -1251,7 +1251,7 @@ bool CvUnitMission::CanStartMission(UnitHandle hUnit, int iMission, int iData1, 
 #if CUSTOM_MISSIONS
 	else
 	{
-		if (hUnit->CanHandleMission(iMission, bTestVisible))
+		if (hUnit->CanHandleMission(static_cast<MissionTypes>(iMission), iData1, iData2, pPlot, bTestVisible))
 		{
 			return true;
 		}

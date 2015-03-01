@@ -951,6 +951,10 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iNumGoodyHutsPopped = 0;
 	m_iLastGameTurnAtFullHealth = -1;
 
+#if CUSTOM_MISSIONS
+	m_CanHandleMission.resize(GC.GetNumMissionInfos());
+#endif // CUSTOM_MISSIONS
+
 	if(!bConstructorCall)
 	{
 		m_Promotions.Reset();
@@ -3952,46 +3956,68 @@ bool CvUnit::canAirPatrol(const CvPlot* pPlot) const
 }
 
 #if CUSTOM_MISSIONS
-bool CvUnit::CanHandleMission(int iMission, bool bTestVisible) const
+bool CvUnit::CanHandleMission(MissionTypes eMission, int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const
 {
-	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+	CvMissionInfo* pInfo = GC.getMissionInfo(eMission);
 
-	if (pkScriptSystem)
+	const char* luaEventName = pInfo->GetLuaCanHandleEvent();
+
+	if (luaEventName)
 	{
-		CvLuaArgsHandle args;
+		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 
-		args->Push(getOwner());
-		args->Push(GetID());
-		args->Push(iMission);
-		args->Push(bTestVisible);
-
-		bool bResult;
-		if (LuaSupport::CallTestAny(pkScriptSystem, "UnitCanHandleMission", args.get(), bResult))
+		if (pkScriptSystem)
 		{
-			return bResult;
+			CvLuaArgsHandle args;
+
+			args->Push(getOwner());
+			args->Push(GetID());
+			args->Push(eMission);
+			args->Push(bTestVisible);
+
+			bool bResult;
+			if (LuaSupport::CallTestAll(pkScriptSystem, luaEventName, args.get(), bResult))
+			{
+				return bResult;
+			}
 		}
+	}
+	else
+	{
+		return m_CanHandleMission[eMission](iData1, iData2, pPlot, bTestVisible);
 	}
 
 	return false;
 }
 
-bool CvUnit::HandleMission(int iMission)
+bool CvUnit::HandleMission(MissionTypes eMission)
 {
-	ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+	CvMissionInfo* pInfo = GC.getMissionInfo(eMission);
 
-	if (pkScriptSystem)
+	const char* luaEventName = pInfo->GetLuaHandleEvent();
+
+	if (luaEventName)
 	{
-		CvLuaArgsHandle args;
+		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 
-		args->Push(getOwner());
-		args->Push(GetID());
-		args->Push(iMission);
-
-		bool bResult;
-		if (LuaSupport::CallTestAny(pkScriptSystem, "UnitHandlingMission", args.get(), bResult))
+		if (pkScriptSystem)
 		{
-			return bResult;
+			CvLuaArgsHandle args;
+
+			args->Push(getOwner());
+			args->Push(GetID());
+			args->Push(eMission);
+
+			bool bResult;
+			if (LuaSupport::CallHook(pkScriptSystem, luaEventName, args.get(), bResult))
+			{
+				return bResult;
+			}
 		}
+	}
+	else
+	{
+		return m_HandleMission[eMission]();
 	}
 
 	return false;
