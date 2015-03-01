@@ -953,6 +953,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 
 #if CUSTOM_MISSIONS
 	m_CanHandleMission.resize(GC.GetNumMissionInfos());
+	m_HandleMission.resize(GC.GetNumMissionInfos());
 #endif // CUSTOM_MISSIONS
 
 	if(!bConstructorCall)
@@ -3960,9 +3961,9 @@ bool CvUnit::CanHandleMission(MissionTypes eMission, int iData1, int iData2, CvP
 {
 	CvMissionInfo* pInfo = GC.getMissionInfo(eMission);
 
-	const char* luaEventName = pInfo->GetLuaCanHandleEvent();
+	CvString luaEventName = pInfo->GetLuaCanHandleEvent();
 
-	if (luaEventName)
+	if (luaEventName.length() > 0)
 	{
 		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 
@@ -3984,7 +3985,12 @@ bool CvUnit::CanHandleMission(MissionTypes eMission, int iData1, int iData2, CvP
 	}
 	else
 	{
-		return m_CanHandleMission[eMission](iData1, iData2, pPlot, bTestVisible);
+		bool(CvUnit::*func)(int, int, CvPlot*, bool) const = m_CanHandleMission[eMission];
+		
+		if (func)
+		{
+			return (this->*func)(iData1, iData2, pPlot, bTestVisible);
+		}
 	}
 
 	return false;
@@ -3994,9 +4000,9 @@ bool CvUnit::HandleMission(MissionTypes eMission)
 {
 	CvMissionInfo* pInfo = GC.getMissionInfo(eMission);
 
-	const char* luaEventName = pInfo->GetLuaHandleEvent();
+	CvString luaEventName = pInfo->GetLuaHandleEvent();
 
-	if (luaEventName)
+	if (luaEventName.length() > 0)
 	{
 		ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 
@@ -4017,7 +4023,12 @@ bool CvUnit::HandleMission(MissionTypes eMission)
 	}
 	else
 	{
-		return m_HandleMission[eMission]();
+		bool(CvUnit::*func)() = m_HandleMission[eMission];
+		
+		if (func)
+		{
+			return (this->*func)();
+		}
 	}
 
 	return false;

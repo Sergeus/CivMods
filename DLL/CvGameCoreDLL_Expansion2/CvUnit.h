@@ -1308,8 +1308,8 @@ protected:
 #endif // WOTMOD
 
 #if CUSTOM_MISSIONS
-	std::vector<bool(*)(int, int, CvPlot*, bool)> m_CanHandleMission;
-	std::vector<bool(*)()> m_HandleMission;
+	std::vector<bool(CvUnit::*)(int, int, CvPlot*, bool) const> m_CanHandleMission;
+	std::vector<bool(CvUnit::*)()> m_HandleMission;
 #endif // CUSTOM_MISSIONS
 
 	typedef enum Flags
