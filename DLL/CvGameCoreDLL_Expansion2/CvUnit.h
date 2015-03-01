@@ -1235,8 +1235,8 @@ public:
 	std::string stackTraceRemark(const FAutoVariableBase&) const;
 
 #if CUSTOM_MISSIONS
-	bool CanHandleMission(int iMission, bool bTestVisible) const;
-	bool HandleMission(int iMission);
+	bool CanHandleMission(MissionTypes eMission, int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const;
+	bool HandleMission(MissionTypes eMission);
 #endif // CUSTOM_MISSIONS
 
 protected:
@@ -1251,6 +1251,11 @@ protected:
 
 	void QueueMoveForVisualization(CvPlot* pkPlot);
 	void PublishQueuedVisualizationMoves();
+
+#if CUSTOM_MISSIONS
+	std::vector<bool(*)(int, int, CvPlot*, bool)> m_CanHandleMission;
+	std::vector<bool(*)()> m_HandleMission;
+#endif // CUSTOM_MISSIONS
 
 	typedef enum Flags
 	{

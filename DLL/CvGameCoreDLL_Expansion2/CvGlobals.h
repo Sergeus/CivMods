@@ -425,6 +425,9 @@ public:
 	std::vector<CvActionInfo*>& getActionInfo();
 	CvActionInfo* getActionInfo(int i);
 
+#if CUSTOM_MISSIONS
+	int GetNumMissionInfos();
+#endif // CUSTOM_MISSIONS
 	std::vector<CvMissionInfo*>& getMissionInfo();
 	_Ret_maybenull_ CvMissionInfo* getMissionInfo(MissionTypes eMissionNum);
 
