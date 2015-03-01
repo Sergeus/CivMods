@@ -32,6 +32,7 @@
 			<IconIndex>1</IconIndex>
 			<IconAtlas>UNIT_ACTION_ATLAS_RELIGION</IconAtlas>
 			<LuaCanHandleEvent>CanBlowHornOfValere</LuaCanHandleEvent>
+			<LuaHandleEvent>BlowHornOfValere</LuaHandleEvent>
 		</Row>
 		<Row>
 			<Type>MISSION_CREATE_GOVERNOR</Type>
@@ -44,6 +45,7 @@
 			<IconIndex>0</IconIndex>
 			<IconAtlas>CREATE_GOVERNOR_ACTION_ATLAS</IconAtlas>
 			<LuaCanHandleEvent>CanCreateGovernor</LuaCanHandleEvent>
+			<LuaHandleEvent>CreateGovernor</LuaHandleEvent>
 		</Row>
 		<Row>
 			<Type>MISSION_TRAIN_WHITE_TOWER</Type>
@@ -56,6 +58,7 @@
 			<IconIndex>0</IconIndex>
 			<IconAtlas>CREATE_GOVERNOR_ACTION_ATLAS</IconAtlas>
 			<LuaCanHandleEvent>CanTrainWhiteTower</LuaCanHandleEvent>
+			<LuaHandleEvent>TrainWhiteTower</LuaHandleEvent>
 		</Row>
 		<Row>
 			<Type>MISSION_BOND_WARDER</Type>

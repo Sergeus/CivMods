@@ -3,7 +3,7 @@
 -- DateCreated: 4/25/2013 5:08:21 AM
 --------------------------------------------------------------
 
-function CanBlowHornOfValere(playerID, unitID, iMission, bTestVisible)
+function CanBlowHornOfValere(playerID, unitID, bTestVisible)
 	pPlayer = Players[playerID]
 	pUnit = pPlayer:GetUnitByID(unitID)
 

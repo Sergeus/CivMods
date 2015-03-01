@@ -3,7 +3,7 @@
 -- DateCreated: 3/11/2014 7:49:34 PM
 --------------------------------------------------------------
 
-function CanTrainAtTower(playerID, unitID, missionID, bTestVisible)
+function CanTrainAtTower(playerID, unitID, bTestVisible)
 	local pPlayer = Players[playerID]
 	local pUnit = pPlayer:GetUnitByID(unitID)
 
@@ -22,17 +22,13 @@ function CanTrainAtTower(playerID, unitID, missionID, bTestVisible)
 end
 GameEvents.CanTrainWhiteTower.Add(CanTrainAtTower)
 
-function UnitTrainingAtTower(playerID, unitID, missionID)
-	if (missionID ~= GameInfoTypes.MISSION_TRAIN_WHITE_TOWER) then
-		return false
-	end
-
+function UnitTrainingAtTower(playerID, unitID)
 	local pUnit = Players[playerID]:GetUnitByID(unitID)
 
 	pUnit:DoTrainAtTower()
 
 	return true
 end
-GameEvents.UnitHandlingMission.Add(UnitTrainingAtTower)
+GameEvents.TrainWhiteTower.Add(UnitTrainingAtTower)
 
 print("White Tower missions")

@@ -3,7 +3,7 @@
 -- DateCreated: 10/26/2013 6:14:42 PM
 --------------------------------------------------------------
 
-function CanGovernCity(playerID, unitID, missionID, bTestVisible)
+function CanGovernCity(playerID, unitID, bTestVisible)
 	local pUnit = Players[playerID]:GetUnitByID(unitID)
 
 	if (not pUnit:IsCanGovernCities()) then
@@ -18,11 +18,7 @@ function CanGovernCity(playerID, unitID, missionID, bTestVisible)
 end
 GameEvents.CanCreateGovernor.Add(CanGovernCity)
 
-function UnitGoverningCity(playerID, unitID, missionID)
-	if (missionID ~= GameInfoTypes.MISSION_CREATE_GOVERNOR) then
-		return false
-	end
-
+function UnitGoverningCity(playerID, unitID)
 	local pUnit = Players[playerID]:GetUnitByID(unitID)
 
 	if not pUnit:GetPlot():IsCity() then
@@ -34,4 +30,4 @@ function UnitGoverningCity(playerID, unitID, missionID)
 
 	return true
 end
-GameEvents.UnitHandlingMission.Add(UnitGoverningCity)
+GameEvents.CreateGovernor.Add(UnitGoverningCity)

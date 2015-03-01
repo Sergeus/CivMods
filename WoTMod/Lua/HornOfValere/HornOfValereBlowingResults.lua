@@ -105,12 +105,7 @@ function SendNotifications(pPlayer, pUnit)
 	end
 end
 
-function ApplyHornOfValereEffects(playerID, unitID, iMission)
-	
-	if (iMission ~= GameInfoTypes.MISSION_BLOW_HORN_OF_VALERE) then
-		return false
-	end
-
+function ApplyHornOfValereEffects(playerID, unitID)
 	local pPlayer = Players[playerID]
 	local pUnit = pPlayer:GetUnitByID(unitID)
 
@@ -128,4 +123,4 @@ function ApplyHornOfValereEffects(playerID, unitID, iMission)
 
 	return true
 end
-GameEvents.UnitHandlingMission.Add(ApplyHornOfValereEffects)
+GameEvents.BlowHornOfValere.Add(ApplyHornOfValereEffects)
