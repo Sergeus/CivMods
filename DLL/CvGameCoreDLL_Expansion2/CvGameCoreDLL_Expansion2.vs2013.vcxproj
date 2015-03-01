@@ -45,7 +45,7 @@
       <OmitFramePointers>true</OmitFramePointers>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(SolutionDir)CvWorldBuilderMap\include\;$(SolutionDir)CvGameCoreDLLUtil\include\;$(SolutionDir)CvLocalization\include\;$(SolutionDir)CvGameDatabase\include\;$(SolutionDir)FirePlace\include\;$(SolutionDir)FirePlace\include\FireWorks\;$(SolutionDir)ThirdPartyLibs\Lua51\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>FXS_IS_DLL;WIN32;NDEBUG;_WINDOWS;_USRDLL;CVGAMECOREDLL_EXPORTS;FINAL_RELEASE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ENABLE_CUSTOM_MISSIONS;ENABLE_CUSTOM_NOTIFICATIONS;FXS_IS_DLL;WIN32;NDEBUG;_WINDOWS;_USRDLL;CVGAMECOREDLL_EXPORTS;FINAL_RELEASE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ExceptionHandling>
       </ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClCompile Include="CvCityManager.cpp" />
     <ClCompile Include="CvTargeting.cpp" />
+    <ClCompile Include="WoTNotifications.cpp" />
     <ClCompile Include="_precompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mod|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -345,6 +346,7 @@
     <ClInclude Include="CvVotingClasses.h" />
     <ClInclude Include="CvWonderProductionAI.h" />
     <ClInclude Include="CvWorldBuilderMapLoader.h" />
+    <ClInclude Include="ModDefines.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="CvDllBuildInfo.h" />
     <ClInclude Include="CvDllBuildingInfo.h" />
@@ -417,6 +419,7 @@
     <ClInclude Include="Lua\CvLuaTeam.h" />
     <ClInclude Include="Lua\CvLuaTeamTech.h" />
     <ClInclude Include="Lua\CvLuaUnit.h" />
+    <ClInclude Include="WoTNotifications.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CvGameCoreDLL.rc" />

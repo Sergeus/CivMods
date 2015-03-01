@@ -249,6 +249,11 @@ public:
 	bool getVisible() const;
 	EntityEventTypes getEntityEvent() const;
 
+#if CUSTOM_MISSIONS
+	const char* GetLuaCanHandleEvent() const;
+	const char* GetLuaHandleEvent() const;
+#endif // CUSTOM_MISSIONS
+
 	const char* getWaypoint() const;
 
 	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
@@ -261,6 +266,11 @@ protected:
 	bool m_bBuild;
 	bool m_bVisible;
 	EntityEventTypes m_eEntityEvent;
+
+#if CUSTOM_MISSIONS
+	CvString m_strLuaCanHandleEvent;
+	CvString m_strLuaHandleEvent;
+#endif // CUSTOM_MISSIONS
 
 	CvString m_strWaypoint;
 };

@@ -3103,6 +3103,13 @@ CvActionInfo* CvGlobals::getActionInfo(int i)
 		return NULL;
 }
 
+#if CUSTOM_MISSIONS
+int CvGlobals::GetNumMissionInfos()
+{
+	return m_paActionInfo.size();
+}
+#endif // CUSTOM_MISSIONS
+
 std::vector<CvMissionInfo*>& CvGlobals::getMissionInfo()
 {
 	return m_paMissionInfo;

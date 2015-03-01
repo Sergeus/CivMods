@@ -858,6 +858,17 @@ bool CvMissionInfo::getVisible() const
 	return m_bVisible;
 }
 
+#if CUSTOM_MISSIONS
+const char* CvMissionInfo::GetLuaCanHandleEvent() const
+{
+	return m_strLuaCanHandleEvent;
+}
+const char* CvMissionInfo::GetLuaHandleEvent() const
+{
+	return m_strLuaHandleEvent;
+}
+#endif // CUSTOM_MISSIONS
+
 const char* CvMissionInfo::getWaypoint() const
 {
 	return m_strWaypoint;
@@ -879,6 +890,11 @@ bool CvMissionInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	m_bTarget		= kResults.GetBool("Target");
 	m_bBuild		= kResults.GetBool("Build");
 	m_bVisible		= kResults.GetBool("Visible");
+
+#if CUSTOM_MISSIONS
+	m_strLuaCanHandleEvent = kResults.GetText("LuaCanHandleEvent");
+	m_strLuaHandleEvent = kResults.GetText("LuaHandleEvent");
+#endif // CUSTOM_MISSIONS
 
 	const char* szEntityEventType = kResults.GetText("EntityEventType");
 	if(szEntityEventType)
