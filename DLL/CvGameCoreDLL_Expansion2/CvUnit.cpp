@@ -958,7 +958,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 #endif // CUSTOM_MISSIONS
 
 #if WOTMOD
-	m_CanHandleMission[GC.getInfoTypeForString("MISSION_BOND_WARDER")] = &CvUnit::IsBondsWarders;
+	m_CanHandleMission[GC.getInfoTypeForString("MISSION_BOND_WARDER")] = &CvUnit::IsCanBondWarder;
 #endif // WOTMOD
 
 	if(!bConstructorCall)
@@ -22013,9 +22013,42 @@ void CvUnit::ChangeBondsWardersCount(int iChange)
 {
 	m_iBondsWardersCount = m_iBondsWardersCount + iChange;
 }
-bool CvUnit::IsBondsWarders(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const
+bool CvUnit::IsBondsWarders() const
 {
 	return GetBondsWardersCount() > 0;
+}
+bool CvUnit::IsCanBondWarders() const
+{
+	// TODO: Warder-per-Sister limit
+	return IsBondsWarders();
+}
+bool CvUnit::IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const
+{
+	if (!IsBondsWarders())
+	{
+		return false;
+	}
+	int distance = plotDistance(iData1, iData2, pPlot->getX(), pPlot->getY());
+	if (distance > 1)
+	{
+		return false;
+	}
+	CvMissionInfo* pInfo = GC.getMissionInfo(static_cast<MissionTypes>(GC.getInfoTypeForString("MISSION_BOND_WARDER")));
+	CvPlot* pTargetPlot = GC.getMap().plot(iData1, iData2);
+	IDInfoVector currentUnits;
+	if (pPlot->getUnits(&currentUnits) > 0)
+	{
+		for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr != currentUnits.end(); ++itr)
+		{
+			const CvUnit* pLoopUnit = GetPlayerUnit(*itr);
+			if (pInfo->GetUpgradedUnitClassForUnitCombat(pLoopUnit->getUnitCombatType()) != NO_UNITCLASS)
+			{
+				return true;
+			}
+		}
+	}
+
+	return false;
 }
 #endif // WOTMOD
 

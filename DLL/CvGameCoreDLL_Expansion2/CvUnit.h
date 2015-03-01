@@ -1308,7 +1308,13 @@ protected:
 
 	int GetBondsWardersCount() const;
 	void ChangeBondsWardersCount(int iChange);
-	bool IsBondsWarders(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const;
+	
+	// does this unit ever bond Warders
+	bool IsBondsWarders() const;
+	// is this unit capable of bonding a new Warder now
+	bool IsCanBondWarders() const;
+	// Can this unit bond the unit at the parameter X,Y while standing on the parameter plot
+	bool IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const;
 #endif // WOTMOD
 
 #if CUSTOM_MISSIONS

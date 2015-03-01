@@ -869,6 +869,13 @@ const char* CvMissionInfo::GetLuaHandleEvent() const
 }
 #endif // CUSTOM_MISSIONS
 
+#if WOTMOD
+UnitClassTypes CvMissionInfo::GetUpgradedUnitClassForUnitCombat(UnitCombatTypes eUnitCombat) const
+{
+	return m_aeUpgradedUnitClassForUnitCombats[eUnitCombat];
+}
+#endif // WOTMOD
+
 const char* CvMissionInfo::getWaypoint() const
 {
 	return m_strWaypoint;
@@ -895,6 +902,29 @@ bool CvMissionInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	m_strLuaCanHandleEvent = kResults.GetText("LuaCanHandleEvent");
 	m_strLuaHandleEvent = kResults.GetText("LuaHandleEvent");
 #endif // CUSTOM_MISSIONS
+
+#if WOTMOD
+	const char* szMissionType = GetType();
+	// upgrading other unit combat types
+	{
+		m_aeUpgradedUnitClassForUnitCombats.resize(kUtility.MaxRows("UnitCombatInfos"));
+		std::string strKey("Mission_UpgradesOtherUnits");
+		Database::Results* pResults = kUtility.GetResults(strKey);
+		if (pResults == NULL)
+		{
+			pResults = kUtility.PrepareResults(strKey, "select UnitCombatInfos.ID, UnitClasses.ID from Mission_UpgradesOtherUnits inner join UnitCombatInfos on UnitCombatInfos.Type = OtherUnitCombatType inner join UnitClasses on UnitClasses.Type = UpgradedUnitClassType where MissionType = ?");
+		}
+		pResults->Bind(1, szMissionType);
+
+		while (pResults->Step())
+		{
+			UnitCombatTypes eUnitCombat = static_cast<UnitCombatTypes>(pResults->GetInt(0));
+			UnitClassTypes eUnitClass = static_cast<UnitClassTypes>(pResults->GetInt(1));
+
+			m_aeUpgradedUnitClassForUnitCombats[eUnitCombat] = eUnitClass;
+		}
+	}
+#endif // WOTMOD
 
 	const char* szEntityEventType = kResults.GetText("EntityEventType");
 	if(szEntityEventType)

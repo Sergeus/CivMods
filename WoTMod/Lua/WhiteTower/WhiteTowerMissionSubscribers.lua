@@ -31,4 +31,10 @@ function UnitTrainingAtTower(playerID, unitID)
 end
 GameEvents.TrainWhiteTower.Add(UnitTrainingAtTower)
 
+function StartBondWarder(playerID, unitID)
+	UI.SetInterfaceMode( InterfaceModeTypes.INTERFACEMODE_RANGE_ATTACK )
+	return true
+end
+GameEvents.StartBondWarder.Add(StartBondWarder)
+
 print("White Tower missions")

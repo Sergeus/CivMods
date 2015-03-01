@@ -254,6 +254,10 @@ public:
 	const char* GetLuaHandleEvent() const;
 #endif // CUSTOM_MISSIONS
 
+#if WOTMOD
+	UnitClassTypes GetUpgradedUnitClassForUnitCombat(UnitCombatTypes eUnitCombat) const;
+#endif // WOTMOD
+
 	const char* getWaypoint() const;
 
 	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
@@ -271,6 +275,10 @@ protected:
 	CvString m_strLuaCanHandleEvent;
 	CvString m_strLuaHandleEvent;
 #endif // CUSTOM_MISSIONS
+
+#if WOTMOD
+	std::vector<UnitClassTypes> m_aeUpgradedUnitClassForUnitCombats;
+#endif // WOTMOD
 
 	CvString m_strWaypoint;
 };
