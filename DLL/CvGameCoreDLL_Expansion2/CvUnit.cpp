@@ -921,6 +921,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 #if CUSTOM_MISSIONS
 	m_CanHandleMission.resize(GC.GetNumMissionInfos());
 	m_HandleMission.resize(GC.GetNumMissionInfos());
+	m_CanHandleInterfaceMode.resize(GC.GetNumInterfaceModeInfos());
 #endif // CUSTOM_MISSIONS
 
 	if(!bConstructorCall)
@@ -19628,6 +19629,16 @@ bool CvUnit::CanDoInterfaceMode(InterfaceModeTypes eInterfaceMode, bool bTestVis
 		{
 			return true;
 		}
+#if CUSTOM_MISSIONS
+	default:
+		bool(CvUnit::*func)(bool) const = m_CanHandleInterfaceMode[eInterfaceMode];
+
+		if (func)
+		{
+			return (this->*func)(bTestVisibility);
+		}
+		break;
+#endif
 	}
 
 	return false;
