@@ -1313,6 +1313,8 @@ protected:
 	bool IsBondsWarders() const;
 	// is this unit capable of bonding a new Warder now
 	bool IsCanBondWarders() const;
+	// version of IsCanBondWarders for custom mission subscription
+	bool IsCanBondWarders(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const;
 	// Can this unit bond the unit at the parameter X,Y while standing on the parameter plot
 	bool IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const;
 #endif // WOTMOD

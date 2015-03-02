@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/1/2015 11:48:12 PM -->
+<GameData>
+	<InterfaceModes>
+		<Row>
+			<Type>INTERFACEMODE_ESTABLISH_TRADE_ROUTE</Type>
+		</Row>
+		<Row>
+			<Type>INTERFACEMODE_BOND_WARDER</Type>
+			<CursorType>CURSOR_AIRBOMB</CursorType>
+			<Mission>MISSION_BOND_WARDER</Mission>
+			<IconIndex>0</IconIndex>
+			<IconAtlas>CREATE_GOVERNOR_ACTION_ATLAS</IconAtlas>
+			<OrderPriority>199</OrderPriority>
+		</Row>
+	</InterfaceModes>
+</GameData>

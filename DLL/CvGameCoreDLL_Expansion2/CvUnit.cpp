@@ -958,6 +958,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 #endif // CUSTOM_MISSIONS
 
 #if WOTMOD
+	m_CanHandleMission[GC.getInfoTypeForString("MISSION_START_BOND_WARDER")] = &CvUnit::IsCanBondWarders;
 	m_CanHandleMission[GC.getInfoTypeForString("MISSION_BOND_WARDER")] = &CvUnit::IsCanBondWarder;
 #endif // WOTMOD
 
@@ -22021,6 +22022,10 @@ bool CvUnit::IsCanBondWarders() const
 {
 	// TODO: Warder-per-Sister limit
 	return IsBondsWarders();
+}
+bool CvUnit::IsCanBondWarders(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const
+{
+	return IsCanBondWarders();
 }
 bool CvUnit::IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const
 {
