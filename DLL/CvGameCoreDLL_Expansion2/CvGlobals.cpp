@@ -2238,6 +2238,13 @@ ICvDLLDatabaseUtility1* CvGlobals::getDatabaseLoadUtility()
 	return m_pkDatabaseLoadUtility->QueryInterface<ICvDLLDatabaseUtility1>();
 }
 
+#if CUSTOM_MISSIONS
+int CvGlobals::GetNumInterfaceModeInfos()
+{
+	return m_paInterfaceModeInfo.size();
+}
+#endif // CUSTOM_MISSIONS
+
 std::vector<CvInterfaceModeInfo*>& CvGlobals::getInterfaceModeInfo()
 {
 	return m_paInterfaceModeInfo;

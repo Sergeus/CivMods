@@ -226,6 +226,9 @@ public:
 	CvTwoLayerPathFinder& GetTacticalAnalysisMapFinder();
 	ICvDLLDatabaseUtility1* getDatabaseLoadUtility();
 
+#if CUSTOM_MISSIONS
+	int GetNumInterfaceModeInfos();
+#endif // CUSTOM_MISSIONS
 	std::vector<CvInterfaceModeInfo*>& getInterfaceModeInfo();
 	CvInterfaceModeInfo* getInterfaceModeInfo(InterfaceModeTypes e);
 
