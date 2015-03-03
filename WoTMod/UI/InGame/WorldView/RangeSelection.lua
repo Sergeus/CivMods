@@ -9,19 +9,19 @@ local highlightColor = Vector4( 0.7, 0.7, 0, 1 );
 
 local _selection = {}
 
-function DoHighlight(Selection)
+function DoHighlight()
 	local NO_DIRECTION = -1
-	local iRange = Selection.Range
+	local iRange = _selection.Range
 	for iDX = -iRange, iRange do
 		for iDY = -iRange, iRange do
 			local pTargetPlot = Map.GetPlotXY(thisX, thisY, iDX, iDY)
 			if pTargetPlot then
 				local pTargetX = pTargetPlot:GetX()
 				local pTargetY = pTargetPlot:GetY()
-				local distance = Map.PlotDistance(Selection.CenterPlot:GetX(), Selection.CenterPlot:GetY(), pTargetX, pTargetY)
-				if (distance <= Selection.Range) then
+				local distance = Map.PlotDistance(_selection.CenterPlot:GetX(), _selection.CenterPlot:GetY(), pTargetX, pTargetY)
+				if (distance <= _selection.Range) then
 					local hexID = ToHexFromGrid( Vector2( plotX, plotY) );
-					if Selection.IsValidTarget(pTargetPlot) then
+					if _selection.IsValidTarget(pTargetPlot) then
 						Events.SerialEventHexHighlight( hexID, true, highlightColor, "FireRangeBorder" );
 						Events.SerialEventHexHighlight( hexID, true, redColor, "ValidFireTargetBorder");
 					else
@@ -42,16 +42,15 @@ function DisplayArrow(hexX, hexY)
 end
 
 function DoSelection(Selection)
-	DoHighlight(Selection)
 	_selection = Selection
-	UI.SetInterfaceMode(InterfaceModeTypes.INTERFACEMODE_RANGE_SELECTION)
+	DoHighlight()
 	Events.SerialEventMouseOverHex.Add(DisplayArrow)
 	return false
 end
 
 function EndSelection()
 	_selection = {}
-	UI.SetInterfaceMode(InterfaceModeTypes.INTERFACEMODE_SELECTION)
+	UI.SetInterfaceMode(GameInfoTypes.INTERFACEMODE_SELECTION)
 	Events.RemoveAllArrowsEvent()
 	Events.SerialEventMouseOverHex.Remove(DisplayArrow)
 	ClearUnitHexHighlights()
@@ -74,7 +73,7 @@ InputResponses[MouseEvents.RButtonUp] = EndSelection
 
 function InputHandler( uiMsg, wParam, lParam )
 	local interfaceMode = UI.GetInterfaceMode();
-	if interfaceMode == InterfaceModeTypes.INTERFACEMODE_RANGE_SELECTION and InputResponses[uiMsg] then
+	if _selection and interfaceMode == _selection.InterfaceMode and InputResponses[uiMsg] then
 		return InputResponses[uiMsg]()
 	end
 	return false;
@@ -82,9 +81,8 @@ end
 ContextPtr:SetInputHandler( InputHandler );
 
 function InterfaceModeChanged(oldInterfaceMode, newInterfaceMode)
-	if (oldInterfaceMode == InterfaceModeTypes.INTERFACEMODE_RANGE_SELECTION) then
+	if (_selection and oldInterfaceMode == _selection.InterfaceMode) then
 		EndSelection()
 	end
 end
-
 Events.InterfaceModeChanged.Add(InterfaceModeChanged)

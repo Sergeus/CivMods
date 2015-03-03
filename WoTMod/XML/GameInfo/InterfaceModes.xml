@@ -9,6 +9,7 @@
 			<Type>INTERFACEMODE_BOND_WARDER</Type>
 			<CursorType>CURSOR_AIRBOMB</CursorType>
 			<Mission>MISSION_BOND_WARDER</Mission>
+			<Visible>true</Visible>
 			<IconIndex>0</IconIndex>
 			<IconAtlas>CREATE_GOVERNOR_ACTION_ATLAS</IconAtlas>
 			<OrderPriority>199</OrderPriority>

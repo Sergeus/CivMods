@@ -33,20 +33,21 @@ function UnitTrainingAtTower(playerID, unitID)
 end
 GameEvents.TrainWhiteTower.Add(UnitTrainingAtTower)
 
-function StartBondWarder(playerID, unitID)
-	local pUnit = Players[playerID]:GetUnitByID(unitID)
+function StartBondWarder()
+	local pUnit = UI.GetHeadSelectedUnit()
 	local bShift = UIManager:GetShift()
 
 	local IsValidTarget = function (pPlot)
-		return pUnit:CanStartMission(GameInfoTypes.MISSION_BOND_WARDER, pPlot:GetX(), pPlot:GetY(), pUnit:GetPlot(), false)
+		return (Map.PlotDistance(pPlot:GetX(), pPlot:GetY(), pUnit:GetX(), pUnit:GetY()) <= 1)
 	end
 
 	local SelectionData = {
+		InterfaceMode = GameInfoTypes.INTERFACEMODE_BOND_WARDER,
 		CenterPlot = pUnit:GetPlot(),
 		Range = 1,
 		IsValidTarget = IsValidTarget,
 		Select = function (pPlot)
-			if (not IsValidTarget(pPlot)) then
+			if (not pUnit:CanStartMission(GameInfoTypes.MISSION_BOND_WARDER, pPlot:GetX(), pPlot:GetY(), pUnit:GetPlot(), false)) then
 				return false
 			else
 				Game.SelectionListGameNetMessage(GameMessageTypes.GAMEMESSAGE_PUSH_MISSION, MissionTypes.MISSION_BOND_WARDER, 
@@ -60,6 +61,12 @@ function StartBondWarder(playerID, unitID)
 
 	return true
 end
-GameEvents.StartBondWarder.Add(StartBondWarder)
+
+function InterfaceModeChanged(oldInterfaceMode, newInterfaceMode)
+	if (newInterfaceMode == GameInfoTypes.INTERFACEMODE_BOND_WARDER) then
+		StartBondWarder()
+	end
+end
+Events.InterfaceModeChanged.Add(InterfaceModeChanged)
 
 print("White Tower missions")

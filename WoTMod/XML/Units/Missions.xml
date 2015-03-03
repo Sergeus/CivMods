@@ -61,18 +61,6 @@
 			<LuaHandleEvent>TrainWhiteTower</LuaHandleEvent>
 		</Row>
 		<Row>
-			<Type>MISSION_START_BOND_WARDER</Type>
-			<Description>TXT_KEY_MISSION_BOND_WARDER</Description>
-			<Help>TXT_KEY_MISSION_BOND_WARDER_HELP</Help>
-			<DisabledHelp>TXT_KEY_MISSION_BOND_WARDER_DISABLED_HELP</DisabledHelp>
-			<EntityEventType>ENTITY_EVENT_GREAT_EVENT</EntityEventType>
-			<OrderPriority>199</OrderPriority>
-			<Visible>1</Visible>
-			<IconIndex>0</IconIndex>
-			<IconAtlas>CREATE_GOVERNOR_ACTION_ATLAS</IconAtlas>
-			<LuaHandleEvent>StartBondWarder</LuaHandleEvent>
-		</Row>
-		<Row>
 			<Type>MISSION_BOND_WARDER</Type>
 			<Description>TXT_KEY_MISSION_BOND_WARDER</Description>
 			<Help>TXT_KEY_MISSION_BOND_WARDER_HELP</Help>
