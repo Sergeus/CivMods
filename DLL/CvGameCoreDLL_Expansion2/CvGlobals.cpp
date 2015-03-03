@@ -2229,7 +2229,11 @@ std::vector<CvInterfaceModeInfo*>& CvGlobals::getInterfaceModeInfo()
 CvInterfaceModeInfo* CvGlobals::getInterfaceModeInfo(InterfaceModeTypes e)
 {
 	CvAssert(e > -1);
+#if CUSTOM_MISSIONS
+	CvAssert(e < GC.GetNumInterfaceModeInfos());
+#else
 	CvAssert(e < NUM_INTERFACEMODE_TYPES);
+#endif // CUSTOM_MISSIONS
 	if(e > -1 && e < (int)m_paInterfaceModeInfo.size())
 		return m_paInterfaceModeInfo[e];
 	else
