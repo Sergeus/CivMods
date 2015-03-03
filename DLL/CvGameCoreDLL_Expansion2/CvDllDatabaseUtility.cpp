@@ -747,7 +747,11 @@ bool CvDllDatabaseUtility::SetGlobalActionInfo()
 	const int iNumMissionTypes = CvTypes::getNUM_MISSION_TYPES();
 
 	//Verify action counts
+#if CUSTOM_MISSIONS
+	if (!(GC.GetNumInterfaceModeInfos() > 0))
+#else
 	if(!(NUM_INTERFACEMODE_TYPES > 0))
+#endif // CUSTOM_MISSIONS
 	{
 		LogMsg("NUM_INTERFACE_TYPES is not greater than zero in CvDllDatabaseUtility::SetGlobalActionInfo.");
 	}
@@ -781,7 +785,11 @@ bool CvDllDatabaseUtility::SetGlobalActionInfo()
 	}
 
 	int iEstimatedNumActionInfos =
-	    NUM_INTERFACEMODE_TYPES +
+#if CUSTOM_MISSIONS
+		GC.GetNumInterfaceModeInfos() +
+#else
+		NUM_INTERFACEMODE_TYPES +
+#endif // CUSTOM_MISSIONS
 	    GC.getNumBuildInfos() +
 	    GC.getNumPromotionInfos() +
 	    GC.getNumSpecialistInfos() +
@@ -814,7 +822,11 @@ bool CvDllDatabaseUtility::SetGlobalActionInfo()
 		}
 	}
 
+#if CUSTOM_MISSIONS
+	for (i = 0; i < GC.GetNumInterfaceModeInfos(); ++i)
+#else
 	for(i=0; i<NUM_INTERFACEMODE_TYPES; i++)
+#endif // CUSTOM_MISSIONS
 	{
 		CvInterfaceModeInfo* interfaceInfo = GC.getInterfaceModeInfo((InterfaceModeTypes)i);
 		if(interfaceInfo)
