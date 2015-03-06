@@ -3968,11 +3968,12 @@ bool CvUnit::HandleMission(MissionTypes eMission)
 	}
 	else
 	{
-		bool(CvUnit::*func)() = m_HandleMission[eMission];
-		
-		if (func)
+		bool(CvUnit::*func)(const MissionData*) = m_HandleMission[eMission];
+		const MissionData* pMissionData = GetHeadMissionData();
+
+		if (func && pMissionData && pMissionData->eMissionType == eMission)
 		{
-			return (this->*func)();
+			return (this->*func)(pMissionData);
 		}
 	}
 
