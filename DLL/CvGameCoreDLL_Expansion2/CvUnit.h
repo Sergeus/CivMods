@@ -1254,7 +1254,7 @@ protected:
 
 #if CUSTOM_MISSIONS
 	std::vector<bool(CvUnit::*)(int, int, CvPlot*, bool) const> m_CanHandleMission;
-	std::vector<bool(CvUnit::*)()> m_HandleMission;
+	std::vector<bool(CvUnit::*)(const MissionData*)> m_HandleMission;
 	std::vector<bool(CvUnit::*)(bool) const> m_CanHandleInterfaceMode;
 #endif // CUSTOM_MISSIONS
 
