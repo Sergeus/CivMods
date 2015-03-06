@@ -22048,15 +22048,21 @@ bool CvUnit::IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVi
 	}
 	CvMissionInfo* pInfo = GC.getMissionInfo(static_cast<MissionTypes>(GC.getInfoTypeForString("MISSION_BOND_WARDER")));
 	CvPlot* pTargetPlot = GC.getMap().plot(iData1, iData2);
-	IDInfoVector currentUnits;
-	if (pPlot->getUnits(&currentUnits) > 0)
+	if (pTargetPlot)
 	{
-		for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr != currentUnits.end(); ++itr)
+		IDInfoVector currentUnits;
+		if (pTargetPlot->getUnits(&currentUnits) > 0)
 		{
-			const CvUnit* pLoopUnit = GetPlayerUnit(*itr);
-			if (pInfo->GetUpgradedUnitClassForUnitCombat(pLoopUnit->getUnitCombatType()) != NO_UNITCLASS)
+			for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr != currentUnits.end(); ++itr)
 			{
-				return true;
+				const CvUnit* pLoopUnit = GetPlayerUnit(*itr);
+				if (!(pLoopUnit->getOwner() && pLoopUnit->GetID() == GetID()))
+				{
+					if (pInfo->GetUpgradedUnitClassForUnitCombat(pLoopUnit->getUnitCombatType()) != NO_UNITCLASS)
+					{
+						return true;
+					}
+				}
 			}
 		}
 	}

@@ -7,6 +7,8 @@
 		</Row>
 		<Row>
 			<Type>INTERFACEMODE_BOND_WARDER</Type>
+			<Description>TXT_KEY_MISSION_BOND_WARDER</Description>
+			<Help>TXT_KEY_MISSION_BOND_WARDER_HELP</Help>
 			<CursorType>CURSOR_AIRBOMB</CursorType>
 			<Mission>MISSION_BOND_WARDER</Mission>
 			<Visible>true</Visible>

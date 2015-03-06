@@ -4,8 +4,7 @@
 --------------------------------------------------------------
 include("FLuaVector")
 
-local redColor = Vector4( 0.7, 0, 0, 1 );
-local highlightColor = Vector4( 0.7, 0.7, 0, 1 );
+local blueColor = Vector4( 0.3, 0.5, 1, 1 );
 
 local _selection = {}
 
@@ -14,18 +13,21 @@ function DoHighlight()
 	local iRange = _selection.Range
 	for iDX = -iRange, iRange do
 		for iDY = -iRange, iRange do
-			local pTargetPlot = Map.GetPlotXY(thisX, thisY, iDX, iDY)
+			local pTargetPlot = Map.GetPlotXY(_selection.CenterPlot:GetX(), _selection.CenterPlot:GetY(), iDX, iDY)
 			if pTargetPlot then
 				local pTargetX = pTargetPlot:GetX()
 				local pTargetY = pTargetPlot:GetY()
+				print("Checking plot at " .. pTargetX .. ", " .. pTargetY)
 				local distance = Map.PlotDistance(_selection.CenterPlot:GetX(), _selection.CenterPlot:GetY(), pTargetX, pTargetY)
 				if (distance <= _selection.Range) then
+					print("It's in range")
 					local hexID = ToHexFromGrid( Vector2( plotX, plotY) );
-					if _selection.IsValidTarget(pTargetPlot) then
-						Events.SerialEventHexHighlight( hexID, true, highlightColor, "FireRangeBorder" );
-						Events.SerialEventHexHighlight( hexID, true, redColor, "ValidFireTargetBorder");
+					if _selection.IsSelectable(pTargetPlot) then
+						print("It's selectable")
+						Events.SerialEventHexHighlight( hexID, true, blueColor);
 					else
-						Events.SerialEventHexHighlight( hexID, true, highlightColor, "FireRangeBorder" );
+						print("It's just in range")
+						Events.SerialEventHexHighlight( hexID, true, blueColor);
 					end
 				end
 			end
@@ -33,9 +35,13 @@ function DoHighlight()
 	end
 end
 
+function ClearUnitHexHighlights()
+	Events.ClearHexHighlightStyle("");
+end;
+
 function DisplayArrow(hexX, hexY)
-	if _selection.IsValidTarget(Map.GetPlot(hexX, hexY)) then
-		Events.SpawnArrowEvent( attacker:GetX(), attacker:GetY(), hexX, hexY );
+	if _selection.IsInRange(Map.GetPlot(hexX, hexY)) then
+		Events.SpawnArrowEvent(_selection.CenterPlot:GetX(), _selection.CenterPlot:GetY(), hexX, hexY );
 	else
 		Events.RemoveAllArrowsEvent();
 	end
@@ -45,7 +51,7 @@ function DoSelection(Selection)
 	_selection = Selection
 	DoHighlight()
 	Events.SerialEventMouseOverHex.Add(DisplayArrow)
-	return false
+	return true
 end
 
 function EndSelection()
@@ -68,7 +74,9 @@ function TrySelect()
 end
 
 local InputResponses = {}
+InputResponses[MouseEvents.LButtonDown] = function() return true end
 InputResponses[MouseEvents.LButtonUp] = TrySelect
+InputResponses[MouseEvents.RButtonDown] = function() return true end
 InputResponses[MouseEvents.RButtonUp] = EndSelection
 
 function InputHandler( uiMsg, wParam, lParam )

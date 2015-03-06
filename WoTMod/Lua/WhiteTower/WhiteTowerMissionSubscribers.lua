@@ -37,21 +37,24 @@ function StartBondWarder()
 	local pUnit = UI.GetHeadSelectedUnit()
 	local bShift = UIManager:GetShift()
 
-	local IsValidTarget = function (pPlot)
-		return (Map.PlotDistance(pPlot:GetX(), pPlot:GetY(), pUnit:GetX(), pUnit:GetY()) <= 1)
+	local IsSelectable = function(pPlot)
+		return pUnit:CanStartMission(GameInfoTypes.MISSION_BOND_WARDER, pPlot:GetX(), pPlot:GetY(), pUnit:GetPlot())
 	end
 
 	local SelectionData = {
 		InterfaceMode = GameInfoTypes.INTERFACEMODE_BOND_WARDER,
 		CenterPlot = pUnit:GetPlot(),
 		Range = 1,
-		IsValidTarget = IsValidTarget,
+		IsInRange = function (pPlot)
+			return (Map.PlotDistance(pPlot:GetX(), pPlot:GetY(), pUnit:GetX(), pUnit:GetY()) <= 1)
+		end,
+		IsSelectable = IsSelectable,
 		Select = function (pPlot)
-			if (not pUnit:CanStartMission(GameInfoTypes.MISSION_BOND_WARDER, pPlot:GetX(), pPlot:GetY(), pUnit:GetPlot(), false)) then
+			if (not IsSelectable(pPlot)) then
 				return false
 			else
 				Game.SelectionListGameNetMessage(GameMessageTypes.GAMEMESSAGE_PUSH_MISSION, MissionTypes.MISSION_BOND_WARDER, 
-					pPlot:GetX(), pPlot:GetY(), pUnit:GetPlot(), false, bShift)
+					pPlot:GetX(), pPlot:GetY(), 0, false, bShift)
 				return true
 			end
 		end
