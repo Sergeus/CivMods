@@ -1281,6 +1281,12 @@ public:
 	int GetOnResearchRangedCombatModifier() const;
 	void ChangeOnResearchCombatModifier(int iModifier, int iRange, bool bRemove);
 	void ChangeOnResearchRangedCombatModifier(int iModifier, int iRange, bool bRemove);
+
+	int GetBondedWardersCount() const;
+	void AddBondedWarder(CvUnit* pUnit);
+
+	bool IsBonded() const;
+	void SetBondedTo(IDInfo pSisterId);
 #endif // WOTMOD
 
 protected:
@@ -1315,6 +1321,8 @@ protected:
 	bool IsCanBondWarders(bool bTestVisible) const;
 	// Can this unit bond the unit at the parameter X,Y while standing on the parameter plot
 	bool IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const;
+	// Carries out the bond warder mission
+	bool DoBondWarder(const MissionData* pMissionData);
 #endif // WOTMOD
 
 #if CUSTOM_MISSIONS
@@ -1343,6 +1351,8 @@ protected:
 	FAutoVariable<std::vector<std::pair<int, int>>, CvUnit> m_aiOnResearchCombatModifiers;
 	FAutoVariable<std::vector<std::pair<int, int>>, CvUnit> m_aiOnResearchRangedCombatModifiers;
 	FAutoVariable<int, CvUnit> m_iBondsWardersCount;
+	FAutoVariable<std::vector<IDInfo>, CvUnit> m_aiBondedWarders;
+	FAutoVariable<IDInfo, CvUnit> m_UnitBondedTo;
 #endif // WOTMOD
 
 	FAutoVariable<int, CvUnit> m_iHotKeyNumber;

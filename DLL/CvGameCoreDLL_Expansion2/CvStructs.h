@@ -186,6 +186,11 @@ struct BuildingGreatWork
 FDataStream& operator<<(FDataStream&, const BuildingGreatWork&);
 FDataStream& operator>>(FDataStream&, BuildingGreatWork&);
 
+#if WOTMOD
+FDataStream & operator>>(FDataStream&, IDInfo&);
+FDataStream & operator<<(FDataStream&, const IDInfo&);
+#endif // WOTMOD
+
 // PITBOSS related structures
 //struct PBGameSetupData
 //{

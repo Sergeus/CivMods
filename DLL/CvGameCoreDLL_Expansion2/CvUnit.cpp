@@ -274,6 +274,8 @@ CvUnit::CvUnit() :
 	, m_aiOnResearchCombatModifiers("CvUnit::m_aiOnResearchCombatModifiers", m_syncArchive)
 	, m_aiOnResearchRangedCombatModifiers("CvUnit::m_aiOnResearchRangedCombatModifiers", m_syncArchive)
 	, m_iBondsWardersCount("CvUnit::m_iBondsWardersCount", m_syncArchive)
+	, m_aiBondedWarders("CvUnit::m_aiBondedWarders", m_syncArchive)
+	, m_UnitBondedTo("CvUnit::m_UnitBondedTo", m_syncArchive)
 #endif // WOTMOD
 
 	, m_strName("")
@@ -962,6 +964,8 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_CanHandleMission[GC.getInfoTypeForString("MISSION_BOND_WARDER")] = &CvUnit::IsCanBondWarder;
 
 	m_CanHandleInterfaceMode[GC.getInfoTypeForString("INTERFACEMODE_BOND_WARDER")] = &CvUnit::IsCanBondWarders;
+
+	m_HandleMission[GC.getInfoTypeForString("MISSION_BOND_WARDER")] = &CvUnit::DoBondWarder;
 #endif // WOTMOD
 
 	if(!bConstructorCall)
@@ -22059,7 +22063,8 @@ bool CvUnit::IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVi
 				const CvUnit* pLoopUnit = GetPlayerUnit(*itr);
 				if (!(pLoopUnit->getOwner() && pLoopUnit->GetID() == GetID()))
 				{
-					if (pInfo->GetUpgradedUnitClassForUnitCombat(pLoopUnit->getUnitCombatType()) != NO_UNITCLASS)
+					UnitClassTypes eUpgradedUnitClass = pInfo->GetUpgradedUnitClassForUnitCombat(pLoopUnit->getUnitCombatType());
+					if (eUpgradedUnitClass != NO_UNITCLASS && getCivilizationInfo().getCivilizationUnits(eUpgradedUnitClass) != pLoopUnit->getUnitType())
 					{
 						return true;
 					}
@@ -22069,6 +22074,62 @@ bool CvUnit::IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVi
 	}
 
 	return false;
+}
+bool CvUnit::DoBondWarder(const MissionData* pMissionData)
+{
+	CvMissionInfo* pInfo = GC.getMissionInfo(static_cast<MissionTypes>(GC.getInfoTypeForString("MISSION_BOND_WARDER")));
+	CvPlot* pTargetPlot = GC.getMap().plot(pMissionData->iData1, pMissionData->iData2);
+	if (pTargetPlot)
+	{
+		IDInfoVector currentUnits;
+		if (pTargetPlot->getUnits(&currentUnits) > 0)
+		{
+			for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr != currentUnits.end(); ++itr)
+			{
+				CvUnit* pLoopUnit = getUnit(*itr);
+				if (!(pLoopUnit->getOwner() && pLoopUnit->GetID() == GetID()))
+				{
+					UnitClassTypes eUnitClass = pInfo->GetUpgradedUnitClassForUnitCombat(pLoopUnit->getUnitCombatType());
+					if (eUnitClass != NO_UNITCLASS)
+					{
+						CvPlayerAI& kPlayer = GET_PLAYER(getOwner());
+						UnitTypes eUpgradeUnit = static_cast<UnitTypes>(kPlayer.getCivilizationInfo().getCivilizationUnits(eUnitClass));
+						UnitAITypes newAIDefault = static_cast<UnitAITypes>(GC.getUnitInfo(eUpgradeUnit)->GetDefaultUnitAIType());
+
+						CvUnit* pNewUnit = kPlayer.initUnit(eUpgradeUnit, pTargetPlot->getX(), pTargetPlot->getY(), newAIDefault, NO_DIRECTION, false, false, 0, pLoopUnit->GetNumGoodyHutsPopped());
+						pLoopUnit->finishMoves();
+
+						pNewUnit->convert(pLoopUnit, true);
+						pNewUnit->setupGraphical();
+
+						AddBondedWarder(pNewUnit);
+
+						finishMoves();
+
+						return true;
+					}
+				}
+			}
+		}
+	}
+	return false;
+}
+int CvUnit::GetBondedWardersCount() const
+{
+	return m_aiBondedWarders.size();
+}
+void CvUnit::AddBondedWarder(CvUnit* pWarder)
+{
+	pWarder->SetBondedTo(GetIDInfo());
+	m_aiBondedWarders.push_back(pWarder->GetIDInfo());
+}
+bool CvUnit::IsBonded() const
+{
+	return !m_UnitBondedTo.get().isInvalid();
+}
+void CvUnit::SetBondedTo(IDInfo pBondedToIdInfo)
+{
+	m_UnitBondedTo.set(pBondedToIdInfo);
 }
 #endif // WOTMOD
 

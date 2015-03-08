@@ -60,14 +60,14 @@ function EndSelection()
 	Events.RemoveAllArrowsEvent()
 	Events.SerialEventMouseOverHex.Remove(DisplayArrow)
 	ClearUnitHexHighlights()
-	return true
 end
 
 function TrySelect()
 	local pPlot = Map.GetPlot(UI.GetMouseOverHex())
 
 	if (_selection.Select(pPlot)) then
-		return EndSelection()
+		EndSelection()
+		return true
 	end
 
 	return false
