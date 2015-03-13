@@ -211,6 +211,19 @@
 			<PediaEntry>TXT_KEY_PROMOTION_BONDS_WARDERS_PEDIA_ENTRY</PediaEntry>
 			<BondsWardersChange>1</BondsWardersChange>
 		</Row>
+		<Row>
+			<Type>PROMOTION_FIGHT_WELL_DAMAGED</Type>
+			<Description>TXT_KEY_PROMOTION_FIGHT_WELL_DAMAGED</Description>
+			<Help>TXT_KEY_PROMOTION_FIGHT_WELL_DAMAGED_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<ExperiencePercent>10</ExperiencePercent>
+			<PortraitIndex>44</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_FIGHT_WELL_DAMAGED_PEDIA_ENTRY</PediaEntry>
+			<WoundedDamageModifier>50</WoundedDamageModifier>
+		</Row>
 	</UnitPromotions>
 	<Promotions_NearbyGovernorYieldBonus>
 		<Row>

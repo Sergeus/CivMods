@@ -1290,6 +1290,9 @@ public:
 
 	// true if the owning player has researched the tech that unlocks the upgraded unit
 	bool HasUpgradeAvailable() const;
+	int GetUnitWoundedDamageModifier() const;
+	void SetUnitWoundedDamageModifier(int iNewValue);
+	void ChangeUnitWoundedDamageModifier(int iChange);
 #endif // WOTMOD
 
 protected:
@@ -1356,6 +1359,7 @@ protected:
 	FAutoVariable<int, CvUnit> m_iBondsWardersCount;
 	FAutoVariable<std::vector<IDInfo>, CvUnit> m_aiBondedWarders;
 	FAutoVariable<IDInfo, CvUnit> m_UnitBondedTo;
+	FAutoVariable<int, CvUnit> m_iWoundedDamageModifier;
 #endif // WOTMOD
 
 	FAutoVariable<int, CvUnit> m_iHotKeyNumber;

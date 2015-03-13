@@ -276,6 +276,7 @@ CvUnit::CvUnit() :
 	, m_iBondsWardersCount("CvUnit::m_iBondsWardersCount", m_syncArchive)
 	, m_aiBondedWarders("CvUnit::m_aiBondedWarders", m_syncArchive)
 	, m_UnitBondedTo("CvUnit::m_UnitBondedTo", m_syncArchive)
+	, m_iWoundedDamageModifier("CvUnit::m_iWoundedDamageModifier", m_syncArchive)
 #endif // WOTMOD
 
 	, m_strName("")
@@ -11496,6 +11497,10 @@ int CvUnit::GetRangeCombatDamage(const CvUnit* pDefender, CvCity* pCity, bool bI
 	int iWoundedDamageMultiplier = /*50*/ GC.getWOUNDED_DAMAGE_MULTIPLIER();
 	iWoundedDamageMultiplier += kPlayer.GetWoundedUnitDamageMod();
 
+#if WOTMOD
+	iWoundedDamageMultiplier += GetUnitWoundedDamageModifier();
+#endif // WOTMOD
+
 
 	int iAttackerDamageRatio = GC.getMAX_HIT_POINTS() - ((getDamage() - iAssumeExtraDamage) * iWoundedDamageMultiplier / 100);
 	if(iAttackerDamageRatio < 0)
@@ -17902,6 +17907,7 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		ChangeOnResearchRangedCombatModifier(thisPromotion.GetOnResearchRangedCombatModifier(), thisPromotion.GetOnResearchModifiersDuration(), iChange < 0);
 
 		ChangeBondsWardersCount(thisPromotion.GetBondWardersChange() * iChange);
+		ChangeUnitWoundedDamageModifier(thisPromotion.GetWoundedDamageModifier() * iChange);
 #endif // WOTMOD
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
@@ -22165,6 +22171,19 @@ bool CvUnit::HasUpgradeAvailable() const
 		return false;
 	}
 	return true;
+}
+
+int CvUnit::GetUnitWoundedDamageModifier() const
+{
+	return m_iWoundedDamageModifier;
+}
+void CvUnit::SetUnitWoundedDamageModifier(int iNewValue)
+{
+	m_iWoundedDamageModifier = iNewValue;
+}
+void CvUnit::ChangeUnitWoundedDamageModifier(int iChange)
+{
+	SetUnitWoundedDamageModifier(GetUnitWoundedDamageModifier() + iChange);
 }
 #endif // WOTMOD
 

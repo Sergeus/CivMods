@@ -95,5 +95,14 @@
 		<Row Tag="TXT_KEY_PROMOTION_BONDS_WARDERS_PEDIA_ENTRY">
 			<Text>[TOWRITE] bonds warders promotion pedia</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_FIGHT_WELL_DAMAGED">
+			<Text>[TOWRITE] Fight well damaged</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_FIGHT_WELL_DAMAGED_HELP">
+			<Text>Fights at full combat strength even when damaged</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_FIGHT_WELL_DAMAGED_PEDIA_ENTRY">
+			<Text>[TOWRITE] fights well damaged promotion pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
