@@ -17894,7 +17894,7 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		ChangeOnResearchCombatModifier(thisPromotion.GetOnResearchCombatModifier(), thisPromotion.GetOnResearchModifiersDuration(), iChange < 0);
 		ChangeOnResearchRangedCombatModifier(thisPromotion.GetOnResearchRangedCombatModifier(), thisPromotion.GetOnResearchModifiersDuration(), iChange < 0);
 
-		ChangeBondsWardersCount(thisPromotion.IsBondsWarders() ? iChange : 0);
+		ChangeBondsWardersCount(thisPromotion.GetBondWardersChange() * iChange);
 #endif // WOTMOD
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
@@ -22037,7 +22037,11 @@ bool CvUnit::IsBondsWarders() const
 }
 bool CvUnit::IsCanBondWarders(bool bTestVisible) const
 {
-	// TODO: Warder-per-Sister limit (which will consume bTestVisible)
+	if (!bTestVisible && GetBondedWardersCount() >= GetBondsWardersCount())
+	{
+		return false;
+	}
+
 	return IsBondsWarders();
 }
 bool CvUnit::IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const

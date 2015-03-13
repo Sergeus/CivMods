@@ -136,7 +136,7 @@ public:
 	int GetOnResearchModifiersDuration() const;
 	bool IsBlocksHealing() const;
 	int GetNearbyGovernorYieldChange(YieldTypes eYield) const;
-	bool IsBondsWarders() const;
+	int GetBondWardersChange() const;
 #endif // WOTMOD
 
 	bool IsCannotBeChosen() const;
@@ -305,7 +305,7 @@ protected:
 	int m_iOnResearchModifiersDuration;
 	bool m_bBlocksHealing;
 	std::vector<int> m_aiNearbyGovernorYieldChange;
-	bool m_bBondsWarders;
+	bool m_iBondsWardersChange;
 #endif // WOTMOD
 
 	bool m_bCannotBeChosen;

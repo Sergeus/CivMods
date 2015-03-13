@@ -27,12 +27,6 @@
     <ModContent>
       <Content>
         <Type>InGameUIAddin</Type>
-        <Name>Horn of Valere Test</Name>
-        <Description>Plants Horn of Valere at end of turn 1 next to player capital</Description>
-        <FileName>Lua/HornOfValere/HornOfValereTest.lua</FileName>
-      </Content>
-      <Content>
-        <Type>InGameUIAddin</Type>
         <Name>Horn of Valere Blow Conditions</Name>
         <Description>Tells the game which units can blow the Horn of Valere</Description>
         <FileName>Lua/HornOfValere/HornOfValereBlowingConditions.lua</FileName>
@@ -60,12 +54,6 @@
         <Name>Horn of Valere notification subs</Name>
         <Description>Tells the game what to do with the Horn of Valere notifications</Description>
         <FileName>Lua/HornOfValere/HornOfValereNotificationSubscribers.lua</FileName>
-      </Content>
-      <Content>
-        <Type>InGameUIAddin</Type>
-        <Name>blight test</Name>
-        <Description>test</Description>
-        <FileName>Lua/Blight/BlightUtils.lua</FileName>
       </Content>
       <Content>
         <Type>InGameUIAddin</Type>
