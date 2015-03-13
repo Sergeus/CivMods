@@ -80,6 +80,12 @@ void InitializeArray(T*& pArray, const char* szTableName, T default = (T)0);
 								const char* szFilterValue,
 								const char* szValueColumn,
 								int iDefaultValue = 0);
+
+	bool PopulateVectorByExistence(std::vector<bool>& kVector, const char* szTypeTableName,
+								const char* szDataTableName,
+								const char* szTypeColumn,
+								const char* szFilterColumn,
+								const char* szFilterValue);
 #endif // WOTMOD
 
 

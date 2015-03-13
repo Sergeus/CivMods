@@ -22147,6 +22147,16 @@ bool CvUnit::IsBonded() const
 void CvUnit::SetBondedTo(IDInfo pBondedToIdInfo)
 {
 	m_UnitBondedTo.set(pBondedToIdInfo);
+
+	bool isBonded = IsBonded();
+	for (int i = 0; i < GC.getNumPromotionInfos(); ++i)
+	{
+		PromotionTypes ePromotion = static_cast<PromotionTypes>(i);
+		if (getUnitInfo().IsBondedFreePromotion(ePromotion))
+		{
+			setHasPromotion(ePromotion, isBonded);
+		}
+	}
 }
 
 bool CvUnit::HasUpgradeAvailable() const

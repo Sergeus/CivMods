@@ -322,6 +322,7 @@ bool CvUnitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	kUtility.PopulateArrayByExistence(m_pbGovernorClasses, "GovernorClasses", "Unit_GovernorClasses", "GovernorClassType", "UnitType", szUnitType);
 	kUtility.PopulateArrayByExistence(m_pbOnePowerTypes, "OnePowers", "Unit_OnePowerWielding", "OnePowerType", "UnitType", szUnitType);
 	kUtility.PopulateArrayByValue(m_piFreePromotionsUntilProjectCompleted, "UnitPromotions", "Unit_FreePromotionsUntilProjectCompleted", "PromotionType", "UnitType", szUnitType, "ProjectType", -1);
+	kUtility.PopulateVectorByExistence(m_abBondedFreePromotions, "UnitPromotions", "Unit_BondedFreePromotions", "PromotionType", "UnitType", szUnitType);
 #endif // WOTMOD
 
 #if SIEGEMOD
@@ -1114,6 +1115,10 @@ int CvUnitEntry::GetFreePromotionsUntilProjectCompleted(int i) const
 	CvAssertMsg(i < GC.getNumProjectInfos(), "Index out of bounds");
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_piFreePromotionsUntilProjectCompleted ? m_piFreePromotionsUntilProjectCompleted[i] : -1;
+}
+bool CvUnitEntry::IsBondedFreePromotion(PromotionTypes ePromotion) const
+{
+	return m_abBondedFreePromotions[ePromotion];
 }
 #endif // WOTMOD
 

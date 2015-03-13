@@ -567,6 +567,17 @@
 		</Row>
 	</Unit_FreePromotions>
 
+	<Unit_BondedFreePromotions>
+		<Row>
+			<UnitType>UNIT_WARDER</UnitType>
+			<PromotionType>PROMOTION_IGNORE_TERRAIN_COST</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_WARDER</UnitType>
+			<PromotionType>PROMOTION_FIGHT_WELL_DAMAGED</PromotionType>
+		</Row>
+	</Unit_BondedFreePromotions>
+
 	<Unit_FreePromotionsUntilProjectCompleted>
 		<Row>
 			<UnitType>UNIT_MADMAN</UnitType>

@@ -20,4 +20,8 @@
 		<Column name="UnitType" type="text" reference="Units(Type)"/>
 		<Column name="OnePowerType" type="text" reference="OnePowers(Type)"/>
 	</Table>
+	<Table name="Unit_BondedFreePromotions">
+		<Column name="UnitType" type="text" reference="Units(Type)"/>
+		<Column name="PromotionType" type="text" reference="UnitPromotions(Type)"/>
+	</Table>
 </GameData>

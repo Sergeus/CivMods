@@ -215,6 +215,43 @@ bool CvDatabaseUtility::PopulateArrayByExistence(int*& pArray, const char* szTyp
 	return true;
 }
 #if WOTMOD
+bool CvDatabaseUtility::PopulateVectorByExistence(std::vector<bool>& kVector, const char* szTypeTableName, const char* szDataTableName, const char* szTypeColumn, const char* szFilterColumn, const char* szFilterValue)
+{
+	kVector.resize(MaxRows(szTypeTableName));
+
+	std::string strKey = "_PABE_";
+	strKey.append(szTypeTableName);
+	strKey.append(szDataTableName);
+	strKey.append(szFilterColumn);
+
+	Database::Results* pResults = GetResults(strKey);
+	if (pResults == NULL)
+	{
+		char szSQL[512];
+		sprintf_s(szSQL, "select %s.ID from %s inner join %s on %s = %s.Type where %s = ?", szTypeTableName, szDataTableName, szTypeTableName, szTypeColumn, szTypeTableName, szFilterColumn);
+
+		pResults = PrepareResults(strKey, szSQL);
+		if (pResults == NULL)
+			return false;
+	}
+
+	if (!pResults->Bind(1, szFilterValue, false))
+	{
+		CvAssertMsg(false, GetErrorMessage());
+		return false;
+	}
+
+	while (pResults->Step())
+	{
+		const int idx = pResults->GetInt(0);
+		kVector[idx] = true;
+	}
+
+	pResults->Reset();
+
+	return true;
+}
+
 bool CvDatabaseUtility::PopulateVectorByValue(std::vector<int>& kVector, const char* szTypeTableName, const char* szDataTableName, const char* szTypeColumn, const char* szFilterColumn, const char* szFilterValue, const char* szValueColumn, int iDefaultValue /* = 0 */)
 {
 	int iSize = MaxRows(szTypeTableName);
