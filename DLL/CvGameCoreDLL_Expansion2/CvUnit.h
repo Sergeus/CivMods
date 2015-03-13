@@ -1287,6 +1287,9 @@ public:
 
 	bool IsBonded() const;
 	void SetBondedTo(IDInfo pSisterId);
+
+	// true if the owning player has researched the tech that unlocks the upgraded unit
+	bool HasUpgradeAvailable() const;
 #endif // WOTMOD
 
 protected:

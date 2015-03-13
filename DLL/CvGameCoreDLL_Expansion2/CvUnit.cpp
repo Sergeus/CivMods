@@ -9431,18 +9431,25 @@ bool CvUnit::CanUpgradeRightNow(bool bOnlyTestVisible) const
 	UnitTypes eUpgradeUnitType = GetUpgradeUnitType();
 
 	// Does the Unit actually upgrade into anything?
-	if(eUpgradeUnitType == NO_UNIT)
+	if (eUpgradeUnitType == NO_UNIT)
 		return false;
 
 	CvUnitEntry* pUpgradeUnitInfo = GC.getUnitInfo(eUpgradeUnitType);
 	if(pUpgradeUnitInfo == NULL)
 		return false;
 
+#if WOTMOD
+	if (!HasUpgradeAvailable())
+	{
+		return false;
+	}
+#else
 	// Tech requirement
 	TechTypes ePrereqTech = (TechTypes) pUpgradeUnitInfo->GetPrereqAndTech();
 
 	if(ePrereqTech != NO_TECH && !GET_TEAM(getTeam()).GetTeamTechs()->HasTech(ePrereqTech))
 		return false;
+#endif // WOTMOD
 
 	CvPlot* pPlot = plot();
 
@@ -22065,7 +22072,7 @@ bool CvUnit::IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVi
 			for (IDInfoVector::const_iterator itr = currentUnits.begin(); itr != currentUnits.end(); ++itr)
 			{
 				const CvUnit* pLoopUnit = GetPlayerUnit(*itr);
-				if (!(pLoopUnit->getOwner() && pLoopUnit->GetID() == GetID()))
+				if (pLoopUnit->getOwner() == getOwner() && pLoopUnit->GetID() != GetID() && !pLoopUnit->HasUpgradeAvailable())
 				{
 					UnitClassTypes eUpgradedUnitClass = pInfo->GetUpgradedUnitClassForUnitCombat(pLoopUnit->getUnitCombatType());
 					if (eUpgradedUnitClass != NO_UNITCLASS && getCivilizationInfo().getCivilizationUnits(eUpgradedUnitClass) != pLoopUnit->getUnitType())
@@ -22134,6 +22141,30 @@ bool CvUnit::IsBonded() const
 void CvUnit::SetBondedTo(IDInfo pBondedToIdInfo)
 {
 	m_UnitBondedTo.set(pBondedToIdInfo);
+}
+
+bool CvUnit::HasUpgradeAvailable() const
+{
+	UnitTypes eUpgradeType = GetUpgradeUnitType();
+
+	if (eUpgradeType == NO_UNIT)
+	{
+		return false;
+	}
+
+	CvUnitEntry* pInfo = GC.getUnitInfo(eUpgradeType);
+	if (pInfo == NULL)
+	{
+		return false;
+	}
+
+	TechTypes ePrereqTech = static_cast<TechTypes>(pInfo->GetPrereqAndTech());
+
+	if (ePrereqTech != NO_TECH && !GET_TEAM(getTeam()).GetTeamTechs()->HasTech(ePrereqTech))
+	{
+		return false;
+	}
+	return true;
 }
 #endif // WOTMOD
 

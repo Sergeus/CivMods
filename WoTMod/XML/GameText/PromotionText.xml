@@ -90,7 +90,7 @@
 			<Text>[TOWRITE] Bonds warders</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_BONDS_WARDERS_HELP">
-			<Text>May bond another combat unit, causing it to become a Warder</Text>
+			<Text>May bond another combat unit, causing it to become a Warder[NEWLINE][NEWLINE]Only fully upgraded units can be bonded as Warders</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_BONDS_WARDERS_PEDIA_ENTRY">
 			<Text>[TOWRITE] bonds warders promotion pedia</Text>
