@@ -111,6 +111,8 @@
 			<UnitFlagIconOffset>1</UnitFlagIconOffset>
 			<PortraitIndex>0</PortraitIndex>
 			<IconAtlas>WOT_AES_SEDAI_ATLAS</IconAtlas>
+			<BondBreakRecoversWithTime>true</BondBreakRecoversWithTime>
+			<BondBreakRecoveryDuration>10</BondBreakRecoveryDuration>
 		</Row>
 
 		<Row>
@@ -137,6 +139,7 @@
 			<UnitFlagIconOffset>0</UnitFlagIconOffset>
 			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
 			<PortraitIndex>0</PortraitIndex>
+			<BondBreakRecoversWhenBonded>true</BondBreakRecoversWhenBonded>
 		</Row>
 
 		<Row>
@@ -578,6 +581,17 @@
 		</Row>
 	</Unit_BondedFreePromotions>
 
+	<Unit_BondBreakPromotions>
+		<Row>
+			<UnitType>UNIT_BLUE_SISTER</UnitType>
+			<PromotionType>PROMOTION_SISTER_BOND_BROKEN</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_WARDER</UnitType>
+			<PromotionType>PROMOTION_WARDER_BOND_BROKEN</PromotionType>
+		</Row>
+	</Unit_BondBreakPromotions>
+	
 	<Unit_FreePromotionsUntilProjectCompleted>
 		<Row>
 			<UnitType>UNIT_MADMAN</UnitType>

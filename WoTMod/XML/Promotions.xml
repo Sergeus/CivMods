@@ -241,6 +241,33 @@
 			<PediaEntry>TXT_KEY_PROMOTION_SHADOWSPAWN_DETECTION_PEDIA_ENTRY</PediaEntry>
 			<DetectionRange>2</DetectionRange>
 		</Row>
+		<Row>
+			<Type>PROMOTION_SISTER_BOND_BROKEN</Type>
+			<Description>TXT_KEY_PROMOTION_SISTER_BOND_BROKEN</Description>
+			<Help>TXT_KEY_PROMOTION_SISTER_BOND_BROKEN_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<PortraitIndex>57</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_SISTER_BOND_BROKEN_PEDIA_ENTRY</PediaEntry>
+			<CannotBondWarders>true</CannotBondWarders>
+			<RangedAttackModifier>-50</RangedAttackModifier>
+			<AttackMod>-50</AttackMod>
+		</Row>
+		<Row>
+			<Type>PROMOTION_WARDER_BOND_BROKEN</Type>
+			<Description>TXT_KEY_PROMOTION_WARDER_BOND_BROKEN</Description>
+			<Help>TXT_KEY_PROMOTION_WARDER_BOND_BROKEN_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<PortraitIndex>57</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_WARDER_BOND_BROKEN_PEDIA_ENTRY</PediaEntry>
+			<AllowGiftToTower>true</AllowGiftToTower>
+			<AttackMod>-50</AttackMod>
+		</Row>
 	</UnitPromotions>
 	<Promotions_NearbyGovernorYieldBonus>
 		<Row>

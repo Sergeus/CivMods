@@ -113,5 +113,23 @@
 		<Row Tag="TXT_KEY_PROMOTION_SHADOWSPAWN_DETECTION_PEDIA_ENTRY">
 			<Text>[TOWRITE] detects shadowspawn promotion pedia</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SISTER_BOND_BROKEN">
+			<Text>[TOWRITE] Sister Broken Bond</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SISTER_BOND_BROKEN_HELP">
+			<Text>The death of her Warder weakens an Aes Sedai and prevents her from rebonding another Warder for 10 turns</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SISTER_BOND_BROKEN_PEDIA_ENTRY">
+			<Text>[TOWRITE] sister bond broken promotion pedia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_WARDER_BOND_BROKEN">
+			<Text>[TOWRITE] Warder Broken Bond</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_WARDER_BOND_BROKEN_HELP">
+			<Text>The death of the Aes Sedai who bonded him significantly weakens a Warder. He can be sent back to the Tower to grieve in exchange for influence</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_WARDER_BOND_BROKEN_PEDIA_ENTRY">
+			<Text>[TOWRITE] warder bond broken promotion pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
