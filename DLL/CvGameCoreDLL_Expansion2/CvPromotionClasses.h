@@ -138,6 +138,8 @@ public:
 	int GetNearbyGovernorYieldChange(YieldTypes eYield) const;
 	int GetBondWardersChange() const;
 	int GetWoundedDamageModifier() const;
+	int GetDetectionRange() const;
+	bool IsDetectsUnitType(UnitTypes eUnit) const;
 #endif // WOTMOD
 
 	bool IsCannotBeChosen() const;
@@ -308,6 +310,8 @@ protected:
 	std::vector<int> m_aiNearbyGovernorYieldChange;
 	int m_iBondsWardersChange;
 	int m_iWoundedDamageModifier;
+	int m_iDetectionRange;
+	std::vector<bool> m_abDetectsUnitTypes;
 #endif // WOTMOD
 
 	bool m_bCannotBeChosen;

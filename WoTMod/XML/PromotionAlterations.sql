@@ -7,3 +7,4 @@ ALTER TABLE UnitPromotions ADD OnResearchRangedCombatModifier integer DEFAULT 0;
 ALTER TABLE UnitPromotions ADD OnResearchModifiersDuration integer DEFAULT 0;
 ALTER TABLE UnitPromotions ADD BondsWardersChange integer DEFAULT 0;
 ALTER TABLE UnitPromotions ADD WoundedDamageModifier integer DEFAULT 0;
+ALTER TABLE UnitPromotions ADD DetectionRange integer DEFAULT 0;

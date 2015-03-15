@@ -109,6 +109,7 @@ CvPromotionEntry::CvPromotionEntry():
 	m_bBlocksHealing(false), 
 	m_iBondsWardersChange(0),
 	m_iWoundedDamageModifier(0),
+	m_iDetectionRange(0),
 #endif // WOTMOD
 
 	m_bCannotBeChosen(false),
@@ -333,6 +334,7 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	m_bBlocksHealing = kResults.GetBool("BlocksHealing");
 	m_iBondsWardersChange = kResults.GetInt("BondsWardersChange");
 	m_iWoundedDamageModifier = kResults.GetInt("WoundedDamageModifier");
+	m_iDetectionRange = kResults.GetInt("DetectionRange");
 #endif // WOTMOD
 
 	//References
@@ -391,6 +393,7 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 
 #if WOTMOD
 	kUtility.PopulateVectorByValue(m_aiNearbyGovernorYieldChange, "Yields", "Promotions_NearbyGovernorYieldBonus", "YieldType", "PromotionType", szPromotionType, "Yield");
+	kUtility.PopulateVectorByExistence(m_abDetectsUnitTypes, "Units", "Promotion_DetectUnitTypes", "UnitType", "PromotionType", szPromotionType);
 #endif // WOTMOD
 
 	//UnitPromotions_Terrains
@@ -1231,6 +1234,14 @@ int CvPromotionEntry::GetBondWardersChange() const
 int CvPromotionEntry::GetWoundedDamageModifier() const
 {
 	return m_iWoundedDamageModifier;
+}
+int CvPromotionEntry::GetDetectionRange() const
+{
+	return m_iDetectionRange;
+}
+bool CvPromotionEntry::IsDetectsUnitType(UnitTypes eUnit) const
+{
+	return m_abDetectsUnitTypes[eUnit];
 }
 #endif // WOTMOD
 

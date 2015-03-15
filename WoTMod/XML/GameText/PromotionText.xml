@@ -104,5 +104,14 @@
 		<Row Tag="TXT_KEY_PROMOTION_FIGHT_WELL_DAMAGED_PEDIA_ENTRY">
 			<Text>[TOWRITE] fights well damaged promotion pedia</Text>
 		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SHADOWSPAWN_DETECTION">
+			<Text>[TOWRITE] shadowspawn detection</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SHADOWSPAWN_DETECTION_HELP">
+			<Text>Detects Shadowspawn at a greater distance than normal sight</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_SHADOWSPAWN_DETECTION_PEDIA_ENTRY">
+			<Text>[TOWRITE] detects shadowspawn promotion pedia</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
