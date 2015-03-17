@@ -22081,7 +22081,8 @@ bool CvUnit::IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVi
 				if (pLoopUnit->getOwner() == getOwner() && pLoopUnit->GetID() != GetID() && !pLoopUnit->HasUpgradeAvailable())
 				{
 					UnitClassTypes eUpgradedUnitClass = pInfo->GetUpgradedUnitClassForUnitCombat(pLoopUnit->getUnitCombatType());
-					if (eUpgradedUnitClass != NO_UNITCLASS && getCivilizationInfo().getCivilizationUnits(eUpgradedUnitClass) != pLoopUnit->getUnitType())
+					if (eUpgradedUnitClass != NO_UNITCLASS && getCivilizationInfo().getCivilizationUnits(eUpgradedUnitClass) != pLoopUnit->getUnitType()
+						&& !pLoopUnit->IsBonded())
 					{
 						return true;
 					}
