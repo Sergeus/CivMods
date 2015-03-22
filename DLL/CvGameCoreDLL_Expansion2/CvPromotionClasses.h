@@ -140,6 +140,7 @@ public:
 	int GetWoundedDamageModifier() const;
 	int GetDetectionRange() const;
 	bool IsDetectsUnitType(UnitTypes eUnit) const;
+	bool IsCannotBondWarders() const;
 #endif // WOTMOD
 
 	bool IsCannotBeChosen() const;
@@ -312,6 +313,7 @@ protected:
 	int m_iWoundedDamageModifier;
 	int m_iDetectionRange;
 	std::vector<bool> m_abDetectsUnitTypes;
+	bool m_bCannotBondWarders;
 #endif // WOTMOD
 
 	bool m_bCannotBeChosen;

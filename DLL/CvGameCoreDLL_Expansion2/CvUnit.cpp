@@ -278,6 +278,7 @@ CvUnit::CvUnit() :
 	, m_UnitBondedTo("CvUnit::m_UnitBondedTo", m_syncArchive)
 	, m_iWoundedDamageModifier("CvUnit::m_iWoundedDamageModifier", m_syncArchive)
 	, m_iTurnsSinceBondBreak("CvUnit::m_iTurnsSinceBondBreak", m_syncArchive, -1)
+	, m_iCannotBondWardersCount("CvUnit::m_iCannotBondWardersCount", m_syncArchive)
 #endif // WOTMOD
 
 	, m_strName("")
@@ -17924,6 +17925,7 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 
 		ChangeBondsWardersCount(thisPromotion.GetBondWardersChange() * iChange);
 		ChangeUnitWoundedDamageModifier(thisPromotion.GetWoundedDamageModifier() * iChange);
+		ChangeCannotBondWardersCount(thisPromotion.IsCannotBondWarders() ? iChange : 0);
 #endif // WOTMOD
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
@@ -22066,6 +22068,11 @@ bool CvUnit::IsBondsWarders() const
 }
 bool CvUnit::IsCanBondWarders(bool bTestVisible) const
 {
+	if (!bTestVisible && IsCannotBondWarders())
+	{
+		return false;
+	}
+
 	if (!bTestVisible && GetBondedWardersCount() >= GetBondsWardersCount())
 	{
 		return false;
@@ -22250,6 +22257,23 @@ void CvUnit::SetTurnsSinceBondBreak(int iNewValue)
 void CvUnit::ChangeTurnsSinceBondBreak(int iChange)
 {
 	SetTurnsSinceBondBreak(GetTurnsSinceBondBreak() + iChange);
+}
+
+bool CvUnit::IsCannotBondWarders() const
+{
+	return GetCannotBondWardersCount() > 0;
+}
+int CvUnit::GetCannotBondWardersCount() const
+{
+	return m_iCannotBondWardersCount;
+}
+void CvUnit::SetCannotBondWardersCount(int iNewValue)
+{
+	m_iCannotBondWardersCount = iNewValue;
+}
+void CvUnit::ChangeCannotBondWardersCount(int iChange)
+{
+	SetCannotBondWardersCount(GetCannotBondWardersCount() + iChange);
 }
 
 bool CvUnit::HasUpgradeAvailable() const

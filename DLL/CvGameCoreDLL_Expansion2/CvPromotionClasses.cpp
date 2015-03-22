@@ -335,6 +335,7 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	m_iBondsWardersChange = kResults.GetInt("BondsWardersChange");
 	m_iWoundedDamageModifier = kResults.GetInt("WoundedDamageModifier");
 	m_iDetectionRange = kResults.GetInt("DetectionRange");
+	m_bCannotBondWarders = kResults.GetBool("CannotBondWarders");
 #endif // WOTMOD
 
 	//References
@@ -1242,6 +1243,10 @@ int CvPromotionEntry::GetDetectionRange() const
 bool CvPromotionEntry::IsDetectsUnitType(UnitTypes eUnit) const
 {
 	return m_abDetectsUnitTypes[eUnit];
+}
+bool CvPromotionEntry::IsCannotBondWarders() const
+{
+	return m_bCannotBeChosen;
 }
 #endif // WOTMOD
 

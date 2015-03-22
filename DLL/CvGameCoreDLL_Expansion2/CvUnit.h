@@ -1294,6 +1294,12 @@ public:
 	void SetTurnsSinceBondBreak(int iNewTurns);
 	void ChangeTurnsSinceBondBreak(int iChange);
 
+	// true if promotion is currently blocking bonding Warders
+	bool IsCannotBondWarders() const;
+	int GetCannotBondWardersCount() const;
+	void SetCannotBondWardersCount(int iNewValue);
+	void ChangeCannotBondWardersCount(int iChange);
+
 	// true if the owning player has researched the tech that unlocks the upgraded unit
 	bool HasUpgradeAvailable() const;
 	int GetUnitWoundedDamageModifier() const;
@@ -1367,6 +1373,7 @@ protected:
 	FAutoVariable<IDInfo, CvUnit> m_UnitBondedTo;
 	FAutoVariable<int, CvUnit> m_iWoundedDamageModifier;
 	FAutoVariable<int, CvUnit> m_iTurnsSinceBondBreak;
+	FAutoVariable<int, CvUnit> m_iCannotBondWardersCount;
 #endif // WOTMOD
 
 	FAutoVariable<int, CvUnit> m_iHotKeyNumber;
