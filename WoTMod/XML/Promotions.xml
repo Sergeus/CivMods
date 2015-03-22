@@ -20,6 +20,10 @@
 		<Column name="PromotionType" type="text" notnull="true" reference="UnitPromotions(Type)" />
 		<Column name="UnitType" type="text" reference="Units(Type)" />
 	</Table>
+	<Table name="Promotion_AttackUnitClassWithoutThreat">
+		<Column name="PromotionType" type="text" reference="UnitPromotions(Type)" />
+		<Column name="UnitClassType" type="text" reference="UnitClasses(Type)" />
+	</Table>
 	<UnitPromotions>
 		<Row>
 			<Type>PROMOTION_HORN_HUNTER</Type>
@@ -268,6 +272,18 @@
 			<AllowGiftToTower>true</AllowGiftToTower>
 			<AttackMod>-50</AttackMod>
 		</Row>
+		<Row>
+			<Type>PROMOTION_THIRD_OATH</Type>
+			<Description>TXT_KEY_PROMOTION_THIRD_OATH</Description>
+			<Help>TXT_KEY_PROMOTION_THIRD_OATH_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			<PortraitIndex>57</PortraitIndex>
+			<IconAtlas>PROMOTION_ATLAS</IconAtlas>
+			<PediaType>PEDIA_ATTRIBUTES</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_THIRD_OATH_PEDIA_ENTRY</PediaEntry>
+			<CanOnlyAttackThreatening>true</CanOnlyAttackThreatening>
+		</Row>
 	</UnitPromotions>
 	<Promotions_NearbyGovernorYieldBonus>
 		<Row>
@@ -281,6 +297,12 @@
 			<Yield>2</Yield>
 		</Row>
 	</Promotions_NearbyGovernorYieldBonus>
+	<Promotion_AttackUnitClassWithoutThreat>
+		<Row>
+			<PromotionType>PROMOTION_THIRD_OATH</PromotionType>
+			<UnitClassType>UNITCLASS_TROLLOC</UnitClassType>
+		</Row>
+	</Promotion_AttackUnitClassWithoutThreat>
 	<Promotion_DetectUnitTypes>
 		<Row>
 			<PromotionType>PROMOTION_SHADOWSPAWN_DETECTION</PromotionType>

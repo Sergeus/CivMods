@@ -10,3 +10,4 @@ ALTER TABLE UnitPromotions ADD WoundedDamageModifier integer DEFAULT 0;
 ALTER TABLE UnitPromotions ADD DetectionRange integer DEFAULT 0;
 ALTER TABLE UnitPromotions ADD CannotBondWarders boolean DEFAULT false;
 ALTER TABLE UnitPromotions ADD AllowGiftToTower boolean DEFAULT false;
+ALTER TABLE UnitPromotions ADD CanOnlyAttackThreatening boolean DEFAULT false;
