@@ -84,7 +84,7 @@
 			<Text>Bond Warder</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MISSION_BOND_WARDER_HELP">
-			<Text>Bond another unit for it to become a Warder</Text>
+			<Text>Bond another unit for it to become a Warder[NEWLINE][NEWLINE]Only fully upgraded units can be bonded as Warders</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MISSION_BOND_WARDER_DISABLED_HELP">
 			<Text>A Sister may only have {1_WarderLimit} {1_WarderLimit: plural 1?Warder; other?Warders;} at a time</Text>

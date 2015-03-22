@@ -277,6 +277,7 @@ CvUnit::CvUnit() :
 	, m_aiBondedWarders("CvUnit::m_aiBondedWarders", m_syncArchive)
 	, m_UnitBondedTo("CvUnit::m_UnitBondedTo", m_syncArchive)
 	, m_iWoundedDamageModifier("CvUnit::m_iWoundedDamageModifier", m_syncArchive)
+	, m_iTurnsSinceBondBreak("CvUnit::m_iTurnsSinceBondBreak", m_syncArchive, -1)
 #endif // WOTMOD
 
 	, m_strName("")
@@ -1366,6 +1367,10 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer /*= NO_PLAYER*/)
 		return;
 	}
 
+	///////////////////////////////////////////////////////////////////////////////////////////////
+	// EVERYTHING AFTER THIS LINE OCCURS UPON THE ACTUAL DELETION OF THE UNIT AND NOT WITH A DELAYED DEATH
+	///////////////////////////////////////////////////////////////////////////////////////////////
+
 #if WOTMOD
 	// If we've gotten this far and this unit is still a Hornblower, we should 
 	// drop the Horn of Valere
@@ -1373,12 +1378,18 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer /*= NO_PLAYER*/)
 	{
 		GC.getMap().DoDropHornOfValere(this);
 	}
+
+	// break bonds with all Warders and Sisters
+	IDInfo thisId = GetIDInfo();
+	if (IsBonded())
+	{
+		getUnit(m_UnitBondedTo)->DoBreakBondTo(thisId);
+	}
+	for (int i = 0; i < m_aiBondedWarders.size(); ++i)
+	{
+		getUnit(m_aiBondedWarders[i])->DoBreakBondTo(thisId);
+	}
 #endif // WOTMOD
-
-
-	///////////////////////////////////////////////////////////////////////////////////////////////
-	// EVERYTHING AFTER THIS LINE OCCURS UPON THE ACTUAL DELETION OF THE UNIT AND NOT WITH A DELAYED DEATH
-	///////////////////////////////////////////////////////////////////////////////////////////////
 
 	if(IsSelected())
 	{
@@ -1745,6 +1756,11 @@ void CvUnit::doTurn()
 
 #if WOTMOD
 	DoTurnDamage();
+
+	if (GetTurnsSinceBondBreak() != -1)
+	{
+		ChangeTurnsSinceBondBreak(1);
+	}
 #endif // WOTMOD
 
 	// Only increase our Fortification level if we've actually been told to Fortify
@@ -22112,15 +22128,24 @@ bool CvUnit::DoBondWarder(const MissionData* pMissionData)
 					{
 						CvPlayerAI& kPlayer = GET_PLAYER(getOwner());
 						UnitTypes eUpgradeUnit = static_cast<UnitTypes>(kPlayer.getCivilizationInfo().getCivilizationUnits(eUnitClass));
-						UnitAITypes newAIDefault = static_cast<UnitAITypes>(GC.getUnitInfo(eUpgradeUnit)->GetDefaultUnitAIType());
 
-						CvUnit* pNewUnit = kPlayer.initUnit(eUpgradeUnit, pTargetPlot->getX(), pTargetPlot->getY(), newAIDefault, NO_DIRECTION, false, false, 0, pLoopUnit->GetNumGoodyHutsPopped());
-						pLoopUnit->finishMoves();
+						CvUnit* pWarder = NULL;
+						if (pLoopUnit->getUnitType() == eUpgradeUnit)
+						{
+							pWarder = pLoopUnit;
+						}
+						else 
+						{
+							UnitAITypes newAIDefault = static_cast<UnitAITypes>(GC.getUnitInfo(eUpgradeUnit)->GetDefaultUnitAIType());
 
-						pNewUnit->convert(pLoopUnit, true);
-						pNewUnit->setupGraphical();
+							pWarder = kPlayer.initUnit(eUpgradeUnit, pTargetPlot->getX(), pTargetPlot->getY(), newAIDefault, NO_DIRECTION, false, false, 0, pLoopUnit->GetNumGoodyHutsPopped());
+							pLoopUnit->finishMoves();
 
-						AddBondedWarder(pNewUnit);
+							pWarder->convert(pLoopUnit, true);
+							pWarder->setupGraphical();
+						}
+
+						AddBondedWarder(pWarder);
 
 						finishMoves();
 
@@ -22158,6 +22183,73 @@ void CvUnit::SetBondedTo(IDInfo pBondedToIdInfo)
 			setHasPromotion(ePromotion, isBonded);
 		}
 	}
+
+	if (isBonded && getUnitInfo().IsRecoversFromBondBreakWhenBonded())
+	{
+		for (int i = 0; i < GC.getNumPromotionInfos(); ++i)
+		{
+			PromotionTypes ePromotion = static_cast<PromotionTypes>(i);
+			if (getUnitInfo().IsBondBreakPromotion(ePromotion))
+			{
+				setHasPromotion(ePromotion, false);
+			}
+		}
+	}
+}
+
+void CvUnit::DoBreakBondTo(IDInfo pOtherId)
+{
+	if (m_UnitBondedTo.get() == pOtherId)
+	{
+		SetBondedTo(IDInfo());
+	}
+
+	for (int i = 0; i < m_aiBondedWarders.size(); ++i)
+	{
+		if (m_aiBondedWarders[i] == pOtherId)
+		{
+			m_aiBondedWarders.erase(i);
+			break;
+		}
+	}
+
+	for (int i = 0; i < GC.getNumPromotionInfos(); ++i)
+	{
+		PromotionTypes ePromotion = static_cast<PromotionTypes>(i);
+		if (getUnitInfo().IsBondBreakPromotion(ePromotion))
+		{
+			setHasPromotion(ePromotion, true);
+		}
+	}
+
+	SetTurnsSinceBondBreak(0);
+}
+
+int CvUnit::GetTurnsSinceBondBreak() const
+{
+	return m_iTurnsSinceBondBreak;
+}
+
+void CvUnit::SetTurnsSinceBondBreak(int iNewValue)
+{
+	m_iTurnsSinceBondBreak = iNewValue;
+
+	if (getUnitInfo().IsRecoversFromBondBreakWithTime() && GetTurnsSinceBondBreak() == getUnitInfo().GetBondBreakRecoveryDuration())
+	{
+		for (int i = 0; i < GC.getNumPromotionInfos(); ++i)
+		{
+			PromotionTypes ePromotion = static_cast<PromotionTypes>(i);
+			if (getUnitInfo().IsBondBreakPromotion(ePromotion))
+			{
+				setHasPromotion(ePromotion, false);
+			}
+		}
+	}
+}
+
+void CvUnit::ChangeTurnsSinceBondBreak(int iChange)
+{
+	SetTurnsSinceBondBreak(GetTurnsSinceBondBreak() + iChange);
 }
 
 bool CvUnit::HasUpgradeAvailable() const

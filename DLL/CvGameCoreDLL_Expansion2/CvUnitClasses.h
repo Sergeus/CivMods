@@ -161,6 +161,11 @@ public:
 	bool IsUsesOnePowerSource(int i) const;
 	int GetFreePromotionsUntilProjectCompleted(int i) const;
 	bool IsBondedFreePromotion(PromotionTypes ePromotion) const;
+	bool IsBondBreakPromotion(PromotionTypes ePromotion) const;
+
+	bool IsRecoversFromBondBreakWithTime() const;
+	bool IsRecoversFromBondBreakWhenBonded() const;
+	int GetBondBreakRecoveryDuration() const;
 #endif // WOTMOD
 
 	// Derived fields (not in XML)
@@ -293,6 +298,10 @@ private:
 	bool* m_pbOnePowerTypes;
 	int* m_piFreePromotionsUntilProjectCompleted;
 	std::vector<bool> m_abBondedFreePromotions;
+	std::vector<bool> m_abBondBreakPromotions;
+	bool m_bBondBreakRecoversWithTime;
+	bool m_bBondBreakRecoversWhenBonded;
+	int m_iBondBreakRecoveryDuration;
 #endif // WOTMOD
 
 	bool* m_pbUpgradeUnitClass;

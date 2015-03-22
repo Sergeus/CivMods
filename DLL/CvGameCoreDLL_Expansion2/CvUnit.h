@@ -1288,6 +1288,12 @@ public:
 	bool IsBonded() const;
 	void SetBondedTo(IDInfo pSisterId);
 
+	void DoBreakBondTo(IDInfo pOtherId);
+
+	int GetTurnsSinceBondBreak() const;
+	void SetTurnsSinceBondBreak(int iNewTurns);
+	void ChangeTurnsSinceBondBreak(int iChange);
+
 	// true if the owning player has researched the tech that unlocks the upgraded unit
 	bool HasUpgradeAvailable() const;
 	int GetUnitWoundedDamageModifier() const;
@@ -1360,6 +1366,7 @@ protected:
 	FAutoVariable<std::vector<IDInfo>, CvUnit> m_aiBondedWarders;
 	FAutoVariable<IDInfo, CvUnit> m_UnitBondedTo;
 	FAutoVariable<int, CvUnit> m_iWoundedDamageModifier;
+	FAutoVariable<int, CvUnit> m_iTurnsSinceBondBreak;
 #endif // WOTMOD
 
 	FAutoVariable<int, CvUnit> m_iHotKeyNumber;

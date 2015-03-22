@@ -123,6 +123,9 @@ CvUnitEntry::CvUnitEntry(void) :
 	m_pbGovernorClasses(NULL),
 	m_pbOnePowerTypes(NULL),
 	m_piFreePromotionsUntilProjectCompleted(NULL),
+	m_bBondBreakRecoversWithTime(false),
+	m_bBondBreakRecoversWhenBonded(false),
+	m_iBondBreakRecoveryDuration(-1),
 #endif // WOTMOD
 
 	m_bUnitArtInfoEraVariation(false),
@@ -319,10 +322,15 @@ bool CvUnitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& k
 	kUtility.PopulateArrayByExistence(m_pbBuildingClassRequireds, "BuildingClasses", "Unit_BuildingClassRequireds", "BuildingClassType", "UnitType", szUnitType);
 
 #if WOTMOD
+	m_bBondBreakRecoversWithTime = kResults.GetBool("BondBreakRecoversWithTime");
+	m_bBondBreakRecoversWhenBonded = kResults.GetBool("BondBreakRecoversWhenBonded");
+	m_iBondBreakRecoveryDuration = kResults.GetInt("BondBreakRecoveryDuration");
+
 	kUtility.PopulateArrayByExistence(m_pbGovernorClasses, "GovernorClasses", "Unit_GovernorClasses", "GovernorClassType", "UnitType", szUnitType);
 	kUtility.PopulateArrayByExistence(m_pbOnePowerTypes, "OnePowers", "Unit_OnePowerWielding", "OnePowerType", "UnitType", szUnitType);
 	kUtility.PopulateArrayByValue(m_piFreePromotionsUntilProjectCompleted, "UnitPromotions", "Unit_FreePromotionsUntilProjectCompleted", "PromotionType", "UnitType", szUnitType, "ProjectType", -1);
 	kUtility.PopulateVectorByExistence(m_abBondedFreePromotions, "UnitPromotions", "Unit_BondedFreePromotions", "PromotionType", "UnitType", szUnitType);
+	kUtility.PopulateVectorByExistence(m_abBondBreakPromotions, "UnitPromotions", "Unit_BondBreakPromotions", "PromotionType", "UnitType", szUnitType);
 #endif // WOTMOD
 
 #if SIEGEMOD
@@ -1119,6 +1127,22 @@ int CvUnitEntry::GetFreePromotionsUntilProjectCompleted(int i) const
 bool CvUnitEntry::IsBondedFreePromotion(PromotionTypes ePromotion) const
 {
 	return m_abBondedFreePromotions[ePromotion];
+}
+bool CvUnitEntry::IsBondBreakPromotion(PromotionTypes ePromotion) const
+{
+	return m_abBondBreakPromotions[ePromotion];
+}
+bool CvUnitEntry::IsRecoversFromBondBreakWithTime() const
+{
+	return m_bBondBreakRecoversWhenBonded;
+}
+bool CvUnitEntry::IsRecoversFromBondBreakWhenBonded() const
+{
+	return m_bBondBreakRecoversWhenBonded;
+}
+int CvUnitEntry::GetBondBreakRecoveryDuration() const
+{
+	return m_iBondBreakRecoveryDuration;
 }
 #endif // WOTMOD
 
