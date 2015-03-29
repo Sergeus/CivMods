@@ -22331,8 +22331,35 @@ void CvUnit::SetThreatenedBy(const IDInfo& otherUnitId)
 	{
 		return;
 	}
+	std::map<IDInfo, int>& threateningUnits = m_ThreateningUnits.dirtyGet();
 
-	m_ThreateningUnits.dirtyGet()[otherUnitId] = 10;
+	threateningUnits[otherUnitId] = 10;
+
+	CvUnit* pThreateningUnit = getUnit(otherUnitId);
+
+	for (int iX = -3; iX < 3; iX++)
+	{
+		for (int iY = -3; iY < 3; iY++)
+		{
+			CvPlot* pPlot = plotXYWithRangeCheck(pThreateningUnit->getX(), pThreateningUnit->getY(), iX, iY, 3);
+
+			if (pPlot)
+			{
+				IDInfoVector neighborUnits;
+				if (pPlot->getUnits(&neighborUnits) > 0)
+				{
+					for (IDInfoVector::const_iterator itr = neighborUnits.begin(); itr < neighborUnits.end(); ++itr)
+					{
+						CvUnit* pUnit = getUnit(*itr);
+						if (pUnit->getOwner() == pThreateningUnit->getOwner())
+						{
+							threateningUnits[pUnit->GetIDInfo()] = 10;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 void CvUnit::DoIncrementThreatenedTurn()
