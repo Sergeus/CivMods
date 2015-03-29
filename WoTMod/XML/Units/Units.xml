@@ -87,62 +87,6 @@
 		</Row>
 
 		<Row>
-			<Class>UNITCLASS_AES_SEDAI</Class>
-			<Type>UNIT_BLUE_SISTER</Type>
-			<Combat>15</Combat>
-			<RangedCombat>45</RangedCombat>
-			<Cost>-1</Cost>
-			<Moves>2</Moves>
-			<Range>2</Range>
-			<CombatClass>UNITCOMBAT_SIEGE</CombatClass>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_EXPLORE</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_AES_SEDAI</Description>
-			<Civilopedia>TXT_KEY_UNIT_AES_SEDAI_PEDIA</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_AES_SEDAI_STRATEGY</Strategy>
-			<Help>TXT_KEY_UNIT_AES_SEDAI_HELP</Help>
-			<MilitarySupport>true</MilitarySupport>
-			<MilitaryProduction>true</MilitaryProduction>
-			<Pillage>true</Pillage>
-			<XPValueAttack>3</XPValueAttack>
-			<XPValueDefense>3</XPValueDefense>
-			<AdvancedStartCost>20</AdvancedStartCost>
-			<UnitArtInfo>ART_DEF_UNIT_AES_SEDAI</UnitArtInfo>
-			<UnitFlagIconOffset>1</UnitFlagIconOffset>
-			<PortraitIndex>0</PortraitIndex>
-			<IconAtlas>WOT_AES_SEDAI_ATLAS</IconAtlas>
-			<BondBreakRecoversWithTime>true</BondBreakRecoversWithTime>
-			<BondBreakRecoveryDuration>10</BondBreakRecoveryDuration>
-		</Row>
-
-		<Row>
-			<Class>UNITCLASS_WARDER</Class>
-			<Type>UNIT_WARDER</Type>
-			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
-			<Combat>30</Combat>
-			<Cost>-1</Cost>
-			<Moves>2</Moves>
-			<CombatClass>UNITCOMBAT_MELEE</CombatClass>
-			<Domain>DOMAIN_LAND</Domain>
-			<DefaultUnitAI>UNITAI_ATTACK</DefaultUnitAI>
-			<Description>TXT_KEY_UNIT_WARDER</Description>
-			<Civilopedia>TXT_KEY_CIV5_ANTIQUITY_WARDER_TEXT</Civilopedia>
-			<Strategy>TXT_KEY_UNIT_WARDER_STRATEGY</Strategy>
-			<Help>TXT_KEY_UNIT_HELP_WARDER</Help>
-			<MilitarySupport>true</MilitarySupport>
-			<MilitaryProduction>true</MilitaryProduction>
-			<Pillage>true</Pillage>
-			<AdvancedStartCost>10</AdvancedStartCost>
-			<XPValueAttack>3</XPValueAttack>
-			<XPValueDefense>3</XPValueDefense>
-			<UnitArtInfo>ART_DEF_UNIT__WARRIOR</UnitArtInfo>
-			<UnitFlagIconOffset>0</UnitFlagIconOffset>
-			<IconAtlas>UNIT_ATLAS_1</IconAtlas>
-			<PortraitIndex>0</PortraitIndex>
-			<BondBreakRecoversWhenBonded>true</BondBreakRecoversWhenBonded>
-		</Row>
-
-		<Row>
 			<Class>UNITCLASS_HORN_HERO</Class>
 			<Type>UNIT_HORN_HERO_HAWKWING</Type>
 			<Combat>100</Combat>
@@ -556,45 +500,7 @@
 			<UnitType>UNIT_KINSWOMAN</UnitType>
 			<PromotionType>PROMOTION_TOWER_TRAINEE</PromotionType>
 		</Row>
-		<Row>
-			<UnitType>UNIT_BLUE_SISTER</UnitType>
-			<PromotionType>PROMOTION_BLUE_AJAH_TIER_ZERO</PromotionType>
-		</Row>
-		<Row>
-			<UnitType>UNIT_WHITE_SISTER</UnitType>
-			<PromotionType>PROMOTION_WHITE_AJAH_TIER_ZERO</PromotionType>
-		</Row>
-		<Row>
-			<UnitType>UNIT_BLUE_SISTER</UnitType>
-			<PromotionType>PROMOTION_BONDS_WARDERS</PromotionType>
-		</Row>
-		<Row>
-			<UnitType>UNIT_BLUE_SISTER</UnitType>
-			<PromotionType>PROMOTION_THIRD_OATH</PromotionType>
-		</Row>
 	</Unit_FreePromotions>
-
-	<Unit_BondedFreePromotions>
-		<Row>
-			<UnitType>UNIT_WARDER</UnitType>
-			<PromotionType>PROMOTION_IGNORE_TERRAIN_COST</PromotionType>
-		</Row>
-		<Row>
-			<UnitType>UNIT_WARDER</UnitType>
-			<PromotionType>PROMOTION_FIGHT_WELL_DAMAGED</PromotionType>
-		</Row>
-	</Unit_BondedFreePromotions>
-
-	<Unit_BondBreakPromotions>
-		<Row>
-			<UnitType>UNIT_BLUE_SISTER</UnitType>
-			<PromotionType>PROMOTION_SISTER_BOND_BROKEN</PromotionType>
-		</Row>
-		<Row>
-			<UnitType>UNIT_WARDER</UnitType>
-			<PromotionType>PROMOTION_WARDER_BOND_BROKEN</PromotionType>
-		</Row>
-	</Unit_BondBreakPromotions>
 	
 	<Unit_FreePromotionsUntilProjectCompleted>
 		<Row>

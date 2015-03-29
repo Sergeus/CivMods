@@ -17,18 +17,102 @@
 			<Text>[TOWRITE]Birgitte Silverbow help</Text>
 		</Row>
 
-		<!-- Unit: Aes Sedai -->
-		<Row Tag="TXT_KEY_UNIT_AES_SEDAI">
-			<Text>Aes Sedai</Text>
+		<!-- Unit: Blue Sister -->
+		<Row Tag="TXT_KEY_UNIT_BLUE_SISTER">
+			<Text>Blue Sister</Text>
 		</Row>
-		<Row Tag="TXT_KEY_UNIT_AES_SEDAI_PEDIA">
-			<Text>[TOWRITE] Aes Sedai pedia entry</Text>
+		<Row Tag="TXT_KEY_UNIT_BLUE_SISTER_PEDIA">
+			<Text>[TOWRITE] Blue Sister pedia entry</Text>
 		</Row>
-		<Row Tag="TXT_KEY_UNIT_AES_SEDAI_STRATEGY">
-			<Text>[TOWRITE] Aes Sedai strategy</Text>
+		<Row Tag="TXT_KEY_UNIT_BLUE_SISTER_STRATEGY">
+			<Text>[TOWRITE] Blue Sister strategy</Text>
 		</Row>
-		<Row Tag="TXT_KEY_UNIT_AES_SEDAI_HELP">
-			<Text>[TOWRITE] Aes Sedai help</Text>
+		<Row Tag="TXT_KEY_UNIT_BLUE_SISTER_HELP">
+			<Text>[TOWRITE] Blue Sister help</Text>
+		</Row>
+
+		<!-- Unit: Red Sister -->
+		<Row Tag="TXT_KEY_UNIT_RED_SISTER">
+			<Text>Red Sister</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_RED_SISTER_PEDIA">
+			<Text>[TOWRITE] Red Sister pedia entry</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_RED_SISTER_STRATEGY">
+			<Text>[TOWRITE] Red Sister strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_RED_SISTER_HELP">
+			<Text>[TOWRITE] Red Sister help</Text>
+		</Row>
+
+		<!-- Unit: Green Sister -->
+		<Row Tag="TXT_KEY_UNIT_GREEN_SISTER">
+			<Text>Green Sister</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_GREEN_SISTER_PEDIA">
+			<Text>[TOWRITE] Green Sister pedia entry</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_GREEN_SISTER_STRATEGY">
+			<Text>[TOWRITE] Green Sister strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_GREEN_SISTER_HELP">
+			<Text>[TOWRITE] Green Sister help</Text>
+		</Row>
+
+		<!-- Unit: Yellow Sister -->
+		<Row Tag="TXT_KEY_UNIT_YELLOW_SISTER">
+			<Text>Yellow Sister</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_YELLOW_SISTER_PEDIA">
+			<Text>[TOWRITE] Yellow Sister pedia entry</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_YELLOW_SISTER_STRATEGY">
+			<Text>[TOWRITE] Yellow Sister strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_YELLOW_SISTER_HELP">
+			<Text>[TOWRITE] Yellow Sister help</Text>
+		</Row>
+
+		<!-- Unit: White Sister -->
+		<Row Tag="TXT_KEY_UNIT_WHITE_SISTER">
+			<Text>White Sister</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_WHITE_SISTER_PEDIA">
+			<Text>[TOWRITE] White Sister pedia entry</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_WHITE_SISTER_STRATEGY">
+			<Text>[TOWRITE] White Sister strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_WHITE_SISTER_HELP">
+			<Text>[TOWRITE] White Sister help</Text>
+		</Row>
+
+		<!-- Unit: Brown Sister -->
+		<Row Tag="TXT_KEY_UNIT_BROWN_SISTER">
+			<Text>Brown Sister</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BROWN_SISTER_PEDIA">
+			<Text>[TOWRITE] Brown Sister pedia entry</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BROWN_SISTER_STRATEGY">
+			<Text>[TOWRITE] Brown Sister strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_BROWN_SISTER_HELP">
+			<Text>[TOWRITE] Brown Sister help</Text>
+		</Row>
+
+		<!-- Unit: Gray Sister -->
+		<Row Tag="TXT_KEY_UNIT_GRAY_SISTER">
+			<Text>Gray Sister</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_GRAY_SISTER_PEDIA">
+			<Text>[TOWRITE] Gray Sister pedia entry</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_GRAY_SISTER_STRATEGY">
+			<Text>[TOWRITE] Gray Sister strategy</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_GRAY_SISTER_HELP">
+			<Text>[TOWRITE] Gray Sister help</Text>
 		</Row>
 
 		<!-- Unit: Warder -->
