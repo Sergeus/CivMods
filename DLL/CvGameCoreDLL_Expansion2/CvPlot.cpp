@@ -2676,10 +2676,17 @@ const UnitHandle CvPlot::getBestDefender(PlayerTypes eOwner, PlayerTypes eAttack
 							{
 								if((pAttacker == NULL) || (pAttacker->getDomainType() != DOMAIN_AIR) || (pLoopUnit->getDamage() < pAttacker->GetRangedCombatLimit()))
 								{
-									if(pLoopUnit->isBetterDefenderThan(pBestUnit.pointer(), pAttacker))
+#if WOTMOD
+									if (pAttacker == NULL || pAttacker->IsCanAttackThroughThreat(pLoopUnit->GetIDInfo()))
 									{
-										pBestUnit = pLoopUnit;
+#endif // WOTMOD
+										if (pLoopUnit->isBetterDefenderThan(pBestUnit.pointer(), pAttacker))
+										{
+											pBestUnit = pLoopUnit;
+										}
+#if WOTMOD
 									}
+#endif // WOTMOD
 								}
 							}
 						}

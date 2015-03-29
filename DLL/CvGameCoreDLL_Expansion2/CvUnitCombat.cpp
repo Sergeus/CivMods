@@ -2425,6 +2425,13 @@ void CvUnitCombat::ResolveCombat(const CvCombatInfo& kInfo, uint uiParentEventID
 		}
 	}
 
+#if WOTMOD
+	if (pAttacker && pDefender)
+	{
+		pDefender->SetThreatenedBy(pAttacker->GetIDInfo());
+	}
+#endif // WOTMOD
+
 	// Clear popup blocking after combat resolves
 	if(eAttackingPlayer == GC.getGame().getActivePlayer())
 	{

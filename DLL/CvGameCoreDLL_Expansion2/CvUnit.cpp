@@ -279,6 +279,8 @@ CvUnit::CvUnit() :
 	, m_iWoundedDamageModifier("CvUnit::m_iWoundedDamageModifier", m_syncArchive)
 	, m_iTurnsSinceBondBreak("CvUnit::m_iTurnsSinceBondBreak", m_syncArchive, -1)
 	, m_iCannotBondWardersCount("CvUnit::m_iCannotBondWardersCount", m_syncArchive)
+	, m_iCanOnlyAttackThreateningCount("CvUnit::m_iCanOnlyAttackThreateningCount", m_syncArchive)
+	, m_ThreateningUnits("CvUnit::m_ThreateningUnits", m_syncArchive)
 #endif // WOTMOD
 
 	, m_strName("")
@@ -1762,6 +1764,8 @@ void CvUnit::doTurn()
 	{
 		ChangeTurnsSinceBondBreak(1);
 	}
+
+	DoIncrementThreatenedTurn();
 #endif // WOTMOD
 
 	// Only increase our Fortification level if we've actually been told to Fortify
@@ -17926,6 +17930,7 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		ChangeBondsWardersCount(thisPromotion.GetBondWardersChange() * iChange);
 		ChangeUnitWoundedDamageModifier(thisPromotion.GetWoundedDamageModifier() * iChange);
 		ChangeCannotBondWardersCount(thisPromotion.IsCannotBondWarders() ? iChange : 0);
+		ChangeCanOnlyAttackThreateningCount(thisPromotion.IsCanOnlyAttackThreatening() ? iChange : 0);
 #endif // WOTMOD
 
 		for(iI = 0; iI < GC.getNumTerrainInfos(); iI++)
@@ -18562,14 +18567,21 @@ bool CvUnit::canRangeStrikeAt(int iX, int iY, bool bNeedWar, bool bNoncombatAllo
 
 				if(!pLoopUnit) continue;
 
-				TeamTypes loopTeam = pLoopUnit->getTeam();
-
-				// Make sure it's a valid Team
-				if(myTeam.isAtWar(loopTeam) || myTeam.canDeclareWar(loopTeam))
+#if WOTMOD
+				if (IsCanAttackThroughThreat(pLoopUnit->GetIDInfo()))
 				{
-					bFoundUnit = true;
-					break;
+#endif // WOTMOD
+					TeamTypes loopTeam = pLoopUnit->getTeam();
+
+					// Make sure it's a valid Team
+					if (myTeam.isAtWar(loopTeam) || myTeam.canDeclareWar(loopTeam))
+					{
+						bFoundUnit = true;
+						break;
+					}
+#if WOTMOD
 				}
+#endif // WOTMOD
 			}
 
 			if(!bFoundUnit)
@@ -22274,6 +22286,69 @@ void CvUnit::SetCannotBondWardersCount(int iNewValue)
 void CvUnit::ChangeCannotBondWardersCount(int iChange)
 {
 	SetCannotBondWardersCount(GetCannotBondWardersCount() + iChange);
+}
+
+bool CvUnit::IsCanOnlyAttackThreatening() const
+{
+	return GetCanOnlyAttackThreateningCount() > 0;
+}
+int CvUnit::GetCanOnlyAttackThreateningCount() const
+{
+	return m_iCanOnlyAttackThreateningCount;
+}
+void CvUnit::SetCanOnlyAttackThreateningCount(int iNewValue)
+{
+	m_iCanOnlyAttackThreateningCount = iNewValue;
+}
+void CvUnit::ChangeCanOnlyAttackThreateningCount(int iChange)
+{
+	SetCanOnlyAttackThreateningCount(GetCanOnlyAttackThreateningCount() + iChange);
+}
+
+bool CvUnit::IsCanAttackThroughThreat(const IDInfo& targetId) const
+{
+	if (!IsCanOnlyAttackThreatening())
+	{
+		return true;
+	}
+
+	return IsThreatenedBy(targetId);
+}
+
+bool CvUnit::IsThreatenedBy(const IDInfo& otherUnitId) const
+{
+	return m_ThreateningUnits.get().find(otherUnitId) != m_ThreateningUnits.get().end();
+}
+
+void CvUnit::SetThreatenedBy(const IDInfo& otherUnitId)
+{
+	if (IsBonded())
+	{
+		getUnit(m_UnitBondedTo)->SetThreatenedBy(otherUnitId);
+	}
+
+	if (!IsCanOnlyAttackThreatening())
+	{
+		return;
+	}
+
+	m_ThreateningUnits.dirtyGet()[otherUnitId] = 10;
+}
+
+void CvUnit::DoIncrementThreatenedTurn()
+{
+	if (m_ThreateningUnits.get().size() != 0)
+	{
+		std::map<IDInfo, int>& threateningUnits = m_ThreateningUnits.dirtyGet();
+		for (std::map<IDInfo, int>::iterator it = threateningUnits.begin(); it != threateningUnits.end(); ++it)
+		{
+			--it->second;
+			if (it->second == 0)
+			{
+				threateningUnits.erase(it);
+			}
+		}
+	}
 }
 
 bool CvUnit::HasUpgradeAvailable() const

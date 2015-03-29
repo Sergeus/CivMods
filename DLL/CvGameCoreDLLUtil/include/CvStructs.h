@@ -188,6 +188,13 @@ struct IDInfo
 		return (eOwner != other.eOwner || iID != other.iID);
 	}
 
+#if WOTMOD
+	bool operator <(const IDInfo& other) const
+	{
+		return eOwner < other.eOwner || iID < other.iID;
+	}
+#endif // WOTMOD
+
 	void reset()
 	{
 		eOwner = NO_PLAYER;

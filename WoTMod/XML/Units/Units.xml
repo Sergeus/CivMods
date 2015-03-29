@@ -568,6 +568,10 @@
 			<UnitType>UNIT_BLUE_SISTER</UnitType>
 			<PromotionType>PROMOTION_BONDS_WARDERS</PromotionType>
 		</Row>
+		<Row>
+			<UnitType>UNIT_BLUE_SISTER</UnitType>
+			<PromotionType>PROMOTION_THIRD_OATH</PromotionType>
+		</Row>
 	</Unit_FreePromotions>
 
 	<Unit_BondedFreePromotions>

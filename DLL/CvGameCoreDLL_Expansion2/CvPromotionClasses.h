@@ -141,6 +141,7 @@ public:
 	int GetDetectionRange() const;
 	bool IsDetectsUnitType(UnitTypes eUnit) const;
 	bool IsCannotBondWarders() const;
+	bool IsCanOnlyAttackThreatening() const;
 #endif // WOTMOD
 
 	bool IsCannotBeChosen() const;
@@ -314,6 +315,7 @@ protected:
 	int m_iDetectionRange;
 	std::vector<bool> m_abDetectsUnitTypes;
 	bool m_bCannotBondWarders;
+	bool m_bCanOnlyAttackThreatening;
 #endif // WOTMOD
 
 	bool m_bCannotBeChosen;

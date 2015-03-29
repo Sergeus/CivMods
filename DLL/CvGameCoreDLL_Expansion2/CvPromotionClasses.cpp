@@ -110,6 +110,8 @@ CvPromotionEntry::CvPromotionEntry():
 	m_iBondsWardersChange(0),
 	m_iWoundedDamageModifier(0),
 	m_iDetectionRange(0),
+	m_bCannotBondWarders(false),
+	m_bCanOnlyAttackThreatening(false),
 #endif // WOTMOD
 
 	m_bCannotBeChosen(false),
@@ -336,6 +338,7 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 	m_iWoundedDamageModifier = kResults.GetInt("WoundedDamageModifier");
 	m_iDetectionRange = kResults.GetInt("DetectionRange");
 	m_bCannotBondWarders = kResults.GetBool("CannotBondWarders");
+	m_bCanOnlyAttackThreatening = kResults.GetBool("CanOnlyAttackThreatening");
 #endif // WOTMOD
 
 	//References
@@ -1246,7 +1249,11 @@ bool CvPromotionEntry::IsDetectsUnitType(UnitTypes eUnit) const
 }
 bool CvPromotionEntry::IsCannotBondWarders() const
 {
-	return m_bCannotBeChosen;
+	return m_bCannotBondWarders;
+}
+bool CvPromotionEntry::IsCanOnlyAttackThreatening() const
+{
+	return m_bCanOnlyAttackThreatening;
 }
 #endif // WOTMOD
 

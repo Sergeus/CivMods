@@ -1300,6 +1300,15 @@ public:
 	void SetCannotBondWardersCount(int iNewValue);
 	void ChangeCannotBondWardersCount(int iChange);
 
+	bool IsCanOnlyAttackThreatening() const;
+	int GetCanOnlyAttackThreateningCount() const;
+	void SetCanOnlyAttackThreateningCount(int iNewValue);
+	void ChangeCanOnlyAttackThreateningCount(int iChange);
+
+	bool IsCanAttackThroughThreat(const IDInfo& targetId) const;
+	bool IsThreatenedBy(const IDInfo& otherUnitId) const;
+	void SetThreatenedBy(const IDInfo& otherUnitId);
+
 	// true if the owning player has researched the tech that unlocks the upgraded unit
 	bool HasUpgradeAvailable() const;
 	int GetUnitWoundedDamageModifier() const;
@@ -1341,6 +1350,8 @@ protected:
 	bool IsCanBondWarder(int iData1, int iData2, CvPlot* pPlot, bool bTestVisible) const;
 	// Carries out the bond warder mission
 	bool DoBondWarder(const MissionData* pMissionData);
+
+	void DoIncrementThreatenedTurn();
 #endif // WOTMOD
 
 #if CUSTOM_MISSIONS
@@ -1374,6 +1385,8 @@ protected:
 	FAutoVariable<int, CvUnit> m_iWoundedDamageModifier;
 	FAutoVariable<int, CvUnit> m_iTurnsSinceBondBreak;
 	FAutoVariable<int, CvUnit> m_iCannotBondWardersCount;
+	FAutoVariable<int, CvUnit> m_iCanOnlyAttackThreateningCount;
+	FAutoVariable<std::map<IDInfo, int>, CvUnit> m_ThreateningUnits;
 #endif // WOTMOD
 
 	FAutoVariable<int, CvUnit> m_iHotKeyNumber;
