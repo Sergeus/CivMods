@@ -1308,6 +1308,11 @@ public:
 	bool IsCanAttackThroughThreat(const IDInfo& targetId) const;
 	bool IsThreatenedBy(const IDInfo& otherUnitId) const;
 	void SetThreatenedBy(const IDInfo& otherUnitId);
+	
+	bool IsCanAttackUnitClassWithoutThreat(UnitClassTypes eUnitClass) const;
+	int GetCanAttackUnitClassWithoutThreatCount(UnitClassTypes eUnitClass) const;
+	void SetCanAttackUnitClassWithoutThreatCount(UnitClassTypes eUnitClass, int iNewValue);
+	void ChangeCanAttackUnitClassWithoutThreatCount(UnitClassTypes eUnitClass, int iChange);
 
 	// true if the owning player has researched the tech that unlocks the upgraded unit
 	bool HasUpgradeAvailable() const;
@@ -1387,6 +1392,7 @@ protected:
 	FAutoVariable<int, CvUnit> m_iCannotBondWardersCount;
 	FAutoVariable<int, CvUnit> m_iCanOnlyAttackThreateningCount;
 	FAutoVariable<std::map<IDInfo, int>, CvUnit> m_ThreateningUnits;
+	FAutoVariable<std::vector<int>, CvUnit> m_aiCanAttackUnitClassWithoutThreat;
 #endif // WOTMOD
 
 	FAutoVariable<int, CvUnit> m_iHotKeyNumber;

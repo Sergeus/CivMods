@@ -398,6 +398,7 @@ bool CvPromotionEntry::CacheResults(Database::Results& kResults, CvDatabaseUtili
 #if WOTMOD
 	kUtility.PopulateVectorByValue(m_aiNearbyGovernorYieldChange, "Yields", "Promotions_NearbyGovernorYieldBonus", "YieldType", "PromotionType", szPromotionType, "Yield");
 	kUtility.PopulateVectorByExistence(m_abDetectsUnitTypes, "Units", "Promotion_DetectUnitTypes", "UnitType", "PromotionType", szPromotionType);
+	kUtility.PopulateVectorByExistence(m_abCanAttackUnitClassWithoutThreat, "UnitClasses", "Promotion_AttackUnitClassWithoutThreat", "UnitClassType", "PromotionType", szPromotionType);
 #endif // WOTMOD
 
 	//UnitPromotions_Terrains
@@ -1254,6 +1255,10 @@ bool CvPromotionEntry::IsCannotBondWarders() const
 bool CvPromotionEntry::IsCanOnlyAttackThreatening() const
 {
 	return m_bCanOnlyAttackThreatening;
+}
+bool CvPromotionEntry::IsCanAttackUnitClassWithoutThreat(UnitClassTypes eUnitClass) const
+{
+	return m_abCanAttackUnitClassWithoutThreat[eUnitClass];
 }
 #endif // WOTMOD
 

@@ -302,6 +302,22 @@
 			<PromotionType>PROMOTION_THIRD_OATH</PromotionType>
 			<UnitClassType>UNITCLASS_TROLLOC</UnitClassType>
 		</Row>
+		<Row>
+			<PromotionType>PROMOTION_THIRD_OATH</PromotionType>
+			<UnitClassType>UNITCLASS_MYRDDRAAL</UnitClassType>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_THIRD_OATH</PromotionType>
+			<UnitClassType>UNITCLASS_DRAGHKAR</UnitClassType>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_THIRD_OATH</PromotionType>
+			<UnitClassType>UNITCLASS_DARKHOUND</UnitClassType>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_THIRD_OATH</PromotionType>
+			<UnitClassType>UNITCLASS_DREADLORD</UnitClassType>
+		</Row>
 	</Promotion_AttackUnitClassWithoutThreat>
 	<Promotion_DetectUnitTypes>
 		<Row>

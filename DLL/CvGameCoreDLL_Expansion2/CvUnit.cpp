@@ -281,6 +281,7 @@ CvUnit::CvUnit() :
 	, m_iCannotBondWardersCount("CvUnit::m_iCannotBondWardersCount", m_syncArchive)
 	, m_iCanOnlyAttackThreateningCount("CvUnit::m_iCanOnlyAttackThreateningCount", m_syncArchive)
 	, m_ThreateningUnits("CvUnit::m_ThreateningUnits", m_syncArchive)
+	, m_aiCanAttackUnitClassWithoutThreat("CvUnit::m_aiCanAttackUnitClassWithoutThreat", m_syncArchive)
 #endif // WOTMOD
 
 	, m_strName("")
@@ -979,6 +980,7 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 
 #if WOTMOD
 		m_aiNearbyGovernorYieldChange.resize(GC.GetNumYieldInfos());
+		m_aiCanAttackUnitClassWithoutThreat.resize(GC.getNumUnitClassInfos());
 #endif // WOTMOD
 
 		CvAssertMsg((0 < GC.getNumTerrainInfos()), "GC.getNumTerrainInfos() is not greater than zero but a float array is being allocated in CvUnit::reset");
@@ -17963,6 +17965,10 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 			}
 
 			changeUnitClassModifier(((UnitClassTypes)iI), (thisPromotion.GetUnitClassModifierPercent(iI) * iChange));
+#if WOTMOD
+			UnitClassTypes eUnitClass = static_cast<UnitClassTypes>(iI);
+			ChangeCanAttackUnitClassWithoutThreatCount(eUnitClass, thisPromotion.IsCanAttackUnitClassWithoutThreat(eUnitClass) ? iChange : 0);
+#endif // WOTMOD
 		}
 
 		for(iI = 0; iI < NUM_DOMAIN_TYPES; iI++)
@@ -22312,6 +22318,12 @@ bool CvUnit::IsCanAttackThroughThreat(const IDInfo& targetId) const
 		return true;
 	}
 
+	CvUnit* pTarget = getUnit(targetId);
+	if (IsCanAttackUnitClassWithoutThreat(pTarget->getUnitClassType()))
+	{
+		return true;
+	}
+
 	return IsThreatenedBy(targetId);
 }
 
@@ -22360,6 +22372,26 @@ void CvUnit::SetThreatenedBy(const IDInfo& otherUnitId)
 			}
 		}
 	}
+}
+
+bool CvUnit::IsCanAttackUnitClassWithoutThreat(UnitClassTypes eUnitClass) const
+{
+	return GetCanAttackUnitClassWithoutThreatCount(eUnitClass) > 0;
+}
+
+int CvUnit::GetCanAttackUnitClassWithoutThreatCount(UnitClassTypes eUnitClass) const
+{
+	return m_aiCanAttackUnitClassWithoutThreat[eUnitClass];
+}
+
+void CvUnit::SetCanAttackUnitClassWithoutThreatCount(UnitClassTypes eUnitClass, int iNewValue)
+{
+	m_aiCanAttackUnitClassWithoutThreat.setAt(eUnitClass, iNewValue);
+}
+
+void CvUnit::ChangeCanAttackUnitClassWithoutThreatCount(UnitClassTypes eUnitClass, int iChange)
+{
+	SetCanAttackUnitClassWithoutThreatCount(eUnitClass, GetCanAttackUnitClassWithoutThreatCount(eUnitClass) + iChange);
 }
 
 void CvUnit::DoIncrementThreatenedTurn()

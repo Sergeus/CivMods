@@ -142,6 +142,7 @@ public:
 	bool IsDetectsUnitType(UnitTypes eUnit) const;
 	bool IsCannotBondWarders() const;
 	bool IsCanOnlyAttackThreatening() const;
+	bool IsCanAttackUnitClassWithoutThreat(UnitClassTypes eUnitClass) const;
 #endif // WOTMOD
 
 	bool IsCannotBeChosen() const;
@@ -316,6 +317,7 @@ protected:
 	std::vector<bool> m_abDetectsUnitTypes;
 	bool m_bCannotBondWarders;
 	bool m_bCanOnlyAttackThreatening;
+	std::vector<bool> m_abCanAttackUnitClassWithoutThreat;
 #endif // WOTMOD
 
 	bool m_bCannotBeChosen;
