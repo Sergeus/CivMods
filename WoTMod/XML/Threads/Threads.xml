@@ -4,7 +4,7 @@
 	<Table name="Threads">
 		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
 		<Column name="Type" type="text" unique="true" notNULL="true"/>
-		<Column name="Threadtitle" type="text" default="NULL" reference="Language_en_US(Tag)" />
+		<Column name="ThreadTitle" type="text" default="NULL" reference="Language_en_US(Tag)" />
 		<Column name="FlavorBody" type="text" default="NULL" reference="Language_en_US(tag)" />
 	</Table>
 	<Table name="Thread_Choices">

@@ -22,6 +22,7 @@
 
 #if WOTMOD
 #include "WoTGovernorClasses.h"
+#include "WoTThreadClasses.h"
 #endif // WOTMOD
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

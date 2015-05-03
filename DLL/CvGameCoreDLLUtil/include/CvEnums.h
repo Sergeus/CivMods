@@ -1498,6 +1498,14 @@ enum AlignmentTypes
 {
 	NO_ALIGNMENT = -1,
 };
+enum ThreadTypes
+{
+	NO_THREAD = -1,
+};
+enum ThreadChoiceTypes
+{
+	NO_CHOICE = -1,
+};
 #endif // WOTMOD
 
 enum PlayerVoteTypes			

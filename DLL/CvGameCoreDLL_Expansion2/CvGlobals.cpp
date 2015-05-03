@@ -39,6 +39,7 @@
 #if WOTMOD
 #include "WoTGovernorClasses.h"
 #include "WoTAlignmentInfos.h"
+#include "WoTThreadClasses.h"
 #endif // WOTMOD
 
 #include "CvDllDatabaseUtility.h"
@@ -2712,6 +2713,23 @@ std::vector<WoTWhiteTowerInfluenceTierInfo*>& CvGlobals::GetAjahInfluenceTierInf
 WoTWhiteTowerInfluenceTierInfo* CvGlobals::GetAjahInfluenceTierInfo(AjahInfluenceTierTypes eInfluenceTier)
 {
 	return m_paAjahInfluenceTierInfo[eInfluenceTier];
+}
+int CvGlobals::GetNumThreadInfos()
+{
+	return m_paThreadInfo.size();
+}
+std::vector<WoTThreadInfo*>& CvGlobals::GetThreadInfos()
+{
+	return m_paThreadInfo;
+}
+WoTThreadInfo* CvGlobals::GetThreadInfo(ThreadTypes eThread)
+{
+	return m_paThreadInfo[eThread];
+}
+
+std::vector<WoTThreadChoiceInfo*>& CvGlobals::GetThreadChoiceInfos()
+{
+	return m_paThreadChoiceInfo;
 }
 #endif // WOTMOD
 

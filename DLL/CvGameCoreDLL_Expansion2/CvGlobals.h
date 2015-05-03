@@ -138,6 +138,8 @@ class WoTMinorCivPlotInfo;
 class WoTWhiteTowerAjahInfo;
 class WoTAlignmentInfo;
 class WoTWhiteTowerInfluenceTierInfo;
+class WoTThreadInfo;
+class WoTThreadChoiceInfo;
 #endif // WOTMOD
 
 class CvDLLInterfaceIFaceBase;
@@ -372,6 +374,14 @@ public:
 	int GetNumAjahInfluenceTierInfos();
 	std::vector<WoTWhiteTowerInfluenceTierInfo*>& GetAjahInfluenceTierInfos();
 	WoTWhiteTowerInfluenceTierInfo* GetAjahInfluenceTierInfo(AjahInfluenceTierTypes eInfluenceTier);
+
+	int GetNumThreadInfos();
+	std::vector<WoTThreadInfo*>& GetThreadInfos();
+	WoTThreadInfo* GetThreadInfo(ThreadTypes eThread);
+
+	int GetNumThreadChoiceInfos();
+	std::vector<WoTThreadChoiceInfo*>& GetThreadChoiceInfos();
+	WoTThreadChoiceInfo* GetThreadChoiceInfo(ThreadChoiceTypes eChoice);
 #endif // WOTMOD
 
 	int& getNumPlayableCivilizationInfos();
@@ -7654,6 +7664,8 @@ protected:
 	std::vector<WoTWhiteTowerAjahInfo*> m_paWhiteTowerAjahInfo;
 	std::vector<WoTAlignmentInfo*> m_paAlignmentInfo;
 	std::vector<WoTWhiteTowerInfluenceTierInfo*> m_paAjahInfluenceTierInfo;
+	std::vector<WoTThreadInfo*> m_paThreadInfo;
+	std::vector<WoTThreadChoiceInfo*> m_paThreadChoiceInfo;
 #endif // WOTMOD
 
 	CvEconomicAIStrategyXMLEntries* m_pEconomicAIStrategies;

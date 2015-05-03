@@ -289,6 +289,11 @@ bool CvDatabaseUtility::PopulateVectorByValue(std::vector<int>& kVector, const c
 
 	return true;
 }
+
+bool CvDatabaseUtility::SetYields(std::vector<int>& pYieldsVector, const char* szTableName, const char* szFilterColumn, const char* szFilterValue)
+{
+	return PopulateVectorByValue(pYieldsVector, "Yields", szTableName, "YieldType", szFilterColumn, szFilterValue, "Yield");
+}
 #endif // WOTMOD
 
 //------------------------------------------------------------------------------

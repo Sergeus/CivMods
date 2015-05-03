@@ -155,6 +155,7 @@
     <ClCompile Include="WoTNotifications.cpp" />
     <ClCompile Include="WoTSerialization.cpp" />
     <ClCompile Include="WoTShadowspawn.cpp" />
+    <ClCompile Include="WoTThreadClasses.cpp" />
     <ClCompile Include="WoTWhiteTowerClasses.cpp" />
     <ClCompile Include="_precompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Mod|Win32'">Create</PrecompiledHeader>
@@ -501,6 +502,7 @@
     <ClInclude Include="WoTNotifications.h" />
     <ClInclude Include="WoTSerialization.h" />
     <ClInclude Include="WoTShadowspawn.h" />
+    <ClInclude Include="WoTThreadClasses.h" />
     <ClInclude Include="WoTWhiteTowerClasses.h" />
   </ItemGroup>
   <ItemGroup>

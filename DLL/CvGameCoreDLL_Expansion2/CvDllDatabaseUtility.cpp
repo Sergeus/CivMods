@@ -345,6 +345,8 @@ bool CvDllDatabaseUtility::PrefetchGameData()
 	PrefetchCollection(GC.GetWhiteTowerAjahInfos(), "Ajahs");
 	PrefetchCollection(GC.GetAlignmentInfos(), "Alignments");
 	PrefetchCollection(GC.GetAjahInfluenceTierInfos(), "AjahInfluenceTiers");
+	PrefetchCollection(GC.GetThreadInfos(), "Threads");
+	PrefetchCollection(GC.GetThreadChoiceInfos(), "ThreadChoices");
 #endif // WOTMOD
 
 	//Technologies

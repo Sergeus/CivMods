@@ -86,6 +86,7 @@ void InitializeArray(T*& pArray, const char* szTableName, T default = (T)0);
 								const char* szTypeColumn,
 								const char* szFilterColumn,
 								const char* szFilterValue);
+	bool SetYields(std::vector<int>& pYieldsVector, const char* szTableName, const char* szFilterColumn, const char* szFilterValue);
 #endif // WOTMOD
 
 
