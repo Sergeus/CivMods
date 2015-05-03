@@ -73,5 +73,15 @@
 			<MiniCivIcon>true</MiniCivIcon>
 			<AlwaysDismissable>true</AlwaysDismissable>
 		</Row>
+		<Row>
+			<Type>NOTIFICATION_CHOOSE_GIFTED_AES_SEDAI</Type>
+			<Message>TXT_KEY_NOTIFICATION_CHOOSE_GIFTED_AES_SEDAI</Message>
+			<Summary>TXT_KEY_NOTIFICATION_CHOOSE_GIFTED_AES_SEDAI_SUMMARY</Summary>
+			<LargeButton>true</LargeButton>
+			<BlocksEndTurn>true</BlocksEndTurn>
+			<BlockMessage>TXT_KEY_END_TURN_BUTTON_CHOOSE_AES_SEDAI</BlockMessage>
+			<BlockToolTip>TXT_KEY_END_TURN_BUTTON_CHOOSE_AES_SEDAI_TOOLTIP</BlockToolTip>
+			<ExpiresAtTurnEnd>false</ExpiresAtTurnEnd>
+		</Row>
 	</Notifications>
 </GameData>
