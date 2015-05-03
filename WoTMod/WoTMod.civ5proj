@@ -712,6 +712,16 @@
         <Type>UpdateDatabase</Type>
         <FileName>XML/Units/AesSedai.xml</FileName>
       </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Threads/Threads.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Threads/ThreadChoices.xml</FileName>
+      </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
     <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
@@ -808,6 +818,7 @@
     <Folder Include="XML\Alignment" />
     <Folder Include="XML\Eras" />
     <Folder Include="XML\LastBattle" />
+    <Folder Include="XML\Threads" />
     <Folder Include="XML\Religion" />
     <Folder Include="XML\WhiteTower" />
     <Folder Include="XML\Victories" />
@@ -2056,6 +2067,14 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\Terrain\Resources.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Threads\ThreadChoices.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Threads\Threads.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

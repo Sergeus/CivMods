@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/3/2015 9:58:37 PM -->
+<GameData>
+	<Table name="Threads">
+		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
+		<Column name="Type" type="text" unique="true" notNULL="true"/>
+		<Column name="Threadtitle" type="text" default="NULL" reference="Language_en_US(Tag)" />
+		<Column name="FlavorBody" type="text" default="NULL" reference="Language_en_US(tag)" />
+	</Table>
+	<Table name="Thread_Choices">
+		<Column name="ThreadType" type="text" notnull="true" reference="Threads(Type)" />
+		<Column name="ChoiceType" type="text" notnull="true" reference="ThreadChoices(Type)" />
+	</Table>
+	<Threads>
+		<Row>
+			<ID>0</ID>
+			<Type>THREAD_UNREST_IN_YOUR_LANDS</Type>
+			<ThreadTitle>TXT_KEY_THREAD_UNREST_IN_YOUR_LANDS_TITLE</ThreadTitle>
+			<FlavorBody>TXT_KEY_UNREST_IN_YOUR_LANDS_BODY</FlavorBody>
+		</Row>
+	</Threads>
+	<Thread_Choices>
+		<Row>
+			<ThreadType>THREAD_UNREST_IN_YOUR_LANDS</ThreadType>
+			<ChoiceType>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_A</ChoiceType>
+		</Row>
+	</Thread_Choices>
+</GameData>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/3/2015 10:13:45 PM -->
+<GameData>
+	<Table name="ThreadChoices">
+		<Column name="ID" type="integer" primarykey="true" autoincrement="true"/>
+		<Column name="Type" type="text" unique="true" notNULL="true"/>
+		<Column name="Description" type="text" default="NULL" reference="Language_en_US(Tag)"/>
+	</Table>
+	<Table name="ThreadChoice_Yields">
+		<Column name="ThreadChoiceType" type="text" notnull="true" reference="ThreadChoices(Type)" />
+		<Column name="YieldType" type="text" notnull="true" reference="Yields(Type)" />
+		<Column name="Yield" type="integer" />
+	</Table>
+	<ThreadChoices>
+		<Row>
+			<ID>0</ID>
+			<Type>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_A</Type>
+			<Description>TXT_KEY_THREAD_CHOICE_UNREST_IN_YOUR_LANDS_A</Description>
+		</Row>
+	</ThreadChoices>
+	<ThreadChoice_Yields>
+		<Row>
+			<ThreadChoiceType>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_A</ThreadChoiceType>
+			<YieldType>YIELD_LIGHT</YieldType>
+			<Yield>145</Yield>
+		</Row>
+	</ThreadChoice_Yields>
+</GameData>
