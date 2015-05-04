@@ -94,6 +94,10 @@ protected:
 	void IncrementBeginIndex();
 	void IncrementEndIndex();
 
+#if CUSTOM_NOTIFICATIONS
+	std::vector<bool(CvNotifications::*)(Notification&) const> m_IsExpired;
+#endif // CUSTOM_NOTIFICATIONS
+
 	PlayerTypes m_ePlayer;
 
 	std::vector<Notification> m_aNotifications;

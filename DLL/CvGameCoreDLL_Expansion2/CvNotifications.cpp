@@ -1894,6 +1894,47 @@ bool CvNotifications::IsNotificationExpired(int iIndex)
 
 	default:	// don't expire
 	{
+#if CUSTOM_NOTIFICATIONS
+		Notification& notification = m_aNotifications[iIndex];
+		WoTNotificationInfo* pInfo = GC.GetNotificationInfo(notification.m_eNotificationType);
+
+		CvString luaEventName = pInfo->GetIsExpiredLuaEventName();
+
+		if (luaEventName.length() > 0)
+		{
+			ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
+
+			if (pkScriptSystem)
+			{
+				CvLuaArgsHandle args;
+
+				args->Push(notification.m_ePlayerID);
+				args->Push(notification.m_eNotificationType);
+				args->Push(notification.m_strMessage);
+				args->Push(notification.m_strSummary);
+				args->Push(notification.m_iX);
+				args->Push(notification.m_iY);
+				args->Push(notification.m_iGameDataIndex);
+				args->Push(notification.m_iExtraGameData);
+
+				bool bResult;
+				if (LuaSupport::CallTestAll(pkScriptSystem, luaEventName, args.get(), bResult))
+				{
+					return bResult;
+				}
+			}
+		}
+		else
+		{
+			bool(CvNotifications::*func)(Notification&) const = m_IsExpired[notification.m_eNotificationType];
+
+			if (func)
+			{
+				return (this->*func)(notification);
+			}
+		}
+#endif // CUSTOM_NOTIFICATIONS
+
 		return false;
 	}
 	break;
