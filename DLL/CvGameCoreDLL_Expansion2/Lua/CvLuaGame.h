@@ -388,6 +388,9 @@ protected:
 	static int lGetChosenLastBattleSide(lua_State* L);
 	static int lGetLastBattleBeginTurn(lua_State* L);
 	static int lSetLastBattleBeginTurn(lua_State* L);
+
+	static int lGetChoicesForThread(lua_State* L);
+	static int lGetYieldForThreadChoice(lua_State* L);
 #endif // WOTMOD
 };
 

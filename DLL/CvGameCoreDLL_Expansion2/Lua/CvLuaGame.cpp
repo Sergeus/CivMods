@@ -392,6 +392,9 @@ void CvLuaGame::RegisterMembers(lua_State* L)
 	Method(GetChosenLastBattleSide);
 	Method(GetLastBattleBeginTurn);
 	Method(SetLastBattleBeginTurn);
+
+	Method(GetChoicesForThread);
+	Method(GetYieldForThreadChoice);
 #endif // WOTMOD
 }
 //------------------------------------------------------------------------------
@@ -2578,6 +2581,34 @@ int CvLuaGame::lSetLastBattleBeginTurn(lua_State* L)
 
 	GC.getGame().SetLastBattleBeginTurn(iNewTurn);
 	return 0;
+}
+int CvLuaGame::lGetChoicesForThread(lua_State* L)
+{
+	ThreadTypes eThread = static_cast<ThreadTypes>(lua_tointeger(L, 1));
+	WoTThreadInfo* pInfo = GC.GetThreadInfo(eThread);
+
+	lua_createtable(L, 0, 0);
+	const int t = lua_gettop(L);
+	int idx = 1;
+
+	const std::vector<ThreadChoiceTypes>& choices = pInfo->GetChoices();
+
+	for (std::vector<ThreadChoiceTypes>::const_iterator it = choices.begin(); it != choices.end(); ++it)
+	{
+		lua_pushinteger(L, (*it));
+		lua_rawseti(L, t, idx++);
+	}
+	return 1;
+}
+int CvLuaGame::lGetYieldForThreadChoice(lua_State* L)
+{
+	ThreadChoiceTypes eChoice = static_cast<ThreadChoiceTypes>(lua_tointeger(L, 1));
+	YieldTypes eYield = static_cast<YieldTypes>(lua_tointeger(L, 2));
+
+	WoTThreadChoiceInfo* pInfo = GC.GetThreadChoiceInfo(eChoice);
+
+	lua_pushinteger(L, pInfo->GetYield(eYield));
+	return 1;
 }
 #endif // WOTMOD
 

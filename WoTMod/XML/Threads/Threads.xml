@@ -24,5 +24,13 @@
 			<ThreadType>THREAD_UNREST_IN_YOUR_LANDS</ThreadType>
 			<ChoiceType>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_A</ChoiceType>
 		</Row>
+		<Row>
+			<ThreadType>THREAD_UNREST_IN_YOUR_LANDS</ThreadType>
+			<ChoiceType>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_B</ChoiceType>
+		</Row>
+		<Row>
+			<ThreadType>THREAD_UNREST_IN_YOUR_LANDS</ThreadType>
+			<ChoiceType>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_C</ChoiceType>
+		</Row>
 	</Thread_Choices>
 </GameData>

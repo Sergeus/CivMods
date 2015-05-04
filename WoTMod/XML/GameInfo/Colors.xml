@@ -9,5 +9,12 @@
 			<Blue>0</Blue>
 			<Alpha>1</Alpha>
 		</Row>
+		<Row>
+			<Type>COLOR_ALIGNMENT_SHADOW</Type>
+			<Red>0.541</Red>
+			<Green>0</Green>
+			<Blue>0.494</Blue>
+			<Alpha>1</Alpha>
+		</Row>
 	</Colors>
 </GameData>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/2/2014 7:31:22 PM -->
+<Context ColorSet="Beige_Black" Font="TwCenMT20" FontStyle="Shadow">
+	<Box Style="BGBlock" ID="BGBlock" />
+
+	<Instance Name="Choice">
+		<Container Size="450,60">
+			<Button ID="ChooseButton" Size="450,60">
+				<Image ID="TopBar" Hidden="1" Anchor="C,T" Texture="bar500x2.dds" Size="450.1"/>
+				<Label ID="ChoiceDescription" Anchor="C,T" String="DESCRIPTION HERE" Offset="0,5" />
+				<Label ID="BonusesDescription" Anchor="C,T" String="BONUSES HERE" Offset="0,30" />
+				<Image Anchor="C,B" Texture="bar500x2.dds" Size="450.1"/>
+				<ShowOnMouseOver>
+					<AlphaAnim Anchor="C,C" Size="450,60" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+						<Grid Size="450,60" Style="Grid9FrameTurnsHL"/>
+					</AlphaAnim>
+				</ShowOnMouseOver>
+			</Button>
+		</Container>
+	</Instance>
+
+	<Grid Size="550,450" Anchor="C,C" Style="Grid9DetailFive140" ConsumeMouse="1">
+
+		<!-- Side treatments -->
+		<Box Style="MenuLeftSideTreatment"/>
+		<Box Style="MenuRightSideTreatment"/>
+
+		<Label ID="ThreadTitleLabel" Anchor="C,T" Offset="0,18" String="THREAD TITLE" />
+
+		<Label ID="ThreadFlavorBodyLabel" Anchor="C,T" TextAnchor="C,C" Offset="0,75" WrapWidth="450" />
+
+		<!-- Dynamic choices stack -->
+		<Stack ID="ChoiceStack" Anchor="C,B" StackGrowth="Bottom" Offset="0,60" />
+
+		<TextButton Offset="0,22" Anchor="C,B" String="TXT_KEY_CLOSE" Style="Font14or20" MouseOverStyle="SoftShadow" ConsumeMouse="1" ID="CloseButton" Hidden="0"/>
+	</Grid>
+</Context>

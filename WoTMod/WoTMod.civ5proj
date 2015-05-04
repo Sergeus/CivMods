@@ -85,6 +85,12 @@
         <Description>Status screen for Ajahs</Description>
         <FileName>UI/InGame/Popups/WhiteTowerStatus.lua</FileName>
       </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Threads popup</Name>
+        <Description>Shows the Threads of the Pattern to the player</Description>
+        <FileName>UI/InGame/Popups/ThreadPopup.xml</FileName>
+      </Content>
     </ModContent>
     <ModActions>
       <Action>
@@ -721,6 +727,11 @@
         <Set>OnModActivated</Set>
         <Type>UpdateDatabase</Type>
         <FileName>XML/Threads/ThreadChoices.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/GameText/ThreadsText.xml</FileName>
       </Action>
     </ModActions>
     <ReloadUnitSystem>true</ReloadUnitSystem>
@@ -1726,6 +1737,14 @@
       <SubType>Lua</SubType>
       <ImportIntoVFS>True</ImportIntoVFS>
     </Content>
+    <Content Include="UI\InGame\Popups\ThreadPopup.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\InGame\Popups\ThreadPopup.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
     <Content Include="UI\InGame\Popups\WhiteTowerStatus.lua">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
@@ -1943,6 +1962,10 @@
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>
     <Content Include="XML\GameText\TerrainText.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\GameText\ThreadsText.xml">
       <SubType>Lua</SubType>
       <ImportIntoVFS>False</ImportIntoVFS>
     </Content>

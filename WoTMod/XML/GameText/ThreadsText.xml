@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 5/4/2015 11:50:53 AM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_THREAD_UNREST_IN_YOUR_LANDS_TITLE">
+			<Text>Unrest in your Lands</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNREST_IN_YOUR_LANDS_BODY">
+			<Text>Dragonsworn are troubling your farmers and villagers. Do something about it.</Text>
+		</Row>
+		<!-- Choices -->
+		<Row Tag="TXT_KEY_THREAD_CHOICE_UNREST_IN_YOUR_LANDS_A">
+			<Text>Drive them off</Text>
+		</Row>
+		<Row Tag="TXT_KEY_THREAD_CHOICE_UNREST_IN_YOUR_LANDS_B">
+			<Text>Force them to relocate their farms to near to the capital</Text>
+		</Row>
+		<Row Tag="TXT_KEY_THREAD_CHOICE_UNREST_IN_YOUR_LANDS_C">
+			<Text>Encourage the Dragonsworn zealots</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

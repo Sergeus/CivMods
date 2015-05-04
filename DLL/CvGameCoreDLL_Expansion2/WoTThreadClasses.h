@@ -19,6 +19,8 @@ public:
 
 	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
 
+	const std::vector<ThreadChoiceTypes>& GetChoices() const;
+
 private:
 	CvString m_ThreadTitle;
 	CvString m_FlavorBody;
@@ -32,6 +34,8 @@ public:
 	~WoTThreadChoiceInfo();
 
 	virtual bool CacheResults(Database::Results& kResults, CvDatabaseUtility& kUtility);
+
+	int GetYield(YieldTypes eYield) const;
 
 private:
 	std::vector<int> m_YieldChanges;

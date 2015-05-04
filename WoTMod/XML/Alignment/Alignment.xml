@@ -6,6 +6,7 @@
 		<Column name="Type" type="text" notnull="true" unique="true"/>
 		<Column name="Description" type="text" notnull="true" reference="Language_en_US(Tag)" />
 		<Column name="YieldType" type="text" notnull="true" reference="Yields(Type)" />
+		<Column name="Color" type="text" notnull="true" reference="Colors(Type)" />
 	</Table>
 	<Table name="Alignment_Oppositions">
 		<Column name="AlignmentType" type="text" notnull="true" reference="Alignments(Type)" />
@@ -28,11 +29,13 @@
 			<Type>ALIGNMENT_LIGHT</Type>
 			<Description>TXT_KEY_ALIGNMENT_LIGHT</Description>
 			<YieldType>YIELD_LIGHT</YieldType>
+			<Color>COLOR_WHITE</Color>
 		</Row>
 		<Row>
 			<Type>ALIGNMENT_SHADOW</Type>
 			<Description>TXT_KEY_ALIGNMENT_SHADOW</Description>
 			<YieldType>YIELD_SHADOW</YieldType>
+			<Color>COLOR_ALIGNMENT_SHADOW</Color>
 		</Row>
 	</Alignments>
 	<Alignment_Oppositions>

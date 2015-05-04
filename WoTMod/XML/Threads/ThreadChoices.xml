@@ -17,12 +17,35 @@
 			<Type>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_A</Type>
 			<Description>TXT_KEY_THREAD_CHOICE_UNREST_IN_YOUR_LANDS_A</Description>
 		</Row>
+		<Row>
+			<Type>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_B</Type>
+			<Description>TXT_KEY_THREAD_CHOICE_UNREST_IN_YOUR_LANDS_B</Description>
+		</Row>
+		<Row>
+			<Type>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_C</Type>
+			<Description>TXT_KEY_THREAD_CHOICE_UNREST_IN_YOUR_LANDS_C</Description>
+		</Row>
 	</ThreadChoices>
 	<ThreadChoice_Yields>
 		<Row>
 			<ThreadChoiceType>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_A</ThreadChoiceType>
 			<YieldType>YIELD_LIGHT</YieldType>
 			<Yield>145</Yield>
+		</Row>
+		<Row>
+			<ThreadChoiceType>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_B</ThreadChoiceType>
+			<YieldType>YIELD_SHADOW</YieldType>
+			<Yield>48</Yield>
+		</Row>
+		<Row>
+			<ThreadChoiceType>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_C</ThreadChoiceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>12</Yield>
+		</Row>
+		<Row>
+			<ThreadChoiceType>THREAD_CHOICE_UNREST_IN_YOUR_LANDS_C</ThreadChoiceType>
+			<YieldType>YIELD_SHADOW</YieldType>
+			<Yield>143</Yield>
 		</Row>
 	</ThreadChoice_Yields>
 </GameData>

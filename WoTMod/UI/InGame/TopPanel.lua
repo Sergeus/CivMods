@@ -194,8 +194,23 @@ function UpdateData()
 					leaningString = Locale.ConvertTextKey(row.Description)
 				end
 			end
+			
+			local yieldInfo
+			for pYield in GameInfo.Yields() do
+				if (pYield.Type == alignment.YieldType) then
+					yieldInfo = pYield
+				end
+			end
 
-			local alignmentStr = Locale.ConvertTextKey(alignment.Description) .. " | " .. leaningString
+			local alignmentStr = yieldInfo.IconString .. "[" .. alignment.Color .. "]" .. leaning .. " " 
+			local alignmentYieldPerTurn = pPlayer:GetNetAlignmentYieldPerTurn(alignmentId)
+			if (alignmentYieldPerTurn < 0) then
+				alignmentStr = alignmentStr .. "[ENDCOLOR][COLOR_NEGATIVE_TEXT](" .. alignmentYieldPerTurn .. ")[ENDCOLOR][" .. alignment.Color .. "]"
+			else
+				alignmentStr = alignmentStr .. "(+" .. alignmentYieldPerTurn .. ")"
+			end
+
+			alignmentStr = alignmentStr .. " " .. Locale.ConvertTextKey(alignment.Description) .. " | " .. leaningString .. "[ENDCOLOR]"
 			Controls.AlignmentString:SetText(alignmentStr)
 			-- WoTMod Addition End
 	

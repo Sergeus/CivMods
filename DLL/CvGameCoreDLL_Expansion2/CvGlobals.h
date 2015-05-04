@@ -379,7 +379,6 @@ public:
 	std::vector<WoTThreadInfo*>& GetThreadInfos();
 	WoTThreadInfo* GetThreadInfo(ThreadTypes eThread);
 
-	int GetNumThreadChoiceInfos();
 	std::vector<WoTThreadChoiceInfo*>& GetThreadChoiceInfos();
 	WoTThreadChoiceInfo* GetThreadChoiceInfo(ThreadChoiceTypes eChoice);
 #endif // WOTMOD

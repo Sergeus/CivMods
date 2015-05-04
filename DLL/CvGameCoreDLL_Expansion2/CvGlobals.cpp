@@ -2727,6 +2727,10 @@ WoTThreadInfo* CvGlobals::GetThreadInfo(ThreadTypes eThread)
 	return m_paThreadInfo[eThread];
 }
 
+WoTThreadChoiceInfo* CvGlobals::GetThreadChoiceInfo(ThreadChoiceTypes eChoice)
+{
+	return m_paThreadChoiceInfo[eChoice];
+}
 std::vector<WoTThreadChoiceInfo*>& CvGlobals::GetThreadChoiceInfos()
 {
 	return m_paThreadChoiceInfo;

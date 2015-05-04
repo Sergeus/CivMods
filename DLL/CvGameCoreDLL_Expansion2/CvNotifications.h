@@ -89,6 +89,10 @@ public:
 	//---------------------------------------PROTECTED MEMBER VARIABLES---------------------------------
 protected:
 
+#if WOTMOD
+	bool IsExpiredNewThread(Notification&) const;
+#endif // WOTMOD
+
 	bool IsArrayFull();
 	void RemoveOldestNotification();
 	void IncrementBeginIndex();

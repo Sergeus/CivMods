@@ -83,5 +83,15 @@
 			<BlockToolTip>TXT_KEY_END_TURN_BUTTON_CHOOSE_AES_SEDAI_TOOLTIP</BlockToolTip>
 			<ExpiresAtTurnEnd>false</ExpiresAtTurnEnd>
 		</Row>
+		<Row>
+			<Type>NOTIFICATION_NEW_THREAD</Type>
+			<Message>TXT_KEY_NOTIFICATION_NEW_THREAD</Message>
+			<Summary>TXT_KEY_NOTIFICATION_CHOOSE_THREAD_SUMMARY</Summary>
+			<LargeButton>true</LargeButton>
+			<BlocksEndTurn>true</BlocksEndTurn>
+			<BlockMessage>TXT_KEY_END_TURN_BUTTON_NEW_THREAD</BlockMessage>
+			<BlockToolTip>TXT_KEY_END_TURN_BUTTON_NEW_THREAD_TOOLTIP</BlockToolTip>
+			<ExpiresAtTurnEnd>false</ExpiresAtTurnEnd>
+		</Row>
 	</Notifications>
 </GameData>

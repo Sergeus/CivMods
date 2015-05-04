@@ -335,7 +335,8 @@ CvPlayer::CvPlayer() :
 #if WOTMOD
 	, m_ePublicSupportedAjah("CvPlayer::m_ePublicSupportedAjah", m_syncArchive) 
 	, m_iTurnsSincePledgedSupport("CvPlayer::m_iTurnsSincePledgedSupport", m_syncArchive)
-	, m_aiTotalAlignmentYields("CvPlayer::m_aiTotalAlignmentYields", m_syncArchive)
+	, m_YieldTotals("CvPlayer::m_YieldTotals", m_syncArchive)
+	, m_iThreadsAvailable("CvPlayer::m_iThreadsAvailable", m_syncArchive)
 #endif // WOTMOD
 
 	, m_aiCityYieldChange("CvPlayer::m_aiCityYieldChange", m_syncArchive)
@@ -1006,8 +1007,8 @@ void CvPlayer::reset(PlayerTypes eID, bool bConstructorCall)
 	m_ePublicSupportedAjah.set(make_pair(NO_PLAYER, NO_AJAH));
 	m_iTurnsSincePledgedSupport = 1000; // large enough to start
 
-	m_aiTotalAlignmentYields.clear();
-	m_aiTotalAlignmentYields.resize(GC.GetNumAlignmentInfos(), 0);
+	m_YieldTotals.clear();
+	m_YieldTotals.resize(GC.GetNumYieldInfos(), 0);
 #endif // WOTMOD
 
 	m_aiCityYieldChange.clear();
@@ -25263,15 +25264,19 @@ AlignmentTypes CvPlayer::GetMajorityAlignment() const
 }
 int CvPlayer::GetTotalAlignmentYield(AlignmentTypes eAlignment) const
 {
-	return m_aiTotalAlignmentYields[eAlignment];
+	WoTAlignmentInfo* pInfo = GC.GetAlignmentInfo(eAlignment);
+
+	return GetYieldTotal(pInfo->GetYield());
 }
 void CvPlayer::SetTotalAlignmentYield(AlignmentTypes eAlignment, int iNewValue)
 {
-	m_aiTotalAlignmentYields.setAt(eAlignment, iNewValue);
+	WoTAlignmentInfo* pInfo = GC.GetAlignmentInfo(eAlignment);
+
+	SetYieldTotal(pInfo->GetYield(), iNewValue);
 }
 void CvPlayer::ChangeTotalAlignmentYield(AlignmentTypes eAlignment, int iChange)
 {
-	m_aiTotalAlignmentYields.setAt(eAlignment, GetTotalAlignmentYield(eAlignment) + iChange);
+	SetTotalAlignmentYield(eAlignment, GetTotalAlignmentYield(eAlignment) + iChange);
 }
 int CvPlayer::GetAlignmentLeaning(AlignmentTypes eAlignment) const
 {
@@ -25295,17 +25300,7 @@ void CvPlayer::DoAlignmentTurn()
 	for (int i = 0; i < GC.GetNumAlignmentInfos(); ++i)
 	{
 		AlignmentTypes eAlignment = static_cast<AlignmentTypes>(i);
-		WoTAlignmentInfo* pInfo = GC.GetAlignmentInfo(eAlignment);
-
-		YieldTypes eYield = pInfo->GetYield();
-		int iYieldPerTurn = 0;
-		CvCity* pLoopCity;
-
-		int iLoop;
-		for (pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
-		{
-			iYieldPerTurn += pLoopCity->getBaseYieldRate(eYield);
-		}
+		int iYieldPerTurn = GetNetAlignmentYieldPerTurn(eAlignment);
 
 		ChangeTotalAlignmentYield(eAlignment, iYieldPerTurn);
 	}
@@ -25320,6 +25315,105 @@ int CvPlayer::GetAlignmentYieldModifier(YieldTypes eYield) const
 	int modifier = leaning * pInfo->GetAlignmentLeaningYieldPercentage(eYield) / 100;
 
 	return modifier;
+}
+int CvPlayer::GetNetAlignmentYieldPerTurn(AlignmentTypes eAlignment) const
+{
+	WoTAlignmentInfo* pInfo = GC.GetAlignmentInfo(eAlignment);
+
+	YieldTypes eYield = pInfo->GetYield();
+	int iYieldPerTurn = 0;
+	const CvCity* pLoopCity;
+
+	int iLoop;
+	for (pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+	{
+		iYieldPerTurn += pLoopCity->getBaseYieldRate(eYield);
+	}
+	return iYieldPerTurn;
+}
+
+void CvPlayer::DoThreadAvailable(ThreadTypes eThread)
+{
+	m_iThreadsAvailable++;
+	if (isHuman())
+	{
+		CvNotifications* pNotifications = GetNotifications();
+		if (pNotifications)
+		{
+			NotificationTypes eNotification = static_cast<NotificationTypes>(GC.getInfoTypeForString("NOTIFICATION_NEW_THREAD"));
+			pNotifications->Add(eNotification, NULL, NULL, -1, -1, eThread);
+		}
+	}
+	else 
+	{
+		// TODO: AI goes here
+	}
+}
+
+void CvPlayer::DoChooseThreadChoice(ThreadChoiceTypes eChoice)
+{
+	m_iThreadsAvailable--;
+	WoTThreadChoiceInfo* pInfo = GC.GetThreadChoiceInfo(eChoice);
+
+	for (int i = 0; i < GC.GetNumYieldInfos(); ++i)
+	{
+		YieldTypes eYield = static_cast<YieldTypes>(i);
+		ChangeYieldTotal(eYield, pInfo->GetYield(eYield));
+	}
+}
+
+int CvPlayer::GetNumThreadsAvailable() const
+{
+	return m_iThreadsAvailable;
+}
+
+void CvPlayer::ChangeYieldTotal(YieldTypes eYield, int iChange)
+{
+	switch (eYield)
+	{
+	case YIELD_FAITH:
+		ChangeFaith(iChange);
+		break;
+	case YIELD_CULTURE:
+		changeJONSCulture(iChange);
+		break;
+	case YIELD_GOLD:
+		GetTreasury()->ChangeGold(iChange);
+		break;
+	case YIELD_SCIENCE:
+		GET_TEAM(getTeam()).GetTeamTechs()->ChangeResearchProgress(GetPlayerTechs()->GetCurrentResearch(), iChange, GetID());
+		break;
+	default:
+		SetYieldTotal(eYield, GetYieldTotal(eYield) + iChange);
+		break;
+	}
+}
+
+void CvPlayer::SetYieldTotal(YieldTypes eYield, int iNewValue)
+{
+	m_YieldTotals.setAt(eYield, iNewValue);
+
+	if (GC.getGame().getActivePlayer() == GetID())
+	{
+		GC.GetEngineUserInterface()->setDirty(GameData_DIRTY_BIT, true);
+	}
+}
+
+int CvPlayer::GetYieldTotal(YieldTypes eYield) const
+{
+	switch (eYield)
+	{
+	case YIELD_FAITH:
+		return GetFaith();
+	case YIELD_CULTURE:
+		return getJONSCulture();
+	case YIELD_GOLD:
+		return GetTreasury()->GetGold();
+	case YIELD_SCIENCE:
+		return GET_TEAM(getTeam()).GetTeamTechs()->GetResearchProgress(GetPlayerTechs()->GetCurrentResearch());
+	default:
+		return m_YieldTotals[eYield];
+	}
 }
 #endif // WOTMOD
 

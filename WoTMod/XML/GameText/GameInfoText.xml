@@ -12,5 +12,13 @@
 		<Row Tag="TXT_KEY_TRUE_POWER">
 			<Text>True Power</Text>
 		</Row>
+
+		<!-- Yields -->
+		<Row Tag="TXT_KEY_YIELD_LIGHT">
+			<Text>Light</Text>
+		</Row>
+		<Row Tag="TXT_KEY_YIELD_SHADOW">
+			<Text>Shadow</Text>
+		</Row>
 	</Language_en_US>
 </GameData>

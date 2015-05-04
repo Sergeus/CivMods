@@ -232,6 +232,10 @@ CvNotifications::CvNotifications(void)
 	m_IsExpired.resize(GC.GetNumNotificationInfos());
 #endif // CUSTOM_NOTIFICATIONS
 
+#if WOTMOD
+	m_IsExpired[GC.getInfoTypeForString("NOTIFICATION_NEW_THREAD")] = &CvNotifications::IsExpiredNewThread;
+#endif // WOTMOD
+
 	Uninit();
 }
 
@@ -2051,6 +2055,13 @@ bool CvNotifications::IsNotificationEndOfTurnExpired(int iIndex)
 {
 	return IsNotificationTypeEndOfTurnExpired( m_aNotifications[iIndex].m_eNotificationType, iIndex );
 }
+
+#if WOTMOD
+bool CvNotifications::IsExpiredNewThread(Notification& notification) const
+{
+	return GET_PLAYER(notification.m_ePlayerID).GetNumThreadsAvailable() == 0;
+}
+#endif // WOTMOD
 
 //	---------------------------------------------------------------------------
 bool CvNotifications::IsArrayFull()

@@ -28,7 +28,7 @@ bool WoTThreadInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	// choices
 	{
 		std::vector<bool> hasChoices;
-		kUtility.PopulateVectorByExistence(hasChoices, "ThreadChoices", "Thread_Choices", "ThreadChoiceType", "ThreadType", GetType());
+		kUtility.PopulateVectorByExistence(hasChoices, "ThreadChoices", "Thread_Choices", "ChoiceType", "ThreadType", GetType());
 
 		for (int i = 0; i < hasChoices.size(); ++i)
 		{
@@ -40,6 +40,11 @@ bool WoTThreadInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	}
 
 	return true;
+}
+
+const std::vector<ThreadChoiceTypes>& WoTThreadInfo::GetChoices() const
+{
+	return m_Choices;
 }
 
 WoTThreadChoiceInfo::WoTThreadChoiceInfo()
@@ -56,6 +61,13 @@ bool WoTThreadChoiceInfo::CacheResults(Database::Results& kResults, CvDatabaseUt
 		return false;
 
 	kUtility.SetYields(m_YieldChanges, "ThreadChoice_Yields", "ThreadChoiceType", GetType());
+
+	return true;
+}
+
+int WoTThreadChoiceInfo::GetYield(YieldTypes eYield) const
+{
+	return m_YieldChanges[eYield];
 }
 
 #endif // WOTMOD

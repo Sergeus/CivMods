@@ -648,8 +648,12 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(GetMajorityAlignment);
 	Method(GetTotalAlignmentYield);
 	Method(GetAlignmentLeaning);
+	Method(GetNetAlignmentYieldPerTurn);
 
 	Method(GetYieldRate);
+
+	Method(DoThreadAvailable);
+	Method(DoChooseThreadChoice);
 #endif // WOTMOD
 
 	Method(GetID);
@@ -6867,6 +6871,10 @@ int CvLuaPlayer::lGetAlignmentLeaning(lua_State* L)
 	lua_pushinteger(L, pkPlayer->GetAlignmentLeaning(eAlignment));
 	return 1;
 }
+int CvLuaPlayer::lGetNetAlignmentYieldPerTurn(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvPlayerAI::GetNetAlignmentYieldPerTurn);
+}
 int CvLuaPlayer::lGetYieldRate(lua_State* L)
 {
 	CvPlayerAI* pPlayer = GetInstance(L);
@@ -6876,6 +6884,20 @@ int CvLuaPlayer::lGetYieldRate(lua_State* L)
 	lua_pushinteger(L, iYieldRate);
 	lua_pushstring(L, tooltip.c_str());
 	return 2;
+}
+int CvLuaPlayer::lDoThreadAvailable(lua_State* L)
+{
+	CvPlayerAI* pPlayer = GetInstance(L);
+	ThreadTypes eThread = static_cast<ThreadTypes>(lua_tointeger(L, 2));
+	pPlayer->DoThreadAvailable(eThread);
+	return 0;
+}
+int CvLuaPlayer::lDoChooseThreadChoice(lua_State* L)
+{
+	CvPlayerAI* pPlayer = GetInstance(L);
+	ThreadChoiceTypes eChoice = static_cast<ThreadChoiceTypes>(lua_tointeger(L, 2));
+	pPlayer->DoChooseThreadChoice(eChoice);
+	return 0;
 }
 #endif // WOTMOD
 

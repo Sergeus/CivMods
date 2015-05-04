@@ -1543,6 +1543,15 @@ public:
 	int GetAlignmentLeaning(AlignmentTypes eAlignment) const;
 	void DoAlignmentTurn();
 	int GetAlignmentYieldModifier(YieldTypes eYield) const;
+	int GetNetAlignmentYieldPerTurn(AlignmentTypes eAlignment) const;
+
+	void DoThreadAvailable(ThreadTypes eThread);
+	void DoChooseThreadChoice(ThreadChoiceTypes eChoice);
+	int GetNumThreadsAvailable() const;
+
+	void ChangeYieldTotal(YieldTypes eYield, int iChange);
+	void SetYieldTotal(YieldTypes eYield, int iNewValue);
+	int GetYieldTotal(YieldTypes eYield) const;
 #endif // WOTMOD
 
 	bool hasTurnTimerExpired();
@@ -1837,7 +1846,8 @@ protected:
 #if WOTMOD
 	FAutoVariable<std::pair<PlayerTypes, AjahTypes>, CvPlayer> m_ePublicSupportedAjah;
 	FAutoVariable<int, CvPlayer> m_iTurnsSincePledgedSupport;
-	FAutoVariable<std::vector<int>, CvPlayer> m_aiTotalAlignmentYields;
+	FAutoVariable<std::vector<int>, CvPlayer> m_YieldTotals;
+	FAutoVariable<int, CvPlayer> m_iThreadsAvailable;
 #endif // WOTMOD
 
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCityYieldChange;

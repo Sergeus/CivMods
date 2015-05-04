@@ -82,5 +82,19 @@
 		<Row Tag="TXT_KEY_NOTIFICATION_PLAYER_PLEDGED_AJAH_SUPPORT_SUMMARY">
 			<Text>Ajah Support</Text>
 		</Row>
+		
+		<!-- Player has a new Thread available -->
+		<Row Tag="TXT_KEY_NOTIFICATION_NEW_THREAD">
+			<Text>A new Thread has become available</Text>
+		</Row>
+		<Row Tag="TXT_KEY_NOTIFICATION_CHOOSE_THREAD_SUMMARY">
+			<Text>New Thread</Text>
+		</Row>
+		<Row Tag="TXT_KEY_END_TURN_BUTTON_NEW_THREAD">
+			<Text>CHOOSE THREAD</Text>
+		</Row>
+		<Row Tag="TXT_KEY_END_TURN_BUTTON_NEW_THREAD_TOOLTIP">
+			<Text>You must make a choice for this Thread before ending your turn</Text>
+		</Row>
 	</Language_en_US>
 </GameData>
