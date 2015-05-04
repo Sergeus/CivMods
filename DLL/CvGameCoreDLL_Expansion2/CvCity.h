@@ -378,6 +378,7 @@ public:
 	void SetBaseYieldRateFromPolicies(YieldTypes eYield, int iNewValue);
 	void ChangeBaseYieldRateFromPolicies(YieldTypes eYield, int iChange);
 	int GetYieldRateFromTraits(YieldTypes eYield) const;
+	int GetBaseYieldRateFromGarrisonedUnits(YieldTypes eYield) const;
 #else
 	int GetFaithPerTurn() const;
 

@@ -8102,6 +8102,26 @@ void CvCity::ChangeBaseYieldRateFromPolicies(YieldTypes eYield, int iChange)
 {
 	m_aiBaseYieldRateFromPolicies.setAt(eYield, iChange + GetBaseYieldRateFromPolicies(eYield));
 }
+int CvCity::GetBaseYieldRateFromGarrisonedUnits(YieldTypes eYield) const
+{
+	switch (eYield)
+	{
+	case YIELD_HAPPINESS:
+		{
+			int iHappinessPerGarrison = GET_PLAYER(getOwner()).GetHappinessPerGarrisonedUnit();
+			if (iHappinessPerGarrison > 0)
+			{
+				if (GetGarrisonedUnit() != NULL)
+				{
+					return iHappinessPerGarrison;
+				}
+			}
+		}
+		return 0;
+	default:
+		return 0;
+	}
+}
 #else
 int CvCity::GetFaithPerTurnFromBuildings() const
 {
@@ -9015,6 +9035,9 @@ int CvCity::GetLocalHappiness() const
 	int iLocalHappiness = GetBaseHappinessFromBuildings();
 #endif // WOTMOD
 
+#if WOTMOD
+	iLocalHappiness += GetBaseYieldRateFromGarrisonedUnits(YIELD_HAPPINESS);
+#else
 	int iHappinessPerGarrison = kPlayer.GetHappinessPerGarrisonedUnit();
 	if(iHappinessPerGarrison > 0)
 	{
@@ -9023,6 +9046,7 @@ int CvCity::GetLocalHappiness() const
 			iLocalHappiness++;
 		}
 	}
+#endif // WOTMOD
 
 	// Follower beliefs
 	int iHappinessFromReligion = 0;
