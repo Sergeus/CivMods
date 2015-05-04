@@ -497,8 +497,10 @@ public:
 
 	int GetLocalHappiness() const;
 	int GetHappinessFromBuildings() const;
+#if !WOTMOD
 	int GetBaseHappinessFromBuildings() const;
 	void ChangeBaseHappinessFromBuildings(int iChange);
+#endif // !WOTMOD
 	int GetUnmoddedHappinessFromBuildings() const;
 	void ChangeUnmoddedHappinessFromBuildings(int iChange);
 
@@ -967,7 +969,9 @@ protected:
 	FAutoVariable<std::vector<int>, CvCity> m_paiUnitCombatProductionModifier;
 	FAutoVariable<std::vector<int>, CvCity> m_paiFreePromotionCount;
 
+#if !WOTMOD
 	int m_iBaseHappinessFromBuildings;
+#endif // !WOTMOD
 	int m_iUnmoddedHappinessFromBuildings;
 
 #if SIEGEMOD

@@ -235,7 +235,9 @@ CvCity::CvCity() :
 	, m_paiUnitCombatFreeExperience("CvCity::m_paiUnitCombatFreeExperience", m_syncArchive)
 	, m_paiUnitCombatProductionModifier("CvCity::m_paiUnitCombatProductionModifier", m_syncArchive)
 	, m_paiFreePromotionCount("CvCity::m_paiFreePromotionCount", m_syncArchive)
+#if !WOTMOD
 	, m_iBaseHappinessFromBuildings(0)
+#endif // !WOTMOD
 	, m_iUnmoddedHappinessFromBuildings(0)
 
 #if SIEGEMOD
@@ -6210,7 +6212,11 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 
 		if(pBuildingInfo->GetHappiness() > 0)
 		{
+#if WOTMOD
+			ChangeBaseYieldRateFromBuildings(YIELD_HAPPINESS, pBuildingInfo->GetHappiness() * iChange);
+#else
 			ChangeBaseHappinessFromBuildings(pBuildingInfo->GetHappiness() * iChange);
+#endif // WOTMOD
 		}
 
 		if(pBuildingInfo->GetUnmoddedHappiness() > 0)
@@ -6239,6 +6245,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 #endif // !WOTMOD
 		m_pCityReligions->ChangeReligiousPressureModifier(pBuildingInfo->GetReligiousPressureModifier() * iChange);
 
+#if !WOTMOD
 		PolicyTypes ePolicy;
 		for(int iPolicyLoop = 0; iPolicyLoop < GC.getNumPolicyInfos(); iPolicyLoop++)
 		{
@@ -6254,6 +6261,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 #endif
 			}
 		}
+#endif // !WOTMOD
 
 		changeMaxFoodKeptPercent(pBuildingInfo->GetFoodKept() * iChange);
 		changeMilitaryProductionModifier(pBuildingInfo->GetMilitaryProductionModifier() * iChange);
@@ -6409,7 +6417,11 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 
 		YieldTypes eYield;
 
+#if WOTMOD
+		for (int iI = 0; iI < GC.GetNumYieldInfos(); ++iI)
+#else
 		for(int iI = 0; iI < NUM_YIELD_TYPES; iI++)
+#endif // WOTMOD
 		{
 			eYield = (YieldTypes) iI;
 
@@ -6442,6 +6454,24 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 			}
 
 #if WOTMOD
+			for (int iPolicyLoop = 0; iPolicyLoop < GC.getNumPolicyInfos(); iPolicyLoop++)
+			{
+				PolicyTypes ePolicy = (PolicyTypes)iPolicyLoop;
+
+				if (owningPlayer.GetPlayerPolicies()->HasPolicy(ePolicy) && !owningPlayer.GetPlayerPolicies()->IsPolicyBlocked(ePolicy))
+				{
+					switch (eYield)
+					{
+					case YIELD_CULTURE:
+						ChangeJONSCulturePerTurnFromPolicies(GC.getPolicyInfo(ePolicy)->GetBuildingClassCultureChange(eBuildingClass) * iChange);
+						break;
+					default:
+						ChangeBaseYieldRateFromPolicies(eYield, GC.getPolicyInfo(ePolicy)->GetBuildingClassYieldChanges(eBuildingClass, eYield) * iChange);
+						break;
+					}
+				}
+			}
+
 			// governor yield changes
 			if (m_pCityGovernors->IsHasGovernor())
 			{
@@ -8979,7 +9009,11 @@ int CvCity::GetLocalHappiness() const
 {
 	CvPlayer& kPlayer = GET_PLAYER(m_eOwner);
 
+#if WOTMOD
+	int iLocalHappiness = GetBaseYieldRateFromBuildings(YIELD_HAPPINESS);
+#else
 	int iLocalHappiness = GetBaseHappinessFromBuildings();
+#endif // WOTMOD
 
 	int iHappinessPerGarrison = kPlayer.GetHappinessPerGarrisonedUnit();
 	if(iHappinessPerGarrison > 0)
@@ -9043,6 +9077,9 @@ int CvCity::GetLocalHappiness() const
 		iLocalHappiness += iHappinessFromReligion;
 	}
 
+#if WOTMOD
+	iLocalHappiness += GetBaseYieldRateFromPolicies(YIELD_HAPPINESS);
+#else
 	// Policy Building Mods
 	int iSpecialPolicyBuildingHappiness = 0;
 	int iBuildingClassLoop;
@@ -9079,6 +9116,7 @@ int CvCity::GetLocalHappiness() const
 	}
 
 	iLocalHappiness += iSpecialPolicyBuildingHappiness;
+#endif // WOTMOD
 	int iLocalHappinessCap = getPopulation();
 
 	// India has unique way to compute local happiness cap
@@ -9105,6 +9143,7 @@ int CvCity::GetHappinessFromBuildings() const
 	return GetUnmoddedHappinessFromBuildings();
 }
 
+#if !WOTMOD 
 //	--------------------------------------------------------------------------------
 int CvCity::GetBaseHappinessFromBuildings() const
 {
@@ -9116,6 +9155,7 @@ void CvCity::ChangeBaseHappinessFromBuildings(int iChange)
 {
 	m_iBaseHappinessFromBuildings += iChange;
 }
+#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 int CvCity::GetUnmoddedHappinessFromBuildings() const
@@ -14340,7 +14380,9 @@ void CvCity::read(FDataStream& kStream)
 	m_strName = "";
 
 	// City Building Happiness
+#if !WOTMOD
 	kStream >> m_iBaseHappinessFromBuildings;
+#endif // !WOTMOD
 	kStream >> m_iUnmoddedHappinessFromBuildings;
 
 #if SIEGEMOD
@@ -14601,7 +14643,9 @@ void CvCity::write(FDataStream& kStream) const
 
 	kStream << m_iGameTurnLastExpanded;
 
+#if !WOTMOD
 	kStream << m_iBaseHappinessFromBuildings;
+#endif // !WOTMOD
 	kStream << m_iUnmoddedHappinessFromBuildings;
 
 #if SIEGEMOD

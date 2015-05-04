@@ -22,6 +22,7 @@ enum YieldTypes
 #if WOTMOD
 	YIELD_LIGHT,
 	YIELD_SHADOW,
+	YIELD_HAPPINESS,
 #endif
 
     NUM_YIELD_TYPES

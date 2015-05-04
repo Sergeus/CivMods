@@ -202,7 +202,9 @@ public:
 	int GetUnitCombatProductionModifiers(int i) const;
 	int GetUnitCombatFreeExperiences(int i) const;
 	int GetBuildingClassCultureChange(int i) const;
+#if !WOTMOD
 	int GetBuildingClassHappiness(int i) const;
+#endif // !WOTMOD
 	int GetBuildingClassProductionModifier(int i) const;
 	int GetBuildingClassTourismModifier(int i) const;
 	int GetNumFreeUnitsByClass(int i) const;
@@ -392,7 +394,9 @@ private:
 	int* m_paiBuildingClassCultureChanges;
 	int* m_paiBuildingClassProductionModifiers;
 	int* m_paiBuildingClassTourismModifiers;
+#if !WOTMOD
 	int* m_paiBuildingClassHappiness;
+#endif // !WOTMOD
 	int* m_paiFreeUnitClasses;
 	int* m_paiTourismOnUnitCreation;
 

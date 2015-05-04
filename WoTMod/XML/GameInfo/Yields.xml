@@ -12,5 +12,10 @@
 			<Description>TXT_KEY_YIELD_SHADOW</Description>
 			<IconString>[ICON_SHADOW]</IconString>
 		</Row>
+		<Row>
+			<Type>YIELD_HAPPINESS</Type>
+			<Description>TXT_KEY_YIELD_HAPPINESS</Description>
+			<IconString>[ICON_HAPPINESS_1]</IconString>
+		</Row>
 	</Yields>
 </GameData>

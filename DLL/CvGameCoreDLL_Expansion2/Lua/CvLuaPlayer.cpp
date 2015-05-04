@@ -9477,7 +9477,11 @@ int CvLuaPlayer::lGetExtraBuildingHappinessFromPolicies(lua_State* L)
 				{
 					if(pkPlayer->GetPlayerPolicies()->HasPolicy(ePolicy) && !pkPlayer->GetPlayerPolicies()->IsPolicyBlocked(ePolicy))
 					{
+#if WOTMOD
+						iExtraHappiness += pkPolicyInfo->GetBuildingClassYieldChanges(eBuildingClass, YIELD_HAPPINESS);
+#else
 						iExtraHappiness += pkPolicyInfo->GetBuildingClassHappiness(eBuildingClass);
+#endif // WOTMOD
 					}
 				}
 			}

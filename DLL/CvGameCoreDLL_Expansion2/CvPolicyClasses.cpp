@@ -178,7 +178,9 @@ CvPolicyEntry::CvPolicyEntry(void):
 	m_paiBuildingClassCultureChanges(NULL),
 	m_paiBuildingClassProductionModifiers(NULL),
 	m_paiBuildingClassTourismModifiers(NULL),
+#if !WOTMOD
 	m_paiBuildingClassHappiness(NULL),
+#endif // !WOTMOD
 	m_paiFreeUnitClasses(NULL),
 	m_paiTourismOnUnitCreation(NULL),
 	m_paiHurryModifier(NULL),
@@ -211,7 +213,9 @@ CvPolicyEntry::~CvPolicyEntry(void)
 	SAFE_DELETE_ARRAY(m_paiBuildingClassCultureChanges);
 	SAFE_DELETE_ARRAY(m_paiBuildingClassProductionModifiers);
 	SAFE_DELETE_ARRAY(m_paiBuildingClassTourismModifiers);
+#if !WOTMOD
 	SAFE_DELETE_ARRAY(m_paiBuildingClassHappiness);
+#endif // !WOTMOD
 	SAFE_DELETE_ARRAY(m_paiFreeUnitClasses);
 	SAFE_DELETE_ARRAY(m_paiTourismOnUnitCreation);
 
@@ -413,7 +417,9 @@ bool CvPolicyEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	kUtility.PopulateArrayByValue(m_paiBuildingClassCultureChanges, "BuildingClasses", "Policy_BuildingClassCultureChanges", "BuildingClassType", "PolicyType", szPolicyType, "CultureChange");
 	kUtility.PopulateArrayByValue(m_paiBuildingClassProductionModifiers, "BuildingClasses", "Policy_BuildingClassProductionModifiers", "BuildingClassType", "PolicyType", szPolicyType, "ProductionModifier");
 	kUtility.PopulateArrayByValue(m_paiBuildingClassTourismModifiers, "BuildingClasses", "Policy_BuildingClassTourismModifiers", "BuildingClassType", "PolicyType", szPolicyType, "TourismModifier");
+#if !WOTMOD
 	kUtility.PopulateArrayByValue(m_paiBuildingClassHappiness, "BuildingClasses", "Policy_BuildingClassHappiness", "BuildingClassType", "PolicyType", szPolicyType, "Happiness");
+#endif // !WOTMOD
 
 	kUtility.PopulateArrayByValue(m_paiFreeUnitClasses, "UnitClasses", "Policy_FreeUnitClasses", "UnitClassType", "PolicyType", szPolicyType, "Count");
 	kUtility.PopulateArrayByValue(m_paiTourismOnUnitCreation, "UnitClasses", "Policy_TourismOnUnitCreation", "UnitClassType", "PolicyType", szPolicyType, "Tourism");
@@ -462,6 +468,14 @@ bool CvPolicyEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 
 			m_ppiBuildingClassYieldChanges[BuildingClassID][iYieldID] = iYieldChange;
 		}
+#if WOTMOD
+		std::vector<int> happinessVector;
+		kUtility.PopulateVectorByValue(happinessVector, "BuildingClasses", "Policy_BuildingClassHappiness", "BuildingClassType", "PolicyType", szPolicyType, "Happiness");
+		for (int i = 0; i < kUtility.MaxRows("BuildingClasses"); ++i)
+		{
+			m_ppiBuildingClassYieldChanges[i][YIELD_HAPPINESS] = happinessVector[i];
+		}
+#endif // WOTMOD
 	}
 
 	//ImprovementYieldChanges
@@ -1624,6 +1638,7 @@ int CvPolicyEntry::GetBuildingClassCultureChange(int i) const
 	return m_paiBuildingClassCultureChanges ? m_paiBuildingClassCultureChanges[i] : -1;
 }
 
+#if !WOTMOD
 /// Amount of extra Culture per turn a BuildingClass provides
 int CvPolicyEntry::GetBuildingClassHappiness(int i) const
 {
@@ -1631,6 +1646,7 @@ int CvPolicyEntry::GetBuildingClassHappiness(int i) const
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_paiBuildingClassHappiness ? m_paiBuildingClassHappiness[i] : -1;
 }
+#endif
 
 /// Number of free Units provided by this Policy
 int CvPolicyEntry::GetNumFreeUnitsByClass(int i) const

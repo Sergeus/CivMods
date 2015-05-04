@@ -21335,7 +21335,11 @@ void CvPlayer::processPolicies(PolicyTypes ePolicy, int iChange)
 	int iMod;
 	YieldTypes eYield;
 
+#if WOTMOD
+	for (int iI = 0; iI < GC.GetNumYieldInfos(); ++iI)
+#else
 	for(iI = 0; iI < NUM_YIELD_TYPES; iI++)
+#endif // WOTMOD
 	{
 		eYield = (YieldTypes) iI;
 
@@ -21550,7 +21554,11 @@ void CvPlayer::processPolicies(PolicyTypes ePolicy, int iChange)
 						pLoopCity->ChangeJONSCulturePerTurnFromPolicies(pPolicy->GetBuildingClassCultureChange(eBuildingClass) * iBuildingCount * iChange);
 
 						// Building Class Yield Stuff
+#if WOTMOD
+						for (int iJ = 0; iJ < GC.GetNumYieldInfos(); ++iJ)
+#else
 						for(iJ = 0; iJ < NUM_YIELD_TYPES; iJ++)
+#endif // WOTMOD
 						{
 							switch(iJ)
 							{

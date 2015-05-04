@@ -649,7 +649,11 @@ int CvPolicyAI::GetBranchBuildingHappiness(CvPlayer* pPlayer, PolicyBranchTypes 
 						continue;
 					}
 
+#if WOTMOD
+					if (pkPolicyInfo->GetBuildingClassYieldChanges(eBuildingClass, YIELD_HAPPINESS) != 0)
+#else
 					if (pkPolicyInfo->GetBuildingClassHappiness(eBuildingClass) != 0)
+#endif // WOTMOD
 					{
 						BuildingTypes eBuilding = (BuildingTypes)pPlayer->getCivilizationInfo().getCivilizationBuildings(eBuildingClass);
 						if (eBuilding != NO_BUILDING)
@@ -660,7 +664,11 @@ int CvPolicyAI::GetBranchBuildingHappiness(CvPlayer* pPlayer, PolicyBranchTypes 
 							{
 								if (pCity->GetCityBuildings()->GetNumBuilding(eBuilding) > 0)
 								{
+#if WOTMOD
+									iSpecialPolicyBuildingHappiness += pkPolicyInfo->GetBuildingClassYieldChanges(eBuildingClass, YIELD_HAPPINESS);
+#else
 									iSpecialPolicyBuildingHappiness += pkPolicyInfo->GetBuildingClassHappiness(eBuildingClass);
+#endif // WOTMOD
 								}
 							}
 						}
@@ -706,7 +714,11 @@ int CvPolicyAI::GetNumHappinessPolicies(CvPlayer* pPlayer, PolicyBranchTypes eBr
 							continue;
 						}
 
+#if WOTMOD
+						if (pkPolicyInfo->GetBuildingClassYieldChanges(eBuildingClass, YIELD_HAPPINESS) != 0)
+#else
 						if (pkPolicyInfo->GetBuildingClassHappiness(eBuildingClass) != 0)
+#endif
 						{
 							iRtnValue++;
 							break;
