@@ -39,7 +39,8 @@ CREATE TABLE Notifications
 	UIContext text DEFAULT null,
 	ExpiresAtTurnEnd boolean DEFAULT true,
 	PlaysFXOnPlot boolean DEFAULT true,
-	AlwaysDismissable boolean DEFAULT false
+	AlwaysDismissable boolean DEFAULT false,
+	LuaIsExpiredEvent text DEFAULT null
 );
 
 INSERT INTO Notifications (ID, Type, Welcomeness, Urgent)

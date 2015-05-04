@@ -32,6 +32,7 @@ public:
 	const char* GetCiv2Anchor() const;
 	const char* GetExistingIconType() const;
 	const char* GetUnknownMessage() const;
+	const char* GetIsExpiredLuaEventName() const;
 
 	bool IsBlocksEndTurn() const;
 	bool IsLargeButton() const;
@@ -62,6 +63,7 @@ private:
 	CvString m_strCiv2Anchor;
 	CvString m_strExistingIconType;
 	CvString m_strUnknownMessage;
+	CvString m_strIsExpiredLuaEventName;
 
 	bool m_bBlocksEndTurn;
 	bool m_bLargeButton;
