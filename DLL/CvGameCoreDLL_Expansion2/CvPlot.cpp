@@ -3378,7 +3378,7 @@ bool CvPlot::isGoody(TeamTypes eTeam) const
 	}
 
 #if WOTMOD
-	if (GET_TEAM(eTeam).IsShadowSpawn())
+	if (eTeam != NO_TEAM && GET_TEAM(eTeam).IsShadowSpawn())
 	{
 		return false;
 	}
