@@ -228,6 +228,10 @@ void CvNotifications::Notification::Clear()
 /// Constructor
 CvNotifications::CvNotifications(void)
 {
+#if CUSTOM_NOTIFICATIONS
+	m_IsExpired.resize(GC.GetNumNotificationInfos());
+#endif // CUSTOM_NOTIFICATIONS
+
 	Uninit();
 }
 
