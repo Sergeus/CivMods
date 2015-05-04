@@ -25300,7 +25300,7 @@ void CvPlayer::DoAlignmentTurn()
 	for (int i = 0; i < GC.GetNumAlignmentInfos(); ++i)
 	{
 		AlignmentTypes eAlignment = static_cast<AlignmentTypes>(i);
-		int iYieldPerTurn = GetNetAlignmentYieldPerTurn(eAlignment);
+		int iYieldPerTurn = GetRawAlignmentYieldPerTurn(eAlignment);
 
 		ChangeTotalAlignmentYield(eAlignment, iYieldPerTurn);
 	}
@@ -25316,7 +25316,7 @@ int CvPlayer::GetAlignmentYieldModifier(YieldTypes eYield) const
 
 	return modifier;
 }
-int CvPlayer::GetNetAlignmentYieldPerTurn(AlignmentTypes eAlignment) const
+int CvPlayer::GetRawAlignmentYieldPerTurn(AlignmentTypes eAlignment) const
 {
 	WoTAlignmentInfo* pInfo = GC.GetAlignmentInfo(eAlignment);
 
@@ -25331,7 +25331,25 @@ int CvPlayer::GetNetAlignmentYieldPerTurn(AlignmentTypes eAlignment) const
 	}
 	return iYieldPerTurn;
 }
+int CvPlayer::GetNetAlignmentYieldPerTurn(AlignmentTypes eAlignment) const
+{
+	int iYield = 0;
+	for (int i = 0; i < GC.GetNumAlignmentInfos(); ++i)
+	{
+		AlignmentTypes eLoopAlignment = static_cast<AlignmentTypes>(i);
+		WoTAlignmentInfo* pLoopInfo = GC.GetAlignmentInfo(eLoopAlignment);
 
+		if (eLoopAlignment == eAlignment)
+		{
+			iYield += GetRawAlignmentYieldPerTurn(eLoopAlignment);
+		}
+		else if (pLoopInfo->IsOpposing(eAlignment))
+		{
+			iYield -= GetRawAlignmentYieldPerTurn(eLoopAlignment);
+		}
+	}
+	return iYield;
+}
 void CvPlayer::DoThreadAvailable(ThreadTypes eThread)
 {
 	m_iThreadsAvailable++;

@@ -1543,6 +1543,7 @@ public:
 	int GetAlignmentLeaning(AlignmentTypes eAlignment) const;
 	void DoAlignmentTurn();
 	int GetAlignmentYieldModifier(YieldTypes eYield) const;
+	int GetRawAlignmentYieldPerTurn(AlignmentTypes eAlignment) const;
 	int GetNetAlignmentYieldPerTurn(AlignmentTypes eAlignment) const;
 
 	void DoThreadAvailable(ThreadTypes eThread);
