@@ -69,6 +69,7 @@ bool WoTNotificationInfo::CacheResults(Database::Results &kResults, CvDatabaseUt
 	m_strCiv2Anchor = kResults.GetText("Civ2Anchor");
 	m_strExistingIconType = kResults.GetText("ExistingIconType");
 	m_strUnknownMessage = kResults.GetText("UnknownMessage");
+	m_strIsExpiredLuaEventName = kResults.GetText("LuaIsExpiredEvent");
 
 	return true;
 }
@@ -146,6 +147,11 @@ const char* WoTNotificationInfo::GetExistingIconType() const
 const char* WoTNotificationInfo::GetUnknownMessage() const
 {
 	return m_strUnknownMessage;
+}
+
+const char* WoTNotificationInfo::GetIsExpiredLuaEventName() const
+{
+	return m_strIsExpiredLuaEventName;
 }
 
 bool WoTNotificationInfo::IsBlocksEndTurn() const
