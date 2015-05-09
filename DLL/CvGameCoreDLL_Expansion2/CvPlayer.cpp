@@ -10995,7 +10995,11 @@ CvCity *CvPlayer::GetMostUnhappyCity()
 			int iUnhappiness = pLoopCity->getPopulation();
 
 			// Subtract off local unhappiness
+#if WOTMOD
+			iUnhappiness -= pLoopCity->getBaseYieldRate(YIELD_HAPPINESS);
+#else
 			iUnhappiness -= pLoopCity->GetLocalHappiness(); 
+#endif // WOTMOD
 
 			// Look at each civ
 			for (int iLoopPlayer = 0; iLoopPlayer < MAX_MAJOR_CIVS; iLoopPlayer++)
@@ -11111,7 +11115,11 @@ int CvPlayer::GetHappinessFromCities() const
 	int iLoop;
 	for(pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
 	{
+#if WOTMOD
+		iHappiness += pLoopCity->getBaseYieldRate(YIELD_HAPPINESS);
+#else
 		iHappiness += pLoopCity->GetLocalHappiness();
+#endif // WOTMOD
 	}
 
 	return iHappiness;

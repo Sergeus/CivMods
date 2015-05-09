@@ -2767,7 +2767,13 @@ int CvLuaCity::lGetHappinessFromBuildings(lua_State* L)
 //------------------------------------------------------------------------------
 int CvLuaCity::lGetLocalHappiness(lua_State* L)
 {
+#if WOTMOD
+	int iHappiness = GetInstance(L)->getBaseYieldRate(YIELD_HAPPINESS);
+	lua_pushinteger(L, iHappiness);
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvCity::GetLocalHappiness);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 int CvLuaCity::lGetHappiness(lua_State* L)

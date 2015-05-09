@@ -9044,21 +9044,14 @@ void CvCity::DoAnnex()
 	DLLUI->setDirty(GameData_DIRTY_BIT, true);
 }
 
+#if !WOTMOD
 //	--------------------------------------------------------------------------------
 int CvCity::GetLocalHappiness() const
 {
 	CvPlayer& kPlayer = GET_PLAYER(m_eOwner);
 
-#if WOTMOD
-	int iLocalHappiness = GetBaseYieldRateFromBuildings(YIELD_HAPPINESS);
-#else
 	int iLocalHappiness = GetBaseHappinessFromBuildings();
-#endif // WOTMOD
 
-#if WOTMOD
-	iLocalHappiness += GetBaseYieldRateFromGarrisonedUnits(YIELD_HAPPINESS);
-	iLocalHappiness += GetBaseYieldRateFromReligion(YIELD_HAPPINESS);
-#else
 	int iHappinessPerGarrison = kPlayer.GetHappinessPerGarrisonedUnit();
 	if(iHappinessPerGarrison > 0)
 	{
@@ -9120,11 +9113,7 @@ int CvCity::GetLocalHappiness() const
 		}
 		iLocalHappiness += iHappinessFromReligion;
 	}
-#endif // WOTMOD
 
-#if WOTMOD
-	iLocalHappiness += GetBaseYieldRateFromPolicies(YIELD_HAPPINESS);
-#else
 	// Policy Building Mods
 	int iSpecialPolicyBuildingHappiness = 0;
 	int iBuildingClassLoop;
@@ -9161,7 +9150,6 @@ int CvCity::GetLocalHappiness() const
 	}
 
 	iLocalHappiness += iSpecialPolicyBuildingHappiness;
-#endif // WOTMOD
 	int iLocalHappinessCap = getPopulation();
 
 	// India has unique way to compute local happiness cap
@@ -9181,6 +9169,7 @@ int CvCity::GetLocalHappiness() const
 		return iLocalHappiness;
 	}
 }
+#endif // WOTMOD
 
 //	--------------------------------------------------------------------------------
 int CvCity::GetHappinessFromBuildings() const

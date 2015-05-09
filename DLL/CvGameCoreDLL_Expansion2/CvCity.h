@@ -496,7 +496,9 @@ public:
 	void DoCreatePuppet();
 	void DoAnnex();
 
+#if !WOTMOD
 	int GetLocalHappiness() const;
+#endif // !WOTMOD
 	int GetHappinessFromBuildings() const;
 #if !WOTMOD
 	int GetBaseHappinessFromBuildings() const;
