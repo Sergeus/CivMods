@@ -438,7 +438,9 @@ public:
 	PlayerTypes GetMostUnhappyCityRecipient();
 
 	int GetHappinessFromPolicies() const;
+#if !WOTMOD
 	int GetHappinessFromCities() const;
+#endif // !WOTMOD
 	int GetHappinessFromBuildings() const;
 
 	int GetExtraHappinessPerCity() const;

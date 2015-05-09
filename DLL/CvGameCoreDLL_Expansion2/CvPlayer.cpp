@@ -10422,8 +10422,12 @@ void CvPlayer::DoUpdateHappiness()
 	int iNumHappinessFromResources = GetHappinessFromResources();
 	m_iHappiness += iNumHappinessFromResources;
 
+#if WOTMOD
+	m_iHappiness += GetYieldRateFromCities(YIELD_HAPPINESS);
+#else
 	// Increase from Local City Happiness
 	m_iHappiness += GetHappinessFromCities();
+#endif // WOTMOD
 
 	// Increase from buildings
 	m_iHappiness += GetHappinessFromBuildings();
@@ -11105,6 +11109,7 @@ int CvPlayer::GetHappinessFromPolicies() const
 	return iHappiness;
 }
 
+#if !WOTMOD
 //	--------------------------------------------------------------------------------
 /// Returns the amount of Local Happiness generated in the cities
 int CvPlayer::GetHappinessFromCities() const
@@ -11115,15 +11120,12 @@ int CvPlayer::GetHappinessFromCities() const
 	int iLoop;
 	for(pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
 	{
-#if WOTMOD
-		iHappiness += pLoopCity->getBaseYieldRate(YIELD_HAPPINESS);
-#else
 		iHappiness += pLoopCity->GetLocalHappiness();
-#endif // WOTMOD
 	}
 
 	return iHappiness;
 }
+#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Returns the amount of Global Happiness being added by Buildings
