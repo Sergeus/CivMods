@@ -35,8 +35,13 @@ public:
 	int GetCityGrowthModifier() const;
 	int GetFaithFromKills() const;
 	int GetFaithFromDyingUnits() const;
+
+#if WOTMOD
+	int GetCityOnRiverYieldChange(YieldTypes eYield) const;
+#else
 	int GetRiverHappiness() const;
 	int GetHappinessPerCity() const;
+#endif // WOTMOD
 	int GetHappinessPerXPeacefulForeignFollowers() const;
 	int GetPlotCultureCostModifier() const;
 	int GetCityRangeStrikeModifier() const;
@@ -92,7 +97,9 @@ public:
 	int GetResourceQuantityModifier(int i) const;
 	int GetImprovementYieldChange(ImprovementTypes eIndex1, YieldTypes eIndex2) const;
 	int GetBuildingClassYieldChange(int i, int j) const;
+#if !WOTMOD
 	int GetBuildingClassHappiness(int i) const;
+#endif // !WOTMOD
 	int GetBuildingClassTourism(int i) const;
 	int GetFeatureYieldChange(int i, int j) const;
 	int GetResourceYieldChange(int i, int j) const;
@@ -116,8 +123,12 @@ protected:
 	int m_iCityGrowthModifier;
 	int m_iFaithFromKills;
 	int m_iFaithFromDyingUnits;
+#if WOTMOD
+	std::vector<int> m_iCityOnRiverYieldChange;
+#else
 	int m_iRiverHappiness;
 	int m_iHappinessPerCity;
+#endif // !WOTMOD
 	int m_iHappinessPerXPeacefulForeignFollowers;
 	int m_iPlotCultureCostModifier;
 	int m_iCityRangeStrikeModifier;
@@ -174,7 +185,9 @@ protected:
 	int* m_piResourceQuantityModifiers;
 	int** m_ppiImprovementYieldChanges;
 	int** m_ppiBuildingClassYieldChanges;
+#if !WOTMOD
 	int* m_paiBuildingClassHappiness;
+#endif // !WOTMOD
 	int* m_paiBuildingClassTourism;
 	int** m_ppaiFeatureYieldChange;
 	int** m_ppaiResourceYieldChange;
@@ -250,10 +263,14 @@ public:
 	{
 		return m_iFaithFromDyingUnits;
 	};
+#if WOTMOD
+	int GetCityOnRiverYieldChange(YieldTypes eYield) const;
+#else
 	int GetRiverHappiness() const
 	{
 		return m_iRiverHappiness;
 	};
+#endif // !WOTMOD
 	int GetPlotCultureCostModifier() const
 	{
 		return m_iPlotCultureCostModifier;
@@ -353,7 +370,9 @@ public:
 	};
 
 	int GetFaithFromKills(int iDistance) const;
+#if !WOTMOD
 	int GetHappinessPerCity(int iPopulation) const;
+#endif // !WOTMOD
 	int GetHappinessPerXPeacefulForeignFollowers() const;
 	int GetWonderProductionModifier(EraTypes eWonderEra) const;
 	int GetPlayerHappiness(bool bAtPeace) const;
@@ -372,7 +391,9 @@ public:
 	int GetResourceQuantityModifier(ResourceTypes eResource) const;
 	int GetImprovementYieldChange(ImprovementTypes eImprovement, YieldTypes eYield) const;
 	int GetBuildingClassYieldChange(BuildingClassTypes eBuildingClass, YieldTypes eYieldType, int iFollowers) const;
+#if !WOTMOD
 	int GetBuildingClassHappiness(BuildingClassTypes eBuildingClass, int iFollowers) const;
+#endif // !WOTMOD
 	int GetBuildingClassTourism(BuildingClassTypes eBuildingClass) const;
 	int GetFeatureYieldChange(FeatureTypes eFeature, YieldTypes eYieldType) const;
 	int GetResourceYieldChange(ResourceTypes eResource, YieldTypes eYieldType) const;
@@ -397,7 +418,9 @@ public:
 private:
 	// Cached data about this religion's beliefs
 	int m_iFaithFromDyingUnits;
+#if !WOTMOD
 	int m_iRiverHappiness;
+#endif // !WOTMOD
 	int m_iPlotCultureCostModifier;
 	int m_iCityRangeStrikeModifier;
 	int m_iCombatModifierEnemyCities;

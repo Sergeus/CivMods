@@ -5434,7 +5434,11 @@ int CvReligionAI::ScoreBeliefAtCity(CvBeliefEntry* pEntry, CvCity* pCity)
 	}
 
 	// River happiness
+#if WOTMOD
+	iTempValue = pEntry->GetCityOnRiverYieldChange(YIELD_HAPPINESS) * iHappinessMultiplier;
+#else
 	iTempValue = pEntry->GetRiverHappiness() * iHappinessMultiplier;
+#endif // WOTMOD
 	if(iMinPop > 0)
 	{
 		if(pCity->getPopulation() >= iMinPop)
@@ -5445,7 +5449,11 @@ int CvReligionAI::ScoreBeliefAtCity(CvBeliefEntry* pEntry, CvCity* pCity)
 	iRtnValue += iTempValue;
 
 	// Happiness per city
+#if WOTMOD
+	iTempValue = pEntry->GetCityYieldChange(YIELD_HAPPINESS) * iHappinessMultiplier;
+#else
 	iTempValue = pEntry->GetHappinessPerCity() * iHappinessMultiplier;
+#endif // WOTMOD
 	if(iMinPop > 0)
 	{
 		if(pCity->getPopulation() >= iMinPop)
@@ -5458,7 +5466,11 @@ int CvReligionAI::ScoreBeliefAtCity(CvBeliefEntry* pEntry, CvCity* pCity)
 	// Building class happiness
 	for(int jJ = 0; jJ < GC.getNumBuildingClassInfos(); jJ++)
 	{
+#if WOTMOD
+		iTempValue = pEntry->GetBuildingClassYieldChange(jJ, YIELD_HAPPINESS) * iHappinessMultiplier;
+#else
 		iTempValue = pEntry->GetBuildingClassHappiness(jJ) * iHappinessMultiplier;
+#endif // WOTMOD
 		if(iMinFollowers > 0)
 		{
 			if(pCity->getPopulation() >= iMinFollowers)

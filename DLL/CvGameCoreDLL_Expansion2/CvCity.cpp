@@ -6631,16 +6631,25 @@ void CvCity::UpdateReligion(ReligionTypes eNewMajority)
 
 	// Reset city level yields
 	m_iJONSCulturePerTurnFromReligion = 0;
-#if !WOTMOD
+#if WOTMOD
+	for (int iYield = 0; iYield < GC.GetNumYieldInfos(); ++iYield)
+#else
 	m_iFaithPerTurnFromReligion = 0;
+	for (int iYield = 0; iYield <= YIELD_SCIENCE; iYield++)
 #endif // !WOTMOD
-	for(int iYield = 0; iYield <= YIELD_SCIENCE; iYield++)
 	{
 		m_aiBaseYieldRateFromReligion[iYield] = 0;
 	}
 
+#if WOTMOD
+	for (int iYield = 0; iYield < GC.GetNumYieldInfos(); ++iYield)
+#else
 	for(int iYield = 0; iYield < NUM_YIELD_TYPES; iYield++)
+#endif // WOTMOD
 	{
+#if WOTMOD
+		YieldTypes eYield = static_cast<YieldTypes>(iYield);
+#endif // WOTMOD
 		int iYieldPerReligion = GetYieldPerReligionTimes100((YieldTypes)iYield);
 		if (iYieldPerReligion > 0)
 		{
@@ -6653,7 +6662,7 @@ void CvCity::UpdateReligion(ReligionTypes eNewMajority)
 				case YIELD_FAITH:
 					ChangeFaithPerTurnFromReligion((GetCityReligions()->GetNumReligionsWithFollowers() * iYieldPerReligion) / 100);
 					break;
-#endif
+#endif // !WOTMOD
 				default:
 					ChangeBaseYieldRateFromReligion((YieldTypes)iYield, (GetCityReligions()->GetNumReligionsWithFollowers() * iYieldPerReligion) / 100);
 					break;
@@ -6688,6 +6697,17 @@ void CvCity::UpdateReligion(ReligionTypes eNewMajority)
 					ChangeBaseYieldRateFromReligion((YieldTypes)iYield, iReligionYieldChange);
 					break;
 				}
+
+#if WOTMOD
+				if (plot()->isRiver())
+				{
+					ChangeBaseYieldRateFromReligion(eYield, pReligion->m_Beliefs.GetCityOnRiverYieldChange(eYield));
+					if (eSecondaryPantheon != NO_BELIEF)
+					{
+						ChangeBaseYieldRateFromReligion(eYield, GC.GetGameBeliefs()->GetEntry(eSecondaryPantheon)->GetCityOnRiverYieldChange(eYield));
+					}
+				}
+#endif // WOTMOD
 
 				if(IsRouteToCapitalConnected())
 				{
@@ -9037,6 +9057,7 @@ int CvCity::GetLocalHappiness() const
 
 #if WOTMOD
 	iLocalHappiness += GetBaseYieldRateFromGarrisonedUnits(YIELD_HAPPINESS);
+	iLocalHappiness += GetBaseYieldRateFromReligion(YIELD_HAPPINESS);
 #else
 	int iHappinessPerGarrison = kPlayer.GetHappinessPerGarrisonedUnit();
 	if(iHappinessPerGarrison > 0)
@@ -9046,7 +9067,6 @@ int CvCity::GetLocalHappiness() const
 			iLocalHappiness++;
 		}
 	}
-#endif // WOTMOD
 
 	// Follower beliefs
 	int iHappinessFromReligion = 0;
@@ -9100,6 +9120,7 @@ int CvCity::GetLocalHappiness() const
 		}
 		iLocalHappiness += iHappinessFromReligion;
 	}
+#endif // WOTMOD
 
 #if WOTMOD
 	iLocalHappiness += GetBaseYieldRateFromPolicies(YIELD_HAPPINESS);
@@ -9887,6 +9908,30 @@ int CvCity::getBaseYieldRate(YieldTypes eIndex) const
 #if WOTMOD
 	iValue += GetYieldRateFromTraits(eIndex);
 	iValue += GetBaseYieldRateFromGovernors(eIndex);
+	iValue += GetBaseYieldRateFromGarrisonedUnits(eIndex);
+	iValue += GetBaseYieldRateFromPolicies(eIndex);
+
+	if (eIndex == YIELD_HAPPINESS)
+	{
+		int iLocalHappinessCap = getPopulation();
+
+		// India has unique way to compute local happiness cap
+		if (GET_PLAYER(m_eOwner).GetPlayerTraits()->GetCityUnhappinessModifier() != 0)
+		{
+			// 0.67 per population, rounded up
+			iLocalHappinessCap = (iLocalHappinessCap * 20) + 15;
+			iLocalHappinessCap /= 30;
+		}
+
+		if (iLocalHappinessCap < iValue)
+		{
+			return iLocalHappinessCap;
+		}
+		else
+		{
+			return iValue;
+		}
+	}
 #endif // WOTMOD
 
 	return iValue;

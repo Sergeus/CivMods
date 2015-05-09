@@ -2430,7 +2430,11 @@ int CvLuaCity::lGetReligionBuildingClassHappiness(lua_State* L)
 		if(pReligion)
 		{	
 			int iFollowers = pkCity->GetCityReligions()->GetNumFollowers(eMajority);
+#if WOTMOD
+			iHappinessFromBuilding += pReligion->m_Beliefs.GetBuildingClassYieldChange(eBuildingClass, YIELD_HAPPINESS, iFollowers);
+#else
 			iHappinessFromBuilding += pReligion->m_Beliefs.GetBuildingClassHappiness(eBuildingClass, iFollowers);
+#endif // WOTMOD
 		}
 	}
 	lua_pushinteger(L, iHappinessFromBuilding);

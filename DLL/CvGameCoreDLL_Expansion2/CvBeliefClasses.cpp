@@ -25,8 +25,10 @@ CvBeliefEntry::CvBeliefEntry() :
 	m_iCityGrowthModifier(0),
 	m_iFaithFromKills(0),
 	m_iFaithFromDyingUnits(0),
+#if !WOTMOD
 	m_iRiverHappiness(0),
 	m_iHappinessPerCity(0),
+#endif // !WOTMOD
 	m_iHappinessPerXPeacefulForeignFollowers(0),
 	m_iPlotCultureCostModifier(0),
 	m_iCityRangeStrikeModifier(0),
@@ -78,7 +80,9 @@ CvBeliefEntry::CvBeliefEntry() :
 	m_piResourceQuantityModifiers(NULL),
 	m_ppiImprovementYieldChanges(NULL),
 	m_ppiBuildingClassYieldChanges(NULL),
+#if !WOTMOD
 	m_paiBuildingClassHappiness(NULL),
+#endif // !WOTMOD
 	m_paiBuildingClassTourism(NULL),
 	m_ppaiFeatureYieldChange(NULL),
 	m_ppaiResourceYieldChange(NULL),
@@ -140,7 +144,12 @@ int CvBeliefEntry::GetFaithFromDyingUnits() const
 {
 	return m_iFaithFromDyingUnits;
 }
-
+#if WOTMOD
+int CvBeliefEntry::GetCityOnRiverYieldChange(YieldTypes eYield) const
+{
+	return m_iCityOnRiverYieldChange[eYield];
+}
+#else
 /// Accessor:: Happiness from each city settled on a river
 int CvBeliefEntry::GetRiverHappiness() const
 {
@@ -152,6 +161,7 @@ int CvBeliefEntry::GetHappinessPerCity() const
 {
 	return m_iHappinessPerCity;
 }
+#endif // WOTMOD
 
 /// Accessor:: Happiness per every X population in a foreign city
 int CvBeliefEntry::GetHappinessPerXPeacefulForeignFollowers() const
@@ -463,6 +473,7 @@ int CvBeliefEntry::GetBuildingClassYieldChange(int i, int j) const
 	return m_ppiBuildingClassYieldChanges[i][j];
 }
 
+#if !WOTMOD
 /// Amount of extra Happiness per turn a BuildingClass provides
 int CvBeliefEntry::GetBuildingClassHappiness(int i) const
 {
@@ -470,6 +481,7 @@ int CvBeliefEntry::GetBuildingClassHappiness(int i) const
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_paiBuildingClassHappiness ? m_paiBuildingClassHappiness[i] : -1;
 }
+#endif
 
 /// Amount of extra Tourism per turn a BuildingClass provides
 int CvBeliefEntry::GetBuildingClassTourism(int i) const
@@ -596,8 +608,10 @@ bool CvBeliefEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	m_iCityGrowthModifier		      = kResults.GetInt("CityGrowthModifier");
 	m_iFaithFromKills				  = kResults.GetInt("FaithFromKills");
 	m_iFaithFromDyingUnits			  = kResults.GetInt("FaithFromDyingUnits");
+#if !WOTMOD
 	m_iRiverHappiness				  = kResults.GetInt("RiverHappiness");
 	m_iHappinessPerCity				  = kResults.GetInt("HappinessPerCity");
+#endif // !WOTMOD
 	m_iHappinessPerXPeacefulForeignFollowers  = kResults.GetInt("HappinessPerXPeacefulForeignFollowers");
 	m_iPlotCultureCostModifier	      = kResults.GetInt("PlotCultureCostModifier");
 	m_iCityRangeStrikeModifier	      = kResults.GetInt("CityRangeStrikeModifier");
@@ -650,6 +664,13 @@ bool CvBeliefEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	//Arrays
 	const char* szBeliefType = GetType();
 	kUtility.SetYields(m_paiCityYieldChange, "Belief_CityYieldChanges", "BeliefType", szBeliefType);
+
+#if WOTMOD
+	m_paiCityYieldChange[YIELD_HAPPINESS] = kResults.GetInt("HappinessPerCity");
+	m_iCityOnRiverYieldChange.resize(kUtility.MaxRows("Yields"), 0);
+	m_iCityOnRiverYieldChange[YIELD_HAPPINESS] = kResults.GetInt("RiverHappiness");
+#endif // WOTMOD
+
 	kUtility.SetYields(m_paiHolyCityYieldChange, "Belief_HolyCityYieldChanges", "BeliefType", szBeliefType);
 	kUtility.SetYields(m_piYieldChangeAnySpecialist, "Belief_YieldChangeAnySpecialist", "BeliefType", szBeliefType);
 	kUtility.SetYields(m_piYieldChangeTradeRoute, "Belief_YieldChangeTradeRoute", "BeliefType", szBeliefType);
@@ -659,7 +680,9 @@ bool CvBeliefEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	kUtility.PopulateArrayByValue(m_piMaxYieldModifierPerFollower, "Yields", "Belief_MaxYieldModifierPerFollower", "YieldType", "BeliefType", szBeliefType, "Max");
 	kUtility.PopulateArrayByValue(m_piResourceHappiness, "Resources", "Belief_ResourceHappiness", "ResourceType", "BeliefType", szBeliefType, "HappinessChange");
 	kUtility.PopulateArrayByValue(m_piResourceQuantityModifiers, "Resources", "Belief_ResourceQuantityModifiers", "ResourceType", "BeliefType", szBeliefType, "ResourceQuantityModifier");
+#if !WOTMOD
 	kUtility.PopulateArrayByValue(m_paiBuildingClassHappiness, "BuildingClasses", "Belief_BuildingClassHappiness", "BuildingClassType", "BeliefType", szBeliefType, "Happiness");
+#endif // !WOTMOD
 	kUtility.PopulateArrayByValue(m_paiBuildingClassTourism, "BuildingClasses", "Belief_BuildingClassTourism", "BuildingClassType", "BeliefType", szBeliefType, "Tourism");
 	kUtility.PopulateArrayByValue(m_paiYieldChangePerForeignCity, "Yields", "Belief_YieldChangePerForeignCity", "YieldType", "BeliefType", szBeliefType, "Yield");
 	kUtility.PopulateArrayByValue(m_paiYieldChangePerXForeignFollowers, "Yields", "Belief_YieldChangePerXForeignFollowers", "YieldType", "BeliefType", szBeliefType, "ForeignFollowers");
@@ -710,6 +733,15 @@ bool CvBeliefEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 
 			m_ppiBuildingClassYieldChanges[BuildingClassID][iYieldID] = iYieldChange;
 		}
+
+#if WOTMOD
+		std::vector<int> happinessVector;
+		kUtility.PopulateVectorByValue(happinessVector, "BuildingClasses", "Belief_BuildingClassHappiness", "BuildingClassType", "BeliefType", szBeliefType, "Happiness");
+		for (int i = 0; i < kUtility.MaxRows("BuildingClasses"); ++i)
+		{
+			m_ppiBuildingClassYieldChanges[i][YIELD_HAPPINESS] = happinessVector[i];
+		}
+#endif // WOTMOD
 	}
 
 	//FeatureYieldChanges
@@ -848,7 +880,9 @@ CvReligionBeliefs::~CvReligionBeliefs(void)
 CvReligionBeliefs::CvReligionBeliefs(const CvReligionBeliefs& source)
 {
 	m_iFaithFromDyingUnits = source.m_iFaithFromDyingUnits;
+#if !WOTMOD
 	m_iRiverHappiness = source.m_iRiverHappiness;
+#endif // !WOTMOD
 	m_iPlotCultureCostModifier = source.m_iPlotCultureCostModifier;
 	m_iCityRangeStrikeModifier = source.m_iCityRangeStrikeModifier;
 	m_iCombatModifierEnemyCities = source.m_iCombatModifierEnemyCities;
@@ -900,7 +934,9 @@ void CvReligionBeliefs::Uninit()
 void CvReligionBeliefs::Reset()
 {
 	m_iFaithFromDyingUnits = 0;
+#if !WOTMOD
 	m_iRiverHappiness = 0;
+#endif // !WOTMOD
 	m_iPlotCultureCostModifier = 0;
 	m_iCityRangeStrikeModifier = 0;
 	m_iCombatModifierEnemyCities = 0;
@@ -955,7 +991,9 @@ void CvReligionBeliefs::AddBelief(BeliefTypes eBelief)
 		return;
 
 	m_iFaithFromDyingUnits += belief->GetFaithFromDyingUnits();
+#if !WOTMOD
 	m_iRiverHappiness += belief->GetRiverHappiness();
+#endif // !WOTMOD
 	m_iPlotCultureCostModifier += belief->GetPlotCultureCostModifier();
 	m_iCityRangeStrikeModifier += belief->GetCityRangeStrikeModifier();
 	m_iCombatModifierEnemyCities += belief->GetCombatModifierEnemyCities();
@@ -1037,6 +1075,7 @@ int CvReligionBeliefs::GetFaithFromKills(int iDistance) const
 	return rtnValue;
 }
 
+#if !WOTMOD
 /// Happiness per city
 int CvReligionBeliefs::GetHappinessPerCity(int iPopulation) const
 {
@@ -1056,6 +1095,7 @@ int CvReligionBeliefs::GetHappinessPerCity(int iPopulation) const
 
 	return rtnValue;
 }
+#endif // !WOTMOD
 
 /// Happiness per X followers in foreign cities of powers you are not at war with
 int CvReligionBeliefs::GetHappinessPerXPeacefulForeignFollowers() const
@@ -1238,6 +1278,23 @@ int CvReligionBeliefs::GetCityGrowthModifier(bool bAtPeace) const
 	return rtnValue;
 }
 
+#if WOTMOD
+int CvReligionBeliefs::GetCityOnRiverYieldChange(YieldTypes eYield) const
+{
+	CvBeliefXMLEntries* pBeliefs = GC.GetGameBeliefs();
+	int yield = 0;
+
+	for (int i = 0; i < pBeliefs->GetNumBeliefs(); i++)
+	{
+		if (HasBelief((BeliefTypes)i))
+		{
+			yield += pBeliefs->GetEntry(i)->GetCityOnRiverYieldChange(eYield);
+		}
+	}
+	return yield;
+}
+#endif // WOTMOD
+
 /// Extra yield
 int CvReligionBeliefs::GetCityYieldChange(int iPopulation, YieldTypes eYield) const
 {
@@ -1363,6 +1420,7 @@ int CvReligionBeliefs::GetBuildingClassYieldChange(BuildingClassTypes eBuildingC
 	return rtnValue;
 }
 
+#if !WOTMOD
 /// Get Happiness from beliefs for a specific building class
 int CvReligionBeliefs::GetBuildingClassHappiness(BuildingClassTypes eBuildingClass, int iFollowers) const
 {
@@ -1375,13 +1433,18 @@ int CvReligionBeliefs::GetBuildingClassHappiness(BuildingClassTypes eBuildingCla
 		{
 			if(iFollowers >= pBeliefs->GetEntry(i)->GetMinFollowers())
 			{
+#if WOTMOD
+				rtnValue += pBeliefs->GetEntry(i)->GetBuildingClassYieldChange(eBuildingClass, YIELD_HAPPINESS);
+#else
 				rtnValue += pBeliefs->GetEntry(i)->GetBuildingClassHappiness(eBuildingClass);
+#endif // WOTMOD
 			}
 		}
 	}
 
 	return rtnValue;
 }
+#endif // !WOTMOD
 
 /// Get Tourism from beliefs for a specific building class
 int CvReligionBeliefs::GetBuildingClassTourism(BuildingClassTypes eBuildingClass) const
@@ -1641,7 +1704,9 @@ void CvReligionBeliefs::Read(FDataStream& kStream)
 	kStream >> uiVersion;
 
 	kStream >> m_iFaithFromDyingUnits;
+#if !WOTMOD
 	kStream >> m_iRiverHappiness;
+#endif // !WOTMOD
 	kStream >> m_iPlotCultureCostModifier;
 	kStream >> m_iCityRangeStrikeModifier;
 	kStream >> m_iCombatModifierEnemyCities;
@@ -1695,7 +1760,9 @@ void CvReligionBeliefs::Write(FDataStream& kStream) const
 	kStream << uiVersion;
 
 	kStream << m_iFaithFromDyingUnits;
+#if !WOTMOD
 	kStream << m_iRiverHappiness;
+#endif // !WOTMOD
 	kStream << m_iPlotCultureCostModifier;
 	kStream << m_iCityRangeStrikeModifier;
 	kStream << m_iCombatModifierEnemyCities;
