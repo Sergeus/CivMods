@@ -91,7 +91,7 @@
 			<Text>New Thread</Text>
 		</Row>
 		<Row Tag="TXT_KEY_END_TURN_BUTTON_NEW_THREAD">
-			<Text>CHOOSE THREAD</Text>
+			<Text>VIEW THREAD</Text>
 		</Row>
 		<Row Tag="TXT_KEY_END_TURN_BUTTON_NEW_THREAD_TOOLTIP">
 			<Text>You must make a choice for this Thread before ending your turn</Text>
