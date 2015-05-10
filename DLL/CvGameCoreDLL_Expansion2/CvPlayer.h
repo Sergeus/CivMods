@@ -501,10 +501,10 @@ public:
 	int GetHappinessPerXPopulation() const;
 	void SetHappinessPerXPopulation(int iValue);
 	void ChangeHappinessPerXPopulation(int iChange);
-#endif // !WOTMOD
 
 	int GetHappinessFromMinorCivs() const;
 	int GetHappinessFromMinor(PlayerTypes eMinor) const;
+#endif // !WOTMOD
 
 	int GetHappinessFromLeagues() const;
 	void SetHappinessFromLeagues(int iValue);

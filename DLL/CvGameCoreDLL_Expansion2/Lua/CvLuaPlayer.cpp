@@ -4688,13 +4688,26 @@ int CvLuaPlayer::lGetSwappableGreatMusic (lua_State* L)
 //int GetHappinessFromMinorCivs() const;
 int CvLuaPlayer::lGetHappinessFromMinorCivs(lua_State* L)
 {
+#if WOTMOD
+	int iHappiness = GetInstance(L)->GetYieldRateFromMinorCivs(YIELD_HAPPINESS);
+	lua_pushinteger(L, iHappiness);
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetHappinessFromMinorCivs);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 //int GetHappinessFromMinor(PlayerTypes eMinor) const;
 int CvLuaPlayer::lGetHappinessFromMinor(lua_State* L)
 {
+#if WOTMOD
+	CvPlayerAI* pkPlayer = GetInstance(L);
+	PlayerTypes eMinor = static_cast<PlayerTypes>(lua_tointeger(L, 2));
+	lua_pushinteger(L, GET_PLAYER(eMinor).GetMinorCivAI()->GetCurrentHappinessBonus(pkPlayer->GetID()));
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetHappinessFromMinor);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 int CvLuaPlayer::lGetBarbarianCombatBonus(lua_State* L)

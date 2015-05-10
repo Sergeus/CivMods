@@ -10172,6 +10172,8 @@ int CvPlayer::GetYieldRateFromMinorCivs(YieldTypes eYield, CvString* tooltipSink
 			{
 				case YIELD_FAITH:
 					iYieldRate += kMinor.GetMinorCivAI()->GetCurrentFaithBonus(GetID());
+				case YIELD_HAPPINESS:
+					iYieldRate += kMinor.GetMinorCivAI()->GetCurrentHappinessBonus(GetID());
 			}
 		}
 	}
@@ -10506,8 +10508,12 @@ void CvPlayer::DoUpdateHappiness()
 	// Increase from Natural Wonders
 	m_iHappiness += GetHappinessFromNaturalWonders();
 
+#if WOTMOD
+	m_iHappiness += GetYieldRateFromMinorCivs(YIELD_HAPPINESS);
+#else
 	// Friendship with Minors can provide Happiness
 	m_iHappiness += GetHappinessFromMinorCivs();
+#endif // WOTMOD
 
 	// Increase from Leagues
 	m_iHappiness += GetHappinessFromLeagues();
@@ -12180,7 +12186,6 @@ void CvPlayer::ChangeHappinessPerXPopulation(int iChange)
 {
 	SetHappinessPerXPopulation(m_iHappinessPerXPopulation + iChange);
 }
-#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Happiness from Minors
@@ -12210,6 +12215,7 @@ int CvPlayer::GetHappinessFromMinor(PlayerTypes eMinor) const
 
 	return iAmount;
 }
+#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Happiness from Leagues
