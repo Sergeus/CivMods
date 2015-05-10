@@ -65,11 +65,12 @@ public:
 	int GetGreatMerchantRateModifier() const;
 	int GetGreatScientistRateModifier() const;
 	int GetDomesticGreatGeneralRateModifier() const;
-	int GetExtraHappiness() const;
 #if WOTMOD
+	int GetGlobalYieldRate(YieldTypes eYield) const;
 	int GetGlobalYieldRatePerCity(YieldTypes eYield) const;
 #else
-	int GetExtrmaHappinessPerCity() const;
+	int GetExtraHappiness() const;
+	int GetExtraHappinessPerCity() const;
 #endif // WOTMOD
 	int GetUnhappinessMod() const;
 	int GetCityCountUnhappinessMod() const;
@@ -267,10 +268,11 @@ private:
 	int m_iGreatMerchantRateModifier;
 	int m_iGreatScientistRateModifier;
 	int m_iDomesticGreatGeneralRateModifier;
-	int m_iExtraHappiness;
 #if WOTMOD
+	std::vector<int> m_aiGlobalYieldRate;
 	std::vector<int> m_aiGlobalYieldRatePerCity;
 #else
+	int m_iExtraHappiness;
 	int m_iExtraHappinessPerCity;
 #endif // WOTMOD
 	int m_iUnhappinessMod;
@@ -602,6 +604,7 @@ public:
 #if WOTMOD
 	int GetGlobalYieldRatePerXPopulation(YieldTypes eYield) const;
 	int GetGlobalYieldRatePerCity(YieldTypes eYield) const;
+	int GetGlobalYieldRate(YieldTypes eYield) const;
 #endif // WOTMOD
 	bool HasPolicyEncouragingGarrisons() const;
 	bool HasPolicyGrantingReformationBelief() const;

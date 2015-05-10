@@ -11139,13 +11139,13 @@ PlayerTypes CvPlayer::GetMostUnhappyCityRecipient()
 /// Returns the amount of Happiness being added by Policies
 int CvPlayer::GetHappinessFromPolicies() const
 {
-	int iHappiness = m_pPlayerPolicies->GetNumericModifier(POLICYMOD_EXTRA_HAPPINESS);
-
 #if WOTMOD
+	int iHappiness = GetPlayerPolicies()->GetGlobalYieldRate(YIELD_HAPPINESS);
 	iHappiness += getNumCities() * GetPlayerPolicies()->GetGlobalYieldRatePerCity(YIELD_HAPPINESS);
 
 	int iHappinessPerXPopulation = GetPlayerPolicies()->GetGlobalYieldRatePerXPopulation(YIELD_HAPPINESS);
 #else
+	int iHappiness = m_pPlayerPolicies->GetNumericModifier(POLICYMOD_EXTRA_HAPPINESS);
 	iHappiness += (getNumCities() * m_pPlayerPolicies->GetNumericModifier(POLICYMOD_EXTRA_HAPPINESS_PER_CITY));
 
 	int iHappinessPerXPopulation;

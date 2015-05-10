@@ -54,8 +54,8 @@ CvPolicyEntry::CvPolicyEntry(void):
 	m_iGreatMerchantRateModifier(0),
 	m_iGreatScientistRateModifier(0),
 	m_iDomesticGreatGeneralRateModifier(0),
-	m_iExtraHappiness(0),
 #if !WOTMOD
+	m_iExtraHappiness(0),
 	m_iExtraHappinessPerCity(0),
 #endif // !WOTMOD
 	m_iUnhappinessMod(0),
@@ -273,11 +273,14 @@ bool CvPolicyEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	m_iGreatMerchantRateModifier = kResults.GetInt("GreatMerchantRateModifier");
 	m_iGreatScientistRateModifier = kResults.GetInt("GreatScientistRateModifier");
 	m_iDomesticGreatGeneralRateModifier = kResults.GetInt("DomesticGreatGeneralRateModifier");
-	m_iExtraHappiness = kResults.GetInt("ExtraHappiness");
 #if WOTMOD
+	m_aiGlobalYieldRate.resize(kUtility.MaxRows("Yields"));
+	m_aiGlobalYieldRate[YIELD_HAPPINESS] = kResults.GetInt("ExtraHappiness");
+
 	m_aiGlobalYieldRatePerCity.resize(kUtility.MaxRows("Yields"));
 	m_aiGlobalYieldRatePerCity[YIELD_HAPPINESS] = kResults.GetInt("ExtraHappinessPerCity");
 #else
+	m_iExtraHappiness = kResults.GetInt("ExtraHappiness");
 	m_iExtraHappinessPerCity = kResults.GetInt("ExtraHappinessPerCity");
 #endif // WOTMOD
 	m_iUnhappinessMod = kResults.GetInt("UnhappinessMod");
@@ -821,18 +824,22 @@ int CvPolicyEntry::GetDomesticGreatGeneralRateModifier() const
 	return m_iDomesticGreatGeneralRateModifier;
 }
 
+#if WOTMOD
+int CvPolicyEntry::GetGlobalYieldRate(YieldTypes eYield) const
+{
+	return m_aiGlobalYieldRate[eYield];
+}
+int CvPolicyEntry::GetGlobalYieldRatePerCity(YieldTypes eYield) const
+{
+	return m_aiGlobalYieldRatePerCity[eYield];
+}
+#else
 ///  Extra Happiness
 int CvPolicyEntry::GetExtraHappiness() const
 {
 	return m_iExtraHappiness;
 }
 
-#if WOTMOD
-int CvPolicyEntry::GetGlobalYieldRatePerCity(YieldTypes eYield) const
-{
-	return m_aiGlobalYieldRatePerCity[eYield];
-}
-#else
 ///  Extra Happiness per city
 int CvPolicyEntry::GetExtraHappinessPerCity() const
 {
@@ -2447,10 +2454,10 @@ int CvPlayerPolicies::GetNumericModifier(PolicyModifierType eType)
 			// Yes, so add it to our counts
 			switch(eType)
 			{
+#if !WOTMOD
 			case POLICYMOD_EXTRA_HAPPINESS:
 				rtnValue += m_pPolicies->GetPolicyEntry(i)->GetExtraHappiness();
 				break;
-#if !WOTMOD
 			case POLICYMOD_EXTRA_HAPPINESS_PER_CITY:
 				rtnValue += m_pPolicies->GetPolicyEntry(i)->GetExtraHappinessPerCity();
 				break;
@@ -2721,6 +2728,21 @@ int CvPlayerPolicies::GetGlobalYieldRatePerCity(YieldTypes eYield) const
 		if (HasPolicy(ePolicy) && !IsPolicyBlocked(ePolicy))
 		{
 			iYield += m_pPolicies->GetPolicyEntry(ePolicy)->GetGlobalYieldRatePerCity(eYield);
+		}
+	}
+	return iYield;
+}
+
+int CvPlayerPolicies::GetGlobalYieldRate(YieldTypes eYield) const
+{
+	int iYield = 0;
+	for (int i = 0; i < m_pPolicies->GetNumPolicies(); ++i)
+	{
+		PolicyTypes ePolicy = static_cast<PolicyTypes>(i);
+		// Do we have this policy?
+		if (HasPolicy(ePolicy) && !IsPolicyBlocked(ePolicy))
+		{
+			iYield += m_pPolicies->GetPolicyEntry(ePolicy)->GetGlobalYieldRate(eYield);
 		}
 	}
 	return iYield;
