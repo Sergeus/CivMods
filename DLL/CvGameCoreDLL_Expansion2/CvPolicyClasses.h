@@ -66,7 +66,11 @@ public:
 	int GetGreatScientistRateModifier() const;
 	int GetDomesticGreatGeneralRateModifier() const;
 	int GetExtraHappiness() const;
-	int GetExtraHappinessPerCity() const;
+#if WOTMOD
+	int GetGlobalYieldRatePerCity(YieldTypes eYield) const;
+#else
+	int GetExtrmaHappinessPerCity() const;
+#endif // WOTMOD
 	int GetUnhappinessMod() const;
 	int GetCityCountUnhappinessMod() const;
 	int GetOccupiedPopulationUnhappinessMod() const;
@@ -87,7 +91,7 @@ public:
 	int GetCulturePerGarrisonedUnit() const;
 	int GetHappinessPerTradeRoute() const;
 #if WOTMOD
-	int GetGlobalYieldPerXPopulation(YieldTypes eYield) const;
+	int GetGlobalYieldRatePerXPopulation(YieldTypes eYield) const;
 #else
 	int GetHappinessPerXPopulation() const;
 #endif // WOTMOD
@@ -264,7 +268,11 @@ private:
 	int m_iGreatScientistRateModifier;
 	int m_iDomesticGreatGeneralRateModifier;
 	int m_iExtraHappiness;
+#if WOTMOD
+	std::vector<int> m_aiGlobalYieldRatePerCity;
+#else
 	int m_iExtraHappinessPerCity;
+#endif // WOTMOD
 	int m_iUnhappinessMod;
 	int m_iCityCountUnhappinessMod;
 	int m_iOccupiedPopulationUnhappinessMod;
@@ -285,7 +293,7 @@ private:
 	int m_iCulturePerGarrisonedUnit;
 	int m_iHappinessPerTradeRoute;
 #if WOTMOD
-	std::vector<int> m_aiYieldPerXPopulation;
+	std::vector<int> m_aiGlobalYieldRatePerXPopulation;
 #else
 	int m_iHappinessPerXPopulation;
 #endif // WOTMOD
@@ -504,7 +512,7 @@ enum PolicyModifierType
 {
     POLICYMOD_EXTRA_HAPPINESS = 0,
     POLICYMOD_EXTRA_HAPPINESS_PER_CITY,
-    POLICYMOD_GREAT_PERSON_RATE,
+	POLICYMOD_GREAT_PERSON_RATE,
     POLICYMOD_GREAT_GENERAL_RATE,
     POLICYMOD_DOMESTIC_GREAT_GENERAL_RATE,
     POLICYMOD_POLICY_COST_MODIFIER,
@@ -593,6 +601,7 @@ public:
 	int GetImprovementCultureChange(ImprovementTypes eImprovement);
 #if WOTMOD
 	int GetGlobalYieldRatePerXPopulation(YieldTypes eYield) const;
+	int GetGlobalYieldRatePerCity(YieldTypes eYield) const;
 #endif // WOTMOD
 	bool HasPolicyEncouragingGarrisons() const;
 	bool HasPolicyGrantingReformationBelief() const;
