@@ -298,8 +298,10 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 	Method(GetHappinessFromCities);
 	Method(GetHappinessFromBuildings);
 
+#if !WOTMOD
 	Method(GetExtraHappinessPerCity);
 	Method(ChangeExtraHappinessPerCity);
+#endif // !WOTMOD
 
 	Method(GetHappinessFromResources);
 	Method(GetHappinessFromResourceVariety);
@@ -2908,6 +2910,7 @@ int CvLuaPlayer::lGetHappinessFromBuildings(lua_State* L)
 #endif // WOTMOD
 }
 
+#if !WOTMOD
 //------------------------------------------------------------------------------
 //int GetExtraHappinessPerCity() const;
 int CvLuaPlayer::lGetExtraHappinessPerCity(lua_State* L)
@@ -2921,6 +2924,7 @@ int CvLuaPlayer::lChangeExtraHappinessPerCity(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlayerAI::ChangeExtraHappinessPerCity);
 }
+#endif // !WOTMOD
 
 //------------------------------------------------------------------------------
 //int GetHappinessFromResources() const;

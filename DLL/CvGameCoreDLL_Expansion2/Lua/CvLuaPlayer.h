@@ -282,8 +282,10 @@ protected:
 	static int lGetHappinessFromCities(lua_State* L);
 	static int lGetHappinessFromBuildings(lua_State* L);
 
+#if !WOTMOD
 	static int lGetExtraHappinessPerCity(lua_State* L);
 	static int lChangeExtraHappinessPerCity(lua_State* L);
+#endif // !WOTMOD
 
 	static int lGetHappinessFromResources(lua_State* L);
 	static int lGetHappinessFromResourceVariety(lua_State* L);

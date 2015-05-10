@@ -443,11 +443,9 @@ public:
 	int GetHappinessFromPolicies() const;
 	int GetHappinessFromCities() const;
 	int GetHappinessFromBuildings() const;
-#endif // !WOTMOD
 
 	int GetExtraHappinessPerCity() const;
 	void ChangeExtraHappinessPerCity(int iChange);
-#if !WOTMOD
 	int GetExtraHappinessPerXPolicies() const;
 	void ChangeExtraHappinessPerXPolicies(int iChange);
 #endif // !WOTMOD
@@ -1655,8 +1653,8 @@ protected:
 	FAutoVariable<int, CvPlayer> m_iBarbarianCombatBonus;
 	FAutoVariable<int, CvPlayer> m_iAlwaysSeeBarbCampsCount;
 	FAutoVariable<int, CvPlayer> m_iHappinessFromBuildings;
-	FAutoVariable<int, CvPlayer> m_iHappinessPerCity;
 #if !WOTMOD
+	FAutoVariable<int, CvPlayer> m_iHappinessPerCity;
 	int m_iHappinessPerXPolicies;
 #endif // !WOTMOD
 	int m_iEspionageModifier;

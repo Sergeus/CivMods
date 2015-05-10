@@ -387,6 +387,9 @@ public:
 	int GetGlobalYieldRatePerXPolicies(YieldTypes eYield) const;
 	void SetGlobalYieldRatePerXPolicies(YieldTypes eYield, int iNewValue);
 	void ChangeGlobalYieldRatePerXPolicies(YieldTypes eYield, int iChange);
+	int GetGlobalYieldRatePerCity(YieldTypes eYield) const;
+	void SetGlobalYieldRatePerCity(YieldTypes eYield, int iNewValue);
+	void ChangeGlobalYieldRatePerCity(YieldTypes eYield, int ichange);
 #else
 	int GetFaithPerTurn() const;
 
@@ -873,6 +876,7 @@ protected:
 	FAutoVariable<std::vector<int>, CvCity> m_aiBaseYieldRateFromPolicies;
 	FAutoVariable<std::vector<int>, CvCity> m_aiGlobalYieldRateFromBuildings;
 	FAutoVariable<std::vector<int>, CvCity> m_aiGlobalYieldRatePerXPolicies;
+	FAutoVariable<std::vector<int>, CvCity> m_aiGlobalYieldRatePerCity;
 #else
 	int m_iFaithPerTurnFromBuildings;
 	int m_iFaithPerTurnFromPolicies;

@@ -164,8 +164,8 @@ CvPlayer::CvPlayer() :
 	, m_iBarbarianCombatBonus("CvPlayer::m_iBarbarianCombatBonus", m_syncArchive)
 	, m_iAlwaysSeeBarbCampsCount("CvPlayer::m_iAlwaysSeeBarbCampsCount", m_syncArchive)
 	, m_iHappinessFromBuildings("CvPlayer::m_iHappinessFromBuildings", m_syncArchive)
-	, m_iHappinessPerCity("CvPlayer::m_iHappinessPerCity", m_syncArchive)
 #if !WOTMOD
+	, m_iHappinessPerCity("CvPlayer::m_iHappinessPerCity", m_syncArchive)
 	, m_iHappinessPerXPolicies(0)
 #endif // !WOTMOD
 	, m_iAdvancedStartPoints("CvPlayer::m_iAdvancedStartPoints", m_syncArchive)
@@ -782,8 +782,8 @@ void CvPlayer::uninit()
 	m_iBarbarianCombatBonus = 0;
 	m_iAlwaysSeeBarbCampsCount = 0;
 	m_iHappinessFromBuildings = 0;
-	m_iHappinessPerCity = 0;
 #if !WOTMOD
+	m_iHappinessPerCity = 0;
 	m_iHappinessPerXPolicies = 0;
 #endif // !WOTMOD
 	m_iAdvancedStartPoints = -1;
@@ -8386,10 +8386,10 @@ void CvPlayer::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst
 	if(eFreePromotionRemoved != NO_PROMOTION)
 		ChangeFreePromotionCount(eFreePromotionRemoved, -iChange);
 
+#if !WOTMOD
 	// Extra Happiness Per City
 	ChangeExtraHappinessPerCity(pBuildingInfo->GetHappinessPerCity() * iChange);
 
-#if !WOTMOD
 	// Extra Happiness Per Policy
 	ChangeExtraHappinessPerXPolicies(pBuildingInfo->GetHappinessPerXPolicies() * iChange);
 #endif // !WOTMOD
@@ -10257,6 +10257,8 @@ int CvPlayer::GetGlobalYieldRateFromCities(YieldTypes eYield) const
 		{
 			iValue += GetPlayerPolicies()->GetNumPoliciesOwned() / iYieldPerXPolicies;
 		}
+
+		iValue += pLoopCity->GetGlobalYieldRatePerCity(eYield) * getNumCities();
 	}
 
 	return iValue;
@@ -10493,10 +10495,10 @@ void CvPlayer::DoUpdateHappiness()
 
 	// Increase from policies
 	m_iHappiness += GetHappinessFromPolicies();
-#endif // WOTMOD
 
 	// Increase from num cities (player based, for buildings and such)
 	m_iHappiness += getNumCities() * m_iHappinessPerCity;
+#endif // WOTMOD
 
 	// Increase from Religion
 	m_iHappiness += GetHappinessFromReligion();
@@ -11251,7 +11253,6 @@ int CvPlayer::GetHappinessFromBuildings() const
 
 	return iHappiness;
 }
-#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Returns the amount of extra Happiness per City
@@ -11270,7 +11271,6 @@ void CvPlayer::ChangeExtraHappinessPerCity(int iChange)
 		m_iHappinessPerCity += iChange;
 }
 
-#if !WOTMOD
 //	--------------------------------------------------------------------------------
 /// Returns the amount of extra Happiness per City
 int CvPlayer::GetExtraHappinessPerXPolicies() const
@@ -22212,7 +22212,9 @@ void CvPlayer::Read(FDataStream& kStream)
 	kStream >> m_iBarbarianCombatBonus;
 	kStream >> m_iAlwaysSeeBarbCampsCount;
 	kStream >> m_iHappinessFromBuildings;
+#if !WOTMOD
 	kStream >> m_iHappinessPerCity;
+#endif // !WOTMOD
 	kStream >> m_iAdvancedStartPoints;
 	kStream >> m_iAttackBonusTurns;
 	if (uiVersion >= 9)
@@ -22771,7 +22773,9 @@ void CvPlayer::Write(FDataStream& kStream) const
 	kStream << m_iBarbarianCombatBonus;
 	kStream << m_iAlwaysSeeBarbCampsCount;
 	kStream << m_iHappinessFromBuildings;
+#if !WOTMOD
 	kStream << m_iHappinessPerCity;
+#endif // !WOTMOD
 	kStream << m_iAdvancedStartPoints;
 	kStream << m_iAttackBonusTurns;
 	kStream << m_iCultureBonusTurns;

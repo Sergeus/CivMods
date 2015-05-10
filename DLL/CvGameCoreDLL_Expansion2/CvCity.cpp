@@ -141,6 +141,7 @@ CvCity::CvCity() :
 	, m_aiBaseYieldRateFromPolicies("CvCity::m_aiBaseYieldRateFromPolicies", m_syncArchive)
 	, m_aiGlobalYieldRateFromBuildings("CvCity::m_aiGlobalYieldRateFromBuildings", m_syncArchive)
 	, m_aiGlobalYieldRatePerXPolicies("CvCity::m_aiGlobalYieldRatePerXPolicies", m_syncArchive)
+	, m_aiGlobalYieldRatePerCity("CvCity::m_aiGlobalYieldRatePerCity", m_syncArchive)
 #else
 	, m_iFaithPerTurnFromBuildings(0)
 	, m_iFaithPerTurnFromPolicies(0)
@@ -6232,6 +6233,7 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 		}
 
 #if WOTMOD
+		ChangeGlobalYieldRatePerCity(YIELD_HAPPINESS, pBuildingInfo->GetHappinessPerCity() * iChange);
 		ChangeGlobalYieldRatePerXPolicies(YIELD_HAPPINESS, pBuildingInfo->GetHappinessPerXPolicies() * iChange);
 #endif // WOTMOD
 
@@ -8184,6 +8186,18 @@ void CvCity::SetGlobalYieldRatePerXPolicies(YieldTypes eYield, int iNewValue)
 void CvCity::ChangeGlobalYieldRatePerXPolicies(YieldTypes eYield, int iChange)
 {
 	SetGlobalYieldRatePerXPolicies(eYield, GetGlobalYieldRatePerXPolicies(eYield) + iChange);
+}
+int CvCity::GetGlobalYieldRatePerCity(YieldTypes eYield) const
+{
+	return m_aiGlobalYieldRatePerCity[eYield];
+}
+void CvCity::SetGlobalYieldRatePerCity(YieldTypes eYield, int iNewValue)
+{
+	m_aiGlobalYieldRatePerCity.setAt(eYield, iNewValue);
+}
+void CvCity::ChangeGlobalYieldRatePerCity(YieldTypes eYield, int iChange)
+{
+	SetGlobalYieldRatePerCity(eYield, GetGlobalYieldRatePerCity(eYield) + iChange);
 }
 #else
 int CvCity::GetFaithPerTurnFromBuildings() const
