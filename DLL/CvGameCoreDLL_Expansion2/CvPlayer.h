@@ -403,6 +403,9 @@ public:
 	int GetGlobalYieldRatePerLuxury(YieldTypes eYield) const;
 	void SetGlobalYieldRatePerLuxury(YieldTypes eYield, int iNewValue);
 	void ChangeGlobalYieldRatePerLuxury(YieldTypes eYield, int iChange);
+
+	int GetGlobalYieldRateFromResources(YieldTypes eYield) const;
+	int GetGlobalYieldRateFromResourceVariety(YieldTypes eYield) const;
 #else
 	// Faith
 	int GetTotalFaithPerTurn() const;
@@ -460,10 +463,10 @@ public:
 	void ChangeExtraHappinessPerCity(int iChange);
 	int GetExtraHappinessPerXPolicies() const;
 	void ChangeExtraHappinessPerXPolicies(int iChange);
-#endif // !WOTMOD
 
 	int GetHappinessFromResources() const;
 	int GetHappinessFromResourceVariety() const;
+#endif // !WOTMOD
 	int GetHappinessFromReligion();
 	int GetHappinessFromNaturalWonders() const;
 

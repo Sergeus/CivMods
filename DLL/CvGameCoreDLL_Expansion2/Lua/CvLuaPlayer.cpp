@@ -2931,14 +2931,26 @@ int CvLuaPlayer::lChangeExtraHappinessPerCity(lua_State* L)
 //int GetHappinessFromResources() const;
 int CvLuaPlayer::lGetHappinessFromResources(lua_State* L)
 {
+#if WOTMOD
+	int iHappiness = GetInstance(L)->GetGlobalYieldRateFromResources(YIELD_HAPPINESS);
+	lua_pushinteger(L, iHappiness);
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetHappinessFromResources);
+#endif // WOTMOD
 }
 
 //------------------------------------------------------------------------------
 //int GetHappinessFromResourceVariety() const;
 int CvLuaPlayer::lGetHappinessFromResourceVariety(lua_State* L)
 {
+#if WOTMOD
+	int iHappiness = GetInstance(L)->GetGlobalYieldRateFromResourceVariety(YIELD_HAPPINESS);
+	lua_pushinteger(L, iHappiness);
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetHappinessFromResourceVariety);
+#endif // WOTMOD
 }
 
 //------------------------------------------------------------------------------

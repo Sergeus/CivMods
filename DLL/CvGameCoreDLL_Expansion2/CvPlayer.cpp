@@ -10383,6 +10383,66 @@ void CvPlayer::ChangeGlobalYieldRatePerLuxury(YieldTypes eYield, int iChange)
 {
 	SetGlobalYieldRatePerLuxury(eYield, GetGlobalYieldRatePerLuxury(eYield) + iChange);
 }
+int CvPlayer::GetGlobalYieldRateFromResources(YieldTypes eYield) const
+{
+	int iTotalYield = 0;
+
+	for(int iResourceLoop = 0; iResourceLoop < GC.getNumResourceInfos(); iResourceLoop++)
+	{
+		ResourceTypes eResource = static_cast<ResourceTypes>(iResourceLoop);
+
+		int iResourceYield = GetGlobalYieldRateFromLuxury(eYield, eResource);
+		if(iResourceYield != 0)
+		{
+			// Resource bonus from Minors, and this is a Luxury we're getting from one (Policies, etc.)
+			if(eYield == YIELD_HAPPINESS && IsMinorResourceBonus() && getResourceFromMinors(eResource) > 0)
+			{
+				iResourceYield *= /*150*/ GC.getMINOR_POLICY_RESOURCE_HAPPINESS_MULTIPLIER();
+				iResourceYield /= 100;
+			}
+
+			iTotalYield += iResourceYield;
+			iTotalYield += GetGlobalYieldRatePerLuxury(eYield);
+		}
+	}
+
+	iTotalYield += GetGlobalYieldRateFromResourceVariety(eYield);
+
+	return iTotalYield;
+}
+int CvPlayer::GetGlobalYieldRateFromResourceVariety(YieldTypes eYield) const
+{
+	int iYield = 0;
+
+	int multipleBonus = 0;
+	if (eYield == YIELD_HAPPINESS)
+	{
+		multipleBonus = /*1*/ GC.getHAPPINESS_PER_EXTRA_LUXURY();
+	}
+
+	// Check all connected Resources
+	int iNumYieldResources = 0;
+
+	if (multipleBonus != 0)
+	{
+		for (int iResourceLoop = 0; iResourceLoop < GC.getNumResourceInfos(); iResourceLoop++)
+		{
+			ResourceTypes eResource = static_cast<ResourceTypes>(iResourceLoop);
+
+			if (GetGlobalYieldRateFromLuxury(eYield, eResource) > 0)
+			{
+				iNumYieldResources++;
+			}
+		}
+	}
+
+	if (iNumYieldResources > 1)
+	{
+		iYield += (--iNumYieldResources * multipleBonus);
+	}
+
+	return iYield;
+}
 #else
 int CvPlayer::GetTotalFaithPerTurn() const
 {
@@ -10582,13 +10642,14 @@ void CvPlayer::DoUpdateHappiness()
 	// Start level
 	m_iHappiness = getHandicapInfo().getHappinessDefault();
 
+#if WOTMOD
+	m_iHappiness += GetGlobalYieldRateFromResources(YIELD_HAPPINESS);
+	m_iHappiness += GetYieldRateFromCities(YIELD_HAPPINESS);
+#else
 	// Increase from Luxury Resources
 	int iNumHappinessFromResources = GetHappinessFromResources();
 	m_iHappiness += iNumHappinessFromResources;
 
-#if WOTMOD
-	m_iHappiness += GetYieldRateFromCities(YIELD_HAPPINESS);
-#else
 	// Increase from Local City Happiness
 	m_iHappiness += GetHappinessFromCities();
 #endif // WOTMOD
@@ -11403,7 +11464,6 @@ void CvPlayer::ChangeExtraHappinessPerXPolicies(int iChange)
 	if(iChange != 0)
 		m_iHappinessPerXPolicies += iChange;
 }
-#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Total amount of Happiness gained from Resources
@@ -11419,11 +11479,7 @@ int CvPlayer::GetHappinessFromResources() const
 	{
 		eResource = (ResourceTypes) iResourceLoop;
 
-#if WOTMOD
-		iBaseHappiness = GetGlobalYieldRateFromLuxury(YIELD_HAPPINESS, eResource);
-#else
 		iBaseHappiness = GetHappinessFromLuxury(eResource);
-#endif // WOTMOD
 		if(iBaseHappiness)
 		{
 			// Resource bonus from Minors, and this is a Luxury we're getting from one (Policies, etc.)
@@ -11434,11 +11490,7 @@ int CvPlayer::GetHappinessFromResources() const
 			}
 
 			iTotalHappiness += iBaseHappiness;
-#if WOTMOD
-			iTotalHappiness += GetGlobalYieldRatePerLuxury(YIELD_HAPPINESS);
-#else
 			iTotalHappiness += GetExtraHappinessPerLuxury();
-#endif // WOTMOD
 		}
 	}
 
@@ -11481,6 +11533,7 @@ int CvPlayer::GetHappinessFromResourceVariety() const
 
 	return iHappiness;
 }
+#endif // !WOTMOD
 
 
 //	--------------------------------------------------------------------------------
