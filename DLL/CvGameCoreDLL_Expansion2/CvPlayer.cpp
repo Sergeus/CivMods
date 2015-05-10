@@ -154,7 +154,9 @@ CvPlayer::CvPlayer() :
 	, m_iHappinessPerGarrisonedUnitCount("CvPlayer::m_iHappinessPerGarrisonedUnitCount", m_syncArchive)
 	, m_iHappinessPerTradeRouteCount("CvPlayer::m_iHappinessPerTradeRouteCount", m_syncArchive)
 	, m_iHappinessPerXPopulation(0)
+#if !WOTMOD
 	, m_iHappinessFromLeagues(0)
+#endif // !WOTMOD
 	, m_iEspionageModifier(0)
 	, m_iSpyStartingRank(0)
 	, m_iExtraLeagueVotes(0)
@@ -339,6 +341,7 @@ CvPlayer::CvPlayer() :
 	, m_iTurnsSincePledgedSupport("CvPlayer::m_iTurnsSincePledgedSupport", m_syncArchive)
 	, m_YieldTotals("CvPlayer::m_YieldTotals", m_syncArchive)
 	, m_iThreadsAvailable("CvPlayer::m_iThreadsAvailable", m_syncArchive)
+	, m_aiYieldRateFromLeagues("CvPlayer::m_aiYieldRateFromLeagues", m_syncArchive)
 #endif // WOTMOD
 
 	, m_aiCityYieldChange("CvPlayer::m_aiCityYieldChange", m_syncArchive)
@@ -772,7 +775,9 @@ void CvPlayer::uninit()
 	m_iHappinessPerGarrisonedUnitCount = 0;
 	m_iHappinessPerTradeRouteCount = 0;
 	m_iHappinessPerXPopulation = 0;
+#if !WOTMOD
 	m_iHappinessFromLeagues = 0;
+#endif // !WOTMOD
 	m_iEspionageModifier = 0;
 	m_iSpyStartingRank = 0;
 	m_iExtraLeagueVotes = 0;
@@ -10278,6 +10283,18 @@ int CvPlayer::GetBaseYieldRateModifier(YieldTypes eYield, CvString* tooltipSink)
 
 	return iModifier;
 }
+int CvPlayer::GetYieldRateFromLeagues(YieldTypes eYield) const
+{
+	return m_aiYieldRateFromLeagues[eYield];
+}
+void CvPlayer::SetYieldRateFromLeagues(YieldTypes eYield, int iNewValue)
+{
+	m_aiYieldRateFromLeagues.setAt(eYield, iNewValue);
+}
+void CvPlayer::ChangeYieldRateFromLeagues(YieldTypes eYield, int iChange)
+{
+	SetYieldRateFromLeagues(eYield, GetYieldRateFromLeagues(eYield) + iChange);
+}
 #else
 int CvPlayer::GetTotalFaithPerTurn() const
 {
@@ -10510,13 +10527,14 @@ void CvPlayer::DoUpdateHappiness()
 
 #if WOTMOD
 	m_iHappiness += GetYieldRateFromMinorCivs(YIELD_HAPPINESS);
+	m_iHappiness += GetYieldRateFromLeagues(YIELD_HAPPINESS);
 #else
 	// Friendship with Minors can provide Happiness
 	m_iHappiness += GetHappinessFromMinorCivs();
-#endif // WOTMOD
 
 	// Increase from Leagues
 	m_iHappiness += GetHappinessFromLeagues();
+#endif // WOTMOD
 
 #if WOTMOD
 	// Change from units
@@ -12215,7 +12233,6 @@ int CvPlayer::GetHappinessFromMinor(PlayerTypes eMinor) const
 
 	return iAmount;
 }
-#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Happiness from Leagues
@@ -12237,6 +12254,7 @@ void CvPlayer::ChangeHappinessFromLeagues(int iChange)
 {
 	SetHappinessFromLeagues(GetHappinessFromLeagues() + iChange);
 }
+#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Get the global modifier on the espionage progress rate
@@ -22193,7 +22211,6 @@ void CvPlayer::Read(FDataStream& kStream)
 	kStream >> m_iHappinessPerXPopulation;
 #if !WOTMOD
 	kStream >> m_iHappinessPerXPolicies;
-#endif // !WOTMOD
 	if (uiVersion >= 8)
 	{
 		kStream >> m_iHappinessFromLeagues;
@@ -22202,6 +22219,7 @@ void CvPlayer::Read(FDataStream& kStream)
 	{
 		m_iHappinessFromLeagues = 0;
 	}
+#endif // !WOTMOD
 	kStream >> m_iEspionageModifier;
 	kStream >> m_iSpyStartingRank;
 	if (uiVersion >= 14)
@@ -22768,8 +22786,8 @@ void CvPlayer::Write(FDataStream& kStream) const
 	kStream << m_iHappinessPerXPopulation;
 #if !WOTMOD
 	kStream << m_iHappinessPerXPolicies;
-#endif // !WOTMOD
 	kStream << m_iHappinessFromLeagues;
+#endif // !WOTMOD
 	kStream << m_iEspionageModifier;
 	kStream << m_iSpyStartingRank;
 	kStream << m_iExtraLeagueVotes;

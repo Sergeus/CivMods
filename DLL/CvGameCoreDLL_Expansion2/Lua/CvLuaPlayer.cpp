@@ -2965,7 +2965,13 @@ int CvLuaPlayer::lGetHappinessFromNaturalWonders(lua_State* L)
 //int GetHappinessFromLeagues() const;
 int CvLuaPlayer::lGetHappinessFromLeagues(lua_State* L)
 {
+#if WOTMOD
+	int iHappiness = GetInstance(L)->GetYieldRateFromLeagues(YIELD_HAPPINESS);
+	lua_pushinteger(L, iHappiness);
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetHappinessFromLeagues);
+#endif // WOTMOD
 }
 
 //------------------------------------------------------------------------------

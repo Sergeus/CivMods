@@ -6156,7 +6156,11 @@ void CvLeague::DoProjectReward(PlayerTypes ePlayer, LeagueProjectTypes eLeaguePr
 		// Happiness
 		if (pRewardInfo->GetHappiness() != 0)
 		{
+#if WOTMOD
+			GET_PLAYER(ePlayer).ChangeYieldRateFromLeagues(YIELD_HAPPINESS, pRewardInfo->GetHappiness());
+#else
 			GET_PLAYER(ePlayer).ChangeHappinessFromLeagues(pRewardInfo->GetHappiness());
+#endif // WOTMOD
 			GET_PLAYER(ePlayer).DoUpdateHappiness();
 		}
 

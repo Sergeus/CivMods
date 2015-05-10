@@ -391,6 +391,10 @@ public:
 	int GetYieldRateFromPolicies(YieldTypes eYield) const;
 	int GetGlobalYieldRateFromCities(YieldTypes eYield) const;
 	int GetBaseYieldRateModifier(YieldTypes eYield, CvString* tooltipSink = NULL) const;
+
+	int GetYieldRateFromLeagues(YieldTypes eYield) const;
+	void SetYieldRateFromLeagues(YieldTypes eYield, int iNewValue);
+	void ChangeYieldRateFromLeagues(YieldTypes eYield, int iChange);
 #else
 	// Faith
 	int GetTotalFaithPerTurn() const;
@@ -504,11 +508,11 @@ public:
 
 	int GetHappinessFromMinorCivs() const;
 	int GetHappinessFromMinor(PlayerTypes eMinor) const;
-#endif // !WOTMOD
 
 	int GetHappinessFromLeagues() const;
 	void SetHappinessFromLeagues(int iValue);
 	void ChangeHappinessFromLeagues(int iChange);
+#endif // !WOTMOD
 
 	// END Happiness
 
@@ -1646,7 +1650,11 @@ protected:
 	FAutoVariable<int, CvPlayer> m_iHappinessPerGarrisonedUnitCount;
 	FAutoVariable<int, CvPlayer> m_iHappinessPerTradeRouteCount;
 	int m_iHappinessPerXPopulation;
+#if WOTMOD
+	FAutoVariable<std::vector<int>, CvPlayer> m_aiYieldRateFromLeagues;
+#else
 	int m_iHappinessFromLeagues;
+#endif // WOTMOD
 	FAutoVariable<int, CvPlayer> m_iSpecialPolicyBuildingHappiness;  //unused
 	FAutoVariable<int, CvPlayer> m_iWoundedUnitDamageMod;
 	FAutoVariable<int, CvPlayer> m_iUnitUpgradeCostMod;
