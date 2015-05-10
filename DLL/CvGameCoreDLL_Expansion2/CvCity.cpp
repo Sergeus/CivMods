@@ -139,6 +139,7 @@ CvCity::CvCity() :
 	, m_iJONSCulturePerTurnFromReligion("CvCity::m_iJONSCulturePerTurnFromReligion", m_syncArchive)
 #if WOTMOD
 	, m_aiBaseYieldRateFromPolicies("CvCity::m_aiBaseYieldRateFromPolicies", m_syncArchive)
+	, m_aiGlobalYieldRateFromBuildings("CvCity::m_aiGlobalYieldRateFromBuildings", m_syncArchive)
 #else
 	, m_iFaithPerTurnFromBuildings(0)
 	, m_iFaithPerTurnFromPolicies(0)
@@ -237,8 +238,8 @@ CvCity::CvCity() :
 	, m_paiFreePromotionCount("CvCity::m_paiFreePromotionCount", m_syncArchive)
 #if !WOTMOD
 	, m_iBaseHappinessFromBuildings(0)
-#endif // !WOTMOD
 	, m_iUnmoddedHappinessFromBuildings(0)
+#endif // !WOTMOD
 
 #if SIEGEMOD
 	, m_iTurnsInfluencedByPuppetingReligion(0)
@@ -762,6 +763,7 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 
 #if WOTMOD
 	m_aiBaseYieldRateFromPolicies.resize(GC.GetNumYieldInfos(), 0);
+	m_aiGlobalYieldRateFromBuildings.resize(GC.GetNumYieldInfos(), 0);
 #endif // WOTMOD
 
 	m_aiSeaPlotYield.resize(NUM_YIELD_TYPES);
@@ -6221,7 +6223,11 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 
 		if(pBuildingInfo->GetUnmoddedHappiness() > 0)
 		{
+#if WOTMOD
+			ChangeGlobalYieldRateFromBuildings(YIELD_HAPPINESS, pBuildingInfo->GetUnmoddedHappiness() * iChange);
+#else
 			ChangeUnmoddedHappinessFromBuildings(pBuildingInfo->GetUnmoddedHappiness() * iChange);
+#endif // WOTMOD
 		}
 
 		if(pBuildingInfo->GetUnhappinessModifier() != 0)
@@ -8142,6 +8148,26 @@ int CvCity::GetBaseYieldRateFromGarrisonedUnits(YieldTypes eYield) const
 		return 0;
 	}
 }
+int CvCity::GetGlobalYieldRate(YieldTypes eYield) const
+{
+	int iValue = 0;
+	
+	iValue += GetGlobalYieldRateFromBuildings(eYield);
+
+	return iValue;
+}
+int CvCity::GetGlobalYieldRateFromBuildings(YieldTypes eYield) const
+{
+	return m_aiGlobalYieldRateFromBuildings[eYield];
+}
+void CvCity::ChangeGlobalYieldRateFromBuildings(YieldTypes eYield, int iChange)
+{
+	SetGlobalYieldRateFromBuildings(eYield, GetGlobalYieldRateFromBuildings(eYield) + iChange);
+}
+void CvCity::SetGlobalYieldRateFromBuildings(YieldTypes eYield, int iNewValue)
+{
+	m_aiGlobalYieldRateFromBuildings.setAt(eYield, iNewValue);
+}
 #else
 int CvCity::GetFaithPerTurnFromBuildings() const
 {
@@ -9169,7 +9195,6 @@ int CvCity::GetLocalHappiness() const
 		return iLocalHappiness;
 	}
 }
-#endif // WOTMOD
 
 //	--------------------------------------------------------------------------------
 int CvCity::GetHappinessFromBuildings() const
@@ -9177,7 +9202,6 @@ int CvCity::GetHappinessFromBuildings() const
 	return GetUnmoddedHappinessFromBuildings();
 }
 
-#if !WOTMOD 
 //	--------------------------------------------------------------------------------
 int CvCity::GetBaseHappinessFromBuildings() const
 {
@@ -9189,7 +9213,6 @@ void CvCity::ChangeBaseHappinessFromBuildings(int iChange)
 {
 	m_iBaseHappinessFromBuildings += iChange;
 }
-#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 int CvCity::GetUnmoddedHappinessFromBuildings() const
@@ -9202,6 +9225,7 @@ void CvCity::ChangeUnmoddedHappinessFromBuildings(int iChange)
 {
 	m_iUnmoddedHappinessFromBuildings += iChange;
 }
+#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Used when gathering info for "Annex/Puppet/Raze" popup
@@ -14440,8 +14464,8 @@ void CvCity::read(FDataStream& kStream)
 	// City Building Happiness
 #if !WOTMOD
 	kStream >> m_iBaseHappinessFromBuildings;
-#endif // !WOTMOD
 	kStream >> m_iUnmoddedHappinessFromBuildings;
+#endif // !WOTMOD
 
 #if SIEGEMOD
 	kStream >> m_iTurnsInfluencedByPuppetingReligion;
@@ -14703,8 +14727,8 @@ void CvCity::write(FDataStream& kStream) const
 
 #if !WOTMOD
 	kStream << m_iBaseHappinessFromBuildings;
-#endif // !WOTMOD
 	kStream << m_iUnmoddedHappinessFromBuildings;
+#endif // !WOTMOD
 
 #if SIEGEMOD
 	kStream << m_iTurnsInfluencedByPuppetingReligion;

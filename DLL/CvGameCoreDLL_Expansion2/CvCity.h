@@ -379,6 +379,11 @@ public:
 	void ChangeBaseYieldRateFromPolicies(YieldTypes eYield, int iChange);
 	int GetYieldRateFromTraits(YieldTypes eYield) const;
 	int GetBaseYieldRateFromGarrisonedUnits(YieldTypes eYield) const;
+
+	int GetGlobalYieldRate(YieldTypes eYield) const;
+	int GetGlobalYieldRateFromBuildings(YieldTypes eYield) const;
+	void ChangeGlobalYieldRateFromBuildings(YieldTypes eYield, int iChange);
+	void SetGlobalYieldRateFromBuildings(YieldTypes eYield, int iNewValue);
 #else
 	int GetFaithPerTurn() const;
 
@@ -498,14 +503,12 @@ public:
 
 #if !WOTMOD
 	int GetLocalHappiness() const;
-#endif // !WOTMOD
 	int GetHappinessFromBuildings() const;
-#if !WOTMOD
 	int GetBaseHappinessFromBuildings() const;
 	void ChangeBaseHappinessFromBuildings(int iChange);
-#endif // !WOTMOD
 	int GetUnmoddedHappinessFromBuildings() const;
 	void ChangeUnmoddedHappinessFromBuildings(int iChange);
+#endif // !WOTMOD
 
 	bool IsIgnoreCityForHappiness() const;
 	void SetIgnoreCityForHappiness(bool bValue);
@@ -865,6 +868,7 @@ protected:
 	FAutoVariable<int, CvCity> m_iJONSCulturePerTurnFromReligion;
 #if WOTMOD
 	FAutoVariable<std::vector<int>, CvCity> m_aiBaseYieldRateFromPolicies;
+	FAutoVariable<std::vector<int>, CvCity> m_aiGlobalYieldRateFromBuildings;
 #else
 	int m_iFaithPerTurnFromBuildings;
 	int m_iFaithPerTurnFromPolicies;
@@ -974,8 +978,8 @@ protected:
 
 #if !WOTMOD
 	int m_iBaseHappinessFromBuildings;
-#endif // !WOTMOD
 	int m_iUnmoddedHappinessFromBuildings;
+#endif // !WOTMOD
 
 #if SIEGEMOD
 	int m_iTurnsInfluencedByPuppetingReligion;

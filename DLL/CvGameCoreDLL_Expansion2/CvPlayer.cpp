@@ -11174,7 +11174,11 @@ int CvPlayer::GetHappinessFromBuildings() const
 	int iLoop;
 	for(pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
 	{
+#if WOTMOD
+		iHappiness += pLoopCity->GetGlobalYieldRate(YIELD_HAPPINESS);
+#else
 		iHappiness += pLoopCity->GetHappinessFromBuildings();
+#endif // WOTMOD
 	}
 
 	// Increase from num policies -- MOVE THIS CODE (and provide a new tool tip string) if we ever get happiness per X policies to something beside a building

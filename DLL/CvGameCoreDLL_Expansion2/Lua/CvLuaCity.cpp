@@ -2762,7 +2762,13 @@ int CvLuaCity::lSetPuppet(lua_State* L)
 //------------------------------------------------------------------------------
 int CvLuaCity::lGetHappinessFromBuildings(lua_State* L)
 {
+#if WOTMOD
+	int iHappiness = GetInstance(L)->GetGlobalYieldRateFromBuildings(YIELD_HAPPINESS);
+	lua_pushinteger(L, iHappiness);
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvCity::GetHappinessFromBuildings);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 int CvLuaCity::lGetLocalHappiness(lua_State* L)
@@ -2779,7 +2785,9 @@ int CvLuaCity::lGetLocalHappiness(lua_State* L)
 int CvLuaCity::lGetHappiness(lua_State* L)
 {
 	CvCity* pkCity = GetInstance(L);
-
+#if WOTMOD
+	int iHappiness = pkCity->GetGlobalYieldRate(YIELD_HAPPINESS);
+#else
 	CvPlayerAI& kPlayer = GET_PLAYER(pkCity->getOwner());
 
 	const int numPolicyInfos = GC.getNumPolicyInfos();
@@ -2789,6 +2797,7 @@ int CvLuaCity::lGetHappiness(lua_State* L)
 	CvCityBuildings* pkCityBuildings = pkCity->GetCityBuildings();
 
 	int iHappiness = pkCity->GetHappinessFromBuildings();
+#endif // WOTMOD
 
 	lua_pushinteger(L, iHappiness);
 	return 1;
