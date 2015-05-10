@@ -60,7 +60,11 @@ public:
 	void ChangeCityConnectionTradeRouteGoldModifier(int iChange);
 	int GetCityConnectionTradeRouteGoldChange() const;
 	void ChangeCityConnectionTradeRouteGoldChange(int iChange);
+#if WOTMOD
+	bool HasCityConnectionRouteBetweenCities(const CvCity* pFirstCity, const CvCity* pSecondCity, bool bBestRoute = false) const;
+#else
 	bool HasCityConnectionRouteBetweenCities(CvCity* pFirstCity, CvCity* pSecondCity, bool bBestRoute = false) const;
+#endif // WOTMOD
 
 	// Gold from international trade routes
 	int GetGoldPerTurnFromTradeRoutes() const;

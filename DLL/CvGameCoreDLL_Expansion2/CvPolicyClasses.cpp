@@ -76,8 +76,8 @@ CvPolicyEntry::CvPolicyEntry(void):
 	m_iFreeMilitaryUnitsPopulationPercent(0),
 	m_iHappinessPerGarrisonedUnit(0),
 	m_iCulturePerGarrisonedUnit(0),
-	m_iHappinessPerTradeRoute(0),
 #if !WOTMOD
+	m_iHappinessPerTradeRoute(0),
 	m_iHappinessPerXPopulation(0),
 #endif // !WOTMOD
 	m_iExtraHappinessPerLuxury(0),
@@ -301,11 +301,14 @@ bool CvPolicyEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	m_iFreeMilitaryUnitsPopulationPercent = kResults.GetInt("FreeMilitaryUnitsPopulationPercent");
 	m_iHappinessPerGarrisonedUnit = kResults.GetInt("HappinessPerGarrisonedUnit");
 	m_iCulturePerGarrisonedUnit = kResults.GetInt("CulturePerGarrisonedUnit");
-	m_iHappinessPerTradeRoute = kResults.GetInt("HappinessPerTradeRoute");
 #if WOTMOD
+	m_aiGlobalYieldRatePerCityConnection.resize(kUtility.MaxRows("Yields"), 0);
+	m_aiGlobalYieldRatePerCityConnection[YIELD_HAPPINESS] = kResults.GetInt("HappinessPerTradeRoute") / 100;
+
 	m_aiGlobalYieldRatePerXPopulation.resize(kUtility.MaxRows("Yields"), 0);
 	m_aiGlobalYieldRatePerXPopulation[YIELD_HAPPINESS] = kResults.GetInt("HappinessPerXPopulation");
 #else
+	m_iHappinessPerTradeRoute = kResults.GetInt("HappinessPerTradeRoute");
 	m_iHappinessPerXPopulation = kResults.GetInt("HappinessPerXPopulation");
 #endif // WOTMOD
 	m_iExtraHappinessPerLuxury = kResults.GetInt("ExtraHappinessPerLuxury");
@@ -955,18 +958,22 @@ int CvPolicyEntry::GetCulturePerGarrisonedUnit() const
 	return m_iCulturePerGarrisonedUnit;
 }
 
+#if WOTMOD
+int CvPolicyEntry::GetGlobalYieldRatePerCityConnection(YieldTypes eYield) const
+{
+	return m_aiGlobalYieldRatePerCityConnection[eYield];
+}
+int CvPolicyEntry::GetGlobalYieldRatePerXPopulation(YieldTypes eYield) const
+{
+	return m_aiGlobalYieldRatePerXPopulation[eYield];
+}
+#else
 /// Happiness from each City with a Trade Route to the capital
 int CvPolicyEntry::GetHappinessPerTradeRoute() const
 {
 	return m_iHappinessPerTradeRoute;
 }
 
-#if WOTMOD
-int CvPolicyEntry::GetGlobalYieldRatePerXPopulation(YieldTypes eYield) const
-{
-	return m_aiGlobalYieldRatePerXPopulation[eYield];
-}
-#else
 /// Happiness from large cities
 int CvPolicyEntry::GetHappinessPerXPopulation() const
 {
@@ -2703,6 +2710,20 @@ int CvPlayerPolicies::GetBuildingClassTourismModifier(BuildingClassTypes eBuildi
 }
 
 #if WOTMOD
+int CvPlayerPolicies::GetGlobalYieldRatePerCityConnection(YieldTypes eYield) const
+{
+	int iYield = 0;
+	for (int i = 0; i < m_pPolicies->GetNumPolicies(); ++i)
+	{
+		PolicyTypes ePolicy = static_cast<PolicyTypes>(i);
+		// Do we have this policy?
+		if (HasPolicy(ePolicy) && !IsPolicyBlocked(ePolicy))
+		{
+			iYield += m_pPolicies->GetPolicyEntry(ePolicy)->GetGlobalYieldRatePerCityConnection(eYield);
+		}
+	}
+	return iYield;
+}
 int CvPlayerPolicies::GetGlobalYieldRatePerXPopulation(YieldTypes eYield) const
 {
 	int iYield = 0;

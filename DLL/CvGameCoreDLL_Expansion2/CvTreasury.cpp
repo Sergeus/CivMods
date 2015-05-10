@@ -325,7 +325,11 @@ void CvTreasury::ChangeCityConnectionTradeRouteGoldChange(int iChange)
 }
 
 /// Returns the route-type between two cities
+#if WOTMOD
+bool CvTreasury::HasCityConnectionRouteBetweenCities(const CvCity* pFirstCity, const CvCity* pSecondCity, bool bBestRoute) const
+#else
 bool CvTreasury::HasCityConnectionRouteBetweenCities(CvCity* pFirstCity, CvCity* pSecondCity, bool bBestRoute) const
+#endif // WOTMOD
 {
 	CvCityConnections* pCityConnections = m_pPlayer->GetCityConnections();
 	FASSERT(pCityConnections, "m_pCityConnections is null");

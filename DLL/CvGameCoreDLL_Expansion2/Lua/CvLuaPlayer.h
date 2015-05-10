@@ -323,8 +323,10 @@ protected:
 
 	static int lGetHappinessFromTradeRoutes(lua_State* L);
 	static int lGetHappinessPerTradeRoute(lua_State* L);
+#if !WOTMOD
 	static int lSetHappinessPerTradeRoute(lua_State* L);
 	static int lChangeHappinessPerTradeRoute(lua_State* L);
+#endif // !WOTMOD
 
 	static int lGetCityConnectionTradeRouteGoldModifier(lua_State* L);
 

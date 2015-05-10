@@ -339,9 +339,10 @@ void CvLuaPlayer::PushMethods(lua_State* L, int t)
 
 	Method(GetHappinessFromTradeRoutes);
 	Method(GetHappinessPerTradeRoute);
+#if !WOTMOD
 	Method(SetHappinessPerTradeRoute);
 	Method(ChangeHappinessPerTradeRoute);
-
+#endif // !WOTMOD
 	Method(GetCityConnectionTradeRouteGoldModifier);
 
 	Method(GetHappinessFromMinorCivs);
@@ -3152,14 +3153,27 @@ int CvLuaPlayer::lChangeHappinessPerGarrisonedUnit(lua_State* L)
 //int GetHappinessFromTradeRoutes() const;
 int CvLuaPlayer::lGetHappinessFromTradeRoutes(lua_State* L)
 {
+#if WOTMOD
+	int iHappiness = GetInstance(L)->GetYieldRateFromCityConnections(YIELD_HAPPINESS);
+	lua_pushinteger(L, iHappiness);
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetHappinessFromTradeRoutes);
+#endif // WOTMOD
 }
 //------------------------------------------------------------------------------
 //int GetHappinessPerTradeRoute() const;
 int CvLuaPlayer::lGetHappinessPerTradeRoute(lua_State* L)
 {
+#if WOTMOD
+	int iHappinessPerCityconnection = GetInstance(L)->GetPlayerPolicies()->GetGlobalYieldRatePerCityConnection(YIELD_HAPPINESS);
+	lua_pushinteger(L, iHappinessPerCityconnection);
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetHappinessPerTradeRoute);
+#endif // WOTMOD
 }
+#if !WOTMOD
 //------------------------------------------------------------------------------
 //void SetHappinessPerTradeRoute(int iValue);
 int CvLuaPlayer::lSetHappinessPerTradeRoute(lua_State* L)
@@ -3172,6 +3186,7 @@ int CvLuaPlayer::lChangeHappinessPerTradeRoute(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvPlayerAI::ChangeHappinessPerTradeRoute);
 }
+#endif // !WOTMOD
 //------------------------------------------------------------------------------
 //void GetTradeRouteModifier ()
 int CvLuaPlayer::lGetCityConnectionTradeRouteGoldModifier(lua_State* L)

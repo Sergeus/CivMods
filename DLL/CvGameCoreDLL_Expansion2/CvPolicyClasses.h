@@ -90,10 +90,11 @@ public:
 	int GetFreeMilitaryUnitsPopulationPercent() const;
 	int GetHappinessPerGarrisonedUnit() const;
 	int GetCulturePerGarrisonedUnit() const;
-	int GetHappinessPerTradeRoute() const;
 #if WOTMOD
+	int GetGlobalYieldRatePerCityConnection(YieldTypes eYield) const;
 	int GetGlobalYieldRatePerXPopulation(YieldTypes eYield) const;
 #else
+	int GetHappinessPerTradeRoute() const;
 	int GetHappinessPerXPopulation() const;
 #endif // WOTMOD
 	int GetExtraHappinessPerLuxury() const;
@@ -293,10 +294,11 @@ private:
 	int m_iFreeMilitaryUnitsPopulationPercent;
 	int m_iHappinessPerGarrisonedUnit;
 	int m_iCulturePerGarrisonedUnit;
-	int m_iHappinessPerTradeRoute;
 #if WOTMOD
+	std::vector<int> m_aiGlobalYieldRatePerCityConnection;
 	std::vector<int> m_aiGlobalYieldRatePerXPopulation;
 #else
+	int m_iHappinessPerTradeRoute;
 	int m_iHappinessPerXPopulation;
 #endif // WOTMOD
 	int m_iExtraHappinessPerLuxury;
@@ -602,6 +604,7 @@ public:
 	int GetBuildingClassTourismModifier(BuildingClassTypes eBuildingClass);
 	int GetImprovementCultureChange(ImprovementTypes eImprovement);
 #if WOTMOD
+	int GetGlobalYieldRatePerCityConnection(YieldTypes eYield) const;
 	int GetGlobalYieldRatePerXPopulation(YieldTypes eYield) const;
 	int GetGlobalYieldRatePerCity(YieldTypes eYield) const;
 	int GetGlobalYieldRate(YieldTypes eYield) const;

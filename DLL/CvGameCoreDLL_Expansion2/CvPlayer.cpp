@@ -152,9 +152,9 @@ CvPlayer::CvPlayer() :
 	, m_iCapitalUnhappinessMod("CvPlayer::m_iCapitalUnhappinessMod", m_syncArchive)
 	, m_iCityRevoltCounter("CvPlayer::m_iCityRevoltCounter", m_syncArchive)
 	, m_iHappinessPerGarrisonedUnitCount("CvPlayer::m_iHappinessPerGarrisonedUnitCount", m_syncArchive)
+#if !WOTMOD
 	, m_iHappinessPerTradeRouteCount("CvPlayer::m_iHappinessPerTradeRouteCount", m_syncArchive)
 	, m_iHappinessPerXPopulation(0)
-#if !WOTMOD
 	, m_iHappinessFromLeagues(0)
 #endif // !WOTMOD
 	, m_iEspionageModifier(0)
@@ -388,7 +388,9 @@ CvPlayer::CvPlayer() :
 	, m_UnitCycle(this)
 	, m_bEverPoppedGoody("CvPlayer::m_bEverPoppedGoody", m_syncArchive)
 	, m_bEverTrainedBuilder("CvPlayer::m_bEverTrainedBuilder", m_syncArchive)
+#if !WOTMOD
 	, m_iCityConnectionHappiness("CvPlayer::m_iCityConnectionHappiness", m_syncArchive)
+#endif // !WOTMOD
 	, m_iHolyCityID("CvPlayer::m_iHolyCityID", m_syncArchive)
 	, m_iTurnsSinceSettledLastCity("CvPlayer::m_iTurnsSinceSettledLastCity", m_syncArchive)
 	, m_iNumNaturalWondersDiscoveredInArea("CvPlayer::m_iNumNaturalWondersDiscoveredInArea", m_syncArchive)
@@ -751,7 +753,9 @@ void CvPlayer::uninit()
 	m_iTotalPopulation = 0;
 	m_iTotalLand = 0;
 	m_iTotalLandScored = 0;
+#if !WOTMOD
 	m_iCityConnectionHappiness = 0;
+#endif // !WOTMOD
 	m_iJONSCulturePerTurnForFree = 0;
 	m_iJONSCulturePerTurnFromMinorCivs = 0;
 	m_iJONSCultureCityModifier = 0;
@@ -773,9 +777,9 @@ void CvPlayer::uninit()
 	m_iCapitalUnhappinessMod = 0;
 	m_iCityRevoltCounter = 0;
 	m_iHappinessPerGarrisonedUnitCount = 0;
+#if !WOTMOD
 	m_iHappinessPerTradeRouteCount = 0;
 	m_iHappinessPerXPopulation = 0;
-#if !WOTMOD
 	m_iHappinessFromLeagues = 0;
 #endif // !WOTMOD
 	m_iEspionageModifier = 0;
@@ -10234,7 +10238,7 @@ int CvPlayer::GetYieldRateFromPolicies(YieldTypes eYield) const
 
 	int iYieldPerXPopulation = pPolicies->GetGlobalYieldRatePerXPopulation(eYield);
 
-	if (iYieldPerXPopulation > 0)
+	if (iYieldPerXPopulation != 0)
 	{
 		const CvCity* pLoopCity;
 		int iLoop;
@@ -10245,6 +10249,37 @@ int CvPlayer::GetYieldRateFromPolicies(YieldTypes eYield) const
 				iValue += pLoopCity->getPopulation() / iYieldPerXPopulation;
 			}
 		}
+	}
+
+	return iValue;
+}
+int CvPlayer::GetYieldRateFromCityConnections(YieldTypes eYield) const
+{
+	int iValue = 0;
+	int iYieldPerCityconnection = GetPlayerPolicies()->GetGlobalYieldRatePerCityConnection(eYield);
+	if (iYieldPerCityconnection != 0)
+	{
+		int iNumCities = 0;
+		const CvCity* pCapitalCity = getCapitalCity();
+
+		// Must have a capital before we can check if other Cities are connected to it!
+		if (pCapitalCity != NULL && getNumCities() > 1)
+		{
+			const CvCity* pLoopCity;
+
+			int iLoop;
+			for (pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+			{
+				if (pLoopCity != pCapitalCity)
+				{
+					if (GetTreasury()->HasCityConnectionRouteBetweenCities(pCapitalCity, pLoopCity))
+					{
+						iNumCities++;
+					}
+				}
+			}
+		}
+		iValue += iYieldPerCityconnection * iNumCities;
 	}
 
 	return iValue;
@@ -10541,9 +10576,13 @@ void CvPlayer::DoUpdateHappiness()
 	m_iHappiness += GetHappinessFromUnits();
 #endif // WOTMOD
 
+#if WOTMOD
+	m_iHappiness += GetYieldRateFromCityConnections(YIELD_HAPPINESS);
+#else
 	// Increase for each City connected to Capital with a Trade Route
 	DoUpdateCityConnectionHappiness();
 	m_iHappiness += GetHappinessFromTradeRoutes();
+#endif // !WOTMOD
 
 	if(isLocalPlayer() && GetExcessHappiness() >= 100)
 	{
@@ -12123,6 +12162,7 @@ void CvPlayer::ChangeHappinessPerGarrisonedUnit(int iChange)
 	SetHappinessPerGarrisonedUnit(m_iHappinessPerGarrisonedUnitCount + iChange);
 }
 
+#if !WOTMOD
 //	--------------------------------------------------------------------------------
 /// Returns cached amount of Happiness being brought in for having Cities connected via a Route
 int CvPlayer::GetHappinessFromTradeRoutes() const
@@ -12183,7 +12223,6 @@ void CvPlayer::ChangeHappinessPerTradeRoute(int iChange)
 	SetHappinessPerTradeRoute(m_iHappinessPerTradeRouteCount + iChange);
 }
 
-#if !WOTMOD
 //	--------------------------------------------------------------------------------
 /// How much Happiness are we getting from large cities?
 int CvPlayer::GetHappinessPerXPopulation() const
@@ -21365,8 +21404,8 @@ void CvPlayer::processPolicies(PolicyTypes ePolicy, int iChange)
 	changeMilitaryProductionModifier(pPolicy->GetMilitaryProductionModifier() * iChange);
 	changeBaseFreeUnits(pPolicy->GetBaseFreeUnits() * iChange);
 	ChangeHappinessPerGarrisonedUnit(pPolicy->GetHappinessPerGarrisonedUnit() * iChange);
-	ChangeHappinessPerTradeRoute(pPolicy->GetHappinessPerTradeRoute() * iChange);
 #if !WOTMOD
+	ChangeHappinessPerTradeRoute(pPolicy->GetHappinessPerTradeRoute() * iChange);
 	ChangeHappinessPerXPopulation(pPolicy->GetHappinessPerXPopulation() * iChange);
 #endif // !WOTMOD
 	ChangeExtraHappinessPerLuxury(pPolicy->GetExtraHappinessPerLuxury() * iChange);
@@ -22207,9 +22246,9 @@ void CvPlayer::Read(FDataStream& kStream)
 	kStream >> m_iCapitalUnhappinessMod;
 	kStream >> m_iCityRevoltCounter;
 	kStream >> m_iHappinessPerGarrisonedUnitCount;
+#if !WOTMOD
 	kStream >> m_iHappinessPerTradeRouteCount;
 	kStream >> m_iHappinessPerXPopulation;
-#if !WOTMOD
 	kStream >> m_iHappinessPerXPolicies;
 	if (uiVersion >= 8)
 	{
@@ -22438,7 +22477,9 @@ void CvPlayer::Read(FDataStream& kStream)
 	kStream >> m_iNumWonders;
 	kStream >> m_iNumPolicies;
 	kStream >> m_iNumGreatPeople;
+#if !WOTMOD
 	kStream >> m_iCityConnectionHappiness;
+#endif // !WOTMOD
 	kStream >> m_iHolyCityID;
 	kStream >> m_iTurnsSinceSettledLastCity;
 	kStream >> m_iNumNaturalWondersDiscoveredInArea;
@@ -22782,9 +22823,9 @@ void CvPlayer::Write(FDataStream& kStream) const
 	kStream << m_iCapitalUnhappinessMod;
 	kStream << m_iCityRevoltCounter;
 	kStream << m_iHappinessPerGarrisonedUnitCount;
+#if !WOTMOD
 	kStream << m_iHappinessPerTradeRouteCount;
 	kStream << m_iHappinessPerXPopulation;
-#if !WOTMOD
 	kStream << m_iHappinessPerXPolicies;
 	kStream << m_iHappinessFromLeagues;
 #endif // !WOTMOD
@@ -22949,7 +22990,9 @@ void CvPlayer::Write(FDataStream& kStream) const
 	kStream << m_iNumWonders;
 	kStream << m_iNumPolicies;
 	kStream << m_iNumGreatPeople;
+#if !WOTMOD
 	kStream << m_iCityConnectionHappiness;
+#endif // !WOTMOD
 	kStream << m_iHolyCityID;
 	kStream << m_iTurnsSinceSettledLastCity;
 	kStream << m_iNumNaturalWondersDiscoveredInArea;

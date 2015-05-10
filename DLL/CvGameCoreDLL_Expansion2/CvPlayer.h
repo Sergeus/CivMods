@@ -320,8 +320,10 @@ public:
 	int getTotalLandScored() const;
 	void changeTotalLandScored(int iChange);
 
+#if !WOTMOD
 	int GetHappinessFromTradeRoutes() const;
 	void DoUpdateCityConnectionHappiness();
+#endif // !WOTMOD
 
 	// Culture
 
@@ -389,6 +391,7 @@ public:
 	int GetYieldRateFromMinorCivs(YieldTypes eYield, CvString* tooltipSink = NULL) const;
 	int GetYieldRateFromReligion(YieldTypes eYield, CvString* tooltipSink = NULL) const;
 	int GetYieldRateFromPolicies(YieldTypes eYield) const;
+	int GetYieldRateFromCityConnections(YieldTypes eYield) const;
 	int GetGlobalYieldRateFromCities(YieldTypes eYield) const;
 	int GetBaseYieldRateModifier(YieldTypes eYield, CvString* tooltipSink = NULL) const;
 
@@ -497,11 +500,11 @@ public:
 	void SetHappinessPerGarrisonedUnit(int iValue);
 	void ChangeHappinessPerGarrisonedUnit(int iChange);
 
+#if !WOTMOD
 	int GetHappinessPerTradeRoute() const;
 	void SetHappinessPerTradeRoute(int iValue);
 	void ChangeHappinessPerTradeRoute(int iChange);
 
-#if !WOTMOD
 	int GetHappinessPerXPopulation() const;
 	void SetHappinessPerXPopulation(int iValue);
 	void ChangeHappinessPerXPopulation(int iChange);
@@ -1648,11 +1651,11 @@ protected:
 	FAutoVariable<int, CvPlayer> m_iCapitalUnhappinessMod;
 	FAutoVariable<int, CvPlayer> m_iCityRevoltCounter;
 	FAutoVariable<int, CvPlayer> m_iHappinessPerGarrisonedUnitCount;
-	FAutoVariable<int, CvPlayer> m_iHappinessPerTradeRouteCount;
-	int m_iHappinessPerXPopulation;
 #if WOTMOD
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiYieldRateFromLeagues;
 #else
+	FAutoVariable<int, CvPlayer> m_iHappinessPerTradeRouteCount;
+	int m_iHappinessPerXPopulation;
 	int m_iHappinessFromLeagues;
 #endif // WOTMOD
 	FAutoVariable<int, CvPlayer> m_iSpecialPolicyBuildingHappiness;  //unused
@@ -1821,7 +1824,9 @@ protected:
 	FAutoVariable<int, CvPlayer> m_iNumWonders;
 	FAutoVariable<int, CvPlayer> m_iNumPolicies;
 	FAutoVariable<int, CvPlayer> m_iNumGreatPeople;
+#if !WOTMOD
 	FAutoVariable<int, CvPlayer> m_iCityConnectionHappiness;
+#endif // !WOTMOD
 	FAutoVariable<int, CvPlayer> m_iHolyCityID;
 	FAutoVariable<int, CvPlayer> m_iTurnsSinceSettledLastCity;
 	FAutoVariable<int, CvPlayer> m_iNumNaturalWondersDiscoveredInArea;
