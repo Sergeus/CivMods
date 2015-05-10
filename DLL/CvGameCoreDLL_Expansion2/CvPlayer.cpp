@@ -339,7 +339,6 @@ CvPlayer::CvPlayer() :
 	, m_iTurnsSincePledgedSupport("CvPlayer::m_iTurnsSincePledgedSupport", m_syncArchive)
 	, m_YieldTotals("CvPlayer::m_YieldTotals", m_syncArchive)
 	, m_iThreadsAvailable("CvPlayer::m_iThreadsAvailable", m_syncArchive)
-	, m_aiYieldRatePerXPolicies("CvPlayer::m_aiYieldRatePerXPolicies", m_syncArchive)
 #endif // WOTMOD
 
 	, m_aiCityYieldChange("CvPlayer::m_aiCityYieldChange", m_syncArchive)
@@ -8390,12 +8389,10 @@ void CvPlayer::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst
 	// Extra Happiness Per City
 	ChangeExtraHappinessPerCity(pBuildingInfo->GetHappinessPerCity() * iChange);
 
-#if WOTMOD
-	ChangeYieldRatePerXPolicies(YIELD_HAPPINESS, pBuildingInfo->GetHappinessPerXPolicies() * iChange);
-#else
+#if !WOTMOD
 	// Extra Happiness Per Policy
 	ChangeExtraHappinessPerXPolicies(pBuildingInfo->GetHappinessPerXPolicies() * iChange);
-#endif // WOTMOD
+#endif // !WOTMOD
 
 	// City Count Unhappiness Mod
 	ChangeCityCountUnhappinessMod(pBuildingInfo->GetCityCountUnhappinessMod() * iChange);
@@ -10223,9 +10220,24 @@ int CvPlayer::GetYieldRateFromPolicies(YieldTypes eYield) const
 {
 	int iValue = 0;
 
-	if (GetYieldRatePerXPolicies(eYield) > 0)
+	CvPlayerPolicies* pPolicies = GetPlayerPolicies();
+
+	iValue += pPolicies->GetGlobalYieldRate(eYield);
+	iValue += pPolicies->GetGlobalYieldRatePerCity(eYield) * getNumCities();
+
+	int iYieldPerXPopulation = pPolicies->GetGlobalYieldRatePerXPopulation(eYield);
+
+	if (iYieldPerXPopulation > 0)
 	{
-		iValue += GetPlayerPolicies()->GetNumPoliciesOwned() / GetYieldRatePerXPolicies(eYield);
+		const CvCity* pLoopCity;
+		int iLoop;
+		for (pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+		{
+			if (pLoopCity && !pLoopCity->IsPuppet())
+			{
+				iValue += pLoopCity->getPopulation() / iYieldPerXPopulation;
+			}
+		}
 	}
 
 	return iValue;
@@ -10239,6 +10251,12 @@ int CvPlayer::GetGlobalYieldRateFromCities(YieldTypes eYield) const
 	for (pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
 	{
 		iValue += pLoopCity->GetGlobalYieldRate(eYield);
+
+		int iYieldPerXPolicies = pLoopCity->GetGlobalYieldRatePerXPolicies(eYield);
+		if (iYieldPerXPolicies > 0)
+		{
+			iValue += GetPlayerPolicies()->GetNumPoliciesOwned() / iYieldPerXPolicies;
+		}
 	}
 
 	return iValue;
@@ -10255,18 +10273,6 @@ int CvPlayer::GetBaseYieldRateModifier(YieldTypes eYield, CvString* tooltipSink)
 	GC.getGame().BuildProdModHelpText(tooltipSink, "TXT_KEY_YIELD_MODIFIER_FROM_SOURCE", iTempMod, "TXT_KEY_YIELD_MODIFIER_SOURCE_ALIGNMENT");
 
 	return iModifier;
-}
-int CvPlayer::GetYieldRatePerXPolicies(YieldTypes eYield) const
-{
-	return m_aiYieldRatePerXPolicies[eYield];
-}
-void CvPlayer::SetYieldRatePerXPolicies(YieldTypes eYield, int iNewValue)
-{
-	m_aiYieldRatePerXPolicies.setAt(eYield, iNewValue);
-}
-void CvPlayer::ChangeYieldRatePerXPolicies(YieldTypes eYield, int iChange)
-{
-	SetYieldRatePerXPolicies(eYield, GetYieldRatePerXPolicies(eYield) + iChange);
 }
 #else
 int CvPlayer::GetTotalFaithPerTurn() const
@@ -10484,10 +10490,10 @@ void CvPlayer::DoUpdateHappiness()
 #else
 	// Increase from buildings
 	m_iHappiness += GetHappinessFromBuildings();
-#endif // WOTMOD
 
 	// Increase from policies
 	m_iHappiness += GetHappinessFromPolicies();
+#endif // WOTMOD
 
 	// Increase from num cities (player based, for buildings and such)
 	m_iHappiness += getNumCities() * m_iHappinessPerCity;
@@ -11135,6 +11141,7 @@ PlayerTypes CvPlayer::GetMostUnhappyCityRecipient()
 	return eRtnValue;
 }
 
+#if !WOTMOD
 //	--------------------------------------------------------------------------------
 /// Returns the amount of Happiness being added by Policies
 int CvPlayer::GetHappinessFromPolicies() const
@@ -11170,7 +11177,6 @@ int CvPlayer::GetHappinessFromPolicies() const
 	return iHappiness;
 }
 
-#if !WOTMOD
 //	--------------------------------------------------------------------------------
 /// Returns the amount of Local Happiness generated in the cities
 int CvPlayer::GetHappinessFromCities() const

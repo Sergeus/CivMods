@@ -383,7 +383,6 @@ public:
 
 	void DoTechFromCityConquer(CvCity* pConqueredCity);
 
-	// Faith
 #if WOTMOD
 	int GetYieldRate(YieldTypes eYield, CvString* tooltipSink = NULL) const;
 	int GetYieldRateFromCities(YieldTypes eYield, CvString* tooltipSink = NULL) const;
@@ -392,10 +391,8 @@ public:
 	int GetYieldRateFromPolicies(YieldTypes eYield) const;
 	int GetGlobalYieldRateFromCities(YieldTypes eYield) const;
 	int GetBaseYieldRateModifier(YieldTypes eYield, CvString* tooltipSink = NULL) const;
-	int GetYieldRatePerXPolicies(YieldTypes eYield) const;
-	void SetYieldRatePerXPolicies(YieldTypes eYield, int iNewValue);
-	void ChangeYieldRatePerXPolicies(YieldTypes eYield, int iChange);
 #else
+	// Faith
 	int GetTotalFaithPerTurn() const;
 	int GetFaithPerTurnFromCities() const;
 	int GetFaithPerTurnFromMinorCivs() const;
@@ -442,8 +439,8 @@ public:
 	CvCity *GetMostUnhappyCity();
 	PlayerTypes GetMostUnhappyCityRecipient();
 
-	int GetHappinessFromPolicies() const;
 #if !WOTMOD
+	int GetHappinessFromPolicies() const;
 	int GetHappinessFromCities() const;
 	int GetHappinessFromBuildings() const;
 #endif // !WOTMOD
@@ -1862,7 +1859,6 @@ protected:
 	FAutoVariable<int, CvPlayer> m_iTurnsSincePledgedSupport;
 	FAutoVariable<std::vector<int>, CvPlayer> m_YieldTotals;
 	FAutoVariable<int, CvPlayer> m_iThreadsAvailable;
-	FAutoVariable<std::vector<int>, CvPlayer> m_aiYieldRatePerXPolicies;
 #endif // WOTMOD
 
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCityYieldChange;

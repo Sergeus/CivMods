@@ -2873,7 +2873,13 @@ int CvLuaPlayer::lIsEmpireSuperUnhappy(lua_State* L)
 //int GetHappinessFromPolicies() const;
 int CvLuaPlayer::lGetHappinessFromPolicies(lua_State* L)
 {
+#if WOTMOD
+	int iHappiness = GetInstance(L)->GetYieldRateFromPolicies(YIELD_HAPPINESS);
+	lua_pushinteger(L, iHappiness);
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetHappinessFromPolicies);
+#endif // WOTMOD
 }
 
 //------------------------------------------------------------------------------

@@ -384,6 +384,9 @@ public:
 	int GetGlobalYieldRateFromBuildings(YieldTypes eYield) const;
 	void ChangeGlobalYieldRateFromBuildings(YieldTypes eYield, int iChange);
 	void SetGlobalYieldRateFromBuildings(YieldTypes eYield, int iNewValue);
+	int GetGlobalYieldRatePerXPolicies(YieldTypes eYield) const;
+	void SetGlobalYieldRatePerXPolicies(YieldTypes eYield, int iNewValue);
+	void ChangeGlobalYieldRatePerXPolicies(YieldTypes eYield, int iChange);
 #else
 	int GetFaithPerTurn() const;
 
@@ -869,6 +872,7 @@ protected:
 #if WOTMOD
 	FAutoVariable<std::vector<int>, CvCity> m_aiBaseYieldRateFromPolicies;
 	FAutoVariable<std::vector<int>, CvCity> m_aiGlobalYieldRateFromBuildings;
+	FAutoVariable<std::vector<int>, CvCity> m_aiGlobalYieldRatePerXPolicies;
 #else
 	int m_iFaithPerTurnFromBuildings;
 	int m_iFaithPerTurnFromPolicies;
