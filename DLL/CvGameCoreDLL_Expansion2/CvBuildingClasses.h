@@ -290,7 +290,9 @@ public:
 	int GetTerrainYieldChange(int i, int j) const;
 	int* GetTerrainYieldChangeArray(int i) const;
 	int GetBuildingClassYieldChange(int i, int j) const;
+#if !WOTMOD
 	int GetBuildingClassHappiness(int i) const;
+#endif // !WOTMOD
 
 #if SIEGEMOD
 	int GetTradeRouteYieldChange(int i, int j) const;
@@ -504,7 +506,9 @@ private:
 	int** m_ppaiResourceYieldModifier;
 	int** m_ppaiTerrainYieldChange;
 	int** m_ppiBuildingClassYieldChanges;
+#if !WOTMOD
 	int* m_paiBuildingClassHappiness;
+#endif // !WOTMOD
 
 #if SIEGEMOD
 	int** m_ppaiTradeRouteYieldChanges;

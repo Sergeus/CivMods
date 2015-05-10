@@ -687,7 +687,9 @@ void CvPlayer::uninit()
 	m_iAlwaysSeeBarbCampsCount = 0;
 	m_iHappinessFromBuildings = 0;
 	m_iHappinessPerCity = 0;
+#if !WOTMOD
 	m_iHappinessPerXPolicies = 0;
+#endif // !WOTMOD
 	m_iAdvancedStartPoints = -1;
 	m_iAttackBonusTurns = 0;
 	m_iGoldenAgeProgressMeter = 0;

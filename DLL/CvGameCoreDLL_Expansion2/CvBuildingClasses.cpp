@@ -190,7 +190,9 @@ CvBuildingEntry::CvBuildingEntry(void):
 	m_ppaiResourceYieldModifier(NULL),
 	m_ppaiTerrainYieldChange(NULL),
 	m_ppiBuildingClassYieldChanges(NULL),
+#if !WOTMOD
 	m_paiBuildingClassHappiness(NULL),
+#endif // !WOTMOD
 
 #if SIEGEMOD
 	m_ppaiTradeRouteYieldChanges(NULL),
@@ -245,7 +247,9 @@ CvBuildingEntry::~CvBuildingEntry(void)
 	SAFE_DELETE_ARRAY(m_paiHurryModifier);
 	SAFE_DELETE_ARRAY(m_pbBuildingClassNeededInCity);
 	SAFE_DELETE_ARRAY(m_piNumFreeUnits);
+#if !WOTMOD
 	SAFE_DELETE_ARRAY(m_paiBuildingClassHappiness);
+#endif // !WOTMOD
 	SAFE_DELETE_ARRAY(m_paThemingBonusInfo);
 
 #if WOTMOD
@@ -514,7 +518,9 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 	kUtility.PopulateArrayByExistence(m_pbBuildingClassNeededInCity, "BuildingClasses", "Building_ClassesNeededInCity", "BuildingClassType", "BuildingType", szBuildingType);
 	//kUtility.PopulateArrayByExistence(m_piNumFreeUnits, "Units", "Building_FreeUnits", "UnitType", "BuildingType", szBuildingType);
 	kUtility.PopulateArrayByValue(m_piNumFreeUnits, "Units", "Building_FreeUnits", "UnitType", "BuildingType", szBuildingType, "NumUnits");
+#if !WOTMOD
 	kUtility.PopulateArrayByValue(m_paiBuildingClassHappiness, "BuildingClasses", "Building_BuildingClassHappiness", "BuildingClassType", "BuildingType", szBuildingType, "Happiness");
+#endif // !WOTMOD
 
 	kUtility.PopulateArrayByExistence(m_piLockedBuildingClasses, "BuildingClasses", "Building_LockedBuildingClasses", "BuildingClassType", "BuildingType", szBuildingType);
 	kUtility.PopulateArrayByExistence(m_piPrereqAndTechs, "Technologies", "Building_TechAndPrereqs", "TechType", "BuildingType", szBuildingType);
@@ -765,6 +771,14 @@ bool CvBuildingEntry::CacheResults(Database::Results& kResults, CvDatabaseUtilit
 
 			m_ppiBuildingClassYieldChanges[BuildingClassID][iYieldID] = iYieldChange;
 		}
+#if WOTMOD
+		std::vector<int> happinessVector;
+		kUtility.PopulateVectorByValue(happinessVector, "BuildingClasses", "Building_BuildingClassHappiness", "BuildingClassType", "BuildingType", szBuildingType, "Happiness");
+		for (int i = 0; i < kUtility.MaxRows("BuildingClasses"); ++i)
+		{
+			m_ppiBuildingClassYieldChanges[i][YIELD_HAPPINESS] = happinessVector[i];
+		}
+#endif // WOTMOD
 	}
 
 	{
@@ -2220,6 +2234,7 @@ int CvBuildingEntry::GetBuildingClassYieldChange(int i, int j) const
 	return m_ppiBuildingClassYieldChanges[i][j];
 }
 
+#if !WOTMOD
 /// Amount of extra Happiness per turn a BuildingClass provides
 int CvBuildingEntry::GetBuildingClassHappiness(int i) const
 {
@@ -2227,6 +2242,7 @@ int CvBuildingEntry::GetBuildingClassHappiness(int i) const
 	CvAssertMsg(i > -1, "Index out of bounds");
 	return m_paiBuildingClassHappiness ? m_paiBuildingClassHappiness[i] : -1;
 }
+#endif // !WOTMOD
 
 CvThemingBonusInfo *CvBuildingEntry::GetThemingBonusInfo(int i) const
 {

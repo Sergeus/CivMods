@@ -390,6 +390,9 @@ public:
 	int GetYieldRateFromMinorCivs(YieldTypes eYield, CvString* tooltipSink = NULL) const;
 	int GetYieldRateFromReligion(YieldTypes eYield, CvString* tooltipSink = NULL) const;
 	int GetBaseYieldRateModifier(YieldTypes eYield, CvString* tooltipSink = NULL) const;
+	int GetYieldRatePerXPolicies(YieldTypes eYield) const;
+	void SetYieldRatePerXPolicies(YieldTypes eYield, int iNewValue);
+	void ChangeYieldRatePerXPolicies(YieldTypes eYield, int iChange);
 #else
 	int GetTotalFaithPerTurn() const;
 	int GetFaithPerTurnFromCities() const;
@@ -445,8 +448,10 @@ public:
 
 	int GetExtraHappinessPerCity() const;
 	void ChangeExtraHappinessPerCity(int iChange);
+#if !WOTMOD
 	int GetExtraHappinessPerXPolicies() const;
 	void ChangeExtraHappinessPerXPolicies(int iChange);
+#endif // !WOTMOD
 
 	int GetHappinessFromResources() const;
 	int GetHappinessFromResourceVariety() const;
@@ -1650,7 +1655,9 @@ protected:
 	FAutoVariable<int, CvPlayer> m_iAlwaysSeeBarbCampsCount;
 	FAutoVariable<int, CvPlayer> m_iHappinessFromBuildings;
 	FAutoVariable<int, CvPlayer> m_iHappinessPerCity;
+#if !WOTMOD
 	int m_iHappinessPerXPolicies;
+#endif // !WOTMOD
 	int m_iEspionageModifier;
 	int m_iSpyStartingRank;
 	int m_iExtraLeagueVotes;
@@ -1851,6 +1858,7 @@ protected:
 	FAutoVariable<int, CvPlayer> m_iTurnsSincePledgedSupport;
 	FAutoVariable<std::vector<int>, CvPlayer> m_YieldTotals;
 	FAutoVariable<int, CvPlayer> m_iThreadsAvailable;
+	FAutoVariable<std::vector<int>, CvPlayer> m_aiYieldRatePerXPolicies;
 #endif // WOTMOD
 
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCityYieldChange;
