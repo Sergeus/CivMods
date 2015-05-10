@@ -10219,6 +10219,30 @@ int CvPlayer::GetYieldRateFromReligion(YieldTypes eYield, CvString* tooltipSink)
 
 	return iYieldRate;
 }
+int CvPlayer::GetYieldRateFromPolicies(YieldTypes eYield) const
+{
+	int iValue = 0;
+
+	if (GetYieldRatePerXPolicies(eYield) > 0)
+	{
+		iValue += GetPlayerPolicies()->GetNumPoliciesOwned() / GetYieldRatePerXPolicies(eYield);
+	}
+
+	return iValue;
+}
+int CvPlayer::GetGlobalYieldRateFromCities(YieldTypes eYield) const
+{
+	int iValue = 0;
+
+	const CvCity* pLoopCity;
+	int iLoop;
+	for (pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
+	{
+		iValue += pLoopCity->GetGlobalYieldRate(eYield);
+	}
+
+	return iValue;
+}
 int CvPlayer::GetBaseYieldRateModifier(YieldTypes eYield, CvString* tooltipSink) const
 {
 	// TODO unify with CvPlayer::getYieldRateModifier
@@ -10454,8 +10478,13 @@ void CvPlayer::DoUpdateHappiness()
 	m_iHappiness += GetHappinessFromCities();
 #endif // WOTMOD
 
+#if WOTMOD
+	m_iHappiness += GetGlobalYieldRateFromCities(YIELD_HAPPINESS);
+	m_iHappiness += GetYieldRateFromPolicies(YIELD_HAPPINESS);
+#else
 	// Increase from buildings
 	m_iHappiness += GetHappinessFromBuildings();
+#endif // WOTMOD
 
 	// Increase from policies
 	m_iHappiness += GetHappinessFromPolicies();
@@ -11113,8 +11142,12 @@ int CvPlayer::GetHappinessFromPolicies() const
 	int iHappiness = m_pPlayerPolicies->GetNumericModifier(POLICYMOD_EXTRA_HAPPINESS);
 	iHappiness += (getNumCities() * m_pPlayerPolicies->GetNumericModifier(POLICYMOD_EXTRA_HAPPINESS_PER_CITY));
 
+#if WOTMOD
+	int iHappinessPerXPopulation = GetPlayerPolicies()->GetGlobalYieldRatePerXPopulation(YIELD_HAPPINESS);
+#else
 	int iHappinessPerXPopulation;
 	iHappinessPerXPopulation = GetHappinessPerXPopulation();
+#endif // WOTMOD
 
 	if(iHappinessPerXPopulation > 0)
 	{
@@ -11150,7 +11183,6 @@ int CvPlayer::GetHappinessFromCities() const
 
 	return iHappiness;
 }
-#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Returns the amount of Global Happiness being added by Buildings
@@ -11180,11 +11212,7 @@ int CvPlayer::GetHappinessFromBuildings() const
 				for(int jJ = 0; jJ < GC.getNumBuildingClassInfos(); jJ++)
 				{
 					BuildingClassTypes eBuildingClassThatGivesHappiness = (BuildingClassTypes) jJ;
-#if WOTMOD
-					int iHappinessPerBuilding = pkBuilding->GetBuildingClassYieldChange(eBuildingClassThatGivesHappiness, YIELD_HAPPINESS);
-#else
 					int iHappinessPerBuilding = pkBuilding->GetBuildingClassHappiness(eBuildingClassThatGivesHappiness);
-#endif // WOTMOD
 					if(iHappinessPerBuilding > 0)
 					{
 						BuildingTypes eBuildingThatGivesHappiness = (BuildingTypes) getCivilizationInfo().getCivilizationBuildings(eBuildingClassThatGivesHappiness);
@@ -11203,28 +11231,18 @@ int CvPlayer::GetHappinessFromBuildings() const
 	int iLoop;
 	for(pLoopCity = firstCity(&iLoop); pLoopCity != NULL; pLoopCity = nextCity(&iLoop))
 	{
-#if WOTMOD
-		iHappiness += pLoopCity->GetGlobalYieldRate(YIELD_HAPPINESS);
-#else
 		iHappiness += pLoopCity->GetHappinessFromBuildings();
-#endif // WOTMOD
 	}
 
-#if WOTMOD
-	if (GetYieldRatePerXPolicies(YIELD_HAPPINESS) > 0)
-	{
-		iHappiness += GetPlayerPolicies()->GetNumPoliciesOwned() / GetYieldRatePerXPolicies(YIELD_HAPPINESS);
-	}
-#else
 	// Increase from num policies -- MOVE THIS CODE (and provide a new tool tip string) if we ever get happiness per X policies to something beside a building
 	if(m_iHappinessPerXPolicies > 0)
 	{
 		iHappiness += GetPlayerPolicies()->GetNumPoliciesOwned() / m_iHappinessPerXPolicies;
 	}
-#endif // WOTMOD
 
 	return iHappiness;
 }
+#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Returns the amount of extra Happiness per City
@@ -12132,6 +12150,7 @@ void CvPlayer::ChangeHappinessPerTradeRoute(int iChange)
 	SetHappinessPerTradeRoute(m_iHappinessPerTradeRouteCount + iChange);
 }
 
+#if !WOTMOD
 //	--------------------------------------------------------------------------------
 /// How much Happiness are we getting from large cities?
 int CvPlayer::GetHappinessPerXPopulation() const
@@ -12152,6 +12171,7 @@ void CvPlayer::ChangeHappinessPerXPopulation(int iChange)
 {
 	SetHappinessPerXPopulation(m_iHappinessPerXPopulation + iChange);
 }
+#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// Happiness from Minors
@@ -21313,7 +21333,9 @@ void CvPlayer::processPolicies(PolicyTypes ePolicy, int iChange)
 	changeBaseFreeUnits(pPolicy->GetBaseFreeUnits() * iChange);
 	ChangeHappinessPerGarrisonedUnit(pPolicy->GetHappinessPerGarrisonedUnit() * iChange);
 	ChangeHappinessPerTradeRoute(pPolicy->GetHappinessPerTradeRoute() * iChange);
+#if !WOTMOD
 	ChangeHappinessPerXPopulation(pPolicy->GetHappinessPerXPopulation() * iChange);
+#endif // !WOTMOD
 	ChangeExtraHappinessPerLuxury(pPolicy->GetExtraHappinessPerLuxury() * iChange);
 	ChangeUnhappinessFromUnitsMod(pPolicy->GetUnhappinessFromUnitsMod() * iChange);
 	ChangeUnhappinessMod(pPolicy->GetUnhappinessMod() * iChange);

@@ -2893,7 +2893,13 @@ int CvLuaPlayer::lGetHappinessFromCities(lua_State* L)
 //int GetHappinessFromBuildings() const;
 int CvLuaPlayer::lGetHappinessFromBuildings(lua_State* L)
 {
+#if WOTMOD
+	int iHappiness = GetInstance(L)->GetGlobalYieldRateFromCities(YIELD_HAPPINESS);
+	lua_pushinteger(L, iHappiness);
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetHappinessFromBuildings);
+#endif // WOTMOD
 }
 
 //------------------------------------------------------------------------------
@@ -9761,7 +9767,11 @@ int CvLuaPlayer::lGetPlayerBuildingClassHappiness(lua_State* L)
 				CvBuildingEntry* pkParentBuilding = GC.getBuildingInfo(eParentBuilding);
 				if (pkParentBuilding)
 				{
+#if WOTMOD
+					iChange += pkParentBuilding->GetBuildingClassYieldChange(eOtherBuildingClass, YIELD_HAPPINESS);
+#else
 					iChange += pkParentBuilding->GetBuildingClassHappiness(eOtherBuildingClass);
+#endif // WOTMOD
 				}
 			}
 		}

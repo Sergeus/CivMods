@@ -75,7 +75,9 @@ CvPolicyEntry::CvPolicyEntry(void):
 	m_iHappinessPerGarrisonedUnit(0),
 	m_iCulturePerGarrisonedUnit(0),
 	m_iHappinessPerTradeRoute(0),
+#if !WOTMOD
 	m_iHappinessPerXPopulation(0),
+#endif // !WOTMOD
 	m_iExtraHappinessPerLuxury(0),
 	m_iUnhappinessFromUnitsMod(0),
 	m_iNumExtraBuilders(0),
@@ -290,7 +292,12 @@ bool CvPolicyEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility&
 	m_iHappinessPerGarrisonedUnit = kResults.GetInt("HappinessPerGarrisonedUnit");
 	m_iCulturePerGarrisonedUnit = kResults.GetInt("CulturePerGarrisonedUnit");
 	m_iHappinessPerTradeRoute = kResults.GetInt("HappinessPerTradeRoute");
+#if WOTMOD
+	m_aiYieldPerXPopulation.resize(kUtility.MaxRows("Yields"), 0);
+	m_aiYieldPerXPopulation[YIELD_HAPPINESS] = kResults.GetInt("HappinessPerXPopulation");
+#else
 	m_iHappinessPerXPopulation = kResults.GetInt("HappinessPerXPopulation");
+#endif // WOTMOD
 	m_iExtraHappinessPerLuxury = kResults.GetInt("ExtraHappinessPerLuxury");
 	m_iUnhappinessFromUnitsMod = kResults.GetInt("UnhappinessFromUnitsMod");
 	m_iNumExtraBuilders = kResults.GetInt("NumExtraBuilders");
@@ -933,11 +940,18 @@ int CvPolicyEntry::GetHappinessPerTradeRoute() const
 	return m_iHappinessPerTradeRoute;
 }
 
+#if WOTMOD
+int CvPolicyEntry::GetGlobalYieldPerXPopulation(YieldTypes eYield) const
+{
+	return m_aiYieldPerXPopulation[eYield];
+}
+#else
 /// Happiness from large cities
 int CvPolicyEntry::GetHappinessPerXPopulation() const
 {
 	return m_iHappinessPerXPopulation;
 }
+#endif // WOTMOD
 
 /// Happiness from each connected Luxury Resource
 int CvPolicyEntry::GetExtraHappinessPerLuxury() const
@@ -2664,6 +2678,23 @@ int CvPlayerPolicies::GetBuildingClassTourismModifier(BuildingClassTypes eBuildi
 
 	return rtnValue;
 }
+
+#if WOTMOD
+int CvPlayerPolicies::GetGlobalYieldRatePerXPopulation(YieldTypes eYield) const
+{
+	int iYield = 0;
+	for (int i = 0; i < m_pPolicies->GetNumPolicies(); ++i)
+	{
+		PolicyTypes ePolicy = static_cast<PolicyTypes>(i);
+		// Do we have this policy?
+		if (HasPolicy(ePolicy) && !IsPolicyBlocked(ePolicy))
+		{
+			iYield += m_pPolicies->GetPolicyEntry(ePolicy)->GetGlobalYieldPerXPopulation(eYield);
+		}
+	}
+	return iYield;
+}
+#endif // WOTMOD
 
 /// Does any policy owned give benefit for garrisons?
 bool CvPlayerPolicies::HasPolicyEncouragingGarrisons() const

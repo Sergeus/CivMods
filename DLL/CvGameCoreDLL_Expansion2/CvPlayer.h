@@ -389,6 +389,8 @@ public:
 	int GetYieldRateFromCities(YieldTypes eYield, CvString* tooltipSink = NULL) const;
 	int GetYieldRateFromMinorCivs(YieldTypes eYield, CvString* tooltipSink = NULL) const;
 	int GetYieldRateFromReligion(YieldTypes eYield, CvString* tooltipSink = NULL) const;
+	int GetYieldRateFromPolicies(YieldTypes eYield) const;
+	int GetGlobalYieldRateFromCities(YieldTypes eYield) const;
 	int GetBaseYieldRateModifier(YieldTypes eYield, CvString* tooltipSink = NULL) const;
 	int GetYieldRatePerXPolicies(YieldTypes eYield) const;
 	void SetYieldRatePerXPolicies(YieldTypes eYield, int iNewValue);
@@ -443,8 +445,8 @@ public:
 	int GetHappinessFromPolicies() const;
 #if !WOTMOD
 	int GetHappinessFromCities() const;
-#endif // !WOTMOD
 	int GetHappinessFromBuildings() const;
+#endif // !WOTMOD
 
 	int GetExtraHappinessPerCity() const;
 	void ChangeExtraHappinessPerCity(int iChange);
@@ -500,9 +502,11 @@ public:
 	void SetHappinessPerTradeRoute(int iValue);
 	void ChangeHappinessPerTradeRoute(int iChange);
 
+#if !WOTMOD
 	int GetHappinessPerXPopulation() const;
 	void SetHappinessPerXPopulation(int iValue);
 	void ChangeHappinessPerXPopulation(int iChange);
+#endif // !WOTMOD
 
 	int GetHappinessFromMinorCivs() const;
 	int GetHappinessFromMinor(PlayerTypes eMinor) const;

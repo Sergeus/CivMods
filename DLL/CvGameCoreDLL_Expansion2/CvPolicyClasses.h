@@ -86,7 +86,11 @@ public:
 	int GetHappinessPerGarrisonedUnit() const;
 	int GetCulturePerGarrisonedUnit() const;
 	int GetHappinessPerTradeRoute() const;
+#if WOTMOD
+	int GetGlobalYieldPerXPopulation(YieldTypes eYield) const;
+#else
 	int GetHappinessPerXPopulation() const;
+#endif // WOTMOD
 	int GetExtraHappinessPerLuxury() const;
 	int GetUnhappinessFromUnitsMod() const;
 	int GetNumExtraBuilders() const;
@@ -280,7 +284,11 @@ private:
 	int m_iHappinessPerGarrisonedUnit;
 	int m_iCulturePerGarrisonedUnit;
 	int m_iHappinessPerTradeRoute;
+#if WOTMOD
+	std::vector<int> m_aiYieldPerXPopulation;
+#else
 	int m_iHappinessPerXPopulation;
+#endif // WOTMOD
 	int m_iExtraHappinessPerLuxury;
 	int m_iUnhappinessFromUnitsMod;
 	int m_iNumExtraBuilders;
@@ -583,6 +591,9 @@ public:
 	int GetBuildingClassProductionModifier(BuildingClassTypes eBuildingClass);
 	int GetBuildingClassTourismModifier(BuildingClassTypes eBuildingClass);
 	int GetImprovementCultureChange(ImprovementTypes eImprovement);
+#if WOTMOD
+	int GetGlobalYieldRatePerXPopulation(YieldTypes eYield) const;
+#endif // WOTMOD
 	bool HasPolicyEncouragingGarrisons() const;
 	bool HasPolicyGrantingReformationBelief() const;
 	CvString GetWeLoveTheKingString();
