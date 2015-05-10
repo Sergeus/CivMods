@@ -790,7 +790,11 @@ int CvCitySiteEvaluator::ComputeHappinessValue(CvPlot* pPlot, CvPlayer* pPlayer)
 		// Add a bonus if adds Happiness
 		if(!pPlot->isOwned())
 		{
+#if WOTMOD
+			rtnValue += GC.getResourceInfo(eResource)->getYieldChange(YIELD_HAPPINESS);
+#else
 			rtnValue += GC.getResourceInfo(eResource)->getHappiness();
+#endif // WOTMOD
 		}
 
 		// If we don't have this resource yet, increase it's value

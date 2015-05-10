@@ -4420,7 +4420,9 @@ CvResourceInfo::CvResourceInfo() :
 	m_iStartingResourceQuantity(0),
 	m_iAITradeModifier(0),
 	m_iAIObjective(0),
+#if !WOTMOD
 	m_iHappiness(0),
+#endif // !WOTMOD
 	m_iWonderProductionMod(0),
 	m_eWonderProductionModObsoleteEra(NO_ERA),
 	m_iMinAreaSize(0),
@@ -4522,11 +4524,13 @@ int CvResourceInfo::getAIObjective() const
 {
 	return m_iAIObjective;
 }
+#if !WOTMOD
 //------------------------------------------------------------------------------
 int CvResourceInfo::getHappiness() const
 {
 	return m_iHappiness;
 }
+#endif // !WOTMOD
 //------------------------------------------------------------------------------
 int CvResourceInfo::getWonderProductionMod() const
 {
@@ -4771,7 +4775,9 @@ bool CvResourceInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 	m_iStartingResourceQuantity = kResults.GetInt("StartingResourceQuantity");
 	m_iAITradeModifier = kResults.GetInt("AITradeModifier");
 	m_iAIObjective = kResults.GetInt("AIObjective");
+#if !WOTMOD
 	m_iHappiness = kResults.GetInt("Happiness");
+#endif // !WOTMOD
 	m_iWonderProductionMod = kResults.GetInt("WonderProductionMod");
 
 	const char* szEraType = kResults.GetText("WonderProductionModObsoleteEra");
@@ -4844,6 +4850,11 @@ bool CvResourceInfo::CacheResults(Database::Results& kResults, CvDatabaseUtility
 	//Arrays
 	const char* szResourceType = GetType();
 	kUtility.SetYields(m_piYieldChange, "Resource_YieldChanges", "ResourceType", szResourceType);
+
+#if WOTMOD
+	m_piYieldChange[YIELD_HAPPINESS] = kResults.GetInt("Happiness");
+#endif // WOTMOD
+
 	kUtility.SetFlavors(m_piFlavor, "Resource_Flavors", "ResourceType", szResourceType);
 
 	kUtility.PopulateArrayByExistence(m_pbTerrain, "Terrains", "Resource_TerrainBooleans", "TerrainType", "ResourceType", szResourceType);

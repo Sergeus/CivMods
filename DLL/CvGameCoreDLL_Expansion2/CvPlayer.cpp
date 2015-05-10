@@ -11525,7 +11525,11 @@ int CvPlayer::GetHappinessFromLuxury(ResourceTypes eResource) const
 	CvResourceInfo* pkResourceInfo = GC.getResourceInfo(eResource);
 	if(pkResourceInfo)
 	{
+#if WOTMOD
+		int iBaseHappiness = pkResourceInfo->getYieldChange(YIELD_HAPPINESS);
+#else
 		int iBaseHappiness = pkResourceInfo->getHappiness();
+#endif // WOTMOD
 
 		if (GC.getGame().GetGameLeagues()->IsLuxuryHappinessBanned(GetID(), eResource))
 		{

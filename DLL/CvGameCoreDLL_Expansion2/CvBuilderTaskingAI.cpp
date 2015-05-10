@@ -1920,7 +1920,11 @@ int CvBuilderTaskingAI::GetResourceWeight(ResourceTypes eResource, ImprovementTy
 	// if the empire is unhappy (or close to it) and this is a luxury resource the player doesn't have, provide a super bonus to getting it
 	if(pkResource->getResourceUsage() == RESOURCEUSAGE_LUXURY)
 	{
+#if WOTMOD
+		int iModifier = GC.getBUILDER_TASKING_PLOT_EVAL_MULTIPLIER_LUXURY_RESOURCE() * pkResource->getYieldChange(YIELD_HAPPINESS);
+#else
 		int iModifier = GC.getBUILDER_TASKING_PLOT_EVAL_MULTIPLIER_LUXURY_RESOURCE() * pkResource->getHappiness();
+#endif // WOTMOD
 
 		//if (m_pPlayer->IsEmpireUnhappy() || m_pPlayer->GetExcessHappiness() <= 2)
 		//{

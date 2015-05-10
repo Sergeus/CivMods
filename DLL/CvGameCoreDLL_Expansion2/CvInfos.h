@@ -1346,8 +1346,10 @@ public:
 	int getAIStopTradingEra() const;
 	int getStartingResourceQuantity() const;
 	int getAITradeModifier() const;
-	int getAIObjective() const;
+	int getAIObjective() const; 
+#if !WOTMOD
 	int getHappiness() const;
+#endif // !WOTMOD
 	int getWonderProductionMod() const;
 	EraTypes getWonderProductionModObsoleteEra() const;
 	int getMinAreaSize() const;
@@ -1417,7 +1419,9 @@ protected:
 	int m_iStartingResourceQuantity;
 	int m_iAITradeModifier;
 	int m_iAIObjective;
+#if !WOTMOD
 	int m_iHappiness;
+#endif // !WOTMOD
 	int m_iWonderProductionMod;
 	int m_iMinAreaSize;
 	int m_iMinLatitude;

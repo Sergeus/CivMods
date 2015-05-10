@@ -1181,7 +1181,11 @@ int CvDealAI::GetResourceValue(ResourceTypes eResource, int iResourceQuantity, i
 		}
 		else
 		{
+#if WOTMOD
+			int iHappinessFromResource = pkResourceInfo->getYieldChange(YIELD_HAPPINESS);
+#else
 			int iHappinessFromResource = pkResourceInfo->getHappiness();
+#endif // WOTMOD
 			iItemValue += (iResourceQuantity * iHappinessFromResource * iNumTurns * 2);	// Ex: 1 Silk for 4 Happiness * 30 turns * 2 = 240
 
 			// If we only have 1 of a Luxury then we value it much more
@@ -1337,7 +1341,11 @@ int CvDealAI::GetCityValue(int iX, int iY, bool bFromMe, PlayerTypes eOtherPlaye
 						{
 							int iNumTurns = min(1,GC.getGame().getMaxTurns() - GC.getGame().getGameTurn());
 							iNumTurns = max(120,iNumTurns); // let's not go hog wild here
+#if WOTMOD
+							int iHappinessFromResource = pkResourceInfo->getYieldChange(YIELD_HAPPINESS);
+#else
 							int iHappinessFromResource = pkResourceInfo->getHappiness();
+#endif // WOTMOD
 							iGoldValueOfResourcePlots += (iResourceQuantity * iHappinessFromResource * iNumTurns * 2);	// Ex: 1 Silk for 4 Happiness * 30 turns * 2 = 240
 							// If we only have 1 of a Luxury then we value it much more
 							if(bFromMe)
