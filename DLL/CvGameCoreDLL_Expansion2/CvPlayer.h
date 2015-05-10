@@ -398,6 +398,11 @@ public:
 	int GetYieldRateFromLeagues(YieldTypes eYield) const;
 	void SetYieldRateFromLeagues(YieldTypes eYield, int iNewValue);
 	void ChangeYieldRateFromLeagues(YieldTypes eYield, int iChange);
+
+	int GetGlobalYieldRateFromLuxury(YieldTypes eYield, ResourceTypes eResource) const;
+	int GetGlobalYieldRatePerLuxury(YieldTypes eYield) const;
+	void SetGlobalYieldRatePerLuxury(YieldTypes eYield, int iNewValue);
+	void ChangeGlobalYieldRatePerLuxury(YieldTypes eYield, int iChange);
 #else
 	// Faith
 	int GetTotalFaithPerTurn() const;
@@ -462,10 +467,12 @@ public:
 	int GetHappinessFromReligion();
 	int GetHappinessFromNaturalWonders() const;
 
+#if !WOTMOD
 	int GetExtraHappinessPerLuxury() const;
 	void ChangeExtraHappinessPerLuxury(int iChange);
 
 	int GetHappinessFromLuxury(ResourceTypes eResource) const;
+#endif // !WOTMOD
 
 	int GetUnhappiness(CvCity* pAssumeCityAnnexed = NULL, CvCity* pAssumeCityPuppeted = NULL) const;
 
@@ -1642,7 +1649,11 @@ protected:
 	int m_iFaithEverGenerated;
 	FAutoVariable<int, CvPlayer> m_iHappiness;
 	FAutoVariable<int, CvPlayer> m_iUprisingCounter;
+#if WOTMOD
+	FAutoVariable<std::vector<int>, CvPlayer> m_aiGlobalYieldRatePerLuxury;
+#else
 	FAutoVariable<int, CvPlayer> m_iExtraHappinessPerLuxury;
+#endif // WOTMOD
 	FAutoVariable<int, CvPlayer> m_iUnhappinessFromUnits;
 	FAutoVariable<int, CvPlayer> m_iUnhappinessFromUnitsMod;
 	FAutoVariable<int, CvPlayer> m_iUnhappinessMod;

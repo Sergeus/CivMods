@@ -143,7 +143,9 @@ CvPlayer::CvPlayer() :
 	, m_iFaithEverGenerated(0)
 	, m_iHappiness("CvPlayer::m_iHappiness", m_syncArchive)
 	, m_iUprisingCounter("CvPlayer::m_iUprisingCounter", m_syncArchive)
+#if !WOTMOD
 	, m_iExtraHappinessPerLuxury("CvPlayer::m_iExtraHappinessPerLuxury", m_syncArchive)
+#endif // !WOTMOD
 	, m_iUnhappinessFromUnits("CvPlayer::m_iUnhappinessFromUnits", m_syncArchive)
 	, m_iUnhappinessFromUnitsMod("CvPlayer::m_iUnhappinessFromUnitsMod", m_syncArchive)
 	, m_iUnhappinessMod("CvPlayer::m_iUnhappinessMod", m_syncArchive)
@@ -342,6 +344,7 @@ CvPlayer::CvPlayer() :
 	, m_YieldTotals("CvPlayer::m_YieldTotals", m_syncArchive)
 	, m_iThreadsAvailable("CvPlayer::m_iThreadsAvailable", m_syncArchive)
 	, m_aiYieldRateFromLeagues("CvPlayer::m_aiYieldRateFromLeagues", m_syncArchive)
+	, m_aiGlobalYieldRatePerLuxury("CvPlayer::m_aiGlobalYieldPerLuxury", m_syncArchive)
 #endif // WOTMOD
 
 	, m_aiCityYieldChange("CvPlayer::m_aiCityYieldChange", m_syncArchive)
@@ -768,7 +771,9 @@ void CvPlayer::uninit()
 	m_iFaithEverGenerated = 0;
 	m_iHappiness = 0;
 	m_iUprisingCounter = 0;
+#if !WOTMOD
 	m_iExtraHappinessPerLuxury = 0;
+#endif // !WOTMOD
 	m_iUnhappinessFromUnits = 0;
 	m_iUnhappinessFromUnitsMod = 0;
 	m_iUnhappinessMod = 0;
@@ -1326,7 +1331,11 @@ void CvPlayer::initFreeState(CvGameInitialItemsOverrides& kOverrides)
 		ChangeJONSCulturePerTurnForFree(kHandicapInfo.getFreeCulturePerTurn()); // No, IMNSHO ;P
 	}
 	// Extra Happiness from Luxuries
+#if WOTMOD
+	ChangeGlobalYieldRatePerLuxury(YIELD_HAPPINESS, kHandicapInfo.getExtraHappinessPerLuxury());
+#else
 	ChangeExtraHappinessPerLuxury(kHandicapInfo.getExtraHappinessPerLuxury());
+#endif // WOTMOD
 
 	// Free starting Resources
 	for(int iLoop = 0; iLoop < GC.getNumResourceInfos(); iLoop++)
@@ -10330,6 +10339,50 @@ void CvPlayer::ChangeYieldRateFromLeagues(YieldTypes eYield, int iChange)
 {
 	SetYieldRateFromLeagues(eYield, GetYieldRateFromLeagues(eYield) + iChange);
 }
+int CvPlayer::GetGlobalYieldRateFromLuxury(YieldTypes eYield, ResourceTypes eResource) const
+{
+	CvResourceInfo* pkResourceInfo = GC.getResourceInfo(eResource);
+	if (pkResourceInfo)
+	{
+		int iYield = pkResourceInfo->getYieldChange(eYield);
+
+		if (eYield == YIELD_HAPPINESS && GC.getGame().GetGameLeagues()->IsLuxuryHappinessBanned(GetID(), eResource))
+		{
+			return 0;
+		}
+
+		if (pkResourceInfo->getResourceUsage() != RESOURCEUSAGE_LUXURY)
+		{
+			return 0;
+		}
+
+		else if(getNumResourceAvailable(eResource, /*bIncludeImport*/ true) > 0)
+		{
+			return iYield;
+		}
+
+		else if(eYield == YIELD_HAPPINESS && GetPlayerTraits()->GetLuxuryHappinessRetention() > 0)
+		{
+			if(getResourceExport(eResource) > 0)
+			{
+				return ((iYield * GetPlayerTraits()->GetLuxuryHappinessRetention()) / 100);
+			}
+		}
+	}
+	return 0;
+}
+int CvPlayer::GetGlobalYieldRatePerLuxury(YieldTypes eYield) const
+{
+	return m_aiGlobalYieldRatePerLuxury[eYield];
+}
+void CvPlayer::SetGlobalYieldRatePerLuxury(YieldTypes eYield, int iNewValue)
+{
+	m_aiGlobalYieldRatePerLuxury.setAt(eYield, iNewValue);
+}
+void CvPlayer::ChangeGlobalYieldRatePerLuxury(YieldTypes eYield, int iChange)
+{
+	SetGlobalYieldRatePerLuxury(eYield, GetGlobalYieldRatePerLuxury(eYield) + iChange);
+}
 #else
 int CvPlayer::GetTotalFaithPerTurn() const
 {
@@ -11366,7 +11419,11 @@ int CvPlayer::GetHappinessFromResources() const
 	{
 		eResource = (ResourceTypes) iResourceLoop;
 
+#if WOTMOD
+		iBaseHappiness = GetGlobalYieldRateFromLuxury(YIELD_HAPPINESS, eResource);
+#else
 		iBaseHappiness = GetHappinessFromLuxury(eResource);
+#endif // WOTMOD
 		if(iBaseHappiness)
 		{
 			// Resource bonus from Minors, and this is a Luxury we're getting from one (Policies, etc.)
@@ -11377,7 +11434,11 @@ int CvPlayer::GetHappinessFromResources() const
 			}
 
 			iTotalHappiness += iBaseHappiness;
+#if WOTMOD
+			iTotalHappiness += GetGlobalYieldRatePerLuxury(YIELD_HAPPINESS);
+#else
 			iTotalHappiness += GetExtraHappinessPerLuxury();
+#endif // WOTMOD
 		}
 	}
 
@@ -11403,7 +11464,11 @@ int CvPlayer::GetHappinessFromResourceVariety() const
 	{
 		eResource = (ResourceTypes) iResourceLoop;
 
+#if WOTMOD
+		if (GetGlobalYieldRateFromLuxury(YIELD_HAPPINESS, eResource) > 0)
+#else
 		if(GetHappinessFromLuxury(eResource) > 0)
+#endif // WOTMOD
 		{
 			iNumHappinessResources++;
 		}
@@ -11501,6 +11566,7 @@ int CvPlayer::GetHappinessFromNaturalWonders() const
 	return iHappiness;
 }
 
+#if !WOTMOD
 //	--------------------------------------------------------------------------------
 /// Extra Happiness from every connected Luxury
 int CvPlayer::GetExtraHappinessPerLuxury() const
@@ -11559,7 +11625,7 @@ int CvPlayer::GetHappinessFromLuxury(ResourceTypes eResource) const
 
 	return false;
 }
-
+#endif // !WOTMOD
 
 //	--------------------------------------------------------------------------------
 /// How much Unhappiness are Units producing?
@@ -21408,11 +21474,13 @@ void CvPlayer::processPolicies(PolicyTypes ePolicy, int iChange)
 	changeMilitaryProductionModifier(pPolicy->GetMilitaryProductionModifier() * iChange);
 	changeBaseFreeUnits(pPolicy->GetBaseFreeUnits() * iChange);
 	ChangeHappinessPerGarrisonedUnit(pPolicy->GetHappinessPerGarrisonedUnit() * iChange);
-#if !WOTMOD
+#if WOTMOD
+	ChangeGlobalYieldRatePerLuxury(YIELD_HAPPINESS, pPolicy->GetExtraHappinessPerLuxury() * iChange);
+#else
 	ChangeHappinessPerTradeRoute(pPolicy->GetHappinessPerTradeRoute() * iChange);
 	ChangeHappinessPerXPopulation(pPolicy->GetHappinessPerXPopulation() * iChange);
-#endif // !WOTMOD
 	ChangeExtraHappinessPerLuxury(pPolicy->GetExtraHappinessPerLuxury() * iChange);
+#endif // !WOTMOD
 	ChangeUnhappinessFromUnitsMod(pPolicy->GetUnhappinessFromUnitsMod() * iChange);
 	ChangeUnhappinessMod(pPolicy->GetUnhappinessMod() * iChange);
 	ChangeCityCountUnhappinessMod(pPolicy->GetCityCountUnhappinessMod() * iChange);
@@ -22241,7 +22309,9 @@ void CvPlayer::Read(FDataStream& kStream)
 	kStream >> m_iFaithEverGenerated;
 	kStream >> m_iHappiness;
 	kStream >> m_iUprisingCounter;
+#if !WOTMOD
 	kStream >> m_iExtraHappinessPerLuxury;
+#endif // !WOTMOD
 	kStream >> m_iUnhappinessFromUnits;
 	kStream >> m_iUnhappinessFromUnitsMod;
 	kStream >> m_iUnhappinessMod;
@@ -22818,7 +22888,9 @@ void CvPlayer::Write(FDataStream& kStream) const
 	kStream << m_iFaithEverGenerated;
 	kStream << m_iHappiness;
 	kStream << m_iUprisingCounter;
+#if !WOTMOD
 	kStream << m_iExtraHappinessPerLuxury;
+#endif // !WOTMOD
 	kStream << m_iUnhappinessFromUnits;
 	kStream << m_iUnhappinessFromUnitsMod;
 	kStream << m_iUnhappinessMod;

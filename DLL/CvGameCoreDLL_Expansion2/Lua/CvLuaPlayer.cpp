@@ -2945,7 +2945,13 @@ int CvLuaPlayer::lGetHappinessFromResourceVariety(lua_State* L)
 //int GetExtraHappinessPerLuxury() const;
 int CvLuaPlayer::lGetExtraHappinessPerLuxury(lua_State* L)
 {
+#if WOTMOD
+	int iHappinessPerLuxury = GetInstance(L)->GetGlobalYieldRatePerLuxury(YIELD_HAPPINESS);
+	lua_pushinteger(L, iHappinessPerLuxury);
+	return 1;
+#else
 	return BasicLuaMethod(L, &CvPlayerAI::GetExtraHappinessPerLuxury);
+#endif // WOTMOD
 }
 
 //------------------------------------------------------------------------------
@@ -9462,10 +9468,18 @@ int CvLuaPlayer::lGetHappinessFromLuxury(lua_State* L)
 	if(pkPlayer)
 	{
 		const ResourceTypes eResource = (ResourceTypes)lua_tointeger(L, 2);
+#if WOTMOD
+		int iLuxuryHappiness = pkPlayer->GetGlobalYieldRateFromLuxury(YIELD_HAPPINESS, eResource);
+#else
 		int iLuxuryHappiness = pkPlayer->GetHappinessFromLuxury(eResource);
+#endif // WOTMOD
 		if (iLuxuryHappiness > 0) 
 		{
+#if WOTMOD
+			iLuxuryHappiness += pkPlayer->GetGlobalYieldRatePerLuxury(YIELD_HAPPINESS);
+#else
 			iLuxuryHappiness += pkPlayer->GetExtraHappinessPerLuxury();
+#endif // WOTMOD
 		}
 		lua_pushinteger(L, iLuxuryHappiness);
 	}
